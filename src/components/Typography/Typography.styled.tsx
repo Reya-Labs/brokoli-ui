@@ -5,6 +5,8 @@ export const Header1BlackTypography = styled('h1', {
 })<{
   color: string;
 }>`
+  margin: 0;
+  padding: 0;
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 900;
@@ -19,6 +21,8 @@ export const Header1BoldTypography = styled('h1', {
 })<{
   color: string;
 }>`
+  margin: 0;
+  padding: 0;
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -33,6 +37,8 @@ export const Header2BlackTypography = styled('h2', {
 })<{
   color: string;
 }>`
+  margin: 0;
+  padding: 0;
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 900;
@@ -47,6 +53,8 @@ export const Header2BoldTypography = styled('h2', {
 })<{
   color: string;
 }>`
+  margin: 0;
+  padding: 0;
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -61,6 +69,8 @@ export const Header3BlackTypography = styled('h3', {
 })<{
   color: string;
 }>`
+  margin: 0;
+  padding: 0;
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 900;
@@ -75,6 +85,8 @@ export const Header3BoldTypography = styled('h3', {
 })<{
   color: string;
 }>`
+  margin: 0;
+  padding: 0;
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -89,6 +101,8 @@ export const BodyXSmallRegularTypography = styled('p', {
 })<{
   color: string;
 }>`
+  margin: 0;
+  padding: 0;
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -103,6 +117,8 @@ export const BodyXSmallBoldTypography = styled('p', {
 })<{
   color: string;
 }>`
+  margin: 0;
+  padding: 0;
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -117,6 +133,8 @@ export const BodySmallRegularTypography = styled('p', {
 })<{
   color: string;
 }>`
+  margin: 0;
+  padding: 0;
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -129,6 +147,8 @@ export const BodySmallBoldTypography = styled('p', {
 })<{
   color: string;
 }>`
+  margin: 0;
+  padding: 0;
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -141,6 +161,8 @@ export const BodyMediumRegularTypography = styled('p', {
 })<{
   color: string;
 }>`
+  margin: 0;
+  padding: 0;
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -153,6 +175,8 @@ export const BodyMediumBoldTypography = styled('p', {
 })<{
   color: string;
 }>`
+  margin: 0;
+  padding: 0;
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -165,6 +189,8 @@ export const BodyLargeRegularTypography = styled('p', {
 })<{
   color: string;
 }>`
+  margin: 0;
+  padding: 0;
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -177,6 +203,8 @@ export const BodyLargeBoldTypography = styled('p', {
 })<{
   color: string;
 }>`
+  margin: 0;
+  padding: 0;
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -189,6 +217,8 @@ export const BodyExtraLargeRegularTypography = styled('p', {
 })<{
   color: string;
 }>`
+  margin: 0;
+  padding: 0;
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -201,6 +231,8 @@ export const BodyExtraLargeBoldTypography = styled('p', {
 })<{
   color: string;
 }>`
+  margin: 0;
+  padding: 0;
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 700;

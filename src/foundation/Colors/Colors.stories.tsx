@@ -33,7 +33,6 @@ const ColorTile: React.FunctionComponent<{ name: string; value: string }> = ({ n
 export default {
   title: 'Foundation/Colors',
   component: ColorTile,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
 } as ComponentMeta<typeof ColorTile>;
 

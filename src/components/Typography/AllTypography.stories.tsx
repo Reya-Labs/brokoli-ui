@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
 import { colors } from '../../foundation/Colors/colors';
-import { TypographyToken, TypographyUIMap } from './Typography';
+import { TypographyToken, TypographyUIMap } from './index';
 
 const AllTypography: React.FunctionComponent<{
   color: string;
@@ -28,7 +28,7 @@ const AllTypography: React.FunctionComponent<{
     })}
   </div>
 );
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
+
 export default {
   title: 'Foundation/AllTypography',
   component: AllTypography,

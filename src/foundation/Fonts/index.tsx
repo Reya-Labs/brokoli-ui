@@ -1,11 +1,12 @@
 import { Global } from '@emotion/react';
 import styled from '@emotion/styled';
+import React from 'react';
 
 import InterBlack from './assets/Inter-Black.woff';
 import InterBold from './assets/Inter-Bold.woff';
 import InterRegular from './assets/Inter-Regular.woff';
 
-export const Fonts = styled(Global)`
+const FontFaces = styled(Global)`
   @font-face {
     font-family: 'Inter';
     src: url(${InterBlack}) format('woff');
@@ -22,3 +23,5 @@ export const Fonts = styled(Global)`
     font-weight: 400;
   }
 `;
+
+export const Fonts = () => <FontFaces styles={{}} />;
