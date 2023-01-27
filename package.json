@@ -92,7 +92,7 @@
   "dependencies": {},
   "release": {
     "branches": [
-      "develop"
+      "main"
     ],
     "plugins": [
       [
