@@ -54,10 +54,12 @@ Branch names can start with the prefixes found in the regex under '.husky/pre-co
 * wait for approval, resolve comments and make sure you have a green build
 * merge to `main` using **Rebase and merge**
 
-## AWS Amplify
+## Cloudflare
 
-`brokoli-ui` uses AWS Amplify to automate the process around creating builds that can be shared with the stakeholders.
+`brokoli-ui` uses Cloudflare to automate the process around creating builds that can be shared with the stakeholders.
 What this means is that any push to a branch will create an environment for the team to test against!
+
+These are sites hosted on Cloudflare and the build from main can be found at `brokoli.voltz.xyz`.
 
 ### Rules
 
