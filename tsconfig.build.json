@@ -7,9 +7,10 @@
     /* Modules */
     "module": "ESNext",                                /* Specify what module code is generated. */
     "moduleResolution": "node",                       /* Specify how TypeScript looks up a file from a given module specifier. */
-   
+
     /* Emit */
     "declaration": true,                              /* Generate .d.ts files from TypeScript and JavaScript files in your project. */
+    "emitDeclarationOnly": true,                      /* Only output d.ts files and not JavaScript files. */
     "sourceMap": true,                                /* Create source map files for emitted JavaScript files. */
     "outDir": "dist",                                   /* Specify an output folder for all emitted files. */
     "declarationDir": "types",                           /* Specify the output directory for generated declaration files. */
@@ -21,12 +22,14 @@
 
     /* Type Checking */
     "strict": true,                                      /* Enable all strict type-checking options. */
-    
+
     /* Completeness */
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
   },
   "exclude": [
     "dist",
-    "node_modules"
+    "node_modules",
+    "src/**/*.test.tsx",
+    "src/**/*.stories.tsx"
   ]
 }
