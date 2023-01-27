@@ -1,0 +1,35 @@
+name: Release
+on:
+  push:
+    branches:
+      - main
+jobs:
+  release:
+    name: Release UI
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.17.0'
+          cache: 'yarn'
+      - name: Install dependencies
+        run: make install-ci
+      - name: Prettier check, Eslint check, Typescript check
+        run: make code-quality-check
+      - name: Run tests
+        run: make test-coverage
+      - name: Generate coverage badges
+        run: make generate-coverage-badges
+      - name: Build release
+        run: make build
+      - name: Release UI
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PUBLISHING_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_PUBLISHING_TOKEN }}
+        run: make release

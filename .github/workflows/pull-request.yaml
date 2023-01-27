@@ -1,0 +1,28 @@
+name: Open pull request to main branches
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  pr-check:
+    name: Main pull request
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.17.0'
+          cache: 'yarn'
+      - name: Install dependencies
+        run: make install-ci
+      - name: Prettier check, Eslint check, Typescript check
+        run: make code-quality-check
+      - name: Run tests
+        run: make test-coverage
+      - name: Post test coverage comment
+        uses: MishaKav/jest-coverage-comment@main
