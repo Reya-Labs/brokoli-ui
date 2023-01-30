@@ -1,5 +1,23 @@
 import styled from '@emotion/styled';
 
+import {
+  bodyExtraLargeBoldCSS,
+  bodyExtraLargeRegularCSS,
+  bodyLargeBoldCSS,
+  bodyLargeRegularCSS,
+  bodyMediumBoldCSS,
+  bodyMediumRegularCSS,
+  bodySmallBoldCSS,
+  bodySmallRegularCSS,
+  bodyXSmallBoldCSS,
+  bodyXSmallRegularCSS,
+  header1BlackCSS,
+  header1BoldCSS,
+  header2BlackCSS,
+  header2BoldCSS,
+  header3BoldCSS,
+} from './Typography.css';
+
 export const Header1BlackTypography = styled('h1', {
   shouldForwardProp: (prop) => prop !== 'color',
 })<{
@@ -7,13 +25,7 @@ export const Header1BlackTypography = styled('h1', {
 }>`
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 900;
-  font-size: 32px;
-  line-height: 120%;
-
-  text-shadow: 0px 0px 20px rgba(225, 221, 247, 0.3);
+  ${header1BlackCSS};
   color: ${({ color }) => color};
 `;
 export const Header1BoldTypography = styled('h1', {
@@ -23,13 +35,7 @@ export const Header1BoldTypography = styled('h1', {
 }>`
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 120%;
-
-  text-shadow: 0px 0px 20px rgba(225, 221, 247, 0.3);
+  ${header1BoldCSS};
   color: ${({ color }) => color};
 `;
 export const Header2BlackTypography = styled('h2', {
@@ -39,13 +45,7 @@ export const Header2BlackTypography = styled('h2', {
 }>`
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 900;
-  font-size: 24px;
-  line-height: 120%;
-
-  text-shadow: 0px 0px 20px rgba(225, 221, 247, 0.3);
+  ${header2BlackCSS};
   color: ${({ color }) => color};
 `;
 export const Header2BoldTypography = styled('h2', {
@@ -55,13 +55,7 @@ export const Header2BoldTypography = styled('h2', {
 }>`
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 120%;
-
-  text-shadow: 0px 0px 20px rgba(225, 221, 247, 0.3);
+  ${header2BoldCSS};
   color: ${({ color }) => color};
 `;
 export const Header3BlackTypography = styled('h3', {
@@ -71,13 +65,7 @@ export const Header3BlackTypography = styled('h3', {
 }>`
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 900;
-  font-size: 16px;
-  line-height: 120%;
-
-  text-shadow: 0px 0px 20px rgba(225, 221, 247, 0.3);
+  ${header2BlackCSS};
   color: ${({ color }) => color};
 `;
 export const Header3BoldTypography = styled('h3', {
@@ -87,13 +75,7 @@ export const Header3BoldTypography = styled('h3', {
 }>`
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 120%;
-
-  text-shadow: 0px 0px 20px rgba(225, 221, 247, 0.3);
+  ${header3BoldCSS};
   color: ${({ color }) => color};
 `;
 export const BodyXSmallRegularTypography = styled('p', {
@@ -103,13 +85,7 @@ export const BodyXSmallRegularTypography = styled('p', {
 }>`
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 10px;
-  line-height: 140%;
-
-  letter-spacing: 0.02em;
+  ${bodyXSmallRegularCSS};
   color: ${({ color }) => color};
 `;
 export const BodyXSmallBoldTypography = styled('p', {
@@ -119,13 +95,7 @@ export const BodyXSmallBoldTypography = styled('p', {
 }>`
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 10px;
-  line-height: 140%;
-
-  letter-spacing: 0.02em;
+  ${bodyXSmallBoldCSS};
   color: ${({ color }) => color};
 `;
 export const BodySmallRegularTypography = styled('p', {
@@ -135,11 +105,7 @@ export const BodySmallRegularTypography = styled('p', {
 }>`
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 150%;
+  ${bodySmallRegularCSS};
   color: ${({ color }) => color};
 `;
 export const BodySmallBoldTypography = styled('p', {
@@ -149,11 +115,7 @@ export const BodySmallBoldTypography = styled('p', {
 }>`
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 150%;
+  ${bodySmallBoldCSS};
   color: ${({ color }) => color};
 `;
 export const BodyMediumRegularTypography = styled('p', {
@@ -163,11 +125,7 @@ export const BodyMediumRegularTypography = styled('p', {
 }>`
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 150%;
+  ${bodyMediumRegularCSS};
   color: ${({ color }) => color};
 `;
 export const BodyMediumBoldTypography = styled('p', {
@@ -177,11 +135,7 @@ export const BodyMediumBoldTypography = styled('p', {
 }>`
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 150%;
+  ${bodyMediumBoldCSS};
   color: ${({ color }) => color};
 `;
 export const BodyLargeRegularTypography = styled('p', {
@@ -191,11 +145,7 @@ export const BodyLargeRegularTypography = styled('p', {
 }>`
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 150%;
+  ${bodyLargeRegularCSS};
   color: ${({ color }) => color};
 `;
 export const BodyLargeBoldTypography = styled('p', {
@@ -205,11 +155,7 @@ export const BodyLargeBoldTypography = styled('p', {
 }>`
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 150%;
+  ${bodyLargeBoldCSS};
   color: ${({ color }) => color};
 `;
 export const BodyExtraLargeRegularTypography = styled('p', {
@@ -219,11 +165,7 @@ export const BodyExtraLargeRegularTypography = styled('p', {
 }>`
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 150%;
+  ${bodyExtraLargeRegularCSS};
   color: ${({ color }) => color};
 `;
 export const BodyExtraLargeBoldTypography = styled('p', {
@@ -233,10 +175,6 @@ export const BodyExtraLargeBoldTypography = styled('p', {
 }>`
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 150%;
+  ${bodyExtraLargeBoldCSS};
   color: ${({ color }) => color};
 `;

@@ -15,7 +15,13 @@ export const parameters = {
 
 addDecorator((story) => (
   <React.Fragment>
-    {story()}
-    <Fonts />
+    <div
+      style={{
+        padding: 24,
+      }}
+    >
+      {story()}
+      <Fonts />
+    </div>
   </React.Fragment>
 ));
