@@ -20,7 +20,7 @@ describe('<SubLinks />', () => {
       { text: 'SubLink 2', link: '/sublink-2' },
       { text: 'SubLink 3', link: '/sublink-3' },
     ];
-    (useLocation as jest.Mock).mockReturnValueOnce({ pathname: '/sublink-1' });
+    (useLocation as jest.Mock).mockReturnValue({ pathname: '/sublink-1' });
     render(
       <HashRouter>
         <SubLinks subLinks={subLinks} onClick={() => {}} />
