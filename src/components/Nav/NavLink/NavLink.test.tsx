@@ -4,10 +4,14 @@ import { HashRouter, useLocation } from 'react-router-dom';
 
 import { NavLink } from './NavLink';
 
-jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
-  useLocation: jest.fn(),
-}));
+jest.mock(
+  'react-router-dom',
+  () =>
+    ({
+      ...jest.requireActual('react-router-dom'),
+      useLocation: jest.fn(),
+    } as unknown),
+);
 
 jest.mock('react-tiny-popover', () => ({
   Popover: (props: Record<string, never>) => <div {...props} />,

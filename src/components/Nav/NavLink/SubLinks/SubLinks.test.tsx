@@ -4,10 +4,14 @@ import { HashRouter, useLocation } from 'react-router-dom';
 
 import { SubLinks } from './SubLinks';
 
-jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
-  useLocation: jest.fn(),
-}));
+jest.mock(
+  'react-router-dom',
+  () =>
+    ({
+      ...jest.requireActual('react-router-dom'),
+      useLocation: jest.fn(),
+    } as unknown),
+);
 
 describe('<SubLinks />', () => {
   it('renders the correct number of SubLinks', () => {
