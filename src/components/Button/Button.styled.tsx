@@ -21,7 +21,7 @@ export const ButtonUI = styled('button')`
   ${bodyMediumBoldCSS};
   color: ${colors.liberty8};
   cursor: pointer;
-  transition: all 200ms;
+  transition: box-shadow 300ms ease-in;
   width: 100%;
 
   &:hover {

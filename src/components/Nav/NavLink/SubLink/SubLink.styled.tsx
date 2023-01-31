@@ -19,7 +19,7 @@ export const SubLinkButton = styled(Link)`
   border-radius: 2px;
   width: 100%;
   box-sizing: border-box;
-  transition: background-color 500ms;
+  transition: background-color 300ms ease-in;
 
   &:hover {
     text-decoration: none;

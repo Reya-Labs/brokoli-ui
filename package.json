@@ -87,6 +87,7 @@
     "jest-environment-jsdom": "29.4.1",
     "prettier": "2.4.1",
     "react": "17.0.2",
+    "react-animate-height": "^3.1.0",
     "react-dom": "17.0.2",
     "react-router-dom": "6.8.0",
     "react-tiny-popover": "7.2.0",
