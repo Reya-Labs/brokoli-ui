@@ -1,12 +1,12 @@
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
+import svgr from '@svgr/rollup';
 import bundleSize from 'rollup-plugin-bundle-size';
 import copy from 'rollup-plugin-copy';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import { terser } from 'rollup-plugin-terser';
 const dts = require('rollup-plugin-dts');
-
 const packageJson = require('./package.json');
 
 export default [
@@ -37,6 +37,7 @@ export default [
           { src: 'src/foundation/Fonts/assets/*', dest: 'dist/esm/assets/' },
         ],
       }),
+      svgr(),
       bundleSize(),
     ],
     external: ['react', 'react-dom', 'styled-components'],

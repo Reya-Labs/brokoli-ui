@@ -4,7 +4,7 @@ import React from 'react';
 import { Typography } from './index';
 
 export default {
-  title: 'Typography',
+  title: 'Components/Typography',
   component: Typography,
 } as ComponentMeta<typeof Typography>;
 
