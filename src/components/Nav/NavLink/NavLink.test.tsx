@@ -39,7 +39,7 @@ describe('<NavLink />', () => {
         </NavLink>
       </HashRouter>,
     );
-    expect(screen.getByTestId('NewLinkIndicator')).toBeInTheDocument();
+    expect(screen.getByTestId('AttentionIndicator')).toBeInTheDocument();
   });
 
   it('renders the ActiveNavLinkButton when the link is active', () => {

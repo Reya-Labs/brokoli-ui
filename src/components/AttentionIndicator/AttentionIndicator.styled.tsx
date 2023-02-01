@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 
-import { colors } from '../../../../foundation/Colors';
+import { colors } from '../../foundation/Colors';
 
-export const NewLinkIndicatorCircleIcon = styled('div')`
+export const AttentionIndicatorCircleIcon = styled('div')`
   width: 4px;
   height: 4px;
   border-radius: 50%;

@@ -82,10 +82,10 @@ describe('<Nav />', () => {
       </HashRouter>,
     );
     expect(
-      screen.getAllByTestId('NavLinkButton')[3].querySelector('[data-testid="NewLinkIndicator"]'),
+      screen.getAllByTestId('NavLinkButton')[3].querySelector('[data-testid="AttentionIndicator"]'),
     ).toBeInTheDocument();
     expect(
-      screen.getAllByTestId('NavLinkButton')[4].querySelector('[data-testid="NewLinkIndicator"]'),
+      screen.getAllByTestId('NavLinkButton')[4].querySelector('[data-testid="AttentionIndicator"]'),
     ).toBeInTheDocument();
   });
 });

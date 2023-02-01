@@ -3,9 +3,9 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { Popover } from 'react-tiny-popover';
 
+import { AttentionIndicator } from '../../AttentionIndicator/AttentionIndicator';
 import { isActiveLink } from './helpers';
 import { globalReactTinyPopoverContainerCSS, NavLinkButton } from './NavLink.styled';
-import { NewLinkIndicator } from './NewLinkIndicator/NewLinkIndicator';
 import { SubLinks } from './SubLinks/SubLinks';
 import { ToggleCaret } from './ToggleCaret/ToggleCaret';
 
@@ -47,7 +47,7 @@ export const NavLink: React.FunctionComponent<NavLinkProps> = ({
       to={link || ''}
     >
       <React.Fragment>
-        {isNew ? <NewLinkIndicator /> : null}
+        {isNew ? <AttentionIndicator /> : null}
         {children}
         {!hasSubLinks ? null : <ToggleCaret isOpen={isSubmenuOpened} />}
       </React.Fragment>
