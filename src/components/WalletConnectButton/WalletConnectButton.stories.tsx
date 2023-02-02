@@ -15,8 +15,10 @@ const Template: ComponentStory<typeof WalletConnectButton> = (args) => (
 );
 const TemplateMetamask: ComponentStory<typeof React.Fragment> = () => {
   const [account, setAccount] = useState('');
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const connect = async () => {
+    setLoading(true);
     const externalProvider = await detectEthereumProvider();
     if (externalProvider) {
       try {
@@ -27,16 +29,26 @@ const TemplateMetamask: ComponentStory<typeof React.Fragment> = () => {
         const newSigner = provider.getSigner();
         const walletAddress = await newSigner.getAddress();
         setAccount(walletAddress);
+        setLoading(false);
       } catch (err) {
         setError((err as Error)?.message || JSON.stringify(err));
+        setLoading(false);
         return undefined;
       }
     } else {
       setError('Metamask not installed');
+      setLoading(false);
     }
   };
 
-  return <WalletConnectButton account={account} error={error} onClick={() => void connect()} />;
+  return (
+    <WalletConnectButton
+      account={account}
+      error={error}
+      loading={loading}
+      onClick={() => void connect()}
+    />
+  );
 };
 
 export const Default = Template.bind({});

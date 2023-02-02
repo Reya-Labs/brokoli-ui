@@ -31,6 +31,7 @@ export const AvatarAddress: FunctionComponent<{
   if (!name) {
     return null;
   }
+  const formattedName = formatEthereumAddress(name);
 
   return (
     <AvatarAddressBox data-testid="AvatarAddress">
@@ -48,7 +49,7 @@ export const AvatarAddress: FunctionComponent<{
             data-testid="AvatarAddress-AddressTypography"
             typographyToken="bodyMediumRegular"
           >
-            {formatEthereumAddress(name).toUpperCase()}
+            {formattedName[0].toUpperCase() + formattedName.substring(1)}
           </AddressTypography>
         </>
       )}
