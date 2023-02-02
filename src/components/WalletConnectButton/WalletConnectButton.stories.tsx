@@ -18,6 +18,9 @@ const TemplateMetamask: ComponentStory<typeof React.Fragment> = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const connect = async () => {
+    if (account) {
+      return;
+    }
     setLoading(true);
     const externalProvider = await detectEthereumProvider();
     if (externalProvider) {
