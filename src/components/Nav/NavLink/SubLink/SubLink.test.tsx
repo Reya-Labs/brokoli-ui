@@ -32,7 +32,7 @@ describe('<SubLink />', () => {
         />
       </HashRouter>,
     );
-    expect(screen.getByTestId('NewLinkIndicator')).toBeInTheDocument();
+    expect(screen.getByTestId('AttentionIndicator')).toBeInTheDocument();
   });
 
   it('renders the ActiveSubLinkButton when isActive is true', () => {

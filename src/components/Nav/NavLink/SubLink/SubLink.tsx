@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { NewLinkIndicator } from '../NewLinkIndicator/NewLinkIndicator';
+import { AttentionIndicator } from '../../../AttentionIndicator/AttentionIndicator';
 import { ActiveSubLinkButton, SubLinkButton } from './SubLink.styled';
 
 export type SubLinkProps = {
@@ -26,7 +26,7 @@ export const SubLink: React.FunctionComponent<SubLinkProps> = ({
       to={link}
       onClick={onClick}
     >
-      {isNew ? <NewLinkIndicator /> : null}
+      {isNew ? <AttentionIndicator /> : null}
       {text}
     </SubLinkUI>
   );
