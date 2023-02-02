@@ -7,12 +7,10 @@ import {
   WalletLoadingRect2,
 } from './WalletConnectLoading.styled';
 
-export const WalletConnectLoading: React.FunctionComponent = () => {
-  return (
-    <WalletConnectLoadingBox>
-      <WalletLoadingRect1 />
-      <WalletLoadingRect2 />
-      <WalletLoadingEllipsis />
-    </WalletConnectLoadingBox>
-  );
-};
+export const WalletConnectLoading: React.FunctionComponent = React.memo(() => (
+  <WalletConnectLoadingBox>
+    <WalletLoadingRect1 />
+    <WalletLoadingRect2 />
+    <WalletLoadingEllipsis />
+  </WalletConnectLoadingBox>
+));
