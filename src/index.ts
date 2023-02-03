@@ -1,4 +1,5 @@
 export * from './components/Button';
+export * from './components/LineChart';
 export * from './components/Nav';
 export * from './components/Typography';
 export * from './components/WalletConnectButton';
