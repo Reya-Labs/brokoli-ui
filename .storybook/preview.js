@@ -1,6 +1,7 @@
 import React from 'react';
 import { addDecorator } from '@storybook/react';
 import { Fonts } from '../src';
+import darkTheme from './themes/dark';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -11,6 +12,9 @@ export const parameters = {
     },
   },
   layout: 'fullscreen',
+  docs: {
+    theme: darkTheme,
+  },
 };
 
 addDecorator((story) => (
