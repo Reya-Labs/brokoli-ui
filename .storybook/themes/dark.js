@@ -32,7 +32,7 @@ export default create({
   inputBorderRadius: 4,
 
   brandTitle: 'brokoli-ui',
-  brandUrl: 'https://brokoli.voltz.xyz/',
+  brandUrl: 'https://github.com/Voltz-Protocol/brokoli-ui',
   brandImage: 'https://cdn.discordapp.com/emojis/938848589499732058.webp?size=128&quality=lossless',
   brandTarget: '_self',
 });
