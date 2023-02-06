@@ -10,7 +10,7 @@ export type LineChartProps = {
   data: Serie[];
   colorToken?: ColorTokens;
 };
-
+const GRADIENT_ID = 'gradient';
 export const LineChart: React.FunctionComponent<LineChartProps> = ({
   data,
   colorToken = 'ultramarineBlue',
@@ -36,7 +36,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
         animate={true}
         areaBaselineValue={yScale.min}
         axisBottom={{
-          format: '%b %d',
+          format: '%d %b',
           tickSize: 0,
           tickPadding: 4,
           tickRotation: 0,
@@ -55,7 +55,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
         curve="linear"
         data={data}
         defs={[
-          linearGradientDef('gradientA', [
+          linearGradientDef(GRADIENT_ID, [
             { offset: 0, color: color, opacity: 1 },
             { offset: 100, color: colors.liberty8, opacity: 1 },
           ]),
@@ -63,7 +63,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
         enableArea={true}
         enableGridX={false}
         enableGridY={false}
-        fill={[{ match: '*', id: 'gradientA' }]}
+        fill={[{ match: '*', id: GRADIENT_ID }]}
         margin={{ top: 40, right: 40, bottom: 20, left: 40 }}
         pointBorderColor={{ from: 'serieColor' }}
         pointBorderWidth={3}
