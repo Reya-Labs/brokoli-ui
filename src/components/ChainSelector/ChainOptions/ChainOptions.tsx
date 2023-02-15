@@ -6,12 +6,12 @@ import { ChainOptionsButtonGroup } from './ChainOptions.styled';
 
 export type ChainOptionsProps = {
   chainOptions: {
-    id: string;
+    id: number;
     name: string;
     Icon: React.FunctionComponent;
     isActive: boolean;
   }[];
-  onClick: () => void;
+  onClick: (chainId: number) => void;
 };
 export const ChainOptions: React.FunctionComponent<ChainOptionsProps> = ({
   chainOptions,
@@ -32,7 +32,7 @@ export const ChainOptions: React.FunctionComponent<ChainOptionsProps> = ({
             Icon={chainOption.Icon}
             isActive={chainOption.isActive}
             name={chainOption.name}
-            onClick={onClick}
+            onClick={() => onClick && onClick(chainOption.id)}
           />
         ))}
       </ChainOptionsButtonGroup>

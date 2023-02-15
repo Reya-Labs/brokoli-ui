@@ -14,13 +14,13 @@ import {
 } from './ChainSelector.styled';
 
 type ChainOption = {
-  id: string;
+  id: number;
   name: string;
   Icon: React.FunctionComponent;
 };
 
 type ChainSelectorProps = {
-  onChainChange: (option: ChainOption) => void;
+  onChainChange: (optionId: ChainOption['id']) => void;
   selectedChainId?: ChainOption['id'];
   chainOptions: ChainOption[];
   approving?: boolean;
@@ -34,6 +34,10 @@ export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
   const [isSubmenuOpened, setIsSubmenuOpened] = useState(false);
   const handleSubmenuOpen = () => setIsSubmenuOpened(true);
   const handleSubmenuClose = () => setIsSubmenuOpened(false);
+  const handleChainOptionSelection = (chainId: ChainOption['id']) => {
+    onChainChange && onChainChange(chainId);
+    handleSubmenuClose();
+  };
   const selectedChain = useMemo(() => {
     return chainOptions.find((o) => o.id === selectedChainId);
   }, [chainOptions, selectedChainId]);
@@ -54,7 +58,7 @@ export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
               ...c,
               isActive: c.id === selectedChain?.id,
             }))}
-            onClick={handleSubmenuClose}
+            onClick={(chainId) => handleChainOptionSelection(chainId)}
           />
         }
         data-testid="ChainSelectorPopover"
