@@ -4,10 +4,14 @@ import { useLocation } from 'react-router-dom';
 import { Popover } from 'react-tiny-popover';
 
 import { AttentionIndicator } from '../../AttentionIndicator/AttentionIndicator';
+import { ToggleCaret } from '../../ToggleCaret/ToggleCaret';
 import { isActiveLink } from './helpers';
-import { globalReactTinyPopoverContainerCSS, NavLinkButton } from './NavLink.styled';
+import {
+  globalReactTinyPopoverContainerCSS,
+  NAV_LINK_POPOVER_CONTAINER_CLASS_NAME,
+  NavLinkButton,
+} from './NavLink.styled';
 import { SubLinks } from './SubLinks/SubLinks';
-import { ToggleCaret } from './ToggleCaret/ToggleCaret';
 
 export type NavLinkProps = {
   link?: string;
@@ -60,6 +64,7 @@ export const NavLink: React.FunctionComponent<NavLinkProps> = ({
       {hasSubLinks ? (
         <Popover
           align="start"
+          containerClassName={NAV_LINK_POPOVER_CONTAINER_CLASS_NAME}
           content={<SubLinks subLinks={subLinks || []} onClick={handleSubmenuClose} />}
           data-testid="NavLinkPopover"
           isOpen={isSubmenuOpened}

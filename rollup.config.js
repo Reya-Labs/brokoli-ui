@@ -25,6 +25,7 @@ export default [
       },
     ],
     plugins: [
+      svgr({ icon: true }),
       peerDepsExternal(),
       resolve(),
       commonjs(),
