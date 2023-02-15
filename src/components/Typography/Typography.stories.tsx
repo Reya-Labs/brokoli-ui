@@ -13,6 +13,6 @@ const Template: ComponentStory<typeof Typography> = (args) => <Typography {...ar
 export const Default = Template.bind({});
 Default.args = {
   children: 'Default',
-  typographyToken: 'header1Black',
+  typographyToken: 'primaryHeader1Black',
   colorToken: 'lavenderWeb',
 };

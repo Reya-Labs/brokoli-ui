@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 
-export const header1BlackCSS = css`
+export const primaryHeader1BlackCSS = css`
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 900;
@@ -10,7 +10,7 @@ export const header1BlackCSS = css`
   text-shadow: 0px 0px 20px rgba(225, 221, 247, 0.3);
 `;
 
-export const header1BoldCSS = css`
+export const primaryHeader1BoldCSS = css`
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -20,7 +20,7 @@ export const header1BoldCSS = css`
   text-shadow: 0px 0px 20px rgba(225, 221, 247, 0.3);
 `;
 
-export const header2BlackCSS = css`
+export const primaryHeader2BlackCSS = css`
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 900;
@@ -30,7 +30,7 @@ export const header2BlackCSS = css`
   text-shadow: 0px 0px 20px rgba(225, 221, 247, 0.3);
 `;
 
-export const header2BoldCSS = css`
+export const primaryHeader2BoldCSS = css`
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -40,7 +40,7 @@ export const header2BoldCSS = css`
   text-shadow: 0px 0px 20px rgba(225, 221, 247, 0.3);
 `;
 
-export const header3BlackCSS = css`
+export const primaryHeader3BlackCSS = css`
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 900;
@@ -50,7 +50,7 @@ export const header3BlackCSS = css`
   text-shadow: 0px 0px 20px rgba(225, 221, 247, 0.3);
 `;
 
-export const header3BoldCSS = css`
+export const primaryHeader3BoldCSS = css`
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -60,7 +60,7 @@ export const header3BoldCSS = css`
   text-shadow: 0px 0px 20px rgba(225, 221, 247, 0.3);
 `;
 
-export const bodyXSmallRegularCSS = css`
+export const primaryBodyXSmallRegularCSS = css`
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -69,7 +69,8 @@ export const bodyXSmallRegularCSS = css`
 
   letter-spacing: 0.02em;
 `;
-export const bodyXSmallBoldCSS = css`
+
+export const primaryBodyXSmallBoldCSS = css`
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -79,14 +80,14 @@ export const bodyXSmallBoldCSS = css`
   letter-spacing: 0.02em;
 `;
 
-export const bodySmallRegularCSS = css`
+export const primaryBodySmallRegularCSS = css`
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
   line-height: 150%;
 `;
-export const bodySmallBoldCSS = css`
+export const primaryBodySmallBoldCSS = css`
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -94,14 +95,15 @@ export const bodySmallBoldCSS = css`
   line-height: 150%;
 `;
 
-export const bodyMediumRegularCSS = css`
+export const primaryBodyMediumRegularCSS = css`
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 150%;
 `;
-export const bodyMediumBoldCSS = css`
+
+export const primaryBodyMediumBoldCSS = css`
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -109,14 +111,15 @@ export const bodyMediumBoldCSS = css`
   line-height: 150%;
 `;
 
-export const bodyLargeRegularCSS = css`
+export const primaryBodyLargeRegularCSS = css`
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
 `;
-export const bodyLargeBoldCSS = css`
+
+export const primaryBodyLargeBoldCSS = css`
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -124,17 +127,66 @@ export const bodyLargeBoldCSS = css`
   line-height: 150%;
 `;
 
-export const bodyExtraLargeRegularCSS = css`
+export const primaryBodyExtraLargeRegularCSS = css`
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 150%;
 `;
-export const bodyExtraLargeBoldCSS = css`
+
+export const primaryBodyExtraLargeBoldCSS = css`
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
   line-height: 150%;
+`;
+
+export const secondaryBodyMediumBoldCSS = css`
+  font-family: 'IBM Plex Mono', monospace;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 150%;
+`;
+
+export const secondaryBodyMediumRegularCSS = css`
+  font-family: 'IBM Plex Mono', monospace;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+`;
+
+export const secondaryBodySmallBoldCSS = css`
+  font-family: 'IBM Plex Mono', monospace;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 150%;
+`;
+
+export const secondaryBodySmallRegularCSS = css`
+  font-family: 'IBM Plex Mono', monospace;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+`;
+
+export const secondaryBodyXSmallBoldCSS = css`
+  font-family: 'IBM Plex Mono', monospace;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 140%;
+`;
+
+export const secondaryBodyXSmallRegularCSS = css`
+  font-family: 'IBM Plex Mono', monospace;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 140%;
 `;

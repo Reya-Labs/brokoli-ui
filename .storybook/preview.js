@@ -1,6 +1,5 @@
 import React from 'react';
 import { addDecorator } from '@storybook/react';
-import { Fonts } from '../src';
 import darkTheme from './themes/dark';
 
 export const parameters = {
@@ -25,7 +24,6 @@ addDecorator((story) => (
       }}
     >
       {story()}
-      <Fonts />
     </div>
   </React.Fragment>
 ));

@@ -3,41 +3,53 @@ import React from 'react';
 import { ColorTokens } from '../../foundation/Colors/colors';
 import { getColorFromToken } from '../../foundation/Colors/getColorFromToken';
 import {
-  BodyExtraLargeBoldTypography,
-  BodyExtraLargeRegularTypography,
-  BodyLargeBoldTypography,
-  BodyLargeRegularTypography,
-  BodyMediumBoldTypography,
-  BodyMediumRegularTypography,
-  BodySmallBoldTypography,
-  BodySmallRegularTypography,
-  BodyXSmallBoldTypography,
-  BodyXSmallRegularTypography,
-  Header1BlackTypography,
-  Header1BoldTypography,
-  Header2BlackTypography,
-  Header2BoldTypography,
-  Header3BlackTypography,
-  Header3BoldTypography,
+  PrimaryBodyExtraLargeBoldTypography,
+  PrimaryBodyExtraLargeRegularTypography,
+  PrimaryBodyLargeBoldTypography,
+  PrimaryBodyLargeRegularTypography,
+  PrimaryBodyMediumBoldTypography,
+  PrimaryBodyMediumRegularTypography,
+  PrimaryBodySmallBoldTypography,
+  PrimaryBodySmallRegularTypography,
+  PrimaryBodyXSmallBoldTypography,
+  PrimaryBodyXSmallRegularTypography,
+  PrimaryHeader1BlackTypography,
+  PrimaryHeader1BoldTypography,
+  PrimaryHeader2BlackTypography,
+  PrimaryHeader2BoldTypography,
+  PrimaryHeader3BlackTypography,
+  PrimaryHeader3BoldTypography,
+  SecondaryBodyMediumBoldTypography,
+  SecondaryBodyMediumRegularTypography,
+  SecondaryBodySmallBoldTypography,
+  SecondaryBodySmallRegularTypography,
+  SecondaryBodyXSmallBoldTypography,
+  SecondaryBodyXSmallRegularTypography,
 } from './Typography.styled';
 
 export type TypographyToken =
-  | 'header1Black'
-  | 'header1Bold'
-  | 'header2Black'
-  | 'header2Bold'
-  | 'header3Black'
-  | 'header3Bold'
-  | 'bodyXSmallRegular'
-  | 'bodyXSmallBold'
-  | 'bodySmallRegular'
-  | 'bodySmallBold'
-  | 'bodyMediumRegular'
-  | 'bodyMediumBold'
-  | 'bodyLargeRegular'
-  | 'bodyLargeBold'
-  | 'bodyExtraLargeRegular'
-  | 'bodyExtraLargeBold';
+  | 'primaryHeader1Black'
+  | 'primaryHeader1Bold'
+  | 'primaryHeader2Black'
+  | 'primaryHeader2Bold'
+  | 'primaryHeader3Black'
+  | 'primaryHeader3Bold'
+  | 'primaryBodyXSmallRegular'
+  | 'primaryBodyXSmallBold'
+  | 'primaryBodySmallRegular'
+  | 'primaryBodySmallBold'
+  | 'primaryBodyMediumRegular'
+  | 'primaryBodyMediumBold'
+  | 'primaryBodyLargeRegular'
+  | 'primaryBodyLargeBold'
+  | 'primaryBodyExtraLargeRegular'
+  | 'primaryBodyExtraLargeBold'
+  | 'secondaryBodyXSmallRegular'
+  | 'secondaryBodyXSmallBold'
+  | 'secondaryBodySmallRegular'
+  | 'secondaryBodySmallBold'
+  | 'secondaryBodyMediumRegular'
+  | 'secondaryBodyMediumBold';
 
 export const TypographyUIMap: Record<
   TypographyToken,
@@ -46,22 +58,29 @@ export const TypographyUIMap: Record<
     color: string;
   }>
 > = {
-  header1Black: Header1BlackTypography,
-  header1Bold: Header1BoldTypography,
-  header2Black: Header2BlackTypography,
-  header2Bold: Header2BoldTypography,
-  header3Black: Header3BlackTypography,
-  header3Bold: Header3BoldTypography,
-  bodyXSmallRegular: BodyXSmallRegularTypography,
-  bodyXSmallBold: BodyXSmallBoldTypography,
-  bodySmallRegular: BodySmallRegularTypography,
-  bodySmallBold: BodySmallBoldTypography,
-  bodyMediumRegular: BodyMediumRegularTypography,
-  bodyMediumBold: BodyMediumBoldTypography,
-  bodyLargeRegular: BodyLargeRegularTypography,
-  bodyLargeBold: BodyLargeBoldTypography,
-  bodyExtraLargeRegular: BodyExtraLargeRegularTypography,
-  bodyExtraLargeBold: BodyExtraLargeBoldTypography,
+  primaryHeader1Black: PrimaryHeader1BlackTypography,
+  primaryHeader1Bold: PrimaryHeader1BoldTypography,
+  primaryHeader2Black: PrimaryHeader2BlackTypography,
+  primaryHeader2Bold: PrimaryHeader2BoldTypography,
+  primaryHeader3Black: PrimaryHeader3BlackTypography,
+  primaryHeader3Bold: PrimaryHeader3BoldTypography,
+  primaryBodyXSmallRegular: PrimaryBodyXSmallRegularTypography,
+  primaryBodyXSmallBold: PrimaryBodyXSmallBoldTypography,
+  primaryBodySmallRegular: PrimaryBodySmallRegularTypography,
+  primaryBodySmallBold: PrimaryBodySmallBoldTypography,
+  primaryBodyMediumRegular: PrimaryBodyMediumRegularTypography,
+  primaryBodyMediumBold: PrimaryBodyMediumBoldTypography,
+  primaryBodyLargeRegular: PrimaryBodyLargeRegularTypography,
+  primaryBodyLargeBold: PrimaryBodyLargeBoldTypography,
+  primaryBodyExtraLargeRegular: PrimaryBodyExtraLargeRegularTypography,
+  primaryBodyExtraLargeBold: PrimaryBodyExtraLargeBoldTypography,
+
+  secondaryBodyXSmallRegular: SecondaryBodyXSmallRegularTypography,
+  secondaryBodyXSmallBold: SecondaryBodyXSmallBoldTypography,
+  secondaryBodySmallRegular: SecondaryBodySmallRegularTypography,
+  secondaryBodySmallBold: SecondaryBodySmallBoldTypography,
+  secondaryBodyMediumRegular: SecondaryBodyMediumRegularTypography,
+  secondaryBodyMediumBold: SecondaryBodyMediumBoldTypography,
 };
 
 export type TypographyProps = {
@@ -75,7 +94,7 @@ export const Typography: React.FunctionComponent<TypographyProps> = ({
   typographyToken,
   colorToken = 'lavenderWeb',
 }) => {
-  const TypographyUI = TypographyUIMap[typographyToken] || BodyLargeRegularTypography;
+  const TypographyUI = TypographyUIMap[typographyToken] || PrimaryBodyLargeRegularTypography;
   return (
     <TypographyUI className={className} color={getColorFromToken(colorToken)}>
       {children}

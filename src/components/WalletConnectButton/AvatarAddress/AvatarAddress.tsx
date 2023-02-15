@@ -47,7 +47,7 @@ export const AvatarAddress: FunctionComponent<{
           <AddressTypography
             colorToken="lavenderWeb"
             data-testid="AvatarAddress-AddressTypography"
-            typographyToken="bodyMediumRegular"
+            typographyToken="primaryBodyMediumRegular"
           >
             {formattedName[0].toUpperCase() + formattedName.substring(1)}
           </AddressTypography>

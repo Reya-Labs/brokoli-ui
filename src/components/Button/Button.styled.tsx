@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 import { colors } from '../../foundation/Colors';
-import { bodyMediumBoldCSS } from '../Typography/Typography.css';
+import { primaryBodyMediumBoldCSS } from '../Typography/Typography.css';
 
 export const ButtonUI = styled('button')`
   /* Auto layout */
@@ -18,7 +18,7 @@ export const ButtonUI = styled('button')`
     0px 5px 40px rgba(255, 74, 169, 0.2);
   border-radius: 4px;
 
-  ${bodyMediumBoldCSS};
+  ${primaryBodyMediumBoldCSS};
   color: ${colors.liberty8};
   cursor: pointer;
   transition: box-shadow 300ms ease-in;

@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
 import { colors } from '../../../../foundation/Colors';
-import { bodySmallRegularCSS } from '../../../Typography/Typography.css';
+import { primaryBodySmallRegularCSS } from '../../../Typography/Typography.css';
 
 export const SubLinkButton = styled(Link)`
   display: flex;
@@ -11,7 +11,7 @@ export const SubLinkButton = styled(Link)`
   padding: 16px;
   gap: 8px;
 
-  ${bodySmallRegularCSS};
+  ${primaryBodySmallRegularCSS};
 
   color: ${colors.lavenderWeb};
   text-decoration: none;
