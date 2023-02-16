@@ -21,7 +21,7 @@ export const ChainOption: React.FunctionComponent<ChainOptionProps> = ({
       data-testid={isActive ? 'ActiveChainOptionButton' : 'ChainOptionButton'}
       onClick={onClick}
     >
-      <IconBox>
+      <IconBox isActive={isActive}>
         <Icon />
       </IconBox>
       {name}

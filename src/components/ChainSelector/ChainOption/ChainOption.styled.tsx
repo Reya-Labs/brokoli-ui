@@ -3,11 +3,15 @@ import styled from '@emotion/styled';
 import { colors } from '../../../foundation/Colors';
 import { primaryBodySmallRegularCSS } from '../../Typography/Typography.css';
 
-export const IconBox = styled('div')`
+export const IconBox = styled('div', {
+  shouldForwardProp: (prop) => prop !== 'isActive',
+})<{
+  isActive: boolean;
+}>`
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: ${colors.lavenderWeb8};
+  background: ${({ isActive }) => (isActive ? colors.liberty7 : colors.lavenderWeb8)};
   transition: background-color 300ms ease-in;
 `;
 
@@ -26,7 +30,7 @@ export const ChainOptionButton = styled('button')`
   border-radius: 2px;
   width: 100%;
   box-sizing: border-box;
-  transition: background-color 300ms ease-in;
+  transition: background-color, text-shadow 300ms ease-in;
   border: 0;
   cursor: pointer;
 
