@@ -19,11 +19,6 @@ export const PageBox = styled('div')`
 `;
 
 export const ChildrenBox = styled('div')`
-  z-index: 3;
-  position: relative;
-`;
-
-export const TextureBox = styled('div')`
   z-index: 2;
   position: relative;
   background-image: url(${TextureImage});
