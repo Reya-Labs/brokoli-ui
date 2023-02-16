@@ -24,7 +24,11 @@ export default [
       },
     ],
     plugins: [
-      svgr({ icon: true }),
+      svgr({
+        memo: true,
+        exportType: 'named',
+        jsxRuntime: 'automatic',
+      }),
       peerDepsExternal(),
       resolve(),
       commonjs(),

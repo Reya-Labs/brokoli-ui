@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ActiveChainOptionButton, ChainOptionButton } from './ChainOption.styled';
+import { ActiveChainOptionButton, ChainOptionButton, IconBox } from './ChainOption.styled';
 
 export type ChainOptionProps = {
   name: string;
@@ -21,7 +21,10 @@ export const ChainOption: React.FunctionComponent<ChainOptionProps> = ({
       data-testid={isActive ? 'ActiveChainOptionButton' : 'ChainOptionButton'}
       onClick={onClick}
     >
-      <Icon /> {name}
+      <IconBox>
+        <Icon />
+      </IconBox>
+      {name}
     </ChainOptionUI>
   );
 };

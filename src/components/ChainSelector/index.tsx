@@ -9,6 +9,7 @@ import {
   CHAIN_SELECTOR_POPOVER_CONTAINER_CLASS_NAME,
   ChainSelectorButton,
   globalReactTinyPopoverContainerCSS,
+  IconBox,
   SelectorBox,
   WarningIcon,
 } from './ChainSelector.styled';
@@ -67,7 +68,7 @@ export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
         onClickOutside={handleSubmenuClose}
       >
         <SelectorBox data-testid="ChainSelector-SelectorBox">
-          {selectedChain ? <selectedChain.Icon /> : <WarningIcon />}
+          <IconBox>{selectedChain ? <selectedChain.Icon /> : <WarningIcon />}</IconBox>
           <ChainSelectorButton
             data-testid={isSubmenuOpened ? 'OpenChainSelectorButton' : 'ChainSelectorButton'}
             isPopoverOpen={isSubmenuOpened}

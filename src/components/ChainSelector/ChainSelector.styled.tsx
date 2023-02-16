@@ -20,8 +20,8 @@ export const SelectorBox = styled('div')`
 `;
 
 export const WarningIcon = styled(Warning)`
-  width: 14px;
-  height: 14px;
+  width: 24px;
+  height: 24px;
 `;
 
 export const ChainSelectorButton = styled('button', {
@@ -46,6 +46,13 @@ export const ChainSelectorButton = styled('button', {
   &:hover {
     color: ${colors.lavenderWeb};
   }
+`;
+
+export const IconBox = styled('div')`
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: ${colors.lavenderWeb8};
 `;
 
 export const CHAIN_SELECTOR_POPOVER_CONTAINER_CLASS_NAME = 'react-tiny-popover-container';
