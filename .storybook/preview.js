@@ -1,6 +1,7 @@
 import React from 'react';
 import { addDecorator } from '@storybook/react';
 import darkTheme from './themes/dark';
+import { Page } from '../src';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -16,14 +17,17 @@ export const parameters = {
   },
 };
 
-addDecorator((story) => (
-  <React.Fragment>
-    <div
-      style={{
-        padding: 24,
-      }}
-    >
-      {story()}
-    </div>
-  </React.Fragment>
-));
+const doesntNeedsPadding = (title) => ['Components/Page', 'Components/Nav'].indexOf(title) !== -1;
+addDecorator((story, storyInfo) => {
+  return (
+    <Page>
+      <div
+        style={{
+          padding: doesntNeedsPadding(storyInfo.title) ? 0 : 24,
+        }}
+      >
+        {story()}
+      </div>
+    </Page>
+  );
+});
