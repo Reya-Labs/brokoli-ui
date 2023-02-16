@@ -1,4 +1,5 @@
 import commonjs from '@rollup/plugin-commonjs';
+import image from '@rollup/plugin-image';
 import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
 import svgr from '@svgr/rollup';
@@ -29,6 +30,7 @@ export default [
         exportType: 'named',
         jsxRuntime: 'automatic',
       }),
+      image(),
       peerDepsExternal(),
       resolve(),
       commonjs(),

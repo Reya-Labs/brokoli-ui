@@ -46,6 +46,7 @@
     "@metamask/detect-provider": "2.0.0",
     "@metamask/jazzicon": "2.0.0",
     "@rollup/plugin-commonjs": "24.0.1",
+    "@rollup/plugin-image": "3.0.2",
     "@rollup/plugin-node-resolve": "15.0.1",
     "@rollup/plugin-typescript": "11.0.0",
     "@semantic-release/git": "10.0.1",
