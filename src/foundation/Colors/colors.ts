@@ -1,4 +1,13 @@
+export type BaseColorTokens =
+  | 'liberty'
+  | 'lavenderWeb'
+  | 'skyBlueCrayola'
+  | 'orangeYellow'
+  | 'wildStrawberry'
+  | 'ultramarineBlue';
+
 export type ColorTokens =
+  | BaseColorTokens
   | 'liberty8'
   | 'liberty7'
   | 'liberty6'
@@ -7,7 +16,6 @@ export type ColorTokens =
   | 'liberty3'
   | 'liberty2'
   | 'liberty1'
-  | 'liberty'
   | 'lavenderWeb8'
   | 'lavenderWeb7'
   | 'lavenderWeb6'
@@ -16,7 +24,6 @@ export type ColorTokens =
   | 'lavenderWeb3'
   | 'lavenderWeb2'
   | 'lavenderWeb1'
-  | 'lavenderWeb'
   | 'skyBlueCrayola8'
   | 'skyBlueCrayola7'
   | 'skyBlueCrayola6'
@@ -25,7 +32,6 @@ export type ColorTokens =
   | 'skyBlueCrayola3'
   | 'skyBlueCrayola2'
   | 'skyBlueCrayola1'
-  | 'skyBlueCrayola'
   | 'orangeYellow8'
   | 'orangeYellow7'
   | 'orangeYellow6'
@@ -34,7 +40,6 @@ export type ColorTokens =
   | 'orangeYellow3'
   | 'orangeYellow2'
   | 'orangeYellow1'
-  | 'orangeYellow'
   | 'wildStrawberry8'
   | 'wildStrawberry7'
   | 'wildStrawberry6'
@@ -43,7 +48,6 @@ export type ColorTokens =
   | 'wildStrawberry3'
   | 'wildStrawberry2'
   | 'wildStrawberry1'
-  | 'wildStrawberry'
   | 'ultramarineBlue8'
   | 'ultramarineBlue7'
   | 'ultramarineBlue6'
@@ -51,8 +55,7 @@ export type ColorTokens =
   | 'ultramarineBlue4'
   | 'ultramarineBlue3'
   | 'ultramarineBlue2'
-  | 'ultramarineBlue1'
-  | 'ultramarineBlue';
+  | 'ultramarineBlue1';
 
 export const colors: Record<ColorTokens, string> = {
   /* Liberty 8 */
