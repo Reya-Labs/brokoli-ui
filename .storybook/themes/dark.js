@@ -1,10 +1,10 @@
 import { create } from '@storybook/theming';
-import { colors } from './colors';
+import { colors } from '../../src/foundation/Colors/colors';
 
 export default create({
   base: 'dark',
   colorPrimary: colors.wildStrawberry,
-  colorSecondary: colors.liberty4,
+  colorSecondary: colors.wildStrawberry2,
 
   // UI
   appBg: colors.liberty6,
