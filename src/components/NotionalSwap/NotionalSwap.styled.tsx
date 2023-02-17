@@ -1,4 +1,4 @@
-import { keyframes } from '@emotion/react';
+import { css, keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { colors } from '../../foundation/Colors';
@@ -25,11 +25,19 @@ const spin = keyframes`
   }
 `;
 
-export const NotionalSwapBox = styled('div', {
-  shouldForwardProp: (prop) => prop !== 'reverse',
-})<{ reverse: boolean }>`
+const fullSpin = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  
+  100% {
+    transform: rotate(360deg);
+  }
+`;
+
+export const NotionalSwapBox = styled('div')`
   display: flex;
-  flex-direction: ${({ reverse }) => (!reverse ? 'column' : 'column-reverse')};
+  flex-direction: column;
   position: relative;
   gap: 8px;
 `;
@@ -44,7 +52,11 @@ export const NotionalSwapFixedBox = styled(NotionalBox)`
   box-shadow: 0px 4px 4px ${colors.liberty8}, 0px 0px 1px ${colors.lavenderWeb1};
 `;
 
-export const NotionalSwapSwapper = styled('div')`
+export const NotionalSwapSwapper = styled('div', {
+  shouldForwardProp: (prop) => prop !== 'animate',
+})<{
+  animate: boolean;
+}>`
   filter: drop-shadow(0px 1px 8px ${colors.liberty8})
     drop-shadow(0px 2px 40px ${colors.lavenderWeb4});
   background: ${colors.lavenderWeb};
@@ -56,9 +68,14 @@ export const NotionalSwapSwapper = styled('div')`
   border-radius: 50%;
   transition: box-shadow 300ms ease-in;
   cursor: pointer;
-
+  ${({ animate }) =>
+    animate
+      ? css`
+          animation: ${fullSpin} 500ms ease-in !important;
+        `
+      : ''};
   &:hover {
-    animation: ${spin} 500ms linear infinite;
+    animation: ${spin} 500ms linear 2 forwards;
     box-shadow: 0px 0px 20px ${colors.lavenderWeb5};
   }
 `;
@@ -75,3 +92,9 @@ export const TopTextContent = styled('div')`
 `;
 
 export const BottomTextContent = styled('div')``;
+
+export const NotionalSwapWrapperBox = styled('div')`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+`;
