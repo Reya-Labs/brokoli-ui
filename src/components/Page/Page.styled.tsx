@@ -6,16 +6,12 @@ import TextureImage from './assets/texture.png';
 
 export const PageBox = styled('div')`
   position: relative;
-  width: 100vw;
-  height: 100vh;
-
   background: conic-gradient(
     from -55.74deg at 44.58% 42.11%,
     ${colors.liberty8} 0deg,
     ${colors.liberty6} 167.49deg,
     ${colors.liberty8} 360deg
   );
-  overflow: hidden;
 `;
 
 export const ChildrenBox = styled('div')`
@@ -28,7 +24,7 @@ export const ChildrenBox = styled('div')`
 `;
 
 export const Lines = styled(LinesSvg)`
-  position: absolute;
+  position: fixed;
   left: 0;
   bottom: 0;
   pointer-events: none;
