@@ -4,6 +4,7 @@
   "description": "An UI design language and React UI library",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
+  "types": "dist/esm/types",
   "directories": {
     "doc": "docs"
   },

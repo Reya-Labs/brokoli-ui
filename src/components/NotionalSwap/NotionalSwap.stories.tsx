@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { NotionalSwap } from './index';
 
 export default {
-  title: 'Components/NotionalSwap',
+  title: 'VoltzUI/NotionalSwap',
   component: NotionalSwap,
   args: {},
 } as ComponentMeta<typeof NotionalSwap>;
