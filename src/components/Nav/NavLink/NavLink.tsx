@@ -20,6 +20,7 @@ export type NavLinkProps = {
     text: string;
     link: string;
     isNew?: boolean;
+    isHidden?: boolean;
   }[];
 };
 
@@ -30,14 +31,15 @@ export const NavLink: React.FunctionComponent<NavLinkProps> = ({
   isNew,
 }) => {
   const { pathname } = useLocation();
-  const hasSubLinks = subLinks && subLinks.length !== 0;
+  const subLinksNotHidden = (subLinks || []).filter((sL) => !sL.isHidden);
+  const hasSubLinks = subLinksNotHidden.length !== 0;
   const [isSubmenuOpened, setIsSubmenuOpened] = React.useState(false);
   const handleSubmenuOpen = () => setIsSubmenuOpened(true);
   const handleSubmenuClose = () => setIsSubmenuOpened(false);
 
   const isActive = isActiveLink(
     link,
-    subLinks?.map((l) => l.link),
+    subLinksNotHidden?.map((l) => l.link),
     pathname,
   );
   const linkButton = (
@@ -65,7 +67,7 @@ export const NavLink: React.FunctionComponent<NavLinkProps> = ({
         <Popover
           align="start"
           containerClassName={NAV_LINK_POPOVER_CONTAINER_CLASS_NAME}
-          content={<SubLinks subLinks={subLinks || []} onClick={handleSubmenuClose} />}
+          content={<SubLinks subLinks={subLinksNotHidden || []} onClick={handleSubmenuClose} />}
           data-testid="NavLinkPopover"
           isOpen={isSubmenuOpened}
           positions={['bottom']}
