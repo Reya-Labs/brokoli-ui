@@ -28,7 +28,6 @@ export default [
       svgr({
         memo: true,
         exportType: 'named',
-        jsxRuntime: 'automatic',
       }),
       image(),
       peerDepsExternal(),
