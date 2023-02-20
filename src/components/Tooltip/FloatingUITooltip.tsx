@@ -15,6 +15,8 @@ import {
 } from '@floating-ui/react';
 import * as React from 'react';
 
+import { LAYER_INDEXES } from '../../foundation/LayerIndexes';
+
 type FloatingUITooltipOptions = {
   initialOpen?: boolean;
   placement?: Placement;
@@ -135,7 +137,7 @@ export const FloatingUITooltipContent = React.forwardRef<
         <div
           ref={ref}
           style={{
-            zIndex: 100,
+            zIndex: LAYER_INDEXES.TOOLTIP,
             position: context.strategy,
             top: context.y ?? 0,
             left: context.x ?? 0,

@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 import { colors } from '../../foundation/Colors';
+import { LAYER_INDEXES } from '../../foundation/LayerIndexes';
 import BackgroundNoiseImage from './assets/background-noise.png';
 import { ReactComponent as BrandSvg } from './assets/brand.svg';
 
@@ -10,8 +11,8 @@ export const PageBox = styled('div')`
   width: 100vw;
 `;
 
-export const ChildrenBox = styled('div')`
-  z-index: 3;
+export const PageContentBox = styled('div')`
+  z-index: ${LAYER_INDEXES.PAGE_CONTENT};
   position: relative;
   width: 100%;
   height: 100%;
@@ -22,7 +23,7 @@ export const BackgroundBox = styled('div')`
   left: 0;
   top: 0;
   pointer-events: none;
-  z-index: 0;
+  z-index: ${LAYER_INDEXES.BACKGROUND};
   width: 100%;
   height: 100%;
   background: conic-gradient(
@@ -38,7 +39,7 @@ export const BrandLogo = styled(BrandSvg)`
   left: 0;
   bottom: 0;
   pointer-events: none;
-  z-index: 1;
+  z-index: ${LAYER_INDEXES.BRAND_LOGO};
 `;
 
 export const BackgroundNoiseBox = styled('div')`
@@ -48,7 +49,7 @@ export const BackgroundNoiseBox = styled('div')`
   left: 0;
   top: 0;
   pointer-events: none;
-  z-index: 2;
+  z-index: ${LAYER_INDEXES.BACKGROUND_NOISE};
   width: 100%;
   height: 100%;
 `;

@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
 import { colors } from '../../../foundation/Colors';
+import { LAYER_INDEXES } from '../../../foundation/LayerIndexes';
 import { primaryBodyMediumRegularCSS } from '../../Typography/Typography.css';
 
 export const NavLinkButton = styled(Link, {
@@ -39,5 +40,6 @@ export const globalReactTinyPopoverContainerCSS = css`
     box-shadow: 0px 0px 20px rgba(225, 221, 247, 0.1);
     border-radius: 4px;
     min-width: 160px;
+    z-index: ${LAYER_INDEXES.POPOVER};
   }
 `;

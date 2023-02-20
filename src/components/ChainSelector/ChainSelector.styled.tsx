@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { colors } from '../../foundation/Colors';
+import { LAYER_INDEXES } from '../../foundation/LayerIndexes';
 import { primaryBodyMediumRegularCSS } from '../Typography/Typography.css';
 import { ReactComponent as Warning } from './icons/warning.svg';
 
@@ -66,5 +67,6 @@ export const globalReactTinyPopoverContainerCSS = css`
     border-radius: 4px;
     min-width: 160px;
     margin-top: 8px;
+    z-index: ${LAYER_INDEXES.POPOVER};
   }
 `;
