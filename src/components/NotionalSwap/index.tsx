@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import MovingComponent from 'react-moving-text';
 
 import { PercentageTypography } from '../PercentageTypography';
 import { Typography } from '../Typography';
@@ -40,9 +41,18 @@ export const NotionalSwap: React.FunctionComponent<{
       <NotionalSwapBox>
         <NotionalSwapFixedBox>
           <TopTextContent>
-            <Typography colorToken="lavenderWeb" typographyToken="primaryBodyMediumBold">
-              {isFixedMode ? 'Receive Fixed' : 'Receive Variable'}
-            </Typography>
+            <MovingComponent
+              key={mode}
+              duration="1000ms"
+              fillMode="forwards"
+              iteration={1}
+              timing="linear"
+              type="shakeMix"
+            >
+              <Typography colorToken="lavenderWeb" typographyToken="primaryBodyMediumBold">
+                {isFixedMode ? 'Receive Fixed' : 'Receive Variable'}
+              </Typography>
+            </MovingComponent>
             <PercentageTypography
               colorToken={isFixedMode ? 'skyBlueCrayola' : 'ultramarineBlue'}
               typographyToken="primaryBodyMediumBold"
