@@ -22,7 +22,12 @@ export const Nav: React.FunctionComponent<NavProps> = ({ links }) => (
     {links
       .filter((link) => !link.isHidden)
       .map((link, index) => (
-        <NavLink key={`${link.text}_${index}`} isNew={link.isNew} subLinks={link.subLinks}>
+        <NavLink
+          key={`${link.text}_${index}`}
+          isNew={link.isNew}
+          link={link.link}
+          subLinks={link.subLinks}
+        >
           {link.text}
         </NavLink>
       ))}
