@@ -114,7 +114,6 @@
     "@nivo/line": "0.80.0",
     "react-animate-height": "3.1.0",
     "react-currency-input-field": "3.6.4",
-    "react-moving-text": "0.0.7",
     "react-tiny-popover": "7.2.0"
   },
   "release": {
