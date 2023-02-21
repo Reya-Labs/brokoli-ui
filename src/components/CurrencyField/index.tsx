@@ -4,7 +4,7 @@ import { formatValue } from 'react-currency-input-field';
 import { CurrencyInputStyled } from './CurrencyField.styled';
 
 type CurrencyFieldProps = {
-  onChange: (value: string | undefined) => void;
+  onChange?: (value: string | undefined) => void;
   decimalsLimit?: number;
   maxLength?: number;
   value?: string;
