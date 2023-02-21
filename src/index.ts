@@ -6,7 +6,7 @@ export * from './components/LineChart';
 export * from './components/Nav';
 export * from './components/NotionalSwap';
 export * from './components/Page';
-export * from './components/PercentageTypography';
+export * from './components/TokenTypography';
 export * from './components/Typography';
 export * from './components/WalletConnectButton';
 export * from './foundation/Colors';

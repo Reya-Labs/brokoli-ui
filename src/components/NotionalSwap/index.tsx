@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import MovingComponent from 'react-moving-text';
 
-import { PercentageTypography } from '../PercentageTypography';
+import { TokenTypography } from '../TokenTypography';
 import { Typography } from '../Typography';
 import { TypographyWithTooltip } from '../TypographyWithTooltip';
 import { ReactComponent as ArrowsSvg } from './arrows.svg';
@@ -53,8 +53,9 @@ export const NotionalSwap: React.FunctionComponent<{
                 {isFixedMode ? 'Receive Fixed' : 'Receive Variable'}
               </Typography>
             </MovingComponent>
-            <PercentageTypography
+            <TokenTypography
               colorToken={isFixedMode ? 'skyBlueCrayola' : 'ultramarineBlue'}
+              token="%"
               typographyToken="primaryBodyMediumBold"
               value={isFixedMode ? fixedRate : variableRate}
             />
@@ -79,8 +80,9 @@ export const NotionalSwap: React.FunctionComponent<{
             <Typography colorToken="lavenderWeb2" typographyToken="primaryBodyMediumBold">
               {isFixedMode ? 'Receive Variable' : 'Receive Fixed'}
             </Typography>
-            <PercentageTypography
+            <TokenTypography
               colorToken={isFixedMode ? 'ultramarineBlue' : 'skyBlueCrayola'}
+              token="%"
               typographyToken="primaryBodyMediumBold"
               value={isFixedMode ? variableRate : fixedRate}
             />
