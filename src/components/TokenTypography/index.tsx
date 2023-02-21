@@ -6,7 +6,7 @@ import { TokenTypographyStyled } from './TokenTypography.styled';
 
 export const TokenTypography: React.FunctionComponent<{
   colorToken: BaseColorTokens;
-  value: number;
+  value: string | number;
   typographyToken: TypographyToken;
   token: string;
 }> = ({ token, typographyToken, value, colorToken }) => (
