@@ -1,8 +1,12 @@
 import styled from '@emotion/styled';
 
-export const TypographyWithTooltipBox = styled('div')`
-  display: flex;
-  flex-direction: row;
-  gap: 8px;
-  align-items: center;
+import { Tooltip } from '../Tooltip';
+import { Typography } from '../Typography';
+
+export const TypographyStyled = styled(Typography)`
+  position: relative;
+`;
+
+export const TooltipStyled = styled(Tooltip)`
+  margin-left: 0.5em;
 `;

@@ -5,7 +5,6 @@ import { ColorTokens } from '../../../foundation/Colors';
 import { Typography } from '../../Typography';
 import { TooltipBox } from './Tooltip.styled';
 
-// TODO: fix Typography typographyToken
 export const Tooltip: React.FunctionComponent<
   PointTooltipProps & {
     colorToken: ColorTokens;
@@ -16,7 +15,7 @@ export const Tooltip: React.FunctionComponent<
       <Typography colorToken="lavenderWeb" typographyToken="primaryBodyMediumBold">
         {point.data.xFormatted}
       </Typography>
-      <Typography colorToken={colorToken} typographyToken="primaryBodyMediumBold">
+      <Typography colorToken={colorToken} typographyToken="secondaryBodyMediumBold">
         {point.data.yFormatted}%
       </Typography>
     </TooltipBox>

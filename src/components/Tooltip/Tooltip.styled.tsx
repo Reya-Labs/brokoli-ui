@@ -9,6 +9,11 @@ export const ExclaimBox = styled('div', {
 }>`
   cursor: pointer;
   display: inline-block;
+  vertical-align: middle;
+  & svg {
+    width: 1em;
+    height: 1em;
+  }
   & g {
     stroke: ${({ color }) => color};
   }
