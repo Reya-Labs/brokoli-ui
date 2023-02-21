@@ -15310,6 +15310,11 @@ react-animate-height@3.1.0:
   resolved "https://registry.yarnpkg.com/react-animate-height/-/react-animate-height-3.1.0.tgz#f7def40acfe857f936621fe9d7bad601467d0e31"
   integrity sha512-+0pW2OzB8PzVn10dpTB9q5jFI+GwQTnCDLbzyqPBUzKXJfpBrlWW954uud/59Mreo+laRN/fPzvckuA+WTptXA==
 
+react-currency-input-field@3.6.4:
+  version "3.6.4"
+  resolved "https://registry.yarnpkg.com/react-currency-input-field/-/react-currency-input-field-3.6.4.tgz#8063f9a445ba246063f0254ced4015210c90593a"
+  integrity sha512-0SifhqMirGt5+inzHslfbf71ZYoBt420pkMM6oBSGS40CsuPcLIOV19B1LPSCz7dWPGYi/kw5TOFQ0qALrn6Wg==
+
 react-docgen-typescript@^2.1.1:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/react-docgen-typescript/-/react-docgen-typescript-2.2.2.tgz#4611055e569edc071204aadb20e1c93e1ab1659c"
