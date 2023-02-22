@@ -13,10 +13,10 @@ export const ColorTile: React.FunctionComponent<ColorTileProps> = ({
   <ColorTileBox>
     <ColorTileCircle backgroundColor={backgroundColor} highlight={highlight} />
     <ColorTypographyBox>
-      <Typography typographyToken="primaryBodyMediumBold">
+      <Typography colorToken="lavenderWeb" typographyToken="primaryBodyMediumBold">
         {`${name[0].toUpperCase()}${name.substring(1)}`}
       </Typography>
-      <Typography typographyToken="primaryBodySmallRegular">
+      <Typography colorToken="lavenderWeb" typographyToken="primaryBodySmallRegular">
         {backgroundColor.toUpperCase()}
       </Typography>
     </ColorTypographyBox>

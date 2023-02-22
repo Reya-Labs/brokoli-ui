@@ -85,14 +85,14 @@ export const TypographyUIMap: Record<
 
 export type TypographyProps = {
   typographyToken: TypographyToken;
-  colorToken?: ColorTokens;
+  colorToken: ColorTokens;
   className?: string;
 };
 export const Typography: React.FunctionComponent<TypographyProps> = ({
   className,
   children,
   typographyToken,
-  colorToken = 'lavenderWeb',
+  colorToken,
 }) => {
   const TypographyUI = TypographyUIMap[typographyToken] || PrimaryBodyLargeRegularTypography;
   return (

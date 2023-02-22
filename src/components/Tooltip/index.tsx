@@ -22,7 +22,9 @@ export const Tooltip: React.FunctionComponent<{
     </FloatingUITooltipTrigger>
     <FloatingUITooltipContent>
       <TooltipBox>
-        <Typography typographyToken="primaryBodySmallRegular">{children}</Typography>
+        <Typography colorToken="lavenderWeb" typographyToken="primaryBodySmallRegular">
+          {children}
+        </Typography>
       </TooltipBox>
     </FloatingUITooltipContent>
   </FloatingUITooltip>
