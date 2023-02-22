@@ -26,19 +26,25 @@ export const CurrencyInputBox = styled('div')`
 `;
 export const TokenBox = styled('div')`
   position: absolute;
-  right: 16px;
-  top: 10px;
+  right: 8px;
+  top: calc(50% - 9px);
   display: flex;
   gap: 8px;
 `;
+export const SwitchButtonsBox = styled('div')`
+  position: absolute;
+  left: 8px;
+  top: 6px;
+`;
 export const CurrencyInputStyled = styled(CurrencyInput)<{ error?: boolean }>`
   box-sizing: border-box;
+  direction: rtl;
 
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 96px 10px 16px;
+  padding: 6px 44px 6px 146px;
   gap: 8px;
   border-radius: 4px;
   height: 44px;
@@ -50,7 +56,6 @@ export const CurrencyInputStyled = styled(CurrencyInput)<{ error?: boolean }>`
     error
       ? `0px 0px 1px ${colors.wildStrawberry}, inset 1px 2px 2px ${colors.wildStrawberry7}`
       : `0px 0px 1px ${colors.lavenderWeb3}, inset 1px 2px 6px ${colors.liberty8}`};
-  border-radius: 4px;
   border: none;
 
   ${secondaryBodyMediumBoldCSS};
