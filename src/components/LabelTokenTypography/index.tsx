@@ -3,6 +3,7 @@ import React from 'react';
 import { BaseColorTokens, ColorTokens } from '../../foundation/Colors';
 import { TokenTypography } from '../TokenTypography';
 import { Typography, TypographyToken } from '../Typography';
+import { TypographyWithTooltip } from '../TypographyWithTooltip';
 import { LabelTokenTypographyBox } from './LabelTokenTypography.styled';
 
 export const LabelTokenTypography: React.FunctionComponent<{
@@ -13,6 +14,8 @@ export const LabelTokenTypography: React.FunctionComponent<{
   label: string;
   labelColorToken: ColorTokens;
   labelTypographyToken: TypographyToken;
+  tooltip?: string;
+  tooltipColorToken?: ColorTokens;
 }> = ({
   label,
   labelTypographyToken,
@@ -21,11 +24,25 @@ export const LabelTokenTypography: React.FunctionComponent<{
   typographyToken,
   value,
   colorToken,
+  tooltip,
+  tooltipColorToken,
 }) => (
   <LabelTokenTypographyBox>
-    <Typography colorToken={labelColorToken} typographyToken={labelTypographyToken}>
-      {label}
-    </Typography>
+    {!tooltip ? (
+      <Typography colorToken={labelColorToken} typographyToken={labelTypographyToken}>
+        {label}
+      </Typography>
+    ) : (
+      <TypographyWithTooltip
+        colorToken={labelColorToken}
+        tooltip={tooltip}
+        tooltipColorToken={tooltipColorToken}
+        typographyToken={labelTypographyToken}
+      >
+        {label}
+      </TypographyWithTooltip>
+    )}
+
     <TokenTypography
       colorToken={colorToken}
       token={token}

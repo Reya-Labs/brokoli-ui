@@ -23,3 +23,15 @@ Default.args = {
   labelColorToken: 'lavenderWeb3',
   labelTypographyToken: 'primaryBodyXSmallRegular',
 };
+
+export const WithTooltip = Template.bind({});
+WithTooltip.args = {
+  value: '+0.00',
+  colorToken: 'lavenderWeb',
+  token: ' USDC',
+  typographyToken: 'secondaryBodyMediumRegular',
+  label: 'Additional Cashflow',
+  labelColorToken: 'lavenderWeb3',
+  labelTypographyToken: 'primaryBodyXSmallRegular',
+  tooltip: 'We support a nice tooltip as well!',
+};
