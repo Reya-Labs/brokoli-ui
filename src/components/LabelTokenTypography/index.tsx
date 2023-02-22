@@ -8,7 +8,7 @@ import { LabelTokenTypographyBox } from './LabelTokenTypography.styled';
 
 export const LabelTokenTypography: React.FunctionComponent<{
   colorToken: BaseColorTokens;
-  value: string;
+  value: string | number;
   typographyToken: TypographyToken;
   token: string;
   label: string;
