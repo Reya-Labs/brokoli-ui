@@ -71,7 +71,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
         pointLabelYOffset={-1}
         pointSize={3}
         theme={{
-          background: colors.liberty7,
+          background: 'transparent',
           textColor: colors.lavenderWeb3,
           fontSize: 10,
           crosshair: {
