@@ -5,6 +5,8 @@ import { colors } from '../../foundation/Colors';
 import { secondaryBodySmallRegularCSS } from '../Typography/Typography.css';
 
 export const CurrencyInputStyled = styled(CurrencyInput)<{ error?: boolean }>`
+  box-sizing: border-box;
+
   display: flex;
   flex-direction: row;
   justify-content: space-between;
