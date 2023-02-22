@@ -6,6 +6,7 @@ export * from './components/LabelTokenTypography';
 export * from './components/LineChart';
 export * from './components/Nav';
 export * from './components/Page';
+export * from './components/TokenField';
 export * from './components/TokenTypography';
 export * from './components/Typography';
 export * from './components/TypographyWithTooltip';
