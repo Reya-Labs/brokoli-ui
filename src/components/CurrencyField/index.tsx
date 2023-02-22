@@ -11,6 +11,7 @@ type CurrencyFieldProps = {
   defaultValue?: number | string;
   disabled?: boolean;
   error?: boolean;
+  suffix?: string;
 };
 
 export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
@@ -21,6 +22,7 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
   defaultValue,
   disabled,
   error,
+  suffix,
 }) => {
   return (
     <CurrencyInputStyled
@@ -36,7 +38,7 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
       error={error}
       intlConfig={{ locale: navigator.language }}
       maxLength={maxLength}
-      suffix="%"
+      suffix={suffix}
       value={value}
       onValueChange={onChange}
     />
