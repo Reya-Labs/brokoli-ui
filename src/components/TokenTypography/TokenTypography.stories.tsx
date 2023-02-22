@@ -18,3 +18,21 @@ Default.args = {
   token: '%',
   typographyToken: 'secondaryBodyMediumRegular',
 };
+
+export const WithNegativeDifference = Template.bind({});
+WithNegativeDifference.args = {
+  value: 100,
+  colorToken: 'lavenderWeb',
+  token: '%',
+  differenceValue: -2,
+  typographyToken: 'secondaryBodyMediumRegular',
+};
+
+export const WithPositiveDifference = Template.bind({});
+WithPositiveDifference.args = {
+  value: 100,
+  colorToken: 'lavenderWeb',
+  token: '%',
+  differenceValue: 2,
+  typographyToken: 'secondaryBodyMediumRegular',
+};

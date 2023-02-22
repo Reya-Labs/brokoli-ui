@@ -16,6 +16,7 @@ export const LabelTokenTypography: React.FunctionComponent<{
   labelTypographyToken: TypographyToken;
   tooltip?: string;
   tooltipColorToken?: ColorTokens;
+  differenceValue?: number;
 }> = ({
   label,
   labelTypographyToken,
@@ -26,6 +27,7 @@ export const LabelTokenTypography: React.FunctionComponent<{
   colorToken,
   tooltip,
   tooltipColorToken,
+  differenceValue,
 }) => (
   <LabelTokenTypographyBox>
     {!tooltip ? (
@@ -45,6 +47,7 @@ export const LabelTokenTypography: React.FunctionComponent<{
 
     <TokenTypography
       colorToken={colorToken}
+      differenceValue={differenceValue}
       token={token}
       typographyToken={typographyToken}
       value={value}

@@ -39,6 +39,7 @@ type TokenSwitchFieldProps = {
   bottomRightTextValue?: string | number;
   bottomRightTextColorToken?: BaseColorTokens;
   bottomRightTextTypographyToken?: TypographyToken;
+  bottomRightTextDifferenceValue?: number;
   switchOnText: string;
   switchOffText: string;
   switchOnValue: string;
@@ -69,6 +70,7 @@ export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = 
   bottomRightTextTypographyToken = 'secondaryBodyXSmallRegular',
   bottomRightTextColorToken = 'lavenderWeb',
   bottomRightTextValue,
+  bottomRightTextDifferenceValue,
   switchOffText,
   switchOffValue,
   switchOnText,
@@ -144,6 +146,7 @@ export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = 
         {bottomRightTextValue && (
           <TokenTypography
             colorToken={bottomRightTextColorToken}
+            differenceValue={bottomRightTextDifferenceValue}
             token={` ${token.toUpperCase()}`}
             typographyToken={bottomRightTextTypographyToken}
             value={bottomRightTextValue}

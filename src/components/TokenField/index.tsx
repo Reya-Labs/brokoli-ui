@@ -37,6 +37,7 @@ type TokenFieldProps = {
   bottomRightTextValue?: string | number;
   bottomRightTextColorToken?: BaseColorTokens;
   bottomRightTextTypographyToken?: TypographyToken;
+  bottomRightTextDifferenceValue?: number;
 };
 
 export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
@@ -61,6 +62,7 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
   bottomRightTextTypographyToken = 'secondaryBodyXSmallRegular',
   bottomRightTextColorToken = 'lavenderWeb',
   bottomRightTextValue,
+  bottomRightTextDifferenceValue,
 }) => {
   return (
     <TokenFieldBox>
@@ -119,6 +121,7 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
         {bottomRightTextValue && (
           <TokenTypography
             colorToken={bottomRightTextColorToken}
+            differenceValue={bottomRightTextDifferenceValue}
             token={` ${token.toUpperCase()}`}
             typographyToken={bottomRightTextTypographyToken}
             value={bottomRightTextValue}
