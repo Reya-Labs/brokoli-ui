@@ -1,20 +1,32 @@
 import React from 'react';
 
-import { IconsBox, IconStyled, MarketTokenBox, MarketTokenTypography } from './MarketToken.styled';
+import { SupportedIcons } from '../Icon';
+import { Typography } from '../Typography';
+import { IconsBox, IconStyled, MarketTokenBox } from './MarketToken.styled';
 
-export const MarketToken: React.FunctionComponent<{
-  token: 'aave' | 'compound' | 'dai' | 'eth' | 'glp' | 'reth' | 'steth' | 'usdc' | 'usdt';
-  market: 'aave' | 'compound' | 'dai' | 'eth' | 'glp' | 'reth' | 'steth' | 'usdc' | 'usdt';
-}> = ({ token, market }) => {
+type MarketTokenProps = {
+  token: 'eth' | 'usdc' | 'usdt' | 'dai';
+  market: 'Aave' | 'Compound' | 'Lido' | 'Rocket' | 'GMX:GLP';
+};
+
+const MAP_MARKET_TO_ICON: Record<MarketTokenProps['market'], SupportedIcons> = {
+  'GMX:GLP': 'glp',
+  Aave: 'aave',
+  Compound: 'compound',
+  Lido: 'steth',
+  Rocket: 'reth',
+};
+
+export const MarketToken: React.FunctionComponent<MarketTokenProps> = ({ token, market }) => {
   return (
     <MarketTokenBox>
       <IconsBox>
-        <IconStyled name={market} />
+        <IconStyled name={MAP_MARKET_TO_ICON[market]} />
         <IconStyled name={token} />
       </IconsBox>
-      <MarketTokenTypography colorToken="lavenderWeb" typographyToken="primaryHeader2Black">
+      <Typography colorToken="lavenderWeb" typographyToken="primaryHeader2Black">
         {market} - {token.toUpperCase()}
-      </MarketTokenTypography>
+      </Typography>
     </MarketTokenBox>
   );
 };

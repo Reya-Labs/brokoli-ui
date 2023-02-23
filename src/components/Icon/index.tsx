@@ -15,7 +15,7 @@ type IconProps = {
   className?: string;
 };
 
-type SupportedIcons =
+export type SupportedIcons =
   | 'aave'
   | 'compound'
   | 'dai'

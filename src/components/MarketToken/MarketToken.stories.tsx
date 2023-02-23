@@ -14,5 +14,5 @@ const Template: ComponentStory<typeof MarketToken> = (args) => <MarketToken {...
 export const Default = Template.bind({});
 Default.args = {
   token: 'usdc',
-  market: 'aave',
+  market: 'Aave',
 };

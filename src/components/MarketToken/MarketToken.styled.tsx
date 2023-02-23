@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 
 import { Icon } from '../Icon';
-import { Typography } from '../Typography';
 
 export const MarketTokenBox = styled('div')`
   display: flex;
@@ -17,12 +16,6 @@ export const MarketTokenBox = styled('div')`
   & svg:nth-child(2) {
     margin-left: -4px;
     z-index: 1;
-  }
-`;
-
-export const MarketTokenTypography = styled(Typography)`
-  &::first-letter {
-    text-transform: capitalize;
   }
 `;
 
