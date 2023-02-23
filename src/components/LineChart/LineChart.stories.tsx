@@ -14,6 +14,9 @@ const Template: ComponentStory<typeof LineChart> = (args) => <LineChart {...args
 export const Default = Template.bind({});
 Default.args = {
   colorToken: 'ultramarineBlue',
+  yMarkerColorToken: 'skyBlueCrayola3',
+  yMarker: 2.35,
+  yMarkerText: 'Fixed Rate:',
   data: [
     {
       id: 'japan',

@@ -8,11 +8,17 @@ import { Tooltip } from './Tooltip/Tooltip';
 
 export type LineChartProps = {
   data: Serie[];
+  yMarker: number;
+  yMarkerText: string;
   colorToken?: ColorTokens;
+  yMarkerColorToken?: ColorTokens;
 };
 const GRADIENT_ID = 'gradient';
 export const LineChart: React.FunctionComponent<LineChartProps> = ({
   data,
+  yMarker,
+  yMarkerText,
+  yMarkerColorToken = 'skyBlueCrayola',
   colorToken = 'ultramarineBlue',
 }) => {
   const color = useMemo(() => getColorFromToken(colorToken), [colorToken]);
@@ -65,6 +71,24 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
         enableGridY={false}
         fill={[{ match: '*', id: GRADIENT_ID }]}
         margin={{ top: 40, right: 40, bottom: 20, left: 40 }}
+        markers={[
+          {
+            axis: 'y',
+            value: yMarker,
+            textStyle: {
+              fontSize: 10,
+              fontFamily: 'IBM Plex Mono',
+              fill: colors.lavenderWeb,
+            },
+            lineStyle: {
+              stroke: getColorFromToken(yMarkerColorToken),
+              strokeDasharray: 5,
+              strokeWidth: 1,
+            },
+            legend: `${yMarkerText}: ${yMarker}`,
+            legendPosition: 'top-left',
+          },
+        ]}
         pointBorderColor={{ from: 'serieColor' }}
         pointBorderWidth={3}
         pointColor={color}
