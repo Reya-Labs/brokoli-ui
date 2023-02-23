@@ -1,9 +1,10 @@
 import styled from '@emotion/styled';
 
 import { colors } from '../../foundation/Colors';
+import { Typography } from '../Typography';
 import { primaryBodyMediumBoldCSS } from '../Typography/Typography.css';
 
-export const ButtonUI = styled('button')`
+export const ButtonStyled = styled('button')`
   /* Auto layout */
   display: flex;
   flex-direction: row;
@@ -40,4 +41,8 @@ export const ButtonUI = styled('button')`
     box-shadow: none;
     cursor: not-allowed;
   }
+`;
+
+export const BottomLeftTextTypography = styled(Typography)`
+  margin-top: 8px;
 `;

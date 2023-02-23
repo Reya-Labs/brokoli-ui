@@ -15,3 +15,9 @@ export const Default = Template.bind({});
 Default.args = {
   children: 'Default',
 };
+
+export const WithBottomLeftText = Template.bind({});
+WithBottomLeftText.args = {
+  children: 'Default',
+  bottomLeftText: 'Bottom left text!',
+};

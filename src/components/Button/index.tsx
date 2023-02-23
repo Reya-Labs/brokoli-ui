@@ -1,15 +1,37 @@
 import React from 'react';
 
-import { ButtonUI } from './Button.styled';
+import { ColorTokens } from '../../foundation/Colors';
+import { TypographyToken } from '../Typography';
+import { BottomLeftTextTypography, ButtonStyled } from './Button.styled';
 
 export type ButtonProps = {
   disabled?: boolean;
   onClick?: () => void;
+  bottomLeftText?: string;
+  bottomLeftTextColorToken?: ColorTokens;
+  bottomLeftTextTypographyToken?: TypographyToken;
 };
-export const Button: React.FunctionComponent<ButtonProps> = ({ onClick, children, disabled }) => {
+export const Button: React.FunctionComponent<ButtonProps> = ({
+  onClick,
+  children,
+  disabled,
+  bottomLeftText,
+  bottomLeftTextColorToken = 'lavenderWeb3',
+  bottomLeftTextTypographyToken = 'primaryBodyXSmallRegular',
+}) => {
   return (
-    <ButtonUI disabled={disabled} onClick={disabled ? undefined : onClick}>
-      {children}
-    </ButtonUI>
+    <React.Fragment>
+      <ButtonStyled disabled={disabled} onClick={disabled ? undefined : onClick}>
+        {children}
+      </ButtonStyled>
+      {bottomLeftText && (
+        <BottomLeftTextTypography
+          colorToken={bottomLeftTextColorToken}
+          typographyToken={bottomLeftTextTypographyToken}
+        >
+          {bottomLeftText}
+        </BottomLeftTextTypography>
+      )}
+    </React.Fragment>
   );
 };
