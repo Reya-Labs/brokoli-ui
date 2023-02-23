@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 
 import { colors } from '../../foundation/Colors';
-import { Typography } from '../Typography';
 import { primaryBodyMediumBoldCSS } from '../Typography/Typography.css';
 
 export const ButtonStyled = styled('button')`
@@ -43,6 +42,10 @@ export const ButtonStyled = styled('button')`
   }
 `;
 
-export const BottomLeftTextTypography = styled(Typography)`
-  margin-top: 8px;
+export const ButtonBox = styled('div')`
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  gap: 8px;
 `;
