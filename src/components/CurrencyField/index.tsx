@@ -12,6 +12,7 @@ type CurrencyFieldProps = {
   disabled?: boolean;
   error?: boolean;
   suffix?: string;
+  allowNegativeValue?: boolean;
 };
 
 export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
@@ -23,9 +24,11 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
   disabled,
   error,
   suffix,
+  allowNegativeValue,
 }) => {
   return (
     <CurrencyInputStyled
+      allowNegativeValue={allowNegativeValue}
       decimalsLimit={decimalsLimit}
       defaultValue={
         defaultValue ||
