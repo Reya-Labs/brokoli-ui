@@ -9,11 +9,12 @@ import {
   RainbowText,
 } from './RainbowLoader.styled';
 
-type RainbowLoaderProps = {
+export type RainbowLoaderProps = {
   width: number;
   height: number;
   text?: string;
 };
+
 export const RainbowLoader: React.FunctionComponent<RainbowLoaderProps> = React.memo(
   ({ width, height, text }) => {
     const loader = (

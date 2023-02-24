@@ -17,7 +17,7 @@ import {
   TopBox,
 } from './TokenSwitchField.styled';
 
-type TokenSwitchFieldProps = {
+export type TokenSwitchFieldProps = {
   onChange?: (value: string | undefined) => void;
   decimalsLimit?: number;
   maxLength?: number;
@@ -35,7 +35,7 @@ type TokenSwitchFieldProps = {
   bottomLeftText?: string;
   bottomLeftTextColorToken?: ColorTokens;
   bottomLeftTextTypographyToken?: TypographyToken;
-  token: TokenIconProps['token'];
+  token?: TokenIconProps['token'];
   bottomRightTextValue?: string | number;
   bottomRightTextColorToken?: BaseColorTokens;
   bottomRightTextTypographyToken?: TypographyToken;
@@ -131,11 +131,13 @@ export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = 
           value={value}
           onValueChange={onChange}
         />
-        <TokenBox>
-          <Typography colorToken="lavenderWeb3" typographyToken="secondaryBodySmallRegular">
-            {token.toUpperCase()}
-          </Typography>
-        </TokenBox>
+        {token ? (
+          <TokenBox>
+            <Typography colorToken="lavenderWeb3" typographyToken="secondaryBodySmallRegular">
+              {token.toUpperCase()}
+            </Typography>
+          </TokenBox>
+        ) : null}
       </CurrencyInputBox>
       <BottomBox>
         {bottomLeftText && (
@@ -150,7 +152,7 @@ export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = 
           <TokenTypography
             colorToken={bottomRightTextColorToken}
             differenceValue={bottomRightTextDifferenceValue}
-            token={` ${token.toUpperCase()}`}
+            token={token ? ` ${token.toUpperCase()}` : ''}
             typographyToken={bottomRightTextTypographyToken}
             value={bottomRightTextValue}
           />

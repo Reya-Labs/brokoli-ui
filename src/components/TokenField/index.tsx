@@ -15,7 +15,7 @@ import {
 } from './TokenField.styled';
 import { TokenIcon, TokenIconProps } from './TokenIcon';
 
-type TokenFieldProps = {
+export type TokenFieldProps = {
   onChange?: (value: string | undefined) => void;
   decimalsLimit?: number;
   maxLength?: number;
@@ -33,7 +33,7 @@ type TokenFieldProps = {
   bottomLeftText?: string;
   bottomLeftTextColorToken?: ColorTokens;
   bottomLeftTextTypographyToken?: TypographyToken;
-  token: TokenIconProps['token'];
+  token?: TokenIconProps['token'];
   bottomRightTextValue?: string | number;
   bottomRightTextColorToken?: BaseColorTokens;
   bottomRightTextTypographyToken?: TypographyToken;
@@ -105,12 +105,14 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
           value={value}
           onValueChange={onChange}
         />
-        <TokenBox>
-          <TokenIcon token={token} />
-          <Typography colorToken="lavenderWeb" typographyToken="secondaryBodyMediumRegular">
-            {token.toUpperCase()}
-          </Typography>
-        </TokenBox>
+        {token ? (
+          <TokenBox>
+            <TokenIcon token={token} />
+            <Typography colorToken="lavenderWeb" typographyToken="secondaryBodyMediumRegular">
+              {token.toUpperCase()}
+            </Typography>
+          </TokenBox>
+        ) : null}
       </CurrencyInputBox>
       <BottomBox>
         {bottomLeftText && (
@@ -125,7 +127,7 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
           <TokenTypography
             colorToken={bottomRightTextColorToken}
             differenceValue={bottomRightTextDifferenceValue}
-            token={` ${token.toUpperCase()}`}
+            token={token ? ` ${token.toUpperCase()}` : ''}
             typographyToken={bottomRightTextTypographyToken}
             value={bottomRightTextValue}
           />
