@@ -46,6 +46,7 @@ type TokenSwitchFieldProps = {
   switchOffValue: string;
   switchValue: string;
   onSwitchChange: (nextValue: string) => void;
+  allowNegativeValue?: boolean;
 };
 
 export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = ({
@@ -77,6 +78,7 @@ export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = 
   switchOnValue,
   switchValue,
   onSwitchChange,
+  allowNegativeValue,
 }) => {
   return (
     <TokenFieldBox>
@@ -113,6 +115,7 @@ export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = 
           />
         </SwitchButtonsBox>
         <CurrencyInputStyled
+          allowNegativeValue={allowNegativeValue}
           decimalsLimit={decimalsLimit}
           defaultValue={
             defaultValue ||

@@ -38,6 +38,7 @@ type TokenFieldProps = {
   bottomRightTextColorToken?: BaseColorTokens;
   bottomRightTextTypographyToken?: TypographyToken;
   bottomRightTextDifferenceValue?: number;
+  allowNegativeValue?: boolean;
 };
 
 export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
@@ -63,6 +64,7 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
   bottomRightTextColorToken = 'lavenderWeb',
   bottomRightTextValue,
   bottomRightTextDifferenceValue,
+  allowNegativeValue,
 }) => {
   return (
     <TokenFieldBox>
@@ -87,6 +89,7 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
       </TopBox>
       <CurrencyInputBox>
         <CurrencyInputStyled
+          allowNegativeValue={allowNegativeValue}
           decimalsLimit={decimalsLimit}
           defaultValue={
             defaultValue ||
