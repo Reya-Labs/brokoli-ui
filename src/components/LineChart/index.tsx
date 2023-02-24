@@ -1,5 +1,5 @@
 import { linearGradientDef } from '@nivo/core';
-import { ResponsiveLine, Serie } from '@nivo/line';
+import { ResponsiveLine } from '@nivo/line';
 import React, { useMemo } from 'react';
 
 import { colors, ColorTokens, getColorFromToken } from '../../foundation/Colors';
@@ -7,7 +7,13 @@ import { LineChartBox } from './LineChart.styled';
 import { Tooltip } from './Tooltip/Tooltip';
 
 export type LineChartProps = {
-  data: Serie[];
+  data: {
+    id: string;
+    data: {
+      x: Date;
+      y: number;
+    }[];
+  }[];
   yMarker: number;
   yMarkerText: string;
   colorToken?: ColorTokens;
@@ -26,7 +32,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
     const yS = data.reduce((pV, cI) => {
       const validData: number[] = cI.data
         .filter((d) => d.y !== null && d.y !== undefined)
-        .map((d) => d.y as number);
+        .map((d) => d.y);
       return [...pV, ...validData];
     }, [] as number[]);
 
@@ -85,7 +91,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
               strokeDasharray: 5,
               strokeWidth: 1,
             },
-            legend: `${yMarkerText}: ${yMarker}`,
+            legend: `${yMarkerText}: ${yMarker}%`,
             legendPosition: 'top-left',
           },
         ]}
@@ -126,12 +132,12 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
         }}
         tooltip={(point) => <Tooltip colorToken={colorToken} {...point} />}
         useMesh={true}
-        xFormat="time:%b %d"
+        xFormat="time:%H:%M - %b %d"
         xScale={{
           type: 'time',
           format: '%Y-%m-%d',
           useUTC: false,
-          precision: 'day',
+          precision: 'millisecond',
         }}
         yFormat=" >-.2f"
         yScale={{
