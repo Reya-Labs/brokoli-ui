@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
 
-import { WalletConnectLoading } from '../WalletConnectLoading/WalletConnectLoading';
+import { RainbowLoader } from '../../RainbowLoader';
 import { AddressTypography, AvatarAddressBox, AvatarAddressImg } from './AvatarAddress.styled';
 import { formatEthereumAddress } from './helpers/formatEthereumAddress';
 import { getENSDetails } from './helpers/getENSDetails';
@@ -36,7 +36,7 @@ export const AvatarAddress: FunctionComponent<{
   return (
     <AvatarAddressBox data-testid="AvatarAddress">
       {loading ? (
-        <WalletConnectLoading />
+        <RainbowLoader height={3} width={150} />
       ) : (
         <>
           {!avatarUrl ? (
