@@ -8,6 +8,7 @@ export * from './components/LineChart';
 export * from './components/MarketToken';
 export * from './components/Nav';
 export * from './components/Page';
+export * from './components/RainbowLoader';
 export * from './components/TokenField';
 export * from './components/TokenSwitchField';
 export * from './components/TokenTypography';
