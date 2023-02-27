@@ -17,7 +17,7 @@ export const TokenTypography: React.FunctionComponent<{
     typographyToken={typographyToken}
   >
     {value}
-    <strong>{token}</strong>
+    {token ? <strong>{token}</strong> : null}
     {isNaN(differenceValue) ? null : (
       <React.Fragment>
         <strong>{differenceValue > 0 ? '↑' : '↓'}</strong>
