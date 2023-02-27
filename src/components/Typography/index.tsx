@@ -87,16 +87,22 @@ export type TypographyProps = {
   typographyToken: TypographyToken;
   colorToken: ColorTokens;
   className?: string;
+  'data-testid'?: string;
 };
 export const Typography: React.FunctionComponent<TypographyProps> = ({
   className,
   children,
   typographyToken,
   colorToken,
+  'data-testid': dataTestId,
 }) => {
   const TypographyUI = TypographyUIMap[typographyToken] || PrimaryBodyLargeRegularTypography;
   return (
-    <TypographyUI className={className} color={getColorFromToken(colorToken)}>
+    <TypographyUI
+      className={className}
+      color={getColorFromToken(colorToken)}
+      data-testid={dataTestId || `Typography-${colorToken}-${typographyToken}`}
+    >
       {children}
     </TypographyUI>
   );
