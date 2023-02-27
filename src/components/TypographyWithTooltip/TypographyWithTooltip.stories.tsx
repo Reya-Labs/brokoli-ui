@@ -15,7 +15,7 @@ const Template: ComponentStory<typeof TypographyWithTooltip> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  tooltip: 'Indeed! Created with ❤️!',
+  tooltip: 'Created with ❤️!',
   colorToken: 'lavenderWeb',
   typographyToken: 'secondaryBodyMediumRegular',
   children: 'What a wonderful UI library!',
