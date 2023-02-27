@@ -6,7 +6,7 @@ export const MarketTokenBox = styled('div')`
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 8px 16px;
+  padding: 0px;
   gap: 8px;
 
   & svg:nth-child(1) {
