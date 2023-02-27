@@ -16,13 +16,13 @@ export const TokenTypographyStyled = styled(Typography, {
     color: ${({ colorToken }) => getColorFromToken(`${colorToken as BaseColorTokens}3`)};
   }
 
-  & > strong:nth-of-type(2),
   & > strong:nth-of-type(3) {
     font-weight: inherit;
     color: ${({ positiveDifference }) =>
       getColorFromToken(positiveDifference ? 'skyBlueCrayola' : 'wildStrawberry')};
   }
 
+  & > strong:nth-of-type(2),
   & > strong:nth-of-type(4) {
     font-weight: inherit;
     color: ${({ positiveDifference }) =>
