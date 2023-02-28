@@ -143,6 +143,22 @@ export const primaryBodyExtraLargeBoldCSS = css`
   line-height: 150%;
 `;
 
+export const secondaryBodyLargeBoldCSS = css`
+  font-family: 'IBM Plex Mono', monospace;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 150%;
+`;
+
+export const secondaryBodyLargeRegularCSS = css`
+  font-family: 'IBM Plex Mono', monospace;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+`;
+
 export const secondaryBodyMediumBoldCSS = css`
   font-family: 'IBM Plex Mono', monospace;
   font-style: normal;
