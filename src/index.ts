@@ -1,6 +1,7 @@
 export * from './components/Button';
 export * from './components/ChainSelector';
 export * from './components/CurrencyField';
+export * from './components/Dialog';
 export * from './components/Ellipsis';
 export * from './components/LabelTokenTypography';
 export * from './components/LeverageField';

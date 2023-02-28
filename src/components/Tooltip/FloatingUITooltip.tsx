@@ -24,7 +24,7 @@ type FloatingUITooltipOptions = {
   onOpenChange?: (open: boolean) => void;
 };
 
-export function useFloatingUITooltip({
+function useFloatingUITooltip({
   initialOpen = false,
   placement = 'top',
   open: controlledOpen,
@@ -78,7 +78,7 @@ type ContextType = ReturnType<typeof useFloatingUITooltip> | null;
 
 const FloatingUITooltipContext = React.createContext<ContextType>(null);
 
-export const useFloatingUITooltipContext = () => {
+const useFloatingUITooltipContext = () => {
   const context = React.useContext(FloatingUITooltipContext);
 
   if (context == null) {
