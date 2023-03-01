@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 
 export const SubLinksButtonGroup = styled('div')`
-  /* Auto layout */
   display: flex;
   flex-direction: column;
   align-items: flex-start;

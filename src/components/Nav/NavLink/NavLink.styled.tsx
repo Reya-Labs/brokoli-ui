@@ -33,9 +33,8 @@ export const NavLinkButton = styled(Link, {
 export const NAV_LINK_POPOVER_CONTAINER_CLASS_NAME = 'react-tiny-popover-container';
 export const globalReactTinyPopoverContainerCSS = css`
   .${NAV_LINK_POPOVER_CONTAINER_CLASS_NAME} {
-    /* Liberty 7 */
     background: ${colors.liberty7};
-    /* Lavender Web 7 */
+
     border: 1px solid ${colors.lavenderWeb7};
     box-shadow: 0px 0px 20px rgba(225, 221, 247, 0.1);
     border-radius: 4px;

@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 import { Typography } from '../Typography';
 
 export const WalletButton = styled('button')`
-  /* Auto layout */
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -13,7 +12,6 @@ export const WalletButton = styled('button')`
   border-radius: 8px;
   border: none;
 
-  /* Inside auto layout */
   flex: none;
   order: 0;
   flex-grow: 0;

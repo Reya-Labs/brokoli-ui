@@ -4,7 +4,6 @@ import { colors } from '../../foundation/Colors';
 import { primaryBodyMediumBoldCSS } from '../Typography/Typography.css';
 
 export const ButtonStyled = styled('button')`
-  /* Auto layout */
   display: flex;
   flex-direction: row;
   justify-content: center;
