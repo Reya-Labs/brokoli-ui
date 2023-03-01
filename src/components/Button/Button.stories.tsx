@@ -11,13 +11,30 @@ export default {
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
-export const Default = Template.bind({});
-Default.args = {
-  children: 'Default',
+export const Primary = Template.bind({});
+Primary.args = {
+  children: 'Primary',
+  variant: 'primary',
+};
+
+export const Secondary = Template.bind({});
+Secondary.args = {
+  children: 'Secondary',
+  variant: 'secondary',
 };
 
 export const WithBottomLeftText = Template.bind({});
 WithBottomLeftText.args = {
   children: 'Default',
   bottomLeftText: 'Bottom left text!',
+  variant: 'primary',
+};
+
+export const WithBottomLeftTextAsError = Template.bind({});
+WithBottomLeftTextAsError.args = {
+  children: 'Default',
+  bottomLeftText: 'Bottom left text!',
+  bottomLeftTextColorToken: 'wildStrawberry',
+  bottomLeftTextTypographyToken: 'primaryBodySmallBold',
+  variant: 'primary',
 };

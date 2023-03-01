@@ -2,10 +2,11 @@ import React from 'react';
 
 import { ColorTokens } from '../../foundation/Colors';
 import { Typography, TypographyToken } from '../Typography';
-import { ButtonBox, ButtonStyled } from './Button.styled';
+import { ButtonBox, ButtonStyled, ButtonVariant } from './Button.styled';
 
 export type ButtonProps = {
   disabled?: boolean;
+  variant: ButtonVariant;
   onClick?: () => void;
   bottomLeftText?: string;
   bottomLeftTextColorToken?: ColorTokens;
@@ -13,6 +14,7 @@ export type ButtonProps = {
 };
 export const Button: React.FunctionComponent<ButtonProps> = ({
   onClick,
+  variant = 'primary',
   children,
   disabled,
   bottomLeftText,
@@ -20,7 +22,7 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
   bottomLeftTextTypographyToken = 'primaryBodyXSmallRegular',
 }) => {
   const button = (
-    <ButtonStyled disabled={disabled} onClick={disabled ? undefined : onClick}>
+    <ButtonStyled disabled={disabled} variant={variant} onClick={disabled ? undefined : onClick}>
       {children}
     </ButtonStyled>
   );
@@ -29,7 +31,7 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
   }
   return (
     <ButtonBox>
-      <ButtonStyled disabled={disabled} onClick={disabled ? undefined : onClick}>
+      <ButtonStyled disabled={disabled} variant={variant} onClick={disabled ? undefined : onClick}>
         {children}
       </ButtonStyled>
       <Typography
