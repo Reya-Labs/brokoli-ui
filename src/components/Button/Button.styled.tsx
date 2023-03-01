@@ -26,7 +26,6 @@ export const ButtonStyled = styled('button', {
   ${primaryBodyMediumBoldCSS};
   border-radius: 4px;
   cursor: pointer;
-  transition: box-shadow 300ms ease-in;
   width: 100%;
 `;
 

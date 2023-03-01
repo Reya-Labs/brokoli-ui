@@ -9,6 +9,7 @@ export const primaryButtonCSS = css`
     0px 5px 40px rgba(255, 74, 169, 0.2);
   color: ${colors.liberty8};
 
+  transition: box-shadow, color 300ms ease-in;
   &:hover {
     box-shadow: 0px 2px 4px ${colors.liberty6}, 0px 12px 43px rgba(38, 103, 255, 0.4),
       0px 10px 50px rgba(255, 74, 169, 0.2);
@@ -31,6 +32,7 @@ export const secondaryButtonCSS = css`
   background: transparent;
   border: 1px solid ${colors.lavenderWeb7};
   color: ${colors.lavenderWeb};
+  transition: border-color, color 300ms ease-in;
 
   &:hover {
     border: 1px solid ${colors.lavenderWeb4};
