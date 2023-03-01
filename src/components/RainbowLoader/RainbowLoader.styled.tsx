@@ -5,13 +5,13 @@ import { colors } from '../../foundation/Colors';
 import { Typography } from '../Typography';
 const ELLIPSE_WIDTH = 10;
 
-const move = (width: number, ellipseWidth: number) => keyframes`
+const move = (ellipseWidth: number) => keyframes`
   0% {
     left: 0;
   }
 
   50% {
-    left: ${width - ellipseWidth}px;
+    left: calc(100% - ${ellipseWidth}px);
   }
 
   100% {
@@ -19,24 +19,19 @@ const move = (width: number, ellipseWidth: number) => keyframes`
   }
 `;
 
-export const LoadingBox = styled('div', {
-  shouldForwardProp: (prop) => prop !== 'width',
-})<{
-  width: number;
-}>`
+export const LoadingBox = styled('div')`
   position: relative;
-  width: ${({ width }) => width}px;
+  width: 100%;
   display: flex;
   align-items: center;
 `;
 
 const GradientLayer = styled('div', {
-  shouldForwardProp: (prop) => prop !== 'width' && prop !== 'height',
+  shouldForwardProp: (prop) => prop !== 'height',
 })<{
-  width: number;
   height: number;
 }>`
-  width: ${({ width }) => width}px;
+  width: 100%;
   height: ${({ height }) => height}px;
 
   background: linear-gradient(90deg, #ff4aa9 0%, #fbc13a 31.47%, #4de5ff 68.91%, #2667ff 100%);
@@ -57,9 +52,8 @@ export const LoadingRect2 = styled(GradientLayer)`
 `;
 
 export const LoadingEllipsis = styled('div', {
-  shouldForwardProp: (prop) => prop !== 'width' && prop !== 'height',
+  shouldForwardProp: (prop) => prop !== 'height',
 })<{
-  width: number;
   height: number;
 }>`
   position: absolute;
@@ -75,12 +69,13 @@ export const LoadingEllipsis = styled('div', {
   backdrop-filter: blur(1.2px);
   z-index: 2;
 
-  animation: ${({ width }) => move(width, ELLIPSE_WIDTH)} 1800ms linear infinite;
+  animation: ${move(ELLIPSE_WIDTH)} 1800ms linear infinite;
 `;
 
 export const RainbowLoaderBox = styled('div')`
   text-align: center;
   display: inline-block;
+  width: 100%;
 `;
 
 export const RainbowText = styled(Typography)`

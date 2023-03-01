@@ -1,7 +1,12 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
 
 import { RainbowLoader } from '../../RainbowLoader';
-import { AddressTypography, AvatarAddressBox, AvatarAddressImg } from './AvatarAddress.styled';
+import {
+  AddressTypography,
+  AvatarAddressBox,
+  AvatarAddressImg,
+  RainbowLoaderBox,
+} from './AvatarAddress.styled';
 import { formatEthereumAddress } from './helpers/formatEthereumAddress';
 import { getENSDetails } from './helpers/getENSDetails';
 import { MetaMaskAvatar } from './MetaMaskAvatar/MetaMaskAvatar';
@@ -36,7 +41,9 @@ export const AvatarAddress: FunctionComponent<{
   return (
     <AvatarAddressBox data-testid="AvatarAddress">
       {loading ? (
-        <RainbowLoader height={3} width={150} />
+        <RainbowLoaderBox>
+          <RainbowLoader height={3} />
+        </RainbowLoaderBox>
       ) : (
         <>
           {!avatarUrl ? (

@@ -9,17 +9,23 @@ export default {
   args: {},
 } as ComponentMeta<typeof RainbowLoader>;
 
-const Template: ComponentStory<typeof RainbowLoader> = (args) => <RainbowLoader {...args} />;
+const Template: ComponentStory<typeof RainbowLoader> = (args) => (
+  <div
+    style={{
+      width: 150,
+    }}
+  >
+    <RainbowLoader {...args} />
+  </div>
+);
 
 export const Default = Template.bind({});
 Default.args = {
-  width: 150,
   height: 3,
 };
 
 export const WithText = Template.bind({});
 WithText.args = {
-  width: 150,
   height: 3,
   text: 'Loading',
 };

@@ -3,7 +3,11 @@ import React from 'react';
 import { AttentionIndicator } from '../AttentionIndicator/AttentionIndicator';
 import { RainbowLoader } from '../RainbowLoader';
 import { AvatarAddress } from './AvatarAddress/AvatarAddress';
-import { WalletButton, WalletConnectButtonTypography } from './WalletConnectButton.styled';
+import {
+  RainbowLoaderBox,
+  WalletButton,
+  WalletConnectButtonTypography,
+} from './WalletConnectButton.styled';
 
 export type WalletConnectButtonProps = {
   onClick?: () => void;
@@ -35,7 +39,9 @@ export const WalletConnectButton: React.FunctionComponent<WalletConnectButtonPro
   if (loading) {
     return (
       <WalletButton data-testid="WalletConnectButton-WalletLoading">
-        <RainbowLoader height={3} width={150} />
+        <RainbowLoaderBox>
+          <RainbowLoader height={3} />
+        </RainbowLoaderBox>
       </WalletButton>
     );
   }

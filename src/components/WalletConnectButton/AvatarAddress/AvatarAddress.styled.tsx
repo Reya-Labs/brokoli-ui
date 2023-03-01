@@ -21,3 +21,7 @@ export const AddressTypography = styled(Typography)`
     text-shadow: 0px 0px 10px rgba(225, 221, 247, 0.9);
   }
 `;
+
+export const RainbowLoaderBox = styled('div')`
+  width: 150px;
+`;

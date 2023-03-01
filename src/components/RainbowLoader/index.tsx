@@ -10,18 +10,17 @@ import {
 } from './RainbowLoader.styled';
 
 export type RainbowLoaderProps = {
-  width: number;
   height: number;
   text?: string;
 };
 
 export const RainbowLoader: React.FunctionComponent<RainbowLoaderProps> = React.memo(
-  ({ width, height, text }) => {
+  ({ height, text }) => {
     const loader = (
-      <LoadingBox width={width}>
-        <LoadingRect1 height={height} width={width} />
-        <LoadingRect2 height={height} width={width} />
-        <LoadingEllipsis height={height} width={width} />
+      <LoadingBox>
+        <LoadingRect1 height={height} />
+        <LoadingRect2 height={height} />
+        <LoadingEllipsis height={height} />
       </LoadingBox>
     );
     if (!text) {
