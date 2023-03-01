@@ -24,6 +24,7 @@ export const ExternalLink: React.FunctionComponent<{
       colorToken={colorToken}
       data-testid="ExternalLink-ExternalLinkStyled"
       href={href}
+      target="_blank"
       typographyToken={typographyToken}
     >
       {children}
