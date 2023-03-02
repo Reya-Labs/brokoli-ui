@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { AttentionIndicator } from '../AttentionIndicator/AttentionIndicator';
+import { AvatarAddress } from '../AvatarAddress';
 import { RainbowLoader } from '../RainbowLoader';
-import { AvatarAddress } from './AvatarAddress/AvatarAddress';
 import {
   RainbowLoaderBox,
   WalletButton,
@@ -49,7 +49,11 @@ export const WalletConnectButton: React.FunctionComponent<WalletConnectButtonPro
   if (account && account.length === 42) {
     return (
       <WalletButton data-testid="WalletConnectButton-WalletConnected" onClick={onClick}>
-        <AvatarAddress address={account} />
+        <AvatarAddress
+          address={account}
+          avatarSize="medium"
+          typographyToken="primaryBodyMediumRegular"
+        />
       </WalletButton>
     );
   }

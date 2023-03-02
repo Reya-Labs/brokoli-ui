@@ -1,6 +1,7 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
 
-import { RainbowLoader } from '../../RainbowLoader';
+import { RainbowLoader } from '../RainbowLoader';
+import { TypographyToken } from '../Typography';
 import {
   AddressTypography,
   AvatarAddressBox,
@@ -13,7 +14,9 @@ import { MetaMaskAvatar } from './MetaMaskAvatar/MetaMaskAvatar';
 
 export const AvatarAddress: FunctionComponent<{
   address?: string | null;
-}> = ({ address }) => {
+  avatarSize: 'small' | 'medium';
+  typographyToken: TypographyToken;
+}> = ({ typographyToken, avatarSize, address }) => {
   const [name, setName] = useState(address);
   const [avatarUrl, setAvatarUrl] = useState('');
   const [loading, setLoading] = useState(false);
@@ -47,14 +50,18 @@ export const AvatarAddress: FunctionComponent<{
       ) : (
         <>
           {!avatarUrl ? (
-            <MetaMaskAvatar address={address || ''} />
+            <MetaMaskAvatar address={address || ''} variant={avatarSize} />
           ) : (
-            <AvatarAddressImg alt="avatar" src={avatarUrl} />
+            <AvatarAddressImg
+              alt="avatar"
+              size={avatarSize === 'medium' ? 24 : 16}
+              src={avatarUrl}
+            />
           )}
           <AddressTypography
             colorToken="lavenderWeb"
             data-testid="AvatarAddress-AddressTypography"
-            typographyToken="primaryBodyMediumRegular"
+            typographyToken={typographyToken}
           >
             {formattedName[0].toUpperCase() + formattedName.substring(1)}
           </AddressTypography>

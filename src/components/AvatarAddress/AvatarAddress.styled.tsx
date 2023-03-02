@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { Typography } from '../../Typography';
+import { Typography } from '../Typography';
 
 export const AvatarAddressBox = styled('div')`
   display: flex;
@@ -8,9 +8,13 @@ export const AvatarAddressBox = styled('div')`
   align-items: center;
 `;
 
-export const AvatarAddressImg = styled('img')`
-  width: 24px;
-  height: 24px;
+export const AvatarAddressImg = styled('img', {
+  shouldForwardProp: (prop) => prop !== 'size',
+})<{
+  size: number;
+}>`
+  width: ${({ size }) => size}px;
+  height: ${({ size }) => size}px;
   border-radius: 50%;
 `;
 

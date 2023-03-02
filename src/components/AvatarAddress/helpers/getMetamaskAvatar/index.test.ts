@@ -1,4 +1,4 @@
-import { getMetamaskAvatar } from './';
+import { getMetamaskAvatar } from './index';
 
 describe('getMetamaskAvatar', () => {
   it('returns an empty string for an invalid address', () => {
