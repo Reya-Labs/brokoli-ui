@@ -12,7 +12,7 @@ export const IconBox = styled('div', {
   height: 24px;
   border-radius: 50%;
   background: ${({ isActive }) => (isActive ? colors.liberty7 : colors.lavenderWeb8)};
-  transition: background-color 300ms ease-in;
+  transition: background-color 200ms ease-in;
 `;
 
 export const ChainOptionButton = styled('button')`
@@ -30,7 +30,7 @@ export const ChainOptionButton = styled('button')`
   border-radius: 2px;
   width: 100%;
   box-sizing: border-box;
-  transition: background-color, text-shadow 300ms ease-in;
+  transition: background-color, text-shadow 200ms ease-in;
   border: 0;
   cursor: pointer;
 

@@ -23,7 +23,7 @@ export const NavLinkButton = styled(Link, {
   column-gap: 10px;
   align-items: center;
 
-  transition: color 300ms ease-in;
+  transition: color 200ms ease-in;
 
   &:hover {
     color: ${colors.lavenderWeb};

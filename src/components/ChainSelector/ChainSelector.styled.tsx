@@ -41,7 +41,7 @@ export const ChainSelectorButton = styled('button', {
   align-items: center;
   cursor: pointer;
 
-  transition: color 300ms ease-in;
+  transition: color 200ms ease-in;
   background: transparent;
   border: 0;
   &:hover {

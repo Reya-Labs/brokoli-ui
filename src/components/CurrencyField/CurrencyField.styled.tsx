@@ -29,7 +29,7 @@ export const CurrencyInputStyled = styled(CurrencyInput)<{ error?: boolean }>`
   color: ${({ error }) => (error ? colors.wildStrawberry3 : colors.lavenderWeb3)};
 
   outline: none;
-  transition: all 300ms ease-in;
+  transition: all 200ms ease-in;
 
   &:focus,
   &:hover {

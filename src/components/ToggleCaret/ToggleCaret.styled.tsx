@@ -28,7 +28,7 @@ export const ToggleCaretArrow = styled('span')<{
   position: relative;
   bottom: -2.5px;
   left: -5px;
-  transition: transform 300ms ease-in;
+  transition: transform 200ms ease-in;
   margin-top: 1px;
   text-align: left;
   transform: rotate(45deg);
@@ -42,7 +42,7 @@ export const ToggleCaretArrow = styled('span')<{
     width: 6px;
     height: 1.5px;
     background-color: currentColor;
-    transition: transform 300ms ease-in;
+    transition: transform 200ms ease-in;
   }
 
   &:after {

@@ -51,7 +51,7 @@ export const ButtonStyled = styled('button')<{
   ${secondaryBodyXSmallRegularCSS};
   color: ${colors.lavenderWeb};
   cursor: pointer;
-  transition: all 300ms ease-in;
+  transition: all 200ms ease-in;
 
   &:hover {
     box-shadow: 0px 0px 1px ${colors.lavenderWeb};

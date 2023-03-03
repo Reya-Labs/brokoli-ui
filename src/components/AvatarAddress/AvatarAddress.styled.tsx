@@ -19,7 +19,7 @@ export const AvatarAddressImg = styled('img', {
 `;
 
 export const AddressTypography = styled(Typography)`
-  transition: text-shadow 300ms ease-in;
+  transition: text-shadow 200ms ease-in;
   &:hover {
     cursor: pointer;
     text-shadow: 0px 0px 10px rgba(225, 221, 247, 0.9);

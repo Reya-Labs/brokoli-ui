@@ -52,7 +52,7 @@ export const SwitchButton = styled('button')<{
       ? colors.wildStrawberry
       : colors.wildStrawberry3};
   cursor: pointer;
-  transition: all 300ms ease-in;
+  transition: all 200ms ease-in;
 
   &:disabled {
     cursor: not-allowed;

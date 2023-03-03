@@ -57,7 +57,7 @@ export const CurrencyInputStyled = styled(CurrencyInput)<{ error?: boolean }>`
   text-shadow: 0px 0px 20px rgba(225, 221, 247, 0.3);
 
   outline: none;
-  transition: all 300ms ease-in;
+  transition: all 200ms ease-in;
 
   &:focus,
   &:hover {
