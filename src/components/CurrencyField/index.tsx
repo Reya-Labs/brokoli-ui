@@ -26,6 +26,13 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
   suffix,
   allowNegativeValue,
 }) => {
+  const handleOnChange = (newValue: string | undefined) => {
+    if (newValue === value) {
+      return;
+    }
+    onChange && onChange(newValue);
+  };
+
   return (
     <CurrencyInputStyled
       allowNegativeValue={allowNegativeValue}
@@ -43,7 +50,7 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
       maxLength={maxLength}
       suffix={suffix}
       value={value}
-      onValueChange={onChange}
+      onValueChange={handleOnChange}
     />
   );
 };

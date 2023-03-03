@@ -80,6 +80,13 @@ export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = 
   onSwitchChange,
   allowNegativeValue,
 }) => {
+  const handleOnChange = (newValue: string | undefined) => {
+    if (newValue === value) {
+      return;
+    }
+    onChange && onChange(newValue);
+  };
+
   return (
     <TokenFieldBox>
       <TopBox>
@@ -129,7 +136,7 @@ export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = 
           intlConfig={{ locale: navigator.language }}
           maxLength={maxLength}
           value={value}
-          onValueChange={onChange}
+          onValueChange={handleOnChange}
         />
         {token ? (
           <TokenBox>

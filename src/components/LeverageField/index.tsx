@@ -46,6 +46,9 @@ export const LeverageField: React.FunctionComponent<{
       if (!changedValue) {
         return;
       }
+      if (parseFloat(changedValue) === value) {
+        return;
+      }
       onLeverageChange && onLeverageChange(parseFloat(changedValue));
     },
     [onLeverageChange],
