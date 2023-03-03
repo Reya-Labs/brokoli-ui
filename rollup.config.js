@@ -4,6 +4,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
 import svgr from '@svgr/rollup';
 import bundleSize from 'rollup-plugin-bundle-size';
+import css from 'rollup-plugin-import-css';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import { terser } from 'rollup-plugin-terser';
 const dts = require('rollup-plugin-dts');
@@ -25,6 +26,7 @@ export default [
       },
     ],
     plugins: [
+      css(),
       svgr({
         memo: true,
         exportType: 'named',
