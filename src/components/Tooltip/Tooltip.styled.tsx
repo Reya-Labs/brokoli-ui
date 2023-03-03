@@ -25,6 +25,6 @@ export const TooltipBox = styled('div')`
   border: 1px solid ${colors.lavenderWeb6};
   border-radius: 8px;
   width: max-content;
-  max-width: calc(100vw - 10px);
-  padding: 8px;
+  max-width: 240px;
+  padding: 12px;
 `;
