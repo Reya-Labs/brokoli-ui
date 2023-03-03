@@ -11,10 +11,10 @@ export const CurrencyInputStyled = styled(CurrencyInput)<{ error?: boolean }>`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 4px 10px;
+  padding: 8px 10px;
   gap: 8px;
 
-  height: 26px;
+  height: 100%;
   width: 100%;
 
   background: linear-gradient(90.95deg, ${colors.lavenderWeb8} 0.66%, ${colors.liberty8} 99.34%);
