@@ -27,6 +27,19 @@ Default.args = {
   maxLeverageText: 'Max 8,000x Leverage',
 };
 
+export const Disabled = Template.bind({});
+Disabled.args = {
+  label: 'Leverage',
+  labelColorToken: 'lavenderWeb2',
+  labelTypographyToken: 'primaryBodySmallRegular',
+  value: 10,
+  disabled: true,
+  leverageOptions: [10, 50, 100],
+  maxLeverageColorToken: 'lavenderWeb3',
+  maxLeverageTypographyToken: 'primaryBodySmallRegular',
+  maxLeverageText: 'Max 8,000x Leverage',
+};
+
 export const WithTooltip = Template.bind({});
 WithTooltip.args = {
   label: 'Leverage',

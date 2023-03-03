@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 
 import { ColorTokens } from '../../foundation/Colors';
 import { CurrencyField } from '../CurrencyField';
@@ -41,18 +41,15 @@ export const LeverageField: React.FunctionComponent<{
   maxLeverageText,
   maxLeverageTypographyToken,
 }) => {
-  const handleOnChange = useCallback(
-    (changedValue?: string) => {
-      if (!changedValue) {
-        return;
-      }
-      if (parseFloat(changedValue) === value) {
-        return;
-      }
-      onLeverageChange && onLeverageChange(parseFloat(changedValue));
-    },
-    [onLeverageChange],
-  );
+  const handleOnChange = (changedValue?: string) => {
+    if (!changedValue) {
+      return;
+    }
+    if (parseFloat(changedValue) === value) {
+      return;
+    }
+    onLeverageChange && onLeverageChange(parseFloat(changedValue));
+  };
 
   return (
     <LeverageFieldBox>
@@ -87,6 +84,7 @@ export const LeverageField: React.FunctionComponent<{
             <ButtonStyled
               key={`${leverageOption}-${index}`}
               active={value === leverageOption}
+              disabled={disabled}
               onClick={() => handleOnChange(leverageOption.toString())}
             >
               {leverageOption}
