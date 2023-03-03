@@ -1,19 +1,23 @@
 import styled from '@emotion/styled';
 
-import { colors } from '../../foundation/Colors';
+import { BaseColorTokens, getColorFromToken } from '../../foundation/Colors';
 
-export const CloseButtonStyled = styled('button')`
+export const CloseButtonStyled = styled('button', {
+  shouldForwardProp: (prop) => prop !== 'colorToken',
+})<{
+  colorToken: BaseColorTokens;
+}>`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   padding: 4px 8px;
   gap: 4px;
-  background: ${colors.lavenderWeb8};
+  background: ${({ colorToken }) => `${getColorFromToken(`${colorToken}8`)}`};
   border-radius: 4px;
-  color: ${colors.lavenderWeb};
+  color: ${({ colorToken }) => `${getColorFromToken(`${colorToken}`)}`};
   cursor: pointer;
   border: none;
   &:hover {
-    background: ${colors.lavenderWeb7};
+    background: ${({ colorToken }) => `${getColorFromToken(`${colorToken}7`)}`};
   }
 `;

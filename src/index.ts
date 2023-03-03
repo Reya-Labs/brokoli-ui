@@ -11,6 +11,7 @@ export * from './components/LeverageField';
 export * from './components/LineChart';
 export * from './components/MarketToken';
 export * from './components/Nav';
+export * from './components/Notifications';
 export * from './components/Page';
 export * from './components/Pill';
 export * from './components/RainbowLoader';
