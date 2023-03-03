@@ -66,6 +66,13 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
   bottomRightTextDifferenceValue,
   allowNegativeValue,
 }) => {
+  const handleOnChange = (newValue: string | undefined) => {
+    if (newValue === value) {
+      return;
+    }
+    onChange && onChange(newValue);
+  };
+
   return (
     <TokenFieldBox>
       <TopBox>
@@ -103,7 +110,7 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
           intlConfig={{ locale: navigator.language }}
           maxLength={maxLength}
           value={value}
-          onValueChange={onChange}
+          onValueChange={handleOnChange}
         />
         {token ? (
           <TokenBox>
