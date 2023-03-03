@@ -6,6 +6,7 @@ export * from './components/CurrencyField';
 export * from './components/Dialog';
 export * from './components/Ellipsis';
 export * from './components/ExternalLink';
+export * from './components/LabelFromToTokenTypography';
 export * from './components/LabelTokenTypography';
 export * from './components/LeverageField';
 export * from './components/LineChart';
