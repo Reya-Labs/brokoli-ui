@@ -1,5 +1,5 @@
 import { Global } from '@emotion/react';
-import React from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Popover } from 'react-tiny-popover';
 
@@ -31,17 +31,25 @@ export const NavLink: React.FunctionComponent<NavLinkProps> = ({
   isNew,
 }) => {
   const { pathname } = useLocation();
-  const subLinksNotHidden = (subLinks || []).filter((sL) => !sL.isHidden);
+  const subLinksNotHidden = useMemo(
+    () => (subLinks || []).filter((sL) => !sL.isHidden),
+    [subLinks],
+  );
   const hasSubLinks = subLinksNotHidden.length !== 0;
   const [isSubmenuOpened, setIsSubmenuOpened] = React.useState(false);
-  const handleSubmenuOpen = () => setIsSubmenuOpened(true);
-  const handleSubmenuClose = () => setIsSubmenuOpened(false);
+  const handleSubmenuOpen = useCallback(() => setIsSubmenuOpened(true), []);
+  const handleSubmenuClose = useCallback(() => setIsSubmenuOpened(false), []);
 
-  const isActive = isActiveLink(
-    link,
-    subLinksNotHidden?.map((l) => l.link),
-    pathname,
+  const isActive = useMemo(
+    () =>
+      isActiveLink(
+        link,
+        subLinksNotHidden?.map((l) => l.link),
+        pathname,
+      ),
+    [link, subLinksNotHidden, pathname],
   );
+
   const linkButton = (
     <NavLinkButton
       data-testid={
@@ -61,7 +69,10 @@ export const NavLink: React.FunctionComponent<NavLinkProps> = ({
   );
 
   return (
-    <div data-testid={hasSubLinks} onClick={hasSubLinks ? handleSubmenuOpen : undefined}>
+    <div
+      data-testid={hasSubLinks ? 'NavLinkWithSubLinks' : 'NavLinkWithoutSubLinks'}
+      onClick={hasSubLinks ? handleSubmenuOpen : undefined}
+    >
       <Global styles={globalReactTinyPopoverContainerCSS} />
       {hasSubLinks ? (
         <Popover
