@@ -2,13 +2,12 @@ import styled from '@emotion/styled';
 
 import { colors } from '../../foundation/Colors';
 
-export const ExclaimBox = styled('div', {
+export const ExclaimBox = styled('span', {
   shouldForwardProp: (prop) => prop !== 'color',
 })<{
   color: string;
 }>`
   cursor: pointer;
-  display: inline-block;
   vertical-align: middle;
   & svg {
     width: 1em;
