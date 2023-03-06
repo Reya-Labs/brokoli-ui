@@ -53,6 +53,20 @@ const Template: ComponentStory<typeof Notifications> = (args) => {
       >
         Show success
       </Button>
+      <Button
+        variant="secondary"
+        onClick={() => {
+          showNotification({
+            title: 'This is a info',
+            content:
+              'A info message is a modal dialog box, in-place message, notification, or balloon that alerts the user of a condition that might cause a problem in the future',
+            colorToken: 'lavenderWeb',
+            autoClose: 3000,
+          });
+        }}
+      >
+        Show info that auto closes in 3 seconds
+      </Button>
     </React.Fragment>
   );
 };
