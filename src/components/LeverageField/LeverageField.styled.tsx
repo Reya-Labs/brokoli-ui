@@ -17,14 +17,14 @@ export const FieldButtonsBox = styled('div')`
   gap: 24px;
 `;
 export const CurrencyFieldBox = styled('div')`
-  width: 77px;
+  width: 80px;
 `;
 
 export const ButtonsBox = styled('div')`
   display: flex;
   flex-direction: row;
   gap: 8px;
-  width: 100%;
+  flex: 1;
   box-sizing: border-box;
 `;
 
