@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 import { colors } from '../../foundation/Colors';
 import { LAYER_INDEXES } from '../../foundation/LayerIndexes';
 import BackgroundNoiseImage from './assets/background-noise.png';
-import { ReactComponent as BrandSvg } from './assets/brand.svg';
 
 export const PageBox = styled('div')`
   position: relative;
@@ -34,12 +33,31 @@ export const BackgroundBox = styled('div')`
   );
 `;
 
-export const BrandLogo = styled(BrandSvg)`
+const BrandLogoBox = styled('div')`
   position: fixed;
-  left: 0;
-  bottom: 0;
+  width: 100vw;
+  height: 35vh;
   pointer-events: none;
   z-index: ${LAYER_INDEXES.BRAND_LOGO};
+  transform: matrix(1, -0.12, 0.15, 1, 0, 0);
+`;
+
+export const BrandLogoBox1 = styled(BrandLogoBox)`
+  left: -14vw;
+  top: 88vh;
+  box-shadow: 0px 0px 4px ${colors.ultramarineBlue}, 0px 2px 4px ${colors.wildStrawberry};
+`;
+
+export const BrandLogoBox2 = styled(BrandLogoBox)`
+  left: -17vw;
+  top: 92vh;
+  box-shadow: 0px 0px 4px ${colors.wildStrawberry}, 0px 2px 4px ${colors.wildStrawberry};
+`;
+
+export const BrandLogoBox3 = styled(BrandLogoBox)`
+  left: -20vw;
+  top: 96vh;
+  box-shadow: 0px 0px 4px ${colors.ultramarineBlue}, 0px 2px 4px ${colors.ultramarineBlue};
 `;
 
 export const BackgroundNoiseBox = styled('div')`
