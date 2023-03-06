@@ -12,4 +12,6 @@ export default {
 const Template: ComponentStory<typeof Ellipsis> = (args) => <Ellipsis {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+  colorToken: 'lavenderWeb',
+};

@@ -18,7 +18,6 @@ export const EllipsisTypography = styled('span', {
 })<{
   color: string;
 }>`
-  white-space: pre;
   color: ${({ color }) => color};
   :after {
     animation: ${ellipsisAnimation} 900ms infinite ease-in-out;

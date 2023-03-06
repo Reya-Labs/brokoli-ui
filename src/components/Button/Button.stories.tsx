@@ -23,6 +23,14 @@ Secondary.args = {
   variant: 'secondary',
 };
 
+export const WithLoading = Template.bind({});
+WithLoading.args = {
+  children: 'Default',
+  loading: true,
+  bottomLeftText: 'Bottom left text!',
+  variant: 'primary',
+};
+
 export const WithBottomLeftText = Template.bind({});
 WithBottomLeftText.args = {
   children: 'Default',
