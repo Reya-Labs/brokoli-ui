@@ -1,32 +1,31 @@
-import { Theme } from '@emotion/react';
-import { Interpolation } from '@emotion/serialize';
+import { CSSObject } from '@emotion/serialize';
 import React from 'react';
 
 import {
-  primaryBodyExtraLargeBoldCSS,
-  primaryBodyExtraLargeRegularCSS,
-  primaryBodyLargeBoldCSS,
-  primaryBodyLargeRegularCSS,
-  primaryBodyMediumBoldCSS,
-  primaryBodyMediumRegularCSS,
-  primaryBodySmallBoldCSS,
-  primaryBodySmallRegularCSS,
-  primaryBodyXSmallBoldCSS,
-  primaryBodyXSmallRegularCSS,
-  primaryHeader1BlackCSS,
-  primaryHeader1BoldCSS,
-  primaryHeader2BlackCSS,
-  primaryHeader2BoldCSS,
-  primaryHeader3BlackCSS,
-  primaryHeader3BoldCSS,
-  secondaryBodyLargeBoldCSS,
-  secondaryBodyLargeRegularCSS,
-  secondaryBodyMediumBoldCSS,
-  secondaryBodyMediumRegularCSS,
-  secondaryBodySmallBoldCSS,
-  secondaryBodySmallRegularCSS,
-  secondaryBodyXSmallBoldCSS,
-  secondaryBodyXSmallRegularCSS,
+  primaryBodyExtraLargeBoldCSSObject,
+  primaryBodyExtraLargeRegularCSSObject,
+  primaryBodyLargeBoldCSSObject,
+  primaryBodyLargeRegularCSSObject,
+  primaryBodyMediumBoldCSSObject,
+  primaryBodyMediumRegularCSSObject,
+  primaryBodySmallBoldCSSObject,
+  primaryBodySmallRegularCSSObject,
+  primaryBodyXSmallBoldCSSObject,
+  primaryBodyXSmallRegularCSSObject,
+  primaryHeader1BlackCSSObject,
+  primaryHeader1BoldCSSObject,
+  primaryHeader2BlackCSSObject,
+  primaryHeader2BoldCSSObject,
+  primaryHeader3BlackCSSObject,
+  primaryHeader3BoldCSSObject,
+  secondaryBodyLargeBoldCSSObject,
+  secondaryBodyLargeRegularCSSObject,
+  secondaryBodyMediumBoldCSSObject,
+  secondaryBodyMediumRegularCSSObject,
+  secondaryBodySmallBoldCSSObject,
+  secondaryBodySmallRegularCSSObject,
+  secondaryBodyXSmallBoldCSSObject,
+  secondaryBodyXSmallRegularCSSObject,
 } from './Typography.css';
 import { TypographyToken } from './typography-tokens';
 
@@ -34,104 +33,104 @@ export const TypographyTokenConfigMap: Record<
   TypographyToken,
   {
     as: React.ElementType;
-    css: Interpolation<Theme>;
+    styleObject: CSSObject;
   }
 > = {
   primaryHeader1Black: {
-    css: primaryHeader1BlackCSS,
+    styleObject: primaryHeader1BlackCSSObject,
     as: 'h1',
   },
   primaryHeader1Bold: {
-    css: primaryHeader1BoldCSS,
+    styleObject: primaryHeader1BoldCSSObject,
     as: 'h1',
   },
   primaryHeader2Black: {
-    css: primaryHeader2BlackCSS,
+    styleObject: primaryHeader2BlackCSSObject,
     as: 'h2',
   },
   primaryHeader2Bold: {
-    css: primaryHeader2BoldCSS,
+    styleObject: primaryHeader2BoldCSSObject,
     as: 'h2',
   },
   primaryHeader3Black: {
-    css: primaryHeader3BlackCSS,
+    styleObject: primaryHeader3BlackCSSObject,
     as: 'h3',
   },
   primaryHeader3Bold: {
-    css: primaryHeader3BoldCSS,
+    styleObject: primaryHeader3BoldCSSObject,
     as: 'h3',
   },
   primaryBodyXSmallRegular: {
-    css: primaryBodyXSmallRegularCSS,
+    styleObject: primaryBodyXSmallRegularCSSObject,
     as: 'p',
   },
   primaryBodyXSmallBold: {
-    css: primaryBodyXSmallBoldCSS,
+    styleObject: primaryBodyXSmallBoldCSSObject,
     as: 'p',
   },
   primaryBodySmallRegular: {
-    css: primaryBodySmallRegularCSS,
+    styleObject: primaryBodySmallRegularCSSObject,
     as: 'p',
   },
   primaryBodySmallBold: {
-    css: primaryBodySmallBoldCSS,
+    styleObject: primaryBodySmallBoldCSSObject,
     as: 'p',
   },
   primaryBodyMediumRegular: {
-    css: primaryBodyMediumRegularCSS,
+    styleObject: primaryBodyMediumRegularCSSObject,
     as: 'p',
   },
   primaryBodyMediumBold: {
-    css: primaryBodyMediumBoldCSS,
+    styleObject: primaryBodyMediumBoldCSSObject,
     as: 'p',
   },
   primaryBodyLargeRegular: {
-    css: primaryBodyLargeRegularCSS,
+    styleObject: primaryBodyLargeRegularCSSObject,
     as: 'p',
   },
   primaryBodyLargeBold: {
-    css: primaryBodyLargeBoldCSS,
+    styleObject: primaryBodyLargeBoldCSSObject,
     as: 'p',
   },
   primaryBodyExtraLargeRegular: {
-    css: primaryBodyExtraLargeRegularCSS,
+    styleObject: primaryBodyExtraLargeRegularCSSObject,
     as: 'p',
   },
   primaryBodyExtraLargeBold: {
-    css: primaryBodyExtraLargeBoldCSS,
+    styleObject: primaryBodyExtraLargeBoldCSSObject,
     as: 'p',
   },
 
   secondaryBodyXSmallRegular: {
-    css: secondaryBodyXSmallRegularCSS,
+    styleObject: secondaryBodyXSmallRegularCSSObject,
     as: 'p',
   },
   secondaryBodyXSmallBold: {
-    css: secondaryBodyXSmallBoldCSS,
+    styleObject: secondaryBodyXSmallBoldCSSObject,
     as: 'p',
   },
   secondaryBodySmallRegular: {
-    css: secondaryBodySmallRegularCSS,
+    styleObject: secondaryBodySmallRegularCSSObject,
     as: 'p',
   },
   secondaryBodySmallBold: {
-    css: secondaryBodySmallBoldCSS,
+    styleObject: secondaryBodySmallBoldCSSObject,
     as: 'p',
   },
   secondaryBodyMediumRegular: {
-    css: secondaryBodyMediumRegularCSS,
+    styleObject: secondaryBodyMediumRegularCSSObject,
     as: 'p',
   },
   secondaryBodyMediumBold: {
-    css: secondaryBodyMediumBoldCSS,
+    styleObject: secondaryBodyMediumBoldCSSObject,
     as: 'p',
   },
   secondaryBodyLargeRegular: {
-    css: secondaryBodyLargeRegularCSS,
+    styleObject: secondaryBodyLargeRegularCSSObject,
     as: 'p',
   },
   secondaryBodyLargeBold: {
-    css: secondaryBodyLargeBoldCSS,
+    styleObject: secondaryBodyLargeBoldCSSObject,
     as: 'p',
   },
 };

@@ -15,7 +15,7 @@ export const Default = Template.bind({});
 Default.args = {
   colorToken: 'ultramarineBlue',
   yMarkerColorToken: 'skyBlueCrayola3',
-  yMarker: 2.35,
+  yMarker: 1.82,
   yMarkerText: 'Fixed Rate:',
   data: [
     {

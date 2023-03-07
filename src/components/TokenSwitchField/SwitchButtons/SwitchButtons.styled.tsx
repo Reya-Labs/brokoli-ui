@@ -1,7 +1,8 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { colors } from '../../../foundation/Colors';
-import { primaryBodyXSmallRegularCSS } from '../../Typography/Typography.css';
+import { primaryBodyXSmallRegularCSSObject } from '../../Typography/Typography.css';
 
 export const SwitchButtonsBox = styled('div')`
   display: flex;
@@ -42,7 +43,7 @@ export const SwitchButton = styled('button')<{
 
   border-radius: 4px;
 
-  ${primaryBodyXSmallRegularCSS};
+  ${css(primaryBodyXSmallRegularCSSObject)};
   color: ${({ error, active }) =>
     !error
       ? active

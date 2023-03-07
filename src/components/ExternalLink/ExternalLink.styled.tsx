@@ -1,3 +1,4 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { BaseColorTokens, getColorFromToken } from '../../foundation/Colors';
@@ -18,7 +19,7 @@ export const ExternalLinkStyled = styled('a', {
   margin: 0;
   padding: 0;
   color: ${({ colorToken }) => getColorFromToken(`${colorToken}3`)};
-  ${({ typographyToken }) => TypographyTokenConfigMap[typographyToken].css};
+  ${({ typographyToken }) => css(TypographyTokenConfigMap[typographyToken].styleObject)};
   text-decoration: none;
 
   & svg {

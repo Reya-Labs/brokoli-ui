@@ -1,7 +1,8 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { colors } from '../../../foundation/Colors';
-import { primaryBodySmallRegularCSS } from '../../Typography/Typography.css';
+import { primaryBodySmallRegularCSSObject } from '../../Typography/Typography.css';
 
 export const IconBox = styled('div', {
   shouldForwardProp: (prop) => prop !== 'isActive',
@@ -22,7 +23,7 @@ export const ChainOptionButton = styled('button')`
   padding: 16px;
   gap: 8px;
 
-  ${primaryBodySmallRegularCSS};
+  ${css(primaryBodySmallRegularCSSObject)};
 
   color: ${colors.lavenderWeb};
   text-decoration: none;

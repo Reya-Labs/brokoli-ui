@@ -1,7 +1,8 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { colors } from '../../foundation/Colors';
-import { secondaryBodyXSmallRegularCSS } from '../Typography/Typography.css';
+import { secondaryBodyXSmallRegularCSSObject } from '../Typography/Typography.css';
 
 export const LeverageFieldBox = styled('div')`
   display: flex;
@@ -16,6 +17,7 @@ export const FieldButtonsBox = styled('div')`
   flex-direction: row;
   gap: 24px;
 `;
+
 export const CurrencyFieldBox = styled('div')`
   width: 80px;
 `;
@@ -48,7 +50,7 @@ export const ButtonStyled = styled('button')<{
 
   border-radius: 4px;
 
-  ${secondaryBodyXSmallRegularCSS};
+  ${css(secondaryBodyXSmallRegularCSSObject)};
   color: ${colors.lavenderWeb};
   cursor: pointer;
   transition: all 200ms ease-in;

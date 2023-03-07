@@ -1,8 +1,8 @@
-import { Theme } from '@emotion/react';
+import { css, Theme } from '@emotion/react';
 import { Interpolation } from '@emotion/serialize';
 import styled from '@emotion/styled';
 
-import { primaryBodyMediumBoldCSS } from '../Typography/Typography.css';
+import { primaryBodyMediumBoldCSSObject } from '../Typography/Typography.css';
 import { primaryButtonCSS, secondaryButtonCSS } from './Button.css';
 
 export type ButtonVariant = 'primary' | 'secondary';
@@ -23,7 +23,7 @@ export const ButtonStyled = styled('button', {
   align-items: center;
   padding: 14px 24px;
   gap: 10px;
-  ${primaryBodyMediumBoldCSS};
+  ${css(primaryBodyMediumBoldCSSObject)};
   border-radius: 4px;
   cursor: pointer;
   width: 100%;

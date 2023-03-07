@@ -1,8 +1,11 @@
 import { linearGradientDef } from '@nivo/core';
 import { ResponsiveLine } from '@nivo/line';
+import { Property } from 'csstype';
 import React, { useMemo } from 'react';
 
 import { colors, ColorTokens, getColorFromToken } from '../../foundation/Colors';
+import { TypographyToken } from '../Typography';
+import { TypographyTokenConfigMap } from '../Typography/typography-token-config-map';
 import { LineChartBox } from './LineChart.styled';
 import { Tooltip } from './Tooltip/Tooltip';
 
@@ -18,6 +21,8 @@ export type LineChartProps = {
   yMarkerText: string;
   colorToken?: ColorTokens;
   yMarkerColorToken?: ColorTokens;
+  yMarkerTypographyToken?: TypographyToken;
+  axisTypographyToken?: TypographyToken;
 };
 const GRADIENT_ID = 'gradient';
 export const LineChart: React.FunctionComponent<LineChartProps> = ({
@@ -26,7 +31,11 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
   yMarkerText,
   yMarkerColorToken = 'skyBlueCrayola',
   colorToken = 'ultramarineBlue',
+  yMarkerTypographyToken = 'secondaryBodyXSmallRegular',
+  axisTypographyToken = 'primaryBodyXSmallRegular',
 }) => {
+  const yMarkerTypography = TypographyTokenConfigMap[yMarkerTypographyToken].styleObject;
+  const axisTypography = TypographyTokenConfigMap[axisTypographyToken].styleObject;
   const color = useMemo(() => getColorFromToken(colorToken), [colorToken]);
   const yScale = useMemo(() => {
     const yS = data.reduce((pV, cI) => {
@@ -82,8 +91,9 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
             axis: 'y',
             value: yMarker,
             textStyle: {
-              fontSize: 10,
-              fontFamily: 'IBM Plex Mono',
+              fontSize: parseInt(yMarkerTypography.fontSize as string, 10),
+              fontFamily: yMarkerTypography.fontFamily as Property.FontFamily,
+              fontWeight: parseInt(yMarkerTypography.fontWeight as string),
               fill: colors.lavenderWeb,
             },
             lineStyle: {
@@ -103,7 +113,8 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
         theme={{
           background: 'transparent',
           textColor: colors.lavenderWeb3,
-          fontSize: 10,
+          fontSize: parseInt(axisTypography.fontSize as string, 10),
+          fontFamily: axisTypography.fontFamily as Property.FontFamily,
           crosshair: {
             line: {
               stroke: color,
@@ -123,8 +134,9 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
                 strokeWidth: 1,
               },
               text: {
-                fontSize: 10,
-                fontFamily: 'Inter',
+                fontSize: parseInt(axisTypography.fontSize as string, 10),
+                fontFamily: axisTypography.fontFamily as Property.FontFamily,
+                fontWeight: parseInt(axisTypography.fontWeight as string),
                 fill: colors.lavenderWeb3,
               },
             },

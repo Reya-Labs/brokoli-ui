@@ -1,8 +1,9 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import CurrencyInput from 'react-currency-input-field';
 
 import { colors } from '../../foundation/Colors';
-import { secondaryBodyMediumBoldCSS } from '../Typography/Typography.css';
+import { secondaryBodyMediumBoldCSSObject } from '../Typography/Typography.css';
 
 export const TokenFieldBox = styled('div')`
   display: flex;
@@ -58,7 +59,7 @@ export const CurrencyInputStyled = styled(CurrencyInput)<{ error?: boolean }>`
       : `0px 0px 1px ${colors.lavenderWeb3}, inset 1px 2px 6px ${colors.liberty8}`};
   border: none;
 
-  ${secondaryBodyMediumBoldCSS};
+  ${css(secondaryBodyMediumBoldCSSObject)};
   color: ${({ error }) => (error ? colors.wildStrawberry3 : colors.lavenderWeb3)};
 
   text-shadow: 0px 0px 20px rgba(225, 221, 247, 0.3);

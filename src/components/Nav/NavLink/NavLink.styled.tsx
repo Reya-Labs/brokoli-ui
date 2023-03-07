@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { colors } from '../../../foundation/Colors';
 import { LAYER_INDEXES } from '../../../foundation/LayerIndexes';
-import { primaryBodyMediumRegularCSS } from '../../Typography/Typography.css';
+import { primaryBodyMediumRegularCSSObject } from '../../Typography/Typography.css';
 
 export const NavLinkButton = styled(Link, {
   shouldForwardProp: (prop) => prop !== 'isActive' && prop !== 'isPopoverOpen',
@@ -12,7 +12,7 @@ export const NavLinkButton = styled(Link, {
   isPopoverOpen: boolean;
   isActive: boolean;
 }>`
-  ${primaryBodyMediumRegularCSS};
+  ${css(primaryBodyMediumRegularCSSObject)};
   padding: 6px 12px;
   color: ${({ isPopoverOpen, isActive }) =>
     isPopoverOpen || isActive ? colors.lavenderWeb : colors.lavenderWeb3};

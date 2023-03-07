@@ -1,3 +1,4 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { ColorTokens, getColorFromToken } from '../../foundation/Colors';
@@ -13,5 +14,5 @@ export const BaseTypography = styled('p', {
   margin: 0;
   padding: 0;
   color: ${({ colorToken }) => getColorFromToken(colorToken)};
-  ${({ typographyToken }) => TypographyTokenConfigMap[typographyToken].css};
+  ${({ typographyToken }) => css(TypographyTokenConfigMap[typographyToken].styleObject)};
 `;

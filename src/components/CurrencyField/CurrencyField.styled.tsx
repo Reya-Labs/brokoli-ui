@@ -1,8 +1,9 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import CurrencyInput from 'react-currency-input-field';
 
 import { colors } from '../../foundation/Colors';
-import { secondaryBodySmallRegularCSS } from '../Typography/Typography.css';
+import { secondaryBodySmallRegularCSSObject } from '../Typography/Typography.css';
 
 export const CurrencyInputStyled = styled(CurrencyInput)<{ error?: boolean }>`
   box-sizing: border-box;
@@ -25,7 +26,7 @@ export const CurrencyInputStyled = styled(CurrencyInput)<{ error?: boolean }>`
   border-radius: 4px;
   border: none;
 
-  ${secondaryBodySmallRegularCSS};
+  ${css(secondaryBodySmallRegularCSSObject)};
   color: ${({ error }) => (error ? colors.wildStrawberry3 : colors.lavenderWeb3)};
 
   outline: none;

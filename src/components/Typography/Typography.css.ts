@@ -1,208 +1,199 @@
-import { css } from '@emotion/react';
+export const primaryHeader1BlackCSSObject = {
+  fontFamily: "'Inter', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: '900',
+  fontSize: '32px',
+  lineHeight: '120%',
+  textShadow: '0px 0px 20px rgba(225, 221, 247, 0.3)',
+};
 
-export const primaryHeader1BlackCSS = css`
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 900;
-  font-size: 32px;
-  line-height: 120%;
+export const primaryHeader1BoldCSSObject = {
+  fontFamily: "'Inter', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: '700',
+  fontSize: '32px',
+  lineHeight: '120%',
+  textShadow: '0px 0px 20px rgba(225, 221, 247, 0.3)',
+};
 
-  text-shadow: 0px 0px 20px rgba(225, 221, 247, 0.3);
-`;
+export const primaryHeader2BlackCSSObject = {
+  fontFamily: "'Inter', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: '900',
+  fontSize: '24px',
+  lineHeight: '120%',
+  textShadow: '0px 0px 20px rgba(225, 221, 247, 0.3)',
+};
 
-export const primaryHeader1BoldCSS = css`
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 120%;
+export const primaryHeader2BoldCSSObject = {
+  fontFamily: "'Inter', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: '700',
+  fontSize: '24px',
+  lineHeight: '120%',
+  textShadow: '0px 0px 20px rgba(225, 221, 247, 0.3)',
+};
 
-  text-shadow: 0px 0px 20px rgba(225, 221, 247, 0.3);
-`;
+export const primaryHeader3BlackCSSObject = {
+  fontFamily: "'Inter', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: '900',
+  fontSize: '16px',
+  lineHeight: '120%',
+  textShadow: '0px 0px 20px rgba(225, 221, 247, 0.3)',
+};
 
-export const primaryHeader2BlackCSS = css`
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 900;
-  font-size: 24px;
-  line-height: 120%;
+export const primaryHeader3BoldCSSObject = {
+  fontFamily: "'Inter', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: '700',
+  fontSize: '16px',
+  lineHeight: '120%',
+  textShadow: '0px 0px 20px rgba(225, 221, 247, 0.3)',
+};
 
-  text-shadow: 0px 0px 20px rgba(225, 221, 247, 0.3);
-`;
+export const primaryBodyXSmallRegularCSSObject = {
+  fontFamily: "'Inter', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: '400',
+  fontSize: '10px',
+  lineHeight: '140%',
+  letterSpacing: '0.02em',
+};
 
-export const primaryHeader2BoldCSS = css`
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 120%;
+export const primaryBodyXSmallBoldCSSObject = {
+  fontFamily: "'Inter', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: '700',
+  fontSize: '10px',
+  lineHeight: '140%',
+  letterSpacing: '0.02em',
+};
 
-  text-shadow: 0px 0px 20px rgba(225, 221, 247, 0.3);
-`;
+export const primaryBodySmallRegularCSSObject = {
+  fontFamily: "'Inter', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: '400',
+  fontSize: '12px',
+  lineHeight: '150%',
+};
 
-export const primaryHeader3BlackCSS = css`
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 900;
-  font-size: 16px;
-  line-height: 120%;
+export const primaryBodySmallBoldCSSObject = {
+  fontFamily: "'Inter', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: '700',
+  fontSize: '12px',
+  lineHeight: '150%',
+};
 
-  text-shadow: 0px 0px 20px rgba(225, 221, 247, 0.3);
-`;
+export const primaryBodyMediumRegularCSSObject = {
+  fontFamily: "'Inter', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: '400',
+  fontSize: '14px',
+  lineHeight: '150%',
+};
 
-export const primaryHeader3BoldCSS = css`
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 120%;
+export const primaryBodyMediumBoldCSSObject = {
+  fontFamily: "'Inter', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: '700',
+  fontSize: '14px',
+  lineHeight: '150%',
+};
 
-  text-shadow: 0px 0px 20px rgba(225, 221, 247, 0.3);
-`;
+export const primaryBodyLargeRegularCSSObject = {
+  fontFamily: "'Inter', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: '400',
+  fontSize: '16px',
+  lineHeight: '150%',
+};
 
-export const primaryBodyXSmallRegularCSS = css`
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 10px;
-  line-height: 140%;
+export const primaryBodyLargeBoldCSSObject = {
+  fontFamily: "'Inter', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: '700',
+  fontSize: '16px',
+  lineHeight: '150%',
+};
 
-  letter-spacing: 0.02em;
-`;
+export const primaryBodyExtraLargeRegularCSSObject = {
+  fontFamily: "'Inter', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: '400',
+  fontSize: '18px',
+  lineHeight: '150%',
+};
 
-export const primaryBodyXSmallBoldCSS = css`
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 10px;
-  line-height: 140%;
+export const primaryBodyExtraLargeBoldCSSObject = {
+  fontFamily: "'Inter', sans-serif",
+  fontStyle: 'normal',
+  fontWeight: '700',
+  fontSize: '18px',
+  lineHeight: '150%',
+};
 
-  letter-spacing: 0.02em;
-`;
+export const secondaryBodyLargeBoldCSSObject = {
+  fontFamily: "'IBM Plex Mono', monospace",
+  fontStyle: 'normal',
+  fontWeight: '700',
+  fontSize: '16px',
+  lineHeight: '150%',
+};
 
-export const primaryBodySmallRegularCSS = css`
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 150%;
-`;
-export const primaryBodySmallBoldCSS = css`
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 150%;
-`;
+export const secondaryBodyLargeRegularCSSObject = {
+  fontFamily: "'IBM Plex Mono', monospace",
+  fontStyle: 'normal',
+  fontWeight: '400',
+  fontSize: '16px',
+  lineHeight: '150%',
+};
 
-export const primaryBodyMediumRegularCSS = css`
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 150%;
-`;
+export const secondaryBodyMediumBoldCSSObject = {
+  fontFamily: "'IBM Plex Mono', monospace",
+  fontStyle: 'normal',
+  fontWeight: '700',
+  fontSize: '14px',
+  lineHeight: '150%',
+};
 
-export const primaryBodyMediumBoldCSS = css`
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 150%;
-`;
+export const secondaryBodyMediumRegularCSSObject = {
+  fontFamily: "'IBM Plex Mono', monospace",
+  fontStyle: 'normal',
+  fontWeight: '400',
+  fontSize: '14px',
+  lineHeight: '150%',
+};
 
-export const primaryBodyLargeRegularCSS = css`
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 150%;
-`;
+export const secondaryBodySmallBoldCSSObject = {
+  fontFamily: "'IBM Plex Mono', monospace",
+  fontStyle: 'normal',
+  fontWeight: '700',
+  fontSize: '12px',
+  lineHeight: '150%',
+};
 
-export const primaryBodyLargeBoldCSS = css`
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 150%;
-`;
+export const secondaryBodySmallRegularCSSObject = {
+  fontFamily: "'IBM Plex Mono', monospace",
+  fontStyle: 'normal',
+  fontWeight: '400',
+  fontSize: '12px',
+  lineHeight: '150%',
+};
 
-export const primaryBodyExtraLargeRegularCSS = css`
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 150%;
-`;
+export const secondaryBodyXSmallBoldCSSObject = {
+  fontFamily: "'IBM Plex Mono', monospace",
+  fontStyle: 'normal',
+  fontWeight: '700',
+  fontSize: '10px',
+  lineHeight: '140%',
+};
 
-export const primaryBodyExtraLargeBoldCSS = css`
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 150%;
-`;
-
-export const secondaryBodyLargeBoldCSS = css`
-  font-family: 'IBM Plex Mono', monospace;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 150%;
-`;
-
-export const secondaryBodyLargeRegularCSS = css`
-  font-family: 'IBM Plex Mono', monospace;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 150%;
-`;
-
-export const secondaryBodyMediumBoldCSS = css`
-  font-family: 'IBM Plex Mono', monospace;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 150%;
-`;
-
-export const secondaryBodyMediumRegularCSS = css`
-  font-family: 'IBM Plex Mono', monospace;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 150%;
-`;
-
-export const secondaryBodySmallBoldCSS = css`
-  font-family: 'IBM Plex Mono', monospace;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 150%;
-`;
-
-export const secondaryBodySmallRegularCSS = css`
-  font-family: 'IBM Plex Mono', monospace;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 150%;
-`;
-
-export const secondaryBodyXSmallBoldCSS = css`
-  font-family: 'IBM Plex Mono', monospace;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 10px;
-  line-height: 140%;
-`;
-
-export const secondaryBodyXSmallRegularCSS = css`
-  font-family: 'IBM Plex Mono', monospace;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 10px;
-  line-height: 140%;
-`;
+export const secondaryBodyXSmallRegularCSSObject = {
+  fontFamily: "'IBM Plex Mono', monospace",
+  fontStyle: 'normal',
+  fontWeight: '400',
+  fontSize: '10px',
+  lineHeight: '140%',
+};

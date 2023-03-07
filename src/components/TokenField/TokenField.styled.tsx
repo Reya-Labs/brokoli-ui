@@ -1,29 +1,34 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import CurrencyInput from 'react-currency-input-field';
 
 import { colors } from '../../foundation/Colors';
-import { secondaryBodyMediumBoldCSS } from '../Typography/Typography.css';
+import { secondaryBodyMediumBoldCSSObject } from '../Typography/Typography.css';
 
 export const TokenFieldBox = styled('div')`
   display: flex;
   flex-direction: column;
   gap: 8px;
 `;
+
 export const TopBox = styled('div')`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 `;
+
 export const BottomBox = styled('div')`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 `;
+
 export const CurrencyInputBox = styled('div')`
   position: relative;
 `;
+
 export const TokenBox = styled('div')`
   position: absolute;
   right: 16px;
@@ -31,6 +36,7 @@ export const TokenBox = styled('div')`
   display: flex;
   gap: 8px;
 `;
+
 export const CurrencyInputStyled = styled(CurrencyInput)<{ error?: boolean }>`
   box-sizing: border-box;
 
@@ -51,7 +57,7 @@ export const CurrencyInputStyled = styled(CurrencyInput)<{ error?: boolean }>`
       : `0px 0px 1px ${colors.lavenderWeb3}, inset 1px 2px 6px ${colors.liberty8}`};
   border: none;
 
-  ${secondaryBodyMediumBoldCSS};
+  ${css(secondaryBodyMediumBoldCSSObject)};
   color: ${({ error }) => (error ? colors.wildStrawberry3 : colors.lavenderWeb3)};
 
   text-shadow: 0px 0px 20px rgba(225, 221, 247, 0.3);

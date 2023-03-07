@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 
 import { colors } from '../../foundation/Colors';
 import { LAYER_INDEXES } from '../../foundation/LayerIndexes';
-import { primaryBodyMediumRegularCSS } from '../Typography/Typography.css';
+import { primaryBodyMediumRegularCSSObject } from '../Typography/Typography.css';
 import { ReactComponent as Warning } from './icons/warning.svg';
 
 export const SelectorBox = styled('div')`
@@ -30,7 +30,7 @@ export const ChainSelectorButton = styled('button', {
 })<{
   isPopoverOpen: boolean;
 }>`
-  ${primaryBodyMediumRegularCSS};
+  ${css(primaryBodyMediumRegularCSSObject)};
   padding: 0px;
   color: ${({ isPopoverOpen }) => (isPopoverOpen ? colors.lavenderWeb : colors.lavenderWeb3)};
   text-decoration: none;
