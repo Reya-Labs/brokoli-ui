@@ -22,7 +22,6 @@ export const AppLink: React.FunctionComponent<{
     <AppLinkStyled
       colorToken={colorToken}
       data-testid="ExternalLink-ExternalLinkStyled"
-      target="_blank"
       to={to}
       typographyToken={typographyToken}
     >
