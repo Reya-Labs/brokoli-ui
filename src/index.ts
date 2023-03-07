@@ -1,3 +1,4 @@
+export * from './components/AppLink';
 export * from './components/AvatarAddress';
 export * from './components/Button';
 export * from './components/ChainSelector';

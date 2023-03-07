@@ -10,7 +10,7 @@ export const ExternalLinkStyled = styled('a', {
   colorToken: BaseColorTokens;
   typographyToken: TypographyToken;
 }>`
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
   align-items: center;
   gap: 8px;
