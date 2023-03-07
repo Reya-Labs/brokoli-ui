@@ -11,11 +11,7 @@ export const SwitchButtonsBox = styled('div')`
   padding: 0px;
 
   & button:nth-child(1) {
-    border-radius: 4px 0px 0px 4px;
-  }
-
-  & button:nth-child(2) {
-    border-radius: 0px 4px 4px 0px;
+    margin-right: -2px;
   }
 `;
 
@@ -42,6 +38,7 @@ export const SwitchButton = styled('button')<{
       : `0px 4px 4px ${colors.liberty8}, 0px 0px 1px ${colors.wildStrawberry}`};
 
   border-radius: 4px;
+  z-index: ${({ active }) => (active ? 1 : 0)};
 
   ${css(primaryBodyXSmallRegularCSSObject)};
   color: ${({ error, active }) =>
