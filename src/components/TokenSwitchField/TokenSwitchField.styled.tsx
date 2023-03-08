@@ -39,7 +39,7 @@ export const SwitchButtonsBox = styled('div')`
 `;
 export const CurrencyInputStyled = styled(CurrencyInput)<{ error?: boolean }>`
   box-sizing: border-box;
-  direction: rtl;
+  text-align: right;
 
   display: flex;
   flex-direction: row;
