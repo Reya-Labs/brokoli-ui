@@ -17,6 +17,7 @@ export type ShowNotificationParams = {
   titleTypographyToken?: TypographyToken;
   contentTypographyToken?: TypographyToken;
   autoClose?: number | false;
+  onCloseNotification?: () => void;
 };
 
 export const showNotification = ({
@@ -26,6 +27,7 @@ export const showNotification = ({
   title,
   colorToken,
   autoClose = false,
+  onCloseNotification,
 }: ShowNotificationParams) => {
   toast(
     ({ closeToast }) => {
@@ -35,7 +37,13 @@ export const showNotification = ({
             <Typography colorToken={colorToken} typographyToken={titleTypographyToken}>
               {title}
             </Typography>
-            <CloseButton colorToken={colorToken} onClick={closeToast} />
+            <CloseButton
+              colorToken={colorToken}
+              onClick={() => {
+                closeToast && closeToast();
+                onCloseNotification && onCloseNotification();
+              }}
+            />
           </TitleBox>
           <Typography colorToken={`${colorToken}2`} typographyToken={contentTypographyToken}>
             {content}
