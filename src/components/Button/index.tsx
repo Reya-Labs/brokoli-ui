@@ -42,14 +42,12 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
       >
         {childrenToRender}
       </ButtonStyled>
-      {!loading ? (
-        <Typography
-          colorToken={bottomLeftTextColorToken}
-          typographyToken={bottomLeftTextTypographyToken}
-        >
-          {bottomLeftText}
-        </Typography>
-      ) : null}
+      <Typography
+        colorToken={bottomLeftTextColorToken}
+        typographyToken={bottomLeftTextTypographyToken}
+      >
+        {bottomLeftText}
+      </Typography>
     </ButtonBox>
   );
 };
