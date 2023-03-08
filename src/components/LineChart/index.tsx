@@ -19,10 +19,10 @@ export type LineChartProps = {
   }[];
   yMarker: number;
   yMarkerText: string;
-  colorToken?: ColorTokens;
-  yMarkerColorToken?: ColorTokens;
-  yMarkerTypographyToken?: TypographyToken;
-  axisTypographyToken?: TypographyToken;
+  colorToken: ColorTokens;
+  yMarkerColorToken: ColorTokens;
+  yMarkerTypographyToken: TypographyToken;
+  axisTypographyToken: TypographyToken;
 };
 const GRADIENT_ID = 'gradient';
 export const LineChart: React.FunctionComponent<LineChartProps> = ({
