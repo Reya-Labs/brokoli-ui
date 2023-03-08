@@ -101,7 +101,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
               strokeDasharray: 5,
               strokeWidth: 1,
             },
-            legend: `${yMarkerText}: ${yMarker}%`,
+            legend: yMarkerText,
             legendPosition: 'top-left',
           },
         ]}
