@@ -6,7 +6,7 @@ import { Typography, TypographyToken } from '../Typography';
 import { TypographyWithTooltip } from '../TypographyWithTooltip';
 import { LabelTokenTypographyBox } from './LabelTokenTypography.styled';
 
-export const LabelTokenTypography: React.FunctionComponent<{
+export type LabelTokenTypographyProps = {
   colorToken: BaseColorTokens;
   value: string | number;
   typographyToken: TypographyToken;
@@ -17,7 +17,9 @@ export const LabelTokenTypography: React.FunctionComponent<{
   tooltip?: string;
   tooltipColorToken?: ColorTokens;
   differenceValue?: number;
-}> = ({
+};
+
+export const LabelTokenTypography: React.FunctionComponent<LabelTokenTypographyProps> = ({
   label,
   labelTypographyToken,
   labelColorToken,
