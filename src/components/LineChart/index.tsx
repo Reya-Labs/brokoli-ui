@@ -23,11 +23,13 @@ export type LineChartProps = {
   yMarkerColorToken: ColorTokens;
   yMarkerTypographyToken: TypographyToken;
   axisTypographyToken: TypographyToken;
+  axisBottomFormat: 'days' | 'hours';
 };
 const GRADIENT_ID = 'gradient';
 export const LineChart: React.FunctionComponent<LineChartProps> = ({
   data,
   yMarker,
+  axisBottomFormat,
   yMarkerText,
   yMarkerColorToken = 'skyBlueCrayola',
   colorToken = 'ultramarineBlue',
@@ -57,7 +59,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
         animate={true}
         areaBaselineValue={yScale.min}
         axisBottom={{
-          format: '%d %b',
+          format: axisBottomFormat === 'hours' ? '%H:%M' : '%d %b',
           tickSize: 0,
           tickPadding: 4,
           tickRotation: 0,
