@@ -63,7 +63,7 @@ export const AvatarAddress: FunctionComponent<{
             data-testid="AvatarAddress-AddressTypography"
             typographyToken={typographyToken}
           >
-            {formattedName[0].toUpperCase() + formattedName.substring(1)}
+            {formattedName}
           </AddressTypography>
         </>
       )}
