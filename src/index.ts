@@ -3,6 +3,7 @@ export * from './components/AvatarAddress';
 export * from './components/Button';
 export * from './components/ChainSelector';
 export * from './components/CloseButton';
+export * from './components/Confetti';
 export * from './components/CurrencyField';
 export * from './components/Dialog';
 export * from './components/Ellipsis';
