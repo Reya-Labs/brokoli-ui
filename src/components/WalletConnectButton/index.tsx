@@ -38,11 +38,9 @@ export const WalletConnectButton: React.FunctionComponent<WalletConnectButtonPro
 
   if (loading) {
     return (
-      <WalletButton data-testid="WalletConnectButton-WalletLoading">
-        <RainbowLoaderBox>
-          <RainbowLoader height={3} />
-        </RainbowLoaderBox>
-      </WalletButton>
+      <RainbowLoaderBox data-testid="WalletConnectButton-WalletLoading">
+        <RainbowLoader height={3} />
+      </RainbowLoaderBox>
     );
   }
 

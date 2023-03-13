@@ -29,4 +29,7 @@ export const WalletConnectButtonTypography = styled(Typography)`
 
 export const RainbowLoaderBox = styled('div')`
   width: 150px;
+  height: 37px;
+  display: flex;
+  align-items: center;
 `;
