@@ -34,7 +34,13 @@ const GradientLayer = styled('div', {
   width: 100%;
   height: ${({ height }) => height}px;
 
-  background: linear-gradient(90deg, #ff4aa9 0%, #fbc13a 31.47%, #4de5ff 68.91%, #2667ff 100%);
+  background: linear-gradient(
+    90deg,
+    ${colors.wildStrawberry} 0%,
+    ${colors.orangeYellow} 31.47%,
+    ${colors.skyBlueCrayola} 68.91%,
+    ${colors.ultramarineBlue} 100%
+  );
   border-radius: 20px;
   position: absolute;
   left: 0;
@@ -69,7 +75,7 @@ export const LoadingEllipsis = styled('div', {
   backdrop-filter: blur(1.2px);
   z-index: 2;
 
-  animation: ${move(ELLIPSE_WIDTH)} 1800ms linear infinite;
+  animation: ${move(ELLIPSE_WIDTH)} 1800ms ease-in-out infinite;
 `;
 
 export const RainbowLoaderBox = styled('div')`
