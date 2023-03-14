@@ -64,6 +64,6 @@ export const SwitchButton = styled('button')<{
       ${colors.lavenderWeb7} 84.3%)`
         : `linear-gradient(90.95deg, ${colors.lavenderWeb8} 0.66%, ${colors.liberty8} 99.34%)`};
 
-    box-shadow: 0px 4px 4px #0b0911, 0px 0px 1px ${colors.lavenderWeb};
+    box-shadow: 0px 4px 4px ${colors.liberty8}, 0px 0px 1px ${colors.lavenderWeb};
   }
 `;
