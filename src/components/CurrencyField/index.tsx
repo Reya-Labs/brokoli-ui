@@ -49,11 +49,7 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
 
   return (
     <CurrencyFieldBox>
-      {!tooltip ? (
-        <Typography colorToken={labelColorToken} typographyToken={labelTypographyToken}>
-          {label}
-        </Typography>
-      ) : label ? (
+      {tooltip && label ? (
         <TypographyWithTooltip
           colorToken={labelColorToken}
           tooltip={tooltip}
@@ -62,6 +58,10 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
         >
           {label}
         </TypographyWithTooltip>
+      ) : label ? (
+        <Typography colorToken={labelColorToken} typographyToken={labelTypographyToken}>
+          {label}
+        </Typography>
       ) : null}
       <CurrencyInputStyled
         allowNegativeValue={allowNegativeValue}
