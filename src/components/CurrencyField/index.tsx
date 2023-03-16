@@ -1,7 +1,10 @@
 import React from 'react';
 import { formatValue } from 'react-currency-input-field';
 
-import { CurrencyInputStyled } from './CurrencyField.styled';
+import { ColorTokens } from '../../foundation/Colors';
+import { Typography, TypographyToken } from '../Typography';
+import { TypographyWithTooltip } from '../TypographyWithTooltip';
+import { CurrencyFieldBox, CurrencyInputStyled } from './CurrencyField.styled';
 
 type CurrencyFieldProps = {
   onChange?: (value: string | undefined) => void;
@@ -13,6 +16,12 @@ type CurrencyFieldProps = {
   error?: boolean;
   suffix?: string;
   allowNegativeValue?: boolean;
+
+  label?: string;
+  labelColorToken?: ColorTokens;
+  labelTypographyToken?: TypographyToken;
+  tooltip?: string;
+  tooltipColorToken?: ColorTokens;
 };
 
 export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
@@ -25,6 +34,11 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
   error,
   suffix,
   allowNegativeValue,
+  labelColorToken = 'lavenderWeb2',
+  labelTypographyToken = 'primaryBodySmallRegular',
+  label,
+  tooltipColorToken,
+  tooltip,
 }) => {
   const handleOnChange = (newValue: string | undefined) => {
     if (newValue === value) {
@@ -34,23 +48,39 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
   };
 
   return (
-    <CurrencyInputStyled
-      allowNegativeValue={allowNegativeValue}
-      decimalsLimit={decimalsLimit}
-      defaultValue={
-        defaultValue ||
-        formatValue({
-          value: '0',
-          intlConfig: { locale: navigator.language },
-        })
-      }
-      disabled={disabled}
-      error={error}
-      intlConfig={{ locale: navigator.language }}
-      maxLength={maxLength}
-      suffix={suffix}
-      value={value}
-      onValueChange={handleOnChange}
-    />
+    <CurrencyFieldBox>
+      {!tooltip ? (
+        <Typography colorToken={labelColorToken} typographyToken={labelTypographyToken}>
+          {label}
+        </Typography>
+      ) : label ? (
+        <TypographyWithTooltip
+          colorToken={labelColorToken}
+          tooltip={tooltip}
+          tooltipColorToken={tooltipColorToken}
+          typographyToken={labelTypographyToken}
+        >
+          {label}
+        </TypographyWithTooltip>
+      ) : null}
+      <CurrencyInputStyled
+        allowNegativeValue={allowNegativeValue}
+        decimalsLimit={decimalsLimit}
+        defaultValue={
+          defaultValue ||
+          formatValue({
+            value: '0',
+            intlConfig: { locale: navigator.language },
+          })
+        }
+        disabled={disabled}
+        error={error}
+        intlConfig={{ locale: navigator.language }}
+        maxLength={maxLength}
+        suffix={suffix}
+        value={value}
+        onValueChange={handleOnChange}
+      />
+    </CurrencyFieldBox>
   );
 };
