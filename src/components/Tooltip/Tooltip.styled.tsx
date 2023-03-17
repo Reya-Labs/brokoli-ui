@@ -18,12 +18,16 @@ export const ExclaimBox = styled('span', {
   }
 `;
 
-export const TooltipBox = styled('div')`
+export const TooltipBox = styled('div', {
+  shouldForwardProp: (prop) => prop !== 'limitWidth',
+})<{
+  limitWidth: boolean;
+}>`
   box-sizing: border-box;
   background: ${colors.liberty7};
   border: 1px solid ${colors.lavenderWeb6};
   border-radius: 8px;
   width: max-content;
-  max-width: 240px;
+  ${({ limitWidth }) => (limitWidth ? 'max-width: 240px' : '')};
   padding: 12px;
 `;

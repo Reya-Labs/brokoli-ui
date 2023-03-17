@@ -13,7 +13,7 @@ import { ExclaimBox, TooltipBox } from './Tooltip.styled';
 export const Tooltip: React.FunctionComponent<{
   colorToken?: ColorTokens;
   className?: string;
-  children: string;
+  children: string | React.ReactNode;
 }> = ({ className, colorToken = 'lavenderWeb', children }) => (
   <FloatingUITooltip>
     <FloatingUITooltipTrigger className={className}>
@@ -22,7 +22,7 @@ export const Tooltip: React.FunctionComponent<{
       </ExclaimBox>
     </FloatingUITooltipTrigger>
     <FloatingUITooltipContent>
-      <TooltipBox>
+      <TooltipBox limitWidth={typeof children === 'string'}>
         <Typography colorToken="lavenderWeb" typographyToken="primaryBodySmallRegular">
           {children}
         </Typography>
