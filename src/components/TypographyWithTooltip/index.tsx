@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { ColorTokens } from '../../foundation/Colors';
+import { TooltipProps } from '../Tooltip';
 import { TypographyToken } from '../Typography';
 import { TooltipStyled, TypographyStyled } from './TypographyWithTooltip.styled';
 
@@ -8,7 +9,7 @@ export const TypographyWithTooltip: React.FunctionComponent<{
   colorToken: ColorTokens;
   typographyToken: TypographyToken;
   tooltipColorToken?: ColorTokens;
-  tooltip: string;
+  tooltip: TooltipProps['children'];
   children: string;
 }> = ({ children, tooltipColorToken, typographyToken, tooltip, colorToken }) => {
   return (

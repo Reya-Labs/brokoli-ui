@@ -2,6 +2,7 @@ import React from 'react';
 
 import { BaseColorTokens, ColorTokens } from '../../foundation/Colors';
 import { TokenTypography } from '../TokenTypography';
+import { TooltipProps } from '../Tooltip';
 import { Typography, TypographyToken } from '../Typography';
 import { TypographyWithTooltip } from '../TypographyWithTooltip';
 import { FromToBox, LabelFromToTokenTypographyBox } from './LabelFromToTokenTypography.styled';
@@ -21,7 +22,7 @@ export type FromToTokenTypographyProps = {
   label: string;
   labelColorToken: ColorTokens;
   labelTypographyToken: TypographyToken;
-  tooltip?: string;
+  tooltip?: TooltipProps['children'];
   tooltipColorToken?: ColorTokens;
 };
 
@@ -29,14 +30,11 @@ export const FromToTokenTypography: React.FunctionComponent<FromToTokenTypograph
   fromColorToken,
   fromValue,
   fromToken = '',
-
   toColorToken,
   toValue,
   toToken = '',
-
   typographyToken,
   token = '',
-
   label,
   labelColorToken,
   labelTypographyToken,

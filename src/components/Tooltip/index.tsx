@@ -10,11 +10,17 @@ import {
 } from './FloatingUITooltip';
 import { ExclaimBox, TooltipBox } from './Tooltip.styled';
 
-export const Tooltip: React.FunctionComponent<{
+export type TooltipProps = {
   colorToken?: ColorTokens;
   className?: string;
   children: string | React.ReactNode;
-}> = ({ className, colorToken = 'lavenderWeb', children }) => (
+};
+
+export const Tooltip: React.FunctionComponent<TooltipProps> = ({
+  className,
+  colorToken = 'lavenderWeb',
+  children,
+}) => (
   <FloatingUITooltip>
     <FloatingUITooltipTrigger className={className}>
       <ExclaimBox color={getColorFromToken(colorToken)} data-testid="ExclaimBox">

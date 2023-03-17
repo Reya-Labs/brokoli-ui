@@ -2,6 +2,7 @@ import React from 'react';
 
 import { ColorTokens } from '../../foundation/Colors';
 import { CurrencyField } from '../CurrencyField';
+import { TooltipProps } from '../Tooltip';
 import { Typography, TypographyToken } from '../Typography';
 import { TypographyWithTooltip } from '../TypographyWithTooltip';
 import {
@@ -16,7 +17,7 @@ export const LeverageField: React.FunctionComponent<{
   label: string;
   labelColorToken: ColorTokens;
   labelTypographyToken: TypographyToken;
-  tooltip?: string;
+  tooltip?: TooltipProps['children'];
   tooltipColorToken?: ColorTokens;
   error?: boolean;
   disabled?: boolean;

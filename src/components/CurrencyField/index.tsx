@@ -2,6 +2,7 @@ import React from 'react';
 import { formatValue } from 'react-currency-input-field';
 
 import { ColorTokens } from '../../foundation/Colors';
+import { TooltipProps } from '../Tooltip';
 import { Typography, TypographyToken } from '../Typography';
 import { TypographyWithTooltip } from '../TypographyWithTooltip';
 import { CurrencyFieldBox, CurrencyInputStyled } from './CurrencyField.styled';
@@ -20,7 +21,7 @@ type CurrencyFieldProps = {
   label?: string;
   labelColorToken?: ColorTokens;
   labelTypographyToken?: TypographyToken;
-  tooltip?: string;
+  tooltip?: TooltipProps['children'];
   tooltipColorToken?: ColorTokens;
 };
 
