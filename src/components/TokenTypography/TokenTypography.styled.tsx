@@ -12,7 +12,6 @@ export const TokenTypographyStyled = styled(Typography, {
 >`
   & > .token {
     font-weight: inherit;
-    margin-right: 8px;
     color: ${({ colorToken }) => getColorFromToken(`${colorToken as BaseColorTokens}3`)};
   }
 
@@ -20,6 +19,10 @@ export const TokenTypographyStyled = styled(Typography, {
     font-weight: inherit;
     color: ${({ positiveDifference }) =>
       getColorFromToken(positiveDifference ? 'skyBlueCrayola' : 'wildStrawberry')};
+  }
+
+  & > .difference-arrow {
+    margin-left: 8px;
   }
 
   & > .difference-arrow,

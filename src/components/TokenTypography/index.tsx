@@ -19,7 +19,7 @@ export const TokenTypography: React.FunctionComponent<{
   >
     {value}
     {token ? <strong className="token">{token}</strong> : null}
-    {value2 !== undefined && value2 !== null ? `/ ${value2}` : null}
+    {value2 !== undefined && value2 !== null ? ` / ${value2}` : null}
     {value2 !== undefined && value2 !== null && token ? (
       <strong className="token">{token}</strong>
     ) : null}
