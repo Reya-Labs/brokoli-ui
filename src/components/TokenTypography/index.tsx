@@ -10,19 +10,26 @@ export const TokenTypography: React.FunctionComponent<{
   typographyToken: TypographyToken;
   token: string;
   differenceValue?: number;
-}> = ({ differenceValue = NaN, token, typographyToken, value, colorToken }) => (
+  value2?: string | number;
+}> = ({ value2, differenceValue = NaN, token, typographyToken, value, colorToken }) => (
   <TokenTypographyStyled
     colorToken={colorToken}
     positiveDifference={differenceValue > 0}
     typographyToken={typographyToken}
   >
     {value}
-    {token ? <strong>{token}</strong> : null}
+    {token ? <strong className="token">{token}</strong> : null}
+    {value2 !== undefined && value2 !== null ? `/ ${value2}` : null}
+    {value2 !== undefined && value2 !== null && token ? (
+      <strong className="token">{token}</strong>
+    ) : null}
     {isNaN(differenceValue) ? null : (
       <React.Fragment>
-        <strong>{differenceValue > 0 ? '↑' : '↓'}</strong>
-        <strong>{differenceValue > 0 ? differenceValue : -differenceValue}</strong>
-        <strong>{token}</strong>
+        <strong className="difference-arrow">{differenceValue > 0 ? '↑' : '↓'}</strong>
+        <strong className="difference-value">
+          {differenceValue > 0 ? differenceValue : -differenceValue}
+        </strong>
+        <strong className="difference-token">{token}</strong>
       </React.Fragment>
     )}
   </TokenTypographyStyled>

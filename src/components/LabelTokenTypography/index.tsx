@@ -9,6 +9,7 @@ import { LabelTokenTypographyBox } from './LabelTokenTypography.styled';
 export type LabelTokenTypographyProps = {
   colorToken: BaseColorTokens;
   value: string | number;
+  value2?: string | number;
   typographyToken: TypographyToken;
   token: string;
   label: string;
@@ -30,6 +31,7 @@ export const LabelTokenTypography: React.FunctionComponent<LabelTokenTypographyP
   tooltip,
   tooltipColorToken,
   differenceValue,
+  value2,
 }) => (
   <LabelTokenTypographyBox>
     {!tooltip ? (
@@ -53,6 +55,7 @@ export const LabelTokenTypography: React.FunctionComponent<LabelTokenTypographyP
       token={token}
       typographyToken={typographyToken}
       value={value}
+      value2={value2}
     />
   </LabelTokenTypographyBox>
 );

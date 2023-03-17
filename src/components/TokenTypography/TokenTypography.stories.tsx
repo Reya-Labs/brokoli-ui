@@ -19,6 +19,15 @@ Default.args = {
   typographyToken: 'secondaryBodyMediumRegular',
 };
 
+export const WithRangeValues = Template.bind({});
+WithRangeValues.args = {
+  value: 52,
+  value2: 97,
+  colorToken: 'lavenderWeb',
+  token: '%',
+  typographyToken: 'secondaryBodyMediumRegular',
+};
+
 export const WithNegativeDifference = Template.bind({});
 WithNegativeDifference.args = {
   value: 100,

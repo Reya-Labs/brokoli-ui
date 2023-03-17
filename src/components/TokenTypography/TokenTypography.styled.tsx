@@ -10,20 +10,20 @@ export const TokenTypographyStyled = styled(Typography, {
     positiveDifference: boolean;
   }
 >`
-  & > strong:nth-of-type(1) {
+  & > .token {
     font-weight: inherit;
     margin-right: 8px;
     color: ${({ colorToken }) => getColorFromToken(`${colorToken as BaseColorTokens}3`)};
   }
 
-  & > strong:nth-of-type(3) {
+  & > .difference-value {
     font-weight: inherit;
     color: ${({ positiveDifference }) =>
       getColorFromToken(positiveDifference ? 'skyBlueCrayola' : 'wildStrawberry')};
   }
 
-  & > strong:nth-of-type(2),
-  & > strong:nth-of-type(4) {
+  & > .difference-arrow,
+  & > .difference-token {
     font-weight: inherit;
     color: ${({ positiveDifference }) =>
       getColorFromToken(positiveDifference ? 'skyBlueCrayola3' : 'wildStrawberry3')};
