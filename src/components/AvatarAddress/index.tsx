@@ -1,4 +1,5 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
+import { MetaMaskAvatar } from 'react-metamask-avatar';
 
 import { RainbowLoader } from '../RainbowLoader';
 import { TypographyToken } from '../Typography';
@@ -10,7 +11,6 @@ import {
 } from './AvatarAddress.styled';
 import { formatEthereumAddress } from './helpers/formatEthereumAddress';
 import { getENSDetails } from './helpers/getENSDetails';
-import { MetaMaskAvatar } from './MetaMaskAvatar/MetaMaskAvatar';
 
 export const AvatarAddress: FunctionComponent<{
   address?: string | null;
@@ -50,7 +50,7 @@ export const AvatarAddress: FunctionComponent<{
       ) : (
         <>
           {!avatarUrl ? (
-            <MetaMaskAvatar address={address || ''} variant={avatarSize} />
+            <MetaMaskAvatar address={address || ''} size={avatarSize === 'medium' ? 24 : 16} />
           ) : (
             <AvatarAddressImg
               alt="avatar"
