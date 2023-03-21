@@ -21,7 +21,7 @@ export const LeverageField: React.FunctionComponent<{
   tooltipColorToken?: ColorTokens;
   error?: boolean;
   disabled?: boolean;
-  onLeverageChange: (value: number) => void;
+  onLeverageChange: (value: number, changeType: 'button' | 'input') => void;
   value?: number;
   leverageOptions: number[];
   maxLeverageColorToken: ColorTokens;
@@ -42,14 +42,14 @@ export const LeverageField: React.FunctionComponent<{
   maxLeverageText,
   maxLeverageTypographyToken,
 }) => {
-  const handleOnChange = (changedValue?: string) => {
+  const handleOnChange = (changedValue: string = '', changeType: 'button' | 'input') => {
     if (!changedValue) {
       return;
     }
     if (parseFloat(changedValue) === value) {
       return;
     }
-    onLeverageChange && onLeverageChange(parseFloat(changedValue));
+    onLeverageChange && onLeverageChange(parseFloat(changedValue), changeType);
   };
 
   return (
@@ -77,7 +77,7 @@ export const LeverageField: React.FunctionComponent<{
             error={error}
             suffix="X"
             value={value?.toString()}
-            onChange={handleOnChange}
+            onChange={(newValue) => handleOnChange(newValue, 'input')}
           />
         </CurrencyFieldBox>
         <ButtonsBox>
@@ -86,7 +86,7 @@ export const LeverageField: React.FunctionComponent<{
               key={`${leverageOption}-${index}`}
               active={value === leverageOption}
               disabled={disabled}
-              onClick={() => handleOnChange(leverageOption.toString())}
+              onClick={() => handleOnChange(leverageOption.toString(), 'button')}
             >
               {leverageOption}
             </ButtonStyled>
