@@ -9,12 +9,20 @@ export const Skeleton: React.FunctionComponent<{
   typographyToken?: TypographyToken;
   variant: 'rectangular' | 'circular';
   className?: string;
+  'data-testid'?: string;
 }> = React.memo(
-  ({ typographyToken, className, variant = 'rectangular', colorToken = 'liberty' }) => {
+  ({
+    'data-testid': dataTestId,
+    typographyToken,
+    className,
+    variant = 'rectangular',
+    colorToken = 'liberty',
+  }) => {
     return (
       <SkeletonBox
         className={className}
         colorToken={colorToken}
+        data-testid={dataTestId}
         typographyToken={typographyToken}
         variant={variant}
       />
