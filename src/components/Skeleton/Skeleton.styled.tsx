@@ -1,0 +1,35 @@
+import { css, keyframes } from '@emotion/react';
+import styled from '@emotion/styled';
+
+import { ColorTokens, getColorFromToken } from '../../foundation/Colors';
+import { TypographyToken } from '../Typography';
+import { TypographyTokenConfigMap } from '../Typography/typography-token-config-map';
+
+const skeletonAnimation = keyframes`
+  0% {
+    opacity:1;
+  }
+  
+  50%{
+    opacity:0.4;
+  }
+  
+  100%{
+    opacity:1;
+  }
+`;
+
+export const SkeletonBox = styled('div', {
+  shouldForwardProp: (prop) => prop !== 'variant' && prop !== 'colorToken',
+})<{
+  colorToken: ColorTokens;
+  variant: 'rectangular' | 'circular';
+  typographyToken?: TypographyToken;
+}>`
+  background-color: ${({ colorToken }) => getColorFromToken(`${colorToken}`)};
+  height: 1.2em;
+  ${({ variant }) => (variant === 'circular' ? 'border-radius: 50%' : '')};
+  ${({ typographyToken }) =>
+    typographyToken ? css(TypographyTokenConfigMap[typographyToken].styleObject) : ''};
+  animation: ${skeletonAnimation} 1.5s ease-in-out 0.5s infinite;
+`;
