@@ -15,6 +15,7 @@ export type ButtonProps = {
   loading?: boolean;
   'data-testid'?: string;
   className?: string;
+  typographyToken?: TypographyToken;
 };
 export const Button: React.FunctionComponent<ButtonProps> = ({
   onClick,
@@ -26,6 +27,7 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
   className,
   'data-testid': dataTestId,
   bottomLeftTextColorToken = 'lavenderWeb3',
+  typographyToken = 'primaryBodyMediumBold',
   bottomLeftTextTypographyToken = 'primaryBodyXSmallRegular',
 }) => {
   const childrenToRender = !loading ? children : <Ellipsis />;
@@ -34,6 +36,7 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
       className={className}
       data-testid={dataTestId}
       disabled={disabled}
+      typographyToken={typographyToken}
       variant={variant}
       onClick={disabled ? undefined : onClick}
     >
@@ -45,13 +48,7 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
   }
   return (
     <ButtonBox>
-      <ButtonStyled
-        disabled={disabled}
-        variant={variant}
-        onClick={disabled || loading ? undefined : onClick}
-      >
-        {childrenToRender}
-      </ButtonStyled>
+      {button}
       <Typography
         colorToken={bottomLeftTextColorToken}
         typographyToken={bottomLeftTextTypographyToken}

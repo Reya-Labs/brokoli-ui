@@ -2,7 +2,8 @@ import { css, Theme } from '@emotion/react';
 import { Interpolation } from '@emotion/serialize';
 import styled from '@emotion/styled';
 
-import { primaryBodyMediumBoldCSSObject } from '../Typography/Typography.css';
+import { TypographyToken } from '../Typography';
+import { TypographyTokenConfigMap } from '../Typography/typography-token-config-map';
 import { primaryButtonCSS, secondaryButtonCSS } from './Button.css';
 
 export type ButtonVariant = 'primary' | 'secondary';
@@ -11,9 +12,10 @@ const ButtonVariantMap: Record<ButtonVariant, Interpolation<Theme>> = {
   secondary: secondaryButtonCSS,
 };
 export const ButtonStyled = styled('button', {
-  shouldForwardProp: (prop) => prop !== 'variant',
+  shouldForwardProp: (prop) => prop !== 'typographyToken' && prop !== 'variant',
 })<{
   variant: ButtonVariant;
+  typographyToken: TypographyToken;
 }>`
   ${({ variant }) => ButtonVariantMap[variant]};
 
@@ -23,7 +25,7 @@ export const ButtonStyled = styled('button', {
   align-items: center;
   padding: 14px 24px;
   gap: 10px;
-  ${css(primaryBodyMediumBoldCSSObject)};
+  ${({ typographyToken }) => css(TypographyTokenConfigMap[typographyToken].styleObject)};
   border-radius: 4px;
   cursor: pointer;
   width: 100%;

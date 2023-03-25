@@ -38,6 +38,13 @@ WithBottomLeftText.args = {
   variant: 'primary',
 };
 
+export const WithCustomTypography = Template.bind({});
+WithCustomTypography.args = {
+  children: 'Default',
+  variant: 'primary',
+  typographyToken: 'primaryBodySmallRegular',
+};
+
 export const WithBottomLeftTextAsError = Template.bind({});
 WithBottomLeftTextAsError.args = {
   children: 'Default',
