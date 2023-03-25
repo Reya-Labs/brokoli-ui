@@ -9,14 +9,21 @@ export type PillProps = {
   className?: string;
   colorToken: BaseColorTokens;
   typographyToken: TypographyToken;
+  'data-testid'?: string;
 };
 
-export const Pill = ({ typographyToken, children, colorToken, className }: PillProps) => (
+export const Pill = ({
+  'data-testid': dataTestId,
+  typographyToken,
+  children,
+  colorToken,
+  className,
+}: PillProps) => (
   <PillTypography
     backgroundColor={getColorFromToken(`${colorToken}6`)}
     className={className}
     colorToken={colorToken}
-    data-testid={`Pill-PillTypography-${colorToken}-${typographyToken}`}
+    data-testid={dataTestId || `Pill-PillTypography-${colorToken}-${typographyToken}`}
     typographyToken={typographyToken}
   >
     {children}
