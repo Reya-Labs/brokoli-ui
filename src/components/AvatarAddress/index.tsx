@@ -12,6 +12,8 @@ import {
 import { formatEthereumAddress } from './helpers/formatEthereumAddress';
 import { getENSDetails } from './helpers/getENSDetails';
 
+export { formatEthereumAddress } from './helpers/formatEthereumAddress';
+
 export const AvatarAddress: FunctionComponent<{
   address?: string | null;
   avatarSize: 'small' | 'medium';
