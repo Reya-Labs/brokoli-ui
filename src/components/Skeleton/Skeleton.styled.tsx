@@ -20,7 +20,8 @@ const skeletonAnimation = keyframes`
 `;
 
 export const SkeletonBox = styled('div', {
-  shouldForwardProp: (prop) => prop !== 'variant' && prop !== 'colorToken',
+  shouldForwardProp: (prop) =>
+    prop !== 'variant' && prop !== 'colorToken' && prop !== 'typographyToken',
 })<{
   colorToken: ColorTokens;
   variant: 'rectangular' | 'circular';
