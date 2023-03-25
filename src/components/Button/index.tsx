@@ -13,6 +13,8 @@ export type ButtonProps = {
   bottomLeftTextColorToken?: ColorTokens;
   bottomLeftTextTypographyToken?: TypographyToken;
   loading?: boolean;
+  'data-testid'?: string;
+  className?: string;
 };
 export const Button: React.FunctionComponent<ButtonProps> = ({
   onClick,
@@ -21,12 +23,20 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
   children,
   disabled = false,
   bottomLeftText,
+  className,
+  'data-testid': dataTestId,
   bottomLeftTextColorToken = 'lavenderWeb3',
   bottomLeftTextTypographyToken = 'primaryBodyXSmallRegular',
 }) => {
   const childrenToRender = !loading ? children : <Ellipsis />;
   const button = (
-    <ButtonStyled disabled={disabled} variant={variant} onClick={disabled ? undefined : onClick}>
+    <ButtonStyled
+      className={className}
+      data-testid={dataTestId}
+      disabled={disabled}
+      variant={variant}
+      onClick={disabled ? undefined : onClick}
+    >
       {childrenToRender}
     </ButtonStyled>
   );
