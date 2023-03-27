@@ -9,6 +9,8 @@ import { CurrencyFieldBox, CurrencyInputStyled } from './CurrencyField.styled';
 
 type CurrencyFieldProps = {
   onChange?: (value: string | undefined) => void;
+  onBlur?: () => void;
+
   decimalsLimit?: number;
   maxLength?: number;
   value?: string;
@@ -40,6 +42,7 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
   label,
   tooltipColorToken,
   tooltip,
+  onBlur,
 }) => {
   const handleOnChange = (newValue: string | undefined) => {
     if (newValue === value) {
@@ -80,6 +83,7 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
         maxLength={maxLength}
         suffix={suffix}
         value={value}
+        onBlur={onBlur}
         onValueChange={handleOnChange}
       />
     </CurrencyFieldBox>
