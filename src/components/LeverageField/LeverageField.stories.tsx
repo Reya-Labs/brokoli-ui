@@ -10,7 +10,7 @@ export default {
 } as ComponentMeta<typeof LeverageField>;
 
 const Template: ComponentStory<typeof LeverageField> = (args) => {
-  const [value, setValue] = useState<number>(5);
+  const [value, setValue] = useState<string | undefined>('5');
 
   return <LeverageField {...args} value={value} onLeverageChange={setValue} />;
 };
@@ -20,8 +20,8 @@ Default.args = {
   label: 'Leverage',
   labelColorToken: 'lavenderWeb2',
   labelTypographyToken: 'primaryBodySmallRegular',
-  value: 10,
-  leverageOptions: [10, 50, 100],
+  value: '10',
+  leverageOptions: ['10', '50', '100'],
   maxLeverageColorToken: 'lavenderWeb3',
   maxLeverageTypographyToken: 'primaryBodySmallRegular',
   maxLeverageText: 'Max 8,000x Leverage',
@@ -32,9 +32,9 @@ Disabled.args = {
   label: 'Leverage',
   labelColorToken: 'lavenderWeb2',
   labelTypographyToken: 'primaryBodySmallRegular',
-  value: 10,
+  value: '10',
   disabled: true,
-  leverageOptions: [10, 50, 100],
+  leverageOptions: ['10', '50', '100'],
   maxLeverageColorToken: 'lavenderWeb3',
   maxLeverageTypographyToken: 'primaryBodySmallRegular',
   maxLeverageText: 'Max 8,000x Leverage',
@@ -47,8 +47,8 @@ WithTooltip.args = {
   labelTypographyToken: 'primaryBodySmallRegular',
   tooltip: 'Input leverage!',
   tooltipColorToken: 'lavenderWeb2',
-  value: 10,
-  leverageOptions: [10, 50, 100],
+  value: '10',
+  leverageOptions: ['10', '50', '100'],
   maxLeverageColorToken: 'lavenderWeb3',
   maxLeverageTypographyToken: 'primaryBodySmallRegular',
   maxLeverageText: 'Max 8,000x Leverage',
@@ -61,9 +61,9 @@ WithError.args = {
   labelTypographyToken: 'primaryBodySmallRegular',
   tooltip: 'Input leverage!',
   tooltipColorToken: 'lavenderWeb2',
-  value: 9000,
+  value: '9000',
   error: true,
-  leverageOptions: [10, 50, 100],
+  leverageOptions: ['10', '50', '100'],
   maxLeverageColorToken: 'wildStrawberry3',
   maxLeverageTypographyToken: 'primaryBodySmallRegular',
   maxLeverageText: 'Max 8,000x Leverage',
