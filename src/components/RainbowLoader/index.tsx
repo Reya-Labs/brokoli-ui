@@ -17,10 +17,10 @@ export type RainbowLoaderProps = {
 export const RainbowLoader: React.FunctionComponent<RainbowLoaderProps> = React.memo(
   ({ height, text }) => {
     const loader = (
-      <LoadingBox>
-        <LoadingRect1 height={height} />
-        <LoadingRect2 height={height} />
-        <LoadingEllipsis height={height} />
+      <LoadingBox data-testid="RainbowLoader-LoadingBox">
+        <LoadingRect1 data-testid="RainbowLoader-LoadingRect1" height={height} />
+        <LoadingRect2 data-testid="RainbowLoader-LoadingRect2" height={height} />
+        <LoadingEllipsis data-testid="RainbowLoader-LoadingEllipsis" height={height} />
       </LoadingBox>
     );
     if (!text) {
@@ -28,8 +28,12 @@ export const RainbowLoader: React.FunctionComponent<RainbowLoaderProps> = React.
     }
 
     return (
-      <RainbowLoaderBox>
-        <RainbowText colorToken="lavenderWeb" typographyToken="secondaryBodyMediumRegular">
+      <RainbowLoaderBox data-testid="RainbowLoader-RainbowLoaderBox">
+        <RainbowText
+          colorToken="lavenderWeb"
+          data-testid="RainbowLoader-RainbowText"
+          typographyToken="secondaryBodyMediumRegular"
+        >
           {text}
         </RainbowText>
         {loader}

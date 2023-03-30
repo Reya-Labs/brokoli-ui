@@ -17,15 +17,16 @@ export const Skeleton: React.FunctionComponent<{
     className,
     variant = 'rectangular',
     colorToken = 'liberty',
-  }) => {
-    return (
-      <SkeletonBox
-        className={className}
-        colorToken={colorToken}
-        data-testid={dataTestId}
-        typographyToken={typographyToken}
-        variant={variant}
-      />
-    );
-  },
+  }) => (
+    <SkeletonBox
+      className={className}
+      colorToken={colorToken}
+      data-testid={
+        dataTestId ||
+        `Skeleton-SkeletonBox-${variant}${typographyToken ? `-${typographyToken}` : ''}`
+      }
+      typographyToken={typographyToken}
+      variant={variant}
+    />
+  ),
 );
