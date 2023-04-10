@@ -159,6 +159,7 @@ export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = 
         {bottomRightTextValue && (
           <TokenTypography
             colorToken={bottomRightTextColorToken}
+            differenceToken={token ? ` ${token.toUpperCase()}` : ''}
             differenceValue={bottomRightTextDifferenceValue}
             token={token ? ` ${token.toUpperCase()}` : ''}
             typographyToken={bottomRightTextTypographyToken}

@@ -134,6 +134,7 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
         {bottomRightTextValue && (
           <TokenTypography
             colorToken={bottomRightTextColorToken}
+            differenceToken={token ? ` ${token.toUpperCase()}` : ''}
             differenceValue={bottomRightTextDifferenceValue}
             token={token ? ` ${token.toUpperCase()}` : ''}
             typographyToken={bottomRightTextTypographyToken}

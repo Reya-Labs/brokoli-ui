@@ -10,8 +10,17 @@ export const TokenTypography: React.FunctionComponent<{
   typographyToken: TypographyToken;
   token: string;
   differenceValue?: number;
+  differenceToken?: string;
   value2?: string | number;
-}> = ({ value2, differenceValue = NaN, token, typographyToken, value, colorToken }) => (
+}> = ({
+  differenceToken,
+  value2,
+  differenceValue = NaN,
+  token,
+  typographyToken,
+  value,
+  colorToken,
+}) => (
   <TokenTypographyStyled
     colorToken={colorToken}
     positiveDifference={differenceValue > 0}
@@ -29,7 +38,7 @@ export const TokenTypography: React.FunctionComponent<{
         <strong className="difference-value">
           {differenceValue > 0 ? differenceValue : -differenceValue}
         </strong>
-        <strong className="difference-token">{token}</strong>
+        <strong className="difference-token">{differenceToken}</strong>
       </React.Fragment>
     )}
   </TokenTypographyStyled>
