@@ -25,7 +25,11 @@ export const IconsBox = styled('div')`
   align-items: center;
 `;
 
-export const IconStyled = styled(Icon)`
-  width: 30px;
-  height: 30px;
+export const IconStyled = styled(Icon, {
+  shouldForwardProp: (prop) => prop !== 'size',
+})<{
+  size: number;
+}>`
+  width: ${({ size }) => `${size}px`};
+  height: ${({ size }) => `${size}px`};
 `;
