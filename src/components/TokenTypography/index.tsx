@@ -2,6 +2,8 @@ import React from 'react';
 
 import { BaseColorTokens } from '../../foundation/Colors';
 import { TypographyToken } from '../Typography';
+import { ReactComponent as DownIcon } from './assets/down.svg';
+import { ReactComponent as UpIcon } from './assets/up.svg';
 import { TokenTypographyStyled } from './TokenTypography.styled';
 
 export const TokenTypography: React.FunctionComponent<{
@@ -21,11 +23,7 @@ export const TokenTypography: React.FunctionComponent<{
   value,
   colorToken,
 }) => (
-  <TokenTypographyStyled
-    colorToken={colorToken}
-    positiveDifference={differenceValue > 0}
-    typographyToken={typographyToken}
-  >
+  <TokenTypographyStyled colorToken={colorToken} typographyToken={typographyToken}>
     {value}
     {token ? <strong className="token">{token}</strong> : null}
     {value2 !== undefined && value2 !== null ? ` / ${value2}` : null}
@@ -34,7 +32,9 @@ export const TokenTypography: React.FunctionComponent<{
     ) : null}
     {isNaN(differenceValue) ? null : (
       <React.Fragment>
-        <strong className="difference-arrow">{differenceValue > 0 ? '↑' : '↓'}</strong>
+        <strong className="difference-arrow">
+          {differenceValue > 0 ? <UpIcon /> : <DownIcon />}
+        </strong>
         <strong className="difference-value">
           {differenceValue > 0 ? differenceValue : -differenceValue}
         </strong>
