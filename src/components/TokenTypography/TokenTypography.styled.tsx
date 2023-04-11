@@ -46,6 +46,7 @@ export const TokenTypographyStyled = styled(Typography)<TypographyProps>`
 
   & > .difference-arrow {
     margin-left: 8px;
+    margin-right: 2px;
 
     & svg {
       width: 0.8em;
