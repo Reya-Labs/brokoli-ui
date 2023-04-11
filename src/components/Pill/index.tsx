@@ -16,6 +16,7 @@ export type PillProps = {
   typographyToken: TypographyToken;
   'data-testid'?: string;
   variant: PillVariant;
+  onClick?: () => void;
 };
 
 export const Pill = ({
@@ -25,6 +26,7 @@ export const Pill = ({
   colorToken,
   className,
   variant,
+  onClick,
 }: PillProps) => {
   const isBaseColorTokenProvided = isBaseColorToken(colorToken);
   const backgroundColorToken: ColorTokens = isBaseColorTokenProvided
@@ -39,6 +41,7 @@ export const Pill = ({
       className={className}
       data-testid="Pill-PillBox"
       variant={variant}
+      onClick={onClick}
     >
       <TypographyUI
         colorToken={typographyColorToken}
