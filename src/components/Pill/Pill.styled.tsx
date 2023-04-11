@@ -3,16 +3,6 @@ import styled from '@emotion/styled';
 import { colors } from '../../foundation/Colors';
 import { Typography } from '../Typography';
 
-export const PillTypography = styled(Typography, {
-  shouldForwardProp: (prop) => prop !== 'backgroundColor',
-})<{ backgroundColor: string }>`
-  display: inline-block;
-  padding: 4px 8px;
-
-  background: ${({ backgroundColor }) => backgroundColor};
-  border-radius: 4px;
-`;
-
 export const RainbowTypography = styled(Typography)`
   display: inline-block;
   background: linear-gradient(
@@ -26,11 +16,12 @@ export const RainbowTypography = styled(Typography)`
   text-fill-color: transparent;
 `;
 
-export const RainbowBox = styled('div', {
-  shouldForwardProp: (prop) => prop !== 'backgroundColor',
-})<{ backgroundColor: string }>`
+export type PillVariant = 'regular' | 'compact';
+export const PillBox = styled('div', {
+  shouldForwardProp: (prop) => prop !== 'backgroundColor' && prop !== 'variant',
+})<{ backgroundColor: string; variant: PillVariant }>`
   display: inline-block;
-  padding: 4px 8px;
+  padding: ${({ variant }) => (variant === 'regular' ? '4px 8px' : '0 4px')};
   border-radius: 4px;
   background: ${({ backgroundColor }) => backgroundColor};
 `;

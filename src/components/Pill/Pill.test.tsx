@@ -7,12 +7,12 @@ describe('<Pill />', () => {
   it('renders the correct text and variant', () => {
     const text = 'Hello';
     render(
-      <Pill colorToken="wildStrawberry" typographyToken="primaryBodySmallRegular">
+      <Pill colorToken="wildStrawberry" typographyToken="primaryBodySmallRegular" variant="regular">
         {text}
       </Pill>,
     );
     const pillTypography = screen.getByTestId(
-      `Pill-PillTypography-wildStrawberry-primaryBodySmallRegular`,
+      `Pill-PillTypography-regular-wildStrawberry-primaryBodySmallRegular`,
     );
     expect(pillTypography).toHaveTextContent(text);
   });
@@ -24,13 +24,12 @@ describe('<Pill />', () => {
         className={className}
         colorToken="wildStrawberry"
         typographyToken="primaryBodySmallRegular"
+        variant="regular"
       >
         Hello
       </Pill>,
     );
-    const pillTypography = screen.getByTestId(
-      'Pill-PillTypography-wildStrawberry-primaryBodySmallRegular',
-    );
-    expect(pillTypography).toHaveClass(className);
+    const pillBox = screen.getByTestId('Pill-PillBox');
+    expect(pillBox).toHaveClass(className);
   });
 });

@@ -16,4 +16,13 @@ Default.args = {
   colorToken: 'wildStrawberry',
   children: 'Headache pill',
   typographyToken: 'primaryBodySmallRegular',
+  variant: 'regular',
+};
+
+export const CompactVariant = Template.bind({});
+CompactVariant.args = {
+  colorToken: 'skyBlueCrayola',
+  children: 'Headache pill',
+  typographyToken: 'primaryBodyXSmallBold',
+  variant: 'compact',
 };

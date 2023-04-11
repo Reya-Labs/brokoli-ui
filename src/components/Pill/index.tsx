@@ -1,9 +1,13 @@
 import React from 'react';
 
-import { BaseColorTokens, getColorFromToken } from '../../foundation/Colors';
-import { isBaseColorToken } from '../../foundation/Colors/isBaseColorToken';
-import { TypographyToken } from '../Typography';
-import { PillTypography, RainbowBox, RainbowTypography } from './Pill.styled';
+import {
+  BaseColorTokens,
+  ColorTokens,
+  getColorFromToken,
+  isBaseColorToken,
+} from '../../foundation/Colors';
+import { Typography, TypographyToken } from '../Typography';
+import { PillBox, PillVariant, RainbowTypography } from './Pill.styled';
 
 export type PillProps = {
   children: string;
@@ -11,6 +15,7 @@ export type PillProps = {
   colorToken: BaseColorTokens | 'rainbow';
   typographyToken: TypographyToken;
   'data-testid'?: string;
+  variant: PillVariant;
 };
 
 export const Pill = ({
@@ -19,32 +24,31 @@ export const Pill = ({
   children,
   colorToken,
   className,
+  variant,
 }: PillProps) => {
-  const baseColorToken = isBaseColorToken(colorToken);
-  if (baseColorToken) {
-    return (
-      <PillTypography
-        backgroundColor={getColorFromToken(`${colorToken}6`)}
-        className={className}
-        colorToken={colorToken}
-        data-testid={dataTestId || `Pill-PillTypography-${colorToken}-${typographyToken}`}
-        typographyToken={typographyToken}
-      >
-        {children}
-      </PillTypography>
-    );
-  }
+  const isBaseColorTokenProvided = isBaseColorToken(colorToken);
+  const backgroundColorToken: ColorTokens = isBaseColorTokenProvided
+    ? `${colorToken}6`
+    : 'liberty7';
+  const TypographyUI = isBaseColorTokenProvided ? Typography : RainbowTypography;
+  const typographyColorToken = isBaseColorTokenProvided ? colorToken : 'liberty7';
 
   return (
-    <RainbowBox backgroundColor={getColorFromToken('liberty7')}>
-      <RainbowTypography
-        className={className}
-        colorToken="liberty7"
-        data-testid={dataTestId || `Pill-PillTypography-${colorToken}-${typographyToken}`}
+    <PillBox
+      backgroundColor={getColorFromToken(backgroundColorToken)}
+      className={className}
+      data-testid="Pill-PillBox"
+      variant={variant}
+    >
+      <TypographyUI
+        colorToken={typographyColorToken}
+        data-testid={
+          dataTestId || `Pill-PillTypography-${variant}-${colorToken}-${typographyToken}`
+        }
         typographyToken={typographyToken}
       >
         {children}
-      </RainbowTypography>
-    </RainbowBox>
+      </TypographyUI>
+    </PillBox>
   );
 };
