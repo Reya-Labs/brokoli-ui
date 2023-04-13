@@ -20,6 +20,7 @@ export * from './components/Pill';
 export * from './components/RainbowLoader';
 export * from './components/Skeleton';
 export * from './components/TextField';
+export * from './components/ToggleCaret';
 export * from './components/TokenField';
 export * from './components/TokenSwitchField';
 export * from './components/TokenTypography';

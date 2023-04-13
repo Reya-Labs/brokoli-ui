@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { Popover } from 'react-tiny-popover';
 
 import { AttentionIndicator } from '../../AttentionIndicator/AttentionIndicator';
-import { ToggleCaret } from '../../ToggleCaret/ToggleCaret';
+import { ToggleCaret } from '../../ToggleCaret';
 import { isActiveLink } from './helpers';
 import {
   globalReactTinyPopoverContainerCSS,

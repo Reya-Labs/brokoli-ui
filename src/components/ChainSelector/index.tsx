@@ -3,7 +3,7 @@ import React, { useMemo, useState } from 'react';
 import { Popover } from 'react-tiny-popover';
 
 import { Ellipsis } from '../Ellipsis';
-import { ToggleCaret } from '../ToggleCaret/ToggleCaret';
+import { ToggleCaret } from '../ToggleCaret';
 import { ChainOptions } from './ChainOptions/ChainOptions';
 import {
   CHAIN_SELECTOR_POPOVER_CONTAINER_CLASS_NAME,
