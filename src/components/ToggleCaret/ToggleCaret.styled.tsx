@@ -15,7 +15,7 @@ const openCSS = css`
 
 export const ToggleCaretBox = styled('div')`
   position: relative;
-  width: 6.5px;
+  width: 10.6px;
   height: 6.5px;
 `;
 
