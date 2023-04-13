@@ -1,16 +1,11 @@
-import { Global } from '@emotion/react';
 import React, { useCallback, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Popover } from 'react-tiny-popover';
 
 import { AttentionIndicator } from '../../AttentionIndicator/AttentionIndicator';
+import { Popover } from '../../Popover';
 import { ToggleCaret } from '../../ToggleCaret';
 import { isActiveLink } from './helpers';
-import {
-  globalReactTinyPopoverContainerCSS,
-  NAV_LINK_POPOVER_CONTAINER_CLASS_NAME,
-  NavLinkButton,
-} from './NavLink.styled';
+import { NavLinkButton } from './NavLink.styled';
 import { SubLinks } from './SubLinks/SubLinks';
 
 export type NavLinkProps = {
@@ -73,15 +68,11 @@ export const NavLink: React.FunctionComponent<NavLinkProps> = ({
       data-testid={hasSubLinks ? 'NavLinkWithSubLinks' : 'NavLinkWithoutSubLinks'}
       onClick={hasSubLinks ? handleSubmenuOpen : undefined}
     >
-      <Global styles={globalReactTinyPopoverContainerCSS} />
       {hasSubLinks ? (
         <Popover
-          align="start"
-          containerClassName={NAV_LINK_POPOVER_CONTAINER_CLASS_NAME}
           content={<SubLinks subLinks={subLinksNotHidden || []} onClick={handleSubmenuClose} />}
           data-testid="NavLinkPopover"
           isOpen={isSubmenuOpened}
-          positions={['bottom']}
           onClickOutside={handleSubmenuClose}
         >
           {linkButton}

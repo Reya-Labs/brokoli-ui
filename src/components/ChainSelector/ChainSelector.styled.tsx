@@ -2,7 +2,6 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { colors } from '../../foundation/Colors';
-import { LAYER_INDEXES } from '../../foundation/LayerIndexes';
 import { primaryBodyMediumRegularCSSObject } from '../Typography/Typography.css';
 import { ReactComponent as Warning } from './icons/warning.svg';
 
@@ -54,18 +53,4 @@ export const IconBox = styled('div')`
   height: 24px;
   border-radius: 50%;
   background: ${colors.lavenderWeb8};
-`;
-
-export const CHAIN_SELECTOR_POPOVER_CONTAINER_CLASS_NAME = 'react-tiny-popover-container';
-export const globalReactTinyPopoverContainerCSS = css`
-  .${CHAIN_SELECTOR_POPOVER_CONTAINER_CLASS_NAME} {
-    background: ${colors.liberty7};
-
-    border: 1px solid ${colors.lavenderWeb7};
-    box-shadow: 0px 0px 20px rgba(225, 221, 247, 0.1);
-    border-radius: 4px;
-    min-width: 160px;
-    margin-top: 8px;
-    z-index: ${LAYER_INDEXES.POPOVER};
-  }
 `;
