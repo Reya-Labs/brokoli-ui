@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
-import { HashRouter, useLocation } from 'react-router-dom';
+import { BrowserRouter, useLocation } from 'react-router-dom';
 
 import { NavLink } from './NavLink';
 
@@ -21,11 +21,11 @@ describe('<NavLink />', () => {
   it('renders the correct link text', () => {
     (useLocation as jest.Mock).mockReturnValueOnce({ pathname: '/some-link' });
     render(
-      <HashRouter>
+      <BrowserRouter>
         <NavLink isNew={false} link="/some-link">
           Some Link
         </NavLink>
-      </HashRouter>,
+      </BrowserRouter>,
     );
     expect(screen.getByText('Some Link')).toBeInTheDocument();
   });
@@ -33,11 +33,11 @@ describe('<NavLink />', () => {
   it('renders the new link indicator when isNew is true', () => {
     (useLocation as jest.Mock).mockReturnValueOnce({ pathname: '/some-link' });
     render(
-      <HashRouter>
+      <BrowserRouter>
         <NavLink isNew={true} link="/some-link">
           Some Link
         </NavLink>
-      </HashRouter>,
+      </BrowserRouter>,
     );
     expect(screen.getByTestId('AttentionIndicator')).toBeInTheDocument();
   });
@@ -45,11 +45,11 @@ describe('<NavLink />', () => {
   it('renders the ActiveNavLinkButton when the link is active', () => {
     (useLocation as jest.Mock).mockReturnValueOnce({ pathname: '/some-link' });
     render(
-      <HashRouter>
+      <BrowserRouter>
         <NavLink isNew={false} link="/some-link">
           Some Link
         </NavLink>
-      </HashRouter>,
+      </BrowserRouter>,
     );
     expect(screen.getByTestId('ActiveNavLinkButton')).toBeInTheDocument();
   });
@@ -57,7 +57,7 @@ describe('<NavLink />', () => {
   it('renders the NavLinkPopover when it has subLinks', () => {
     (useLocation as jest.Mock).mockReturnValue({ pathname: '/some-link' });
     render(
-      <HashRouter>
+      <BrowserRouter>
         <NavLink
           isNew={false}
           link="/some-link"
@@ -65,7 +65,7 @@ describe('<NavLink />', () => {
         >
           Some Link
         </NavLink>
-      </HashRouter>,
+      </BrowserRouter>,
     );
     fireEvent.click(screen.getByText('Some Link'));
     expect(screen.getByTestId('NavLinkPopover')).toBeInTheDocument();

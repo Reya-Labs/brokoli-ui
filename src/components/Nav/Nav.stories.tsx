@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
-import { HashRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 import { Nav } from './index';
 
@@ -11,9 +11,9 @@ export default {
 } as ComponentMeta<typeof Nav>;
 
 const Template: ComponentStory<typeof Nav> = (args) => (
-  <HashRouter>
+  <BrowserRouter>
     <Nav {...args} />
-  </HashRouter>
+  </BrowserRouter>
 );
 
 export const Default = Template.bind({});

@@ -1,13 +1,13 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
-import { HashRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 import { SubLink } from './SubLink';
 
 describe('<SubLink />', () => {
   it('renders the correct link text', () => {
     render(
-      <HashRouter>
+      <BrowserRouter>
         <SubLink
           isActive={false}
           isNew={false}
@@ -15,14 +15,14 @@ describe('<SubLink />', () => {
           text="Some Link"
           onClick={() => {}}
         />
-      </HashRouter>,
+      </BrowserRouter>,
     );
     expect(screen.getByText('Some Link')).toBeInTheDocument();
   });
 
   it('renders the new link indicator when isNew is true', () => {
     render(
-      <HashRouter>
+      <BrowserRouter>
         <SubLink
           isActive={false}
           isNew={true}
@@ -30,14 +30,14 @@ describe('<SubLink />', () => {
           text="Some Link"
           onClick={() => {}}
         />
-      </HashRouter>,
+      </BrowserRouter>,
     );
     expect(screen.getByTestId('AttentionIndicator')).toBeInTheDocument();
   });
 
   it('renders the ActiveSubLinkButton when isActive is true', () => {
     render(
-      <HashRouter>
+      <BrowserRouter>
         <SubLink
           isActive={true}
           isNew={false}
@@ -45,7 +45,7 @@ describe('<SubLink />', () => {
           text="Some Link"
           onClick={() => {}}
         />
-      </HashRouter>,
+      </BrowserRouter>,
     );
     expect(screen.getByTestId('ActiveSubLinkButton')).toBeInTheDocument();
   });
@@ -53,7 +53,7 @@ describe('<SubLink />', () => {
   it('calls the onClick handler when clicked', () => {
     const onClick = jest.fn();
     render(
-      <HashRouter>
+      <BrowserRouter>
         <SubLink
           isActive={false}
           isNew={false}
@@ -61,7 +61,7 @@ describe('<SubLink />', () => {
           text="Some Link"
           onClick={onClick}
         />
-      </HashRouter>,
+      </BrowserRouter>,
     );
     fireEvent.click(screen.getByText('Some Link'));
     expect(onClick).toHaveBeenCalledTimes(1);
