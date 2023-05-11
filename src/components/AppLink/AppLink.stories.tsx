@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
-import { HashRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 import { Typography } from '../Typography';
 import { AppLink } from './index';
@@ -12,9 +12,9 @@ export default {
 } as ComponentMeta<typeof AppLink>;
 
 const Template: ComponentStory<typeof AppLink> = (args) => (
-  <HashRouter>
+  <BrowserRouter>
     <AppLink {...args} />
-  </HashRouter>
+  </BrowserRouter>
 );
 
 export const Default = Template.bind({});
@@ -26,7 +26,7 @@ Default.args = {
 };
 
 const WithinTextTemplate: ComponentStory<typeof AppLink> = (args) => (
-  <HashRouter>
+  <BrowserRouter>
     <Typography colorToken="lavenderWeb" typographyToken="primaryBodySmallRegular">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
       labore et dolore magna aliqua. <AppLink {...args} /> Ut enim ad minim veniam, quis nostrud
@@ -35,7 +35,7 @@ const WithinTextTemplate: ComponentStory<typeof AppLink> = (args) => (
       occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
       laborum.
     </Typography>
-  </HashRouter>
+  </BrowserRouter>
 );
 export const WithinText = WithinTextTemplate.bind({});
 WithinText.args = {

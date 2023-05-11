@@ -4,7 +4,7 @@ import { BaseColorTokens } from '../../foundation/Colors';
 import { TypographyToken } from '../Typography';
 import { AppLinkStyled, DisabledTypography } from './AppLink.styled';
 
-export const AppLink: React.FunctionComponent<{
+export type AppLinkProps = {
   colorToken: BaseColorTokens;
   typographyToken: TypographyToken;
   children: string;
@@ -12,7 +12,9 @@ export const AppLink: React.FunctionComponent<{
   disabled?: boolean;
   className?: string;
   'data-testid'?: string;
-}> = ({
+};
+
+export const AppLink: React.FunctionComponent<AppLinkProps> = ({
   className,
   'data-testid': dataTestId,
   to,
