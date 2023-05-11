@@ -24,7 +24,7 @@ export const ChainOptions: React.FunctionComponent<ChainOptionsProps> = ({
   }, []);
 
   return (
-    <AnimateHeight duration={300} easing={'ease-in'} height={height} id="ChainOptionsButtonGroup">
+    <AnimateHeight duration={300} easing="ease-in" height={height} id="ChainOptionsButtonGroup">
       <ChainOptionsButtonGroup data-testid="ChainOptions-ChainOptionsButtonGroup">
         {chainOptions.map((chainOption) => (
           <ChainOption
