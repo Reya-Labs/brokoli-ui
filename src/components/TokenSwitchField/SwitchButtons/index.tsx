@@ -23,9 +23,10 @@ export const SwitchButtons: React.FunctionComponent<SwitchButtonsProps> = ({
   error,
 }) => {
   return (
-    <SwitchButtonsBox>
+    <SwitchButtonsBox data-testid="SwitchButtons-SwitchButtonsBox">
       <SwitchButton
         active={switchValue === switchOnValue}
+        data-testid="SwitchButtons-SwitchButtonOn"
         disabled={disabled}
         error={error}
         onClick={() => {
@@ -39,6 +40,7 @@ export const SwitchButtons: React.FunctionComponent<SwitchButtonsProps> = ({
       </SwitchButton>
       <SwitchButton
         active={switchValue === switchOffValue}
+        data-testid="SwitchButtons-SwitchButtonOff"
         disabled={disabled}
         error={error}
         onClick={() => {
