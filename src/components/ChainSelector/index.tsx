@@ -6,18 +6,19 @@ import { ToggleCaret } from '../ToggleCaret';
 import { ChainOptions } from './ChainOptions/ChainOptions';
 import { ChainSelectorButton, IconBox, SelectorBox, WarningIcon } from './ChainSelector.styled';
 
-type ChainOption = {
+export type ChainOption = {
   id: number;
   name: string;
   Icon: React.FunctionComponent;
 };
 
-type ChainSelectorProps = {
+export type ChainSelectorProps = {
   onChainChange: (optionId: ChainOption['id']) => void;
   selectedChainId?: ChainOption['id'];
   chainOptions: ChainOption[];
   approving?: boolean;
 };
+
 export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
   chainOptions,
   selectedChainId,
@@ -50,12 +51,18 @@ export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
           onClick={(chainId) => handleChainOptionSelection(chainId)}
         />
       }
-      data-testid="ChainSelectorPopover"
+      data-testid="ChainSelector-ChainSelectorPopover"
       isOpen={isSubmenuOpened}
       onClickOutside={handleSubmenuClose}
     >
       <SelectorBox data-testid="ChainSelector-SelectorBox">
-        <IconBox>{selectedChain ? <selectedChain.Icon /> : <WarningIcon />}</IconBox>
+        <IconBox data-testid="ChainSelector-IconBox">
+          {selectedChain ? (
+            <selectedChain.Icon data-testid={`ChainSelector-${selectedChain.name}`} />
+          ) : (
+            <WarningIcon data-testid="ChainSelector-WarningIcon" />
+          )}
+        </IconBox>
         <ChainSelectorButton
           data-testid={isSubmenuOpened ? 'OpenChainSelectorButton' : 'ChainSelectorButton'}
           isPopoverOpen={isSubmenuOpened}
