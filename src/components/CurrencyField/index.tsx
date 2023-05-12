@@ -3,8 +3,8 @@ import { formatValue } from 'react-currency-input-field';
 
 import { ColorTokens } from '../../foundation/Colors';
 import { TooltipProps } from '../Tooltip';
-import { Typography, TypographyToken } from '../Typography';
-import { TypographyWithTooltip } from '../TypographyWithTooltip';
+import { TooltipLabel } from '../TooltipLabel';
+import { TypographyToken } from '../Typography';
 import { CurrencyFieldBox, CurrencyInputStyled } from './CurrencyField.styled';
 
 type CurrencyFieldProps = {
@@ -53,20 +53,13 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
 
   return (
     <CurrencyFieldBox>
-      {tooltip && label ? (
-        <TypographyWithTooltip
-          colorToken={labelColorToken}
-          tooltip={tooltip}
-          tooltipColorToken={tooltipColorToken}
-          typographyToken={labelTypographyToken}
-        >
-          {label}
-        </TypographyWithTooltip>
-      ) : label ? (
-        <Typography colorToken={labelColorToken} typographyToken={labelTypographyToken}>
-          {label}
-        </Typography>
-      ) : null}
+      <TooltipLabel
+        label={label}
+        labelColorToken={labelColorToken}
+        labelTypographyToken={labelTypographyToken}
+        tooltip={tooltip}
+        tooltipColorToken={tooltipColorToken}
+      />
       <CurrencyInputStyled
         allowNegativeValue={allowNegativeValue}
         decimalsLimit={decimalsLimit}
