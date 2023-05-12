@@ -14,7 +14,11 @@ export const ExternalLink: React.FunctionComponent<{
 }> = ({ disabled, href, children, colorToken, typographyToken }) => {
   if (disabled) {
     return (
-      <Typography colorToken={colorToken} typographyToken={typographyToken}>
+      <Typography
+        colorToken={colorToken}
+        data-testid={`ExternalLink-Disabled-${colorToken}`}
+        typographyToken={typographyToken}
+      >
         {children}
       </Typography>
     );
@@ -22,13 +26,13 @@ export const ExternalLink: React.FunctionComponent<{
   return (
     <ExternalLinkStyled
       colorToken={colorToken}
-      data-testid="ExternalLink-ExternalLinkStyled"
+      data-testid={`ExternalLink-ExternalLinkStyled-${colorToken}`}
       href={href}
       target="_blank"
       typographyToken={typographyToken}
     >
       {children}
-      <LinkArrow viewBox="0 0 7 7" />
+      <LinkArrow data-testid="ExternalLink-LinkArrow" viewBox="0 0 7 7" />
     </ExternalLinkStyled>
   );
 };
