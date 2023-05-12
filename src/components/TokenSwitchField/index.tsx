@@ -5,8 +5,8 @@ import { BaseColorTokens, ColorTokens } from '../../foundation/Colors';
 import { TokenIconProps } from '../TokenField/TokenIcon';
 import { TokenTypography } from '../TokenTypography';
 import { TooltipProps } from '../Tooltip';
+import { TooltipLabel } from '../TooltipLabel';
 import { Typography, TypographyToken } from '../Typography';
-import { TypographyWithTooltip } from '../TypographyWithTooltip';
 import { SwitchButtons } from './SwitchButtons';
 import {
   BottomBox,
@@ -91,15 +91,13 @@ export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = 
   return (
     <TokenFieldBox>
       <TopBox>
-        {label && tooltip && (
-          <TypographyWithTooltip
-            colorToken={labelColorToken}
-            tooltip={tooltip}
-            typographyToken={labelTypographyToken}
-          >
-            {label}
-          </TypographyWithTooltip>
-        )}
+        <TooltipLabel
+          label={label}
+          labelColorToken={labelColorToken}
+          labelTypographyToken={labelTypographyToken}
+          tooltip={tooltip}
+          tooltipColorToken={labelColorToken}
+        />
         {topRightText && (
           <Typography
             colorToken={topRightTextColorToken}

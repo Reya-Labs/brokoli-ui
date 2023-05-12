@@ -4,8 +4,8 @@ import { formatValue } from 'react-currency-input-field';
 import { BaseColorTokens, ColorTokens } from '../../foundation/Colors';
 import { TokenTypography } from '../TokenTypography';
 import { TooltipProps } from '../Tooltip';
+import { TooltipLabel } from '../TooltipLabel';
 import { Typography, TypographyToken } from '../Typography';
-import { TypographyWithTooltip } from '../TypographyWithTooltip';
 import {
   BottomBox,
   CurrencyInputBox,
@@ -77,15 +77,13 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
   return (
     <TokenFieldBox>
       <TopBox>
-        {label && tooltip && (
-          <TypographyWithTooltip
-            colorToken={labelColorToken}
-            tooltip={tooltip}
-            typographyToken={labelTypographyToken}
-          >
-            {label}
-          </TypographyWithTooltip>
-        )}
+        <TooltipLabel
+          label={label}
+          labelColorToken={labelColorToken}
+          labelTypographyToken={labelTypographyToken}
+          tooltip={tooltip}
+          tooltipColorToken={labelColorToken}
+        />
         {topRightText && (
           <Typography
             colorToken={topRightTextColorToken}
