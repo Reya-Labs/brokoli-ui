@@ -13,6 +13,7 @@ import { ReactComponent as USDTIcon } from './assets/usdt.svg';
 type IconProps = {
   name: SupportedIcons;
   className?: string;
+  'data-testid'?: string;
 };
 
 export type SupportedIcons =
@@ -41,10 +42,20 @@ const IconMap: Record<
   usdt: USDTIcon,
 };
 
-export const Icon: React.FunctionComponent<IconProps> = ({ name, className }) => {
+export const Icon: React.FunctionComponent<IconProps> = ({
+  'data-testid': dataTestId,
+  name,
+  className,
+}) => {
   const SupportedIcon = IconMap[name];
   if (!SupportedIcon) {
     return null;
   }
-  return <SupportedIcon className={className} viewBox="0 0 40 40" />;
+  return (
+    <SupportedIcon
+      className={className}
+      data-testid={dataTestId || `Icon-${name}`}
+      viewBox="0 0 40 40"
+    />
+  );
 };

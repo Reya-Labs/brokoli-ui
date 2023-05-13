@@ -29,13 +29,27 @@ export const MarketToken: React.FunctionComponent<MarketTokenProps> = ({
   market,
 }) => {
   return (
-    <MarketTokenBox>
-      <IconsBox>
-        <IconStyled name={MAP_MARKET_TO_ICON[market]} size={iconSize} />
-        {token ? <IconStyled name={token} size={iconSize} /> : null}
+    <MarketTokenBox data-testid="MarketToken-MarketTokenBox">
+      <IconsBox data-testid="MarketToken-IconsBox">
+        <IconStyled
+          data-testid={`MarketToken-IconStyled-${MAP_MARKET_TO_ICON[market]}`}
+          name={MAP_MARKET_TO_ICON[market]}
+          size={iconSize}
+        />
+        {token ? (
+          <IconStyled
+            data-testid={`MarketToken-IconStyled-${token}`}
+            name={token}
+            size={iconSize}
+          />
+        ) : null}
       </IconsBox>
-      <Typography colorToken={colorToken} typographyToken={typographyToken}>
-        {market + (token ? `-${token.toUpperCase()}` : '')}
+      <Typography
+        colorToken={colorToken}
+        data-testid={`MarketToken-Typography-${colorToken}-${typographyToken}`}
+        typographyToken={typographyToken}
+      >
+        {`${market}${token ? `-${token.toUpperCase()}` : ''}`}
       </Typography>
     </MarketTokenBox>
   );
