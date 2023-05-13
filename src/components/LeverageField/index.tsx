@@ -3,8 +3,8 @@ import React from 'react';
 import { ColorTokens } from '../../foundation/Colors';
 import { CurrencyField } from '../CurrencyField';
 import { TooltipProps } from '../Tooltip';
+import { TooltipLabel } from '../TooltipLabel';
 import { Typography, TypographyToken } from '../Typography';
-import { TypographyWithTooltip } from '../TypographyWithTooltip';
 import {
   ButtonsBox,
   ButtonStyled,
@@ -13,7 +13,7 @@ import {
   LeverageFieldBox,
 } from './LeverageField.styled';
 
-export const LeverageField: React.FunctionComponent<{
+export type LeverageFieldProps = {
   label: string;
   labelColorToken: ColorTokens;
   labelTypographyToken: TypographyToken;
@@ -27,7 +27,9 @@ export const LeverageField: React.FunctionComponent<{
   maxLeverageColorToken: ColorTokens;
   maxLeverageText: string;
   maxLeverageTypographyToken: TypographyToken;
-}> = ({
+};
+
+export const LeverageField: React.FunctionComponent<LeverageFieldProps> = ({
   value,
   leverageOptions,
   onLeverageChange,
@@ -47,38 +49,35 @@ export const LeverageField: React.FunctionComponent<{
   };
 
   return (
-    <LeverageFieldBox>
-      {!tooltip ? (
-        <Typography colorToken={labelColorToken} typographyToken={labelTypographyToken}>
-          {label}
-        </Typography>
-      ) : (
-        <TypographyWithTooltip
-          colorToken={labelColorToken}
-          tooltip={tooltip}
-          tooltipColorToken={tooltipColorToken}
-          typographyToken={labelTypographyToken}
-        >
-          {label}
-        </TypographyWithTooltip>
-      )}
+    <LeverageFieldBox data-testid="LeverageField-LeverageFieldBox">
+      <TooltipLabel
+        label={label}
+        labelColorToken={labelColorToken}
+        labelTypographyToken={labelTypographyToken}
+        tooltip={tooltip}
+        tooltipColorToken={tooltipColorToken}
+      />
       <FieldButtonsBox>
         <CurrencyFieldBox>
           <CurrencyField
             allowNegativeValue={false}
+            data-testid="LeverageField-CurrencyField"
             decimalsLimit={2}
             disabled={disabled}
-            error={error}
+            error={error ? error : undefined}
             suffix="X"
             value={value}
             onChange={(newValue) => handleOnChange(newValue, 'input')}
           />
         </CurrencyFieldBox>
-        <ButtonsBox>
+        <ButtonsBox data-testid="LeverageField-ButtonsBox">
           {leverageOptions.map((leverageOption, index) => (
             <ButtonStyled
               key={`${leverageOption}-${index}`}
               active={value === leverageOption}
+              data-testid={`LeverageField-ButtonStyled-${
+                disabled ? 'Disabled' : 'Enabled'
+              }-${leverageOption}`}
               disabled={disabled}
               onClick={() => handleOnChange(leverageOption, 'button')}
             >
@@ -87,7 +86,11 @@ export const LeverageField: React.FunctionComponent<{
           ))}
         </ButtonsBox>
       </FieldButtonsBox>
-      <Typography colorToken={maxLeverageColorToken} typographyToken={maxLeverageTypographyToken}>
+      <Typography
+        colorToken={maxLeverageColorToken}
+        data-testid="LeverageField-MaxLeverageTextTypography"
+        typographyToken={maxLeverageTypographyToken}
+      >
         {maxLeverageText}
       </Typography>
     </LeverageFieldBox>

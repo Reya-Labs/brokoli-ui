@@ -10,6 +10,7 @@ import { CurrencyFieldBox, CurrencyInputStyled } from './CurrencyField.styled';
 type CurrencyFieldProps = {
   onChange?: (value: string | undefined) => void;
   onBlur?: () => void;
+  'data-testid'?: string;
 
   decimalsLimit?: number;
   maxLength?: number;
@@ -43,6 +44,7 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
   tooltipColorToken,
   tooltip,
   onBlur,
+  'data-testid': dataTestId,
 }) => {
   const handleOnChange = (newValue: string | undefined) => {
     if (newValue === value) {
@@ -52,7 +54,7 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
   };
 
   return (
-    <CurrencyFieldBox>
+    <CurrencyFieldBox data-testid="CurrencyField-CurrencyFieldBox">
       <TooltipLabel
         label={label}
         labelColorToken={labelColorToken}
@@ -62,6 +64,7 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
       />
       <CurrencyInputStyled
         allowNegativeValue={allowNegativeValue}
+        data-testid={dataTestId || 'CurrencyField-CurrencyInputStyled'}
         decimalsLimit={decimalsLimit}
         defaultValue={
           defaultValue ||
