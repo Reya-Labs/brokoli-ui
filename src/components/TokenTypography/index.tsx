@@ -6,7 +6,7 @@ import { ReactComponent as DownIcon } from './assets/down.svg';
 import { ReactComponent as UpIcon } from './assets/up.svg';
 import { TokenTypographyStyled } from './TokenTypography.styled';
 
-export const TokenTypography: React.FunctionComponent<{
+export type TokenTypographyProps = {
   colorToken: BaseColorTokens;
   value: string | number;
   typographyToken: TypographyToken;
@@ -14,7 +14,9 @@ export const TokenTypography: React.FunctionComponent<{
   differenceValue?: number;
   differenceToken?: string;
   value2?: string | number;
-}> = ({
+};
+
+export const TokenTypography: React.FunctionComponent<TokenTypographyProps> = ({
   differenceToken,
   value2,
   differenceValue = NaN,
@@ -23,22 +25,38 @@ export const TokenTypography: React.FunctionComponent<{
   value,
   colorToken,
 }) => (
-  <TokenTypographyStyled colorToken={colorToken} typographyToken={typographyToken}>
+  <TokenTypographyStyled
+    colorToken={colorToken}
+    data-testid={`TokenTypography-TokenTypographyStyled-${colorToken}-${typographyToken}`}
+    typographyToken={typographyToken}
+  >
     {value}
-    {token ? <strong className="token">{token}</strong> : null}
+    {token ? (
+      <strong className="token" data-testid="TokenTypography-Token-Value">
+        {token}
+      </strong>
+    ) : null}
     {value2 !== undefined && value2 !== null ? ` / ${value2}` : null}
     {value2 !== undefined && value2 !== null && token ? (
-      <strong className="token">{token}</strong>
+      <strong className="token" data-testid="TokenTypography-Token-Value2">
+        {token}
+      </strong>
     ) : null}
     {isNaN(differenceValue) ? null : (
       <React.Fragment>
         <strong className="difference-arrow">
-          {differenceValue > 0 ? <UpIcon /> : <DownIcon />}
+          {differenceValue > 0 ? (
+            <UpIcon data-testid="TokenTypography-UpIcon" />
+          ) : (
+            <DownIcon data-testid="TokenTypography-DownIcon" />
+          )}
         </strong>
-        <strong className="difference-value">
+        <strong className="difference-value" data-testid="TokenTypography-DifferenceValue">
           {differenceValue > 0 ? differenceValue : -differenceValue}
         </strong>
-        <strong className="difference-token">{differenceToken}</strong>
+        <strong className="difference-token" data-testid="TokenTypography-DifferenceToken">
+          {differenceToken}
+        </strong>
       </React.Fragment>
     )}
   </TokenTypographyStyled>
