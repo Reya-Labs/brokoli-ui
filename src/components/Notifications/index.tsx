@@ -6,9 +6,8 @@ import React from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 
 import { BaseColorTokens } from '../../foundation/Colors';
-import { CloseButton } from '../CloseButton';
-import { Typography, TypographyToken } from '../Typography';
-import { NotificationBox, TitleBox } from './Notifications.styled';
+import { TypographyToken } from '../Typography';
+import { NotificationContent } from './NotificationContent';
 
 export type ShowNotificationParams = {
   content: string;
@@ -30,27 +29,17 @@ export const showNotification = ({
   onCloseNotification,
 }: ShowNotificationParams) => {
   toast(
-    ({ closeToast }) => {
-      return (
-        <NotificationBox colorToken={colorToken}>
-          <TitleBox>
-            <Typography colorToken={colorToken} typographyToken={titleTypographyToken}>
-              {title}
-            </Typography>
-            <CloseButton
-              colorToken={colorToken}
-              onClick={() => {
-                closeToast && closeToast();
-                onCloseNotification && onCloseNotification();
-              }}
-            />
-          </TitleBox>
-          <Typography colorToken={`${colorToken}2`} typographyToken={contentTypographyToken}>
-            {content}
-          </Typography>
-        </NotificationBox>
-      );
-    },
+    ({ closeToast }) => (
+      <NotificationContent
+        closeToast={closeToast}
+        colorToken={colorToken}
+        content={content}
+        contentTypographyToken={contentTypographyToken}
+        title={title}
+        titleTypographyToken={titleTypographyToken}
+        onCloseNotification={onCloseNotification}
+      />
+    ),
     {
       autoClose,
       closeButton: false,
