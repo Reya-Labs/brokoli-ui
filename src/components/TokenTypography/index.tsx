@@ -14,6 +14,7 @@ export type TokenTypographyProps = {
   differenceValue?: number;
   differenceToken?: string;
   value2?: string | number;
+  'data-testid'?: string;
 };
 
 export const TokenTypography: React.FunctionComponent<TokenTypographyProps> = ({
@@ -24,10 +25,13 @@ export const TokenTypography: React.FunctionComponent<TokenTypographyProps> = ({
   typographyToken,
   value,
   colorToken,
+  'data-testid': dataTestId,
 }) => (
   <TokenTypographyStyled
     colorToken={colorToken}
-    data-testid={`TokenTypography-TokenTypographyStyled-${colorToken}-${typographyToken}`}
+    data-testid={
+      dataTestId || `TokenTypography-TokenTypographyStyled-${colorToken}-${typographyToken}`
+    }
     typographyToken={typographyToken}
   >
     {value}

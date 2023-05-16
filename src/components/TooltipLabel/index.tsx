@@ -10,6 +10,7 @@ type TooltipLabelProps = {
   labelColorToken?: ColorTokens;
   tooltipColorToken?: ColorTokens;
   labelTypographyToken?: TypographyToken;
+  'data-testid'?: string;
 };
 export const TooltipLabel: React.FC<TooltipLabelProps> = ({
   tooltip,
@@ -17,6 +18,7 @@ export const TooltipLabel: React.FC<TooltipLabelProps> = ({
   labelColorToken,
   tooltipColorToken,
   labelTypographyToken,
+  'data-testid': dataTestId,
 }) => {
   const shouldRenderTooltip = tooltip && label && labelColorToken && labelTypographyToken;
   const shouldRenderTypography = label && labelColorToken && labelTypographyToken;
@@ -25,7 +27,7 @@ export const TooltipLabel: React.FC<TooltipLabelProps> = ({
     return (
       <TypographyWithTooltip
         colorToken={labelColorToken}
-        data-testid="TooltipLabel-TypographyWithTooltip"
+        data-testid={dataTestId || 'TooltipLabel-TypographyWithTooltip'}
         tooltip={tooltip}
         tooltipColorToken={tooltipColorToken}
         typographyToken={labelTypographyToken}

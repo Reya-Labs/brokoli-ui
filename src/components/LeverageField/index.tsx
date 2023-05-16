@@ -64,7 +64,7 @@ export const LeverageField: React.FunctionComponent<LeverageFieldProps> = ({
             data-testid="LeverageField-CurrencyField"
             decimalsLimit={2}
             disabled={disabled}
-            error={error ? error : undefined}
+            error={error}
             suffix="X"
             value={value}
             onChange={(newValue) => handleOnChange(newValue, 'input')}

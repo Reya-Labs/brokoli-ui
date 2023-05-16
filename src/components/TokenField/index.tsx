@@ -75,27 +75,30 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
   };
 
   return (
-    <TokenFieldBox>
-      <TopBox>
+    <TokenFieldBox data-testid="TokenField-TokenFieldBox">
+      <TopBox data-testid="TokenField-TopBox">
         <TooltipLabel
+          data-testid="TokenField-TopBox-TooltipLabel"
           label={label}
           labelColorToken={labelColorToken}
           labelTypographyToken={labelTypographyToken}
           tooltip={tooltip}
           tooltipColorToken={labelColorToken}
         />
-        {topRightText && (
+        {topRightText ? (
           <Typography
             colorToken={topRightTextColorToken}
+            data-testid="TokenField-TopBox-Typography"
             typographyToken={topRightTextTypographyToken}
           >
             {topRightText}
           </Typography>
-        )}
+        ) : null}
       </TopBox>
-      <CurrencyInputBox>
+      <CurrencyInputBox data-testid="TokenField-CurrencyInputBox">
         <CurrencyInputStyled
           allowNegativeValue={allowNegativeValue}
+          data-testid="TokenField-CurrencyInputBox-CurrencyInputStyled"
           decimalsLimit={decimalsLimit}
           defaultValue={
             defaultValue ||
@@ -112,33 +115,42 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
           onValueChange={handleOnChange}
         />
         {token ? (
-          <TokenBox>
-            <TokenIcon token={token} />
-            <Typography colorToken="lavenderWeb" typographyToken="secondaryBodyMediumRegular">
+          <TokenBox data-testid="TokenField-CurrencyInputBox-TokenBox">
+            <TokenIcon
+              data-testid={`TokenField-CurrencyInputBox-TokenBox-TokenIcon-${token}`}
+              token={token}
+            />
+            <Typography
+              colorToken="lavenderWeb"
+              data-testid="TokenField-CurrencyInputBox-TokenBox-Typography"
+              typographyToken="secondaryBodyMediumRegular"
+            >
               {token.toUpperCase()}
             </Typography>
           </TokenBox>
         ) : null}
       </CurrencyInputBox>
-      <BottomBox>
-        {bottomLeftText && (
+      <BottomBox data-testid="TokenField-BottomBox">
+        {bottomLeftText ? (
           <Typography
             colorToken={bottomLeftTextColorToken}
+            data-testid="TokenField-BottomBox-Typography"
             typographyToken={bottomLeftTextTypographyToken}
           >
             {bottomLeftText}
           </Typography>
-        )}
-        {bottomRightTextValue && (
+        ) : null}
+        {bottomRightTextValue ? (
           <TokenTypography
             colorToken={bottomRightTextColorToken}
+            data-testid="TokenField-BottomBox-TokenTypography"
             differenceToken={token ? ` ${token.toUpperCase()}` : ''}
             differenceValue={bottomRightTextDifferenceValue}
             token={token ? ` ${token.toUpperCase()}` : ''}
             typographyToken={bottomRightTextTypographyToken}
             value={bottomRightTextValue}
           />
-        )}
+        ) : null}
       </BottomBox>
     </TokenFieldBox>
   );
