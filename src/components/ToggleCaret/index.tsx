@@ -7,7 +7,7 @@ export type ToggleCaretProps = {
 };
 
 export const ToggleCaret: React.FunctionComponent<ToggleCaretProps> = ({ isOpen }) => (
-  <ToggleCaretBox>
+  <ToggleCaretBox data-testid="ToggleCaret-ToggleCaretBox">
     <ToggleCaretArrow
       data-testid={`ToggleCaretArrow-${isOpen ? 'Open' : 'Closed'}`}
       isOpen={isOpen}
