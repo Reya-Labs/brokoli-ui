@@ -1,16 +1,16 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
-import { FromToTokenTypography } from './index';
+import { LabelFromToTokenTypography } from './index';
 
 export default {
   title: 'Components/FromToTokenTypography',
-  component: FromToTokenTypography,
+  component: LabelFromToTokenTypography,
   args: {},
-} as ComponentMeta<typeof FromToTokenTypography>;
+} as ComponentMeta<typeof LabelFromToTokenTypography>;
 
-const Template: ComponentStory<typeof FromToTokenTypography> = (args) => (
-  <FromToTokenTypography {...args} />
+const Template: ComponentStory<typeof LabelFromToTokenTypography> = (args) => (
+  <LabelFromToTokenTypography {...args} />
 );
 
 export const Default = Template.bind({});
