@@ -9,7 +9,7 @@ export const Ellipsis: React.FunctionComponent<{
   return (
     <EllipsisTypography
       color={!colorToken ? 'inherit' : getColorFromToken(colorToken)}
-      data-testid="EllipsisTypography"
+      data-testid={`EllipsisTypography-${!colorToken ? 'inherit' : colorToken}`}
     />
   );
 });
