@@ -6,7 +6,7 @@ import { TooltipLabel } from '../TooltipLabel';
 import { TypographyToken } from '../Typography';
 import { TextFieldBox, TextInputStyled } from './TextField.styled';
 
-type TextFieldFieldProps = {
+export type TextFieldFieldProps = {
   onChange?: (value: string | undefined) => void;
   value?: string;
   disabled?: boolean;
@@ -37,8 +37,9 @@ export const TextField: React.FunctionComponent<TextFieldFieldProps> = ({
     onChange && onChange(event.target.value);
   };
   return (
-    <TextFieldBox>
+    <TextFieldBox data-testid="TextField-TextFieldBox">
       <TooltipLabel
+        data-testid={`TextField-TextFieldBox-${labelTypographyToken}-${labelColorToken}`}
         label={label}
         labelColorToken={labelColorToken}
         labelTypographyToken={labelTypographyToken}
@@ -46,6 +47,7 @@ export const TextField: React.FunctionComponent<TextFieldFieldProps> = ({
         tooltipColorToken={tooltipColorToken}
       />
       <TextInputStyled
+        data-testid={`TextField-TextFieldBox-TextInputStyled`}
         disabled={disabled}
         error={error}
         type={type}
