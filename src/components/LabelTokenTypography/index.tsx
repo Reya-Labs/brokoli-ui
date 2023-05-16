@@ -3,8 +3,8 @@ import React from 'react';
 import { BaseColorTokens, ColorTokens } from '../../foundation/Colors';
 import { TokenTypography } from '../TokenTypography';
 import { TooltipProps } from '../Tooltip';
-import { Typography, TypographyToken } from '../Typography';
-import { TypographyWithTooltip } from '../TypographyWithTooltip';
+import { TooltipLabel } from '../TooltipLabel';
+import { TypographyToken } from '../Typography';
 import { LabelTokenTypographyBox } from './LabelTokenTypography.styled';
 
 export type LabelTokenTypographyProps = {
@@ -36,24 +36,18 @@ export const LabelTokenTypography: React.FunctionComponent<LabelTokenTypographyP
   value2,
   differenceToken,
 }) => (
-  <LabelTokenTypographyBox>
-    {!tooltip ? (
-      <Typography colorToken={labelColorToken} typographyToken={labelTypographyToken}>
-        {label}
-      </Typography>
-    ) : (
-      <TypographyWithTooltip
-        colorToken={labelColorToken}
-        tooltip={tooltip}
-        tooltipColorToken={tooltipColorToken}
-        typographyToken={labelTypographyToken}
-      >
-        {label}
-      </TypographyWithTooltip>
-    )}
-
+  <LabelTokenTypographyBox data-testid="LabelTokenTypography-LabelTokenTypographyBox">
+    <TooltipLabel
+      data-testid="LabelTokenTypography-TooltipLabel"
+      label={label}
+      labelColorToken={labelColorToken}
+      labelTypographyToken={labelTypographyToken}
+      tooltip={tooltip}
+      tooltipColorToken={tooltipColorToken}
+    />
     <TokenTypography
       colorToken={colorToken}
+      data-testid="LabelTokenTypography-TokenTypography"
       differenceToken={differenceToken}
       differenceValue={differenceValue}
       token={token}
