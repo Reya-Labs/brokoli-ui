@@ -51,10 +51,6 @@ Default.args = {
       ],
     },
     {
-      text: 'Fixed Borrow',
-      link: 'FIXED_BORROW',
-    },
-    {
       isNew: true,
       text: 'Leaderboard',
       link: 'LEADERBOARD',
@@ -63,6 +59,11 @@ Default.args = {
       isNew: true,
       text: 'Profile',
       link: 'PROFILE',
+    },
+    {
+      text: 'Voyage',
+      link: 'VOYAGE',
+      colorToken: 'rainbow',
     },
   ],
 };

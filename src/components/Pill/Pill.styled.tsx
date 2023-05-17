@@ -1,17 +1,11 @@
 import styled from '@emotion/styled';
 
-import { colors } from '../../foundation/Colors';
+import { RAINBOW_GRADIENT } from '../../foundation/Gradients';
 import { Typography } from '../Typography';
 
 export const RainbowTypography = styled(Typography)`
   display: inline-block;
-  background: linear-gradient(
-    90deg,
-    ${colors.wildStrawberry} 0%,
-    ${colors.orangeYellow} 31.47%,
-    ${colors.skyBlueCrayola} 68.91%,
-    ${colors.ultramarineBlue} 100%
-  );
+  background: ${RAINBOW_GRADIENT};
   background-clip: text;
   text-fill-color: transparent;
 `;

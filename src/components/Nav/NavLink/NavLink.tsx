@@ -1,16 +1,18 @@
 import React, { useCallback, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 
+import { BaseColorTokens } from '../../../foundation/Colors';
 import { AttentionIndicator } from '../../AttentionIndicator/AttentionIndicator';
 import { Popover } from '../../Popover';
 import { ToggleCaret } from '../../ToggleCaret';
 import { isActiveLink } from './helpers';
-import { NavLinkButton } from './NavLink.styled';
+import { NavLinkButton, NavLinkButtonBox } from './NavLink.styled';
 import { SubLinks } from './SubLinks/SubLinks';
 
 export type NavLinkProps = {
   link?: string;
   isNew?: boolean;
+  colorToken?: BaseColorTokens | 'rainbow';
   subLinks?: {
     text: string;
     link: string;
@@ -24,6 +26,7 @@ export const NavLink: React.FunctionComponent<NavLinkProps> = ({
   children,
   link,
   isNew,
+  colorToken = 'lavenderWeb',
 }) => {
   const { pathname } = useLocation();
   const subLinksNotHidden = useMemo(
@@ -46,21 +49,26 @@ export const NavLink: React.FunctionComponent<NavLinkProps> = ({
   );
 
   const linkButton = (
-    <NavLinkButton
+    <NavLinkButtonBox
+      colorToken={colorToken}
       data-testid={
         isSubmenuOpened ? 'OpenNavLinkButton' : isActive ? 'ActiveNavLinkButton' : 'NavLinkButton'
       }
       isActive={isActive}
       isPopoverOpen={isSubmenuOpened}
-      role="link"
-      to={link || ''}
     >
-      <React.Fragment>
-        {isNew ? <AttentionIndicator /> : null}
+      {isNew ? <AttentionIndicator /> : null}
+      <NavLinkButton
+        colorToken={colorToken}
+        isActive={isActive}
+        isPopoverOpen={isSubmenuOpened}
+        role="link"
+        to={link || ''}
+      >
         {children}
-        {!hasSubLinks ? null : <ToggleCaret isOpen={isSubmenuOpened} />}
-      </React.Fragment>
-    </NavLinkButton>
+      </NavLinkButton>
+      {!hasSubLinks ? null : <ToggleCaret isOpen={isSubmenuOpened} />}
+    </NavLinkButtonBox>
   );
 
   return (
