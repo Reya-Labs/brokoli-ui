@@ -4,7 +4,7 @@ import { ColorTokens } from '../../foundation/Colors';
 import { BaseTypography } from './Typography.styled';
 import { TypographyTokenConfigMap } from './typography-token-config-map';
 import { TypographyToken } from './typography-tokens';
-export { TypographyToken };
+export type { TypographyToken };
 export type TypographyProps = {
   typographyToken: TypographyToken;
   colorToken: ColorTokens;
