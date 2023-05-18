@@ -77,4 +77,18 @@ describe('<MarketToken />', () => {
 
     expect(typography).toHaveTextContent('Aave-ETH');
   });
+
+  test.each([[0], [-1]])('does not render icons when icon size is %p', (iconSize) => {
+    const propsWithIconSize: MarketTokenProps = {
+      ...defaultProps,
+      iconSize,
+    };
+
+    render(<MarketToken {...propsWithIconSize} />);
+    const icon = screen.queryByTestId('MarketToken-IconStyled-aave');
+    const additionalIcon = screen.queryByTestId('MarketToken-IconStyled-eth');
+
+    expect(icon).not.toBeInTheDocument();
+    expect(additionalIcon).not.toBeInTheDocument();
+  });
 });

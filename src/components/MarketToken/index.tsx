@@ -30,20 +30,22 @@ export const MarketToken: React.FunctionComponent<MarketTokenProps> = ({
 }) => {
   return (
     <MarketTokenBox data-testid="MarketToken-MarketTokenBox">
-      <IconsBox data-testid="MarketToken-IconsBox">
-        <IconStyled
-          data-testid={`MarketToken-IconStyled-${MAP_MARKET_TO_ICON[market]}`}
-          name={MAP_MARKET_TO_ICON[market]}
-          size={iconSize}
-        />
-        {token ? (
+      {iconSize > 0 ? (
+        <IconsBox data-testid="MarketToken-IconsBox">
           <IconStyled
-            data-testid={`MarketToken-IconStyled-${token}`}
-            name={token}
+            data-testid={`MarketToken-IconStyled-${MAP_MARKET_TO_ICON[market]}`}
+            name={MAP_MARKET_TO_ICON[market]}
             size={iconSize}
           />
-        ) : null}
-      </IconsBox>
+          {token ? (
+            <IconStyled
+              data-testid={`MarketToken-IconStyled-${token}`}
+              name={token}
+              size={iconSize}
+            />
+          ) : null}
+        </IconsBox>
+      ) : null}
       <Typography
         colorToken={colorToken}
         data-testid={`MarketToken-Typography-${colorToken}-${typographyToken}`}
