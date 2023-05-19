@@ -7,7 +7,7 @@ import { IconsBox, IconStyled, MarketTokenBox } from './MarketToken.styled';
 
 export type MarketTokenProps = {
   token?: 'eth' | 'usdc' | 'usdt' | 'dai';
-  market: 'Aave' | 'Compound' | 'Lido' | 'Rocket' | 'GMX:GLP';
+  market: 'Aave' | 'Compound' | 'Lido' | 'Rocket' | 'GMX:GLP' | 'SOFR';
   iconSize: number;
   colorToken: ColorTokens;
   typographyToken: TypographyToken;
@@ -19,6 +19,7 @@ const MAP_MARKET_TO_ICON: Record<MarketTokenProps['market'], SupportedIcons> = {
   Compound: 'compound',
   Lido: 'steth',
   Rocket: 'reth',
+  SOFR: 'sofr',
 };
 
 export const MarketToken: React.FunctionComponent<MarketTokenProps> = ({

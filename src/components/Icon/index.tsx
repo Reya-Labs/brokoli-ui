@@ -6,6 +6,7 @@ import { ReactComponent as DaiIcon } from './assets/dai.svg';
 import { ReactComponent as EthIcon } from './assets/eth.svg';
 import { ReactComponent as GlpIcon } from './assets/glp.svg';
 import { ReactComponent as REthIcon } from './assets/reth.svg';
+import { ReactComponent as SOFRIcon } from './assets/sofr.svg';
 import { ReactComponent as StEthIcon } from './assets/steth.svg';
 import { ReactComponent as USDCIcon } from './assets/usdc.svg';
 import { ReactComponent as USDTIcon } from './assets/usdt.svg';
@@ -25,6 +26,7 @@ export type SupportedIcons =
   | 'reth'
   | 'steth'
   | 'usdc'
+  | 'sofr'
   | 'usdt';
 
 const IconMap: Record<
@@ -40,6 +42,7 @@ const IconMap: Record<
   steth: StEthIcon,
   usdc: USDCIcon,
   usdt: USDTIcon,
+  sofr: SOFRIcon,
 };
 
 export const Icon: React.FunctionComponent<IconProps> = ({
