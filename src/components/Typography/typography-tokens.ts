@@ -22,4 +22,6 @@ export type TypographyToken =
   | 'secondaryBodyMediumRegular'
   | 'secondaryBodyMediumBold'
   | 'secondaryBodyLargeBold'
-  | 'secondaryBodyLargeRegular';
+  | 'secondaryBodyLargeRegular'
+  | 'secondaryBodyExtraLargeBold'
+  | 'secondaryBodyExtraLargeRegular';

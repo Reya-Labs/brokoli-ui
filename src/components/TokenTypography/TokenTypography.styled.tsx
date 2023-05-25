@@ -22,6 +22,8 @@ const differenceTypographyMap: Record<TypographyToken, TypographyToken> = {
   primaryHeader2Bold: 'primaryHeader3Bold',
   primaryHeader3Black: 'primaryBodyMediumBold',
   primaryHeader3Bold: 'primaryBodyMediumRegular',
+  secondaryBodyExtraLargeBold: 'secondaryBodyMediumBold',
+  secondaryBodyExtraLargeRegular: 'secondaryBodyMediumRegular',
   secondaryBodyLargeBold: 'secondaryBodySmallBold',
   secondaryBodyLargeRegular: 'secondaryBodySmallRegular',
   secondaryBodyMediumBold: 'secondaryBodyXSmallBold',

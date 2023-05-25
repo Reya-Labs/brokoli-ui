@@ -18,6 +18,7 @@ import {
   primaryHeader2BoldCSSObject,
   primaryHeader3BlackCSSObject,
   primaryHeader3BoldCSSObject,
+  secondaryBodyExtraLargeRegularCSSObject,
   secondaryBodyLargeBoldCSSObject,
   secondaryBodyLargeRegularCSSObject,
   secondaryBodyMediumBoldCSSObject,
@@ -130,6 +131,14 @@ export const TypographyTokenConfigMap: Record<
     as: 'p',
   },
   secondaryBodyLargeBold: {
+    styleObject: secondaryBodyLargeBoldCSSObject,
+    as: 'p',
+  },
+  secondaryBodyExtraLargeRegular: {
+    styleObject: secondaryBodyExtraLargeRegularCSSObject,
+    as: 'p',
+  },
+  secondaryBodyExtraLargeBold: {
     styleObject: secondaryBodyLargeBoldCSSObject,
     as: 'p',
   },
