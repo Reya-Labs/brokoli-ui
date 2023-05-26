@@ -28,3 +28,22 @@ WithSmallerIcon.args = {
   colorToken: 'lavenderWeb',
   iconSize: 24,
 };
+
+export const WithNoIcons = Template.bind({});
+WithNoIcons.args = {
+  token: 'dai',
+  market: 'Lido',
+  typographyToken: 'primaryHeader3Bold',
+  colorToken: 'lavenderWeb',
+  iconSize: 0,
+};
+
+export const WithCustomFormatter = Template.bind({});
+WithCustomFormatter.args = {
+  token: 'dai',
+  market: 'Lido',
+  typographyToken: 'primaryHeader3Bold',
+  colorToken: 'lavenderWeb',
+  iconSize: 24,
+  infoFormatter: ({ market, token }) => `This is custom formatter ${market} - ${token || ''}`,
+};

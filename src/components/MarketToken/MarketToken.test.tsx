@@ -78,6 +78,22 @@ describe('<MarketToken />', () => {
     expect(typography).toHaveTextContent('Aave-ETH');
   });
 
+  it('displays the correct text content with additional token and custom formatter', () => {
+    const propsWithToken: MarketTokenProps = {
+      ...defaultProps,
+      token: 'eth',
+      infoFormatter: ({ market, token }) =>
+        `CustomFormatter ${market}-${(token || '').toUpperCase()}`,
+    };
+
+    render(<MarketToken {...propsWithToken} />);
+    const typography = screen.getByTestId(
+      `MarketToken-Typography-${defaultProps.colorToken}-${defaultProps.typographyToken}`,
+    );
+
+    expect(typography).toHaveTextContent('CustomFormatter Aave-ETH');
+  });
+
   test.each([[0], [-1]])('does not render icons when icon size is %p', (iconSize) => {
     const propsWithIconSize: MarketTokenProps = {
       ...defaultProps,

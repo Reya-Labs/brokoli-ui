@@ -11,6 +11,13 @@ export type MarketTokenProps = {
   iconSize: number;
   colorToken: ColorTokens;
   typographyToken: TypographyToken;
+  infoFormatter?: ({
+    market,
+    token,
+  }: {
+    market: MarketTokenProps['market'];
+    token?: MarketTokenProps['token'];
+  }) => string;
 };
 
 const MAP_MARKET_TO_ICON: Record<MarketTokenProps['market'], SupportedIcons> = {
@@ -22,12 +29,23 @@ const MAP_MARKET_TO_ICON: Record<MarketTokenProps['market'], SupportedIcons> = {
   SOFR: 'sofr',
 };
 
+const defaultInfoFormatter = ({
+  market,
+  token,
+}: {
+  market: MarketTokenProps['market'];
+  token?: MarketTokenProps['token'];
+}) => {
+  return `${market}${token ? `-${token.toUpperCase()}` : ''}`;
+};
+
 export const MarketToken: React.FunctionComponent<MarketTokenProps> = ({
   iconSize,
   typographyToken,
   colorToken,
   token,
   market,
+  infoFormatter = defaultInfoFormatter,
 }) => {
   return (
     <MarketTokenBox data-testid="MarketToken-MarketTokenBox">
@@ -52,7 +70,7 @@ export const MarketToken: React.FunctionComponent<MarketTokenProps> = ({
         data-testid={`MarketToken-Typography-${colorToken}-${typographyToken}`}
         typographyToken={typographyToken}
       >
-        {`${market}${token ? `-${token.toUpperCase()}` : ''}`}
+        {infoFormatter({ market, token })}
       </Typography>
     </MarketTokenBox>
   );
