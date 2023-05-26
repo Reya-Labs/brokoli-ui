@@ -11,6 +11,7 @@ export type TokenTypographyProps = {
   value: string | number;
   typographyToken: TypographyToken;
   token: string;
+  prefixToken?: string;
   differenceValue?: number;
   differenceToken?: string;
   value2?: string | number;
@@ -26,6 +27,7 @@ export const TokenTypography: React.FunctionComponent<TokenTypographyProps> = ({
   value,
   colorToken,
   'data-testid': dataTestId,
+  prefixToken,
 }) => (
   <TokenTypographyStyled
     colorToken={colorToken}
@@ -34,13 +36,28 @@ export const TokenTypography: React.FunctionComponent<TokenTypographyProps> = ({
     }
     typographyToken={typographyToken}
   >
+    {prefixToken ? (
+      <strong className="token" data-testid="TokenTypography-Prefix-Value">
+        {prefixToken}
+      </strong>
+    ) : null}
     {value}
     {token ? (
       <strong className="token" data-testid="TokenTypography-Token-Value">
         {token}
       </strong>
     ) : null}
-    {value2 !== undefined && value2 !== null ? ` / ${value2}` : null}
+    {value2 !== undefined && value2 !== null ? (
+      <React.Fragment>
+        &nbsp;/&nbsp;
+        {prefixToken ? (
+          <strong className="token" data-testid="TokenTypography-Prefix-Value2">
+            {prefixToken}
+          </strong>
+        ) : null}
+        {value2}
+      </React.Fragment>
+    ) : null}
     {value2 !== undefined && value2 !== null && token ? (
       <strong className="token" data-testid="TokenTypography-Token-Value2">
         {token}

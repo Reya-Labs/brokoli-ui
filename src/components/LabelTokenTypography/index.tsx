@@ -13,6 +13,7 @@ export type LabelTokenTypographyProps = {
   value2?: string | number;
   typographyToken: TypographyToken;
   token: string;
+  prefixToken?: string;
   label: string;
   labelColorToken: ColorTokens;
   labelTypographyToken: TypographyToken;
@@ -35,6 +36,7 @@ export const LabelTokenTypography: React.FunctionComponent<LabelTokenTypographyP
   differenceValue,
   value2,
   differenceToken,
+  prefixToken,
 }) => (
   <LabelTokenTypographyBox data-testid="LabelTokenTypography-LabelTokenTypographyBox">
     <TooltipLabel
@@ -50,6 +52,7 @@ export const LabelTokenTypography: React.FunctionComponent<LabelTokenTypographyP
       data-testid="LabelTokenTypography-TokenTypography"
       differenceToken={differenceToken}
       differenceValue={differenceValue}
+      prefixToken={prefixToken}
       token={token}
       typographyToken={typographyToken}
       value={value}

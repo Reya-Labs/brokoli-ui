@@ -11,9 +11,11 @@ export type LabelFromToTokenTypographyProps = {
   fromColorToken: BaseColorTokens;
   fromValue: string | number;
   fromToken?: string;
+  fromPrefixToken?: string;
   toColorToken: BaseColorTokens;
   toValue: string | number;
   toToken?: string;
+  toPrefixToken?: string;
   typographyToken: TypographyToken;
   token?: string;
   label: string;
@@ -28,9 +30,11 @@ export const LabelFromToTokenTypography: React.FunctionComponent<LabelFromToToke
     fromColorToken,
     fromValue,
     fromToken = '',
+    fromPrefixToken = '',
     toColorToken,
     toValue,
     toToken = '',
+    toPrefixToken = '',
     typographyToken,
     token = '',
     label,
@@ -52,6 +56,7 @@ export const LabelFromToTokenTypography: React.FunctionComponent<LabelFromToToke
         <TokenTypography
           colorToken={fromColorToken}
           data-testid={`LabelFromToTokenTypography-FromToBox-FromTokenTypography-${fromColorToken}-${typographyToken}`}
+          prefixToken={fromPrefixToken}
           token={fromToken}
           typographyToken={typographyToken}
           value={fromValue}
@@ -60,6 +65,7 @@ export const LabelFromToTokenTypography: React.FunctionComponent<LabelFromToToke
         <TokenTypography
           colorToken={toColorToken}
           data-testid={`LabelFromToTokenTypography-FromToBox-ToTokenTypography-${toColorToken}-${typographyToken}`}
+          prefixToken={toPrefixToken}
           token={toToken}
           typographyToken={typographyToken}
           value={toValue}

@@ -15,7 +15,8 @@ const Template: ComponentStory<typeof LabelTokenTypography> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  value: '+0.00',
+  value: '0.00',
+  prefixToken: '+',
   colorToken: 'lavenderWeb',
   token: ' USDC',
   typographyToken: 'secondaryBodyMediumRegular',
@@ -26,8 +27,9 @@ Default.args = {
 
 export const WithRangeValues = Template.bind({});
 WithRangeValues.args = {
-  value: '+0.00',
-  value2: '+4.00',
+  value: '0.00',
+  value2: '4.00',
+  prefixToken: '+',
   colorToken: 'lavenderWeb',
   token: ' USDC',
   typographyToken: 'secondaryBodyMediumRegular',

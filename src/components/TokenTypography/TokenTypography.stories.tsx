@@ -19,12 +19,31 @@ Default.args = {
   typographyToken: 'secondaryBodyMediumRegular',
 };
 
+export const WithPrefixToken = Template.bind({});
+WithPrefixToken.args = {
+  value: 100,
+  colorToken: 'lavenderWeb',
+  token: 'K',
+  prefixToken: '$',
+  typographyToken: 'secondaryBodyMediumRegular',
+};
+
 export const WithRangeValues = Template.bind({});
 WithRangeValues.args = {
   value: 52,
   value2: 97,
   colorToken: 'lavenderWeb',
   token: '%',
+  typographyToken: 'secondaryBodyMediumRegular',
+};
+
+export const WithRangeValuesPrefixToken = Template.bind({});
+WithRangeValuesPrefixToken.args = {
+  value: 52,
+  value2: 97,
+  colorToken: 'lavenderWeb',
+  prefixToken: '$',
+  token: 'M',
   typographyToken: 'secondaryBodyMediumRegular',
 };
 

@@ -31,6 +31,8 @@ WithTokens.args = {
   labelColorToken: 'lavenderWeb',
   label: 'Label goes here',
   fromColorToken: 'lavenderWeb',
+  toPrefixToken: '$',
+  fromPrefixToken: '$',
   fromToken: '%',
   toColorToken: 'lavenderWeb',
   toToken: '%',
