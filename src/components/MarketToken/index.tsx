@@ -17,7 +17,7 @@ export type MarketTokenProps = {
   }: {
     market: MarketTokenProps['market'];
     token?: MarketTokenProps['token'];
-  }) => string;
+  }) => React.ReactNode;
 };
 
 const MAP_MARKET_TO_ICON: Record<MarketTokenProps['market'], SupportedIcons> = {
