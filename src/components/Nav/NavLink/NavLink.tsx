@@ -2,7 +2,7 @@ import React, { useCallback, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import { BaseColorTokens } from '../../../foundation/Colors';
-import { AttentionIndicator } from '../../AttentionIndicator/AttentionIndicator';
+import { AttentionIndicator } from '../../AttentionIndicator';
 import { Popover } from '../../Popover';
 import { ToggleCaret } from '../../ToggleCaret';
 import { isActiveLink } from './helpers';
@@ -57,7 +57,7 @@ export const NavLink: React.FunctionComponent<NavLinkProps> = ({
       isActive={isActive}
       isPopoverOpen={isSubmenuOpened}
     >
-      {isNew ? <AttentionIndicator /> : null}
+      {isNew ? <AttentionIndicator colorToken="wildStrawberry" /> : null}
       <NavLinkButton
         colorToken={colorToken}
         isActive={isActive}

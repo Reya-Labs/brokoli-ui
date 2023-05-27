@@ -82,10 +82,14 @@ describe('<Nav />', () => {
       </BrowserRouter>,
     );
     expect(
-      screen.getAllByTestId('NavLinkButton')[3].querySelector('[data-testid="AttentionIndicator"]'),
+      screen
+        .getAllByTestId('NavLinkButton')[3]
+        .querySelector('[data-testid="AttentionIndicator-wildStrawberry"]'),
     ).toBeInTheDocument();
     expect(
-      screen.getAllByTestId('NavLinkButton')[4].querySelector('[data-testid="AttentionIndicator"]'),
+      screen
+        .getAllByTestId('NavLinkButton')[4]
+        .querySelector('[data-testid="AttentionIndicator-wildStrawberry"]'),
     ).toBeInTheDocument();
   });
 });

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { AttentionIndicator } from '../AttentionIndicator/AttentionIndicator';
+import { AttentionIndicator } from '../AttentionIndicator';
 import { AvatarAddress } from '../AvatarAddress';
 import { RainbowLoader } from '../RainbowLoader';
 import {
@@ -25,7 +25,7 @@ export const WalletConnectButton: React.FunctionComponent<WalletConnectButtonPro
   if (error) {
     return (
       <WalletButton data-testid="WalletConnectButton-WalletError" onClick={onClick}>
-        <AttentionIndicator />
+        <AttentionIndicator colorToken="wildStrawberry" />
         <WalletConnectButtonTypography
           colorToken="wildStrawberry"
           typographyToken="primaryBodyMediumRegular"
@@ -58,7 +58,7 @@ export const WalletConnectButton: React.FunctionComponent<WalletConnectButtonPro
 
   return (
     <WalletButton data-testid="WalletConnectButton-WalletConnect" onClick={onClick}>
-      <AttentionIndicator />
+      <AttentionIndicator colorToken="wildStrawberry" />
       <WalletConnectButtonTypography
         colorToken="lavenderWeb"
         typographyToken="primaryBodyMediumRegular"

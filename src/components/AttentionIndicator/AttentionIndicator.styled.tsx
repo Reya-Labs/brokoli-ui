@@ -1,10 +1,14 @@
 import styled from '@emotion/styled';
 
-import { colors } from '../../foundation/Colors';
+import { colors, ColorTokens } from '../../foundation/Colors';
 
-export const AttentionIndicatorCircleIcon = styled('div')`
+export const AttentionIndicatorCircleIcon = styled('div', {
+  shouldForwardProp: (prop) => prop !== 'colorToken',
+})<{
+  colorToken: ColorTokens;
+}>`
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background-color: ${colors.wildStrawberry};
+  background-color: ${({ colorToken }) => colors[colorToken]};
 `;

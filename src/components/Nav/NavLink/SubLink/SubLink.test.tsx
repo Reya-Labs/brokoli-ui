@@ -32,7 +32,7 @@ describe('<SubLink />', () => {
         />
       </BrowserRouter>,
     );
-    expect(screen.getByTestId('AttentionIndicator')).toBeInTheDocument();
+    expect(screen.getByTestId('AttentionIndicator-wildStrawberry')).toBeInTheDocument();
   });
 
   it('renders the ActiveSubLinkButton when isActive is true', () => {
