@@ -5,6 +5,7 @@ import { BaseTypography } from './Typography.styled';
 import { TypographyTokenConfigMap } from './typography-token-config-map';
 import { TypographyToken } from './typography-tokens';
 export type { TypographyToken };
+export * from './Typography.css';
 export type TypographyProps = {
   typographyToken: TypographyToken;
   colorToken: ColorTokens;
