@@ -21,6 +21,7 @@ export * from './components/Page';
 export * from './components/Pill';
 export * from './components/PillSelector';
 export * from './components/Popover';
+export * from './components/ProgressBar';
 export * from './components/RainbowLoader';
 export * from './components/Skeleton';
 export * from './components/TextField';
