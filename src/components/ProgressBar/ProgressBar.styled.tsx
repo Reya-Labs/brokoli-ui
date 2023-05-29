@@ -23,5 +23,4 @@ export const ProgressBarBoxContainer = styled('div')`
   width: 100%;
   background: ${colors.lavenderWeb3};
   height: 4px;
-  margin-top: 4px;
 `;
