@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ColorTokens } from '../../foundation/Colors';
 import { CurrencyField } from '../CurrencyField';
-import { TooltipProps } from '../Tooltip';
+import { TooltipProps } from '../ExclaimTooltip';
 import { TooltipLabel } from '../TooltipLabel';
 import { Typography, TypographyToken } from '../Typography';
 import {

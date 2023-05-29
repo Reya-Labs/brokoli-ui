@@ -3,44 +3,29 @@ import React from 'react';
 
 import { Button } from '../Button';
 import { Typography } from '../Typography';
-import { Tooltip } from './index';
+import { ExclaimTooltip } from './index';
 
 export default {
-  title: 'Components/Tooltip',
-  component: Tooltip,
+  title: 'Components/ExclaimTooltip',
+  component: ExclaimTooltip,
   args: {},
-} as ComponentMeta<typeof Tooltip>;
+} as ComponentMeta<typeof ExclaimTooltip>;
 
-const Template: ComponentStory<typeof Tooltip> = (args) => <Tooltip {...args} />;
+const Template: ComponentStory<typeof ExclaimTooltip> = (args) => <ExclaimTooltip {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  trigger: (
-    <Typography colorToken="lavenderWeb" typographyToken="primaryHeader1Bold">
-      A trigger
-    </Typography>
-  ),
   children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit!',
 };
 
 export const LongTooltip = Template.bind({});
 LongTooltip.args = {
-  trigger: (
-    <Typography colorToken="lavenderWeb" typographyToken="primaryHeader1Bold">
-      A trigger
-    </Typography>
-  ),
   children:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
 };
 
 export const CustomComponentTooltip = Template.bind({});
 CustomComponentTooltip.args = {
-  trigger: (
-    <Typography colorToken="lavenderWeb" typographyToken="primaryHeader1Bold">
-      A trigger
-    </Typography>
-  ),
   children: (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
       <Typography colorToken="lavenderWeb" typographyToken="primaryHeader1Bold">

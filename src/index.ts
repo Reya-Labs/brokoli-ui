@@ -28,6 +28,7 @@ export * from './components/ToggleCaret';
 export * from './components/TokenField';
 export * from './components/TokenSwitchField';
 export * from './components/TokenTypography';
+export * from './components/Tooltip';
 export * from './components/Typography';
 export * from './components/TypographyWithTooltip';
 export * from './components/WalletConnectButton';
