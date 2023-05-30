@@ -64,3 +64,13 @@ WithPositiveDifference.args = {
   differenceValue: 2,
   typographyToken: 'secondaryBodyMediumRegular',
 };
+
+export const WithAttentionIndicator = Template.bind({});
+WithAttentionIndicator.args = {
+  value: 100,
+  colorToken: 'lavenderWeb',
+  attentionIndicatorColorToken: 'wildStrawberry',
+  token: '%',
+  differenceValue: 2,
+  typographyToken: 'secondaryBodyMediumRegular',
+};

@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { BaseColorTokens } from '../../foundation/Colors';
+import { BaseColorTokens, ColorTokens } from '../../foundation/Colors';
+import { AttentionIndicator } from '../AttentionIndicator';
 import { TypographyToken } from '../Typography';
 import { ReactComponent as DownIcon } from './assets/down.svg';
 import { ReactComponent as UpIcon } from './assets/up.svg';
@@ -16,6 +17,7 @@ export type TokenTypographyProps = {
   differenceToken?: string;
   value2?: string | number;
   'data-testid'?: string;
+  attentionIndicatorColorToken?: ColorTokens;
 };
 
 export const TokenTypography: React.FunctionComponent<TokenTypographyProps> = ({
@@ -28,6 +30,7 @@ export const TokenTypography: React.FunctionComponent<TokenTypographyProps> = ({
   colorToken,
   'data-testid': dataTestId,
   prefixToken,
+  attentionIndicatorColorToken,
 }) => (
   <TokenTypographyStyled
     colorToken={colorToken}
@@ -36,6 +39,12 @@ export const TokenTypography: React.FunctionComponent<TokenTypographyProps> = ({
     }
     typographyToken={typographyToken}
   >
+    {attentionIndicatorColorToken ? (
+      <AttentionIndicator
+        className="attentionIndicator"
+        colorToken={attentionIndicatorColorToken}
+      />
+    ) : null}
     {prefixToken ? (
       <strong className="token" data-testid="TokenTypography-Prefix-Value">
         {prefixToken}

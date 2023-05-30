@@ -49,3 +49,16 @@ WithTooltip.args = {
   labelTypographyToken: 'primaryBodyXSmallRegular',
   tooltip: 'We support a nice tooltip as well!',
 };
+
+export const WithAttentionIndicator = Template.bind({});
+WithAttentionIndicator.args = {
+  value: '+0.00',
+  colorToken: 'lavenderWeb',
+  token: ' USDC',
+  typographyToken: 'secondaryBodyMediumRegular',
+  label: 'Additional Cashflow',
+  labelColorToken: 'lavenderWeb3',
+  labelTypographyToken: 'primaryBodyXSmallRegular',
+  tooltip: 'We support a nice tooltip as well!',
+  attentionIndicatorColorToken: 'wildStrawberry',
+};

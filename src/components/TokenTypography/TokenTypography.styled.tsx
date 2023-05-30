@@ -35,6 +35,11 @@ const differenceTypographyMap: Record<TypographyToken, TypographyToken> = {
 };
 
 export const TokenTypographyStyled = styled(Typography)<TypographyProps>`
+  & > .attentionIndicator {
+    margin-right: 4px;
+    margin-bottom: 2px;
+  }
+
   & > .token {
     font-weight: inherit;
     color: ${({ colorToken }) => getColorFromToken(`${colorToken as BaseColorTokens}3`)};
