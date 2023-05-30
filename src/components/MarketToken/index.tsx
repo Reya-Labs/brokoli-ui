@@ -7,7 +7,7 @@ import { IconsBox, IconStyled, MarketTokenBox } from './MarketToken.styled';
 
 export type MarketTokenProps = {
   token?: 'eth' | 'usdc' | 'usdt' | 'dai';
-  market: 'Aave' | 'Compound' | 'Lido' | 'Rocket' | 'GMX:GLP' | 'SOFR';
+  market?: 'Aave' | 'Compound' | 'Lido' | 'Rocket' | 'GMX:GLP' | 'SOFR';
   iconSize: number;
   colorToken: ColorTokens;
   typographyToken: TypographyToken;
@@ -15,12 +15,12 @@ export type MarketTokenProps = {
     market,
     token,
   }: {
-    market: MarketTokenProps['market'];
+    market?: MarketTokenProps['market'];
     token?: MarketTokenProps['token'];
   }) => React.ReactNode;
 };
 
-const MAP_MARKET_TO_ICON: Record<MarketTokenProps['market'], SupportedIcons> = {
+const MAP_MARKET_TO_ICON: Record<NonNullable<MarketTokenProps['market']>, SupportedIcons> = {
   'GMX:GLP': 'glp',
   Aave: 'aave',
   Compound: 'compound',
@@ -33,10 +33,19 @@ const defaultInfoFormatter = ({
   market,
   token,
 }: {
-  market: MarketTokenProps['market'];
+  market?: MarketTokenProps['market'];
   token?: MarketTokenProps['token'];
 }) => {
-  return `${market}${token ? `-${token.toUpperCase()}` : ''}`;
+  if (market && token) {
+    return `${market}-${token.toUpperCase()}`;
+  }
+  if (market) {
+    return `${market}`;
+  }
+  if (token) {
+    return `${token.toUpperCase()}`;
+  }
+  return '';
 };
 
 export const MarketToken: React.FunctionComponent<MarketTokenProps> = ({
@@ -49,13 +58,15 @@ export const MarketToken: React.FunctionComponent<MarketTokenProps> = ({
 }) => {
   return (
     <MarketTokenBox data-testid="MarketToken-MarketTokenBox">
-      {iconSize > 0 ? (
+      {iconSize > 0 && (market || token) ? (
         <IconsBox data-testid="MarketToken-IconsBox">
-          <IconStyled
-            data-testid={`MarketToken-IconStyled-${MAP_MARKET_TO_ICON[market]}`}
-            name={MAP_MARKET_TO_ICON[market]}
-            size={iconSize}
-          />
+          {market ? (
+            <IconStyled
+              data-testid={`MarketToken-IconStyled-${MAP_MARKET_TO_ICON[market]}`}
+              name={MAP_MARKET_TO_ICON[market]}
+              size={iconSize}
+            />
+          ) : null}
           {token ? (
             <IconStyled
               data-testid={`MarketToken-IconStyled-${token}`}

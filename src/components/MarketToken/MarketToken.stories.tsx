@@ -38,6 +38,22 @@ WithNoIcons.args = {
   iconSize: 0,
 };
 
+export const WithNoMarket = Template.bind({});
+WithNoMarket.args = {
+  token: 'dai',
+  typographyToken: 'primaryHeader3Bold',
+  colorToken: 'lavenderWeb',
+  iconSize: 24,
+};
+
+export const WithNoToken = Template.bind({});
+WithNoToken.args = {
+  market: 'Aave',
+  typographyToken: 'primaryHeader3Bold',
+  colorToken: 'lavenderWeb',
+  iconSize: 24,
+};
+
 export const WithCustomFormatter = Template.bind({});
 WithCustomFormatter.args = {
   token: 'dai',
@@ -45,5 +61,5 @@ WithCustomFormatter.args = {
   typographyToken: 'primaryHeader3Bold',
   colorToken: 'lavenderWeb',
   iconSize: 24,
-  infoFormatter: ({ market, token }) => `This is custom formatter ${market} - ${token || ''}`,
+  infoFormatter: ({ market, token }) => `This is custom formatter ${market!} - ${token || ''}`,
 };

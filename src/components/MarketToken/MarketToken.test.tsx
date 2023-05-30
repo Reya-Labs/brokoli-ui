@@ -83,7 +83,7 @@ describe('<MarketToken />', () => {
       ...defaultProps,
       token: 'eth',
       infoFormatter: ({ market, token }) =>
-        `CustomFormatter ${market}-${(token || '').toUpperCase()}`,
+        `CustomFormatter ${market!}-${(token || '').toUpperCase()}`,
     };
 
     render(<MarketToken {...propsWithToken} />);
