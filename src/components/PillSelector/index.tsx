@@ -31,6 +31,9 @@ export const PillSelector = ({
           disabled={disabled}
           error={error}
           onClick={() => {
+            if (disabled) {
+              return;
+            }
             onPillClick && onPillClick(id);
           }}
         >
