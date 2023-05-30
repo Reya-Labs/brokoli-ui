@@ -53,7 +53,5 @@ export const PillSelectorButton = styled('button')<{
     cursor: not-allowed;
     color: ${({ active }) => (!active ? colors.lavenderWeb4 : colors.lavenderWeb2)};
     background: ${({ active }) => (active ? colors.lavenderWeb6 : colors.liberty7)};
-
-    box-shadow: 0px 4px 4px ${colors.liberty8}, 0px 0px 1px ${colors.lavenderWeb};
   }
 `;
