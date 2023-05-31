@@ -139,7 +139,7 @@ export const TypographyTokenConfigMap: Record<
     as: 'p',
   },
   secondaryBodyExtraLargeBold: {
-    styleObject: secondaryBodyLargeBoldCSSObject,
+    styleObject: secondaryBodyExtraLargeRegularCSSObject,
     as: 'p',
   },
 };
