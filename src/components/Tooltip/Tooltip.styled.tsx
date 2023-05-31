@@ -8,8 +8,8 @@ export const TooltipBox = styled('div', {
   limitWidth: boolean;
 }>`
   box-sizing: border-box;
-  background: ${colors.liberty7};
-  border: 1px solid ${colors.lavenderWeb6};
+  background: linear-gradient(90.95deg, ${colors.lavenderWeb8} 0.66%, ${colors.liberty8} 99.34%);
+  border: 1px solid ${colors.lavenderWeb7};
   border-radius: 8px;
   width: max-content;
   ${({ limitWidth }) => (limitWidth ? 'max-width: 240px' : '')};

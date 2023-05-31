@@ -11,8 +11,8 @@ export const TooltipBox = styled('div')`
   flex-direction: column;
   padding: 8px;
 
-  background: ${colors.liberty7};
-  border: 1px solid ${colors.lavenderWeb6};
+  background: linear-gradient(90.95deg, ${colors.lavenderWeb8} 0.66%, ${colors.liberty8} 99.34%);
+  border: 1px solid ${colors.lavenderWeb7};
   border-radius: 8px;
 
   &:after {
