@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { PillSelectorBox, PillSelectorButton } from './PillSelector.styled';
+import { BaseColorTokens } from '../../foundation/Colors';
+import { PillSelectorBox, PillSelectorButton, PillSelectorVariant } from './PillSelector.styled';
 
 type PillSelectorId = string;
 export type PillSelectorProps = {
@@ -10,8 +11,11 @@ export type PillSelectorProps = {
   pillOptions: {
     id: PillSelectorId;
     label: string;
+    attentionPrefixText?: string;
   }[];
   disabled?: boolean;
+  variant: PillSelectorVariant;
+  attentionPrefixColorToken?: BaseColorTokens;
 };
 
 export const PillSelector = ({
@@ -20,13 +24,16 @@ export const PillSelector = ({
   activePillId,
   onPillClick,
   disabled,
+  attentionPrefixColorToken = 'skyBlueCrayola',
+  variant,
 }: PillSelectorProps) => {
   return (
-    <PillSelectorBox data-testid="PillSelector-PillSelectorBox">
-      {pillOptions.map(({ id, label }) => (
+    <PillSelectorBox data-testid="PillSelector-PillSelectorBox" variant={variant}>
+      {pillOptions.map(({ id, label, attentionPrefixText }) => (
         <PillSelectorButton
           key={id}
           active={id === activePillId}
+          attentionPrefixColorToken={attentionPrefixColorToken}
           data-testid={`PillSelectorButton-${id}`}
           disabled={disabled}
           error={error}
@@ -37,6 +44,9 @@ export const PillSelector = ({
             onPillClick && onPillClick(id);
           }}
         >
+          {attentionPrefixText && attentionPrefixColorToken ? (
+            <span>{attentionPrefixText}&nbsp;</span>
+          ) : null}{' '}
           {label}
         </PillSelectorButton>
       ))}

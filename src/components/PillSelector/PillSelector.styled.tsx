@@ -1,23 +1,32 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { colors } from '../../foundation/Colors';
-import { primaryBodyXSmallRegularCSSObject } from '../Typography/Typography.css';
+import { BaseColorTokens, colors, getColorFromToken } from '../../foundation/Colors';
+import { primaryBodyXSmallRegularCSSObject } from '../Typography';
 
-export const PillSelectorBox = styled('div')`
+export type PillSelectorVariant = 'compact' | 'regular';
+export const PillSelectorBox = styled('div', {
+  shouldForwardProp: (prop) => prop !== 'variant',
+})<{
+  variant: PillSelectorVariant;
+}>`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   padding: 0px;
 
   & button:nth-child(n + 1) {
-    margin-right: -2px;
+    margin-right: ${({ variant }) => (variant === 'compact' ? '-2px' : '8px')};
   }
 `;
 
-export const PillSelectorButton = styled('button')<{
+export const PillSelectorButton = styled('button', {
+  shouldForwardProp: (prop) =>
+    prop !== 'error' && prop !== 'active' && prop !== 'attentionPrefixColorToken',
+})<{
   error?: boolean;
   active: boolean;
+  attentionPrefixColorToken: BaseColorTokens;
 }>`
   border: none;
   display: flex;
@@ -48,6 +57,14 @@ export const PillSelectorButton = styled('button')<{
       : colors.wildStrawberry3};
   cursor: pointer;
   transition: all 200ms ease-in;
+
+  & > span {
+    color: ${({ attentionPrefixColorToken }) => getColorFromToken(attentionPrefixColorToken)};
+  }
+
+  &:disabled > span {
+    color: ${({ attentionPrefixColorToken }) => getColorFromToken(`${attentionPrefixColorToken}3`)};
+  }
 
   &:disabled {
     cursor: not-allowed;
