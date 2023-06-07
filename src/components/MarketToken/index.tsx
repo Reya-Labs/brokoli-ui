@@ -7,7 +7,8 @@ import { IconsBox, IconStyled, MarketTokenBox } from './MarketToken.styled';
 
 export type MarketTokenProps = {
   token?: 'eth' | 'usdc' | 'usdt' | 'dai';
-  market?: 'Aave' | 'Compound' | 'Lido' | 'Rocket' | 'GMX:GLP' | 'SOFR';
+  // todo: soon deprecated 'Aave'
+  market?: 'Aave' | 'Aave V2' | 'Aave V3' | 'Compound' | 'Lido' | 'Rocket' | 'GMX:GLP' | 'SOFR';
   iconSize: number;
   colorToken: ColorTokens;
   typographyToken: TypographyToken;
@@ -23,6 +24,8 @@ export type MarketTokenProps = {
 const MAP_MARKET_TO_ICON: Record<NonNullable<MarketTokenProps['market']>, SupportedIcons> = {
   'GMX:GLP': 'glp',
   Aave: 'aave',
+  'Aave V2': 'aave',
+  'Aave V3': 'aave',
   Compound: 'compound',
   Lido: 'steth',
   Rocket: 'reth',
