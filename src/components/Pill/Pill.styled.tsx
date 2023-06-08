@@ -1,15 +1,5 @@
 import styled from '@emotion/styled';
 
-import { RAINBOW_GRADIENT } from '../../foundation/Gradients';
-import { Typography } from '../Typography';
-
-export const RainbowTypography = styled(Typography)`
-  display: inline-block;
-  background: ${RAINBOW_GRADIENT};
-  background-clip: text;
-  text-fill-color: transparent;
-`;
-
 export type PillVariant = 'regular' | 'compact';
 export const PillBox = styled('div', {
   shouldForwardProp: (prop) => prop !== 'backgroundColor' && prop !== 'variant',

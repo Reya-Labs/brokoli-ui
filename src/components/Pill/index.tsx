@@ -7,7 +7,7 @@ import {
   isBaseColorToken,
 } from '../../foundation/Colors';
 import { Typography, TypographyToken } from '../Typography';
-import { PillBox, PillVariant, RainbowTypography } from './Pill.styled';
+import { PillBox, PillVariant } from './Pill.styled';
 
 export type PillProps = {
   children: string;
@@ -32,8 +32,6 @@ export const Pill = ({
   const backgroundColorToken: ColorTokens = isBaseColorTokenProvided
     ? `${colorToken}6`
     : 'liberty7';
-  const TypographyUI = isBaseColorTokenProvided ? Typography : RainbowTypography;
-  const typographyColorToken = isBaseColorTokenProvided ? colorToken : 'liberty7';
 
   return (
     <PillBox
@@ -43,15 +41,15 @@ export const Pill = ({
       variant={variant}
       onClick={onClick}
     >
-      <TypographyUI
-        colorToken={typographyColorToken}
+      <Typography
+        colorToken={colorToken}
         data-testid={
           dataTestId || `Pill-PillTypography-${variant}-${colorToken}-${typographyToken}`
         }
         typographyToken={typographyToken}
       >
         {children}
-      </TypographyUI>
+      </Typography>
     </PillBox>
   );
 };

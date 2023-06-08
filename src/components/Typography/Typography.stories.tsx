@@ -16,3 +16,10 @@ Default.args = {
   typographyToken: 'primaryHeader1Black',
   colorToken: 'lavenderWeb',
 };
+
+export const RainbowVariant = Template.bind({});
+RainbowVariant.args = {
+  children: 'Rainbow Variant',
+  typographyToken: 'primaryHeader1Black',
+  colorToken: 'rainbow',
+};
