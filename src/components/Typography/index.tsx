@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ColorTokens, isBaseColorToken } from '../../foundation/Colors';
+import { ColorTokens } from '../../foundation/Colors';
 import { BaseTypography, RainbowTypography } from './Typography.styled';
 import { TypographyTokenConfigMap } from './typography-token-config-map';
 import { TypographyToken } from './typography-tokens';
@@ -19,9 +19,9 @@ export const Typography: React.FunctionComponent<TypographyProps> = ({
   colorToken,
   'data-testid': dataTestId,
 }) => {
-  const isBaseColorTokenProvided = isBaseColorToken(colorToken);
-  const TypographyUI = isBaseColorTokenProvided ? BaseTypography : RainbowTypography;
-  const typographyColorToken = isBaseColorTokenProvided ? colorToken : 'liberty7';
+  const isRainbowColorToken = colorToken === 'rainbow';
+  const TypographyUI = isRainbowColorToken ? RainbowTypography : BaseTypography;
+  const typographyColorToken = isRainbowColorToken ? 'liberty7' : colorToken;
 
   return (
     <TypographyUI
