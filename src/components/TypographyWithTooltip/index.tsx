@@ -2,12 +2,12 @@ import React from 'react';
 
 import { ColorTokens } from '../../foundation/Colors';
 import { TooltipProps } from '../ExclaimTooltip';
-import { TypographyToken } from '../Typography';
+import { TypographyProps } from '../Typography';
 import { TooltipStyled, TypographyStyled } from './TypographyWithTooltip.styled';
 
 export type TypographyWithTooltipProps = {
-  colorToken: ColorTokens;
-  typographyToken: TypographyToken;
+  colorToken: TypographyProps['colorToken'];
+  typographyToken: TypographyProps['typographyToken'];
   tooltipColorToken?: ColorTokens;
   tooltip: TooltipProps['children'];
   'data-testid'?: string;
