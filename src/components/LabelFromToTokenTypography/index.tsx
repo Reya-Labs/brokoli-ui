@@ -61,7 +61,9 @@ export const LabelFromToTokenTypography: React.FunctionComponent<LabelFromToToke
           typographyToken={typographyToken}
           value={fromValue}
         />
-        <strong>⇢</strong>
+        <Typography colorToken="lavenderWeb3" typographyToken={typographyToken}>
+          ⇢
+        </Typography>
         <TokenTypography
           colorToken={toColorToken}
           data-testid={`LabelFromToTokenTypography-FromToBox-ToTokenTypography-${toColorToken}-${typographyToken}`}

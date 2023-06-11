@@ -4,7 +4,7 @@ import React from 'react';
 import { LabelFromToTokenTypography } from './index';
 
 export default {
-  title: 'Components/FromToTokenTypography',
+  title: 'Components/LabelFromToTokenTypography',
   component: LabelFromToTokenTypography,
   args: {},
 } as ComponentMeta<typeof LabelFromToTokenTypography>;
