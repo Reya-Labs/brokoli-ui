@@ -18,6 +18,7 @@ import { TokenIcon, TokenIconProps } from './TokenIcon';
 
 export type TokenFieldProps = {
   onChange?: (value: string | undefined) => void;
+  onBlur?: () => void;
   decimalsLimit?: number;
   maxLength?: number;
   value?: string;
@@ -66,6 +67,7 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
   bottomRightTextValue,
   bottomRightTextDifferenceValue,
   allowNegativeValue,
+  onBlur,
 }) => {
   const handleOnChange = (newValue: string | undefined) => {
     if (newValue === value) {
@@ -112,6 +114,7 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
           intlConfig={{ locale: navigator.language }}
           maxLength={maxLength}
           value={value}
+          onBlur={onBlur}
           onValueChange={handleOnChange}
         />
         {token ? (

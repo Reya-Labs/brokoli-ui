@@ -20,6 +20,7 @@ import {
 
 export type TokenSwitchFieldProps = {
   onChange?: (value: string | undefined) => void;
+  onBlur?: () => void;
   decimalsLimit?: number;
   maxLength?: number;
   value?: string;
@@ -80,6 +81,7 @@ export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = 
   switchValue,
   onSwitchChange,
   allowNegativeValue,
+  onBlur,
 }) => {
   const handleOnChange = (newValue: string | undefined) => {
     if (newValue === value) {
@@ -135,6 +137,7 @@ export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = 
           intlConfig={{ locale: navigator.language }}
           maxLength={maxLength}
           value={value}
+          onBlur={onBlur}
           onValueChange={handleOnChange}
         />
         {token ? (
