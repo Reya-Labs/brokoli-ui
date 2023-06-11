@@ -104,3 +104,12 @@ WithAttentionPrefixTextDisabled.args = {
   attentionPrefixColorToken: 'wildStrawberry',
   pillOptions: pillAttentionOptions,
 };
+
+export const WithTooltip = Template.bind({});
+WithTooltip.args = {
+  disabled: false,
+  variant: 'compact',
+  pillOptions: pillOptions,
+  tooltip: 'A wild selector!',
+  label: 'Pill! Grab one!',
+};

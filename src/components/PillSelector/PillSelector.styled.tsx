@@ -72,3 +72,9 @@ export const PillSelectorButton = styled('button', {
     background: ${({ active }) => (active ? colors.lavenderWeb6 : colors.liberty7)};
   }
 `;
+
+export const PillWrapperBox = styled('div')`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+`;
