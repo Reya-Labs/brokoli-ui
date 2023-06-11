@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ColorTokens } from '../../foundation/Colors';
-import { TooltipProps } from '../ExclaimTooltip';
+import { ExclaimTooltipProps } from '../ExclaimTooltip';
 import { TypographyProps } from '../Typography';
 import { TooltipStyled, TypographyStyled } from './TypographyWithTooltip.styled';
 
@@ -9,7 +9,7 @@ export type TypographyWithTooltipProps = {
   colorToken: TypographyProps['colorToken'];
   typographyToken: TypographyProps['typographyToken'];
   tooltipColorToken?: ColorTokens;
-  tooltip: TooltipProps['children'];
+  tooltip: ExclaimTooltipProps['children'];
   'data-testid'?: string;
 };
 

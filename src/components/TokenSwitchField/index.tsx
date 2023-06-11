@@ -2,7 +2,7 @@ import React from 'react';
 import { formatValue } from 'react-currency-input-field';
 
 import { BaseColorTokens, ColorTokens } from '../../foundation/Colors';
-import { TooltipProps } from '../ExclaimTooltip';
+import { ExclaimTooltipProps } from '../ExclaimTooltip';
 import { TokenIconProps } from '../TokenField/TokenIcon';
 import { TokenTypography } from '../TokenTypography';
 import { TooltipLabel } from '../TooltipLabel';
@@ -28,7 +28,7 @@ export type TokenSwitchFieldProps = {
   error?: boolean;
   labelColorToken?: ColorTokens;
   labelTypographyToken?: TypographyToken;
-  tooltip?: TooltipProps['children'];
+  tooltip?: ExclaimTooltipProps['children'];
   label?: string;
   topRightText?: string;
   topRightTextColorToken?: ColorTokens;

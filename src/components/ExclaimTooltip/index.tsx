@@ -5,13 +5,13 @@ import { Tooltip } from '../Tooltip';
 import { ReactComponent as ExclaimSvg } from './exclaim.svg';
 import { ExclaimBox } from './ExclaimTooltipTooltip.styled';
 
-export type TooltipProps = {
+export type ExclaimTooltipProps = {
   colorToken?: ColorTokens;
   className?: string;
   children: string | React.ReactNode;
 };
 
-export const ExclaimTooltip: React.FunctionComponent<TooltipProps> = ({
+export const ExclaimTooltip: React.FunctionComponent<ExclaimTooltipProps> = ({
   className,
   colorToken = 'lavenderWeb',
   children,

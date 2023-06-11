@@ -8,6 +8,7 @@ export * from './components/Confetti';
 export * from './components/CurrencyField';
 export * from './components/Dialog';
 export * from './components/Ellipsis';
+export * from './components/ExclaimTooltip';
 export * from './components/ExternalLink';
 export * from './components/HorizontalLine';
 export * from './components/LabelFromToTokenTypography';

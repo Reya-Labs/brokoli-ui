@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ColorTokens } from '../../foundation/Colors';
-import { TooltipProps } from '../ExclaimTooltip';
+import { ExclaimTooltipProps } from '../ExclaimTooltip';
 import { TooltipLabel } from '../TooltipLabel';
 import { TypographyToken } from '../Typography';
 import { TextFieldBox, TextInputStyled } from './TextField.styled';
@@ -14,7 +14,7 @@ export type TextFieldFieldProps = {
   label?: string;
   labelColorToken?: ColorTokens;
   labelTypographyToken?: TypographyToken;
-  tooltip?: TooltipProps['children'];
+  tooltip?: ExclaimTooltipProps['children'];
   tooltipColorToken?: ColorTokens;
   type: HTMLInputElement['type'];
   typographyToken: TypographyToken;
