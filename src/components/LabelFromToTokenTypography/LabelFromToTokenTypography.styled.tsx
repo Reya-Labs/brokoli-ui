@@ -10,6 +10,7 @@ export const LabelFromToTokenTypographyBox = styled('div')`
 export const FromToBox = styled('div')`
   display: flex;
   flex-direction: row;
+  align-items: center;
   gap: 8px;
 
   & > strong {
