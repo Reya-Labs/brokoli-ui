@@ -13,7 +13,9 @@ type CurrencyFieldProps = {
   'data-testid'?: string;
 
   decimalsLimit?: number;
-  maxLength?: number;
+  max?: number | string | undefined;
+  maxLength?: number | undefined;
+  min?: number | string | undefined;
   value?: string;
   defaultValue?: number | string;
   disabled?: boolean;
@@ -44,6 +46,8 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
   tooltipColorToken,
   tooltip,
   onBlur,
+  min,
+  max,
   'data-testid': dataTestId,
 }) => {
   const handleOnChange = (newValue: string | undefined) => {
@@ -76,7 +80,9 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
         disabled={disabled}
         error={error}
         intlConfig={{ locale: navigator.language }}
+        max={max}
         maxLength={maxLength}
+        min={min}
         suffix={suffix}
         value={value}
         onBlur={onBlur}
