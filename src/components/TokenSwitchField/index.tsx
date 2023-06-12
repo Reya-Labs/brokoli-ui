@@ -22,7 +22,9 @@ export type TokenSwitchFieldProps = {
   onChange?: (value: string | undefined) => void;
   onBlur?: () => void;
   decimalsLimit?: number;
-  maxLength?: number;
+  max?: number | string | undefined;
+  maxLength?: number | undefined;
+  min?: number | string | undefined;
   value?: string;
   defaultValue?: number | string;
   disabled?: boolean;
@@ -82,6 +84,8 @@ export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = 
   onSwitchChange,
   allowNegativeValue,
   onBlur,
+  min,
+  max,
 }) => {
   const handleOnChange = (newValue: string | undefined) => {
     if (newValue === value) {
@@ -135,7 +139,9 @@ export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = 
           disabled={disabled}
           error={error}
           intlConfig={{ locale: navigator.language }}
+          max={max}
           maxLength={maxLength}
+          min={min}
           value={value}
           onBlur={onBlur}
           onValueChange={handleOnChange}

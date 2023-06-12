@@ -20,7 +20,6 @@ export type TokenFieldProps = {
   onChange?: (value: string | undefined) => void;
   onBlur?: () => void;
   decimalsLimit?: number;
-  maxLength?: number;
   value?: string;
   defaultValue?: number | string;
   disabled?: boolean;
@@ -41,6 +40,9 @@ export type TokenFieldProps = {
   bottomRightTextTypographyToken?: TypographyToken;
   bottomRightTextDifferenceValue?: number;
   allowNegativeValue?: boolean;
+  max?: number | string | undefined;
+  maxLength?: number | undefined;
+  min?: number | string | undefined;
 };
 
 export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
@@ -68,6 +70,8 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
   bottomRightTextDifferenceValue,
   allowNegativeValue,
   onBlur,
+  min,
+  max,
 }) => {
   const handleOnChange = (newValue: string | undefined) => {
     if (newValue === value) {
@@ -112,7 +116,9 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
           disabled={disabled}
           error={error}
           intlConfig={{ locale: navigator.language }}
+          max={max}
           maxLength={maxLength}
+          min={min}
           value={value}
           onBlur={onBlur}
           onValueChange={handleOnChange}
