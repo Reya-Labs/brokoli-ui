@@ -1,6 +1,7 @@
 export * from './components/AppLink';
 export * from './components/AttentionIndicator';
 export * from './components/AvatarAddress';
+export * from './components/BouncedLoading';
 export * from './components/Button';
 export * from './components/ChainSelector';
 export * from './components/CloseButton';
