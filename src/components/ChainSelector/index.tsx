@@ -1,6 +1,5 @@
 import React, { useMemo, useState } from 'react';
 
-import { Ellipsis } from '../Ellipsis';
 import { Popover } from '../Popover';
 import { ToggleCaret } from '../ToggleCaret';
 import { ChainOptions } from './ChainOptions/ChainOptions';
@@ -70,9 +69,7 @@ export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
         >
           <React.Fragment>
             {approving ? (
-              <React.Fragment>
-                Approve in wallet <Ellipsis />
-              </React.Fragment>
+              <React.Fragment>Approve in wallet...</React.Fragment>
             ) : !selectedChain ? (
               'Unsupported'
             ) : (
