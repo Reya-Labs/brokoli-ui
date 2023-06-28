@@ -1,6 +1,5 @@
 import {
   FloatingFocusManager,
-  FloatingOverlay,
   FloatingPortal,
   useClick,
   useDismiss,
@@ -11,7 +10,7 @@ import {
 } from '@floating-ui/react';
 import * as React from 'react';
 
-import { LAYER_INDEXES } from '../../foundation/LayerIndexes';
+import { FloatingOverlayStyled } from './FloatingUIDialog.styled';
 
 type FloatingUIDialogOptions = {
   initialOpen?: boolean;
@@ -124,16 +123,7 @@ export const FloatingUIDialogContent = React.forwardRef<
   return (
     <FloatingPortal>
       {context.open && (
-        <FloatingOverlay
-          className="Dialog-overlay"
-          style={{
-            backdropFilter: 'blur(4px)',
-            zIndex: LAYER_INDEXES.DIALOG,
-            display: 'grid',
-            placeItems: 'center',
-          }}
-          lockScroll
-        >
+        <FloatingOverlayStyled lockScroll>
           <FloatingFocusManager context={floatingContext}>
             <div
               ref={ref}
@@ -144,7 +134,7 @@ export const FloatingUIDialogContent = React.forwardRef<
               {props.children}
             </div>
           </FloatingFocusManager>
-        </FloatingOverlay>
+        </FloatingOverlayStyled>
       )}
     </FloatingPortal>
   );
