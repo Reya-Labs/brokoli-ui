@@ -12,10 +12,12 @@ import {
 export type RainbowLoaderProps = {
   height: number;
   text?: string;
+  className?: string;
+  'data-testid'?: string;
 };
 
 export const RainbowLoader: React.FunctionComponent<RainbowLoaderProps> = React.memo(
-  ({ height, text }) => {
+  ({ height, text, className, 'data-testid': dataTestId }) => {
     const loader = (
       <LoadingBox data-testid="RainbowLoader-LoadingBox">
         <LoadingRect1 data-testid="RainbowLoader-LoadingRect1" height={height} />
@@ -28,7 +30,10 @@ export const RainbowLoader: React.FunctionComponent<RainbowLoaderProps> = React.
     }
 
     return (
-      <RainbowLoaderBox data-testid="RainbowLoader-RainbowLoaderBox">
+      <RainbowLoaderBox
+        className={className}
+        data-testid={dataTestId || 'RainbowLoader-RainbowLoaderBox'}
+      >
         <RainbowText
           colorToken="lavenderWeb"
           data-testid="RainbowLoader-RainbowText"
