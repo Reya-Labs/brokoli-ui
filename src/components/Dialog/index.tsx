@@ -5,10 +5,15 @@ import { FloatingUIDialog, FloatingUIDialogContent } from './FloatingUIDialog';
 
 export const Dialog: React.FunctionComponent<{
   open: boolean;
-}> = ({ open, children }) => (
-  <FloatingUIDialog open={open}>
-    <FloatingUIDialogContent>
-      <DialogBox>{children}</DialogBox>
-    </FloatingUIDialogContent>
-  </FloatingUIDialog>
-);
+}> = ({ open, children }) => {
+  if (!children) {
+    return null;
+  }
+  return (
+    <FloatingUIDialog open={open}>
+      <FloatingUIDialogContent>
+        <DialogBox>{children}</DialogBox>
+      </FloatingUIDialogContent>
+    </FloatingUIDialog>
+  );
+};
