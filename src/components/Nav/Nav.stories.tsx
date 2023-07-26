@@ -5,9 +5,9 @@ import { BrowserRouter } from 'react-router-dom';
 import { Nav } from './index';
 
 export default {
-  title: 'Components/Nav',
-  component: Nav,
   argTypes: {},
+  component: Nav,
+  title: 'Components/Nav',
 } as ComponentMeta<typeof Nav>;
 
 const Template: ComponentStory<typeof Nav> = (args) => (
@@ -20,50 +20,50 @@ export const Default = Template.bind({});
 Default.args = {
   links: [
     {
+      subLinks: [
+        {
+          link: `/POOLS`,
+          text: 'Pools',
+        },
+        {
+          link: `/PORTFOLIO`,
+          text: 'Portfolio',
+        },
+      ],
       text: 'Traders',
-      subLinks: [
-        {
-          text: 'Pools',
-          link: `/POOLS`,
-        },
-        {
-          text: 'Portfolio',
-          link: `/PORTFOLIO`,
-        },
-      ],
     },
     {
-      text: 'Liquidity Providers',
       subLinks: [
         {
-          text: 'Pools',
           link: `/POOLS`,
+          text: 'Pools',
         },
         {
-          text: 'Optimisers',
           link: `/OPTIMISERS`,
+          text: 'Optimisers',
         },
         {
-          text: 'Portfolio',
-          link: `/PORTFOLIO`,
           isNew: true,
+          link: `/PORTFOLIO`,
+          text: 'Portfolio',
         },
       ],
+      text: 'Liquidity Providers',
     },
     {
       isNew: true,
-      text: 'Leaderboard',
       link: 'LEADERBOARD',
+      text: 'Leaderboard',
     },
     {
       isNew: true,
-      text: 'Profile',
       link: 'PROFILE',
+      text: 'Profile',
     },
     {
-      text: 'Voyage',
-      link: 'VOYAGE',
       colorToken: 'rainbow',
+      link: 'VOYAGE',
+      text: 'Voyage',
     },
   ],
 };

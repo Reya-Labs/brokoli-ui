@@ -4,9 +4,9 @@ import React from 'react';
 import { LabelTokenTypography } from './index';
 
 export default {
-  title: 'Components/LabelTokenTypography',
-  component: LabelTokenTypography,
   args: {},
+  component: LabelTokenTypography,
+  title: 'Components/LabelTokenTypography',
 } as ComponentMeta<typeof LabelTokenTypography>;
 
 const Template: ComponentStory<typeof LabelTokenTypography> = (args) => (
@@ -15,50 +15,50 @@ const Template: ComponentStory<typeof LabelTokenTypography> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  value: '0.00',
-  prefixToken: '+',
   colorToken: 'lavenderWeb',
-  token: ' USDC',
-  typographyToken: 'secondaryBodyMediumRegular',
   label: 'Additional Cashflow',
   labelColorToken: 'lavenderWeb3',
   labelTypographyToken: 'primaryBodyXSmallRegular',
+  prefixToken: '+',
+  token: ' USDC',
+  typographyToken: 'secondaryBodyMediumRegular',
+  value: '0.00',
 };
 
 export const WithRangeValues = Template.bind({});
 WithRangeValues.args = {
-  value: '0.00',
-  value2: '4.00',
-  prefixToken: '+',
   colorToken: 'lavenderWeb',
-  token: ' USDC',
-  typographyToken: 'secondaryBodyMediumRegular',
   label: 'Additional Cashflow',
   labelColorToken: 'lavenderWeb3',
   labelTypographyToken: 'primaryBodyXSmallRegular',
+  prefixToken: '+',
+  token: ' USDC',
+  typographyToken: 'secondaryBodyMediumRegular',
+  value: '0.00',
+  value2: '4.00',
 };
 
 export const WithTooltip = Template.bind({});
 WithTooltip.args = {
-  value: '+0.00',
   colorToken: 'lavenderWeb',
-  token: ' USDC',
-  typographyToken: 'secondaryBodyMediumRegular',
   label: 'Additional Cashflow',
   labelColorToken: 'lavenderWeb3',
   labelTypographyToken: 'primaryBodyXSmallRegular',
+  token: ' USDC',
   tooltip: 'We support a nice tooltip as well!',
+  typographyToken: 'secondaryBodyMediumRegular',
+  value: '+0.00',
 };
 
 export const WithAttentionIndicator = Template.bind({});
 WithAttentionIndicator.args = {
-  value: '+0.00',
+  attentionIndicatorColorToken: 'wildStrawberry',
   colorToken: 'lavenderWeb',
-  token: ' USDC',
-  typographyToken: 'secondaryBodyMediumRegular',
   label: 'Additional Cashflow',
   labelColorToken: 'lavenderWeb3',
   labelTypographyToken: 'primaryBodyXSmallRegular',
+  token: ' USDC',
   tooltip: 'We support a nice tooltip as well!',
-  attentionIndicatorColorToken: 'wildStrawberry',
+  typographyToken: 'secondaryBodyMediumRegular',
+  value: '+0.00',
 };

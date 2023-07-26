@@ -5,10 +5,10 @@ import { MarketToken, MarketTokenProps } from '.';
 
 describe('<MarketToken />', () => {
   const defaultProps: MarketTokenProps = {
-    iconSize: 20,
-    typographyToken: 'primaryBodyMediumBold',
     colorToken: 'liberty',
+    iconSize: 20,
     market: 'Aave',
+    typographyToken: 'primaryBodyMediumBold',
   };
 
   it('renders the market token component correctly', () => {
@@ -81,9 +81,9 @@ describe('<MarketToken />', () => {
   it('displays the correct text content with additional token and custom formatter', () => {
     const propsWithToken: MarketTokenProps = {
       ...defaultProps,
-      token: 'eth',
       infoFormatter: ({ market, token }) =>
         `CustomFormatter ${market!}-${(token || '').toUpperCase()}`,
+      token: 'eth',
     };
 
     render(<MarketToken {...propsWithToken} />);

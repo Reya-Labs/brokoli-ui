@@ -5,13 +5,13 @@ import { LabelTokenTypography, LabelTokenTypographyProps } from '.';
 
 describe('<LabelTokenTypography />', () => {
   const defaultProps: LabelTokenTypographyProps = {
+    colorToken: 'lavenderWeb',
     label: 'Label',
-    labelTypographyToken: 'primaryBodyMediumBold',
     labelColorToken: 'lavenderWeb2',
+    labelTypographyToken: 'primaryBodyMediumBold',
     token: 'Token',
     typographyToken: 'primaryBodyMediumRegular',
     value: '100',
-    colorToken: 'lavenderWeb',
   };
 
   it('renders correctly with default props', () => {

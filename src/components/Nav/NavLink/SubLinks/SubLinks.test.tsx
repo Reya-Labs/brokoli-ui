@@ -16,9 +16,9 @@ jest.mock(
 describe('<SubLinks />', () => {
   it('renders the correct number of SubLinks', () => {
     const subLinks = [
-      { text: 'SubLink 1', link: '/sublink-1', isNew: true },
-      { text: 'SubLink 2', link: '/sublink-2' },
-      { text: 'SubLink 3', link: '/sublink-3' },
+      { isNew: true, link: '/sublink-1', text: 'SubLink 1' },
+      { link: '/sublink-2', text: 'SubLink 2' },
+      { link: '/sublink-3', text: 'SubLink 3' },
     ];
     (useLocation as jest.Mock).mockReturnValue({ pathname: '/sublink-1' });
     render(

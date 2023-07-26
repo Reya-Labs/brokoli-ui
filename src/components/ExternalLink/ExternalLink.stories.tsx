@@ -5,19 +5,19 @@ import { Typography } from '../Typography';
 import { ExternalLink } from './index';
 
 export default {
-  title: 'Components/ExternalLink',
-  component: ExternalLink,
   args: {},
+  component: ExternalLink,
+  title: 'Components/ExternalLink',
 } as ComponentMeta<typeof ExternalLink>;
 
 const Template: ComponentStory<typeof ExternalLink> = (args) => <ExternalLink {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  typographyToken: 'primaryBodyXSmallRegular',
-  colorToken: 'lavenderWeb',
   children: 'visit our storybook link',
+  colorToken: 'lavenderWeb',
   href: 'https://brokoli.voltz.xyz',
+  typographyToken: 'primaryBodyXSmallRegular',
 };
 
 const WithinTextTemplate: ComponentStory<typeof ExternalLink> = (args) => (
@@ -31,8 +31,8 @@ const WithinTextTemplate: ComponentStory<typeof ExternalLink> = (args) => (
 );
 export const WithinText = WithinTextTemplate.bind({});
 WithinText.args = {
-  typographyToken: 'primaryBodySmallBold',
-  colorToken: 'lavenderWeb',
   children: 'Brokoli wildly appears',
+  colorToken: 'lavenderWeb',
   href: 'https://brokoli.voltz.xyz',
+  typographyToken: 'primaryBodySmallBold',
 };

@@ -4,9 +4,9 @@ import React from 'react';
 import { TextField } from './index';
 
 export default {
-  title: 'Components/TextField',
-  component: TextField,
   args: {},
+  component: TextField,
+  title: 'Components/TextField',
 } as ComponentMeta<typeof TextField>;
 
 const Template: ComponentStory<typeof TextField> = (args) => {
@@ -31,9 +31,9 @@ WithLabel.args = {
 export const WithTooltip = Template.bind({});
 WithTooltip.args = {
   label: 'Password',
-  type: 'password',
   labelColorToken: 'lavenderWeb2',
   labelTypographyToken: 'primaryBodySmallRegular',
   tooltip: 'Make sure your password is secure and safe!',
   tooltipColorToken: 'lavenderWeb2',
+  type: 'password',
 };

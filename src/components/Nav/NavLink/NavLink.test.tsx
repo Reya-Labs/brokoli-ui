@@ -61,7 +61,7 @@ describe('<NavLink />', () => {
         <NavLink
           isNew={false}
           link="/some-link"
-          subLinks={[{ text: 'SubLink 1', link: '/sub-link-1' }]}
+          subLinks={[{ link: '/sub-link-1', text: 'SubLink 1' }]}
         >
           Some Link
         </NavLink>

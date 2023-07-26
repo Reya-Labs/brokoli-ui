@@ -5,21 +5,21 @@ import { TokenField, TokenFieldProps } from '.';
 
 describe('<TokenField />', () => {
   const defaultProps: TokenFieldProps = {
-    onChange: jest.fn(),
+    allowNegativeValue: false,
+    bottomLeftText: 'Bottom left text',
+    bottomRightTextDifferenceValue: 10,
+    bottomRightTextValue: '100',
     decimalsLimit: 2,
-    maxLength: 18,
-    value: '10',
     defaultValue: '0',
     disabled: false,
     error: false,
     label: 'Token Field',
+    maxLength: 18,
+    onChange: jest.fn(),
+    token: 'aave',
     tooltip: 'Tooltip content',
     topRightText: 'Top right text',
-    bottomLeftText: 'Bottom left text',
-    token: 'aave',
-    bottomRightTextValue: '100',
-    bottomRightTextDifferenceValue: 10,
-    allowNegativeValue: false,
+    value: '10',
   };
 
   afterEach(() => {

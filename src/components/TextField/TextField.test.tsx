@@ -5,16 +5,16 @@ import { TextField, TextFieldFieldProps } from '.';
 
 describe('<TextField />', () => {
   const defaultProps: TextFieldFieldProps = {
-    onChange: jest.fn(),
-    value: 'Test Value',
     disabled: false,
     error: false,
     label: 'Text Field',
     labelColorToken: 'lavenderWeb2',
     labelTypographyToken: 'primaryBodySmallRegular',
+    onChange: jest.fn(),
     tooltipColorToken: 'lavenderWeb2',
     type: 'text',
     typographyToken: 'primaryBodyMediumRegular',
+    value: 'Test Value',
   };
 
   afterEach(() => {

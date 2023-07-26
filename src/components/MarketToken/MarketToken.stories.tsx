@@ -4,62 +4,62 @@ import React from 'react';
 import { MarketToken } from './index';
 
 export default {
-  title: 'Components/MarketToken',
-  component: MarketToken,
   args: {},
+  component: MarketToken,
+  title: 'Components/MarketToken',
 } as ComponentMeta<typeof MarketToken>;
 
 const Template: ComponentStory<typeof MarketToken> = (args) => <MarketToken {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  token: 'usdc',
-  market: 'Aave',
-  typographyToken: 'primaryHeader2Black',
   colorToken: 'lavenderWeb',
   iconSize: 30,
+  market: 'Aave',
+  token: 'usdc',
+  typographyToken: 'primaryHeader2Black',
 };
 
 export const WithSmallerIcon = Template.bind({});
 WithSmallerIcon.args = {
-  token: 'dai',
-  market: 'Lido',
-  typographyToken: 'primaryHeader3Bold',
   colorToken: 'lavenderWeb',
   iconSize: 24,
+  market: 'Lido',
+  token: 'dai',
+  typographyToken: 'primaryHeader3Bold',
 };
 
 export const WithNoIcons = Template.bind({});
 WithNoIcons.args = {
-  token: 'dai',
-  market: 'Lido',
-  typographyToken: 'primaryHeader3Bold',
   colorToken: 'lavenderWeb',
   iconSize: 0,
+  market: 'Lido',
+  token: 'dai',
+  typographyToken: 'primaryHeader3Bold',
 };
 
 export const WithNoMarket = Template.bind({});
 WithNoMarket.args = {
-  token: 'dai',
-  typographyToken: 'primaryHeader3Bold',
   colorToken: 'lavenderWeb',
   iconSize: 24,
+  token: 'dai',
+  typographyToken: 'primaryHeader3Bold',
 };
 
 export const WithNoToken = Template.bind({});
 WithNoToken.args = {
-  market: 'Aave',
-  typographyToken: 'primaryHeader3Bold',
   colorToken: 'lavenderWeb',
   iconSize: 24,
+  market: 'Aave',
+  typographyToken: 'primaryHeader3Bold',
 };
 
 export const WithCustomFormatter = Template.bind({});
 WithCustomFormatter.args = {
-  token: 'dai',
-  market: 'Lido',
-  typographyToken: 'primaryHeader3Bold',
   colorToken: 'lavenderWeb',
   iconSize: 24,
   infoFormatter: ({ market, token }) => `This is custom formatter ${market!} - ${token || ''}`,
+  market: 'Lido',
+  token: 'dai',
+  typographyToken: 'primaryHeader3Bold',
 };

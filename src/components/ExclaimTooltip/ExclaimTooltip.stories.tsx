@@ -6,9 +6,9 @@ import { Typography } from '../Typography';
 import { ExclaimTooltip } from './index';
 
 export default {
-  title: 'Components/ExclaimTooltip',
-  component: ExclaimTooltip,
   args: {},
+  component: ExclaimTooltip,
+  title: 'Components/ExclaimTooltip',
 } as ComponentMeta<typeof ExclaimTooltip>;
 
 const Template: ComponentStory<typeof ExclaimTooltip> = (args) => <ExclaimTooltip {...args} />;

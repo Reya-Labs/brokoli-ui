@@ -4,9 +4,9 @@ import React from 'react';
 import { AvatarAddress } from './index';
 
 export default {
-  title: 'Components/AvatarAddress',
-  component: AvatarAddress,
   args: {},
+  component: AvatarAddress,
+  title: 'Components/AvatarAddress',
 } as ComponentMeta<typeof AvatarAddress>;
 
 const Template: ComponentStory<typeof AvatarAddress> = (args) => <AvatarAddress {...args} />;

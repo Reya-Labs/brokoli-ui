@@ -4,9 +4,9 @@ import React from 'react';
 import { RainbowLoader } from './index';
 
 export default {
-  title: 'Components/RainbowLoader',
-  component: RainbowLoader,
   args: {},
+  component: RainbowLoader,
+  title: 'Components/RainbowLoader',
 } as ComponentMeta<typeof RainbowLoader>;
 
 const Template: ComponentStory<typeof RainbowLoader> = (args) => (

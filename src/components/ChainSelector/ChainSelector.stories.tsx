@@ -6,9 +6,9 @@ import { ReactComponent as Ethereum } from './icons/ethereum.svg';
 import { ChainSelector } from './index';
 
 export default {
-  title: 'Components/ChainSelector',
-  component: ChainSelector,
   args: {},
+  component: ChainSelector,
+  title: 'Components/ChainSelector',
 } as ComponentMeta<typeof ChainSelector>;
 
 const Template: ComponentStory<typeof ChainSelector> = (args) => {
@@ -18,24 +18,24 @@ const Template: ComponentStory<typeof ChainSelector> = (args) => {
 };
 const chainOptions = [
   {
+    Icon: Ethereum,
     id: 1,
     name: 'Ethereum',
-    Icon: Ethereum,
   },
   {
+    Icon: Ethereum,
     id: 5,
     name: 'Görli',
-    Icon: Ethereum,
   },
   {
+    Icon: Arbitrum,
     id: 42161,
     name: 'Arbitrum One',
-    Icon: Arbitrum,
   },
   {
+    Icon: Arbitrum,
     id: 421613,
     name: 'Arbitrum Görli',
-    Icon: Arbitrum,
   },
 ];
 
@@ -46,7 +46,7 @@ Default.args = {
 
 export const Approving = Template.bind({});
 Approving.args = {
-  chainOptions,
   approving: true,
+  chainOptions,
   selectedChainId: 1,
 };

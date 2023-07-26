@@ -6,16 +6,16 @@ import { ChainOptions, ChainOptionsProps } from './ChainOptions';
 describe('<ChainOptions />', () => {
   const chainOptions: ChainOptionsProps['chainOptions'] = [
     {
-      id: 1,
-      name: 'Option 1',
       Icon: () => <span>Icon 1</span>,
+      id: 1,
       isActive: false,
+      name: 'Option 1',
     },
     {
-      id: 2,
-      name: 'Option 2',
       Icon: () => <span>Icon 2</span>,
+      id: 2,
       isActive: true,
+      name: 'Option 2',
     },
   ];
 

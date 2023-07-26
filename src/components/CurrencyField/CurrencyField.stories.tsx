@@ -4,9 +4,9 @@ import React from 'react';
 import { CurrencyField } from './index';
 
 export default {
-  title: 'Components/CurrencyField',
-  component: CurrencyField,
   args: {},
+  component: CurrencyField,
+  title: 'Components/CurrencyField',
 } as ComponentMeta<typeof CurrencyField>;
 
 const Template: ComponentStory<typeof CurrencyField> = (args) => {

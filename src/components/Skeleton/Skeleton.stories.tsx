@@ -5,9 +5,9 @@ import React from 'react';
 import { Skeleton } from './index';
 
 export default {
-  title: 'Components/Skeleton',
-  component: Skeleton,
   args: {},
+  component: Skeleton,
+  title: 'Components/Skeleton',
 } as ComponentMeta<typeof Skeleton>;
 
 const Template: ComponentStory<typeof Skeleton> = (args) => <Skeleton {...args} />;

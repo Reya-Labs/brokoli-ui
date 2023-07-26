@@ -31,8 +31,8 @@ function useFloatingUIDialog({
   const setOpen = setControlledOpen ?? setUncontrolledOpen;
 
   const data = useFloating({
-    open,
     onOpenChange: setOpen,
+    open,
   });
 
   const context = data.context;
@@ -51,10 +51,10 @@ function useFloatingUIDialog({
       setOpen,
       ...interactions,
       ...data,
-      labelId,
       descriptionId,
-      setLabelId,
+      labelId,
       setDescriptionId,
+      setLabelId,
     }),
     [open, setOpen, interactions, data, labelId, descriptionId],
   );

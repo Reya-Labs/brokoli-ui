@@ -4,9 +4,9 @@ import React from 'react';
 import { TokenField } from './index';
 
 export default {
-  title: 'Components/TokenField',
-  component: TokenField,
   args: {},
+  component: TokenField,
+  title: 'Components/TokenField',
 } as ComponentMeta<typeof TokenField>;
 
 const Template: ComponentStory<typeof TokenField> = (args) => {
@@ -15,10 +15,10 @@ const Template: ComponentStory<typeof TokenField> = (args) => {
 
 export const Default = Template.bind({});
 Default.args = {
-  token: 'usdc',
-  label: 'Label',
-  tooltip: 'Tooltip message here!',
   bottomLeftText: 'Bottom left text',
-  topRightText: 'Top right text',
   bottomRightTextValue: '123',
+  label: 'Label',
+  token: 'usdc',
+  tooltip: 'Tooltip message here!',
+  topRightText: 'Top right text',
 };

@@ -4,9 +4,9 @@ import React from 'react';
 import { Ellipsis } from './index';
 
 export default {
-  title: 'Components/Ellipsis',
-  component: Ellipsis,
   args: {},
+  component: Ellipsis,
+  title: 'Components/Ellipsis',
 } as ComponentMeta<typeof Ellipsis>;
 
 const Template: ComponentStory<typeof Ellipsis> = (args) => <Ellipsis {...args} />;

@@ -5,18 +5,18 @@ import { LeverageField, LeverageFieldProps } from '.';
 
 describe('<LeverageField />', () => {
   const defaultProps: LeverageFieldProps = {
-    value: '2',
-    leverageOptions: ['1', '2', '3'],
-    onLeverageChange: jest.fn(),
-    error: false,
     disabled: false,
-    labelTypographyToken: 'primaryBodyMediumBold',
-    tooltipColorToken: 'lavenderWeb3',
-    labelColorToken: 'lavenderWeb',
+    error: false,
     label: 'Leverage',
+    labelColorToken: 'lavenderWeb',
+    labelTypographyToken: 'primaryBodyMediumBold',
+    leverageOptions: ['1', '2', '3'],
     maxLeverageColorToken: 'wildStrawberry',
     maxLeverageText: 'Max Leverage',
     maxLeverageTypographyToken: 'primaryHeader2Black',
+    onLeverageChange: jest.fn(),
+    tooltipColorToken: 'lavenderWeb3',
+    value: '2',
   };
 
   it('renders without error', () => {

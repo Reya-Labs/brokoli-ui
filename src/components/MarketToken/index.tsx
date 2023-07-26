@@ -22,11 +22,11 @@ export type MarketTokenProps = {
 };
 
 const MAP_MARKET_TO_ICON: Record<NonNullable<MarketTokenProps['market']>, SupportedIcons> = {
-  'GMX:GLP': 'glp',
   Aave: 'aave',
   'Aave V2': 'aave',
   'Aave V3': 'aave',
   Compound: 'compound',
+  'GMX:GLP': 'glp',
   Lido: 'steth',
   Rocket: 'reth',
   SOFR: 'sofr',

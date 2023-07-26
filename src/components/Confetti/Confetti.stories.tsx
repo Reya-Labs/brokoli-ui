@@ -7,9 +7,9 @@ import { Typography } from '../Typography';
 import { Confetti } from './index';
 
 export default {
-  title: 'Components/Confetti',
-  component: Confetti,
   args: {},
+  component: Confetti,
+  title: 'Components/Confetti',
 } as ComponentMeta<typeof Confetti>;
 
 const ButtonTemplate: ComponentStory<typeof Confetti> = (args) => (

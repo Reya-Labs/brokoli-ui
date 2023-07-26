@@ -4,9 +4,9 @@ import React from 'react';
 import { Page } from './index';
 
 export default {
-  title: 'Components/Page',
-  component: Page,
   args: {},
+  component: Page,
+  title: 'Components/Page',
 } as ComponentMeta<typeof Page>;
 
 const Template: ComponentStory<typeof Page> = (args) => <Page {...args} />;

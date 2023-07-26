@@ -7,49 +7,49 @@ import { Nav, NavProps } from './index';
 describe('<Nav />', () => {
   const navProps: NavProps['links'] = [
     {
+      subLinks: [
+        {
+          link: `/POOLS`,
+          text: 'Pools',
+        },
+        {
+          link: `/PORTFOLIO`,
+          text: 'Portfolio',
+        },
+      ],
       text: 'Traders',
-      subLinks: [
-        {
-          text: 'Pools',
-          link: `/POOLS`,
-        },
-        {
-          text: 'Portfolio',
-          link: `/PORTFOLIO`,
-        },
-      ],
     },
     {
-      text: 'Liquidity Providers',
       subLinks: [
         {
-          text: 'Pools',
           link: `/POOLS`,
+          text: 'Pools',
         },
         {
-          text: 'Optimisers',
           link: `/OPTIMISERS`,
+          text: 'Optimisers',
         },
         {
-          text: 'Portfolio',
-          link: `/PORTFOLIO`,
           isNew: true,
+          link: `/PORTFOLIO`,
+          text: 'Portfolio',
         },
       ],
+      text: 'Liquidity Providers',
     },
     {
-      text: 'Fixed Borrow',
       link: 'FIXED_BORROW',
+      text: 'Fixed Borrow',
     },
     {
       isNew: true,
-      text: 'Leaderboard',
       link: 'LEADERBOARD',
+      text: 'Leaderboard',
     },
     {
       isNew: true,
-      text: 'Profile',
       link: 'PROFILE',
+      text: 'Profile',
     },
   ];
 

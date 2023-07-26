@@ -37,7 +37,8 @@
   },
   "plugins": [
     "unused-imports",
-    "simple-import-sort"
+    "simple-import-sort",
+    "sort-keys-fix"
   ],
   "rules": {
     "@typescript-eslint/indent": "off",
@@ -140,6 +141,8 @@
     "unused-imports/no-unused-imports-ts": "error",
     "no-debugger": "error",
     "testing-library/no-node-access": "warn",
-    "testing-library/prefer-find-by": "off"
+    "testing-library/prefer-find-by": "off",
+    "sort-keys-fix/sort-keys-fix": ["error", "asc", {"caseSensitive": true, "natural": false}],
+    "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1 }]
   }
 }

@@ -4,9 +4,9 @@ import React from 'react';
 import { CloseButton } from './index';
 
 export default {
-  title: 'Components/CloseButton',
-  component: CloseButton,
   args: {},
+  component: CloseButton,
+  title: 'Components/CloseButton',
 } as ComponentMeta<typeof CloseButton>;
 
 const Template: ComponentStory<typeof CloseButton> = (args) => <CloseButton {...args} />;

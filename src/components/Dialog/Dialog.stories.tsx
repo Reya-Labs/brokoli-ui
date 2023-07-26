@@ -6,9 +6,9 @@ import { TypographyWithTooltip } from '../TypographyWithTooltip';
 import { Dialog } from './index';
 
 export default {
-  title: 'Components/Dialog',
-  component: Dialog,
   args: {},
+  component: Dialog,
+  title: 'Components/Dialog',
 } as ComponentMeta<typeof Dialog>;
 
 const Template: ComponentStory<typeof Dialog> = (args) => (
@@ -45,7 +45,6 @@ const Template: ComponentStory<typeof Dialog> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  open: true,
   children: (
     <React.Fragment>
       <Typography colorToken="lavenderWeb" typographyToken="primaryBodyLargeRegular">
@@ -65,4 +64,5 @@ Default.args = {
       </TypographyWithTooltip>
     </React.Fragment>
   ),
+  open: true,
 };

@@ -36,10 +36,6 @@ function useFloatingUITooltip({
   const setOpen = setControlledOpen ?? setUncontrolledOpen;
 
   const data = useFloating({
-    placement,
-    open,
-    onOpenChange: setOpen,
-    whileElementsMounted: autoUpdate,
     middleware: [
       offset(5),
       flip({
@@ -47,13 +43,17 @@ function useFloatingUITooltip({
       }),
       shift({ padding: 5 }),
     ],
+    onOpenChange: setOpen,
+    open,
+    placement,
+    whileElementsMounted: autoUpdate,
   });
 
   const context = data.context;
 
   const hover = useHover(context, {
-    move: false,
     enabled: controlledOpen == null,
+    move: false,
   });
   const focus = useFocus(context, {
     enabled: controlledOpen == null,
@@ -137,11 +137,11 @@ export const FloatingUITooltipContent = React.forwardRef<
         <div
           ref={ref}
           style={{
-            zIndex: LAYER_INDEXES.TOOLTIP,
+            left: context.x ?? 0,
             position: context.strategy,
             top: context.y ?? 0,
-            left: context.x ?? 0,
             visibility: context.x == null ? 'hidden' : 'visible',
+            zIndex: LAYER_INDEXES.TOOLTIP,
             ...props.style,
           }}
           {...context.getFloatingProps(props)}

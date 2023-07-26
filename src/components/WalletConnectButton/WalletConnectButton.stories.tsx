@@ -6,8 +6,8 @@ import React, { useState } from 'react';
 import { WalletConnectButton } from './index';
 
 export default {
-  title: 'Components/WalletConnectButton',
   component: WalletConnectButton,
+  title: 'Components/WalletConnectButton',
 } as ComponentMeta<typeof WalletConnectButton>;
 
 const Template: ComponentStory<typeof WalletConnectButton> = (args) => (

@@ -12,8 +12,8 @@ const AllTypography: React.FunctionComponent<{
   <div
     style={{
       display: 'grid',
-      gridTemplateColumns: '1fr',
       gap: 16,
+      gridTemplateColumns: '1fr',
       zIndex: 1,
     }}
   >
@@ -33,8 +33,8 @@ const AllTypography: React.FunctionComponent<{
 );
 
 export default {
-  title: 'Foundation/Typography',
   component: AllTypography,
+  title: 'Foundation/Typography',
 } as ComponentMeta<typeof AllTypography>;
 const AllTypographyTemplate: ComponentStory<typeof AllTypography> = (args) => (
   <AllTypography {...args} />

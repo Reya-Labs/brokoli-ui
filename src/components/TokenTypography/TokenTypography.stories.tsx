@@ -4,73 +4,73 @@ import React from 'react';
 import { TokenTypography } from './index';
 
 export default {
-  title: 'Components/TokenTypography',
-  component: TokenTypography,
   args: {},
+  component: TokenTypography,
+  title: 'Components/TokenTypography',
 } as ComponentMeta<typeof TokenTypography>;
 
 const Template: ComponentStory<typeof TokenTypography> = (args) => <TokenTypography {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  value: 100,
   colorToken: 'lavenderWeb',
   token: '%',
   typographyToken: 'secondaryBodyMediumRegular',
+  value: 100,
 };
 
 export const WithPrefixToken = Template.bind({});
 WithPrefixToken.args = {
-  value: 100,
   colorToken: 'lavenderWeb',
-  token: 'K',
   prefixToken: '$',
+  token: 'K',
   typographyToken: 'secondaryBodyMediumRegular',
+  value: 100,
 };
 
 export const WithRangeValues = Template.bind({});
 WithRangeValues.args = {
-  value: 52,
-  value2: 97,
   colorToken: 'lavenderWeb',
   token: '%',
   typographyToken: 'secondaryBodyMediumRegular',
+  value: 52,
+  value2: 97,
 };
 
 export const WithRangeValuesPrefixToken = Template.bind({});
 WithRangeValuesPrefixToken.args = {
-  value: 52,
-  value2: 97,
   colorToken: 'lavenderWeb',
   prefixToken: '$',
   token: 'M',
   typographyToken: 'secondaryBodyMediumRegular',
+  value: 52,
+  value2: 97,
 };
 
 export const WithNegativeDifference = Template.bind({});
 WithNegativeDifference.args = {
-  value: 100,
   colorToken: 'lavenderWeb',
-  token: '%',
   differenceValue: -2,
+  token: '%',
   typographyToken: 'secondaryBodyMediumRegular',
+  value: 100,
 };
 
 export const WithPositiveDifference = Template.bind({});
 WithPositiveDifference.args = {
-  value: 100,
   colorToken: 'lavenderWeb',
-  token: '%',
   differenceValue: 2,
+  token: '%',
   typographyToken: 'secondaryBodyMediumRegular',
+  value: 100,
 };
 
 export const WithAttentionIndicator = Template.bind({});
 WithAttentionIndicator.args = {
-  value: 100,
-  colorToken: 'lavenderWeb',
   attentionIndicatorColorToken: 'wildStrawberry',
-  token: '%',
+  colorToken: 'lavenderWeb',
   differenceValue: 2,
+  token: '%',
   typographyToken: 'secondaryBodyMediumRegular',
+  value: 100,
 };

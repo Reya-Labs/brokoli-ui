@@ -109,8 +109,8 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
           defaultValue={
             defaultValue ||
             formatValue({
-              value: '0',
               intlConfig: { locale: navigator.language },
+              value: '0',
             })
           }
           disabled={disabled}

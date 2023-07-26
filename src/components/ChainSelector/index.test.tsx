@@ -5,9 +5,9 @@ import { ChainOption, ChainSelector, ChainSelectorProps } from '.';
 
 describe('<ChainSelector />', () => {
   const chainOptions: ChainOption[] = [
-    { id: 1, name: 'Chain 1', Icon: (props) => <div {...props}>Chain 1 Icon</div> },
-    { id: 2, name: 'Chain 2', Icon: (props) => <div {...props}>Chain 2 Icon</div> },
-    { id: 3, name: 'Chain 3', Icon: (props) => <div {...props}>Chain 3 Icon</div> },
+    { Icon: (props) => <div {...props}>Chain 1 Icon</div>, id: 1, name: 'Chain 1' },
+    { Icon: (props) => <div {...props}>Chain 2 Icon</div>, id: 2, name: 'Chain 2' },
+    { Icon: (props) => <div {...props}>Chain 3 Icon</div>, id: 3, name: 'Chain 3' },
   ];
 
   const onChainChangeMock = jest.fn();
@@ -18,10 +18,10 @@ describe('<ChainSelector />', () => {
 
   const renderChainSelector = (props?: Partial<ChainSelectorProps>) => {
     const defaultProps: ChainSelectorProps = {
-      chainOptions,
-      selectedChainId: 1,
-      onChainChange: onChainChangeMock,
       approving: false,
+      chainOptions,
+      onChainChange: onChainChangeMock,
+      selectedChainId: 1,
     };
 
     return render(<ChainSelector {...defaultProps} {...props} />);

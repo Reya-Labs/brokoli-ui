@@ -6,9 +6,9 @@ import { colors, ColorTokens } from './colors';
 import { ColorTile } from './ColorTile/ColorTile';
 
 export default {
-  title: 'Foundation/Colors',
-  component: ColorTile,
   argTypes: {},
+  component: ColorTile,
+  title: 'Foundation/Colors',
 } as ComponentMeta<typeof ColorTile>;
 
 const AllColorsBox = styled('div')`

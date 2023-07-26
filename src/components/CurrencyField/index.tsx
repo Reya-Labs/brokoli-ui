@@ -73,8 +73,8 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
         defaultValue={
           defaultValue ||
           formatValue({
-            value: '0',
             intlConfig: { locale: navigator.language },
+            value: '0',
           })
         }
         disabled={disabled}

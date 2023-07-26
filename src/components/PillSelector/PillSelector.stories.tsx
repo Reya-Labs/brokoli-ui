@@ -4,9 +4,9 @@ import React, { useState } from 'react';
 import { PillSelector, PillSelectorProps } from './index';
 
 export default {
-  title: 'Components/PillSelector',
-  component: PillSelector,
   args: {},
+  component: PillSelector,
+  title: 'Components/PillSelector',
 } as ComponentMeta<typeof PillSelector>;
 
 const Template: ComponentStory<typeof PillSelector> = (args) => {
@@ -38,37 +38,37 @@ const pillOptions: PillSelectorProps['pillOptions'] = [
 ];
 const pillAttentionOptions: PillSelectorProps['pillOptions'] = [
   {
+    attentionPrefixText: '10',
     id: '1',
     label: 'Option 1',
-    attentionPrefixText: '10',
   },
   {
+    attentionPrefixText: '2',
     id: '2',
     label: 'Option 2',
-    attentionPrefixText: '2',
   },
   {
+    attentionPrefixText: '3',
     id: '3',
     label: 'Option 3',
-    attentionPrefixText: '3',
   },
 ];
 export const Default = Template.bind({});
 Default.args = {
-  variant: 'compact',
   pillOptions,
+  variant: 'compact',
 };
 
 export const CompactVariant = Template.bind({});
 CompactVariant.args = {
-  variant: 'compact',
   pillOptions,
+  variant: 'compact',
 };
 
 export const RegularVariant = Template.bind({});
 RegularVariant.args = {
-  variant: 'regular',
   pillOptions,
+  variant: 'regular',
 };
 
 export const WithAttentionPrefixText = Template.bind({});
@@ -86,30 +86,30 @@ WithAttentionPrefixTextColor.args = {
 export const WithError = Template.bind({});
 WithError.args = {
   error: true,
-  variant: 'compact',
   pillOptions,
+  variant: 'compact',
 };
 
 export const WithDisabled = Template.bind({});
 WithDisabled.args = {
   disabled: true,
-  variant: 'compact',
   pillOptions,
+  variant: 'compact',
 };
 
 export const WithAttentionPrefixTextDisabled = Template.bind({});
 WithAttentionPrefixTextDisabled.args = {
-  disabled: true,
-  variant: 'regular',
   attentionPrefixColorToken: 'wildStrawberry',
+  disabled: true,
   pillOptions: pillAttentionOptions,
+  variant: 'regular',
 };
 
 export const WithTooltip = Template.bind({});
 WithTooltip.args = {
   disabled: false,
-  variant: 'compact',
+  label: 'Pill! Grab one!',
   pillOptions: pillOptions,
   tooltip: 'A wild selector!',
-  label: 'Pill! Grab one!',
+  variant: 'compact',
 };

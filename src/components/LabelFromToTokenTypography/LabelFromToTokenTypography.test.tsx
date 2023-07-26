@@ -7,12 +7,12 @@ describe('<LabelFromToTokenTypography />', () => {
   const defaultProps: LabelFromToTokenTypographyProps = {
     fromColorToken: 'skyBlueCrayola',
     fromValue: '100',
-    toColorToken: 'ultramarineBlue',
-    toValue: '200',
-    typographyToken: 'primaryBodyXSmallBold',
     label: 'From-To',
     labelColorToken: 'lavenderWeb2',
     labelTypographyToken: 'primaryBodySmallRegular',
+    toColorToken: 'ultramarineBlue',
+    toValue: '200',
+    typographyToken: 'primaryBodyXSmallBold',
   };
 
   test('renders correctly with default props', () => {

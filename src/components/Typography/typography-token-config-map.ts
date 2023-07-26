@@ -38,109 +38,109 @@ export const TypographyTokenConfigMap: Record<
     styleObject: CSSObject;
   }
 > = {
-  primaryHeader1Black: {
-    styleObject: primaryHeader1BlackCSSObject,
-    as: 'h1',
-  },
-  primaryHeader1Bold: {
-    styleObject: primaryHeader1BoldCSSObject,
-    as: 'h1',
-  },
-  primaryHeader2Black: {
-    styleObject: primaryHeader2BlackCSSObject,
-    as: 'h2',
-  },
-  primaryHeader2Bold: {
-    styleObject: primaryHeader2BoldCSSObject,
-    as: 'h2',
-  },
-  primaryHeader3Black: {
-    styleObject: primaryHeader3BlackCSSObject,
-    as: 'h3',
-  },
-  primaryHeader3Bold: {
-    styleObject: primaryHeader3BoldCSSObject,
-    as: 'h3',
-  },
-  primaryBodyXSmallRegular: {
-    styleObject: primaryBodyXSmallRegularCSSObject,
+  primaryBodyExtraLargeBold: {
     as: 'p',
-  },
-  primaryBodyXSmallBold: {
-    styleObject: primaryBodyXSmallBoldCSSObject,
-    as: 'p',
-  },
-  primaryBodySmallRegular: {
-    styleObject: primaryBodySmallRegularCSSObject,
-    as: 'p',
-  },
-  primaryBodySmallBold: {
-    styleObject: primaryBodySmallBoldCSSObject,
-    as: 'p',
-  },
-  primaryBodyMediumRegular: {
-    styleObject: primaryBodyMediumRegularCSSObject,
-    as: 'p',
-  },
-  primaryBodyMediumBold: {
-    styleObject: primaryBodyMediumBoldCSSObject,
-    as: 'p',
-  },
-  primaryBodyLargeRegular: {
-    styleObject: primaryBodyLargeRegularCSSObject,
-    as: 'p',
-  },
-  primaryBodyLargeBold: {
-    styleObject: primaryBodyLargeBoldCSSObject,
-    as: 'p',
+    styleObject: primaryBodyExtraLargeBoldCSSObject,
   },
   primaryBodyExtraLargeRegular: {
+    as: 'p',
     styleObject: primaryBodyExtraLargeRegularCSSObject,
-    as: 'p',
   },
-  primaryBodyExtraLargeBold: {
-    styleObject: primaryBodyExtraLargeBoldCSSObject,
+  primaryBodyLargeBold: {
     as: 'p',
+    styleObject: primaryBodyLargeBoldCSSObject,
+  },
+  primaryBodyLargeRegular: {
+    as: 'p',
+    styleObject: primaryBodyLargeRegularCSSObject,
+  },
+  primaryBodyMediumBold: {
+    as: 'p',
+    styleObject: primaryBodyMediumBoldCSSObject,
+  },
+  primaryBodyMediumRegular: {
+    as: 'p',
+    styleObject: primaryBodyMediumRegularCSSObject,
+  },
+  primaryBodySmallBold: {
+    as: 'p',
+    styleObject: primaryBodySmallBoldCSSObject,
+  },
+  primaryBodySmallRegular: {
+    as: 'p',
+    styleObject: primaryBodySmallRegularCSSObject,
+  },
+  primaryBodyXSmallBold: {
+    as: 'p',
+    styleObject: primaryBodyXSmallBoldCSSObject,
+  },
+  primaryBodyXSmallRegular: {
+    as: 'p',
+    styleObject: primaryBodyXSmallRegularCSSObject,
+  },
+  primaryHeader1Black: {
+    as: 'h1',
+    styleObject: primaryHeader1BlackCSSObject,
+  },
+  primaryHeader1Bold: {
+    as: 'h1',
+    styleObject: primaryHeader1BoldCSSObject,
+  },
+  primaryHeader2Black: {
+    as: 'h2',
+    styleObject: primaryHeader2BlackCSSObject,
+  },
+  primaryHeader2Bold: {
+    as: 'h2',
+    styleObject: primaryHeader2BoldCSSObject,
+  },
+  primaryHeader3Black: {
+    as: 'h3',
+    styleObject: primaryHeader3BlackCSSObject,
+  },
+  primaryHeader3Bold: {
+    as: 'h3',
+    styleObject: primaryHeader3BoldCSSObject,
   },
 
-  secondaryBodyXSmallRegular: {
-    styleObject: secondaryBodyXSmallRegularCSSObject,
+  secondaryBodyExtraLargeBold: {
     as: 'p',
-  },
-  secondaryBodyXSmallBold: {
-    styleObject: secondaryBodyXSmallBoldCSSObject,
-    as: 'p',
-  },
-  secondaryBodySmallRegular: {
-    styleObject: secondaryBodySmallRegularCSSObject,
-    as: 'p',
-  },
-  secondaryBodySmallBold: {
-    styleObject: secondaryBodySmallBoldCSSObject,
-    as: 'p',
-  },
-  secondaryBodyMediumRegular: {
-    styleObject: secondaryBodyMediumRegularCSSObject,
-    as: 'p',
-  },
-  secondaryBodyMediumBold: {
-    styleObject: secondaryBodyMediumBoldCSSObject,
-    as: 'p',
-  },
-  secondaryBodyLargeRegular: {
-    styleObject: secondaryBodyLargeRegularCSSObject,
-    as: 'p',
-  },
-  secondaryBodyLargeBold: {
-    styleObject: secondaryBodyLargeBoldCSSObject,
-    as: 'p',
+    styleObject: secondaryBodyExtraLargeBoldCSSObject,
   },
   secondaryBodyExtraLargeRegular: {
+    as: 'p',
     styleObject: secondaryBodyExtraLargeRegularCSSObject,
-    as: 'p',
   },
-  secondaryBodyExtraLargeBold: {
-    styleObject: secondaryBodyExtraLargeBoldCSSObject,
+  secondaryBodyLargeBold: {
     as: 'p',
+    styleObject: secondaryBodyLargeBoldCSSObject,
+  },
+  secondaryBodyLargeRegular: {
+    as: 'p',
+    styleObject: secondaryBodyLargeRegularCSSObject,
+  },
+  secondaryBodyMediumBold: {
+    as: 'p',
+    styleObject: secondaryBodyMediumBoldCSSObject,
+  },
+  secondaryBodyMediumRegular: {
+    as: 'p',
+    styleObject: secondaryBodyMediumRegularCSSObject,
+  },
+  secondaryBodySmallBold: {
+    as: 'p',
+    styleObject: secondaryBodySmallBoldCSSObject,
+  },
+  secondaryBodySmallRegular: {
+    as: 'p',
+    styleObject: secondaryBodySmallRegularCSSObject,
+  },
+  secondaryBodyXSmallBold: {
+    as: 'p',
+    styleObject: secondaryBodyXSmallBoldCSSObject,
+  },
+  secondaryBodyXSmallRegular: {
+    as: 'p',
+    styleObject: secondaryBodyXSmallRegularCSSObject,
   },
 };

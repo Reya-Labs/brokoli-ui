@@ -6,10 +6,10 @@ import { AppLink, AppLinkProps } from '.';
 
 describe('<AppLink />', () => {
   const defaultProps: AppLinkProps = {
-    colorToken: 'lavenderWeb',
-    typographyToken: 'primaryBodyMediumBold',
     children: 'Link',
+    colorToken: 'lavenderWeb',
     to: '/path',
+    typographyToken: 'primaryBodyMediumBold',
   };
 
   it('renders enabled link correctly', () => {

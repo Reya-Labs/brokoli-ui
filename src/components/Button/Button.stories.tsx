@@ -4,9 +4,9 @@ import React from 'react';
 import { Button } from './index';
 
 export default {
-  title: 'Components/Button',
-  component: Button,
   argTypes: {},
+  component: Button,
+  title: 'Components/Button',
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
@@ -25,31 +25,31 @@ Secondary.args = {
 
 export const WithLoading = Template.bind({});
 WithLoading.args = {
+  bottomLeftText: 'Bottom left text!',
   children: 'Default',
   loading: true,
-  bottomLeftText: 'Bottom left text!',
   variant: 'primary',
 };
 
 export const WithBottomLeftText = Template.bind({});
 WithBottomLeftText.args = {
-  children: 'Default',
   bottomLeftText: 'Bottom left text!',
+  children: 'Default',
   variant: 'primary',
 };
 
 export const WithCustomTypography = Template.bind({});
 WithCustomTypography.args = {
   children: 'Default',
-  variant: 'primary',
   typographyToken: 'primaryBodySmallRegular',
+  variant: 'primary',
 };
 
 export const WithBottomLeftTextAsError = Template.bind({});
 WithBottomLeftTextAsError.args = {
-  children: 'Default',
   bottomLeftText: 'Bottom left text!',
   bottomLeftTextColorToken: 'wildStrawberry',
   bottomLeftTextTypographyToken: 'primaryBodySmallBold',
+  children: 'Default',
   variant: 'primary',
 };

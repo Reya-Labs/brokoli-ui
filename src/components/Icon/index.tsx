@@ -39,10 +39,10 @@ const IconMap: Record<
   eth: EthIcon,
   glp: GlpIcon,
   reth: REthIcon,
+  sofr: SOFRIcon,
   steth: StEthIcon,
   usdc: USDCIcon,
   usdt: USDTIcon,
-  sofr: SOFRIcon,
 };
 
 export const Icon: React.FunctionComponent<IconProps> = ({

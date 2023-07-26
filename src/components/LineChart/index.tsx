@@ -50,7 +50,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
     data[0].data.map((d) => d.y);
     const min = Math.min(...yS);
     const max = Math.max(...yS);
-    return { min, max };
+    return { max, min };
   }, [data]);
 
   return (
@@ -60,16 +60,16 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
         areaBaselineValue={yScale.min}
         axisBottom={{
           format: axisBottomFormat === 'hours' ? '%H:%M' : '%d %b',
-          tickSize: 0,
+          legendOffset: 16,
           tickPadding: 4,
           tickRotation: 0,
-          legendOffset: 16,
+          tickSize: 0,
         }}
         axisLeft={{
-          tickSize: 0,
+          legendOffset: 32,
           tickPadding: 8,
           tickRotation: 0,
-          legendOffset: 32,
+          tickSize: 0,
         }}
         axisRight={null}
         axisTop={null}
@@ -79,32 +79,32 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
         data={data}
         defs={[
           linearGradientDef(GRADIENT_ID, [
-            { offset: 0, color: color, opacity: 1 },
-            { offset: 100, color: colors.liberty8, opacity: 1 },
+            { color: color, offset: 0, opacity: 1 },
+            { color: colors.liberty8, offset: 100, opacity: 1 },
           ]),
         ]}
         enableArea={true}
         enableGridX={false}
         enableGridY={false}
-        fill={[{ match: '*', id: GRADIENT_ID }]}
-        margin={{ top: 40, right: 0, bottom: 20, left: 40 }}
+        fill={[{ id: GRADIENT_ID, match: '*' }]}
+        margin={{ bottom: 20, left: 40, right: 0, top: 40 }}
         markers={[
           {
             axis: 'y',
-            value: yMarker,
-            textStyle: {
-              fontSize: parseInt(yMarkerTypography.fontSize as string, 10),
-              fontFamily: yMarkerTypography.fontFamily as Property.FontFamily,
-              fontWeight: parseInt(yMarkerTypography.fontWeight as string),
-              fill: colors.lavenderWeb,
-            },
+            legend: yMarkerText,
+            legendPosition: 'top-left',
             lineStyle: {
               stroke: getColorFromToken(yMarkerColorToken),
               strokeDasharray: 5,
               strokeWidth: 1,
             },
-            legend: yMarkerText,
-            legendPosition: 'top-left',
+            textStyle: {
+              fill: colors.lavenderWeb,
+              fontFamily: yMarkerTypography.fontFamily as Property.FontFamily,
+              fontSize: parseInt(yMarkerTypography.fontSize as string, 10),
+              fontWeight: parseInt(yMarkerTypography.fontWeight as string),
+            },
+            value: yMarker,
           },
         ]}
         pointBorderColor={{ from: 'serieColor' }}
@@ -113,16 +113,6 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
         pointLabelYOffset={-1}
         pointSize={3}
         theme={{
-          background: 'transparent',
-          textColor: colors.lavenderWeb3,
-          fontSize: parseInt(axisTypography.fontSize as string, 10),
-          fontFamily: axisTypography.fontFamily as Property.FontFamily,
-          crosshair: {
-            line: {
-              stroke: color,
-              strokeWidth: 1,
-            },
-          },
           axis: {
             domain: {
               line: {
@@ -136,30 +126,40 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
                 strokeWidth: 1,
               },
               text: {
-                fontSize: parseInt(axisTypography.fontSize as string, 10),
-                fontFamily: axisTypography.fontFamily as Property.FontFamily,
-                fontWeight: parseInt(axisTypography.fontWeight as string),
                 fill: colors.lavenderWeb3,
+                fontFamily: axisTypography.fontFamily as Property.FontFamily,
+                fontSize: parseInt(axisTypography.fontSize as string, 10),
+                fontWeight: parseInt(axisTypography.fontWeight as string),
               },
             },
           },
+          background: 'transparent',
+          crosshair: {
+            line: {
+              stroke: color,
+              strokeWidth: 1,
+            },
+          },
+          fontFamily: axisTypography.fontFamily as Property.FontFamily,
+          fontSize: parseInt(axisTypography.fontSize as string, 10),
+          textColor: colors.lavenderWeb3,
         }}
         tooltip={(point) => <Tooltip colorToken={colorToken} {...point} />}
         useMesh={true}
         xFormat="time:%H:%M - %b %d"
         xScale={{
-          type: 'time',
           format: '%Y-%m-%d',
-          useUTC: false,
           precision: 'millisecond',
+          type: 'time',
+          useUTC: false,
         }}
         yFormat=" >-.2f"
         yScale={{
-          type: 'linear',
-          min: 'auto',
           max: 'auto',
-          stacked: true,
+          min: 'auto',
           reverse: false,
+          stacked: true,
+          type: 'linear',
         }}
       />
     </LineChartBox>

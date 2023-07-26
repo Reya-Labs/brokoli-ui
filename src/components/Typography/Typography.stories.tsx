@@ -4,8 +4,8 @@ import React from 'react';
 import { Typography } from './index';
 
 export default {
-  title: 'Components/Typography',
   component: Typography,
+  title: 'Components/Typography',
 } as ComponentMeta<typeof Typography>;
 
 const Template: ComponentStory<typeof Typography> = (args) => <Typography {...args} />;
@@ -13,13 +13,13 @@ const Template: ComponentStory<typeof Typography> = (args) => <Typography {...ar
 export const Default = Template.bind({});
 Default.args = {
   children: 'Default',
-  typographyToken: 'primaryHeader1Black',
   colorToken: 'lavenderWeb',
+  typographyToken: 'primaryHeader1Black',
 };
 
 export const RainbowVariant = Template.bind({});
 RainbowVariant.args = {
   children: 'Rainbow Variant',
-  typographyToken: 'primaryHeader1Black',
   colorToken: 'rainbow',
+  typographyToken: 'primaryHeader1Black',
 };

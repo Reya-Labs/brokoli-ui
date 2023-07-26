@@ -5,9 +5,9 @@ import { Button } from '../Button';
 import { Notifications, showNotification } from './index';
 
 export default {
-  title: 'Components/Notifications',
-  component: Notifications,
   args: {},
+  component: Notifications,
+  title: 'Components/Notifications',
 } as ComponentMeta<typeof Notifications>;
 
 const Template: ComponentStory<typeof Notifications> = (args) => {
@@ -18,10 +18,10 @@ const Template: ComponentStory<typeof Notifications> = (args) => {
         variant="secondary"
         onClick={() => {
           showNotification({
-            title: 'This is a error',
+            colorToken: 'wildStrawberry',
             content:
               'A error message is a modal dialog box, in-place message, notification, or balloon that alerts the user of a condition that might cause a problem in the future',
-            colorToken: 'wildStrawberry',
+            title: 'This is a error',
           });
         }}
       >
@@ -31,10 +31,10 @@ const Template: ComponentStory<typeof Notifications> = (args) => {
         variant="secondary"
         onClick={() => {
           showNotification({
-            title: 'This is a warning',
+            colorToken: 'orangeYellow',
             content:
               'A warning message is a modal dialog box, in-place message, notification, or balloon that alerts the user of a condition that might cause a problem in the future',
-            colorToken: 'orangeYellow',
+            title: 'This is a warning',
           });
         }}
       >
@@ -44,10 +44,10 @@ const Template: ComponentStory<typeof Notifications> = (args) => {
         variant="secondary"
         onClick={() => {
           showNotification({
-            title: 'This is a success',
+            colorToken: 'skyBlueCrayola',
             content:
               'A success message is a modal dialog box, in-place message, notification, or balloon that alerts the user of a condition that might cause a problem in the future',
-            colorToken: 'skyBlueCrayola',
+            title: 'This is a success',
           });
         }}
       >
@@ -57,11 +57,11 @@ const Template: ComponentStory<typeof Notifications> = (args) => {
         variant="secondary"
         onClick={() => {
           showNotification({
-            title: 'This is a info',
+            autoClose: 3000,
+            colorToken: 'lavenderWeb',
             content:
               'A info message is a modal dialog box, in-place message, notification, or balloon that alerts the user of a condition that might cause a problem in the future',
-            colorToken: 'lavenderWeb',
-            autoClose: 3000,
+            title: 'This is a info',
           });
         }}
       >

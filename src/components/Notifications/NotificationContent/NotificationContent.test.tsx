@@ -5,13 +5,13 @@ import { NotificationContent, NotificationContentProps } from '.';
 
 describe('<NotificationContent />', () => {
   const defaultProps: NotificationContentProps = {
+    closeToast: jest.fn(),
+    colorToken: 'wildStrawberry',
+    content: 'Notification Content',
+    contentTypographyToken: 'primaryHeader2Black',
     onCloseNotification: jest.fn(),
     title: 'Notification Title',
-    colorToken: 'wildStrawberry',
-    closeToast: jest.fn(),
-    contentTypographyToken: 'primaryHeader2Black',
     titleTypographyToken: 'primaryBodyMediumBold',
-    content: 'Notification Content',
   };
 
   afterEach(() => {

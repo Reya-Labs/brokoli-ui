@@ -5,12 +5,12 @@ jest.mock('ethers', () => ({
     providers: {
       Web3Provider: function () {
         return {
-          lookupAddress: jest.fn().mockResolvedValue('ENS_NAME'),
           getResolver: jest.fn().mockResolvedValue({
             getAvatar: jest.fn().mockResolvedValue({
               url: 'AVATAR_URL',
             }),
           }),
+          lookupAddress: jest.fn().mockResolvedValue('ENS_NAME'),
         };
       },
     },

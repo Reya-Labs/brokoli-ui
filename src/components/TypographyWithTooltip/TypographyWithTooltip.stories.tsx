@@ -4,9 +4,9 @@ import React from 'react';
 import { TypographyWithTooltip } from './index';
 
 export default {
-  title: 'Components/TypographyWithTooltip',
-  component: TypographyWithTooltip,
   args: {},
+  component: TypographyWithTooltip,
+  title: 'Components/TypographyWithTooltip',
 } as ComponentMeta<typeof TypographyWithTooltip>;
 
 const Template: ComponentStory<typeof TypographyWithTooltip> = (args) => (
@@ -15,8 +15,8 @@ const Template: ComponentStory<typeof TypographyWithTooltip> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  tooltip: 'Created with ❤️!',
-  colorToken: 'lavenderWeb',
-  typographyToken: 'secondaryBodyMediumRegular',
   children: 'What a wonderful UI library!',
+  colorToken: 'lavenderWeb',
+  tooltip: 'Created with ❤️!',
+  typographyToken: 'secondaryBodyMediumRegular',
 };

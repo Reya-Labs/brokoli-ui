@@ -6,9 +6,9 @@ import { Typography } from '../Typography';
 import { AppLink } from './index';
 
 export default {
-  title: 'Components/AppLink',
-  component: AppLink,
   args: {},
+  component: AppLink,
+  title: 'Components/AppLink',
 } as ComponentMeta<typeof AppLink>;
 
 const Template: ComponentStory<typeof AppLink> = (args) => (
@@ -19,10 +19,10 @@ const Template: ComponentStory<typeof AppLink> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  typographyToken: 'primaryBodyXSmallRegular',
-  colorToken: 'skyBlueCrayola',
   children: 'Visit this app link!',
+  colorToken: 'skyBlueCrayola',
   to: '/app-link',
+  typographyToken: 'primaryBodyXSmallRegular',
 };
 
 const WithinTextTemplate: ComponentStory<typeof AppLink> = (args) => (
@@ -39,8 +39,8 @@ const WithinTextTemplate: ComponentStory<typeof AppLink> = (args) => (
 );
 export const WithinText = WithinTextTemplate.bind({});
 WithinText.args = {
-  typographyToken: 'primaryBodySmallBold',
-  colorToken: 'wildStrawberry',
   children: 'Lorem link',
+  colorToken: 'wildStrawberry',
   to: '/app-link',
+  typographyToken: 'primaryBodySmallBold',
 };

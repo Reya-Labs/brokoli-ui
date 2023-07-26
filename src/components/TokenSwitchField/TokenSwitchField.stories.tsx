@@ -4,9 +4,9 @@ import React, { useState } from 'react';
 import { TokenSwitchField } from './index';
 
 export default {
-  title: 'Components/TokenSwitchField',
-  component: TokenSwitchField,
   args: {},
+  component: TokenSwitchField,
+  title: 'Components/TokenSwitchField',
 } as ComponentMeta<typeof TokenSwitchField>;
 
 const Template: ComponentStory<typeof TokenSwitchField> = (args) => {
@@ -17,15 +17,15 @@ const Template: ComponentStory<typeof TokenSwitchField> = (args) => {
 
 export const Default = Template.bind({});
 Default.args = {
-  token: 'usdc',
-  label: 'Label',
-  tooltip: 'Tooltip message here!',
   bottomLeftText: 'Bottom left text',
-  topRightText: 'Top right text',
   bottomRightTextValue: '123',
-  switchOnText: 'Switch on',
+  label: 'Label',
   switchOffText: 'Switch off',
-  switchValue: 'on',
-  switchOnValue: 'on',
   switchOffValue: 'off',
+  switchOnText: 'Switch on',
+  switchOnValue: 'on',
+  switchValue: 'on',
+  token: 'usdc',
+  tooltip: 'Tooltip message here!',
+  topRightText: 'Top right text',
 };

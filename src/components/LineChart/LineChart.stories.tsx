@@ -4,24 +4,19 @@ import React from 'react';
 import { LineChart } from './index';
 
 export default {
-  title: 'Components/LineChart',
-  component: LineChart,
   argTypes: {},
+  component: LineChart,
+  title: 'Components/LineChart',
 } as ComponentMeta<typeof LineChart>;
 
 const Template: ComponentStory<typeof LineChart> = (args) => <LineChart {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  colorToken: 'ultramarineBlue',
-  yMarkerColorToken: 'skyBlueCrayola3',
-  yMarkerTypographyToken: 'secondaryBodyXSmallRegular',
   axisTypographyToken: 'primaryBodyXSmallRegular',
-  yMarker: 1.82,
-  yMarkerText: 'Fixed Rate:',
+  colorToken: 'ultramarineBlue',
   data: [
     {
-      id: 'points1',
       data: [
         {
           x: new Date(1676036699000),
@@ -80,6 +75,11 @@ Default.args = {
           y: 1.85,
         },
       ],
+      id: 'points1',
     },
   ],
+  yMarker: 1.82,
+  yMarkerColorToken: 'skyBlueCrayola3',
+  yMarkerText: 'Fixed Rate:',
+  yMarkerTypographyToken: 'secondaryBodyXSmallRegular',
 };

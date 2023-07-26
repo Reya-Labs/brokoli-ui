@@ -4,9 +4,9 @@ import React from 'react';
 import { LabelFromToTokenTypography } from './index';
 
 export default {
-  title: 'Components/LabelFromToTokenTypography',
-  component: LabelFromToTokenTypography,
   args: {},
+  component: LabelFromToTokenTypography,
+  title: 'Components/LabelFromToTokenTypography',
 } as ComponentMeta<typeof LabelFromToTokenTypography>;
 
 const Template: ComponentStory<typeof LabelFromToTokenTypography> = (args) => (
@@ -15,45 +15,45 @@ const Template: ComponentStory<typeof LabelFromToTokenTypography> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  labelTypographyToken: 'primaryBodyMediumBold',
-  labelColorToken: 'lavenderWeb',
-  label: 'Label goes here',
   fromColorToken: 'skyBlueCrayola',
-  toColorToken: 'ultramarineBlue',
   fromValue: 'From',
+  label: 'Label goes here',
+  labelColorToken: 'lavenderWeb',
+  labelTypographyToken: 'primaryBodyMediumBold',
+  toColorToken: 'ultramarineBlue',
   toValue: 'To',
   typographyToken: 'secondaryBodySmallRegular',
 };
 
 export const WithTokens = Template.bind({});
 WithTokens.args = {
-  labelTypographyToken: 'primaryBodyXSmallRegular',
-  labelColorToken: 'lavenderWeb',
-  label: 'Label goes here',
   fromColorToken: 'lavenderWeb',
-  toPrefixToken: '$',
   fromPrefixToken: '$',
   fromToken: '%',
-  toColorToken: 'lavenderWeb',
-  toToken: '%',
-  token: 'percentage',
   fromValue: 29,
+  label: 'Label goes here',
+  labelColorToken: 'lavenderWeb',
+  labelTypographyToken: 'primaryBodyXSmallRegular',
+  toColorToken: 'lavenderWeb',
+  toPrefixToken: '$',
+  toToken: '%',
   toValue: 64,
+  token: 'percentage',
   typographyToken: 'secondaryBodySmallRegular',
 };
 
 export const WithTooltip = Template.bind({});
 WithTooltip.args = {
-  labelTypographyToken: 'primaryBodyXSmallRegular',
-  labelColorToken: 'lavenderWeb',
-  label: 'Label goes here',
   fromColorToken: 'lavenderWeb',
   fromToken: '%',
+  fromValue: 29,
+  label: 'Label goes here',
+  labelColorToken: 'lavenderWeb',
+  labelTypographyToken: 'primaryBodyXSmallRegular',
   toColorToken: 'lavenderWeb',
   toToken: '%',
-  token: 'percentage',
-  fromValue: 29,
   toValue: 64,
-  typographyToken: 'secondaryBodySmallRegular',
+  token: 'percentage',
   tooltip: 'Created with ❤️!',
+  typographyToken: 'secondaryBodySmallRegular',
 };
