@@ -18,6 +18,7 @@ export type TextFieldFieldProps = {
   tooltipColorToken?: ColorTokens;
   type: HTMLInputElement['type'];
   typographyToken: TypographyToken;
+  placeHolder?: string;
 };
 
 export const TextField: React.FunctionComponent<TextFieldFieldProps> = ({
@@ -31,6 +32,7 @@ export const TextField: React.FunctionComponent<TextFieldFieldProps> = ({
   tooltipColorToken,
   tooltip,
   type = 'text',
+  placeHolder,
   typographyToken = 'primaryBodyMediumRegular',
 }) => {
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -50,6 +52,7 @@ export const TextField: React.FunctionComponent<TextFieldFieldProps> = ({
         data-testid={`TextField-TextFieldBox-TextInputStyled`}
         disabled={disabled}
         error={error}
+        placeholder={placeHolder}
         type={type}
         typographyToken={typographyToken}
         value={value}

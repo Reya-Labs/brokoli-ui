@@ -33,6 +33,7 @@ WithTooltip.args = {
   label: 'Password',
   labelColorToken: 'lavenderWeb2',
   labelTypographyToken: 'primaryBodySmallRegular',
+  placeHolder: 'Type your password',
   tooltip: 'Make sure your password is secure and safe!',
   tooltipColorToken: 'lavenderWeb2',
   type: 'password',
