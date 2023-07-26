@@ -14,7 +14,7 @@ export const ColorTile: React.FunctionComponent<ColorTileProps> = ({
     <ColorTileCircle backgroundColor={backgroundColor} highlight={highlight} />
     <ColorTypographyBox>
       <Typography colorToken="lavenderWeb" typographyToken="primaryBodyMediumBold">
-        {`${name[0].toUpperCase()}${name.substring(1)}`}
+        {name}
       </Typography>
       <Typography colorToken="lavenderWeb" typographyToken="primaryBodySmallRegular">
         {backgroundColor.toUpperCase()}
