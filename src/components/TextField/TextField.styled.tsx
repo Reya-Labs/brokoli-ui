@@ -57,6 +57,10 @@ export const TextInputStyled = styled('input', {
     box-shadow: 0px 0px 1px ${colors.liberty2};
     cursor: not-allowed;
   }
+
+  &::placeholder {
+    color: ${colors.lavenderWeb3};
+  }
 `;
 
 export const TextFieldBox = styled('div')`
