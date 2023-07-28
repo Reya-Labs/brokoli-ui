@@ -4,9 +4,9 @@ import { ColorTokens } from '../../../foundation/Colors';
 import { ExclaimTooltipProps } from '../../ExclaimTooltip';
 import { TooltipLabel } from '../../TooltipLabel';
 import { TypographyToken } from '../../Typography';
-import { TextFieldBox, TextInputStyled } from './TextField.styled';
+import { SearchFieldBox, TextInputStyled } from './SearchField.styled';
 
-export type TextFieldProps = {
+export type SearchFieldProps = {
   onChange?: (value: string | undefined) => void;
   value?: string;
   disabled?: boolean;
@@ -21,7 +21,7 @@ export type TextFieldProps = {
   placeHolder?: string;
 };
 
-export const TextField: React.FunctionComponent<TextFieldProps> = ({
+export const SearchField: React.FunctionComponent<SearchFieldProps> = ({
   onChange,
   value,
   disabled,
@@ -31,7 +31,6 @@ export const TextField: React.FunctionComponent<TextFieldProps> = ({
   label,
   tooltipColorToken,
   tooltip,
-  type = 'text',
   placeHolder,
   typographyToken = 'primaryBodyMediumRegular',
 }) => {
@@ -39,9 +38,9 @@ export const TextField: React.FunctionComponent<TextFieldProps> = ({
     onChange && onChange(event.target.value);
   };
   return (
-    <TextFieldBox data-testid="TextField-TextFieldBox">
+    <SearchFieldBox data-testid="SearchField-SearchFieldBox">
       <TooltipLabel
-        data-testid={`TextField-TextFieldBox-${labelTypographyToken}-${labelColorToken}`}
+        data-testid={`SearchField-SearchFieldBox-${labelTypographyToken}-${labelColorToken}`}
         label={label}
         labelColorToken={labelColorToken}
         labelTypographyToken={labelTypographyToken}
@@ -49,15 +48,15 @@ export const TextField: React.FunctionComponent<TextFieldProps> = ({
         tooltipColorToken={tooltipColorToken}
       />
       <TextInputStyled
-        data-testid={`TextField-TextFieldBox-TextInputStyled`}
+        data-testid={`SearchField-SearchFieldBox-TextInputStyled`}
         disabled={disabled}
         error={error}
         placeholder={placeHolder}
-        type={type}
+        type="text"
         typographyToken={typographyToken}
         value={value}
         onChange={handleOnChange}
       />
-    </TextFieldBox>
+    </SearchFieldBox>
   );
 };

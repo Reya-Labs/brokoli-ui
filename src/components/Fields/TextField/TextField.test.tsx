@@ -1,10 +1,10 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
 
-import { TextField, TextFieldFieldProps } from './index';
+import { TextField, TextFieldProps } from './index';
 
 describe('<TextField />', () => {
-  const defaultProps: TextFieldFieldProps = {
+  const defaultProps: TextFieldProps = {
     disabled: false,
     error: false,
     label: 'Text Field',
