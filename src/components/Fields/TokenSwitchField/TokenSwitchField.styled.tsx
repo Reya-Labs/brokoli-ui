@@ -51,7 +51,6 @@ export const CurrencyInputStyled = styled(CurrencyInput)<{ error?: boolean }>`
   height: 44px;
   width: 100%;
 
-  /* background: linear-gradient(90.95deg, ${colors.lavenderWeb8} 0.66%, ${colors.liberty8} 99.34%); */
   background: linear-gradient(91.94deg, ${colors.lavenderWeb8} 48.36%, ${colors.liberty8} 99.28%);
   box-shadow: ${({ error }) =>
     error
