@@ -28,6 +28,8 @@ type CurrencyFieldProps = {
   labelTypographyToken?: TypographyToken;
   tooltip?: ExclaimTooltipProps['children'];
   tooltipColorToken?: ColorTokens;
+  typographyToken?: TypographyToken;
+  placeholder?: string;
 };
 
 export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
@@ -48,7 +50,9 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
   onBlur,
   min,
   max,
+  placeholder,
   'data-testid': dataTestId,
+  typographyToken = 'secondaryBodySmallRegular',
 }) => {
   const handleOnChange = (newValue: string | undefined) => {
     if (newValue === value) {
@@ -83,7 +87,9 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
         max={max}
         maxLength={maxLength}
         min={min}
+        placeholder={placeholder}
         suffix={suffix}
+        typographyToken={typographyToken}
         value={value}
         onBlur={onBlur}
         onValueChange={handleOnChange}

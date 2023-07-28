@@ -43,6 +43,8 @@ export type TokenFieldProps = {
   max?: number | string | undefined;
   maxLength?: number | undefined;
   min?: number | string | undefined;
+  typographyToken?: TypographyToken;
+  placeholder?: string;
 };
 
 export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
@@ -53,6 +55,8 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
   defaultValue,
   disabled,
   error,
+  typographyToken = 'secondaryBodyMediumBold',
+  placeholder,
   labelColorToken = 'lavenderWeb2',
   labelTypographyToken = 'primaryBodySmallRegular',
   tooltip,
@@ -119,6 +123,8 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
           max={max}
           maxLength={maxLength}
           min={min}
+          placeholder={placeholder}
+          typographyToken={typographyToken}
           value={value}
           onBlur={onBlur}
           onValueChange={handleOnChange}

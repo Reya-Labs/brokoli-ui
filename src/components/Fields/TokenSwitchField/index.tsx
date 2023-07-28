@@ -51,6 +51,8 @@ export type TokenSwitchFieldProps = {
   switchValue: string;
   onSwitchChange: (nextValue: string) => void;
   allowNegativeValue?: boolean;
+  typographyToken?: TypographyToken;
+  placeholder: string;
 };
 
 export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = ({
@@ -86,6 +88,8 @@ export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = 
   onBlur,
   min,
   max,
+  typographyToken = 'secondaryBodyMediumBold',
+  placeholder,
 }) => {
   const handleOnChange = (newValue: string | undefined) => {
     if (newValue === value) {
@@ -142,6 +146,8 @@ export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = 
           max={max}
           maxLength={maxLength}
           min={min}
+          placeholder={placeholder}
+          typographyToken={typographyToken}
           value={value}
           onBlur={onBlur}
           onValueChange={handleOnChange}
