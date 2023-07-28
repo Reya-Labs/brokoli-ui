@@ -6,7 +6,7 @@ import { TextField } from './index';
 export default {
   args: {},
   component: TextField,
-  title: 'Components/TextField',
+  title: 'Components/Fields/TextField',
 } as ComponentMeta<typeof TextField>;
 
 const Template: ComponentStory<typeof TextField> = (args) => {

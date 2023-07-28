@@ -6,7 +6,7 @@ import { TokenSwitchField } from './index';
 export default {
   args: {},
   component: TokenSwitchField,
-  title: 'Components/TokenSwitchField',
+  title: 'Components/Fields/TokenSwitchField',
 } as ComponentMeta<typeof TokenSwitchField>;
 
 const Template: ComponentStory<typeof TokenSwitchField> = (args) => {

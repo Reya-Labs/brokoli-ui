@@ -1,10 +1,10 @@
 import React from 'react';
 import { formatValue } from 'react-currency-input-field';
 
-import { ColorTokens } from '../../foundation/Colors';
-import { ExclaimTooltipProps } from '../ExclaimTooltip';
-import { TooltipLabel } from '../TooltipLabel';
-import { TypographyToken } from '../Typography';
+import { ColorTokens } from '../../../foundation/Colors';
+import { ExclaimTooltipProps } from '../../ExclaimTooltip';
+import { TooltipLabel } from '../../TooltipLabel';
+import { TypographyToken } from '../../Typography';
 import { CurrencyFieldBox, CurrencyInputStyled } from './CurrencyField.styled';
 
 type CurrencyFieldProps = {

@@ -6,7 +6,7 @@ import { LeverageField } from './index';
 export default {
   args: {},
   component: LeverageField,
-  title: 'Components/LeverageField',
+  title: 'Components/Fields/LeverageField',
 } as ComponentMeta<typeof LeverageField>;
 
 const Template: ComponentStory<typeof LeverageField> = (args) => {

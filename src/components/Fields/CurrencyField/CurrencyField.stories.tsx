@@ -6,7 +6,7 @@ import { CurrencyField } from './index';
 export default {
   args: {},
   component: CurrencyField,
-  title: 'Components/CurrencyField',
+  title: 'Components/Fields/CurrencyField',
 } as ComponentMeta<typeof CurrencyField>;
 
 const Template: ComponentStory<typeof CurrencyField> = (args) => {

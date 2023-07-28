@@ -1,25 +1,30 @@
 import React from 'react';
 import { formatValue } from 'react-currency-input-field';
 
-import { BaseColorTokens, ColorTokens } from '../../foundation/Colors';
-import { ExclaimTooltipProps } from '../ExclaimTooltip';
-import { TokenTypography } from '../TokenTypography';
-import { TooltipLabel } from '../TooltipLabel';
-import { Typography, TypographyToken } from '../Typography';
+import { BaseColorTokens, ColorTokens } from '../../../foundation/Colors';
+import { ExclaimTooltipProps } from '../../ExclaimTooltip';
+import { TokenTypography } from '../../TokenTypography';
+import { TooltipLabel } from '../../TooltipLabel';
+import { Typography, TypographyToken } from '../../Typography';
+import { TokenIconProps } from '../TokenField/TokenIcon';
+import { SwitchButtons } from './SwitchButtons';
 import {
   BottomBox,
   CurrencyInputBox,
   CurrencyInputStyled,
+  SwitchButtonsBox,
   TokenBox,
   TokenFieldBox,
   TopBox,
-} from './TokenField.styled';
-import { TokenIcon, TokenIconProps } from './TokenIcon';
+} from './TokenSwitchField.styled';
 
-export type TokenFieldProps = {
+export type TokenSwitchFieldProps = {
   onChange?: (value: string | undefined) => void;
   onBlur?: () => void;
   decimalsLimit?: number;
+  max?: number | string | undefined;
+  maxLength?: number | undefined;
+  min?: number | string | undefined;
   value?: string;
   defaultValue?: number | string;
   disabled?: boolean;
@@ -39,13 +44,16 @@ export type TokenFieldProps = {
   bottomRightTextColorToken?: BaseColorTokens;
   bottomRightTextTypographyToken?: TypographyToken;
   bottomRightTextDifferenceValue?: number;
+  switchOnText: string;
+  switchOffText: string;
+  switchOnValue: string;
+  switchOffValue: string;
+  switchValue: string;
+  onSwitchChange: (nextValue: string) => void;
   allowNegativeValue?: boolean;
-  max?: number | string | undefined;
-  maxLength?: number | undefined;
-  min?: number | string | undefined;
 };
 
-export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
+export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = ({
   onChange,
   decimalsLimit = 2,
   maxLength = 18,
@@ -68,6 +76,12 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
   bottomRightTextColorToken = 'lavenderWeb',
   bottomRightTextValue,
   bottomRightTextDifferenceValue,
+  switchOffText,
+  switchOffValue,
+  switchOnText,
+  switchOnValue,
+  switchValue,
+  onSwitchChange,
   allowNegativeValue,
   onBlur,
   min,
@@ -81,30 +95,39 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
   };
 
   return (
-    <TokenFieldBox data-testid="TokenField-TokenFieldBox">
-      <TopBox data-testid="TokenField-TopBox">
+    <TokenFieldBox>
+      <TopBox>
         <TooltipLabel
-          data-testid="TokenField-TopBox-TooltipLabel"
           label={label}
           labelColorToken={labelColorToken}
           labelTypographyToken={labelTypographyToken}
           tooltip={tooltip}
           tooltipColorToken={labelColorToken}
         />
-        {topRightText ? (
+        {topRightText && (
           <Typography
             colorToken={topRightTextColorToken}
-            data-testid="TokenField-TopBox-Typography"
             typographyToken={topRightTextTypographyToken}
           >
             {topRightText}
           </Typography>
-        ) : null}
+        )}
       </TopBox>
-      <CurrencyInputBox data-testid="TokenField-CurrencyInputBox">
+      <CurrencyInputBox>
+        <SwitchButtonsBox>
+          <SwitchButtons
+            disabled={disabled}
+            error={error}
+            switchOffText={switchOffText}
+            switchOffValue={switchOffValue}
+            switchOnText={switchOnText}
+            switchOnValue={switchOnValue}
+            switchValue={switchValue}
+            onSwitchChange={onSwitchChange}
+          />
+        </SwitchButtonsBox>
         <CurrencyInputStyled
           allowNegativeValue={allowNegativeValue}
-          data-testid="TokenField-CurrencyInputBox-CurrencyInputStyled"
           decimalsLimit={decimalsLimit}
           defaultValue={
             defaultValue ||
@@ -124,42 +147,32 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
           onValueChange={handleOnChange}
         />
         {token ? (
-          <TokenBox data-testid="TokenField-CurrencyInputBox-TokenBox">
-            <TokenIcon
-              data-testid={`TokenField-CurrencyInputBox-TokenBox-TokenIcon-${token}`}
-              token={token}
-            />
-            <Typography
-              colorToken="lavenderWeb"
-              data-testid="TokenField-CurrencyInputBox-TokenBox-Typography"
-              typographyToken="secondaryBodyMediumRegular"
-            >
+          <TokenBox>
+            <Typography colorToken="lavenderWeb3" typographyToken="secondaryBodySmallRegular">
               {token.toUpperCase()}
             </Typography>
           </TokenBox>
         ) : null}
       </CurrencyInputBox>
-      <BottomBox data-testid="TokenField-BottomBox">
-        {bottomLeftText ? (
+      <BottomBox>
+        {bottomLeftText && (
           <Typography
             colorToken={bottomLeftTextColorToken}
-            data-testid="TokenField-BottomBox-Typography"
             typographyToken={bottomLeftTextTypographyToken}
           >
             {bottomLeftText}
           </Typography>
-        ) : null}
-        {bottomRightTextValue ? (
+        )}
+        {bottomRightTextValue && (
           <TokenTypography
             colorToken={bottomRightTextColorToken}
-            data-testid="TokenField-BottomBox-TokenTypography"
             differenceToken={token ? ` ${token.toUpperCase()}` : ''}
             differenceValue={bottomRightTextDifferenceValue}
             token={token ? ` ${token.toUpperCase()}` : ''}
             typographyToken={bottomRightTextTypographyToken}
             value={bottomRightTextValue}
           />
-        ) : null}
+        )}
       </BottomBox>
     </TokenFieldBox>
   );

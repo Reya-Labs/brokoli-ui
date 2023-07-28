@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { ColorTokens } from '../../foundation/Colors';
+import { ColorTokens } from '../../../foundation/Colors';
+import { ExclaimTooltipProps } from '../../ExclaimTooltip';
+import { TooltipLabel } from '../../TooltipLabel';
+import { Typography, TypographyToken } from '../../Typography';
 import { CurrencyField } from '../CurrencyField';
-import { ExclaimTooltipProps } from '../ExclaimTooltip';
-import { TooltipLabel } from '../TooltipLabel';
-import { Typography, TypographyToken } from '../Typography';
 import {
   ButtonsBox,
   ButtonStyled,

@@ -1,11 +1,16 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import CurrencyInput from 'react-currency-input-field';
 
-import { colors } from '../../foundation/Colors';
-import { secondaryBodySmallRegularCSSObject } from '../Typography/Typography.css';
+import { colors } from '../../../foundation/Colors';
+import { TypographyToken } from '../../Typography';
+import { TypographyTokenConfigMap } from '../../Typography/typography-token-config-map';
 
-export const CurrencyInputStyled = styled(CurrencyInput)<{ error?: boolean }>`
+export const TextInputStyled = styled('input', {
+  shouldForwardProp: (prop) => prop !== 'typographyToken' && prop !== 'error',
+})<{
+  error?: boolean;
+  typographyToken: TypographyToken;
+}>`
   box-sizing: border-box;
 
   display: flex;
@@ -26,7 +31,7 @@ export const CurrencyInputStyled = styled(CurrencyInput)<{ error?: boolean }>`
   border-radius: 4px;
   border: none;
 
-  ${css(secondaryBodySmallRegularCSSObject)};
+  ${({ typographyToken }) => css(TypographyTokenConfigMap[typographyToken].styleObject)};
   color: ${({ error }) => (error ? colors.wildStrawberry3 : colors.lavenderWeb3)};
 
   outline: none;
@@ -52,9 +57,13 @@ export const CurrencyInputStyled = styled(CurrencyInput)<{ error?: boolean }>`
     box-shadow: 0px 0px 1px ${colors.liberty2};
     cursor: not-allowed;
   }
+
+  &::placeholder {
+    color: ${colors.lavenderWeb3};
+  }
 `;
 
-export const CurrencyFieldBox = styled('div')`
+export const TextFieldBox = styled('div')`
   display: flex;
   flex-direction: column;
   gap: 8px;

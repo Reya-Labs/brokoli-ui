@@ -1,8 +1,8 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { colors } from '../../foundation/Colors';
-import { secondaryBodyXSmallRegularCSSObject } from '../Typography/Typography.css';
+import { colors } from '../../../foundation/Colors';
+import { secondaryBodyXSmallRegularCSSObject } from '../../Typography';
 
 export const LeverageFieldBox = styled('div')`
   display: flex;

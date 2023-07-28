@@ -6,7 +6,7 @@ import { TokenField } from './index';
 export default {
   args: {},
   component: TokenField,
-  title: 'Components/TokenField',
+  title: 'Components/Fields/TokenField',
 } as ComponentMeta<typeof TokenField>;
 
 const Template: ComponentStory<typeof TokenField> = (args) => {

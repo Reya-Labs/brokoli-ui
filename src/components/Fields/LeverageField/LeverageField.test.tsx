@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
 
-import { LeverageField, LeverageFieldProps } from '.';
+import { LeverageField, LeverageFieldProps } from './index';
 
 describe('<LeverageField />', () => {
   const defaultProps: LeverageFieldProps = {
