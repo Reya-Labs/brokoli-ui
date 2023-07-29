@@ -48,6 +48,7 @@ export const SearchList: React.FunctionComponent<SearchListProps> = ({
     }
   }, [parentId]);
 
+  const filteredItems = items.filter((item) => itemFilter(item, searchedValue));
   return (
     <AnimateHeight
       duration={300}
@@ -60,16 +61,22 @@ export const SearchList: React.FunctionComponent<SearchListProps> = ({
       }}
     >
       <ItemsWrapper>
-        {items
-          .filter((item) => itemFilter(item, searchedValue))
-          .map((item, index) => (
+        {filteredItems.length > 0 ? (
+          filteredItems.map((item, index) => (
             <ItemWrapper
               key={`${item.id}-${index}`}
               backgroundColorToken={index % 2 === 0 ? 'liberty7' : 'liberty8'}
             >
               {itemRenderer(item, searchedValue)}
             </ItemWrapper>
-          ))}
+          ))
+        ) : (
+          <ItemWrapper backgroundColorToken="liberty7">
+            <Typography colorToken="orangeYellow" typographyToken="primaryBodySmallRegular">
+              No items match the filter...
+            </Typography>
+          </ItemWrapper>
+        )}
       </ItemsWrapper>
     </AnimateHeight>
   );
