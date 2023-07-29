@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Highlight } from '../../Highlight';
 import { Typography } from '../../Typography';
@@ -13,7 +13,10 @@ export default {
 } as ComponentMeta<typeof SearchField>;
 
 const Template: ComponentStory<typeof SearchField> = (args) => {
-  return <SearchField {...args} />;
+  const [selectedItemId, setSelectedItemId] = useState('');
+  return (
+    <SearchField {...args} selectedItemId={selectedItemId} onItemSelected={setSelectedItemId} />
+  );
 };
 
 export const Default = Template.bind({});

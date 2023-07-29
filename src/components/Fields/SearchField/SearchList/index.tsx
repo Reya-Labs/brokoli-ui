@@ -16,6 +16,7 @@ export type SearchListProps = {
   itemFilter?: (item: BaseItem, value: string) => boolean;
   parentId: string;
   searchedValue?: string;
+  onItemClick: (item: BaseItem) => void;
 };
 
 const defaultItemRenderer = (item: BaseItem, searchedValue?: string) => {
@@ -35,6 +36,7 @@ export const SearchList: React.FunctionComponent<SearchListProps> = ({
   itemFilter = defaultItemFilter,
   parentId,
   searchedValue = '',
+  onItemClick,
 }) => {
   const [height, setHeight] = useState<'auto' | number>(0);
   const [width, setWidth] = useState<'auto' | number>('auto');
@@ -66,6 +68,7 @@ export const SearchList: React.FunctionComponent<SearchListProps> = ({
             <ItemWrapper
               key={`${item.id}-${index}`}
               backgroundColorToken={index % 2 === 0 ? 'liberty7' : 'liberty8'}
+              onClick={() => onItemClick(item)}
             >
               {itemRenderer(item, searchedValue)}
             </ItemWrapper>

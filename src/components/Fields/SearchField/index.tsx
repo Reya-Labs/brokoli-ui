@@ -14,6 +14,8 @@ import {
 } from './SearchField.styled';
 import { SearchList, SearchListProps } from './SearchList';
 
+type SearchItem = SearchListProps['items'][0];
+
 export type SearchFieldProps = {
   items: SearchListProps['items'];
   itemRenderer?: SearchListProps['itemRenderer'];
@@ -28,6 +30,8 @@ export type SearchFieldProps = {
   type: HTMLInputElement['type'];
   typographyToken: TypographyToken;
   placeHolder?: string;
+  selectedItemId?: SearchItem['id'];
+  onItemSelected?: (id: SearchItem['id']) => void;
 };
 
 export const SearchField: React.FunctionComponent<SearchFieldProps> = ({
@@ -43,10 +47,13 @@ export const SearchField: React.FunctionComponent<SearchFieldProps> = ({
   typographyToken = 'primaryBodyMediumRegular',
   itemRenderer,
   itemFilter,
+  selectedItemId,
+  onItemSelected,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [value, setValue] = useState<string | undefined>('');
-  const handleOnClickOutside = () => {
+
+  const closePopover = () => {
     setIsOpen(false);
   };
   const handleOnFocus = () => {
@@ -54,6 +61,14 @@ export const SearchField: React.FunctionComponent<SearchFieldProps> = ({
   };
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
+  };
+  const handleOnItemClick = (item: SearchItem) => {
+    onItemSelected && onItemSelected(item.id);
+    const selectedItem = items.find((i) => i.id.toLowerCase() === item.id.toLowerCase());
+    if (selectedItem) {
+      setValue(selectedItem.label);
+      closePopover();
+    }
   };
 
   return (
@@ -65,11 +80,12 @@ export const SearchField: React.FunctionComponent<SearchFieldProps> = ({
           items={items}
           parentId="SearchField-SearchFieldBox"
           searchedValue={value}
+          onItemClick={handleOnItemClick}
         />
       }
       data-testid="SearchField-ItemsWrapper"
       isOpen={isOpen}
-      onClickOutside={handleOnClickOutside}
+      onClickOutside={closePopover}
     >
       <SearchFieldBox data-testid="SearchField-SearchFieldBox" id="SearchField-SearchFieldBox">
         <TooltipLabel
