@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 
+import { colors } from '../../../foundation/Colors';
 import { TypographyToken } from '../../Typography';
 import { commonInputStyle } from '../shared/common.styled';
 
@@ -25,4 +26,16 @@ export const SearchFieldBox = styled('div')`
   gap: 8px;
   width: 100%;
   box-sizing: border-box;
+`;
+
+export const SearchTextInputAndCaretBox = styled('div')`
+  position: relative;
+`;
+
+export const ToggleCaretBox = styled('div')`
+  position: absolute;
+  right: 10px;
+  top: calc(50% - 3.75px);
+  z-index: 1;
+  color: ${colors.lavenderWeb};
 `;

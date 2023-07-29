@@ -1,7 +1,9 @@
+import styled from '@emotion/styled';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
-import { SearchField } from './index';
+import { Typography } from '../../Typography';
+import { SearchField, SearchFieldProps } from './index';
 
 export default {
   args: {},
@@ -14,26 +16,92 @@ const Template: ComponentStory<typeof SearchField> = (args) => {
 };
 
 export const Default = Template.bind({});
-Default.args = {};
-
-export const WithTypographyToken = Template.bind({});
-WithTypographyToken.args = {
-  typographyToken: 'primaryBodyExtraLargeBold',
+Default.args = {
+  items: [
+    {
+      id: '1',
+      label: 'Ethereum',
+    },
+    {
+      id: '5',
+      label: 'Görli',
+    },
+    {
+      id: '42161',
+      label: 'Arbitrum One',
+    },
+    {
+      id: '421613',
+      label: 'Arbitrum Görli',
+    },
+  ],
 };
 
-export const WithLabel = Template.bind({});
-WithLabel.args = {
-  label: 'Username',
-  labelColorToken: 'lavenderWeb2',
-  labelTypographyToken: 'primaryBodySmallRegular',
+type CustomItemType = SearchFieldProps['items'][0] & {
+  extra: string;
 };
 
-export const WithTooltip = Template.bind({});
-WithTooltip.args = {
-  label: 'Password',
+const customItems: CustomItemType[] = [
+  {
+    extra: 'The mainnet',
+    id: '1',
+    label: 'Ethereum',
+  },
+  {
+    extra: 'The testnet',
+    id: '5',
+    label: 'Görli',
+  },
+  {
+    extra: 'The Arbitrum mainnet',
+    id: '42161',
+    label: 'Arbitrum One',
+  },
+  {
+    extra: 'The Arbitrum testnet',
+    id: '421613',
+    label: 'Arbitrum Görli',
+  },
+];
+
+const Wrapper = styled('div')`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+`;
+
+const itemRenderer = (item: SearchFieldProps['items'][0]) => {
+  const { label, extra } = item as CustomItemType;
+  return (
+    <Wrapper>
+      <Typography colorToken="lavenderWeb2" typographyToken="primaryBodySmallRegular">
+        {label}
+      </Typography>
+      <Typography colorToken="lavenderWeb2" typographyToken="primaryBodySmallRegular">
+        {extra}
+      </Typography>
+    </Wrapper>
+  );
+};
+
+const itemFilter = (item: SearchFieldProps['items'][0], value: string) => {
+  const { label, extra } = item as CustomItemType;
+  return !value
+    ? true
+    : label.toLowerCase().includes(value.toLowerCase()) ||
+        extra.toLowerCase().includes(value.toLowerCase());
+};
+
+export const WithCustomisation = Template.bind({});
+WithCustomisation.args = {
+  itemFilter,
+  itemRenderer,
+  items: customItems,
+  label: 'Search',
   labelColorToken: 'lavenderWeb2',
   labelTypographyToken: 'primaryBodySmallRegular',
-  placeHolder: 'Type your password',
-  tooltip: 'Make sure your password is secure and safe!',
+  placeHolder: 'Type to search',
+  tooltip: 'Make sure enter valid data!',
   tooltipColorToken: 'lavenderWeb2',
 };

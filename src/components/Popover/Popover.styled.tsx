@@ -12,7 +12,7 @@ export const globalReactTinyPopoverContainerCSS = css`
     box-shadow: 0px 0px 20px rgba(225, 221, 247, 0.1);
     border-radius: 4px;
     min-width: 160px;
-    margin-top: 8px;
+    margin-top: 4px;
     z-index: ${LAYER_INDEXES.POPOVER};
   }
 `;
