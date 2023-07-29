@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
+import { Highlight } from '../../Highlight';
 import { Typography } from '../../Typography';
 import { SearchField, SearchFieldProps } from './index';
 
@@ -71,15 +72,15 @@ const Wrapper = styled('div')`
   width: 100%;
 `;
 
-const itemRenderer = (item: SearchFieldProps['items'][0]) => {
+const itemRenderer = (item: SearchFieldProps['items'][0], searchedValue?: string) => {
   const { label, extra } = item as CustomItemType;
   return (
     <Wrapper>
       <Typography colorToken="lavenderWeb2" typographyToken="primaryBodySmallRegular">
-        {label}
+        <Highlight highlight={searchedValue}>{label}</Highlight>
       </Typography>
       <Typography colorToken="lavenderWeb2" typographyToken="primaryBodySmallRegular">
-        {extra}
+        <Highlight highlight={searchedValue}>{extra}</Highlight>
       </Typography>
     </Wrapper>
   );

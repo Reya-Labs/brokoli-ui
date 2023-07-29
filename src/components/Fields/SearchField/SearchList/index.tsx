@@ -1,6 +1,7 @@
 import React, { useLayoutEffect, useState } from 'react';
 import AnimateHeight from 'react-animate-height';
 
+import { Highlight } from '../../../Highlight';
 import { Typography } from '../../../Typography';
 import { ItemsWrapper, ItemWrapper } from './SearchList.styled';
 
@@ -11,19 +12,17 @@ type BaseItem = {
 
 export type SearchListProps = {
   items: BaseItem[];
-  itemRenderer?: (item: BaseItem, index: number) => React.ReactNode;
+  itemRenderer?: (item: BaseItem, searchedValue?: string) => React.ReactNode;
   itemFilter?: (item: BaseItem, value: string) => boolean;
   parentId: string;
   searchedValue?: string;
 };
 
-const defaultItemRenderer = (item: BaseItem) => {
+const defaultItemRenderer = (item: BaseItem, searchedValue?: string) => {
   return (
-    <React.Fragment>
-      <Typography colorToken="lavenderWeb2" typographyToken="primaryBodySmallRegular">
-        {item.label}
-      </Typography>
-    </React.Fragment>
+    <Typography colorToken="lavenderWeb2" typographyToken="primaryBodySmallRegular">
+      <Highlight highlight={searchedValue}>{item.label}</Highlight>
+    </Typography>
   );
 };
 
@@ -68,7 +67,7 @@ export const SearchList: React.FunctionComponent<SearchListProps> = ({
               key={`${item.id}-${index}`}
               backgroundColorToken={index % 2 === 0 ? 'liberty7' : 'liberty8'}
             >
-              {itemRenderer(item, index)}
+              {itemRenderer(item, searchedValue)}
             </ItemWrapper>
           ))}
       </ItemsWrapper>
