@@ -52,7 +52,7 @@ export type TokenSwitchFieldProps = {
   onSwitchChange: (nextValue: string) => void;
   allowNegativeValue?: boolean;
   typographyToken?: TypographyToken;
-  placeholder: string;
+  placeholder?: string;
 };
 
 export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = ({
