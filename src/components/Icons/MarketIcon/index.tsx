@@ -8,7 +8,7 @@ import { ReactComponent as RocketIcon } from './assets/rocket.svg';
 import { ReactComponent as SOFRIcon } from './assets/sofr.svg';
 
 export type MarketIconProps = {
-  market: SupportedMarkets;
+  market: SupportedMarkets | string;
   className?: string;
   'data-testid'?: string;
 };
@@ -32,7 +32,7 @@ export const MarketIcon: React.FunctionComponent<MarketIconProps> = ({
   market,
   className,
 }) => {
-  const SupportedIcon = MarketIconMap[market];
+  const SupportedIcon = MarketIconMap[market as SupportedMarkets];
   if (!SupportedIcon) {
     return null;
   }

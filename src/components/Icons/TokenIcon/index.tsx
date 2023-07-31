@@ -9,7 +9,7 @@ import { ReactComponent as USDCIcon } from './assets/usdc.svg';
 import { ReactComponent as USDTIcon } from './assets/usdt.svg';
 
 export type TokenIconProps = {
-  token: SupportedTokenIcons;
+  token: SupportedTokenIcons | string;
   className?: string;
   'data-testid'?: string;
 };
@@ -34,7 +34,7 @@ export const TokenIcon: React.FunctionComponent<TokenIconProps> = ({
   token,
   className,
 }) => {
-  const SupportedIcon = TokenIconMap[token];
+  const SupportedIcon = TokenIconMap[token as SupportedTokenIcons];
   if (!SupportedIcon) {
     return null;
   }
