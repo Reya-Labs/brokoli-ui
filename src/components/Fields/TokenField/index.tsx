@@ -3,6 +3,7 @@ import { formatValue } from 'react-currency-input-field';
 
 import { BaseColorTokens, ColorTokens } from '../../../foundation/Colors';
 import { ExclaimTooltipProps } from '../../ExclaimTooltip';
+import { TokenIconProps } from '../../Icons';
 import { TokenTypography } from '../../TokenTypography';
 import { TooltipLabel } from '../../TooltipLabel';
 import { Typography, TypographyToken } from '../../Typography';
@@ -12,9 +13,9 @@ import {
   CurrencyInputStyled,
   TokenBox,
   TokenFieldBox,
+  TokenIconStyled,
   TopBox,
 } from './TokenField.styled';
-import { TokenIcon, TokenIconProps } from './TokenIcon';
 
 export type TokenFieldProps = {
   onChange?: (value: string | undefined) => void;
@@ -131,7 +132,7 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
         />
         {token ? (
           <TokenBox data-testid="TokenField-CurrencyInputBox-TokenBox">
-            <TokenIcon
+            <TokenIconStyled
               data-testid={`TokenField-CurrencyInputBox-TokenBox-TokenIcon-${token}`}
               token={token}
             />

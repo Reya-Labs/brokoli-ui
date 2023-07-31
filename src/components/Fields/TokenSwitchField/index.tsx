@@ -3,10 +3,10 @@ import { formatValue } from 'react-currency-input-field';
 
 import { BaseColorTokens, ColorTokens } from '../../../foundation/Colors';
 import { ExclaimTooltipProps } from '../../ExclaimTooltip';
+import { TokenIconProps } from '../../Icons/TokenIcon';
 import { TokenTypography } from '../../TokenTypography';
 import { TooltipLabel } from '../../TooltipLabel';
 import { Typography, TypographyToken } from '../../Typography';
-import { TokenIconProps } from '../TokenField/TokenIcon';
 import { SwitchButtons } from './SwitchButtons';
 import {
   BottomBox,

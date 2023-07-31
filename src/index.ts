@@ -14,6 +14,7 @@ export * from './components/ExternalLink';
 export * from './components/Fields';
 export * from './components/Highlight';
 export * from './components/HorizontalLine';
+export * from './components/Icons';
 export * from './components/LabelFromToTokenTypography';
 export * from './components/LabelTokenTypography';
 export * from './components/LineChart';

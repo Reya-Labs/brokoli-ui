@@ -16,7 +16,7 @@ describe('<TokenField />', () => {
     label: 'Token Field',
     maxLength: 18,
     onChange: jest.fn(),
-    token: 'aave',
+    token: 'eth',
     tooltip: 'Tooltip content',
     topRightText: 'Top right text',
     value: '10',
@@ -81,7 +81,7 @@ describe('<TokenField />', () => {
 
   it('renders token icon with correct token prop', () => {
     render(<TokenField {...defaultProps} />);
-    const tokenIcon = screen.getByTestId('TokenField-CurrencyInputBox-TokenBox-TokenIcon-aave');
+    const tokenIcon = screen.getByTestId('TokenField-CurrencyInputBox-TokenBox-TokenIcon-eth');
     expect(tokenIcon).toBeInTheDocument();
   });
 

@@ -26,7 +26,7 @@ describe('<MarketToken />', () => {
 
   it('renders the correct market icon', () => {
     render(<MarketToken {...defaultProps} />);
-    const marketIcon = screen.getByTestId(`MarketToken-IconStyled-aave`);
+    const marketIcon = screen.getByTestId(`MarketToken-MarketIconStyled-aave`);
 
     expect(marketIcon).toBeInTheDocument();
   });
@@ -38,7 +38,7 @@ describe('<MarketToken />', () => {
     };
 
     render(<MarketToken {...propsWithToken} />);
-    const additionalIcon = screen.getByTestId('MarketToken-IconStyled-eth');
+    const additionalIcon = screen.getByTestId('MarketToken-TokenIconStyled-eth');
 
     expect(additionalIcon).toBeInTheDocument();
   });

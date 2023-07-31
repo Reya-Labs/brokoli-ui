@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import CurrencyInput from 'react-currency-input-field';
 
+import { TokenIcon } from '../../Icons';
 import { TypographyToken } from '../../Typography';
 import { commonInputStyle } from '../shared/common.styled';
 
@@ -48,4 +49,9 @@ export const CurrencyInputStyled = styled(CurrencyInput)<{
       error,
       typographyToken,
     })}
+`;
+
+export const TokenIconStyled = styled(TokenIcon)`
+  width: 22px;
+  height: 22px;
 `;

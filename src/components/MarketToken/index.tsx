@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { ColorTokens } from '../../foundation/Colors';
-import { SupportedIcons } from '../Icon';
+import { MarketIconProps } from '../Icons';
 import { Typography, TypographyToken } from '../Typography';
-import { IconsBox, IconStyled, MarketTokenBox } from './MarketToken.styled';
+import { IconsBox, MarketIconStyled, MarketTokenBox, TokenIconStyled } from './MarketToken.styled';
 
 export type MarketTokenProps = {
   token?: 'eth' | 'usdc' | 'usdt' | 'dai';
@@ -21,14 +21,17 @@ export type MarketTokenProps = {
   }) => React.ReactNode;
 };
 
-const MAP_MARKET_TO_ICON: Record<NonNullable<MarketTokenProps['market']>, SupportedIcons> = {
+const MAP_MARKET_TO_ICON: Record<
+  NonNullable<MarketTokenProps['market']>,
+  MarketIconProps['market']
+> = {
   Aave: 'aave',
   'Aave V2': 'aave',
   'Aave V3': 'aave',
   Compound: 'compound',
   'GMX:GLP': 'glp',
-  Lido: 'steth',
-  Rocket: 'reth',
+  Lido: 'lido',
+  Rocket: 'rocket',
   SOFR: 'sofr',
 };
 
@@ -64,17 +67,17 @@ export const MarketToken: React.FunctionComponent<MarketTokenProps> = ({
       {iconSize > 0 && (market || token) ? (
         <IconsBox data-testid="MarketToken-IconsBox">
           {market ? (
-            <IconStyled
-              data-testid={`MarketToken-IconStyled-${MAP_MARKET_TO_ICON[market]}`}
-              name={MAP_MARKET_TO_ICON[market]}
+            <MarketIconStyled
+              data-testid={`MarketToken-MarketIconStyled-${MAP_MARKET_TO_ICON[market]}`}
+              market={MAP_MARKET_TO_ICON[market]}
               size={iconSize}
             />
           ) : null}
           {token ? (
-            <IconStyled
-              data-testid={`MarketToken-IconStyled-${token}`}
-              name={token}
+            <TokenIconStyled
+              data-testid={`MarketToken-TokenIconStyled-${token}`}
               size={iconSize}
+              token={token}
             />
           ) : null}
         </IconsBox>
