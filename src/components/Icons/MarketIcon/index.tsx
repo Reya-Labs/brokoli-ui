@@ -1,46 +1,15 @@
 import React from 'react';
 
-import { ReactComponent as AAveIcon } from './assets/aave.svg';
-import { ReactComponent as CompoundIcon } from './assets/compound.svg';
-import { ReactComponent as GlpIcon } from './assets/glp.svg';
-import { ReactComponent as LidoIcon } from './assets/lido.svg';
-import { ReactComponent as RocketIcon } from './assets/rocket.svg';
-import { ReactComponent as SOFRIcon } from './assets/sofr.svg';
+import { Icon, IconProps } from './Icon';
+import { MarketIconStyled } from './MarketIcon.styled';
 
-export type MarketIconProps = {
-  market: SupportedMarkets | string;
-  className?: string;
-  'data-testid'?: string;
+export type MarketIconProps = IconProps & {
+  size?: number;
 };
 
-export type SupportedMarkets = 'aave' | 'compound' | 'glp' | 'sofr' | 'lido' | 'rocket';
-
-const MarketIconMap: Record<
-  SupportedMarkets,
-  React.FunctionComponent<{ viewBox?: string; className?: string }>
-> = {
-  aave: AAveIcon,
-  compound: CompoundIcon,
-  glp: GlpIcon,
-  lido: LidoIcon,
-  rocket: RocketIcon,
-  sofr: SOFRIcon,
-};
-
-export const MarketIcon: React.FunctionComponent<MarketIconProps> = ({
-  'data-testid': dataTestId,
-  market,
-  className,
-}) => {
-  const SupportedIcon = MarketIconMap[market as SupportedMarkets];
-  if (!SupportedIcon) {
-    return null;
+export const MarketIcon: React.FunctionComponent<MarketIconProps> = ({ size, ...props }) => {
+  if (!size) {
+    return <Icon {...props} />;
   }
-  return (
-    <SupportedIcon
-      className={className}
-      data-testid={dataTestId || `Icon-${market}`}
-      viewBox="0 0 40 40"
-    />
-  );
+  return <MarketIconStyled size={size} {...props} />;
 };

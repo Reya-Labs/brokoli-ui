@@ -3,7 +3,7 @@ import { formatValue } from 'react-currency-input-field';
 
 import { BaseColorTokens, ColorTokens } from '../../../foundation/Colors';
 import { ExclaimTooltipProps } from '../../ExclaimTooltip';
-import { TokenIconProps } from '../../Icons/TokenIcon';
+import { IconProps } from '../../Icons/TokenIcon/Icon';
 import { TokenTypography } from '../../TokenTypography';
 import { TooltipLabel } from '../../TooltipLabel';
 import { Typography, TypographyToken } from '../../Typography';
@@ -39,7 +39,7 @@ export type TokenSwitchFieldProps = {
   bottomLeftText?: string;
   bottomLeftTextColorToken?: ColorTokens;
   bottomLeftTextTypographyToken?: TypographyToken;
-  token?: TokenIconProps['token'];
+  token?: IconProps['token'];
   bottomRightTextValue?: string | number;
   bottomRightTextColorToken?: BaseColorTokens;
   bottomRightTextTypographyToken?: TypographyToken;

@@ -1,7 +1,5 @@
 import styled from '@emotion/styled';
 
-import { MarketIcon, TokenIcon } from '../Icons';
-
 export const MarketTokenBox = styled('div')`
   display: flex;
   flex-direction: row;
@@ -23,22 +21,4 @@ export const IconsBox = styled('div')`
   display: flex;
   flex-direction: row;
   align-items: center;
-`;
-
-export const MarketIconStyled = styled(MarketIcon, {
-  shouldForwardProp: (prop) => prop !== 'size',
-})<{
-  size: number;
-}>`
-  width: ${({ size }) => `${size}px`};
-  height: ${({ size }) => `${size}px`};
-`;
-
-export const TokenIconStyled = styled(TokenIcon, {
-  shouldForwardProp: (prop) => prop !== 'size',
-})<{
-  size: number;
-}>`
-  width: ${({ size }) => `${size}px`};
-  height: ${({ size }) => `${size}px`};
 `;

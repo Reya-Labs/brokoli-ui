@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { ColorTokens } from '../../foundation/Colors';
-import { MarketIconProps } from '../Icons';
+import { MarketIcon, MarketIconProps, TokenIcon } from '../Icons';
 import { Typography, TypographyToken } from '../Typography';
-import { IconsBox, MarketIconStyled, MarketTokenBox, TokenIconStyled } from './MarketToken.styled';
+import { IconsBox, MarketTokenBox } from './MarketToken.styled';
 
 export type MarketTokenProps = {
   token?: 'eth' | 'usdc' | 'usdt' | 'dai';
@@ -67,14 +67,14 @@ export const MarketToken: React.FunctionComponent<MarketTokenProps> = ({
       {iconSize > 0 && (market || token) ? (
         <IconsBox data-testid="MarketToken-IconsBox">
           {market ? (
-            <MarketIconStyled
+            <MarketIcon
               data-testid={`MarketToken-MarketIconStyled-${MAP_MARKET_TO_ICON[market]}`}
               market={MAP_MARKET_TO_ICON[market]}
               size={iconSize}
             />
           ) : null}
           {token ? (
-            <TokenIconStyled
+            <TokenIcon
               data-testid={`MarketToken-TokenIconStyled-${token}`}
               size={iconSize}
               token={token}
