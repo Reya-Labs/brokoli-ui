@@ -8,7 +8,7 @@ import { ButtonBox, ButtonStyled, ButtonVariant } from './Button.styled';
 export type ButtonProps = {
   disabled?: boolean;
   variant: ButtonVariant;
-  onClick?: () => void;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   bottomLeftText?: string;
   bottomLeftTextColorToken?: ColorTokens;
   bottomLeftTextTypographyToken?: TypographyToken;

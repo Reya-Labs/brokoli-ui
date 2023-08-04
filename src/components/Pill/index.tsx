@@ -16,7 +16,7 @@ export type PillProps = {
   typographyToken: TypographyToken;
   'data-testid'?: string;
   variant: PillVariant;
-  onClick?: () => void;
+  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
 };
 
 export const Pill = ({

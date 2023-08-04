@@ -4,7 +4,7 @@ import { BaseColorTokens } from '../../foundation/Colors';
 import { CloseButtonStyled } from './CloseButton.styled';
 
 export type CloseButtonProps = {
-  onClick?: () => void;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   colorToken?: BaseColorTokens;
 };
 
