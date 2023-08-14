@@ -76,7 +76,10 @@ const Wrapper = styled('div')`
   width: 100%;
 `;
 
-const itemRenderer = ({ item, searchedValue }: SearchItemRendererProps) => {
+const ItemRenderer: React.FunctionComponent<SearchItemRendererProps> = ({
+  item,
+  searchedValue,
+}) => {
   const { label, extra } = item as CustomItemType;
   return (
     <Wrapper>
@@ -101,7 +104,7 @@ const itemFilter = (item: SearchFieldProps['items'][0], value: string) => {
 export const WithCustomisation = Template.bind({});
 WithCustomisation.args = {
   itemFilter,
-  itemRenderer,
+  itemRenderer: ItemRenderer,
   items: customItems,
   label: 'Search',
   labelColorToken: 'lavenderWeb2',
