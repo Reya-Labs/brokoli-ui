@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import { ColorTokens } from '../../../foundation/Colors';
 import { ExclaimTooltipProps } from '../../ExclaimTooltip';
@@ -27,7 +27,6 @@ export type SearchFieldProps = {
   labelTypographyToken?: TypographyToken;
   tooltip?: ExclaimTooltipProps['children'];
   tooltipColorToken?: ColorTokens;
-  type: HTMLInputElement['type'];
   typographyToken: TypographyToken;
   placeHolder?: string;
   selectedItemId?: SearchItem['id'];
@@ -62,14 +61,27 @@ export const SearchField: React.FunctionComponent<SearchFieldProps> = ({
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
   };
+  const selectItem = useCallback(
+    (itemId: string | undefined) => {
+      if (!itemId || !items) {
+        return;
+      }
+      const selectedItem = items.find((i) => i.id.toLowerCase() === itemId.toLowerCase());
+      if (selectedItem) {
+        setValue(selectedItem.label);
+        closePopover();
+      }
+    },
+    [items],
+  );
   const handleOnItemClick = (item: SearchItem) => {
     onItemSelected && onItemSelected(item.id);
-    const selectedItem = items.find((i) => i.id.toLowerCase() === item.id.toLowerCase());
-    if (selectedItem) {
-      setValue(selectedItem.label);
-      closePopover();
-    }
+    selectItem(item.id);
   };
+
+  useEffect(() => {
+    selectItem(selectedItemId);
+  }, [selectItem, selectedItemId]);
 
   return (
     <Popover
