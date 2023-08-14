@@ -13,7 +13,7 @@ type BaseItem = {
 export type SearchItemRendererProps = { item: BaseItem; searchedValue?: string };
 export type SearchListProps = {
   items: BaseItem[];
-  itemRenderer?: (props: SearchItemRendererProps) => React.ReactNode;
+  itemRenderer?: React.FunctionComponent<SearchItemRendererProps>;
   itemFilter?: (item: BaseItem, value: string) => boolean;
   parentId: string;
   searchedValue?: string;
