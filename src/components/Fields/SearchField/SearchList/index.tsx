@@ -10,16 +10,18 @@ type BaseItem = {
   label: string;
 };
 
+export type SearchItemRendererProps = { item: BaseItem; searchedValue?: string };
 export type SearchListProps = {
   items: BaseItem[];
-  itemRenderer?: (item: BaseItem, searchedValue?: string) => React.ReactNode;
+  itemRenderer?: (props: SearchItemRendererProps) => React.ReactNode;
   itemFilter?: (item: BaseItem, value: string) => boolean;
   parentId: string;
   searchedValue?: string;
   onItemClick: (item: BaseItem) => void;
 };
 
-const defaultItemRenderer = (item: BaseItem, searchedValue?: string) => {
+const defaultItemRenderer = (props: SearchItemRendererProps) => {
+  const { searchedValue, item } = props;
   return (
     <Typography colorToken="lavenderWeb2" typographyToken="primaryBodySmallRegular">
       <Highlight highlight={searchedValue}>{item.label}</Highlight>
@@ -70,7 +72,7 @@ export const SearchList: React.FunctionComponent<SearchListProps> = ({
               backgroundColorToken={index % 2 === 0 ? 'liberty7' : 'liberty8'}
               onClick={() => onItemClick(item)}
             >
-              {itemRenderer(item, searchedValue)}
+              {itemRenderer({ item, searchedValue })}
             </ItemWrapper>
           ))
         ) : (

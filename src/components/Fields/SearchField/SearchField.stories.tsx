@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import { Highlight } from '../../Highlight';
 import { Typography } from '../../Typography';
 import { SearchField, SearchFieldProps } from './index';
+import { SearchItemRendererProps } from './SearchList';
 
 export default {
   args: {},
@@ -75,7 +76,7 @@ const Wrapper = styled('div')`
   width: 100%;
 `;
 
-const itemRenderer = (item: SearchFieldProps['items'][0], searchedValue?: string) => {
+const itemRenderer = ({ item, searchedValue }: SearchItemRendererProps) => {
   const { label, extra } = item as CustomItemType;
   return (
     <Wrapper>
