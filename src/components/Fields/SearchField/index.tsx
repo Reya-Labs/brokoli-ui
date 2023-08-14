@@ -31,6 +31,7 @@ export type SearchFieldProps = {
   placeHolder?: string;
   selectedItemId?: SearchItem['id'];
   onItemSelected?: (id: SearchItem['id']) => void;
+  className?: string;
 };
 
 export const SearchField: React.FunctionComponent<SearchFieldProps> = ({
@@ -48,6 +49,7 @@ export const SearchField: React.FunctionComponent<SearchFieldProps> = ({
   itemFilter,
   selectedItemId,
   onItemSelected,
+  className,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [value, setValue] = useState<string | undefined>('');
@@ -110,6 +112,7 @@ export const SearchField: React.FunctionComponent<SearchFieldProps> = ({
         />
         <SearchTextInputAndCaretBox>
           <TextInputStyled
+            className={className}
             data-testid={`SearchField-SearchFieldBox-TextInputStyled`}
             disabled={disabled}
             error={error}
