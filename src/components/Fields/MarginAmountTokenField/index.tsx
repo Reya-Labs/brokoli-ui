@@ -188,7 +188,7 @@ export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFi
               <Typography
                 colorToken="lavenderWeb"
                 data-testid="MarginAmountTokenField-CurrencyInputBox-TokenBox-Typography"
-                typographyToken="secondaryBodyMediumRegular"
+                typographyToken="primaryBodySmallRegular"
               >
                 {token.toUpperCase()}
               </Typography>
