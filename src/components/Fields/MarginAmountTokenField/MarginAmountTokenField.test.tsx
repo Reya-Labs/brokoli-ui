@@ -14,6 +14,7 @@ describe('<MarginAmountTokenField />', () => {
     disabled: false,
     error: false,
     label: 'Token Field',
+    marginAmountOptions: [],
     maxLength: 18,
     onChange: jest.fn(),
     token: 'eth',
