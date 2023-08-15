@@ -36,6 +36,7 @@ export const TokenBox = styled('div')`
   display: flex;
   gap: 8px;
   align-items: center;
+  cursor: pointer;
 `;
 
 export const CurrencyInputStyled = styled(CurrencyInput)<{

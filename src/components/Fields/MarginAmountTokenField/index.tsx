@@ -164,7 +164,10 @@ export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFi
             <ToggleCaret isOpen={isOpen} />
           </ToggleCaretBox>
           {token ? (
-            <TokenBox data-testid="MarginAmountTokenField-CurrencyInputBox-TokenBox">
+            <TokenBox
+              data-testid="MarginAmountTokenField-CurrencyInputBox-TokenBox"
+              onClick={toggleCaret}
+            >
               <TokenIcon
                 data-testid={`MarginAmountTokenField-CurrencyInputBox-TokenBox-TokenIcon-${token}`}
                 size={22}
