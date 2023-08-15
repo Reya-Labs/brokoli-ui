@@ -39,7 +39,7 @@ export const TokenBox = styled('div')`
 export const SwitchButtonsBox = styled('div')`
   position: absolute;
   left: 8px;
-  top: 6px;
+  top: calc(50% - 15px);
 `;
 
 export const CurrencyInputStyled = styled(CurrencyInput)<{

@@ -31,9 +31,10 @@ export const CurrencyInputBox = styled('div')`
 export const TokenBox = styled('div')`
   position: absolute;
   right: 16px;
-  top: 10px;
+  top: calc(50% - 11px);
   display: flex;
   gap: 8px;
+  align-items: center;
 `;
 
 export const CurrencyInputStyled = styled(CurrencyInput)<{
