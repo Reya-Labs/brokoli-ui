@@ -1,23 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { formatValue } from 'react-currency-input-field';
 
 import { BaseColorTokens, ColorTokens } from '../../../foundation/Colors';
 import { ExclaimTooltipProps } from '../../ExclaimTooltip';
 import { TokenIcon, TokenIconProps } from '../../Icons';
+import { Popover } from '../../Popover';
+import { ToggleCaret } from '../../ToggleCaret';
 import { TokenTypography } from '../../TokenTypography';
 import { TooltipLabel } from '../../TooltipLabel';
 import { Typography, TypographyToken } from '../../Typography';
+import { MarginAmountList, MarginAmountListProps } from './MarginAmountsList';
 import {
   BottomBox,
   CurrencyInputBox,
   CurrencyInputStyled,
   MarginAmountTokenFieldBox,
+  ToggleCaretBox,
   TokenBox,
   TopBox,
 } from './MarginAmountTokenField.styled';
 
 export type MarginAmountTokenFieldProps = {
   onChange?: (value: string | undefined) => void;
+  onTokenChange?: (token: TokenIconProps['token']) => void;
   onBlur?: () => void;
   decimalsLimit?: number;
   value?: string;
@@ -45,6 +50,7 @@ export type MarginAmountTokenFieldProps = {
   min?: number | string | undefined;
   typographyToken?: TypographyToken;
   placeholder?: string;
+  marginAmountOptions: MarginAmountListProps['items'];
 };
 
 export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFieldProps> = ({
@@ -76,7 +82,11 @@ export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFi
   onBlur,
   min,
   max,
+  marginAmountOptions,
+  onTokenChange,
 }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const closePopover = () => setIsOpen(false);
   const handleOnChange = (newValue: string | undefined) => {
     if (newValue === value) {
       return;
@@ -84,90 +94,115 @@ export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFi
     onChange && onChange(newValue);
   };
 
+  const handleOnItemClick = (item: MarginAmountListProps['items'][0]) => {
+    onChange && onChange(item.value.toString());
+    onTokenChange && onTokenChange(item.token);
+    closePopover();
+  };
+
+  const toggleCaret = () => setIsOpen(!isOpen);
+
   return (
-    <MarginAmountTokenFieldBox data-testid="MarginAmountTokenField-MarginAmountTokenFieldBox">
-      <TopBox data-testid="MarginAmountTokenField-TopBox">
-        <TooltipLabel
-          data-testid="MarginAmountTokenField-TopBox-TooltipLabel"
-          label={label}
-          labelColorToken={labelColorToken}
-          labelTypographyToken={labelTypographyToken}
-          tooltip={tooltip}
-          tooltipColorToken={labelColorToken}
+    <Popover
+      content={
+        <MarginAmountList
+          items={marginAmountOptions}
+          parentId="MarginAmountTokenField-SearchFieldBox"
+          onItemClick={handleOnItemClick}
         />
-        {topRightText ? (
-          <Typography
-            colorToken={topRightTextColorToken}
-            data-testid="MarginAmountTokenField-TopBox-Typography"
-            typographyToken={topRightTextTypographyToken}
-          >
-            {topRightText}
-          </Typography>
-        ) : null}
-      </TopBox>
-      <CurrencyInputBox data-testid="MarginAmountTokenField-CurrencyInputBox">
-        <CurrencyInputStyled
-          allowNegativeValue={allowNegativeValue}
-          data-testid="MarginAmountTokenField-CurrencyInputBox-CurrencyInputStyled"
-          decimalsLimit={decimalsLimit}
-          defaultValue={
-            defaultValue ||
-            formatValue({
-              intlConfig: { locale: navigator.language },
-              value: '0',
-            })
-          }
-          disabled={disabled}
-          error={error}
-          intlConfig={{ locale: navigator.language }}
-          max={max}
-          maxLength={maxLength}
-          min={min}
-          placeholder={placeholder}
-          typographyToken={typographyToken}
-          value={value}
-          onBlur={onBlur}
-          onValueChange={handleOnChange}
-        />
-        {token ? (
-          <TokenBox data-testid="MarginAmountTokenField-CurrencyInputBox-TokenBox">
-            <TokenIcon
-              data-testid={`MarginAmountTokenField-CurrencyInputBox-TokenBox-TokenIcon-${token}`}
-              size={22}
-              token={token}
-            />
-            <Typography
-              colorToken="lavenderWeb"
-              data-testid="MarginAmountTokenField-CurrencyInputBox-TokenBox-Typography"
-              typographyToken="secondaryBodyMediumRegular"
-            >
-              {token.toUpperCase()}
-            </Typography>
-          </TokenBox>
-        ) : null}
-      </CurrencyInputBox>
-      <BottomBox data-testid="MarginAmountTokenField-BottomBox">
-        {bottomLeftText ? (
-          <Typography
-            colorToken={bottomLeftTextColorToken}
-            data-testid="MarginAmountTokenField-BottomBox-Typography"
-            typographyToken={bottomLeftTextTypographyToken}
-          >
-            {bottomLeftText}
-          </Typography>
-        ) : null}
-        {bottomRightTextValue ? (
-          <TokenTypography
-            colorToken={bottomRightTextColorToken}
-            data-testid="MarginAmountTokenField-BottomBox-TokenTypography"
-            differenceToken={token ? ` ${token.toUpperCase()}` : ''}
-            differenceValue={bottomRightTextDifferenceValue}
-            token={token ? ` ${token.toUpperCase()}` : ''}
-            typographyToken={bottomRightTextTypographyToken}
-            value={bottomRightTextValue}
+      }
+      data-testid="MarginAmountTokenField-ItemsWrapper"
+      isOpen={isOpen}
+      onClickOutside={closePopover}
+    >
+      <MarginAmountTokenFieldBox data-testid="MarginAmountTokenField-MarginAmountTokenFieldBox">
+        <TopBox data-testid="MarginAmountTokenField-TopBox">
+          <TooltipLabel
+            data-testid="MarginAmountTokenField-TopBox-TooltipLabel"
+            label={label}
+            labelColorToken={labelColorToken}
+            labelTypographyToken={labelTypographyToken}
+            tooltip={tooltip}
+            tooltipColorToken={labelColorToken}
           />
-        ) : null}
-      </BottomBox>
-    </MarginAmountTokenFieldBox>
+          {topRightText ? (
+            <Typography
+              colorToken={topRightTextColorToken}
+              data-testid="MarginAmountTokenField-TopBox-Typography"
+              typographyToken={topRightTextTypographyToken}
+            >
+              {topRightText}
+            </Typography>
+          ) : null}
+        </TopBox>
+        <CurrencyInputBox data-testid="MarginAmountTokenField-CurrencyInputBox">
+          <CurrencyInputStyled
+            allowNegativeValue={allowNegativeValue}
+            data-testid="MarginAmountTokenField-CurrencyInputBox-CurrencyInputStyled"
+            decimalsLimit={decimalsLimit}
+            defaultValue={
+              defaultValue ||
+              formatValue({
+                intlConfig: { locale: navigator.language },
+                value: '0',
+              })
+            }
+            disabled={disabled}
+            error={error}
+            id="MarginAmountTokenField-SearchFieldBox"
+            intlConfig={{ locale: navigator.language }}
+            max={max}
+            maxLength={maxLength}
+            min={min}
+            placeholder={placeholder}
+            typographyToken={typographyToken}
+            value={value}
+            onBlur={onBlur}
+            onValueChange={handleOnChange}
+          />
+          <ToggleCaretBox onClick={toggleCaret}>
+            <ToggleCaret isOpen={isOpen} />
+          </ToggleCaretBox>
+          {token ? (
+            <TokenBox data-testid="MarginAmountTokenField-CurrencyInputBox-TokenBox">
+              <TokenIcon
+                data-testid={`MarginAmountTokenField-CurrencyInputBox-TokenBox-TokenIcon-${token}`}
+                size={22}
+                token={token}
+              />
+              <Typography
+                colorToken="lavenderWeb"
+                data-testid="MarginAmountTokenField-CurrencyInputBox-TokenBox-Typography"
+                typographyToken="secondaryBodyMediumRegular"
+              >
+                {token.toUpperCase()}
+              </Typography>
+            </TokenBox>
+          ) : null}
+        </CurrencyInputBox>
+        <BottomBox data-testid="MarginAmountTokenField-BottomBox">
+          {bottomLeftText ? (
+            <Typography
+              colorToken={bottomLeftTextColorToken}
+              data-testid="MarginAmountTokenField-BottomBox-Typography"
+              typographyToken={bottomLeftTextTypographyToken}
+            >
+              {bottomLeftText}
+            </Typography>
+          ) : null}
+          {bottomRightTextValue ? (
+            <TokenTypography
+              colorToken={bottomRightTextColorToken}
+              data-testid="MarginAmountTokenField-BottomBox-TokenTypography"
+              differenceToken={token ? ` ${token.toUpperCase()}` : ''}
+              differenceValue={bottomRightTextDifferenceValue}
+              token={token ? ` ${token.toUpperCase()}` : ''}
+              typographyToken={bottomRightTextTypographyToken}
+              value={bottomRightTextValue}
+            />
+          ) : null}
+        </BottomBox>
+      </MarginAmountTokenFieldBox>
+    </Popover>
   );
 };
