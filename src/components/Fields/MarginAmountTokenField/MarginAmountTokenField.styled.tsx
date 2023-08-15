@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import CurrencyInput from 'react-currency-input-field';
 
 import { colors } from '../../../foundation/Colors';
+import { Button } from '../../Button';
 import { TypographyToken } from '../../Typography';
 import { commonInputStyle } from '../shared/common.styled';
 
@@ -30,13 +31,14 @@ export const CurrencyInputBox = styled('div')`
 `;
 
 export const TokenBox = styled('div')`
-  position: absolute;
-  right: 26px;
-  top: calc(50% - 11px);
   display: flex;
-  gap: 8px;
+  gap: 4px;
   align-items: center;
   cursor: pointer;
+`;
+
+export const MaxButton = styled(Button)`
+  padding: 4px 8px;
 `;
 
 export const CurrencyInputStyled = styled(CurrencyInput)<{
@@ -60,4 +62,17 @@ export const ToggleCaretBox = styled('div')`
   z-index: 1;
   color: ${colors.lavenderWeb};
   cursor: pointer;
+`;
+
+export const FloatingBox = styled('div')`
+  position: absolute;
+  right: 8px;
+  top: calc(50% - 12px);
+  z-index: 1;
+  color: ${colors.lavenderWeb};
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
 `;

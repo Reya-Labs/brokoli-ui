@@ -14,8 +14,9 @@ import {
   BottomBox,
   CurrencyInputBox,
   CurrencyInputStyled,
+  FloatingBox,
   MarginAmountTokenFieldBox,
-  ToggleCaretBox,
+  MaxButton,
   TokenBox,
   TopBox,
 } from './MarginAmountTokenField.styled';
@@ -39,7 +40,7 @@ export type MarginAmountTokenFieldProps = {
   bottomLeftText?: string;
   bottomLeftTextColorToken?: ColorTokens;
   bottomLeftTextTypographyToken?: TypographyToken;
-  token?: TokenIconProps['token'];
+  token: TokenIconProps['token'];
   bottomRightTextValue?: string | number;
   bottomRightTextColorToken?: BaseColorTokens;
   bottomRightTextTypographyToken?: TypographyToken;
@@ -98,6 +99,13 @@ export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFi
     onChange && onChange(item.value.toString());
     onTokenChange && onTokenChange(item.token);
     closePopover();
+  };
+
+  const handleOnMaxButtonClick = () => {
+    const option = marginAmountOptions.find((o) => o.token === token);
+    if (option) {
+      onChange && onChange(option.value.toString());
+    }
   };
 
   const toggleCaret = () => setIsOpen(!isOpen);
@@ -160,10 +168,14 @@ export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFi
             onBlur={onBlur}
             onValueChange={handleOnChange}
           />
-          <ToggleCaretBox onClick={toggleCaret}>
-            <ToggleCaret isOpen={isOpen} />
-          </ToggleCaretBox>
-          {token ? (
+          <FloatingBox>
+            <MaxButton
+              typographyToken="primaryBodyXSmallRegular"
+              variant="secondary"
+              onClick={handleOnMaxButtonClick}
+            >
+              Max
+            </MaxButton>
             <TokenBox
               data-testid="MarginAmountTokenField-CurrencyInputBox-TokenBox"
               onClick={toggleCaret}
@@ -181,7 +193,8 @@ export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFi
                 {token.toUpperCase()}
               </Typography>
             </TokenBox>
-          ) : null}
+            <ToggleCaret isOpen={isOpen} onClick={toggleCaret} />
+          </FloatingBox>
         </CurrencyInputBox>
       </Popover>
       <BottomBox data-testid="MarginAmountTokenField-BottomBox">
