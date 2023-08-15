@@ -103,38 +103,38 @@ export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFi
   const toggleCaret = () => setIsOpen(!isOpen);
 
   return (
-    <Popover
-      content={
-        <MarginAmountList
-          items={marginAmountOptions}
-          parentId="MarginAmountTokenField-SearchFieldBox"
-          onItemClick={handleOnItemClick}
+    <MarginAmountTokenFieldBox data-testid="MarginAmountTokenField-MarginAmountTokenFieldBox">
+      <TopBox data-testid="MarginAmountTokenField-TopBox">
+        <TooltipLabel
+          data-testid="MarginAmountTokenField-TopBox-TooltipLabel"
+          label={label}
+          labelColorToken={labelColorToken}
+          labelTypographyToken={labelTypographyToken}
+          tooltip={tooltip}
+          tooltipColorToken={labelColorToken}
         />
-      }
-      data-testid="MarginAmountTokenField-ItemsWrapper"
-      isOpen={isOpen}
-      onClickOutside={closePopover}
-    >
-      <MarginAmountTokenFieldBox data-testid="MarginAmountTokenField-MarginAmountTokenFieldBox">
-        <TopBox data-testid="MarginAmountTokenField-TopBox">
-          <TooltipLabel
-            data-testid="MarginAmountTokenField-TopBox-TooltipLabel"
-            label={label}
-            labelColorToken={labelColorToken}
-            labelTypographyToken={labelTypographyToken}
-            tooltip={tooltip}
-            tooltipColorToken={labelColorToken}
+        {topRightText ? (
+          <Typography
+            colorToken={topRightTextColorToken}
+            data-testid="MarginAmountTokenField-TopBox-Typography"
+            typographyToken={topRightTextTypographyToken}
+          >
+            {topRightText}
+          </Typography>
+        ) : null}
+      </TopBox>
+      <Popover
+        content={
+          <MarginAmountList
+            items={marginAmountOptions}
+            parentId="MarginAmountTokenField-SearchFieldBox"
+            onItemClick={handleOnItemClick}
           />
-          {topRightText ? (
-            <Typography
-              colorToken={topRightTextColorToken}
-              data-testid="MarginAmountTokenField-TopBox-Typography"
-              typographyToken={topRightTextTypographyToken}
-            >
-              {topRightText}
-            </Typography>
-          ) : null}
-        </TopBox>
+        }
+        data-testid="MarginAmountTokenField-ItemsWrapper"
+        isOpen={isOpen}
+        onClickOutside={closePopover}
+      >
         <CurrencyInputBox data-testid="MarginAmountTokenField-CurrencyInputBox">
           <CurrencyInputStyled
             allowNegativeValue={allowNegativeValue}
@@ -180,29 +180,29 @@ export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFi
             </TokenBox>
           ) : null}
         </CurrencyInputBox>
-        <BottomBox data-testid="MarginAmountTokenField-BottomBox">
-          {bottomLeftText ? (
-            <Typography
-              colorToken={bottomLeftTextColorToken}
-              data-testid="MarginAmountTokenField-BottomBox-Typography"
-              typographyToken={bottomLeftTextTypographyToken}
-            >
-              {bottomLeftText}
-            </Typography>
-          ) : null}
-          {bottomRightTextValue ? (
-            <TokenTypography
-              colorToken={bottomRightTextColorToken}
-              data-testid="MarginAmountTokenField-BottomBox-TokenTypography"
-              differenceToken={token ? ` ${token.toUpperCase()}` : ''}
-              differenceValue={bottomRightTextDifferenceValue}
-              token={token ? ` ${token.toUpperCase()}` : ''}
-              typographyToken={bottomRightTextTypographyToken}
-              value={bottomRightTextValue}
-            />
-          ) : null}
-        </BottomBox>
-      </MarginAmountTokenFieldBox>
-    </Popover>
+      </Popover>
+      <BottomBox data-testid="MarginAmountTokenField-BottomBox">
+        {bottomLeftText ? (
+          <Typography
+            colorToken={bottomLeftTextColorToken}
+            data-testid="MarginAmountTokenField-BottomBox-Typography"
+            typographyToken={bottomLeftTextTypographyToken}
+          >
+            {bottomLeftText}
+          </Typography>
+        ) : null}
+        {bottomRightTextValue ? (
+          <TokenTypography
+            colorToken={bottomRightTextColorToken}
+            data-testid="MarginAmountTokenField-BottomBox-TokenTypography"
+            differenceToken={token ? ` ${token.toUpperCase()}` : ''}
+            differenceValue={bottomRightTextDifferenceValue}
+            token={token ? ` ${token.toUpperCase()}` : ''}
+            typographyToken={bottomRightTextTypographyToken}
+            value={bottomRightTextValue}
+          />
+        ) : null}
+      </BottomBox>
+    </MarginAmountTokenFieldBox>
   );
 };
