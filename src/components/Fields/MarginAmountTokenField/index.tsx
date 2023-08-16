@@ -40,7 +40,7 @@ export type MarginAmountTokenFieldProps = {
   bottomLeftText?: string;
   bottomLeftTextColorToken?: ColorTokens;
   bottomLeftTextTypographyToken?: TypographyToken;
-  token: TokenIconProps['token'];
+  token?: TokenIconProps['token'];
   bottomRightTextValue?: string | number;
   bottomRightTextColorToken?: BaseColorTokens;
   bottomRightTextTypographyToken?: TypographyToken;
@@ -176,23 +176,25 @@ export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFi
             >
               Max
             </MaxButton>
-            <TokenBox
-              data-testid="MarginAmountTokenField-CurrencyInputBox-TokenBox"
-              onClick={toggleCaret}
-            >
-              <TokenIcon
-                data-testid={`MarginAmountTokenField-CurrencyInputBox-TokenBox-TokenIcon-${token}`}
-                size={22}
-                token={token}
-              />
-              <Typography
-                colorToken="lavenderWeb"
-                data-testid="MarginAmountTokenField-CurrencyInputBox-TokenBox-Typography"
-                typographyToken="primaryBodySmallRegular"
+            {token ? (
+              <TokenBox
+                data-testid="MarginAmountTokenField-CurrencyInputBox-TokenBox"
+                onClick={toggleCaret}
               >
-                {token.toUpperCase()}
-              </Typography>
-            </TokenBox>
+                <TokenIcon
+                  data-testid={`MarginAmountTokenField-CurrencyInputBox-TokenBox-TokenIcon-${token}`}
+                  size={22}
+                  token={token}
+                />
+                <Typography
+                  colorToken="lavenderWeb"
+                  data-testid="MarginAmountTokenField-CurrencyInputBox-TokenBox-Typography"
+                  typographyToken="primaryBodySmallRegular"
+                >
+                  {token.toUpperCase()}
+                </Typography>
+              </TokenBox>
+            ) : null}
             <ToggleCaret isOpen={isOpen} onClick={toggleCaret} />
           </FloatingBox>
         </CurrencyInputBox>
