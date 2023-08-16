@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import React from 'react';
 
-import { LabelFromToTokenTypography, LabelFromToTokenTypographyProps } from '.';
+import { FromToTokenTypography, FromToTokenTypographyProps } from '.';
 
-describe('<LabelFromToTokenTypography />', () => {
-  const defaultProps: LabelFromToTokenTypographyProps = {
+describe('<FromToTokenTypography />', () => {
+  const defaultProps: FromToTokenTypographyProps = {
     fromColorToken: 'skyBlueCrayola',
     fromValue: '100',
     label: 'From-To',
@@ -16,12 +16,12 @@ describe('<LabelFromToTokenTypography />', () => {
   };
 
   test('renders correctly with default props', () => {
-    render(<LabelFromToTokenTypography {...defaultProps} />);
+    render(<FromToTokenTypography {...defaultProps} />);
     expect(
-      screen.getByTestId('LabelFromToTokenTypography-LabelFromToTokenTypographyBox'),
+      screen.getByTestId('FromToTokenTypography-FromToTokenTypographyBox'),
     ).toBeInTheDocument();
-    expect(screen.getByTestId('LabelFromToTokenTypography-TooltipLabel')).toBeInTheDocument();
-    expect(screen.getByTestId('LabelFromToTokenTypography-FromToBox')).toBeInTheDocument();
+    expect(screen.getByTestId('FromToTokenTypography-TooltipLabel')).toBeInTheDocument();
+    expect(screen.getByTestId('FromToTokenTypography-FromToBox')).toBeInTheDocument();
     expect(screen.getByText('From-To')).toBeInTheDocument();
     expect(screen.getByText('100')).toBeInTheDocument();
     expect(screen.getByText('⇢')).toBeInTheDocument();
@@ -29,19 +29,19 @@ describe('<LabelFromToTokenTypography />', () => {
   });
 
   test('displays a custom label', () => {
-    render(<LabelFromToTokenTypography {...defaultProps} label="Custom Label" />);
+    render(<FromToTokenTypography {...defaultProps} label="Custom Label" />);
     expect(screen.getByText('Custom Label')).toBeInTheDocument();
   });
 
   test('displays the correct "from" value', () => {
-    render(<LabelFromToTokenTypography {...defaultProps} fromValue="50" />);
+    render(<FromToTokenTypography {...defaultProps} fromValue="50" />);
     expect(screen.getByText('50')).toBeInTheDocument();
   });
 
   test('applies the correct color token to the "from" value', () => {
-    render(<LabelFromToTokenTypography {...defaultProps} fromColorToken="wildStrawberry" />);
+    render(<FromToTokenTypography {...defaultProps} fromColorToken="wildStrawberry" />);
     const fromTokenTypography = screen.getByTestId(
-      'LabelFromToTokenTypography-FromToBox-FromTokenTypography-wildStrawberry-primaryBodyXSmallBold',
+      'FromToTokenTypography-FromToBox-FromTokenTypography-wildStrawberry-primaryBodyXSmallBold',
     );
     expect(fromTokenTypography).toBeInTheDocument();
   });

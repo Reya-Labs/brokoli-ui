@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const LabelFromToTokenTypographyBox = styled('div')`
+export const FromToTokenTypographyBox = styled('div')`
   display: flex;
   flex-direction: column;
 `;

@@ -1,20 +1,29 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
-import { LabelFromToTokenTypography } from './index';
+import { FromToTokenTypography } from './index';
 
 export default {
   args: {},
-  component: LabelFromToTokenTypography,
-  title: 'Components/LabelFromToTokenTypography',
-} as ComponentMeta<typeof LabelFromToTokenTypography>;
+  component: FromToTokenTypography,
+  title: 'Components/FromToTokenTypography',
+} as ComponentMeta<typeof FromToTokenTypography>;
 
-const Template: ComponentStory<typeof LabelFromToTokenTypography> = (args) => (
-  <LabelFromToTokenTypography {...args} />
+const Template: ComponentStory<typeof FromToTokenTypography> = (args) => (
+  <FromToTokenTypography {...args} />
 );
 
 export const Default = Template.bind({});
 Default.args = {
+  fromColorToken: 'skyBlueCrayola',
+  fromValue: 'From',
+  toColorToken: 'ultramarineBlue',
+  toValue: 'To',
+  typographyToken: 'secondaryBodySmallRegular',
+};
+
+export const WithLabel = Template.bind({});
+WithLabel.args = {
   fromColorToken: 'skyBlueCrayola',
   fromValue: 'From',
   label: 'Label goes here',
