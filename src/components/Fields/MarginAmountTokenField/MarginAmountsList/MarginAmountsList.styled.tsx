@@ -9,6 +9,8 @@ export const ItemsWrapper = styled('div')`
   gap: 4px;
   width: 100%;
   box-sizing: border-box;
+  max-height: 250px;
+  overflow-y: scroll;
 `;
 
 export const ItemWrapper = styled('div', {

@@ -113,3 +113,23 @@ WithCustomisation.args = {
   tooltip: 'Make sure enter valid data!',
   tooltipColorToken: 'lavenderWeb2',
 };
+
+export const WithCustomisationManyItems = Template.bind({});
+WithCustomisationManyItems.args = {
+  itemFilter,
+  itemRenderer: ItemRenderer,
+  items: [
+    ...customItems,
+    ...customItems,
+    ...customItems,
+    ...customItems,
+    ...customItems,
+    ...customItems,
+  ],
+  label: 'Search',
+  labelColorToken: 'lavenderWeb2',
+  labelTypographyToken: 'primaryBodySmallRegular',
+  placeHolder: 'Type to search',
+  tooltip: 'Make sure enter valid data!',
+  tooltipColorToken: 'lavenderWeb2',
+};
