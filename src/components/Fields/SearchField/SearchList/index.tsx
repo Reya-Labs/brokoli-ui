@@ -18,6 +18,7 @@ export type SearchListProps = {
   parentId: string;
   searchedValue?: string;
   onItemClick: (item: BaseItem) => void;
+  selectedItemUntouched: boolean;
 };
 
 const defaultItemRenderer = (props: SearchItemRendererProps) => {
@@ -39,6 +40,7 @@ export const SearchList: React.FunctionComponent<SearchListProps> = ({
   parentId,
   searchedValue = '',
   onItemClick,
+  selectedItemUntouched,
 }) => {
   const [height, setHeight] = useState<'auto' | number>(0);
   const [width, setWidth] = useState<'auto' | number>('auto');
@@ -52,7 +54,9 @@ export const SearchList: React.FunctionComponent<SearchListProps> = ({
     }
   }, [parentId]);
 
-  const filteredItems = items.filter((item) => itemFilter(item, searchedValue));
+  const filteredItems = selectedItemUntouched
+    ? items
+    : items.filter((item) => itemFilter(item, searchedValue));
   return (
     <AnimateHeight
       duration={300}

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { ColorTokens } from '../../../foundation/Colors';
 import { ExclaimTooltipProps } from '../../ExclaimTooltip';
@@ -85,6 +85,14 @@ export const SearchField: React.FunctionComponent<SearchFieldProps> = ({
     selectItem(selectedItemId);
   }, [selectItem, selectedItemId]);
 
+  const selectedItem = useMemo(
+    () =>
+      selectedItemId
+        ? items.find((i) => i.id.toLowerCase() === selectedItemId.toLowerCase())
+        : null,
+    [items, selectedItemId],
+  );
+  const selectedItemUntouched = selectedItem ? value === selectedItem.label : false;
   return (
     <Popover
       content={
@@ -94,6 +102,7 @@ export const SearchField: React.FunctionComponent<SearchFieldProps> = ({
           items={items}
           parentId="SearchField-SearchFieldBox"
           searchedValue={value}
+          selectedItemUntouched={selectedItemUntouched}
           onItemClick={handleOnItemClick}
         />
       }
