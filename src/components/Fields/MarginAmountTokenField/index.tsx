@@ -22,8 +22,11 @@ import {
 } from './MarginAmountTokenField.styled';
 
 export type MarginAmountTokenFieldProps = {
-  onChange?: (value: string | undefined, changeVia: 'input' | 'selection' | 'maxButton') => void;
-  onTokenChange?: (token: TokenIconProps['token']) => void;
+  onChange?: (event: {
+    value: string | undefined;
+    changeVia: 'input' | 'selection' | 'maxButton';
+    token?: TokenIconProps['token'];
+  }) => void;
   onBlur?: () => void;
   decimalsLimit?: number;
   value?: string;
@@ -84,7 +87,6 @@ export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFi
   min,
   max,
   marginAmountOptions,
-  onTokenChange,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const closePopover = () => setIsOpen(false);
@@ -92,19 +94,33 @@ export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFi
     if (newValue === value) {
       return;
     }
-    onChange && onChange(newValue, 'input');
+    onChange &&
+      onChange({
+        changeVia: 'input',
+        token,
+        value: newValue,
+      });
   };
 
   const handleOnItemClick = (item: MarginAmountListProps['items'][0]) => {
-    onChange && onChange(item.value.toString(), 'selection');
-    onTokenChange && onTokenChange(item.token);
+    onChange &&
+      onChange({
+        changeVia: 'selection',
+        token: item.token,
+        value: item.value.toString(),
+      });
     closePopover();
   };
 
   const handleOnMaxButtonClick = () => {
     const option = marginAmountOptions.find((o) => o.token === token);
     if (option) {
-      onChange && onChange(option.value.toString(), 'maxButton');
+      onChange &&
+        onChange({
+          changeVia: 'maxButton',
+          token,
+          value: option.value.toString(),
+        });
     }
   };
 

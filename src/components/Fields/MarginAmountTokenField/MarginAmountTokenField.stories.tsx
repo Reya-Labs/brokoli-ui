@@ -18,8 +18,10 @@ const Template: ComponentStory<typeof MarginAmountTokenField> = (args) => {
       {...args}
       token={token}
       value={value}
-      onChange={setValue}
-      onTokenChange={setToken}
+      onChange={({ token: nextToken, value: nextValue }) => {
+        setValue(nextValue);
+        setToken(nextToken);
+      }}
     />
   );
 };
