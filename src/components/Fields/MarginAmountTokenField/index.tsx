@@ -169,13 +169,16 @@ export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFi
             onValueChange={handleOnChange}
           />
           <FloatingBox>
-            <MaxButton
-              typographyToken="primaryBodyXSmallRegular"
-              variant="secondary"
-              onClick={handleOnMaxButtonClick}
-            >
-              Max
-            </MaxButton>
+            {token ? (
+              <MaxButton
+                disabled={disabled}
+                typographyToken="primaryBodyXSmallRegular"
+                variant="secondary"
+                onClick={handleOnMaxButtonClick}
+              >
+                Max
+              </MaxButton>
+            ) : null}
             {token ? (
               <TokenBox
                 data-testid="MarginAmountTokenField-CurrencyInputBox-TokenBox"
