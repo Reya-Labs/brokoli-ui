@@ -53,7 +53,7 @@ describe('<MarginAmountTokenField />', () => {
     render(<MarginAmountTokenField {...defaultProps} onChange={onChange} />);
     const input = screen.getByTestId('MarginAmountTokenField-CurrencyInputBox-CurrencyInputStyled');
     fireEvent.change(input, { target: { value: '20' } });
-    expect(onChange).toHaveBeenCalledWith('20');
+    expect(onChange).toHaveBeenCalledWith('20', 'input');
   });
 
   it('disables input when disabled prop is true', () => {
