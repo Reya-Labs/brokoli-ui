@@ -22,7 +22,7 @@ import {
 } from './MarginAmountTokenField.styled';
 
 export type MarginAmountTokenFieldProps = {
-  onChange?: (value: string | undefined) => void;
+  onChange?: (value: string | undefined, changeVia: 'input' | 'selection' | 'maxButton') => void;
   onTokenChange?: (token: TokenIconProps['token']) => void;
   onBlur?: () => void;
   decimalsLimit?: number;
@@ -92,11 +92,11 @@ export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFi
     if (newValue === value) {
       return;
     }
-    onChange && onChange(newValue);
+    onChange && onChange(newValue, 'input');
   };
 
   const handleOnItemClick = (item: MarginAmountListProps['items'][0]) => {
-    onChange && onChange(item.value.toString());
+    onChange && onChange(item.value.toString(), 'selection');
     onTokenChange && onTokenChange(item.token);
     closePopover();
   };
@@ -104,7 +104,7 @@ export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFi
   const handleOnMaxButtonClick = () => {
     const option = marginAmountOptions.find((o) => o.token === token);
     if (option) {
-      onChange && onChange(option.value.toString());
+      onChange && onChange(option.value.toString(), 'maxButton');
     }
   };
 
