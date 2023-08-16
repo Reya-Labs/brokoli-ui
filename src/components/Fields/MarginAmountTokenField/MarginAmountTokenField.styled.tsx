@@ -75,4 +75,5 @@ export const FloatingBox = styled('div')`
   flex-direction: row;
   gap: 8px;
   align-items: center;
+  height: 24px;
 `;

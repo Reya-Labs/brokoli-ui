@@ -74,3 +74,13 @@ Default.args = {
   tooltip: 'Tooltip message here!',
   topRightText: 'Top right text',
 };
+
+export const WithoutToken = Template.bind({});
+WithoutToken.args = {
+  bottomLeftText: 'Bottom left text',
+  bottomRightTextValue: '123',
+  label: 'Label',
+  marginAmountOptions,
+  tooltip: 'Tooltip message here!',
+  topRightText: 'Top right text',
+};
