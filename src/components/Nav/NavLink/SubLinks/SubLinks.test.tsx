@@ -10,7 +10,7 @@ jest.mock(
     ({
       ...jest.requireActual('react-router-dom'),
       useLocation: jest.fn(),
-    } as unknown),
+    }) as unknown,
 );
 
 describe('<SubLinks />', () => {

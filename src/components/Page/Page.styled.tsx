@@ -45,19 +45,25 @@ const BrandLogoBox = styled('div')`
 export const BrandLogoBox1 = styled(BrandLogoBox)`
   left: -14vw;
   top: 88vh;
-  box-shadow: 0px 0px 4px ${colors.ultramarineBlue}, 0px 2px 4px ${colors.wildStrawberry};
+  box-shadow:
+    0px 0px 4px ${colors.ultramarineBlue},
+    0px 2px 4px ${colors.wildStrawberry};
 `;
 
 export const BrandLogoBox2 = styled(BrandLogoBox)`
   left: -17vw;
   top: 92vh;
-  box-shadow: 0px 0px 4px ${colors.wildStrawberry}, 0px 2px 4px ${colors.wildStrawberry};
+  box-shadow:
+    0px 0px 4px ${colors.wildStrawberry},
+    0px 2px 4px ${colors.wildStrawberry};
 `;
 
 export const BrandLogoBox3 = styled(BrandLogoBox)`
   left: -20vw;
   top: 96vh;
-  box-shadow: 0px 0px 4px ${colors.ultramarineBlue}, 0px 2px 4px ${colors.ultramarineBlue};
+  box-shadow:
+    0px 0px 4px ${colors.ultramarineBlue},
+    0px 2px 4px ${colors.ultramarineBlue};
 `;
 
 export const BackgroundNoiseBox = styled('div')`

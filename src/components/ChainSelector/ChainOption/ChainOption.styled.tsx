@@ -31,7 +31,9 @@ export const ChainOptionButton = styled('button')`
   border-radius: 2px;
   width: 100%;
   box-sizing: border-box;
-  transition: background-color, text-shadow 200ms ease-in;
+  transition:
+    background-color,
+    text-shadow 200ms ease-in;
   border: 0;
   cursor: pointer;
 

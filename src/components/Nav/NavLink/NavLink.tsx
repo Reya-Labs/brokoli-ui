@@ -39,12 +39,7 @@ export const NavLink: React.FunctionComponent<NavLinkProps> = ({
   const handleSubmenuClose = useCallback(() => setIsSubmenuOpened(false), []);
 
   const isActive = useMemo(
-    () =>
-      isActiveLink(
-        link,
-        subLinksNotHidden?.map((l) => l.link),
-        pathname,
-      ),
+    () => isActiveLink(link, subLinksNotHidden?.map((l) => l.link), pathname),
     [link, subLinksNotHidden, pathname],
   );
 

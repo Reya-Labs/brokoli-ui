@@ -61,7 +61,9 @@ export const ButtonStyled = styled('button')<{
 
   &:active {
     background: linear-gradient(259.45deg, ${colors.liberty6} 0%, ${colors.lavenderWeb7} 84.3%);
-    box-shadow: 0px -1px 4px ${colors.liberty8}, 0px 0px 1px ${colors.lavenderWeb};
+    box-shadow:
+      0px -1px 4px ${colors.liberty8},
+      0px 0px 1px ${colors.lavenderWeb};
   }
 
   &:disabled {
