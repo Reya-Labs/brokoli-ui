@@ -1,7 +1,7 @@
 import React from 'react';
 import { addDecorator } from '@storybook/react';
 import darkTheme from './themes/dark';
-import { Page } from '../src';
+import { GlobalScrollbarStyle, Page } from '../src';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -21,6 +21,7 @@ const doesntNeedsPadding = (title) => ['Components/Page', 'Components/Nav'].inde
 addDecorator((story, storyInfo) => {
   return (
     <Page>
+      <GlobalScrollbarStyle />
       <div
         style={{
           padding: doesntNeedsPadding(storyInfo.title) ? 0 : 24,

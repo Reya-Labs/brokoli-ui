@@ -35,5 +35,6 @@ export * from './components/Typography';
 export * from './components/TypographyWithTooltip';
 export * from './components/WalletConnectButton';
 export * from './foundation/Colors';
+export * from './foundation/GlobalScrollbarStyle';
 export * from './foundation/Gradients';
 export * from './foundation/LayerIndexes';
