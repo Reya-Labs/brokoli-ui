@@ -38,7 +38,7 @@ export const ButtonStyled = styled('button')<{
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   padding: 8px 14px;
 
   background: ${({ active }) =>
