@@ -143,6 +143,7 @@
     "testing-library/no-node-access": "warn",
     "testing-library/prefer-find-by": "off",
     "sort-keys-fix/sort-keys-fix": ["error", "asc", {"caseSensitive": true, "natural": false}],
-    "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1 }]
+    "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1 }],
+    "no-useless-return": "error"
   }
 }
