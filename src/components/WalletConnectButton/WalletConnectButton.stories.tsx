@@ -36,7 +36,6 @@ const TemplateMetamask: ComponentStory<typeof React.Fragment> = () => {
       } catch (err) {
         setError((err as Error)?.message || JSON.stringify(err));
         setLoading(false);
-        return undefined;
       }
     } else {
       setError('Metamask not installed');
