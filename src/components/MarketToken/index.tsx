@@ -6,7 +6,7 @@ import { Typography, TypographyToken } from '../Typography';
 import { IconsBox, MarketTokenBox } from './MarketToken.styled';
 
 export type MarketTokenProps = {
-  token?: 'eth' | 'usdc' | 'usdt' | 'dai';
+  token?: 'dai' | 'eth' | 'reth' | 'steth' | 'usdc' | 'usdt';
   // todo: soon deprecated 'Aave'
   market?: 'Aave' | 'Aave V2' | 'Aave V3' | 'Compound' | 'Lido' | 'Rocket' | 'GMX:GLP' | 'SOFR';
   iconSize: number;
