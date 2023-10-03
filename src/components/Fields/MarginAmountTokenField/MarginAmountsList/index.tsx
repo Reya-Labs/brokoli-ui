@@ -15,13 +15,13 @@ type MarginAmountListItem = {
 
 export type MarginAmountListProps = {
   items: MarginAmountListItem[];
-  parentId: string;
+  parentWidth: number;
   onItemClick: (item: MarginAmountListItem) => void;
 };
 
 export const MarginAmountList: React.FunctionComponent<MarginAmountListProps> = ({
   items,
-  parentId,
+  parentWidth,
   onItemClick,
 }) => {
   const [height, setHeight] = useState<'auto' | number>(0);
@@ -29,12 +29,8 @@ export const MarginAmountList: React.FunctionComponent<MarginAmountListProps> = 
 
   useLayoutEffect(() => {
     setHeight('auto');
-    const elem = document.getElementById(parentId);
-    if (elem) {
-      const elemWidth = elem.getBoundingClientRect().width;
-      setWidth(elemWidth);
-    }
-  }, [parentId]);
+    setWidth(parentWidth);
+  }, [parentWidth]);
 
   return (
     <AnimateHeight

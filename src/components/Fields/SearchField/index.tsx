@@ -53,6 +53,13 @@ export const SearchField: React.FunctionComponent<SearchFieldProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [value, setValue] = useState<string | undefined>('');
+  const [width, setWidth] = useState(0);
+
+  const inputRef = useCallback((node: HTMLInputElement) => {
+    if (node !== null) {
+      setWidth(node.getBoundingClientRect().width);
+    }
+  }, []);
 
   const closePopover = () => {
     setIsOpen(false);
@@ -100,7 +107,7 @@ export const SearchField: React.FunctionComponent<SearchFieldProps> = ({
           itemFilter={itemFilter}
           itemRenderer={itemRenderer}
           items={items}
-          parentId="SearchField-SearchFieldBox"
+          parentWidth={width}
           searchedValue={value}
           selectedItemUntouched={selectedItemUntouched}
           onItemClick={handleOnItemClick}
@@ -110,7 +117,7 @@ export const SearchField: React.FunctionComponent<SearchFieldProps> = ({
       isOpen={isOpen}
       onClickOutside={closePopover}
     >
-      <SearchFieldBox data-testid="SearchField-SearchFieldBox" id="SearchField-SearchFieldBox">
+      <SearchFieldBox data-testid="SearchField-SearchFieldBox">
         <TooltipLabel
           data-testid={`SearchField-SearchFieldBox-${labelTypographyToken}-${labelColorToken}`}
           label={label}
@@ -121,6 +128,7 @@ export const SearchField: React.FunctionComponent<SearchFieldProps> = ({
         />
         <SearchTextInputAndCaretBox>
           <TextInputStyled
+            ref={inputRef}
             className={className}
             data-testid={`SearchField-SearchFieldBox-TextInputStyled`}
             disabled={disabled}

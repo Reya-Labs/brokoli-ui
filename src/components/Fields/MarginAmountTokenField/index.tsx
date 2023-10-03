@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { formatValue } from 'react-currency-input-field';
 
 import { BaseColorTokens, ColorTokens } from '../../../foundation/Colors';
@@ -90,6 +90,14 @@ export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFi
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const closePopover = () => setIsOpen(false);
+  const [width, setWidth] = useState(0);
+
+  const inputRef = useCallback((node: HTMLInputElement) => {
+    if (node !== null) {
+      setWidth(node.getBoundingClientRect().width);
+    }
+  }, []);
+
   const handleOnChange = (newValue: string | undefined) => {
     if (newValue === value) {
       return;
@@ -151,7 +159,7 @@ export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFi
         content={
           <MarginAmountList
             items={marginAmountOptions}
-            parentId="MarginAmountTokenField-SearchFieldBox"
+            parentWidth={width}
             onItemClick={handleOnItemClick}
           />
         }
@@ -161,6 +169,7 @@ export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFi
       >
         <CurrencyInputBox data-testid="MarginAmountTokenField-CurrencyInputBox">
           <CurrencyInputStyled
+            ref={inputRef}
             allowNegativeValue={allowNegativeValue}
             data-testid="MarginAmountTokenField-CurrencyInputBox-CurrencyInputStyled"
             decimalsLimit={decimalsLimit}
@@ -173,7 +182,6 @@ export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFi
             }
             disabled={disabled}
             error={error}
-            id="MarginAmountTokenField-SearchFieldBox"
             intlConfig={{ locale: navigator.language }}
             max={max}
             maxLength={maxLength}

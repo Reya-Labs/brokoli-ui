@@ -15,7 +15,7 @@ export type SearchListProps = {
   items: BaseItem[];
   itemRenderer?: React.FunctionComponent<SearchItemRendererProps>;
   itemFilter?: (item: BaseItem, value: string) => boolean;
-  parentId: string;
+  parentWidth: number;
   searchedValue?: string;
   onItemClick: (item: BaseItem) => void;
   selectedItemUntouched: boolean;
@@ -37,7 +37,7 @@ export const SearchList: React.FunctionComponent<SearchListProps> = ({
   items,
   itemRenderer = defaultItemRenderer,
   itemFilter = defaultItemFilter,
-  parentId,
+  parentWidth,
   searchedValue = '',
   onItemClick,
   selectedItemUntouched,
@@ -47,12 +47,8 @@ export const SearchList: React.FunctionComponent<SearchListProps> = ({
 
   useLayoutEffect(() => {
     setHeight('auto');
-    const elem = document.getElementById(parentId);
-    if (elem) {
-      const elemWidth = elem.getBoundingClientRect().width;
-      setWidth(elemWidth);
-    }
-  }, [parentId]);
+    setWidth(parentWidth);
+  }, [parentWidth]);
 
   const filteredItems = selectedItemUntouched
     ? items
