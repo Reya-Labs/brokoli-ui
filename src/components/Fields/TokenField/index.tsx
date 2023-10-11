@@ -11,6 +11,8 @@ import {
   BottomBox,
   CurrencyInputBox,
   CurrencyInputStyled,
+  FloatingBox,
+  MaxButton,
   TokenBox,
   TokenFieldBox,
   TopBox,
@@ -84,6 +86,8 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
     onChange && onChange(newValue);
   };
 
+  const handleOnMaxButtonClick = () => max && onChange && onChange(max.toString());
+
   return (
     <TokenFieldBox data-testid="TokenField-TokenFieldBox">
       <TopBox data-testid="TokenField-TopBox">
@@ -129,22 +133,34 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
           onBlur={onBlur}
           onValueChange={handleOnChange}
         />
-        {token ? (
-          <TokenBox data-testid="TokenField-CurrencyInputBox-TokenBox">
-            <TokenIcon
-              data-testid={`TokenField-CurrencyInputBox-TokenBox-TokenIcon-${token}`}
-              size={22}
-              token={token}
-            />
-            <Typography
-              colorToken="lavenderWeb"
-              data-testid="TokenField-CurrencyInputBox-TokenBox-Typography"
-              typographyToken="secondaryBodyMediumRegular"
+        <FloatingBox>
+          {max ? (
+            <MaxButton
+              disabled={disabled}
+              typographyToken="primaryBodyXSmallRegular"
+              variant="secondary"
+              onClick={handleOnMaxButtonClick}
             >
-              {token.toUpperCase()}
-            </Typography>
-          </TokenBox>
-        ) : null}
+              Max
+            </MaxButton>
+          ) : null}
+          {token ? (
+            <TokenBox data-testid="TokenField-CurrencyInputBox-TokenBox">
+              <TokenIcon
+                data-testid={`TokenField-CurrencyInputBox-TokenBox-TokenIcon-${token}`}
+                size={22}
+                token={token}
+              />
+              <Typography
+                colorToken="lavenderWeb"
+                data-testid="TokenField-CurrencyInputBox-TokenBox-Typography"
+                typographyToken="secondaryBodyMediumRegular"
+              >
+                {token.toUpperCase()}
+              </Typography>
+            </TokenBox>
+          ) : null}
+        </FloatingBox>
       </CurrencyInputBox>
       <BottomBox data-testid="TokenField-BottomBox">
         {bottomLeftText ? (

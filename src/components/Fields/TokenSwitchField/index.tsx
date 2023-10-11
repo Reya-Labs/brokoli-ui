@@ -12,6 +12,8 @@ import {
   BottomBox,
   CurrencyInputBox,
   CurrencyInputStyled,
+  FloatingBox,
+  MaxButton,
   SwitchButtonsBox,
   TokenBox,
   TokenFieldBox,
@@ -98,6 +100,9 @@ export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = 
     onChange && onChange(newValue);
   };
 
+  const handleOnMaxButtonClick = () => max && onChange && onChange(max.toString());
+  const hasMaxButton = Boolean(max);
+
   return (
     <TokenFieldBox>
       <TopBox>
@@ -142,6 +147,7 @@ export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = 
           }
           disabled={disabled}
           error={error}
+          hasMaxButton={hasMaxButton}
           intlConfig={{ locale: navigator.language }}
           max={max}
           maxLength={maxLength}
@@ -152,13 +158,25 @@ export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = 
           onBlur={onBlur}
           onValueChange={handleOnChange}
         />
-        {token ? (
-          <TokenBox>
-            <Typography colorToken="lavenderWeb3" typographyToken="secondaryBodySmallRegular">
-              {token.toUpperCase()}
-            </Typography>
-          </TokenBox>
-        ) : null}
+        <FloatingBox>
+          {hasMaxButton ? (
+            <MaxButton
+              disabled={disabled}
+              typographyToken="primaryBodyXSmallRegular"
+              variant="secondary"
+              onClick={handleOnMaxButtonClick}
+            >
+              Max
+            </MaxButton>
+          ) : null}
+          {token ? (
+            <TokenBox>
+              <Typography colorToken="lavenderWeb3" typographyToken="secondaryBodySmallRegular">
+                {token.toUpperCase()}
+              </Typography>
+            </TokenBox>
+          ) : null}
+        </FloatingBox>
       </CurrencyInputBox>
       <BottomBox>
         {bottomLeftText && (

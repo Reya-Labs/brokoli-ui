@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
 import CurrencyInput from 'react-currency-input-field';
 
+import { colors } from '../../../foundation/Colors';
+import { Button } from '../../Button';
 import { TypographyToken } from '../../Typography';
 import { commonInputStyle } from '../shared/common.styled';
 
@@ -29,11 +31,10 @@ export const CurrencyInputBox = styled('div')`
 `;
 
 export const TokenBox = styled('div')`
-  position: absolute;
-  right: 8px;
-  top: calc(50% - 9px);
   display: flex;
-  gap: 8px;
+  gap: 4px;
+  align-items: center;
+  cursor: pointer;
 `;
 
 export const SwitchButtonsBox = styled('div')`
@@ -42,12 +43,16 @@ export const SwitchButtonsBox = styled('div')`
   top: calc(50% - 15px);
 `;
 
-export const CurrencyInputStyled = styled(CurrencyInput)<{
+export const CurrencyInputStyled = styled(CurrencyInput, {
+  shouldForwardProp: (prop) =>
+    prop !== 'typographyToken' && prop !== 'error' && prop !== 'hasMaxButton',
+})<{
   error?: boolean;
   typographyToken: TypographyToken;
+  hasMaxButton: boolean;
 }>`
   text-align: right;
-  padding: 6px 44px 6px 146px;
+  padding: ${({ hasMaxButton }) => (hasMaxButton ? '6px 102px 6px 146px' : '6px 52px 6px 146px')};
   height: 44px;
 
   ${({ error, typographyToken }) =>
@@ -55,4 +60,22 @@ export const CurrencyInputStyled = styled(CurrencyInput)<{
       error,
       typographyToken,
     })}
+`;
+
+export const MaxButton = styled(Button)`
+  padding: 4px 8px;
+`;
+
+export const FloatingBox = styled('div')`
+  position: absolute;
+  right: 16px;
+  top: calc(50% - 12px);
+  z-index: 1;
+  color: ${colors.lavenderWeb};
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  height: 24px;
 `;
