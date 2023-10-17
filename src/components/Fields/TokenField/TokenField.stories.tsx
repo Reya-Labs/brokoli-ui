@@ -34,3 +34,15 @@ WithMax.args = {
   tooltip: 'Tooltip message here!',
   topRightText: 'Top right text',
 };
+
+export const WithDifferentBottomRightTextToken = Template.bind({});
+WithDifferentBottomRightTextToken.args = {
+  bottomLeftText: 'Max value is',
+  bottomRightTextToken: '%',
+  bottomRightTextValue: '123456',
+  label: 'Label',
+  max: '123456',
+  token: 'usdc',
+  tooltip: 'Tooltip message here!',
+  topRightText: 'Top right text',
+};

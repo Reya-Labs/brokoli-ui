@@ -41,6 +41,7 @@ export type TokenFieldProps = {
   bottomRightTextColorToken?: BaseColorTokens;
   bottomRightTextTypographyToken?: TypographyToken;
   bottomRightTextDifferenceValue?: number;
+  bottomRightTextToken?: string;
   allowNegativeValue?: boolean;
   max?: number | string | undefined;
   maxLength?: number | undefined;
@@ -73,6 +74,7 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
   bottomRightTextTypographyToken = 'secondaryBodyXSmallRegular',
   bottomRightTextColorToken = 'lavenderWeb',
   bottomRightTextValue,
+  bottomRightTextToken,
   bottomRightTextDifferenceValue,
   allowNegativeValue,
   onBlur,
@@ -87,7 +89,7 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
   };
 
   const handleOnMaxButtonClick = () => max && onChange && onChange(max.toString());
-
+  const bottomRightTextTokenComputed = bottomRightTextToken ? bottomRightTextToken : token;
   return (
     <TokenFieldBox data-testid="TokenField-TokenFieldBox">
       <TopBox data-testid="TokenField-TopBox">
@@ -176,9 +178,13 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
           <TokenTypography
             colorToken={bottomRightTextColorToken}
             data-testid="TokenField-BottomBox-TokenTypography"
-            differenceToken={token ? ` ${token.toUpperCase()}` : ''}
+            differenceToken={
+              bottomRightTextTokenComputed ? ` ${bottomRightTextTokenComputed.toUpperCase()}` : ''
+            }
             differenceValue={bottomRightTextDifferenceValue}
-            token={token ? ` ${token.toUpperCase()}` : ''}
+            token={
+              bottomRightTextTokenComputed ? ` ${bottomRightTextTokenComputed.toUpperCase()}` : ''
+            }
             typographyToken={bottomRightTextTypographyToken}
             value={bottomRightTextValue}
           />
