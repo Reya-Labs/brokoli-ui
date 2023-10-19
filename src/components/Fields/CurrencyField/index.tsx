@@ -5,6 +5,7 @@ import { ColorTokens } from '../../../foundation/Colors';
 import { ExclaimTooltipProps } from '../../ExclaimTooltip';
 import { TooltipLabel } from '../../TooltipLabel';
 import { TypographyToken } from '../../Typography';
+import { MaxConfig } from '../_common/types';
 import { CurrencyFieldBox, CurrencyInputStyled } from './CurrencyField.styled';
 
 type CurrencyFieldProps = {
@@ -13,7 +14,7 @@ type CurrencyFieldProps = {
   'data-testid'?: string;
 
   decimalsLimit?: number;
-  max?: number | string | undefined;
+  max?: MaxConfig;
   maxLength?: number | undefined;
   min?: number | string | undefined;
   value?: string;
@@ -84,7 +85,7 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
         disabled={disabled}
         error={error}
         intlConfig={{ locale: navigator.language }}
-        max={max}
+        max={max ? max.value : undefined}
         maxLength={maxLength}
         min={min}
         placeholder={placeholder}

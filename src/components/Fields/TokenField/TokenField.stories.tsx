@@ -29,7 +29,10 @@ WithMax.args = {
   bottomLeftText: 'Max value is',
   bottomRightTextValue: '123456',
   label: 'Label',
-  max: '123456',
+  max: {
+    showButton: true,
+    value: '123456',
+  },
   token: 'usdc',
   tooltip: 'Tooltip message here!',
   topRightText: 'Top right text',
@@ -41,7 +44,10 @@ WithDifferentBottomRightTextToken.args = {
   bottomRightTextToken: '%',
   bottomRightTextValue: '123456',
   label: 'Label',
-  max: '123456',
+  max: {
+    showButton: true,
+    value: '123456',
+  },
   token: 'usdc',
   tooltip: 'Tooltip message here!',
   topRightText: 'Top right text',

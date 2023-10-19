@@ -9,6 +9,7 @@ import { ToggleCaret } from '../../ToggleCaret';
 import { TokenTypography } from '../../TokenTypography';
 import { TooltipLabel } from '../../TooltipLabel';
 import { Typography, TypographyToken } from '../../Typography';
+import { MaxConfig } from '../_common/types';
 import { MarginAmountList, MarginAmountListProps } from './MarginAmountsList';
 import {
   BottomBox,
@@ -49,7 +50,7 @@ export type MarginAmountTokenFieldProps = {
   bottomRightTextTypographyToken?: TypographyToken;
   bottomRightTextDifferenceValue?: number;
   allowNegativeValue?: boolean;
-  max?: number | string | undefined;
+  max?: MaxConfig;
   maxLength?: number | undefined;
   min?: number | string | undefined;
   typographyToken?: TypographyToken;
@@ -91,6 +92,7 @@ export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFi
   const [isOpen, setIsOpen] = useState(false);
   const closePopover = () => setIsOpen(false);
   const [width, setWidth] = useState(0);
+  const hasMaxButton = Boolean(max && max.showButton);
 
   const inputRef = useCallback((node: HTMLInputElement) => {
     if (node !== null) {
@@ -183,7 +185,7 @@ export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFi
             disabled={disabled}
             error={error}
             intlConfig={{ locale: navigator.language }}
-            max={max}
+            max={max ? max.value : undefined}
             maxLength={maxLength}
             min={min}
             placeholder={placeholder}
@@ -193,8 +195,9 @@ export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFi
             onValueChange={handleOnChange}
           />
           <FloatingBox>
-            {token ? (
+            {hasMaxButton ? (
               <MaxButton
+                data-testid="MarginAmountTokenField-MaxButton"
                 disabled={disabled}
                 typographyToken="primaryBodyXSmallRegular"
                 variant="secondary"

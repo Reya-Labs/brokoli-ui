@@ -7,6 +7,7 @@ import { IconProps } from '../../Icons/TokenIcon/Icon';
 import { TokenTypography } from '../../TokenTypography';
 import { TooltipLabel } from '../../TooltipLabel';
 import { Typography, TypographyToken } from '../../Typography';
+import { MaxConfig } from '../_common/types';
 import { SwitchButtons } from './SwitchButtons';
 import {
   BottomBox,
@@ -24,7 +25,7 @@ export type TokenSwitchFieldProps = {
   onChange?: (value: string | undefined) => void;
   onBlur?: () => void;
   decimalsLimit?: number;
-  max?: number | string | undefined;
+  max?: MaxConfig;
   maxLength?: number | undefined;
   min?: number | string | undefined;
   value?: string;
@@ -101,7 +102,7 @@ export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = 
   };
 
   const handleOnMaxButtonClick = () => max && onChange && onChange(max.toString());
-  const hasMaxButton = Boolean(max);
+  const hasMaxButton = Boolean(max && max.showButton);
 
   return (
     <TokenFieldBox>
@@ -149,7 +150,7 @@ export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = 
           error={error}
           hasMaxButton={hasMaxButton}
           intlConfig={{ locale: navigator.language }}
-          max={max}
+          max={max ? max.value : undefined}
           maxLength={maxLength}
           min={min}
           placeholder={placeholder}
@@ -161,6 +162,7 @@ export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = 
         <FloatingBox>
           {hasMaxButton ? (
             <MaxButton
+              data-testid="TokenSwitchField-MaxButton"
               disabled={disabled}
               typographyToken="primaryBodyXSmallRegular"
               variant="secondary"

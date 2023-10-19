@@ -44,7 +44,10 @@ WithMax.args = {
   bottomLeftText: 'Max value is',
   bottomRightTextValue: '123456',
   label: 'Label',
-  max: '123456',
+  max: {
+    showButton: true,
+    value: '123456',
+  },
   switchOffText: 'Switch off',
   switchOffValue: 'off',
   switchOnText: 'Switch on',

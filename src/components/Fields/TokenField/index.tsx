@@ -7,6 +7,7 @@ import { TokenIcon, TokenIconProps } from '../../Icons';
 import { TokenTypography } from '../../TokenTypography';
 import { TooltipLabel } from '../../TooltipLabel';
 import { Typography, TypographyToken } from '../../Typography';
+import { MaxConfig } from '../_common/types';
 import {
   BottomBox,
   CurrencyInputBox,
@@ -43,7 +44,7 @@ export type TokenFieldProps = {
   bottomRightTextDifferenceValue?: number;
   bottomRightTextToken?: string;
   allowNegativeValue?: boolean;
-  max?: number | string | undefined;
+  max?: MaxConfig;
   maxLength?: number | undefined;
   min?: number | string | undefined;
   typographyToken?: TypographyToken;
@@ -81,6 +82,7 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
   min,
   max,
 }) => {
+  const hasMaxButton = Boolean(max && max.showButton);
   const handleOnChange = (newValue: string | undefined) => {
     if (newValue === value) {
       return;
@@ -126,7 +128,7 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
           disabled={disabled}
           error={error}
           intlConfig={{ locale: navigator.language }}
-          max={max}
+          max={max ? max.value : undefined}
           maxLength={maxLength}
           min={min}
           placeholder={placeholder}
@@ -136,8 +138,9 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
           onValueChange={handleOnChange}
         />
         <FloatingBox>
-          {max ? (
+          {hasMaxButton ? (
             <MaxButton
+              data-testid="TokenField-MaxButton"
               disabled={disabled}
               typographyToken="primaryBodyXSmallRegular"
               variant="secondary"
