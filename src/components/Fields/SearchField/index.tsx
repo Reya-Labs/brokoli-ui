@@ -141,7 +141,7 @@ export const SearchField: React.FunctionComponent<SearchFieldProps> = ({
             onFocus={handleOnFocus}
           />
           <ToggleCaretBox>
-            <ToggleCaret isOpen={isOpen} />
+            <ToggleCaret disabled={disabled} isOpen={isOpen} />
           </ToggleCaretBox>
         </SearchTextInputAndCaretBox>
       </SearchFieldBox>

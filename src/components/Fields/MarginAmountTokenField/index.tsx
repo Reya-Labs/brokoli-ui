@@ -209,7 +209,7 @@ export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFi
             {token ? (
               <TokenBox
                 data-testid="MarginAmountTokenField-CurrencyInputBox-TokenBox"
-                onClick={toggleCaret}
+                onClick={disabled ? undefined : toggleCaret}
               >
                 <TokenIcon
                   data-testid={`MarginAmountTokenField-CurrencyInputBox-TokenBox-TokenIcon-${token}`}
@@ -225,7 +225,7 @@ export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFi
                 </Typography>
               </TokenBox>
             ) : null}
-            <ToggleCaret isOpen={isOpen} onClick={toggleCaret} />
+            <ToggleCaret disabled={disabled} isOpen={isOpen} onClick={toggleCaret} />
           </FloatingBox>
         </CurrencyInputBox>
       </Popover>
