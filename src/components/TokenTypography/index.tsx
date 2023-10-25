@@ -3,8 +3,8 @@ import React from 'react';
 import { BaseColorTokens, ColorTokens } from '../../foundation/Colors';
 import { AttentionIndicator } from '../AttentionIndicator';
 import { TypographyToken } from '../Typography';
-import { ReactComponent as DownIcon } from './assets/down.svg';
-import { ReactComponent as UpIcon } from './assets/up.svg';
+import DownIcon from './assets/down.svg';
+import UpIcon from './assets/up.svg';
 import { TokenTypographyStyled } from './TokenTypography.styled';
 
 export type TokenTypographyProps = {

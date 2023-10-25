@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ColorTokens, getColorFromToken } from '../../foundation/Colors';
 import { Tooltip } from '../Tooltip';
-import { ReactComponent as ExclaimSvg } from './exclaim.svg';
+import ExclaimSvg from './exclaim.svg';
 import { ExclaimBox } from './ExclaimTooltipTooltip.styled';
 
 export type ExclaimTooltipProps = {

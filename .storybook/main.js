@@ -1,23 +1,33 @@
 module.exports = {
   stories: ['../src/**/**/*.stories.mdx', '../src/**/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
-  framework: '@storybook/react',
-  webpackFinal: async (config) => {
-    // Add SVGR Loader
-    // ========================================================
-    // Remove svg rules from existing webpack rule
-    const assetRule = config.module.rules.find(({ test }) => test.test('.svg'));
 
-    const assetLoader = {
-      loader: assetRule.loader,
-      options: assetRule.options || assetRule.query,
-    };
+  framework: {
+    name: '@storybook/react-webpack5',
+    options: {},
+  },
 
-    config.module.rules.unshift({
+  webpackFinal: async (webpackConfig) => {
+    // This modifies the existing image rule to exclude `.svg` files
+    // since we handle those with `@svgr/webpack`.
+    const imageRule = webpackConfig.module.rules.find((rule) => {
+      if (typeof rule !== 'string' && rule.test instanceof RegExp) {
+        return rule.test.test('.svg');
+      }
+    });
+    if (typeof imageRule !== 'string') {
+      imageRule.exclude = /\.svg$/;
+    }
+
+    webpackConfig.module.rules.push({
       test: /\.svg$/,
-      use: ['@svgr/webpack', assetLoader],
+      use: ['@svgr/webpack'],
     });
 
-    return config;
+    return webpackConfig;
+  },
+
+  docs: {
+    autodocs: false,
   },
 };

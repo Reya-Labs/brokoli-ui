@@ -1,8 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React, { useState } from 'react';
 
-import { ReactComponent as Arbitrum } from './icons/arbitrum.svg';
-import { ReactComponent as Ethereum } from './icons/ethereum.svg';
+import Arbitrum from './icons/arbitrum.svg';
+import Ethereum from './icons/ethereum.svg';
 import { ChainSelector } from './index';
 
 export default {

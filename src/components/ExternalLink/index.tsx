@@ -3,7 +3,7 @@ import React from 'react';
 import { BaseColorTokens } from '../../foundation/Colors';
 import { Typography, TypographyToken } from '../Typography';
 import { ExternalLinkStyled } from './ExternalLink.styled';
-import { ReactComponent as LinkArrow } from './link-arrow.svg';
+import LinkArrow from './link-arrow.svg';
 
 export const ExternalLink: React.FunctionComponent<{
   colorToken: BaseColorTokens;
