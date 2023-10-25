@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 
 import { colors } from '../../foundation/Colors';
 import { primaryBodyMediumRegularCSSObject } from '../Typography/Typography.css';
-import Warning from './icons/warning.svg';
+import { ReactComponent as Warning } from './icons/warning.svg';
 
 export const SelectorBox = styled('div')`
   display: inline-flex;

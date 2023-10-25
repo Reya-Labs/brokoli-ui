@@ -1,11 +1,11 @@
 import React from 'react';
 
-import AAveIcon from './assets/aave.svg';
-import CompoundIcon from './assets/compound.svg';
-import GlpIcon from './assets/glp.svg';
-import LidoIcon from './assets/lido.svg';
-import RocketIcon from './assets/rocket.svg';
-import SOFRIcon from './assets/sofr.svg';
+import { ReactComponent as AAveIcon } from './assets/aave.svg';
+import { ReactComponent as CompoundIcon } from './assets/compound.svg';
+import { ReactComponent as GlpIcon } from './assets/glp.svg';
+import { ReactComponent as LidoIcon } from './assets/lido.svg';
+import { ReactComponent as RocketIcon } from './assets/rocket.svg';
+import { ReactComponent as SOFRIcon } from './assets/sofr.svg';
 
 export type IconProps = {
   market: SupportedMarkets | string;
