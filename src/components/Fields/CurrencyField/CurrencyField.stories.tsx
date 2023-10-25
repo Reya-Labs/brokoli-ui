@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
 import { CurrencyField } from './index';
@@ -7,31 +7,40 @@ export default {
   args: {},
   component: CurrencyField,
   title: 'Components/Fields/CurrencyField',
-} as ComponentMeta<typeof CurrencyField>;
+} as Meta<typeof CurrencyField>;
 
-const Template: ComponentStory<typeof CurrencyField> = (args) => {
+const Template: StoryFn<typeof CurrencyField> = (args) => {
   return <CurrencyField {...args} />;
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  suffix: '%',
+export const Default: StoryObj<typeof CurrencyField> = {
+  args: {
+    suffix: '%',
+  },
+
+  render: Template,
 };
 
-export const WithLabel = Template.bind({});
-WithLabel.args = {
-  label: 'Notional',
-  labelColorToken: 'lavenderWeb2',
-  labelTypographyToken: 'primaryBodySmallRegular',
-  suffix: '%',
+export const WithLabel: StoryObj<typeof CurrencyField> = {
+  args: {
+    label: 'Notional',
+    labelColorToken: 'lavenderWeb2',
+    labelTypographyToken: 'primaryBodySmallRegular',
+    suffix: '%',
+  },
+
+  render: Template,
 };
 
-export const WithTooltip = Template.bind({});
-WithTooltip.args = {
-  label: 'Notional',
-  labelColorToken: 'lavenderWeb2',
-  labelTypographyToken: 'primaryBodySmallRegular',
-  suffix: '%',
-  tooltip: 'Input Notional!',
-  tooltipColorToken: 'lavenderWeb2',
+export const WithTooltip: StoryObj<typeof CurrencyField> = {
+  args: {
+    label: 'Notional',
+    labelColorToken: 'lavenderWeb2',
+    labelTypographyToken: 'primaryBodySmallRegular',
+    suffix: '%',
+    tooltip: 'Input Notional!',
+    tooltipColorToken: 'lavenderWeb2',
+  },
+
+  render: Template,
 };

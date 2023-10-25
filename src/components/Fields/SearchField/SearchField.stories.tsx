@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
 
 import { Highlight } from '../../Highlight';
@@ -11,35 +11,38 @@ export default {
   args: {},
   component: SearchField,
   title: 'Components/Fields/SearchField',
-} as ComponentMeta<typeof SearchField>;
+} as Meta<typeof SearchField>;
 
-const Template: ComponentStory<typeof SearchField> = (args) => {
+const Template: StoryFn<typeof SearchField> = (args) => {
   const [selectedItemId, setSelectedItemId] = useState('');
   return (
     <SearchField {...args} selectedItemId={selectedItemId} onItemSelected={setSelectedItemId} />
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  items: [
-    {
-      id: '1',
-      label: 'Ethereum',
-    },
-    {
-      id: '5',
-      label: 'Görli',
-    },
-    {
-      id: '42161',
-      label: 'Arbitrum One',
-    },
-    {
-      id: '421613',
-      label: 'Arbitrum Görli',
-    },
-  ],
+export const Default: StoryObj<typeof SearchField> = {
+  args: {
+    items: [
+      {
+        id: '1',
+        label: 'Ethereum',
+      },
+      {
+        id: '5',
+        label: 'Görli',
+      },
+      {
+        id: '42161',
+        label: 'Arbitrum One',
+      },
+      {
+        id: '421613',
+        label: 'Arbitrum Görli',
+      },
+    ],
+  },
+
+  render: Template,
 };
 
 type CustomItemType = SearchFieldProps['items'][0] & {
@@ -101,35 +104,41 @@ const itemFilter = (item: SearchFieldProps['items'][0], value: string) => {
         extra.toLowerCase().includes(value.toLowerCase());
 };
 
-export const WithCustomisation = Template.bind({});
-WithCustomisation.args = {
-  itemFilter,
-  itemRenderer: ItemRenderer,
-  items: customItems,
-  label: 'Search',
-  labelColorToken: 'lavenderWeb2',
-  labelTypographyToken: 'primaryBodySmallRegular',
-  placeHolder: 'Type to search',
-  tooltip: 'Make sure enter valid data!',
-  tooltipColorToken: 'lavenderWeb2',
+export const WithCustomisation: StoryObj<typeof SearchField> = {
+  args: {
+    itemFilter,
+    itemRenderer: ItemRenderer,
+    items: customItems,
+    label: 'Search',
+    labelColorToken: 'lavenderWeb2',
+    labelTypographyToken: 'primaryBodySmallRegular',
+    placeHolder: 'Type to search',
+    tooltip: 'Make sure enter valid data!',
+    tooltipColorToken: 'lavenderWeb2',
+  },
+
+  render: Template,
 };
 
-export const WithCustomisationManyItems = Template.bind({});
-WithCustomisationManyItems.args = {
-  itemFilter,
-  itemRenderer: ItemRenderer,
-  items: [
-    ...customItems,
-    ...customItems,
-    ...customItems,
-    ...customItems,
-    ...customItems,
-    ...customItems,
-  ],
-  label: 'Search',
-  labelColorToken: 'lavenderWeb2',
-  labelTypographyToken: 'primaryBodySmallRegular',
-  placeHolder: 'Type to search',
-  tooltip: 'Make sure enter valid data!',
-  tooltipColorToken: 'lavenderWeb2',
+export const WithCustomisationManyItems: StoryObj<typeof SearchField> = {
+  args: {
+    itemFilter,
+    itemRenderer: ItemRenderer,
+    items: [
+      ...customItems,
+      ...customItems,
+      ...customItems,
+      ...customItems,
+      ...customItems,
+      ...customItems,
+    ],
+    label: 'Search',
+    labelColorToken: 'lavenderWeb2',
+    labelTypographyToken: 'primaryBodySmallRegular',
+    placeHolder: 'Type to search',
+    tooltip: 'Make sure enter valid data!',
+    tooltipColorToken: 'lavenderWeb2',
+  },
+
+  render: Template,
 };

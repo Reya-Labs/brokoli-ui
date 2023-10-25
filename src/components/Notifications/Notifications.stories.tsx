@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
 import { Button } from '../Button';
@@ -8,9 +8,9 @@ export default {
   args: {},
   component: Notifications,
   title: 'Components/Notifications',
-} as ComponentMeta<typeof Notifications>;
+} as Meta<typeof Notifications>;
 
-const Template: ComponentStory<typeof Notifications> = (args) => {
+const Template: StoryFn<typeof Notifications> = (args) => {
   return (
     <React.Fragment>
       <Notifications {...args} />
@@ -71,5 +71,7 @@ const Template: ComponentStory<typeof Notifications> = (args) => {
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {};
+export const Default: StoryObj<typeof Notifications> = {
+  args: {},
+  render: Template,
+};

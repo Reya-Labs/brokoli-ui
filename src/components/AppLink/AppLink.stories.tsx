@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -9,23 +9,26 @@ export default {
   args: {},
   component: AppLink,
   title: 'Components/AppLink',
-} as ComponentMeta<typeof AppLink>;
+} as Meta<typeof AppLink>;
 
-const Template: ComponentStory<typeof AppLink> = (args) => (
+const Template: StoryFn<typeof AppLink> = (args) => (
   <BrowserRouter>
     <AppLink {...args} />
   </BrowserRouter>
 );
 
-export const Default = Template.bind({});
-Default.args = {
-  children: 'Visit this app link!',
-  colorToken: 'skyBlueCrayola',
-  to: '/app-link',
-  typographyToken: 'primaryBodyXSmallRegular',
+export const Default: StoryObj<typeof AppLink> = {
+  args: {
+    children: 'Visit this app link!',
+    colorToken: 'skyBlueCrayola',
+    to: '/app-link',
+    typographyToken: 'primaryBodyXSmallRegular',
+  },
+
+  render: Template,
 };
 
-const WithinTextTemplate: ComponentStory<typeof AppLink> = (args) => (
+const WithinTextTemplate: StoryFn<typeof AppLink> = (args) => (
   <BrowserRouter>
     <Typography colorToken="lavenderWeb" typographyToken="primaryBodySmallRegular">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
@@ -37,10 +40,14 @@ const WithinTextTemplate: ComponentStory<typeof AppLink> = (args) => (
     </Typography>
   </BrowserRouter>
 );
-export const WithinText = WithinTextTemplate.bind({});
-WithinText.args = {
-  children: 'Lorem link',
-  colorToken: 'wildStrawberry',
-  to: '/app-link',
-  typographyToken: 'primaryBodySmallBold',
+
+export const WithinText: StoryObj<typeof AppLink> = {
+  args: {
+    children: 'Lorem link',
+    colorToken: 'wildStrawberry',
+    to: '/app-link',
+    typographyToken: 'primaryBodySmallBold',
+  },
+
+  render: WithinTextTemplate,
 };

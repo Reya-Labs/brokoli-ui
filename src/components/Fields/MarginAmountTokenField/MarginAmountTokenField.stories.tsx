@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
 
 import { MarginAmountTokenField } from './index';
@@ -8,9 +8,9 @@ export default {
   args: {},
   component: MarginAmountTokenField,
   title: 'Components/Fields/MarginAmountTokenField',
-} as ComponentMeta<typeof MarginAmountTokenField>;
+} as Meta<typeof MarginAmountTokenField>;
 
-const Template: ComponentStory<typeof MarginAmountTokenField> = (args) => {
+const Template: StoryFn<typeof MarginAmountTokenField> = (args) => {
   const [token, setToken] = useState(args.token);
   const [value, setValue] = useState(args.value);
   return (
@@ -64,23 +64,30 @@ const marginAmountOptions: MarginAmountListProps['items'] = [
     valueSuffix: 'M',
   },
 ];
-export const Default = Template.bind({});
-Default.args = {
-  bottomLeftText: 'Bottom left text',
-  bottomRightTextValue: '123',
-  label: 'Label',
-  marginAmountOptions,
-  token: 'usdc',
-  tooltip: 'Tooltip message here!',
-  topRightText: 'Top right text',
+
+export const Default: StoryObj<typeof MarginAmountTokenField> = {
+  args: {
+    bottomLeftText: 'Bottom left text',
+    bottomRightTextValue: '123',
+    label: 'Label',
+    marginAmountOptions,
+    token: 'usdc',
+    tooltip: 'Tooltip message here!',
+    topRightText: 'Top right text',
+  },
+
+  render: Template,
 };
 
-export const WithoutToken = Template.bind({});
-WithoutToken.args = {
-  bottomLeftText: 'Bottom left text',
-  bottomRightTextValue: '123',
-  label: 'Label',
-  marginAmountOptions,
-  tooltip: 'Tooltip message here!',
-  topRightText: 'Top right text',
+export const WithoutToken: StoryObj<typeof MarginAmountTokenField> = {
+  args: {
+    bottomLeftText: 'Bottom left text',
+    bottomRightTextValue: '123',
+    label: 'Label',
+    marginAmountOptions,
+    tooltip: 'Tooltip message here!',
+    topRightText: 'Top right text',
+  },
+
+  render: Template,
 };

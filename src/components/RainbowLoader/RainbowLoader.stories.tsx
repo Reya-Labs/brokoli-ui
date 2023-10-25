@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
 import { RainbowLoader } from './index';
@@ -7,9 +7,9 @@ export default {
   args: {},
   component: RainbowLoader,
   title: 'Components/RainbowLoader',
-} as ComponentMeta<typeof RainbowLoader>;
+} as Meta<typeof RainbowLoader>;
 
-const Template: ComponentStory<typeof RainbowLoader> = (args) => (
+const Template: StoryFn<typeof RainbowLoader> = (args) => (
   <div
     style={{
       width: 150,
@@ -19,13 +19,19 @@ const Template: ComponentStory<typeof RainbowLoader> = (args) => (
   </div>
 );
 
-export const Default = Template.bind({});
-Default.args = {
-  height: 3,
+export const Default: StoryObj<typeof RainbowLoader> = {
+  args: {
+    height: 3,
+  },
+
+  render: Template,
 };
 
-export const WithText = Template.bind({});
-WithText.args = {
-  height: 3,
-  text: 'Loading',
+export const WithText: StoryObj<typeof RainbowLoader> = {
+  args: {
+    height: 3,
+    text: 'Loading',
+  },
+
+  render: Template,
 };

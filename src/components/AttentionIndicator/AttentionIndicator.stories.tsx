@@ -1,5 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import React from 'react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { AttentionIndicator } from './index';
 
@@ -7,13 +6,10 @@ export default {
   argTypes: {},
   component: AttentionIndicator,
   title: 'Components/AttentionIndicator',
-} as ComponentMeta<typeof AttentionIndicator>;
+} as Meta<typeof AttentionIndicator>;
 
-const Template: ComponentStory<typeof AttentionIndicator> = (args) => (
-  <AttentionIndicator {...args} />
-);
-
-export const Default = Template.bind({});
-Default.args = {
-  colorToken: 'wildStrawberry',
+export const Default: StoryObj<typeof AttentionIndicator> = {
+  args: {
+    colorToken: 'wildStrawberry',
+  },
 };

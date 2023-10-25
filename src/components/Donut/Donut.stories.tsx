@@ -1,5 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import React from 'react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { Donut } from './index';
 
@@ -7,19 +6,19 @@ export default {
   args: {},
   component: Donut,
   title: 'Components/Donut',
-} as ComponentMeta<typeof Donut>;
+} as Meta<typeof Donut>;
 
-const Template: ComponentStory<typeof Donut> = (args) => <Donut {...args} />;
-
-export const Default = Template.bind({});
-Default.args = {
-  colorToken: 'orangeYellow',
-  percentage: 65,
+export const Default: StoryObj<typeof Donut> = {
+  args: {
+    colorToken: 'orangeYellow',
+    percentage: 65,
+  },
 };
 
-export const WithHoleColorToken = Template.bind({});
-WithHoleColorToken.args = {
-  colorToken: 'orangeYellow',
-  holeColorToken: 'lavenderWeb',
-  percentage: 23,
+export const WithHoleColorToken: StoryObj<typeof Donut> = {
+  args: {
+    colorToken: 'orangeYellow',
+    holeColorToken: 'lavenderWeb',
+    percentage: 23,
+  },
 };

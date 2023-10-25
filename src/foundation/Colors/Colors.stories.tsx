@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
 import { colors, ColorTokens } from './colors';
@@ -9,7 +9,7 @@ export default {
   argTypes: {},
   component: ColorTile,
   title: 'Foundation/Colors',
-} as ComponentMeta<typeof ColorTile>;
+} as Meta<typeof ColorTile>;
 
 const AllColorsBox = styled('div')`
   display: grid;
@@ -19,7 +19,7 @@ const AllColorsBox = styled('div')`
   z-index: 1;
 `;
 
-const AllColorsTemplate: ComponentStory<typeof React.Fragment> = () => (
+const AllColorsTemplate: StoryFn<typeof React.Fragment> = () => (
   <AllColorsBox>
     {Object.keys(colors)
       .sort()
@@ -34,5 +34,7 @@ const AllColorsTemplate: ComponentStory<typeof React.Fragment> = () => (
   </AllColorsBox>
 );
 
-export const Colors = AllColorsTemplate.bind({});
-Colors.args = {};
+export const Colors: StoryObj<typeof AllColorsTemplate> = {
+  args: {},
+  render: AllColorsTemplate,
+};

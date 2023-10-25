@@ -1,5 +1,5 @@
 import detectEthereumProvider from '@metamask/detect-provider';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { ethers } from 'ethers';
 import React, { useState } from 'react';
 
@@ -8,12 +8,9 @@ import { WalletConnectButton } from './index';
 export default {
   component: WalletConnectButton,
   title: 'Components/WalletConnectButton',
-} as ComponentMeta<typeof WalletConnectButton>;
+} as Meta<typeof WalletConnectButton>;
 
-const Template: ComponentStory<typeof WalletConnectButton> = (args) => (
-  <WalletConnectButton {...args} />
-);
-const TemplateMetamask: ComponentStory<typeof React.Fragment> = () => {
+const TemplateMetamask: StoryFn<typeof React.Fragment> = () => {
   const [account, setAccount] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -53,30 +50,36 @@ const TemplateMetamask: ComponentStory<typeof React.Fragment> = () => {
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  account: '',
-  error: '',
+export const Default: StoryObj<typeof WalletConnectButton> = {
+  args: {
+    account: '',
+    error: '',
+  },
 };
 
-export const WithAccount = Template.bind({});
-WithAccount.args = {
-  account: '0xb01F14d1C9000D453241221EB54648F1C378c970',
-  error: '',
+export const WithAccount: StoryObj<typeof WalletConnectButton> = {
+  args: {
+    account: '0xb01F14d1C9000D453241221EB54648F1C378c970',
+    error: '',
+  },
 };
 
-export const WithError = Template.bind({});
-WithError.args = {
-  account: '0xb01F14d1C9000D453241221EB54648F1C378c970',
-  error: 'Wrong Network',
+export const WithError: StoryObj<typeof WalletConnectButton> = {
+  args: {
+    account: '0xb01F14d1C9000D453241221EB54648F1C378c970',
+    error: 'Wrong Network',
+  },
 };
 
-export const WithLoading = Template.bind({});
-WithLoading.args = {
-  account: '',
-  error: '',
-  loading: true,
+export const WithLoading: StoryObj<typeof WalletConnectButton> = {
+  args: {
+    account: '',
+    error: '',
+    loading: true,
+  },
 };
 
-export const WithMetamaskConnect = TemplateMetamask.bind({});
-WithMetamaskConnect.args = {};
+export const WithMetamaskConnect: StoryObj<typeof WalletConnectButton> = {
+  args: {},
+  render: TemplateMetamask,
+};

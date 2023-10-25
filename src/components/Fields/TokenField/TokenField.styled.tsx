@@ -4,7 +4,7 @@ import CurrencyInput from 'react-currency-input-field';
 import { colors } from '../../../foundation/Colors';
 import { Button } from '../../Button';
 import { TypographyToken } from '../../Typography';
-import { commonInputStyle } from '../shared/common.styled';
+import { commonInputStyle } from '../_common/common.styled';
 
 export const TokenFieldBox = styled('div')`
   display: flex;

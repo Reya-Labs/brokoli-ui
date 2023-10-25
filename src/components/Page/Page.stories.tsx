@@ -1,5 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import React from 'react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { Page } from './index';
 
@@ -7,9 +6,8 @@ export default {
   args: {},
   component: Page,
   title: 'Components/Page',
-} as ComponentMeta<typeof Page>;
+} as Meta<typeof Page>;
 
-const Template: ComponentStory<typeof Page> = (args) => <Page {...args} />;
-
-export const Default = Template.bind({});
-Default.args = {};
+export const Default: StoryObj<typeof Page> = {
+  args: {},
+};

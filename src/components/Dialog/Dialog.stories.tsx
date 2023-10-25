@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
 import { Typography } from '../Typography';
@@ -9,9 +9,9 @@ export default {
   args: {},
   component: Dialog,
   title: 'Components/Dialog',
-} as ComponentMeta<typeof Dialog>;
+} as Meta<typeof Dialog>;
 
-const Template: ComponentStory<typeof Dialog> = (args) => (
+const Template: StoryFn<typeof Dialog> = (args) => (
   <React.Fragment>
     <Typography colorToken="wildStrawberry" typographyToken="primaryBodyExtraLargeBold">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
@@ -43,26 +43,29 @@ const Template: ComponentStory<typeof Dialog> = (args) => (
   </React.Fragment>
 );
 
-export const Default = Template.bind({});
-Default.args = {
-  children: (
-    <React.Fragment>
-      <Typography colorToken="lavenderWeb" typographyToken="primaryBodyLargeRegular">
-        This library is created using styled components from @emotion/styled.
-      </Typography>
-      <br />
-      <Typography colorToken="lavenderWeb3" typographyToken="primaryBodyMediumRegular">
-        It is an UI design language and React UI library powered by 🥦🥦🥦 and ☕
-      </Typography>
-      <br />
-      <TypographyWithTooltip
-        colorToken="lavenderWeb"
-        tooltip="Created with ❤️!"
-        typographyToken="secondaryBodyMediumRegular"
-      >
-        Tooltips in dialog? ✅
-      </TypographyWithTooltip>
-    </React.Fragment>
-  ),
-  open: true,
+export const Default: StoryObj<typeof Dialog> = {
+  args: {
+    children: (
+      <React.Fragment>
+        <Typography colorToken="lavenderWeb" typographyToken="primaryBodyLargeRegular">
+          This library is created using styled components from @emotion/styled.
+        </Typography>
+        <br />
+        <Typography colorToken="lavenderWeb3" typographyToken="primaryBodyMediumRegular">
+          It is an UI design language and React UI library powered by 🥦🥦🥦 and ☕
+        </Typography>
+        <br />
+        <TypographyWithTooltip
+          colorToken="lavenderWeb"
+          tooltip="Created with ❤️!"
+          typographyToken="secondaryBodyMediumRegular"
+        >
+          Tooltips in dialog? ✅
+        </TypographyWithTooltip>
+      </React.Fragment>
+    ),
+    open: true,
+  },
+
+  render: Template,
 };

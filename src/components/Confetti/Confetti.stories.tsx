@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
 import { Button } from '../Button';
@@ -10,18 +10,20 @@ export default {
   args: {},
   component: Confetti,
   title: 'Components/Confetti',
-} as ComponentMeta<typeof Confetti>;
+} as Meta<typeof Confetti>;
 
-const ButtonTemplate: ComponentStory<typeof Confetti> = (args) => (
+const ButtonTemplate: StoryFn<typeof Confetti> = (args) => (
   <Confetti {...args}>
     <Button variant="primary">Confetti button!</Button>
   </Confetti>
 );
 
-export const ButtonConfetti = ButtonTemplate.bind({});
-ButtonConfetti.args = {};
+export const ButtonConfetti: StoryObj<typeof Confetti> = {
+  args: {},
+  render: ButtonTemplate,
+};
 
-const DialogTemplate: ComponentStory<typeof Confetti> = (args) => (
+const DialogTemplate: StoryFn<typeof Confetti> = (args) => (
   <Dialog open={true}>
     <Confetti {...args}>
       <Typography colorToken="lavenderWeb" typographyToken="primaryBodyExtraLargeBold">
@@ -31,5 +33,7 @@ const DialogTemplate: ComponentStory<typeof Confetti> = (args) => (
   </Dialog>
 );
 
-export const DialogConfetti = DialogTemplate.bind({});
-DialogConfetti.args = {};
+export const DialogConfetti: StoryObj<typeof Confetti> = {
+  args: {},
+  render: DialogTemplate,
+};

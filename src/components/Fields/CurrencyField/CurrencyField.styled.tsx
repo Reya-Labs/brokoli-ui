@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import CurrencyInput from 'react-currency-input-field';
 
 import { TypographyToken } from '../../Typography';
-import { commonInputStyle } from '../shared/common.styled';
+import { commonInputStyle } from '../_common/common.styled';
 
 export const CurrencyInputStyled = styled(CurrencyInput)<{
   error?: boolean;

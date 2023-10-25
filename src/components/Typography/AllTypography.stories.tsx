@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 
 import { ColorTokens } from '../../foundation/Colors';
@@ -32,12 +32,10 @@ const AllTypography: React.FunctionComponent<{
 export default {
   component: AllTypography,
   title: 'Foundation/Typography',
-} as ComponentMeta<typeof AllTypography>;
-const AllTypographyTemplate: ComponentStory<typeof AllTypography> = (args) => (
-  <AllTypography {...args} />
-);
+} as Meta<typeof AllTypography>;
 
-export const Typography = AllTypographyTemplate.bind({});
-Typography.args = {
-  colorToken: 'lavenderWeb',
+export const Typography: StoryObj<typeof AllTypography> = {
+  args: {
+    colorToken: 'lavenderWeb',
+  },
 };

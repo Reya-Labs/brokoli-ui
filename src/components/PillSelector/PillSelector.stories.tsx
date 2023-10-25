@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
 
 import { PillSelector, PillSelectorProps } from './index';
@@ -7,9 +7,9 @@ export default {
   args: {},
   component: PillSelector,
   title: 'Components/PillSelector',
-} as ComponentMeta<typeof PillSelector>;
+} as Meta<typeof PillSelector>;
 
-const Template: ComponentStory<typeof PillSelector> = (args) => {
+const Template: StoryFn<typeof PillSelector> = (args) => {
   const [activePillId, setActivePillId] = useState('1');
 
   return (
@@ -53,63 +53,91 @@ const pillAttentionOptions: PillSelectorProps['pillOptions'] = [
     label: 'Option 3',
   },
 ];
-export const Default = Template.bind({});
-Default.args = {
-  pillOptions,
-  variant: 'compact',
+
+export const Default: StoryObj<typeof PillSelector> = {
+  args: {
+    pillOptions,
+    variant: 'compact',
+  },
+
+  render: Template,
 };
 
-export const CompactVariant = Template.bind({});
-CompactVariant.args = {
-  pillOptions,
-  variant: 'compact',
+export const CompactVariant: StoryObj<typeof PillSelector> = {
+  args: {
+    pillOptions,
+    variant: 'compact',
+  },
+
+  render: Template,
 };
 
-export const RegularVariant = Template.bind({});
-RegularVariant.args = {
-  pillOptions,
-  variant: 'regular',
+export const RegularVariant: StoryObj<typeof PillSelector> = {
+  args: {
+    pillOptions,
+    variant: 'regular',
+  },
+
+  render: Template,
 };
 
-export const WithAttentionPrefixText = Template.bind({});
-WithAttentionPrefixText.args = {
-  attentionPrefixColorToken: 'skyBlueCrayola',
-  pillOptions: pillAttentionOptions,
+export const WithAttentionPrefixText: StoryObj<typeof PillSelector> = {
+  args: {
+    attentionPrefixColorToken: 'skyBlueCrayola',
+    pillOptions: pillAttentionOptions,
+  },
+
+  render: Template,
 };
 
-export const WithAttentionPrefixTextColor = Template.bind({});
-WithAttentionPrefixTextColor.args = {
-  attentionPrefixColorToken: 'wildStrawberry',
-  pillOptions: pillAttentionOptions,
+export const WithAttentionPrefixTextColor: StoryObj<typeof PillSelector> = {
+  args: {
+    attentionPrefixColorToken: 'wildStrawberry',
+    pillOptions: pillAttentionOptions,
+  },
+
+  render: Template,
 };
 
-export const WithError = Template.bind({});
-WithError.args = {
-  error: true,
-  pillOptions,
-  variant: 'compact',
+export const WithError: StoryObj<typeof PillSelector> = {
+  args: {
+    error: true,
+    pillOptions,
+    variant: 'compact',
+  },
+
+  render: Template,
 };
 
-export const WithDisabled = Template.bind({});
-WithDisabled.args = {
-  disabled: true,
-  pillOptions,
-  variant: 'compact',
+export const WithDisabled: StoryObj<typeof PillSelector> = {
+  args: {
+    disabled: true,
+    pillOptions,
+    variant: 'compact',
+  },
+
+  render: Template,
 };
 
-export const WithAttentionPrefixTextDisabled = Template.bind({});
-WithAttentionPrefixTextDisabled.args = {
-  attentionPrefixColorToken: 'wildStrawberry',
-  disabled: true,
-  pillOptions: pillAttentionOptions,
-  variant: 'regular',
+export const WithAttentionPrefixTextDisabled: StoryObj<typeof PillSelector> = {
+  args: {
+    attentionPrefixColorToken: 'wildStrawberry',
+    disabled: true,
+    pillOptions: pillAttentionOptions,
+    variant: 'regular',
+  },
+
+  render: Template,
 };
 
-export const WithTooltip = Template.bind({});
-WithTooltip.args = {
-  disabled: false,
-  label: 'Pill! Grab one!',
-  pillOptions: pillOptions,
-  tooltip: 'A wild selector!',
-  variant: 'compact',
+export const WithTooltip: StoryObj<typeof PillSelector> = {
+  args: {
+    disabled: false,
+    label: 'Pill! Grab one!',
+    pillOptions: pillOptions,
+    tooltip: 'A wild selector!',
+    variant: 'compact',
+  },
+
+  render: Template,
 };

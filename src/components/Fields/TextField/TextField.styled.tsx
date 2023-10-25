@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 import { TypographyToken } from '../../Typography';
-import { commonInputStyle } from '../shared/common.styled';
+import { commonInputStyle } from '../_common/common.styled';
 
 export const TextInputStyled = styled('input', {
   shouldForwardProp: (prop) => prop !== 'typographyToken' && prop !== 'error',

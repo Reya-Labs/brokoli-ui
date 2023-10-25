@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
 import { Skeleton } from './index';
@@ -8,30 +8,31 @@ export default {
   args: {},
   component: Skeleton,
   title: 'Components/Skeleton',
-} as ComponentMeta<typeof Skeleton>;
+} as Meta<typeof Skeleton>;
 
-const Template: ComponentStory<typeof Skeleton> = (args) => <Skeleton {...args} />;
-
-export const Default = Template.bind({});
-Default.args = {
-  colorToken: 'lavenderWeb',
+export const Default: StoryObj<typeof Skeleton> = {
+  args: {
+    colorToken: 'lavenderWeb',
+  },
 };
 
 const CircularSkeleton = styled(Skeleton)`
   width: 50px;
   height: 50px;
 `;
-const CircularTemplate: ComponentStory<typeof CircularSkeleton> = (args) => (
-  <CircularSkeleton {...args} />
-);
+const CircularTemplate: StoryFn<typeof CircularSkeleton> = (args) => <CircularSkeleton {...args} />;
 
-export const CircularVariant = CircularTemplate.bind({});
-CircularVariant.args = {
-  colorToken: 'lavenderWeb',
+export const CircularVariant: StoryObj<typeof Skeleton> = {
+  args: {
+    colorToken: 'lavenderWeb',
+  },
+
+  render: CircularTemplate,
 };
 
-export const WithTypographyToken = Template.bind({});
-WithTypographyToken.args = {
-  colorToken: 'lavenderWeb',
-  typographyToken: 'primaryHeader1Bold',
+export const WithTypographyToken: StoryObj<typeof Skeleton> = {
+  args: {
+    colorToken: 'lavenderWeb',
+    typographyToken: 'primaryHeader1Bold',
+  },
 };
