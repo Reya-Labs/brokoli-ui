@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { colors } from '../../../../foundation/Colors';
-import { primaryBodyXSmallRegularCSSObject } from '../../../Typography/Typography.css';
+import { primaryBodyXSmallRegularCSSObject } from '../../../../foundation/Typography/typographies';
 
 export const SwitchButtonsBox = styled('div')`
   display: flex;

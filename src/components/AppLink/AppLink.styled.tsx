@@ -3,8 +3,8 @@ import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
 import { BaseColorTokens, getColorFromToken } from '../../foundation/Colors';
+import { typography } from '../../foundation/Typography';
 import { Typography, TypographyToken } from '../Typography';
-import { TypographyTokenConfigMap } from '../Typography/typography-token-config-map';
 
 export const AppLinkStyled = styled(Link, {
   shouldForwardProp: (prop) => prop !== 'typographyToken' && prop !== 'colorToken',
@@ -15,7 +15,7 @@ export const AppLinkStyled = styled(Link, {
   margin: 0;
   padding: 0;
   color: ${({ colorToken }) => getColorFromToken(`${colorToken}`)};
-  ${({ typographyToken }) => css(TypographyTokenConfigMap[typographyToken].styleObject)};
+  ${({ typographyToken }) => css(typography[typographyToken].styleObject)};
   text-decoration: none;
 
   &:hover {

@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { colors } from '../../../foundation/Colors';
-import { primaryBodySmallRegularCSSObject } from '../../Typography/Typography.css';
+import { primaryBodySmallRegularCSSObject } from '../../../foundation/Typography/typographies';
 
 export const IconBox = styled('div', {
   shouldForwardProp: (prop) => prop !== 'isActive',

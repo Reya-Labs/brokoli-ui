@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
 import { colors } from '../../../../foundation/Colors';
-import { primaryBodySmallRegularCSSObject } from '../../../Typography/Typography.css';
+import { primaryBodySmallRegularCSSObject } from '../../../../foundation/Typography/typographies';
 
 export const SubLinkButton = styled(Link)`
   display: flex;

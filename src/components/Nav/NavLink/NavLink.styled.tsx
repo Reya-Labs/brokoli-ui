@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { BaseColorTokens, getColorFromToken } from '../../../foundation/Colors';
 import { gradients } from '../../../foundation/Gradients';
-import { primaryBodyMediumRegularCSSObject } from '../../Typography/Typography.css';
+import { primaryBodyMediumRegularCSSObject } from '../../../foundation/Typography/typographies';
 
 export const NavLinkButtonBox = styled('div', {
   shouldForwardProp: (prop) =>

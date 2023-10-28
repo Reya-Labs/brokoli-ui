@@ -1,17 +1,18 @@
 import React from 'react';
 
 import { ColorTokens } from '../../foundation/Colors';
+import { typography } from '../../foundation/Typography';
+import { TypographyToken } from '../../foundation/Typography/typography-tokens';
 import { BaseTypography, RainbowTypography } from './Typography.styled';
-import { TypographyTokenConfigMap } from './typography-token-config-map';
-import { TypographyToken } from './typography-tokens';
 export type { TypographyToken };
-export * from './Typography.css';
+
 export type TypographyProps = {
   typographyToken: TypographyToken;
   colorToken: ColorTokens | 'rainbow';
   className?: string;
   'data-testid'?: string;
 };
+
 export const Typography: React.FunctionComponent<TypographyProps> = ({
   className,
   children,
@@ -25,7 +26,7 @@ export const Typography: React.FunctionComponent<TypographyProps> = ({
 
   return (
     <TypographyUI
-      as={TypographyTokenConfigMap[typographyToken].as}
+      as={typography[typographyToken].as}
       className={className}
       colorToken={typographyColorToken}
       data-testid={dataTestId || `Typography-${colorToken}-${typographyToken}`}

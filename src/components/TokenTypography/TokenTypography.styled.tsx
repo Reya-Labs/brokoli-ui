@@ -2,8 +2,8 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { BaseColorTokens, getColorFromToken } from '../../foundation/Colors';
+import { typography } from '../../foundation/Typography';
 import { Typography, TypographyProps, TypographyToken } from '../Typography';
-import { TypographyTokenConfigMap } from '../Typography/typography-token-config-map';
 
 const differenceTypographyMap: Record<TypographyToken, TypographyToken> = {
   primaryBodyExtraLargeBold: 'primaryBodyMediumBold',
@@ -47,7 +47,7 @@ export const TokenTypographyStyled = styled(Typography)<TypographyProps>`
 
   & > .difference-value {
     ${({ typographyToken }) =>
-      css(TypographyTokenConfigMap[differenceTypographyMap[typographyToken]].styleObject)};
+      css(typography[differenceTypographyMap[typographyToken]].styleObject)};
     color: ${({ colorToken }) => getColorFromToken(`${colorToken as BaseColorTokens}3`)};
   }
 
@@ -64,7 +64,7 @@ export const TokenTypographyStyled = styled(Typography)<TypographyProps>`
   & > .difference-arrow,
   & > .difference-token {
     ${({ typographyToken }) =>
-      css(TypographyTokenConfigMap[differenceTypographyMap[typographyToken]].styleObject)};
+      css(typography[differenceTypographyMap[typographyToken]].styleObject)};
     color: ${({ colorToken }) => getColorFromToken(`${colorToken as BaseColorTokens}3`)};
   }
 `;

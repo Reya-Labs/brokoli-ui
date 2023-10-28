@@ -4,8 +4,8 @@ import { Property } from 'csstype';
 import React, { useMemo } from 'react';
 
 import { colors, ColorTokens, getColorFromToken } from '../../foundation/Colors';
+import { typography } from '../../foundation/Typography';
 import { TypographyToken } from '../Typography';
-import { TypographyTokenConfigMap } from '../Typography/typography-token-config-map';
 import { LineChartBox } from './LineChart.styled';
 import { Tooltip } from './Tooltip/Tooltip';
 
@@ -36,8 +36,8 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
   yMarkerTypographyToken = 'secondaryBodyXSmallRegular',
   axisTypographyToken = 'primaryBodyXSmallRegular',
 }) => {
-  const yMarkerTypography = TypographyTokenConfigMap[yMarkerTypographyToken].styleObject;
-  const axisTypography = TypographyTokenConfigMap[axisTypographyToken].styleObject;
+  const yMarkerTypography = typography[yMarkerTypographyToken].styleObject;
+  const axisTypography = typography[axisTypographyToken].styleObject;
   const color = useMemo(() => getColorFromToken(colorToken), [colorToken]);
   const yScale = useMemo(() => {
     const yS = data.reduce((pV, cI) => {
@@ -101,8 +101,8 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
             textStyle: {
               fill: colors.lavenderWeb,
               fontFamily: yMarkerTypography.fontFamily as Property.FontFamily,
-              fontSize: parseInt(yMarkerTypography.fontSize as string, 10),
-              fontWeight: parseInt(yMarkerTypography.fontWeight as string),
+              fontSize: parseInt(yMarkerTypography.fontSize, 10),
+              fontWeight: parseInt(yMarkerTypography.fontWeight),
             },
             value: yMarker,
           },
@@ -128,8 +128,8 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
               text: {
                 fill: colors.lavenderWeb3,
                 fontFamily: axisTypography.fontFamily as Property.FontFamily,
-                fontSize: parseInt(axisTypography.fontSize as string, 10),
-                fontWeight: parseInt(axisTypography.fontWeight as string),
+                fontSize: parseInt(axisTypography.fontSize, 10),
+                fontWeight: parseInt(axisTypography.fontWeight),
               },
             },
           },
@@ -141,7 +141,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
             },
           },
           fontFamily: axisTypography.fontFamily as Property.FontFamily,
-          fontSize: parseInt(axisTypography.fontSize as string, 10),
+          fontSize: parseInt(axisTypography.fontSize, 10),
           textColor: colors.lavenderWeb3,
         }}
         tooltip={(point) => <Tooltip colorToken={colorToken} {...point} />}

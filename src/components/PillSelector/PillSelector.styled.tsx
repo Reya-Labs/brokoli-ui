@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { BaseColorTokens, colors, getColorFromToken } from '../../foundation/Colors';
-import { primaryBodyXSmallRegularCSSObject } from '../Typography';
+import { primaryBodyXSmallRegularCSSObject } from '../../foundation/Typography/typographies';
 
 export type PillSelectorVariant = 'compact' | 'regular';
 export const PillSelectorBox = styled('div', {

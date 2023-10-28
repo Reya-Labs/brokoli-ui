@@ -3,8 +3,8 @@ import styled from '@emotion/styled';
 
 import { ColorTokens, getColorFromToken } from '../../foundation/Colors';
 import { gradients } from '../../foundation/Gradients';
-import { TypographyTokenConfigMap } from './typography-token-config-map';
-import { TypographyToken } from './typography-tokens';
+import { typography } from '../../foundation/Typography';
+import { TypographyToken } from '../../foundation/Typography/typography-tokens';
 
 export const BaseTypography = styled('p', {
   shouldForwardProp: (prop) => prop !== 'typographyToken' && prop !== 'colorToken',
@@ -15,7 +15,7 @@ export const BaseTypography = styled('p', {
   margin: 0;
   padding: 0;
   color: ${({ colorToken }) => getColorFromToken(colorToken)};
-  ${({ typographyToken }) => css(TypographyTokenConfigMap[typographyToken].styleObject)};
+  ${({ typographyToken }) => css(typography[typographyToken].styleObject)};
 `;
 
 export const RainbowTypography = styled(BaseTypography)`

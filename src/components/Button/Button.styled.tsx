@@ -1,8 +1,8 @@
 import { css, SerializedStyles } from '@emotion/react';
 import styled from '@emotion/styled';
 
+import { typography } from '../../foundation/Typography';
 import { TypographyToken } from '../Typography';
-import { TypographyTokenConfigMap } from '../Typography/typography-token-config-map';
 import { primaryButtonCSS, secondaryButtonCSS } from './Button.css';
 
 export type ButtonVariant = 'primary' | 'secondary';
@@ -24,7 +24,7 @@ export const ButtonStyled = styled('button', {
   align-items: center;
   padding: 14px 24px;
   gap: 10px;
-  ${({ typographyToken }) => css(TypographyTokenConfigMap[typographyToken].styleObject)};
+  ${({ typographyToken }) => css(typography[typographyToken].styleObject)};
   border-radius: 4px;
   cursor: pointer;
   width: 100%;

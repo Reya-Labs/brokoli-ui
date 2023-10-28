@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { colors } from '../../foundation/Colors';
-import { primaryBodyMediumRegularCSSObject } from '../Typography/Typography.css';
+import { primaryBodyMediumRegularCSSObject } from '../../foundation/Typography/typographies';
 import { ReactComponent as Warning } from './icons/warning.svg';
 
 export const SelectorBox = styled('div')`
