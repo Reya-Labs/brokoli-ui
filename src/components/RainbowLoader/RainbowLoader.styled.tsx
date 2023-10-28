@@ -2,7 +2,7 @@ import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { colors } from '../../foundation/Colors';
-import { RAINBOW_GRADIENT } from '../../foundation/Gradients';
+import { gradients } from '../../foundation/Gradients';
 import { Typography } from '../Typography';
 const ELLIPSE_WIDTH = 10;
 
@@ -35,7 +35,7 @@ const GradientLayer = styled('div', {
   width: 100%;
   height: ${({ height }) => height}px;
 
-  background: ${RAINBOW_GRADIENT};
+  background: ${gradients.rainbow};
   border-radius: 20px;
   position: absolute;
   left: 0;

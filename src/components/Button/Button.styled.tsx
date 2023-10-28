@@ -1,5 +1,4 @@
-import { css, Theme } from '@emotion/react';
-import { Interpolation } from '@emotion/serialize';
+import { css, SerializedStyles } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { TypographyToken } from '../Typography';
@@ -7,7 +6,7 @@ import { TypographyTokenConfigMap } from '../Typography/typography-token-config-
 import { primaryButtonCSS, secondaryButtonCSS } from './Button.css';
 
 export type ButtonVariant = 'primary' | 'secondary';
-const ButtonVariantMap: Record<ButtonVariant, Interpolation<Theme>> = {
+const ButtonVariantMap: Record<ButtonVariant, SerializedStyles> = {
   primary: primaryButtonCSS,
   secondary: secondaryButtonCSS,
 };

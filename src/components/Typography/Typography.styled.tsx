@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { ColorTokens, getColorFromToken } from '../../foundation/Colors';
-import { RAINBOW_GRADIENT } from '../../foundation/Gradients';
+import { gradients } from '../../foundation/Gradients';
 import { TypographyTokenConfigMap } from './typography-token-config-map';
 import { TypographyToken } from './typography-tokens';
 
@@ -20,7 +20,7 @@ export const BaseTypography = styled('p', {
 
 export const RainbowTypography = styled(BaseTypography)`
   display: inline-block;
-  background: ${RAINBOW_GRADIENT};
+  background: ${gradients.rainbow};
   background-clip: text;
   text-fill-color: transparent;
 `;

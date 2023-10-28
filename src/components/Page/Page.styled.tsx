@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
-import { BACKGROUND_GRADIENT } from '../../foundation/Gradients';
-import { LAYER_INDEXES } from '../../foundation/LayerIndexes';
+import { gradients } from '../../foundation/Gradients';
+import { layerIndexes } from '../../foundation/LayerIndexes';
 import BackgroundNoiseImage from './assets/background-noise.png';
 
 export const PageBox = styled('div')`
@@ -11,7 +11,7 @@ export const PageBox = styled('div')`
 `;
 
 export const PageContentBox = styled('div')`
-  z-index: ${LAYER_INDEXES.PAGE_CONTENT};
+  z-index: ${layerIndexes.pageContent};
   position: relative;
   width: 100%;
   height: 100%;
@@ -22,10 +22,10 @@ export const BackgroundBox = styled('div')`
   left: 0;
   top: 0;
   pointer-events: none;
-  z-index: ${LAYER_INDEXES.BACKGROUND};
+  z-index: ${layerIndexes.background};
   width: 100%;
   height: 100%;
-  background: ${BACKGROUND_GRADIENT};
+  background: ${gradients.background};
 `;
 
 export const BackgroundNoiseBox = styled('div')`
@@ -35,7 +35,7 @@ export const BackgroundNoiseBox = styled('div')`
   left: 0;
   top: 0;
   pointer-events: none;
-  z-index: ${LAYER_INDEXES.BACKGROUND_NOISE};
+  z-index: ${layerIndexes.backgroundNoise};
   width: 100%;
   height: 100%;
 `;

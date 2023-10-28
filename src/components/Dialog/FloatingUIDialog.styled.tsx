@@ -1,11 +1,11 @@
 import styled from '@emotion/styled';
 import { FloatingOverlay } from '@floating-ui/react';
 
-import { LAYER_INDEXES } from '../../foundation/LayerIndexes';
+import { layerIndexes } from '../../foundation/LayerIndexes';
 
 export const FloatingOverlayStyled = styled(FloatingOverlay)`
   backdrop-filter: blur(4px);
-  z-index: ${LAYER_INDEXES.DIALOG};
+  z-index: ${layerIndexes.dialog};
   display: grid;
   place-items: center;
 `;

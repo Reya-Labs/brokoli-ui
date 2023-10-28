@@ -57,7 +57,8 @@ export type ColorTokens =
   | 'ultramarineBlue2'
   | 'ultramarineBlue1';
 
-export const colors: Record<ColorTokens, string> = {
+export type ColorsType = Record<ColorTokens, string>;
+export const colors: ColorsType = {
   /* Lavender Web */
   lavenderWeb: '#E1DDF7',
   /* Lavender Web 1 */

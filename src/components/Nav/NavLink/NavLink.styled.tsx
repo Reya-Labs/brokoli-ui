@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
 import { BaseColorTokens, getColorFromToken } from '../../../foundation/Colors';
-import { INVERTED_RAINBOW_GRADIENT, RAINBOW_GRADIENT } from '../../../foundation/Gradients';
+import { gradients } from '../../../foundation/Gradients';
 import { primaryBodyMediumRegularCSSObject } from '../../Typography/Typography.css';
 
 export const NavLinkButtonBox = styled('div', {
@@ -49,7 +49,7 @@ export const NavLinkButton = styled(Link, {
   ${({ colorToken }) =>
     colorToken === 'rainbow'
       ? `
-    background: ${RAINBOW_GRADIENT};
+    background: ${gradients.rainbow};
     background-clip: text;
     text-fill-color: transparent;
   `
@@ -60,7 +60,7 @@ export const NavLinkButton = styled(Link, {
       colorToken !== 'rainbow'
         ? ''
         : `
-    background: ${INVERTED_RAINBOW_GRADIENT};
+    background: ${gradients.invertedRainbow};
     background-clip: text;
     text-fill-color: transparent;
   `};

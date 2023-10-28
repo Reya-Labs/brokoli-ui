@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 
 import { colors } from '../../foundation/Colors';
-import { LAYER_INDEXES } from '../../foundation/LayerIndexes';
+import { layerIndexes } from '../../foundation/LayerIndexes';
 
 export const TINY_POPOVER_CONTAINER_CLASS_NAME = 'react-tiny-popover-container';
 export const globalReactTinyPopoverContainerCSS = css`
@@ -13,6 +13,6 @@ export const globalReactTinyPopoverContainerCSS = css`
     border-radius: 4px;
     min-width: 160px;
     margin-top: 4px;
-    z-index: ${LAYER_INDEXES.POPOVER};
+    z-index: ${layerIndexes.popover};
   }
 `;
