@@ -1,5 +1,11 @@
-import { colors, ColorTokens } from './colors';
+import { Theme } from '@emotion/react';
 
-export const getColorFromToken = (colorToken?: ColorTokens) => {
-  return colors[colorToken || 'lavenderWeb'];
+import { ColorTokens } from './types';
+
+type GetColorFromTokenParams = {
+  theme: Theme;
+  colorToken?: ColorTokens;
 };
+
+export const getColorFromToken = ({ theme, colorToken }: GetColorFromTokenParams) =>
+  theme.colors[colorToken || 'lavenderWeb'];

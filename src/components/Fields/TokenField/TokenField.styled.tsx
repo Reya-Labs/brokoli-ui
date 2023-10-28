@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 import CurrencyInput from 'react-currency-input-field';
 
+import { TypographyToken } from '../../../foundation/Typography';
 import { Button } from '../../Button';
-import { TypographyToken } from '../../Typography';
 import { commonInputStyle } from '../_common/common.styled';
 
 export const TokenFieldBox = styled('div')`
@@ -43,9 +43,10 @@ export const CurrencyInputStyled = styled(CurrencyInput)<{
   padding: 10px 96px 10px 16px;
   height: 44px;
 
-  ${({ error, typographyToken }) =>
+  ${({ theme, error, typographyToken }) =>
     commonInputStyle({
       error,
+      theme,
       typographyToken,
     })}
 `;

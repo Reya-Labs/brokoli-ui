@@ -1,12 +1,8 @@
 import React from 'react';
 
-import {
-  BaseColorTokens,
-  ColorTokens,
-  getColorFromToken,
-  isBaseColorToken,
-} from '../../foundation/Colors';
-import { Typography, TypographyToken } from '../Typography';
+import { BaseColorTokens, ColorTokens, isBaseColorToken } from '../../foundation/Colors';
+import { TypographyToken } from '../../foundation/Typography';
+import { Typography } from '../Typography';
 import { PillBox, PillVariant } from './Pill.styled';
 
 export type PillProps = {
@@ -35,7 +31,7 @@ export const Pill = ({
 
   return (
     <PillBox
-      backgroundColor={getColorFromToken(backgroundColorToken)}
+      backgroundColorToken={backgroundColorToken}
       className={className}
       data-testid="Pill-PillBox"
       variant={variant}

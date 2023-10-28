@@ -1,8 +1,9 @@
 import React from 'react';
 
 import { BaseColorTokens } from '../../../foundation/Colors';
+import { TypographyToken } from '../../../foundation/Typography';
 import { CloseButton } from '../../CloseButton';
-import { Typography, TypographyToken } from '../../Typography';
+import { Typography } from '../../Typography';
 import { NotificationBox, TitleBox } from '../Notifications.styled';
 
 export type NotificationContentProps = {

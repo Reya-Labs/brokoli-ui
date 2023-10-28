@@ -2,11 +2,12 @@ import React from 'react';
 import { formatValue } from 'react-currency-input-field';
 
 import { BaseColorTokens, ColorTokens } from '../../../foundation/Colors';
+import { TypographyToken } from '../../../foundation/Typography';
 import { ExclaimTooltipProps } from '../../ExclaimTooltip';
 import { IconProps } from '../../Icons/TokenIcon/Icon';
 import { TokenTypography } from '../../TokenTypography';
 import { TooltipLabel } from '../../TooltipLabel';
-import { Typography, TypographyToken } from '../../Typography';
+import { Typography } from '../../Typography';
 import { MaxConfig } from '../_common/types';
 import { SwitchButtons } from './SwitchButtons';
 import {

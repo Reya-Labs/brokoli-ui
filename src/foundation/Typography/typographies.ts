@@ -1,12 +1,4 @@
-export type TypographyConfig = {
-  fontFamily: string;
-  fontSize: string;
-  fontStyle: string;
-  fontWeight: string;
-  lineHeight: string;
-  letterSpacing?: string;
-  textShadow?: string;
-};
+import { TypographyConfig } from './types';
 
 export const primaryHeader1BlackCSSObject: TypographyConfig = {
   fontFamily: "'Inter', sans-serif",

@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { ColorTokens } from '../../foundation/Colors';
+import { TypographyToken } from '../../foundation/Typography';
 import { render, screen } from '../../test-utils';
-import { TypographyToken } from '../Typography';
 import { TooltipLabel } from '.';
 
 describe('<TooltipLabel />', () => {

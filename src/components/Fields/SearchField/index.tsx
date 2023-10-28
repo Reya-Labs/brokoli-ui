@@ -1,11 +1,11 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { ColorTokens } from '../../../foundation/Colors';
+import { TypographyToken } from '../../../foundation/Typography';
 import { ExclaimTooltipProps } from '../../ExclaimTooltip';
 import { Popover } from '../../Popover';
 import { ToggleCaret } from '../../ToggleCaret';
 import { TooltipLabel } from '../../TooltipLabel';
-import { TypographyToken } from '../../Typography';
 import {
   SearchFieldBox,
   SearchTextInputAndCaretBox,

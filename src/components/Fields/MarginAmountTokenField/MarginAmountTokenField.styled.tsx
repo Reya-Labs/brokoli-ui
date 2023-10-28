@@ -1,9 +1,8 @@
 import styled from '@emotion/styled';
 import CurrencyInput from 'react-currency-input-field';
 
-import { colors } from '../../../foundation/Colors';
+import { TypographyToken } from '../../../foundation/Typography';
 import { Button } from '../../Button';
-import { TypographyToken } from '../../Typography';
 import { commonInputStyle } from '../_common/common.styled';
 
 export const MarginAmountTokenFieldBox = styled('div')`
@@ -48,9 +47,10 @@ export const CurrencyInputStyled = styled(CurrencyInput)<{
   padding: 10px 96px 10px 16px;
   height: 44px;
 
-  ${({ error, typographyToken }) =>
+  ${({ theme, error, typographyToken }) =>
     commonInputStyle({
       error,
+      theme,
       typographyToken,
     })}
 `;
@@ -60,7 +60,7 @@ export const ToggleCaretBox = styled('div')`
   right: 10px;
   top: calc(50% - 3.75px);
   z-index: 1;
-  color: ${colors.lavenderWeb};
+  color: ${({ theme }) => theme.colors.lavenderWeb};
   cursor: pointer;
 `;
 
@@ -69,7 +69,7 @@ export const FloatingBox = styled('div')`
   right: 8px;
   top: calc(50% - 12px);
   z-index: 1;
-  color: ${colors.lavenderWeb};
+  color: ${({ theme }) => theme.colors.lavenderWeb};
   cursor: pointer;
   display: flex;
   flex-direction: row;

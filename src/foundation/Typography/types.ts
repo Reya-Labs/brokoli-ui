@@ -1,3 +1,5 @@
+import React from 'react';
+
 export type TypographyToken =
   | 'primaryHeader1Black'
   | 'primaryHeader1Bold'
@@ -25,3 +27,20 @@ export type TypographyToken =
   | 'secondaryBodyLargeRegular'
   | 'secondaryBodyExtraLargeBold'
   | 'secondaryBodyExtraLargeRegular';
+
+export type TypographyConfig = {
+  fontFamily: string;
+  fontSize: string;
+  fontStyle: string;
+  fontWeight: string;
+  lineHeight: string;
+  letterSpacing?: string;
+  textShadow?: string;
+};
+
+export type TypographyThemeConfig = {
+  as: React.ElementType;
+  styleObject: TypographyConfig;
+};
+
+export type TypographyTheme = Record<TypographyToken, TypographyThemeConfig>;

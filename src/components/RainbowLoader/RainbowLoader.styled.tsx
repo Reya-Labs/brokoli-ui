@@ -1,8 +1,6 @@
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { colors } from '../../foundation/Colors';
-import { gradients } from '../../foundation/Gradients';
 import { Typography } from '../Typography';
 const ELLIPSE_WIDTH = 10;
 
@@ -35,7 +33,7 @@ const GradientLayer = styled('div', {
   width: 100%;
   height: ${({ height }) => height}px;
 
-  background: ${gradients.rainbow};
+  background: ${({ theme }) => theme.gradients.rainbow};
   border-radius: 20px;
   position: absolute;
   left: 0;
@@ -64,7 +62,7 @@ export const LoadingEllipsis = styled('div', {
   top: 50%;
   border-radius: 20px;
 
-  background: ${colors.lavenderWeb};
+  background: ${({ theme }) => theme.colors.lavenderWeb};
   mix-blend-mode: overlay;
   filter: blur(1.25px);
   backdrop-filter: blur(1.2px);

@@ -1,9 +1,6 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { colors } from '../../../foundation/Colors';
-import { secondaryBodyXSmallRegularCSSObject } from '../../../foundation/Typography/typographies';
-
 export const LeverageFieldBox = styled('div')`
   display: flex;
   flex-direction: column;
@@ -41,43 +38,50 @@ export const ButtonStyled = styled('button')<{
   align-items: center;
   padding: 8px 14px;
 
-  background: ${({ active }) =>
+  background: ${({ theme, active }) =>
     active
-      ? `linear-gradient(259.45deg, ${colors.lavenderWeb8} 0%, ${colors.lavenderWeb7} 84.3%)`
-      : `linear-gradient(90.95deg, ${colors.lavenderWeb8} 0.66%, ${colors.liberty8} 99.34%)`};
-  box-shadow: ${({ active }) =>
-    active ? `0px 0px 1px ${colors.lavenderWeb}` : `0px 0px 1px ${colors.lavenderWeb6}`};
+      ? `linear-gradient(259.45deg, ${theme.colors.lavenderWeb8} 0%, ${theme.colors.lavenderWeb7} 84.3%)`
+      : `linear-gradient(90.95deg, ${theme.colors.lavenderWeb8} 0.66%, ${theme.colors.liberty8} 99.34%)`};
+  box-shadow: ${({ theme, active }) =>
+    active
+      ? `0px 0px 1px ${theme.colors.lavenderWeb}`
+      : `0px 0px 1px ${theme.colors.lavenderWeb6}`};
 
   border-radius: 4px;
 
-  ${css(secondaryBodyXSmallRegularCSSObject)};
-  color: ${colors.lavenderWeb};
+  ${({ theme }) => css(theme.typography.secondaryBodyXSmallRegular.styleObject)};
+  color: ${({ theme }) => theme.colors.lavenderWeb};
   cursor: pointer;
   transition: all 200ms ease-in;
 
   &:hover {
-    box-shadow: 0px 0px 1px ${colors.lavenderWeb};
+    box-shadow: 0px 0px 1px ${({ theme }) => theme.colors.lavenderWeb};
   }
 
   &:active {
-    background: linear-gradient(259.45deg, ${colors.liberty6} 0%, ${colors.lavenderWeb7} 84.3%);
+    background: linear-gradient(
+      259.45deg,
+      ${({ theme }) => theme.colors.liberty6} 0%,
+      ${({ theme }) => theme.colors.lavenderWeb7} 84.3%
+    );
     box-shadow:
-      0px -1px 4px ${colors.liberty8},
-      0px 0px 1px ${colors.lavenderWeb};
+      0px -1px 4px ${({ theme }) => theme.colors.liberty8},
+      0px 0px 1px ${({ theme }) => theme.colors.lavenderWeb};
   }
 
   &:disabled {
     cursor: not-allowed;
-    color: ${({ active }) => (!active ? colors.lavenderWeb4 : colors.lavenderWeb2)};
-    background: ${({ active }) =>
+    color: ${({ theme, active }) =>
+      !active ? theme.colors.lavenderWeb4 : theme.colors.lavenderWeb2};
+    background: ${({ theme, active }) =>
       active
         ? `linear-gradient(
       259.45deg,
-      ${colors.liberty8} 0%,
-      ${colors.lavenderWeb8} 33.14%,
-      ${colors.lavenderWeb7} 84.3%)`
-        : `linear-gradient(261.54deg, ${colors.lavenderWeb8} -58.11%, ${colors.liberty8} 12.89%)`};
+      ${theme.colors.liberty8} 0%,
+      ${theme.colors.lavenderWeb8} 33.14%,
+      ${theme.colors.lavenderWeb7} 84.3%)`
+        : `linear-gradient(261.54deg, ${theme.colors.lavenderWeb8} -58.11%, ${theme.colors.liberty8} 12.89%)`};
 
-    box-shadow: 0px 0px 1px ${colors.lavenderWeb};
+    box-shadow: 0px 0px 1px ${({ theme }) => theme.colors.lavenderWeb};
   }
 `;

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ColorTokens } from '../../foundation/Colors';
-import { TypographyToken } from '../Typography';
+import { TypographyToken } from '../../foundation/Typography';
 import { SkeletonBox } from './Skeleton.styled';
 
 export const Skeleton: React.FunctionComponent<{

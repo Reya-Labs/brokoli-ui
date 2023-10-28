@@ -1,4 +1,4 @@
-import { Global } from '@emotion/react';
+import { Global, useTheme } from '@emotion/react';
 import React from 'react';
 import { Popover as TinyPopover, PopoverProps as TinyPopoverProps } from 'react-tiny-popover';
 
@@ -22,9 +22,10 @@ export const Popover: React.FunctionComponent<PopoverProps> = ({
   onClickOutside,
   'data-testid': dataTestId,
 }) => {
+  const theme = useTheme();
   return (
     <React.Fragment>
-      <Global styles={globalReactTinyPopoverContainerCSS} />
+      <Global styles={globalReactTinyPopoverContainerCSS(theme)} />
       <TinyPopover
         align="start"
         containerClassName={TINY_POPOVER_CONTAINER_CLASS_NAME}

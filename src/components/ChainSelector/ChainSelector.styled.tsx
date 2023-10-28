@@ -1,8 +1,6 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { colors } from '../../foundation/Colors';
-import { primaryBodyMediumRegularCSSObject } from '../../foundation/Typography/typographies';
 import { ReactComponent as Warning } from './icons/warning.svg';
 
 export const SelectorBox = styled('div')`
@@ -29,9 +27,11 @@ export const ChainSelectorButton = styled('button', {
 })<{
   isPopoverOpen: boolean;
 }>`
-  ${css(primaryBodyMediumRegularCSSObject)};
+  ${({ theme }) => css(theme.typography.primaryBodyMediumRegular.styleObject)};
+
   padding: 0px;
-  color: ${({ isPopoverOpen }) => (isPopoverOpen ? colors.lavenderWeb : colors.lavenderWeb3)};
+  color: ${({ theme, isPopoverOpen }) =>
+    isPopoverOpen ? theme.colors.lavenderWeb : theme.colors.lavenderWeb3};
   text-decoration: none;
   text-transform: none;
   display: flex;
@@ -44,7 +44,7 @@ export const ChainSelectorButton = styled('button', {
   background: transparent;
   border: 0;
   &:hover {
-    color: ${colors.lavenderWeb};
+    color: ${({ theme }) => theme.colors.lavenderWeb};
   }
 `;
 
@@ -52,5 +52,5 @@ export const IconBox = styled('div')`
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: ${colors.lavenderWeb8};
+  background: ${({ theme }) => theme.colors.lavenderWeb8};
 `;

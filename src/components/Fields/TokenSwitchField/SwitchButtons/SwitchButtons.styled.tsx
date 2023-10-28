@@ -1,9 +1,6 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { colors } from '../../../../foundation/Colors';
-import { primaryBodyXSmallRegularCSSObject } from '../../../../foundation/Typography/typographies';
-
 export const SwitchButtonsBox = styled('div')`
   display: flex;
   flex-direction: row;
@@ -26,46 +23,49 @@ export const SwitchButton = styled('button')<{
   align-items: flex-start;
   padding: 8px;
 
-  background: ${({ active }) =>
+  background: ${({ theme, active }) =>
     active
-      ? `linear-gradient(259.45deg, ${colors.lavenderWeb8} 0%, ${colors.lavenderWeb7} 84.3%)`
-      : `linear-gradient(261.54deg, ${colors.lavenderWeb8} -58.11%, ${colors.liberty8} 12.89%)`};
-  box-shadow: ${({ error, active }) =>
+      ? `linear-gradient(259.45deg, ${theme.colors.lavenderWeb8} 0%, ${theme.colors.lavenderWeb7} 84.3%)`
+      : `linear-gradient(261.54deg, ${theme.colors.lavenderWeb8} -58.11%, ${theme.colors.liberty8} 12.89%)`};
+  box-shadow: ${({ theme, error, active }) =>
     !error
       ? active
-        ? `0px 4px 4px ${colors.liberty8}, 0px 0px 1px ${colors.lavenderWeb}`
-        : `0px 0px 1px ${colors.lavenderWeb8}`
-      : `0px 4px 4px ${colors.liberty8}, 0px 0px 1px ${colors.wildStrawberry}`};
+        ? `0px 4px 4px ${theme.colors.liberty8}, 0px 0px 1px ${theme.colors.lavenderWeb}`
+        : `0px 0px 1px ${theme.colors.lavenderWeb8}`
+      : `0px 4px 4px ${theme.colors.liberty8}, 0px 0px 1px ${theme.colors.wildStrawberry}`};
 
   border-radius: 4px;
   z-index: ${({ active }) => (active ? 1 : 0)};
 
-  ${css(primaryBodyXSmallRegularCSSObject)};
-  color: ${({ error, active }) =>
+  ${({ theme }) => css(theme.typography.primaryBodyXSmallRegular.styleObject)};
+
+  color: ${({ theme, error, active }) =>
     !error
       ? active
-        ? colors.lavenderWeb
-        : colors.lavenderWeb3
+        ? theme.colors.lavenderWeb
+        : theme.colors.lavenderWeb3
       : active
-      ? colors.wildStrawberry
-      : colors.wildStrawberry3};
+      ? theme.colors.wildStrawberry
+      : theme.colors.wildStrawberry3};
   cursor: pointer;
   transition: all 200ms ease-in;
 
   &:disabled {
     cursor: not-allowed;
-    color: ${({ active }) => (!active ? colors.lavenderWeb4 : colors.lavenderWeb2)};
-    background: ${({ active }) =>
+    color: ${({ theme, active }) =>
+      !active ? theme.colors.lavenderWeb4 : theme.colors.lavenderWeb2};
+    background: ${({ theme, active }) =>
       active
         ? `linear-gradient(
       259.45deg,
-      ${colors.liberty8} 0%,
-      ${colors.lavenderWeb8} 33.14%,
-      ${colors.lavenderWeb7} 84.3%)`
-        : `linear-gradient(90.95deg, ${colors.lavenderWeb8} 0.66%, ${colors.liberty8} 99.34%)`};
+      ${theme.colors.liberty8} 0%,
+      ${theme.colors.lavenderWeb8} 33.14%,
+      ${theme.colors.lavenderWeb7} 84.3%)`
+        : `linear-gradient(90.95deg, ${theme.colors.lavenderWeb8} 0.66%, ${theme.colors.liberty8} 99.34%)`};
 
-    box-shadow:
-      0px 4px 4px ${colors.liberty8},
-      0px 0px 1px ${colors.lavenderWeb};
+    box-shadow: ${({ theme, active }) => `
+      0px 4px 4px ${theme.colors.liberty8},
+      0px 0px 1px ${theme.colors.lavenderWeb}
+    `};
   }
 `;

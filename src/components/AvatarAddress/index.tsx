@@ -1,8 +1,8 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import { MetaMaskAvatar } from 'react-metamask-avatar';
 
+import { TypographyToken } from '../../foundation/Typography';
 import { RainbowLoader } from '../RainbowLoader';
-import { TypographyToken } from '../Typography';
 import {
   AddressTypography,
   AvatarAddressBox,

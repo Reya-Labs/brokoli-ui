@@ -2,8 +2,8 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { BaseColorTokens, getColorFromToken } from '../../foundation/Colors';
-import { typography } from '../../foundation/Typography';
-import { Typography, TypographyProps, TypographyToken } from '../Typography';
+import { TypographyToken } from '../../foundation/Typography';
+import { Typography, TypographyProps } from '../Typography';
 
 const differenceTypographyMap: Record<TypographyToken, TypographyToken> = {
   primaryBodyExtraLargeBold: 'primaryBodyMediumBold',
@@ -42,13 +42,15 @@ export const TokenTypographyStyled = styled(Typography)<TypographyProps>`
 
   & > .token {
     font-weight: inherit;
-    color: ${({ colorToken }) => getColorFromToken(`${colorToken as BaseColorTokens}3`)};
+    color: ${({ theme, colorToken }) =>
+      getColorFromToken({ colorToken: `${colorToken as BaseColorTokens}3`, theme })};
   }
 
   & > .difference-value {
-    ${({ typographyToken }) =>
-      css(typography[differenceTypographyMap[typographyToken]].styleObject)};
-    color: ${({ colorToken }) => getColorFromToken(`${colorToken as BaseColorTokens}3`)};
+    ${({ theme, typographyToken }) =>
+      css(theme.typography[differenceTypographyMap[typographyToken]].styleObject)};
+    color: ${({ theme, colorToken }) =>
+      getColorFromToken({ colorToken: `${colorToken as BaseColorTokens}3`, theme })};
   }
 
   & > .difference-arrow {
@@ -63,8 +65,9 @@ export const TokenTypographyStyled = styled(Typography)<TypographyProps>`
 
   & > .difference-arrow,
   & > .difference-token {
-    ${({ typographyToken }) =>
-      css(typography[differenceTypographyMap[typographyToken]].styleObject)};
-    color: ${({ colorToken }) => getColorFromToken(`${colorToken as BaseColorTokens}3`)};
+    ${({ theme, typographyToken }) =>
+      css(theme.typography[differenceTypographyMap[typographyToken]].styleObject)};
+    color: ${({ theme, colorToken }) =>
+      getColorFromToken({ colorToken: `${colorToken as BaseColorTokens}3`, theme })};
   }
 `;

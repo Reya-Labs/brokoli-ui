@@ -12,12 +12,15 @@ export const CloseButtonStyled = styled('button', {
   align-items: flex-start;
   padding: 4px 8px;
   gap: 4px;
-  background: ${({ colorToken }) => `${getColorFromToken(`${colorToken}8`)}`};
+  background: ${({ theme, colorToken }) =>
+    `${getColorFromToken({ colorToken: `${colorToken}8`, theme })}`};
   border-radius: 4px;
-  color: ${({ colorToken }) => `${getColorFromToken(`${colorToken}`)}`};
+  color: ${({ theme, colorToken }) =>
+    `${getColorFromToken({ colorToken: `${colorToken}`, theme })}`};
   cursor: pointer;
   border: none;
   &:hover {
-    background: ${({ colorToken }) => `${getColorFromToken(`${colorToken}7`)}`};
+    background: ${({ theme, colorToken }) =>
+      `${getColorFromToken({ colorToken: `${colorToken}7`, theme })}`};
   }
 `;

@@ -1,8 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { BaseColorTokens, colors, getColorFromToken } from '../../foundation/Colors';
-import { primaryBodyXSmallRegularCSSObject } from '../../foundation/Typography/typographies';
+import { BaseColorTokens, getColorFromToken } from '../../foundation/Colors';
 
 export type PillSelectorVariant = 'compact' | 'regular';
 export const PillSelectorBox = styled('div', {
@@ -35,41 +34,47 @@ export const PillSelectorButton = styled('button', {
   align-items: flex-start;
   padding: 4px 8px;
 
-  background: ${({ active }) => (active ? colors.lavenderWeb7 : colors.liberty8)};
-  box-shadow: ${({ error, active }) =>
+  background: ${({ theme, active }) =>
+    active ? theme.colors.lavenderWeb7 : theme.colors.liberty8};
+  box-shadow: ${({ theme, error, active }) =>
     !error
       ? active
-        ? `0px 2px 10px ${colors.liberty6}, 0px 8px 40px rgba(38, 103, 255, 0.2), 0px 5px 40px rgba(255, 74, 169, 0.2)`
-        : `0px 0px 1px ${colors.lavenderWeb6}`
-      : `0px 4px 4px ${colors.liberty8}, 0px 0px 1px ${colors.wildStrawberry}`};
+        ? `0px 2px 10px ${theme.colors.liberty6}, 0px 8px 40px rgba(38, 103, 255, 0.2), 0px 5px 40px rgba(255, 74, 169, 0.2)`
+        : `0px 0px 1px ${theme.colors.lavenderWeb6}`
+      : `0px 4px 4px ${theme.colors.liberty8}, 0px 0px 1px ${theme.colors.wildStrawberry}`};
 
   border-radius: 4px;
   z-index: ${({ active }) => (active ? 1 : 0)};
 
-  ${css(primaryBodyXSmallRegularCSSObject)};
-  color: ${({ error, active }) =>
+  ${({ theme }) => css(theme.typography.primaryBodyXSmallRegular.styleObject)};
+
+  color: ${({ theme, error, active }) =>
     !error
       ? active
-        ? colors.lavenderWeb
-        : colors.lavenderWeb3
+        ? theme.colors.lavenderWeb
+        : theme.colors.lavenderWeb3
       : active
-      ? colors.wildStrawberry
-      : colors.wildStrawberry3};
+      ? theme.colors.wildStrawberry
+      : theme.colors.wildStrawberry3};
   cursor: pointer;
   transition: all 200ms ease-in;
 
   & > span {
-    color: ${({ attentionPrefixColorToken }) => getColorFromToken(attentionPrefixColorToken)};
+    color: ${({ theme, attentionPrefixColorToken }) =>
+      getColorFromToken({ colorToken: attentionPrefixColorToken, theme })};
   }
 
   &:disabled > span {
-    color: ${({ attentionPrefixColorToken }) => getColorFromToken(`${attentionPrefixColorToken}3`)};
+    color: ${({ theme, attentionPrefixColorToken }) =>
+      getColorFromToken({ colorToken: `${attentionPrefixColorToken}3`, theme })};
   }
 
   &:disabled {
     cursor: not-allowed;
-    color: ${({ active }) => (!active ? colors.lavenderWeb4 : colors.lavenderWeb2)};
-    background: ${({ active }) => (active ? colors.lavenderWeb6 : colors.liberty7)};
+    color: ${({ theme, active }) =>
+      !active ? theme.colors.lavenderWeb4 : theme.colors.lavenderWeb2};
+    background: ${({ theme, active }) =>
+      active ? theme.colors.lavenderWeb6 : theme.colors.liberty7};
   }
 `;
 

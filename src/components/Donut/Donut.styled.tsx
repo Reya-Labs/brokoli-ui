@@ -1,7 +1,7 @@
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { colors, ColorTokens, getColorFromToken } from '../../foundation/Colors';
+import { ColorTokens, getColorFromToken } from '../../foundation/Colors';
 
 const animate = (percentage: number) => keyframes`
   100% {
@@ -20,9 +20,9 @@ export const Container = styled('div', {
   border-radius: 50%;
   transform: rotate(90deg);
 
-  background: ${({ colorToken }) => `conic-gradient(
-    ${getColorFromToken(colorToken)} 0deg var(--angle),
-    ${colors.lavenderWeb5} var(--angle) 360deg
+  background: ${({ theme, colorToken }) => `conic-gradient(
+    ${getColorFromToken({ colorToken, theme })} 0deg var(--angle),
+    ${theme.colors.lavenderWeb5} var(--angle) 360deg
   )`};
 
   display: inline-flex;
@@ -46,5 +46,5 @@ export const Hole = styled('div', {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: ${({ colorToken }) => getColorFromToken(colorToken)};
+  background: ${({ theme, colorToken }) => getColorFromToken({ colorToken, theme })};
 `;

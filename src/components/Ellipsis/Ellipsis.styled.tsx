@@ -1,6 +1,8 @@
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 
+import { ColorTokens, getColorFromToken } from '../../foundation/Colors';
+
 const ellipsisAnimation = keyframes`
   0% {
     content: '.  ';
@@ -14,11 +16,12 @@ const ellipsisAnimation = keyframes`
 `;
 
 export const EllipsisTypography = styled('span', {
-  shouldForwardProp: (prop) => prop !== 'color',
+  shouldForwardProp: (prop) => prop !== 'colorToken',
 })<{
-  color: string;
+  colorToken?: ColorTokens;
 }>`
-  color: ${({ color }) => color};
+  color: ${({ theme, colorToken }) =>
+    !colorToken ? 'inherit' : getColorFromToken({ colorToken, theme })};
   :after {
     animation: ${ellipsisAnimation} 900ms infinite ease-in-out;
     content: '.  ';

@@ -1,7 +1,5 @@
 import styled from '@emotion/styled';
 
-import { colors } from '../../../foundation/Colors';
-
 const ARROW_SIZE = 10;
 
 export const TooltipBox = styled('div')`
@@ -11,8 +9,12 @@ export const TooltipBox = styled('div')`
   flex-direction: column;
   padding: 8px;
 
-  background: linear-gradient(90.95deg, ${colors.lavenderWeb8} 0.66%, ${colors.liberty8} 99.34%);
-  border: 1px solid ${colors.lavenderWeb7};
+  background: linear-gradient(
+    90.95deg,
+    ${({ theme }) => theme.colors.lavenderWeb8} 0.66%,
+    ${({ theme }) => theme.colors.liberty8} 99.34%
+  );
+  border: 1px solid ${({ theme }) => theme.colors.lavenderWeb7};
   border-radius: 8px;
 
   &:after {
@@ -20,9 +22,9 @@ export const TooltipBox = styled('div')`
     width: ${ARROW_SIZE}px;
     height: ${ARROW_SIZE}px;
     transform: rotate(-45deg);
-    background: ${colors.liberty7};
-    border-left: 1px solid ${colors.lavenderWeb6};
-    border-bottom: 1px solid ${colors.lavenderWeb6};
+    background: ${({ theme }) => theme.colors.liberty7};
+    border-left: 1px solid ${({ theme }) => theme.colors.lavenderWeb6};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.lavenderWeb6};
     position: absolute;
     z-index: 1;
     bottom: -${ARROW_SIZE / 2}px;

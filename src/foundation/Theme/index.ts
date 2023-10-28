@@ -1,9 +1,9 @@
 import { Theme } from '@emotion/react';
 
-import { colors } from '../Colors';
-import { gradients } from '../Gradients';
-import { layerIndexes } from '../LayerIndexes';
-import { typography } from '../Typography';
+import { colors } from '../Colors/colors';
+import { gradients } from '../Gradients/gradients';
+import { layerIndexes } from '../LayerIndexes/layer-indexes';
+import { typography } from '../Typography/typography';
 
 export const theme: Theme = {
   colors: colors,

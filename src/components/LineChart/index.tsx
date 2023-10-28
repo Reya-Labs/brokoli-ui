@@ -1,11 +1,11 @@
+import { useTheme } from '@emotion/react';
 import { linearGradientDef } from '@nivo/core';
 import { ResponsiveLine } from '@nivo/line';
 import { Property } from 'csstype';
 import React, { useMemo } from 'react';
 
-import { colors, ColorTokens, getColorFromToken } from '../../foundation/Colors';
-import { typography } from '../../foundation/Typography';
-import { TypographyToken } from '../Typography';
+import { ColorTokens, getColorFromToken } from '../../foundation/Colors';
+import { TypographyToken } from '../../foundation/Typography';
 import { LineChartBox } from './LineChart.styled';
 import { Tooltip } from './Tooltip/Tooltip';
 
@@ -36,9 +36,10 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
   yMarkerTypographyToken = 'secondaryBodyXSmallRegular',
   axisTypographyToken = 'primaryBodyXSmallRegular',
 }) => {
-  const yMarkerTypography = typography[yMarkerTypographyToken].styleObject;
-  const axisTypography = typography[axisTypographyToken].styleObject;
-  const color = useMemo(() => getColorFromToken(colorToken), [colorToken]);
+  const theme = useTheme();
+  const yMarkerTypography = theme.typography[yMarkerTypographyToken].styleObject;
+  const axisTypography = theme.typography[axisTypographyToken].styleObject;
+  const color = useMemo(() => getColorFromToken({ colorToken, theme }), [theme, colorToken]);
   const yScale = useMemo(() => {
     const yS = data.reduce((pV, cI) => {
       const validData: number[] = cI.data
@@ -80,7 +81,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
         defs={[
           linearGradientDef(GRADIENT_ID, [
             { color: color, offset: 0, opacity: 1 },
-            { color: colors.liberty8, offset: 100, opacity: 1 },
+            { color: theme.colors.liberty8, offset: 100, opacity: 1 },
           ]),
         ]}
         enableArea={true}
@@ -94,12 +95,12 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
             legend: yMarkerText,
             legendPosition: 'top-left',
             lineStyle: {
-              stroke: getColorFromToken(yMarkerColorToken),
+              stroke: getColorFromToken({ colorToken: yMarkerColorToken, theme }),
               strokeDasharray: 5,
               strokeWidth: 1,
             },
             textStyle: {
-              fill: colors.lavenderWeb,
+              fill: theme.colors.lavenderWeb,
               fontFamily: yMarkerTypography.fontFamily as Property.FontFamily,
               fontSize: parseInt(yMarkerTypography.fontSize, 10),
               fontWeight: parseInt(yMarkerTypography.fontWeight),
@@ -116,17 +117,17 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
           axis: {
             domain: {
               line: {
-                stroke: colors.lavenderWeb8,
+                stroke: theme.colors.lavenderWeb8,
                 strokeWidth: 1,
               },
             },
             ticks: {
               line: {
-                stroke: colors.lavenderWeb3,
+                stroke: theme.colors.lavenderWeb3,
                 strokeWidth: 1,
               },
               text: {
-                fill: colors.lavenderWeb3,
+                fill: theme.colors.lavenderWeb3,
                 fontFamily: axisTypography.fontFamily as Property.FontFamily,
                 fontSize: parseInt(axisTypography.fontSize, 10),
                 fontWeight: parseInt(axisTypography.fontWeight),
@@ -142,7 +143,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
           },
           fontFamily: axisTypography.fontFamily as Property.FontFamily,
           fontSize: parseInt(axisTypography.fontSize, 10),
-          textColor: colors.lavenderWeb3,
+          textColor: theme.colors.lavenderWeb3,
         }}
         tooltip={(point) => <Tooltip colorToken={colorToken} {...point} />}
         useMesh={true}

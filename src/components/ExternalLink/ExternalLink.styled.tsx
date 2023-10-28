@@ -2,8 +2,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { BaseColorTokens, getColorFromToken } from '../../foundation/Colors';
-import { typography } from '../../foundation/Typography';
-import { TypographyToken } from '../Typography';
+import { TypographyToken } from '../../foundation/Typography';
 
 export const ExternalLinkStyled = styled('a', {
   shouldForwardProp: (prop) => prop !== 'typographyToken' && prop !== 'colorToken',
@@ -18,8 +17,8 @@ export const ExternalLinkStyled = styled('a', {
 
   margin: 0;
   padding: 0;
-  color: ${({ colorToken }) => getColorFromToken(`${colorToken}3`)};
-  ${({ typographyToken }) => css(typography[typographyToken].styleObject)};
+  color: ${({ theme, colorToken }) => getColorFromToken({ colorToken: `${colorToken}3`, theme })};
+  ${({ theme, typographyToken }) => css(theme.typography[typographyToken].styleObject)};
   text-decoration: none;
 
   & svg {
@@ -29,24 +28,27 @@ export const ExternalLinkStyled = styled('a', {
 
   &:visited:hover,
   &:hover {
-    color: ${({ colorToken }) => getColorFromToken(`${colorToken}1`)};
+    color: ${({ theme, colorToken }) => getColorFromToken({ colorToken: `${colorToken}1`, theme })};
   }
   &:visited:hover path,
   &:hover path {
-    stroke: ${({ colorToken }) => getColorFromToken(`${colorToken}1`)};
+    stroke: ${({ theme, colorToken }) =>
+      getColorFromToken({ colorToken: `${colorToken}1`, theme })};
   }
 
   &:active {
-    color: ${({ colorToken }) => getColorFromToken(`${colorToken}2`)};
+    color: ${({ theme, colorToken }) => getColorFromToken({ colorToken: `${colorToken}2`, theme })};
   }
   &:active path {
-    stroke: ${({ colorToken }) => getColorFromToken(`${colorToken}2`)};
+    stroke: ${({ theme, colorToken }) =>
+      getColorFromToken({ colorToken: `${colorToken}2`, theme })};
   }
 
   &:visited {
-    color: ${({ colorToken }) => getColorFromToken(`${colorToken}3`)};
+    color: ${({ theme, colorToken }) => getColorFromToken({ colorToken: `${colorToken}3`, theme })};
   }
   &:visited path {
-    stroke: ${({ colorToken }) => getColorFromToken(`${colorToken}3`)};
+    stroke: ${({ theme, colorToken }) =>
+      getColorFromToken({ colorToken: `${colorToken}3`, theme })};
   }
 `;

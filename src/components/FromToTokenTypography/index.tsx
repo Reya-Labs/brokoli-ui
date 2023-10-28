@@ -1,10 +1,11 @@
 import React from 'react';
 
 import { BaseColorTokens, ColorTokens } from '../../foundation/Colors';
+import { TypographyToken } from '../../foundation/Typography';
 import { ExclaimTooltipProps } from '../ExclaimTooltip';
 import { TokenTypography } from '../TokenTypography';
 import { TooltipLabel } from '../TooltipLabel';
-import { Typography, TypographyToken } from '../Typography';
+import { Typography } from '../Typography';
 import { FromToBox, FromToTokenTypographyBox } from './FromToTokenTypography.styled';
 
 export type FromToTokenTypographyProps = {

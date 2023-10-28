@@ -1,8 +1,9 @@
 import React from 'react';
 
 import { ColorTokens } from '../../foundation/Colors';
+import { TypographyToken } from '../../foundation/Typography';
 import { MarketIcon, MarketIconProps, TokenIcon } from '../Icons';
-import { Typography, TypographyToken } from '../Typography';
+import { Typography } from '../Typography';
 import { IconsBox, MarketTokenBox } from './MarketToken.styled';
 
 export type MarketTokenProps = {

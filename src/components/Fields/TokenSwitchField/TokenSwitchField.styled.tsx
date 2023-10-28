@@ -1,9 +1,8 @@
 import styled from '@emotion/styled';
 import CurrencyInput from 'react-currency-input-field';
 
-import { colors } from '../../../foundation/Colors';
+import { TypographyToken } from '../../../foundation/Typography';
 import { Button } from '../../Button';
-import { TypographyToken } from '../../Typography';
 import { commonInputStyle } from '../_common/common.styled';
 
 export const TokenFieldBox = styled('div')`
@@ -55,9 +54,10 @@ export const CurrencyInputStyled = styled(CurrencyInput, {
   padding: ${({ hasMaxButton }) => (hasMaxButton ? '6px 102px 6px 146px' : '6px 52px 6px 146px')};
   height: 44px;
 
-  ${({ error, typographyToken }) =>
+  ${({ theme, error, typographyToken }) =>
     commonInputStyle({
       error,
+      theme,
       typographyToken,
     })}
 `;
@@ -71,7 +71,7 @@ export const FloatingBox = styled('div')`
   right: 16px;
   top: calc(50% - 12px);
   z-index: 1;
-  color: ${colors.lavenderWeb};
+  color: ${({ theme }) => theme.colors.lavenderWeb};
   cursor: pointer;
   display: flex;
   flex-direction: row;

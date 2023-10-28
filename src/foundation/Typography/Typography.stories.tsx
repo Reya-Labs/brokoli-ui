@@ -4,8 +4,8 @@ import React from 'react';
 
 import { Typography as TypographyComponent } from '../../components/Typography';
 import { ColorTokens } from '../Colors';
-import { typography } from './index';
-import { TypographyToken } from './typography-tokens';
+import { TypographyToken } from './types';
+import { typography } from './typography';
 
 const Grid = styled('div')`
   display: grid;

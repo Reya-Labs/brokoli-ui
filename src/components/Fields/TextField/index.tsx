@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { ColorTokens } from '../../../foundation/Colors';
+import { TypographyToken } from '../../../foundation/Typography';
 import { ExclaimTooltipProps } from '../../ExclaimTooltip';
 import { TooltipLabel } from '../../TooltipLabel';
-import { TypographyToken } from '../../Typography';
 import { TextFieldBox, TextInputStyled } from './TextField.styled';
 
 export type TextFieldProps = {

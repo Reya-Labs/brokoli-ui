@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 
-import { colors } from '../../../foundation/Colors';
-import { TypographyToken } from '../../Typography';
+import { TypographyToken } from '../../../foundation/Typography';
 import { commonInputStyle } from '../_common/common.styled';
 
 export const TextInputStyled = styled('input', {
@@ -13,9 +12,10 @@ export const TextInputStyled = styled('input', {
   padding: 8px 10px;
   height: 100%;
 
-  ${({ error, typographyToken }) =>
+  ${({ theme, error, typographyToken }) =>
     commonInputStyle({
       error,
+      theme,
       typographyToken,
     })}
 `;
@@ -37,5 +37,5 @@ export const ToggleCaretBox = styled('div')`
   right: 10px;
   top: calc(50% - 3.75px);
   z-index: 1;
-  color: ${colors.lavenderWeb};
+  color: ${({ theme }) => theme.colors.lavenderWeb};
 `;

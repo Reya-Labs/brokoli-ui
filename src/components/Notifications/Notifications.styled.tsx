@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { BaseColorTokens, colors, getColorFromToken } from '../../foundation/Colors';
+import { BaseColorTokens, getColorFromToken } from '../../foundation/Colors';
 
 export const NotificationBox = styled('div', {
   shouldForwardProp: (prop) => prop !== 'colorToken',
@@ -16,9 +16,10 @@ export const NotificationBox = styled('div', {
   padding: 16px;
   gap: 8px;
 
-  background: ${colors.liberty8};
+  background: ${({ theme }) => theme.colors.liberty8};
 
-  border: 1px solid ${({ colorToken }) => `${getColorFromToken(`${colorToken}3`)}`};
+  border: 1px solid
+    ${({ theme, colorToken }) => `${getColorFromToken({ colorToken: `${colorToken}3`, theme })}`};
   border-radius: 4px;
 `;
 

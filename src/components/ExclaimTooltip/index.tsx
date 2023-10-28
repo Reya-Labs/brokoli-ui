@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ColorTokens, getColorFromToken } from '../../foundation/Colors';
+import { ColorTokens } from '../../foundation/Colors';
 import { Tooltip } from '../Tooltip';
 import { ReactComponent as ExclaimSvg } from './exclaim.svg';
 import { ExclaimBox } from './ExclaimTooltipTooltip.styled';
@@ -19,7 +19,7 @@ export const ExclaimTooltip: React.FunctionComponent<ExclaimTooltipProps> = ({
   <Tooltip
     className={className}
     trigger={
-      <ExclaimBox color={getColorFromToken(colorToken)} data-testid="ExclaimBox">
+      <ExclaimBox colorToken={colorToken} data-testid="ExclaimBox">
         <ExclaimSvg />
       </ExclaimBox>
     }

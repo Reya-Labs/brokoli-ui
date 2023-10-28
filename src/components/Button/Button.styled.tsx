@@ -1,12 +1,11 @@
-import { css, SerializedStyles } from '@emotion/react';
+import { css, SerializedStyles, Theme } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { typography } from '../../foundation/Typography';
-import { TypographyToken } from '../Typography';
+import { TypographyToken } from '../../foundation/Typography';
 import { primaryButtonCSS, secondaryButtonCSS } from './Button.css';
 
 export type ButtonVariant = 'primary' | 'secondary';
-const ButtonVariantMap: Record<ButtonVariant, SerializedStyles> = {
+const ButtonVariantMap: Record<ButtonVariant, (theme: Theme) => SerializedStyles> = {
   primary: primaryButtonCSS,
   secondary: secondaryButtonCSS,
 };
@@ -16,7 +15,7 @@ export const ButtonStyled = styled('button', {
   variant: ButtonVariant;
   typographyToken: TypographyToken;
 }>`
-  ${({ variant }) => ButtonVariantMap[variant]};
+  ${({ theme, variant }) => ButtonVariantMap[variant](theme)};
 
   display: flex;
   flex-direction: row;
@@ -24,7 +23,7 @@ export const ButtonStyled = styled('button', {
   align-items: center;
   padding: 14px 24px;
   gap: 10px;
-  ${({ typographyToken }) => css(typography[typographyToken].styleObject)};
+  ${({ theme, typographyToken }) => css(theme.typography[typographyToken].styleObject)};
   border-radius: 4px;
   cursor: pointer;
   width: 100%;

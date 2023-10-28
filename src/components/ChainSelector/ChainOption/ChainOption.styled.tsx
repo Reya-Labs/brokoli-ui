@@ -1,9 +1,6 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { colors } from '../../../foundation/Colors';
-import { primaryBodySmallRegularCSSObject } from '../../../foundation/Typography/typographies';
-
 export const IconBox = styled('div', {
   shouldForwardProp: (prop) => prop !== 'isActive',
 })<{
@@ -12,7 +9,8 @@ export const IconBox = styled('div', {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: ${({ isActive }) => (isActive ? colors.liberty7 : colors.lavenderWeb8)};
+  background: ${({ theme, isActive }) =>
+    isActive ? theme.colors.liberty7 : theme.colors.lavenderWeb8};
   transition: background-color 200ms ease-in;
 `;
 
@@ -23,11 +21,11 @@ export const ChainOptionButton = styled('button')`
   padding: 16px;
   gap: 8px;
 
-  ${css(primaryBodySmallRegularCSSObject)};
+  ${({ theme }) => css(theme.typography.primaryBodySmallRegular.styleObject)};
 
-  color: ${colors.lavenderWeb};
+  color: ${({ theme }) => theme.colors.lavenderWeb};
   text-decoration: none;
-  background-color: ${colors.liberty7};
+  background-color: ${({ theme }) => theme.colors.liberty7};
   border-radius: 2px;
   width: 100%;
   box-sizing: border-box;
@@ -40,16 +38,16 @@ export const ChainOptionButton = styled('button')`
   &:hover {
     text-decoration: none;
     text-shadow: 0px 0px 20px rgba(225, 221, 247, 0.7);
-    background-color: ${colors.lavenderWeb8};
+    background-color: ${({ theme }) => theme.colors.lavenderWeb8};
   }
 
   &:hover div {
-    background: ${colors.liberty7};
+    background: ${({ theme }) => theme.colors.liberty7};
   }
 `;
 
 export const ActiveChainOptionButton = styled(ChainOptionButton)`
   text-decoration: none;
   text-shadow: 0px 0px 20px rgba(225, 221, 247, 0.7);
-  background: ${colors.lavenderWeb8};
+  background: ${({ theme }) => theme.colors.lavenderWeb8};
 `;

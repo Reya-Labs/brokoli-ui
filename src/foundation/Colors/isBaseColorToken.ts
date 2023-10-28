@@ -1,4 +1,4 @@
-import { BaseColorTokens } from './colors';
+import { BaseColorTokens } from './types';
 
 export const isBaseColorToken = (token: string): token is BaseColorTokens =>
   token === 'liberty' ||

@@ -2,8 +2,9 @@ import styled from '@emotion/styled';
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
-import { colors, ColorTokens } from './colors';
+import { colors } from './colors';
 import { ColorTile } from './ColorTile/ColorTile';
+import { ColorTokens } from './types';
 
 export default {
   argTypes: {},

@@ -6,7 +6,7 @@ import React from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 
 import { BaseColorTokens } from '../../foundation/Colors';
-import { TypographyToken } from '../Typography';
+import { TypographyToken } from '../../foundation/Typography';
 import { NotificationContent } from './NotificationContent';
 
 export type ShowNotificationParams = {

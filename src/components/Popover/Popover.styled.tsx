@@ -1,18 +1,15 @@
-import { css } from '@emotion/react';
-
-import { colors } from '../../foundation/Colors';
-import { layerIndexes } from '../../foundation/LayerIndexes';
+import { css, Theme } from '@emotion/react';
 
 export const TINY_POPOVER_CONTAINER_CLASS_NAME = 'react-tiny-popover-container';
-export const globalReactTinyPopoverContainerCSS = css`
+export const globalReactTinyPopoverContainerCSS = (theme: Theme) => css`
   .${TINY_POPOVER_CONTAINER_CLASS_NAME} {
-    background: ${colors.liberty7};
+    background: ${theme.colors.liberty7};
 
-    border: 1px solid ${colors.lavenderWeb7};
+    border: 1px solid ${theme.colors.lavenderWeb7};
     box-shadow: 0px 0px 20px rgba(225, 221, 247, 0.1);
     border-radius: 4px;
     min-width: 160px;
     margin-top: 4px;
-    z-index: ${layerIndexes.popover};
+    z-index: ${theme.layerIndexes.popover};
   }
 `;

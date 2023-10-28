@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { BaseColorTokens } from '../../foundation/Colors';
-import { TypographyToken } from '../Typography';
+import { TypographyToken } from '../../foundation/Typography';
 import { AppLinkStyled, DisabledTypography } from './AppLink.styled';
 
 export type AppLinkProps = {

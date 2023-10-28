@@ -1,7 +1,8 @@
 import React from 'react';
 
 import { ColorTokens } from '../../foundation/Colors';
-import { Typography, TypographyToken } from '../Typography';
+import { TypographyToken } from '../../foundation/Typography';
+import { Typography } from '../Typography';
 import { TypographyWithTooltip, TypographyWithTooltipProps } from '../TypographyWithTooltip';
 
 type TooltipLabelProps = {

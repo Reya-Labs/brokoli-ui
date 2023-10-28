@@ -3,8 +3,6 @@ import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
 import { BaseColorTokens, getColorFromToken } from '../../../foundation/Colors';
-import { gradients } from '../../../foundation/Gradients';
-import { primaryBodyMediumRegularCSSObject } from '../../../foundation/Typography/typographies';
 
 export const NavLinkButtonBox = styled('div', {
   shouldForwardProp: (prop) =>
@@ -19,16 +17,16 @@ export const NavLinkButtonBox = styled('div', {
   column-gap: 10px;
   align-items: center;
   padding: 6px 12px;
-  color: ${({ colorToken, isPopoverOpen, isActive }) =>
+  color: ${({ theme, colorToken, isPopoverOpen, isActive }) =>
     colorToken !== 'rainbow'
       ? isPopoverOpen || isActive
-        ? getColorFromToken(colorToken)
-        : getColorFromToken(`${colorToken}3`)
+        ? getColorFromToken({ colorToken, theme })
+        : getColorFromToken({ colorToken: `${colorToken}3`, theme })
       : ''};
   transition: color 200ms ease-in;
   &:hover {
-    ${({ colorToken }) =>
-      colorToken === 'rainbow' ? '' : `color: ${getColorFromToken(colorToken)}`};
+    ${({ theme, colorToken }) =>
+      colorToken === 'rainbow' ? '' : `color: ${getColorFromToken({ colorToken, theme })}`};
   }
 `;
 
@@ -40,27 +38,27 @@ export const NavLinkButton = styled(Link, {
   isActive: boolean;
   colorToken: BaseColorTokens | 'rainbow';
 }>`
-  ${css(primaryBodyMediumRegularCSSObject)};
+  ${({ theme }) => css(theme.typography.primaryBodyMediumRegular.styleObject)};
 
   text-decoration: none;
   text-transform: none;
 
   color: inherit;
-  ${({ colorToken }) =>
+  ${({ theme, colorToken }) =>
     colorToken === 'rainbow'
       ? `
-    background: ${gradients.rainbow};
+    background: ${theme.gradients.rainbow};
     background-clip: text;
     text-fill-color: transparent;
   `
       : ''};
 
   &:hover {
-    ${({ colorToken }) =>
+    ${({ theme, colorToken }) =>
       colorToken !== 'rainbow'
         ? ''
         : `
-    background: ${gradients.invertedRainbow};
+    background: ${theme.gradients.invertedRainbow};
     background-clip: text;
     text-fill-color: transparent;
   `};

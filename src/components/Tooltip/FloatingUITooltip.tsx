@@ -1,3 +1,4 @@
+import { useTheme } from '@emotion/react';
 import type { Placement } from '@floating-ui/react';
 import {
   autoUpdate,
@@ -14,8 +15,6 @@ import {
   useRole,
 } from '@floating-ui/react';
 import * as React from 'react';
-
-import { layerIndexes } from '../../foundation/LayerIndexes';
 
 type FloatingUITooltipOptions = {
   initialOpen?: boolean;
@@ -130,6 +129,7 @@ export const FloatingUITooltipContent = React.forwardRef<
 >(function FloatingUITooltipContent(props, propRef) {
   const context = useFloatingUITooltipContext();
   const ref = useMergeRefs([context.refs.setFloating, propRef]);
+  const theme = useTheme();
 
   return (
     <FloatingPortal>
@@ -141,7 +141,7 @@ export const FloatingUITooltipContent = React.forwardRef<
             position: context.strategy,
             top: context.y ?? 0,
             visibility: context.x == null ? 'hidden' : 'visible',
-            zIndex: layerIndexes.tooltip,
+            zIndex: theme.layerIndexes.tooltip,
             ...props.style,
           }}
           {...context.getFloatingProps(props)}

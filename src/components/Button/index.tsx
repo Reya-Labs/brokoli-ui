@@ -1,8 +1,9 @@
 import React from 'react';
 
 import { ColorTokens } from '../../foundation/Colors';
+import { TypographyToken } from '../../foundation/Typography';
 import { Ellipsis } from '../Ellipsis';
-import { Typography, TypographyToken } from '../Typography';
+import { Typography } from '../Typography';
 import { ButtonBox, ButtonStyled, ButtonVariant } from './Button.styled';
 
 export type ButtonProps = {

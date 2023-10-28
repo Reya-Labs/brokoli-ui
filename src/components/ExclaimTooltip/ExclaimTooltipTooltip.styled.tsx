@@ -1,9 +1,11 @@
 import styled from '@emotion/styled';
 
+import { ColorTokens, getColorFromToken } from '../../foundation/Colors';
+
 export const ExclaimBox = styled('span', {
-  shouldForwardProp: (prop) => prop !== 'color',
+  shouldForwardProp: (prop) => prop !== 'colorToken',
 })<{
-  color: string;
+  colorToken: ColorTokens;
 }>`
   cursor: pointer;
   vertical-align: middle;
@@ -12,6 +14,6 @@ export const ExclaimBox = styled('span', {
     height: 1em;
   }
   & g {
-    stroke: ${({ color }) => color};
+    stroke: ${({ theme, colorToken }) => getColorFromToken({ colorToken, theme })};
   }
 `;

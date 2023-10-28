@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { colors, ColorTokens, getColorFromToken } from '../../../../foundation/Colors';
+import { ColorTokens, getColorFromToken } from '../../../../foundation/Colors';
 
 export const ItemsWrapper = styled('div')`
   display: flex;
@@ -25,11 +25,12 @@ export const ItemWrapper = styled('div', {
   box-sizing: border-box;
   align-items: center;
   justify-content: space-between;
-  background: ${({ backgroundColorToken }) => getColorFromToken(backgroundColorToken)};
+  background: ${({ theme, backgroundColorToken }) =>
+    getColorFromToken({ colorToken: backgroundColorToken, theme })};
   transition: background-color 200ms ease-in;
 
   &:hover {
-    background: ${colors.liberty6};
+    background: ${({ theme }) => theme.colors.liberty6};
   }
 `;
 

@@ -2,8 +2,7 @@ import { css, keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { ColorTokens, getColorFromToken } from '../../foundation/Colors';
-import { typography } from '../../foundation/Typography';
-import { TypographyToken } from '../Typography';
+import { TypographyToken } from '../../foundation/Typography';
 
 const skeletonAnimation = keyframes`
   0% {
@@ -27,9 +26,11 @@ export const SkeletonBox = styled('div', {
   variant: 'rectangular' | 'circular';
   typographyToken?: TypographyToken;
 }>`
-  background-color: ${({ colorToken }) => getColorFromToken(`${colorToken}`)};
+  background-color: ${({ theme, colorToken }) =>
+    getColorFromToken({ colorToken: `${colorToken}`, theme })};
   height: 1.2em;
   ${({ variant }) => (variant === 'circular' ? 'border-radius: 50%' : '')};
-  ${({ typographyToken }) => (typographyToken ? css(typography[typographyToken].styleObject) : '')};
+  ${({ theme, typographyToken }) =>
+    typographyToken ? css(theme.typography[typographyToken].styleObject) : ''};
   animation: ${skeletonAnimation} 1.5s ease-in-out 0.5s infinite;
 `;
