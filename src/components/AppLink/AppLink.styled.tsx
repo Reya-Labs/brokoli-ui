@@ -19,7 +19,7 @@ export const AppLinkStyled = styled(Link, {
   text-decoration: none;
 
   &:hover {
-    color: ${({ theme, colorToken }) => getColorFromToken({ colorToken: `${colorToken}1`, theme })};
+    color: ${({ colorToken, theme }) => getColorFromToken({ colorToken: `${colorToken}1`, theme })};
   }
 `;
 
