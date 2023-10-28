@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 import CurrencyInput from 'react-currency-input-field';
 
-import { colors } from '../../../foundation/Colors';
 import { Button } from '../../Button';
 import { TypographyToken } from '../../Typography';
 import { commonInputStyle } from '../_common/common.styled';
@@ -60,7 +59,7 @@ export const FloatingBox = styled('div')`
   right: 16px;
   top: calc(50% - 12px);
   z-index: 1;
-  color: ${colors.lavenderWeb};
+  color: ${({ theme }) => theme.colors.lavenderWeb};
   cursor: pointer;
   display: flex;
   flex-direction: row;

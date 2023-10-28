@@ -1,7 +1,7 @@
-import { render, screen } from '@testing-library/react';
 import React from 'react';
-import { BrowserRouter, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
+import { render, screen } from '../../../../test-utils';
 import { SubLinks } from './SubLinks';
 
 jest.mock(
@@ -21,11 +21,7 @@ describe('<SubLinks />', () => {
       { link: '/sublink-3', text: 'SubLink 3' },
     ];
     (useLocation as jest.Mock).mockReturnValue({ pathname: '/sublink-1' });
-    render(
-      <BrowserRouter>
-        <SubLinks subLinks={subLinks} onClick={() => {}} />
-      </BrowserRouter>,
-    );
+    render(<SubLinks subLinks={subLinks} onClick={() => {}} />);
     expect(screen.getAllByTestId('SubLinkButton').length).toBe(2);
     expect(screen.getAllByTestId('ActiveSubLinkButton').length).toBe(1);
   });

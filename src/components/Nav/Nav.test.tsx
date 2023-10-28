@@ -1,7 +1,6 @@
-import { render, screen } from '@testing-library/react';
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
 
+import { render, screen } from '../../test-utils';
 import { Nav, NavProps } from './index';
 
 describe('<Nav />', () => {
@@ -54,20 +53,12 @@ describe('<Nav />', () => {
   ];
 
   it('renders the correct number of NavLinks', () => {
-    render(
-      <BrowserRouter>
-        <Nav links={navProps} />
-      </BrowserRouter>,
-    );
+    render(<Nav links={navProps} />);
     expect(screen.getAllByTestId('NavLinkButton').length).toBe(5);
   });
 
   it('renders the correct text for each NavLink', () => {
-    render(
-      <BrowserRouter>
-        <Nav links={navProps} />
-      </BrowserRouter>,
-    );
+    render(<Nav links={navProps} />);
     expect(screen.getAllByTestId('NavLinkButton')[0].textContent).toBe('Traders');
     expect(screen.getAllByTestId('NavLinkButton')[1].textContent).toBe('Liquidity Providers');
     expect(screen.getAllByTestId('NavLinkButton')[2].textContent).toBe('Fixed Borrow');
@@ -76,11 +67,7 @@ describe('<Nav />', () => {
   });
 
   it('renders the new link indicator for NavLinks with isNew prop', () => {
-    render(
-      <BrowserRouter>
-        <Nav links={navProps} />
-      </BrowserRouter>,
-    );
+    render(<Nav links={navProps} />);
     expect(
       screen
         .getAllByTestId('NavLinkButton')[3]

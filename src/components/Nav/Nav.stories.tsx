@@ -1,6 +1,5 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
 
 import { Nav } from './index';
 
@@ -10,11 +9,7 @@ export default {
   title: 'Components/Nav',
 } as Meta<typeof Nav>;
 
-const Template: StoryFn<typeof Nav> = (args) => (
-  <BrowserRouter>
-    <Nav {...args} />
-  </BrowserRouter>
-);
+const Template: StoryFn<typeof Nav> = (args) => <Nav {...args} />;
 
 export const Default: StoryObj<typeof Nav> = {
   args: {

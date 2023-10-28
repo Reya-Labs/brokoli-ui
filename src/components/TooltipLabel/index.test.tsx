@@ -1,7 +1,7 @@
-import { render, screen } from '@testing-library/react';
 import React from 'react';
 
 import { ColorTokens } from '../../foundation/Colors';
+import { render, screen } from '../../test-utils';
 import { TypographyToken } from '../Typography';
 import { TooltipLabel } from '.';
 

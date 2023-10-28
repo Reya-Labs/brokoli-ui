@@ -1,51 +1,44 @@
-import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
 
+import { fireEvent, render, screen } from '../../../../test-utils';
 import { SubLink } from './SubLink';
 
 describe('<SubLink />', () => {
   it('renders the correct link text', () => {
     render(
-      <BrowserRouter>
-        <SubLink
-          isActive={false}
-          isNew={false}
-          link="/some-link"
-          text="Some Link"
-          onClick={() => {}}
-        />
-      </BrowserRouter>,
+      <SubLink
+        isActive={false}
+        isNew={false}
+        link="/some-link"
+        text="Some Link"
+        onClick={() => {}}
+      />,
     );
     expect(screen.getByText('Some Link')).toBeInTheDocument();
   });
 
   it('renders the new link indicator when isNew is true', () => {
     render(
-      <BrowserRouter>
-        <SubLink
-          isActive={false}
-          isNew={true}
-          link="/some-link"
-          text="Some Link"
-          onClick={() => {}}
-        />
-      </BrowserRouter>,
+      <SubLink
+        isActive={false}
+        isNew={true}
+        link="/some-link"
+        text="Some Link"
+        onClick={() => {}}
+      />,
     );
     expect(screen.getByTestId('AttentionIndicator-wildStrawberry')).toBeInTheDocument();
   });
 
   it('renders the ActiveSubLinkButton when isActive is true', () => {
     render(
-      <BrowserRouter>
-        <SubLink
-          isActive={true}
-          isNew={false}
-          link="/some-link"
-          text="Some Link"
-          onClick={() => {}}
-        />
-      </BrowserRouter>,
+      <SubLink
+        isActive={true}
+        isNew={false}
+        link="/some-link"
+        text="Some Link"
+        onClick={() => {}}
+      />,
     );
     expect(screen.getByTestId('ActiveSubLinkButton')).toBeInTheDocument();
   });
@@ -53,15 +46,13 @@ describe('<SubLink />', () => {
   it('calls the onClick handler when clicked', () => {
     const onClick = jest.fn();
     render(
-      <BrowserRouter>
-        <SubLink
-          isActive={false}
-          isNew={false}
-          link="/some-link"
-          text="Some Link"
-          onClick={onClick}
-        />
-      </BrowserRouter>,
+      <SubLink
+        isActive={false}
+        isNew={false}
+        link="/some-link"
+        text="Some Link"
+        onClick={onClick}
+      />,
     );
     fireEvent.click(screen.getByText('Some Link'));
     expect(onClick).toHaveBeenCalledTimes(1);

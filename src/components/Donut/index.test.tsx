@@ -1,6 +1,6 @@
-import { render, screen } from '@testing-library/react';
 import React from 'react';
 
+import { render, screen } from '../../test-utils';
 import { Donut, DonutProps } from '.'; // Make sure the path to the Donut component is correct
 
 describe('<Donut />', () => {

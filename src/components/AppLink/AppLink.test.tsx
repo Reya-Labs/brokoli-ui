@@ -1,7 +1,6 @@
-import { render, screen } from '@testing-library/react';
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
 
+import { render, screen } from '../../test-utils';
 import { AppLink, AppLinkProps } from '.';
 
 describe('<AppLink />', () => {
@@ -13,11 +12,7 @@ describe('<AppLink />', () => {
   };
 
   it('renders enabled link correctly', () => {
-    render(
-      <BrowserRouter>
-        <AppLink {...defaultProps} />
-      </BrowserRouter>,
-    );
+    render(<AppLink {...defaultProps} />);
     const link = screen.getByTestId('AppLink-AppLinkStyled');
     expect(link).toBeInTheDocument();
     expect(link).toHaveAttribute('href', defaultProps.to);
