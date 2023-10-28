@@ -38,3 +38,4 @@ export * from './foundation/Colors';
 export * from './foundation/GlobalScrollbarStyle';
 export * from './foundation/Gradients';
 export * from './foundation/LayerIndexes';
+export * from './foundation/Theme';

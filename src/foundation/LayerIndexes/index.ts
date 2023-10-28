@@ -6,9 +6,9 @@ export type LayerIndexToken =
   | 'popover'
   | 'tooltip';
 
-export type LayerIndexes = Record<LayerIndexToken, number>;
+export type LayerIndexesTheme = Record<LayerIndexToken, number>;
 
-export const layerIndexes: LayerIndexes = {
+export const layerIndexes: LayerIndexesTheme = {
   background: 0,
   backgroundNoise: 1,
   dialog: 100,

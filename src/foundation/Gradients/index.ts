@@ -23,9 +23,9 @@ const BACKGROUND_GRADIENT = `conic-gradient(
     ${colors.liberty8} 360deg
 )`;
 export type GradientTokens = 'background' | 'rainbow' | 'invertedRainbow';
-export type GradientsType = Record<GradientTokens, string>;
+export type GradientsTheme = Record<GradientTokens, string>;
 
-export const gradients: GradientsType = {
+export const gradients: GradientsTheme = {
   background: BACKGROUND_GRADIENT,
   invertedRainbow: INVERTED_RAINBOW_GRADIENT,
   rainbow: RAINBOW_GRADIENT,

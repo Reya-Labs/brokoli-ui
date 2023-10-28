@@ -2,9 +2,9 @@ import styled from '@emotion/styled';
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 
-import { ColorTokens } from '../../foundation/Colors';
-import { Typography as TypographyComponent } from './index';
-import { TypographyTokenConfigMap } from './typography-token-config-map';
+import { Typography as TypographyComponent } from '../../components/Typography';
+import { ColorTokens } from '../Colors';
+import { typography } from './index';
 import { TypographyToken } from './typography-tokens';
 
 const Grid = styled('div')`
@@ -17,7 +17,7 @@ const AllTypography: React.FunctionComponent<{
   colorToken: ColorTokens;
 }> = ({ colorToken }) => (
   <Grid>
-    {Object.keys(TypographyTokenConfigMap).map((key) => (
+    {Object.keys(typography).map((key) => (
       <TypographyComponent
         key={key}
         colorToken={colorToken}
@@ -34,7 +34,7 @@ export default {
   title: 'Foundation/Typography',
 } as Meta<typeof AllTypography>;
 
-export const Typography: StoryObj<typeof AllTypography> = {
+export const TypographyStory: StoryObj<typeof AllTypography> = {
   args: {
     colorToken: 'lavenderWeb',
   },
