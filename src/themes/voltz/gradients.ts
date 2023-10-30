@@ -1,5 +1,5 @@
-import { colors } from '../Colors/colors';
-import { GradientsTheme } from './types';
+import { GradientsTheme } from '../../foundation/Gradients/types';
+import { colors } from './colors';
 
 const rainbow = `linear-gradient(
     90deg,

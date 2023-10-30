@@ -1,4 +1,4 @@
-import { LayerIndexesTheme } from './types';
+import { LayerIndexesTheme } from '../../foundation/LayerIndexes';
 
 export const layerIndexes: LayerIndexesTheme = {
   background: 0,

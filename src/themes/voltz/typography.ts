@@ -1,8 +1,8 @@
-import { addAlpha } from '../Colors';
-import { colors } from '../Colors/colors';
-import { TypographyConfig } from './types';
+import { addAlpha } from '../../foundation/Colors';
+import { TypographyConfig, TypographyTheme } from '../../foundation/Typography';
+import { colors } from './colors';
 
-export const primaryHeader1BlackCSSObject: TypographyConfig = {
+const primaryHeader1Black: TypographyConfig = {
   fontFamily: "'Inter', sans-serif",
   fontSize: '32px',
   fontStyle: 'normal',
@@ -11,7 +11,7 @@ export const primaryHeader1BlackCSSObject: TypographyConfig = {
   textShadow: `0px 0px 20px ${addAlpha(colors.lavenderWeb, 0.3)}`,
 };
 
-export const primaryHeader1BoldCSSObject: TypographyConfig = {
+const primaryHeader1Bold: TypographyConfig = {
   fontFamily: "'Inter', sans-serif",
   fontSize: '32px',
   fontStyle: 'normal',
@@ -20,7 +20,7 @@ export const primaryHeader1BoldCSSObject: TypographyConfig = {
   textShadow: `0px 0px 20px ${addAlpha(colors.lavenderWeb, 0.3)}`,
 };
 
-export const primaryHeader2BlackCSSObject: TypographyConfig = {
+const primaryHeader2Black: TypographyConfig = {
   fontFamily: "'Inter', sans-serif",
   fontSize: '24px',
   fontStyle: 'normal',
@@ -29,7 +29,7 @@ export const primaryHeader2BlackCSSObject: TypographyConfig = {
   textShadow: `0px 0px 20px ${addAlpha(colors.lavenderWeb, 0.3)}`,
 };
 
-export const primaryHeader2BoldCSSObject: TypographyConfig = {
+const primaryHeader2Bold: TypographyConfig = {
   fontFamily: "'Inter', sans-serif",
   fontSize: '24px',
   fontStyle: 'normal',
@@ -38,7 +38,7 @@ export const primaryHeader2BoldCSSObject: TypographyConfig = {
   textShadow: `0px 0px 20px ${addAlpha(colors.lavenderWeb, 0.3)}`,
 };
 
-export const primaryHeader3BlackCSSObject: TypographyConfig = {
+const primaryHeader3Black: TypographyConfig = {
   fontFamily: "'Inter', sans-serif",
   fontSize: '16px',
   fontStyle: 'normal',
@@ -47,7 +47,7 @@ export const primaryHeader3BlackCSSObject: TypographyConfig = {
   textShadow: `0px 0px 20px ${addAlpha(colors.lavenderWeb, 0.3)}`,
 };
 
-export const primaryHeader3BoldCSSObject: TypographyConfig = {
+const primaryHeader3Bold: TypographyConfig = {
   fontFamily: "'Inter', sans-serif",
   fontSize: '16px',
   fontStyle: 'normal',
@@ -56,7 +56,7 @@ export const primaryHeader3BoldCSSObject: TypographyConfig = {
   textShadow: `0px 0px 20px ${addAlpha(colors.lavenderWeb, 0.3)}`,
 };
 
-export const primaryBodyXSmallRegularCSSObject: TypographyConfig = {
+const primaryBodyXSmallRegular: TypographyConfig = {
   fontFamily: "'Inter', sans-serif",
   fontSize: '10px',
   fontStyle: 'normal',
@@ -65,7 +65,7 @@ export const primaryBodyXSmallRegularCSSObject: TypographyConfig = {
   lineHeight: '140%',
 };
 
-export const primaryBodyXSmallBoldCSSObject: TypographyConfig = {
+const primaryBodyXSmallBold: TypographyConfig = {
   fontFamily: "'Inter', sans-serif",
   fontSize: '10px',
   fontStyle: 'normal',
@@ -74,7 +74,7 @@ export const primaryBodyXSmallBoldCSSObject: TypographyConfig = {
   lineHeight: '140%',
 };
 
-export const primaryBodySmallRegularCSSObject: TypographyConfig = {
+const primaryBodySmallRegular: TypographyConfig = {
   fontFamily: "'Inter', sans-serif",
   fontSize: '12px',
   fontStyle: 'normal',
@@ -82,7 +82,7 @@ export const primaryBodySmallRegularCSSObject: TypographyConfig = {
   lineHeight: '150%',
 };
 
-export const primaryBodySmallBoldCSSObject: TypographyConfig = {
+const primaryBodySmallBold: TypographyConfig = {
   fontFamily: "'Inter', sans-serif",
   fontSize: '12px',
   fontStyle: 'normal',
@@ -90,7 +90,7 @@ export const primaryBodySmallBoldCSSObject: TypographyConfig = {
   lineHeight: '150%',
 };
 
-export const primaryBodyMediumRegularCSSObject: TypographyConfig = {
+const primaryBodyMediumRegular: TypographyConfig = {
   fontFamily: "'Inter', sans-serif",
   fontSize: '14px',
   fontStyle: 'normal',
@@ -98,7 +98,7 @@ export const primaryBodyMediumRegularCSSObject: TypographyConfig = {
   lineHeight: '150%',
 };
 
-export const primaryBodyMediumBoldCSSObject: TypographyConfig = {
+const primaryBodyMediumBold: TypographyConfig = {
   fontFamily: "'Inter', sans-serif",
   fontSize: '14px',
   fontStyle: 'normal',
@@ -106,7 +106,7 @@ export const primaryBodyMediumBoldCSSObject: TypographyConfig = {
   lineHeight: '150%',
 };
 
-export const primaryBodyLargeRegularCSSObject: TypographyConfig = {
+const primaryBodyLargeRegular: TypographyConfig = {
   fontFamily: "'Inter', sans-serif",
   fontSize: '16px',
   fontStyle: 'normal',
@@ -114,7 +114,7 @@ export const primaryBodyLargeRegularCSSObject: TypographyConfig = {
   lineHeight: '150%',
 };
 
-export const primaryBodyLargeBoldCSSObject: TypographyConfig = {
+const primaryBodyLargeBold: TypographyConfig = {
   fontFamily: "'Inter', sans-serif",
   fontSize: '16px',
   fontStyle: 'normal',
@@ -122,7 +122,7 @@ export const primaryBodyLargeBoldCSSObject: TypographyConfig = {
   lineHeight: '150%',
 };
 
-export const primaryBodyExtraLargeRegularCSSObject: TypographyConfig = {
+const primaryBodyExtraLargeRegular: TypographyConfig = {
   fontFamily: "'Inter', sans-serif",
   fontSize: '18px',
   fontStyle: 'normal',
@@ -130,7 +130,7 @@ export const primaryBodyExtraLargeRegularCSSObject: TypographyConfig = {
   lineHeight: '150%',
 };
 
-export const primaryBodyExtraLargeBoldCSSObject: TypographyConfig = {
+const primaryBodyExtraLargeBold: TypographyConfig = {
   fontFamily: "'Inter', sans-serif",
   fontSize: '18px',
   fontStyle: 'normal',
@@ -138,7 +138,7 @@ export const primaryBodyExtraLargeBoldCSSObject: TypographyConfig = {
   lineHeight: '150%',
 };
 
-export const secondaryBodyExtraLargeBoldCSSObject: TypographyConfig = {
+const secondaryBodyExtraLargeBold: TypographyConfig = {
   fontFamily: "'IBM Plex Mono', monospace",
   fontSize: '24px',
   fontStyle: 'normal',
@@ -146,7 +146,7 @@ export const secondaryBodyExtraLargeBoldCSSObject: TypographyConfig = {
   lineHeight: '150%',
 };
 
-export const secondaryBodyExtraLargeRegularCSSObject: TypographyConfig = {
+const secondaryBodyExtraLargeRegular: TypographyConfig = {
   fontFamily: "'IBM Plex Mono', monospace",
   fontSize: '24px',
   fontStyle: 'normal',
@@ -154,7 +154,7 @@ export const secondaryBodyExtraLargeRegularCSSObject: TypographyConfig = {
   lineHeight: '150%',
 };
 
-export const secondaryBodyLargeBoldCSSObject: TypographyConfig = {
+const secondaryBodyLargeBold: TypographyConfig = {
   fontFamily: "'IBM Plex Mono', monospace",
   fontSize: '16px',
   fontStyle: 'normal',
@@ -162,7 +162,7 @@ export const secondaryBodyLargeBoldCSSObject: TypographyConfig = {
   lineHeight: '150%',
 };
 
-export const secondaryBodyLargeRegularCSSObject: TypographyConfig = {
+const secondaryBodyLargeRegular: TypographyConfig = {
   fontFamily: "'IBM Plex Mono', monospace",
   fontSize: '16px',
   fontStyle: 'normal',
@@ -170,7 +170,7 @@ export const secondaryBodyLargeRegularCSSObject: TypographyConfig = {
   lineHeight: '150%',
 };
 
-export const secondaryBodyMediumBoldCSSObject: TypographyConfig = {
+const secondaryBodyMediumBold: TypographyConfig = {
   fontFamily: "'IBM Plex Mono', monospace",
   fontSize: '14px',
   fontStyle: 'normal',
@@ -178,7 +178,7 @@ export const secondaryBodyMediumBoldCSSObject: TypographyConfig = {
   lineHeight: '150%',
 };
 
-export const secondaryBodyMediumRegularCSSObject: TypographyConfig = {
+const secondaryBodyMediumRegular: TypographyConfig = {
   fontFamily: "'IBM Plex Mono', monospace",
   fontSize: '14px',
   fontStyle: 'normal',
@@ -186,7 +186,7 @@ export const secondaryBodyMediumRegularCSSObject: TypographyConfig = {
   lineHeight: '150%',
 };
 
-export const secondaryBodySmallBoldCSSObject: TypographyConfig = {
+const secondaryBodySmallBold: TypographyConfig = {
   fontFamily: "'IBM Plex Mono', monospace",
   fontSize: '12px',
   fontStyle: 'normal',
@@ -194,7 +194,7 @@ export const secondaryBodySmallBoldCSSObject: TypographyConfig = {
   lineHeight: '150%',
 };
 
-export const secondaryBodySmallRegularCSSObject: TypographyConfig = {
+const secondaryBodySmallRegular: TypographyConfig = {
   fontFamily: "'IBM Plex Mono', monospace",
   fontSize: '12px',
   fontStyle: 'normal',
@@ -202,7 +202,7 @@ export const secondaryBodySmallRegularCSSObject: TypographyConfig = {
   lineHeight: '150%',
 };
 
-export const secondaryBodyXSmallBoldCSSObject: TypographyConfig = {
+const secondaryBodyXSmallBold: TypographyConfig = {
   fontFamily: "'IBM Plex Mono', monospace",
   fontSize: '10px',
   fontStyle: 'normal',
@@ -210,10 +210,39 @@ export const secondaryBodyXSmallBoldCSSObject: TypographyConfig = {
   lineHeight: '140%',
 };
 
-export const secondaryBodyXSmallRegularCSSObject: TypographyConfig = {
+const secondaryBodyXSmallRegular: TypographyConfig = {
   fontFamily: "'IBM Plex Mono', monospace",
   fontSize: '10px',
   fontStyle: 'normal',
   fontWeight: '400',
   lineHeight: '140%',
+};
+
+export const typography: TypographyTheme = {
+  primaryBodyExtraLargeBold,
+  primaryBodyExtraLargeRegular,
+  primaryBodyLargeBold,
+  primaryBodyLargeRegular,
+  primaryBodyMediumBold,
+  primaryBodyMediumRegular,
+  primaryBodySmallBold,
+  primaryBodySmallRegular,
+  primaryBodyXSmallBold,
+  primaryBodyXSmallRegular,
+  primaryHeader1Black,
+  primaryHeader1Bold,
+  primaryHeader2Black,
+  primaryHeader2Bold,
+  primaryHeader3Black,
+  primaryHeader3Bold,
+  secondaryBodyExtraLargeBold,
+  secondaryBodyExtraLargeRegular,
+  secondaryBodyLargeBold,
+  secondaryBodyLargeRegular,
+  secondaryBodyMediumBold,
+  secondaryBodyMediumRegular,
+  secondaryBodySmallBold,
+  secondaryBodySmallRegular,
+  secondaryBodyXSmallBold,
+  secondaryBodyXSmallRegular,
 };

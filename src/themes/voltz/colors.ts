@@ -1,4 +1,4 @@
-import { ColorsTheme } from './types';
+import { ColorsTheme } from '../../foundation/Colors';
 
 export const colors: ColorsTheme = {
   /* Lavender Web */
