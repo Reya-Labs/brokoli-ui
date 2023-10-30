@@ -1,3 +1,5 @@
+import { SupportedMedias } from '../Media';
+
 export type TypographyToken =
   | 'primaryHeader1Black'
   | 'primaryHeader1Bold'
@@ -36,4 +38,6 @@ export type TypographyConfig = {
   textShadow?: string;
 };
 
-export type TypographyTheme = Record<TypographyToken, TypographyConfig>;
+export type TypographyResponsiveConfig = Record<SupportedMedias, TypographyConfig>;
+
+export type TypographyTheme = Record<TypographyToken, TypographyResponsiveConfig>;
