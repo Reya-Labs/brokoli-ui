@@ -3,6 +3,8 @@ import { ColorsTheme } from '../../foundation/Colors';
 export const colors: ColorsTheme = {
   /* Lavender Web */
   lavenderWeb: '#E1DDF7',
+  /* Lavender Web 0 */
+  lavenderWeb0: '#181524',
   /* Lavender Web 1 */
   lavenderWeb1: '#C7C1DF',
   /* Lavender Web 2 */
@@ -19,8 +21,12 @@ export const colors: ColorsTheme = {
   lavenderWeb7: '#272437',
   /* Lavender Web 8 */
   lavenderWeb8: '#181524',
+  /* Lavender Web 9 */
+  lavenderWeb9: '#181524',
   /* Liberty */
   liberty: '#5D5296',
+  /* Liberty 8 */
+  liberty0: '#0B0911',
   /* Liberty 1 */
   liberty1: '#4F4580',
   /* Liberty 2 */
@@ -37,8 +43,12 @@ export const colors: ColorsTheme = {
   liberty7: '#0F0D18',
   /* Liberty 8 */
   liberty8: '#0B0911',
+  /* Liberty 9 */
+  liberty9: '#0B0911',
   /* Orange Yellow */
   orangeYellow: '#FBC13A',
+  /* Orange Yellow 8 */
+  orangeYellow0: '#1F1808',
   /* Orange Yellow 1 */
   orangeYellow1: '#CA9C32',
   /* Orange Yellow 2 */
@@ -55,8 +65,12 @@ export const colors: ColorsTheme = {
   orangeYellow7: '#2C220C',
   /* Orange Yellow 8 */
   orangeYellow8: '#1F1808',
+  /* Orange Yellow 9 */
+  orangeYellow9: '#1F1808',
   /* Sky Blue Crayola */
   skyBlueCrayola: '#4DE5FF',
+  /* Sky Blue Crayola 0 */
+  skyBlueCrayola0: '#091B1E',
   /* Sky Blue Crayola 1 */
   skyBlueCrayola1: '#3FBACF',
   /* Sky Blue Crayola 2 */
@@ -73,8 +87,12 @@ export const colors: ColorsTheme = {
   skyBlueCrayola7: '#0B2226',
   /* Sky Blue Crayola 8 */
   skyBlueCrayola8: '#091B1E',
+  /* Sky Blue Crayola 9 */
+  skyBlueCrayola9: '#091B1E',
   /* Ultramarine Blue */
   ultramarineBlue: '#2667FF',
+  /* Ultramarine Blue 0 */
+  ultramarineBlue0: '#040915',
   /* Ultramarine Blue 1 */
   ultramarineBlue1: '#235EE8',
   /* Ultramarine Blue 2 */
@@ -91,8 +109,12 @@ export const colors: ColorsTheme = {
   ultramarineBlue7: '#071025',
   /* Ultramarine Blue 8 */
   ultramarineBlue8: '#040915',
+  /* Ultramarine Blue 9 */
+  ultramarineBlue9: '#040915',
   /* Wild Strawberry */
   wildStrawberry: '#FF4AA9',
+  /* Wild Strawberry 0 */
+  wildStrawberry0: '#210A16',
   /* Wild Strawberry 1 */
   wildStrawberry1: '#DF4395',
   /* Wild Strawberry 2 */
@@ -109,4 +131,6 @@ export const colors: ColorsTheme = {
   wildStrawberry7: '#351124',
   /* Wild Strawberry 8 */
   wildStrawberry8: '#210A16',
+  /* Wild Strawberry 9 */
+  wildStrawberry9: '#210A16',
 };

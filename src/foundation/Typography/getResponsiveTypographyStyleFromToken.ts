@@ -2,6 +2,7 @@ import { Theme } from '@emotion/react';
 import facepaint from 'facepaint';
 
 import { mediaBreakPoints } from '../Media/constants';
+import { getTypographyFromToken } from './getTypographyFromToken';
 import { TypographyConfig, TypographyToken } from './types';
 
 type GetTypographyFromTokenParams = {
@@ -22,7 +23,10 @@ export const getResponsiveTypographyStyleFromToken = ({
   token,
 }: GetTypographyFromTokenParams) => {
   const { largeDesktopDevice, mobileDevice, smallDesktopDevice, tabletDevice } =
-    theme.typography[token || 'primaryBodyMediumRegular'];
+    getTypographyFromToken({
+      theme,
+      token,
+    });
   const mediaTypography: Record<keyof TypographyConfig, (undefined | string)[]> = {
     fontFamily: [
       mobileDevice.fontFamily,

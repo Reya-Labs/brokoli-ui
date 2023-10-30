@@ -16,8 +16,7 @@ const Grid = styled('div')`
 const AllTypography: React.FunctionComponent<{
   colorToken: ColorTokens;
 }> = ({ colorToken }) => {
-  const theme = useTheme();
-  const typography = theme.typography;
+  const { typography } = useTheme();
   return (
     <Grid>
       {Object.keys(typography).map((key) => (
