@@ -1,33 +1,26 @@
 import styled from '@emotion/styled';
 
-import { colors } from '../../../themes/voltz/colors';
-
 export const ColorTileBox = styled('div')`
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 16px;
-  color: ${colors.lavenderWeb};
+  flex-direction: column;
+  width: 100%;
 `;
 
-export const ColorTileCircle = styled('div', {
-  shouldForwardProp: (prop) => prop !== 'backgroundColor' && prop !== 'highlight',
+export const ColorBackgroundBox = styled('div', {
+  shouldForwardProp: (prop) => prop !== 'backgroundColor',
 })<{
   backgroundColor: string;
-  highlight: boolean;
 }>`
-  width: 44px;
-  height: 44px;
+  padding: 26px 34px 26px 32px;
+  text-align: center;
   background-color: ${({ backgroundColor }) => backgroundColor};
-  border-radius: 50%;
-  ${({ highlight }) => (highlight ? `box-shadow: 0px 0px 23px ${colors.lavenderWeb}` : undefined)};
 `;
 
 export const ColorTypographyBox = styled('div')`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-left: 8px;
-  gap: 4px;
-  color: ${colors.lavenderWeb};
+  padding: 12px;
+  border-right: 1px solid gainsboro;
+  background: ${({ theme }) => theme.colors.lavenderWeb};
 `;

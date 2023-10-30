@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Typography } from '../../../components/Typography';
-import { ColorTileBox, ColorTileCircle, ColorTypographyBox } from './ColorTile.styled';
+import { ColorBackgroundBox, ColorTileBox, ColorTypographyBox } from './ColorTile.styled';
 
 type ColorTileProps = { name: string; backgroundColor: string; highlight: boolean };
 
@@ -11,12 +11,19 @@ export const ColorTile: React.FunctionComponent<ColorTileProps> = ({
   backgroundColor,
 }) => (
   <ColorTileBox>
-    <ColorTileCircle backgroundColor={backgroundColor} highlight={highlight} />
+    <ColorBackgroundBox backgroundColor={backgroundColor}>
+      <Typography
+        colorToken={highlight ? 'lavenderWeb' : 'lavenderWeb7'}
+        typographyToken="primaryBodySmallRegular"
+      >
+        BROK
+      </Typography>
+    </ColorBackgroundBox>
     <ColorTypographyBox>
-      <Typography colorToken="lavenderWeb" typographyToken="primaryBodyMediumBold">
+      <Typography colorToken="liberty4" typographyToken="primaryBodyMediumBold">
         {name}
       </Typography>
-      <Typography colorToken="lavenderWeb" typographyToken="primaryBodySmallRegular">
+      <Typography colorToken="liberty7" typographyToken="primaryBodySmallRegular">
         {backgroundColor.toUpperCase()}
       </Typography>
     </ColorTypographyBox>
