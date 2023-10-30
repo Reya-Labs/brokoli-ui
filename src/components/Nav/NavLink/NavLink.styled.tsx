@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
 import { BaseColorTokens, getColorFromToken } from '../../../foundation/Colors';
+import { getTypographyStyleFromToken } from '../../../foundation/Typography';
 
 export const NavLinkButtonBox = styled('div', {
   shouldForwardProp: (prop) =>
@@ -38,7 +39,7 @@ export const NavLinkButton = styled(Link, {
   isActive: boolean;
   colorToken: BaseColorTokens | 'rainbow';
 }>`
-  ${({ theme }) => css(theme.typography.primaryBodyMediumRegular.styleObject)};
+  ${({ theme }) => css(getTypographyStyleFromToken({ theme, token: 'primaryBodyMediumRegular' }))};
 
   text-decoration: none;
   text-transform: none;

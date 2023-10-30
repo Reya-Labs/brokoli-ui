@@ -1,6 +1,8 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
+import { getTypographyStyleFromToken } from '../../../foundation/Typography';
+
 export const IconBox = styled('div', {
   shouldForwardProp: (prop) => prop !== 'isActive',
 })<{
@@ -21,7 +23,7 @@ export const ChainOptionButton = styled('button')`
   padding: 16px;
   gap: 8px;
 
-  ${({ theme }) => css(theme.typography.primaryBodySmallRegular.styleObject)};
+  ${({ theme }) => css(getTypographyStyleFromToken({ theme, token: 'primaryBodySmallRegular' }))};
 
   color: ${({ theme }) => theme.colors.lavenderWeb};
   text-decoration: none;

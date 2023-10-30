@@ -1,6 +1,6 @@
 import { css, Theme } from '@emotion/react';
 
-import { TypographyToken } from '../../../foundation/Typography';
+import { getTypographyStyleFromToken, TypographyToken } from '../../../foundation/Typography';
 
 type CommonInputStyleArgs = {
   error?: boolean;
@@ -18,7 +18,7 @@ export const commonInputStyle = ({ theme, error, typographyToken }: CommonInputS
   align-items: center;
   column-gap: 8px;
 
-  ${css(theme.typography[typographyToken].styleObject)};
+  ${css(getTypographyStyleFromToken({ theme, token: typographyToken }))};
 
   outline: none;
   transition: all 200ms ease-in;
