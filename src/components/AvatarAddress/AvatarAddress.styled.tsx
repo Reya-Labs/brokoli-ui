@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 
+import { addAlpha } from '../../foundation/Colors';
 import { Typography } from '../Typography';
 
 export const AvatarAddressBox = styled('div')`
@@ -22,7 +23,7 @@ export const AddressTypography = styled(Typography)`
   transition: text-shadow 200ms ease-in;
   &:hover {
     cursor: pointer;
-    text-shadow: 0px 0px 10px rgba(225, 221, 247, 0.9);
+    text-shadow: 0px 0px 10px ${({ theme }) => addAlpha(theme.colors.lavenderWeb, 0.9)};
   }
 `;
 

@@ -1,6 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
+import { addAlpha } from '../../../foundation/Colors';
 import { getTypographyStyleFromToken } from '../../../foundation/Typography';
 
 export const IconBox = styled('div', {
@@ -39,7 +40,7 @@ export const ChainOptionButton = styled('button')`
 
   &:hover {
     text-decoration: none;
-    text-shadow: 0px 0px 20px rgba(225, 221, 247, 0.7);
+    text-shadow: 0px 0px 20px ${({ theme }) => addAlpha(theme.colors.lavenderWeb, 0.7)};
     background-color: ${({ theme }) => theme.colors.lavenderWeb8};
   }
 
@@ -50,6 +51,6 @@ export const ChainOptionButton = styled('button')`
 
 export const ActiveChainOptionButton = styled(ChainOptionButton)`
   text-decoration: none;
-  text-shadow: 0px 0px 20px rgba(225, 221, 247, 0.7);
+  text-shadow: 0px 0px 20px ${({ theme }) => addAlpha(theme.colors.lavenderWeb, 0.7)};
   background: ${({ theme }) => theme.colors.lavenderWeb8};
 `;

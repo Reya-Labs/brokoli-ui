@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 
+import { addAlpha } from '../../foundation/Colors';
+
 export const DialogBox = styled('div')`
   display: flex;
   flex-direction: column;
@@ -7,7 +9,7 @@ export const DialogBox = styled('div')`
   padding: 16px;
 
   position: relative;
-  box-shadow: 0px 0px 40px 0px rgba(225, 221, 247, 0.1);
+  box-shadow: 0px 0px 40px 0px ${({ theme }) => addAlpha(theme.colors.lavenderWeb, 0.1)};
   background: linear-gradient(
     90.95deg,
     ${({ theme }) => theme.colors.lavenderWeb8} 0.66%,

@@ -1,3 +1,5 @@
+import { addAlpha } from '../Colors';
+import { colors } from '../Colors/colors';
 import { TypographyConfig } from './types';
 
 export const primaryHeader1BlackCSSObject: TypographyConfig = {
@@ -6,7 +8,7 @@ export const primaryHeader1BlackCSSObject: TypographyConfig = {
   fontStyle: 'normal',
   fontWeight: '900',
   lineHeight: '120%',
-  textShadow: '0px 0px 20px rgba(225, 221, 247, 0.3)',
+  textShadow: `0px 0px 20px ${addAlpha(colors.lavenderWeb, 0.3)}`,
 };
 
 export const primaryHeader1BoldCSSObject: TypographyConfig = {
@@ -15,7 +17,7 @@ export const primaryHeader1BoldCSSObject: TypographyConfig = {
   fontStyle: 'normal',
   fontWeight: '700',
   lineHeight: '120%',
-  textShadow: '0px 0px 20px rgba(225, 221, 247, 0.3)',
+  textShadow: `0px 0px 20px ${addAlpha(colors.lavenderWeb, 0.3)}`,
 };
 
 export const primaryHeader2BlackCSSObject: TypographyConfig = {
@@ -24,7 +26,7 @@ export const primaryHeader2BlackCSSObject: TypographyConfig = {
   fontStyle: 'normal',
   fontWeight: '900',
   lineHeight: '120%',
-  textShadow: '0px 0px 20px rgba(225, 221, 247, 0.3)',
+  textShadow: `0px 0px 20px ${addAlpha(colors.lavenderWeb, 0.3)}`,
 };
 
 export const primaryHeader2BoldCSSObject: TypographyConfig = {
@@ -33,7 +35,7 @@ export const primaryHeader2BoldCSSObject: TypographyConfig = {
   fontStyle: 'normal',
   fontWeight: '700',
   lineHeight: '120%',
-  textShadow: '0px 0px 20px rgba(225, 221, 247, 0.3)',
+  textShadow: `0px 0px 20px ${addAlpha(colors.lavenderWeb, 0.3)}`,
 };
 
 export const primaryHeader3BlackCSSObject: TypographyConfig = {
@@ -42,7 +44,7 @@ export const primaryHeader3BlackCSSObject: TypographyConfig = {
   fontStyle: 'normal',
   fontWeight: '900',
   lineHeight: '120%',
-  textShadow: '0px 0px 20px rgba(225, 221, 247, 0.3)',
+  textShadow: `0px 0px 20px ${addAlpha(colors.lavenderWeb, 0.3)}`,
 };
 
 export const primaryHeader3BoldCSSObject: TypographyConfig = {
@@ -51,7 +53,7 @@ export const primaryHeader3BoldCSSObject: TypographyConfig = {
   fontStyle: 'normal',
   fontWeight: '700',
   lineHeight: '120%',
-  textShadow: '0px 0px 20px rgba(225, 221, 247, 0.3)',
+  textShadow: `0px 0px 20px ${addAlpha(colors.lavenderWeb, 0.3)}`,
 };
 
 export const primaryBodyXSmallRegularCSSObject: TypographyConfig = {
