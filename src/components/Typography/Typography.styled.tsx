@@ -2,7 +2,10 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { ColorTokens, getColorFromToken } from '../../foundation/Colors';
-import { getTypographyFromToken, TypographyToken } from '../../foundation/Typography';
+import {
+  getResponsiveTypographyStyleFromToken,
+  TypographyToken,
+} from '../../foundation/Typography';
 
 export const BaseTypography = styled('p', {
   shouldForwardProp: (prop) => prop !== 'typographyToken' && prop !== 'colorToken',
@@ -13,7 +16,8 @@ export const BaseTypography = styled('p', {
   margin: 0;
   padding: 0;
   color: ${({ theme, colorToken }) => getColorFromToken({ colorToken, theme })};
-  ${({ theme, typographyToken }) => css(getTypographyFromToken({ theme, token: typographyToken }))};
+  ${({ theme, typographyToken }) =>
+    css(getResponsiveTypographyStyleFromToken({ theme, token: typographyToken }))};
 `;
 
 export const RainbowTypography = styled(BaseTypography)`

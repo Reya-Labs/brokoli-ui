@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { getTypographyFromToken } from '../../foundation/Typography';
+import { getResponsiveTypographyStyleFromToken } from '../../foundation/Typography';
 import { ReactComponent as Warning } from './icons/warning.svg';
 
 export const SelectorBox = styled('div')`
@@ -28,7 +28,8 @@ export const ChainSelectorButton = styled('button', {
 })<{
   isPopoverOpen: boolean;
 }>`
-  ${({ theme }) => css(getTypographyFromToken({ theme, token: 'primaryBodyMediumRegular' }))};
+  ${({ theme }) =>
+    css(getResponsiveTypographyStyleFromToken({ theme, token: 'primaryBodyMediumRegular' }))};
 
   padding: 0px;
   color: ${({ theme, isPopoverOpen }) =>

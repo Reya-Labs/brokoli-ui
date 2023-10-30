@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { getTypographyFromToken } from '../../../foundation/Typography';
+import { getResponsiveTypographyStyleFromToken } from '../../../foundation/Typography';
 
 export const LeverageFieldBox = styled('div')`
   display: flex;
@@ -51,7 +51,8 @@ export const ButtonStyled = styled('button')<{
 
   border-radius: 4px;
 
-  ${({ theme }) => css(getTypographyFromToken({ theme, token: 'secondaryBodyXSmallRegular' }))};
+  ${({ theme }) =>
+    css(getResponsiveTypographyStyleFromToken({ theme, token: 'secondaryBodyXSmallRegular' }))};
   color: ${({ theme }) => theme.colors.lavenderWeb};
   cursor: pointer;
   transition: all 200ms ease-in;

@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
 import { addAlpha } from '../../../../foundation/Colors';
-import { getTypographyFromToken } from '../../../../foundation/Typography';
+import { getResponsiveTypographyStyleFromToken } from '../../../../foundation/Typography';
 
 export const SubLinkButton = styled(Link)`
   display: flex;
@@ -12,7 +12,8 @@ export const SubLinkButton = styled(Link)`
   padding: 16px;
   gap: 8px;
 
-  ${({ theme }) => css(getTypographyFromToken({ theme, token: 'primaryBodySmallRegular' }))};
+  ${({ theme }) =>
+    css(getResponsiveTypographyStyleFromToken({ theme, token: 'primaryBodySmallRegular' }))};
 
   color: ${({ theme }) => theme.colors.lavenderWeb};
   text-decoration: none;

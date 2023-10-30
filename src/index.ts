@@ -39,3 +39,4 @@ export * from './foundation/Colors';
 export * from './foundation/Gradients';
 export * from './foundation/LayerIndexes';
 export * from './foundation/Typography';
+export * from './themes/voltz';

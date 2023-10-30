@@ -2,7 +2,10 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { BaseColorTokens, getColorFromToken } from '../../foundation/Colors';
-import { getTypographyFromToken, TypographyToken } from '../../foundation/Typography';
+import {
+  getResponsiveTypographyStyleFromToken,
+  TypographyToken,
+} from '../../foundation/Typography';
 import { Typography, TypographyProps } from '../Typography';
 
 const differenceTypographyMap: Record<TypographyToken, TypographyToken> = {
@@ -48,7 +51,12 @@ export const TokenTypographyStyled = styled(Typography)<TypographyProps>`
 
   & > .difference-value {
     ${({ theme, typographyToken }) =>
-      css(getTypographyFromToken({ theme, token: differenceTypographyMap[typographyToken] }))};
+      css(
+        getResponsiveTypographyStyleFromToken({
+          theme,
+          token: differenceTypographyMap[typographyToken],
+        }),
+      )};
     color: ${({ theme, colorToken }) =>
       getColorFromToken({ colorToken: `${colorToken as BaseColorTokens}3`, theme })};
   }
@@ -66,7 +74,12 @@ export const TokenTypographyStyled = styled(Typography)<TypographyProps>`
   & > .difference-arrow,
   & > .difference-token {
     ${({ theme, typographyToken }) =>
-      css(getTypographyFromToken({ theme, token: differenceTypographyMap[typographyToken] }))};
+      css(
+        getResponsiveTypographyStyleFromToken({
+          theme,
+          token: differenceTypographyMap[typographyToken],
+        }),
+      )};
     color: ${({ theme, colorToken }) =>
       getColorFromToken({ colorToken: `${colorToken as BaseColorTokens}3`, theme })};
   }
