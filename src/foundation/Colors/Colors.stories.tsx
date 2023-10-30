@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
-import { colors } from './colors';
+import { colors } from '../../themes/voltz/colors';
 import { ColorTile } from './ColorTile/ColorTile';
 import { ColorTokens } from './types';
 

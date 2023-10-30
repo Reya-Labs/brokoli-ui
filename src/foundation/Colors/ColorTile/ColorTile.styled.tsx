@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { colors } from '../colors';
+import { colors } from '../../../themes/voltz/colors';
 
 export const ColorTileBox = styled('div')`
   display: flex;

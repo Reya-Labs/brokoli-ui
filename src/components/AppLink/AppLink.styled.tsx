@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
 import { BaseColorTokens, getColorFromToken } from '../../foundation/Colors';
-import { getTypographyStyleFromToken, TypographyToken } from '../../foundation/Typography';
+import { getTypographyFromToken, TypographyToken } from '../../foundation/Typography';
 import { Typography } from '../Typography';
 
 export const AppLinkStyled = styled(Link, {
@@ -15,8 +15,7 @@ export const AppLinkStyled = styled(Link, {
   margin: 0;
   padding: 0;
   color: ${({ theme, colorToken }) => getColorFromToken({ colorToken: `${colorToken}`, theme })};
-  ${({ theme, typographyToken }) =>
-    css(getTypographyStyleFromToken({ theme, token: typographyToken }))};
+  ${({ theme, typographyToken }) => css(getTypographyFromToken({ theme, token: typographyToken }))};
   text-decoration: none;
 
   &:hover {

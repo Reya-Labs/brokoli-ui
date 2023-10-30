@@ -5,7 +5,7 @@ import { Property } from 'csstype';
 import React, { useMemo } from 'react';
 
 import { ColorTokens, getColorFromToken } from '../../foundation/Colors';
-import { TypographyToken } from '../../foundation/Typography';
+import { getTypographyFromToken, TypographyToken } from '../../foundation/Typography';
 import { LineChartBox } from './LineChart.styled';
 import { Tooltip } from './Tooltip/Tooltip';
 
@@ -37,8 +37,8 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
   axisTypographyToken = 'primaryBodyXSmallRegular',
 }) => {
   const theme = useTheme();
-  const yMarkerTypography = theme.typography[yMarkerTypographyToken].styleObject;
-  const axisTypography = theme.typography[axisTypographyToken].styleObject;
+  const yMarkerTypography = getTypographyFromToken({ theme, token: yMarkerTypographyToken });
+  const axisTypography = getTypographyFromToken({ theme, token: axisTypographyToken });
   const color = useMemo(() => getColorFromToken({ colorToken, theme }), [theme, colorToken]);
   const yScale = useMemo(() => {
     const yS = data.reduce((pV, cI) => {

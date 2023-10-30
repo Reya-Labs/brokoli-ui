@@ -1,5 +1,5 @@
 import { create } from '@storybook/theming';
-import { colors } from '../../src/foundation/Colors/colors';
+import { colors } from '../../src/themes/voltz/colors';
 
 export default create({
   base: 'dark',

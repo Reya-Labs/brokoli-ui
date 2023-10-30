@@ -1,3 +1,4 @@
+import { useTheme } from '@emotion/react';
 import styled from '@emotion/styled';
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
@@ -5,7 +6,6 @@ import React from 'react';
 import { Typography as TypographyComponent } from '../../components/Typography';
 import { ColorTokens } from '../Colors';
 import { TypographyToken } from './types';
-import { typography } from './typography';
 
 const Grid = styled('div')`
   display: grid;
@@ -15,19 +15,23 @@ const Grid = styled('div')`
 `;
 const AllTypography: React.FunctionComponent<{
   colorToken: ColorTokens;
-}> = ({ colorToken }) => (
-  <Grid>
-    {Object.keys(typography).map((key) => (
-      <TypographyComponent
-        key={key}
-        colorToken={colorToken}
-        typographyToken={key as TypographyToken}
-      >
-        {key}
-      </TypographyComponent>
-    ))}
-  </Grid>
-);
+}> = ({ colorToken }) => {
+  const theme = useTheme();
+  const typography = theme.typography;
+  return (
+    <Grid>
+      {Object.keys(typography).map((key) => (
+        <TypographyComponent
+          key={key}
+          colorToken={colorToken}
+          typographyToken={key as TypographyToken}
+        >
+          {key}
+        </TypographyComponent>
+      ))}
+    </Grid>
+  );
+};
 
 export default {
   component: AllTypography,

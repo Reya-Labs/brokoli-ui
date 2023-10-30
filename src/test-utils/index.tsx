@@ -4,7 +4,7 @@ import { render, RenderOptions } from '@testing-library/react';
 import React, { ReactElement } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
-import { theme } from '../foundation/Theme';
+import { theme } from '../themes/voltz';
 
 const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
   return (

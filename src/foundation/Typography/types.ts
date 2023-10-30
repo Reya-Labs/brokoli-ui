@@ -1,5 +1,3 @@
-import React from 'react';
-
 export type TypographyToken =
   | 'primaryHeader1Black'
   | 'primaryHeader1Bold'
@@ -38,9 +36,4 @@ export type TypographyConfig = {
   textShadow?: string;
 };
 
-export type TypographyThemeConfig = {
-  as: React.ElementType;
-  styleObject: TypographyConfig;
-};
-
-export type TypographyTheme = Record<TypographyToken, TypographyThemeConfig>;
+export type TypographyTheme = Record<TypographyToken, TypographyConfig>;

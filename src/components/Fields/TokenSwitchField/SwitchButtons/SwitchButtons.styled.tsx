@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { getTypographyStyleFromToken } from '../../../../foundation/Typography';
+import { getTypographyFromToken } from '../../../../foundation/Typography';
 
 export const SwitchButtonsBox = styled('div')`
   display: flex;
@@ -39,7 +39,7 @@ export const SwitchButton = styled('button')<{
   border-radius: 4px;
   z-index: ${({ active }) => (active ? 1 : 0)};
 
-  ${({ theme }) => css(getTypographyStyleFromToken({ theme, token: 'primaryBodyXSmallRegular' }))};
+  ${({ theme }) => css(getTypographyFromToken({ theme, token: 'primaryBodyXSmallRegular' }))};
 
   color: ${({ theme, error, active }) =>
     !error
