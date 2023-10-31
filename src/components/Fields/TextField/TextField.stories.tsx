@@ -29,7 +29,7 @@ export const WithTypographyToken: StoryObj<typeof TextField> = {
 export const WithLabel: StoryObj<typeof TextField> = {
   args: {
     label: 'Username',
-    labelColorToken: 'lavenderWeb2',
+    labelColorToken: 'white300',
     labelTypographyToken: 'primaryBodySmallRegular',
   },
 
@@ -39,11 +39,11 @@ export const WithLabel: StoryObj<typeof TextField> = {
 export const WithTooltip: StoryObj<typeof TextField> = {
   args: {
     label: 'Password',
-    labelColorToken: 'lavenderWeb2',
+    labelColorToken: 'white300',
     labelTypographyToken: 'primaryBodySmallRegular',
     placeHolder: 'Type your password',
     tooltip: 'Make sure your password is secure and safe!',
-    tooltipColorToken: 'lavenderWeb2',
+    tooltipColorToken: 'white300',
     type: 'password',
   },
 

@@ -37,7 +37,7 @@ export type SearchFieldProps = {
 export const SearchField: React.FunctionComponent<SearchFieldProps> = ({
   disabled,
   error,
-  labelColorToken = 'lavenderWeb2',
+  labelColorToken = 'white300',
   labelTypographyToken = 'primaryBodySmallRegular',
   label,
   tooltipColorToken,

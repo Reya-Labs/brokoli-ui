@@ -24,7 +24,7 @@ export const Default: StoryObj<typeof CurrencyField> = {
 export const WithLabel: StoryObj<typeof CurrencyField> = {
   args: {
     label: 'Notional',
-    labelColorToken: 'lavenderWeb2',
+    labelColorToken: 'white300',
     labelTypographyToken: 'primaryBodySmallRegular',
     suffix: '%',
   },
@@ -35,11 +35,11 @@ export const WithLabel: StoryObj<typeof CurrencyField> = {
 export const WithTooltip: StoryObj<typeof CurrencyField> = {
   args: {
     label: 'Notional',
-    labelColorToken: 'lavenderWeb2',
+    labelColorToken: 'white300',
     labelTypographyToken: 'primaryBodySmallRegular',
     suffix: '%',
     tooltip: 'Input Notional!',
-    tooltipColorToken: 'lavenderWeb2',
+    tooltipColorToken: 'white300',
   },
 
   render: Template,

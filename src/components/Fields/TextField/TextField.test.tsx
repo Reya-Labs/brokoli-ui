@@ -8,10 +8,10 @@ describe('<TextField />', () => {
     disabled: false,
     error: false,
     label: 'Text Field',
-    labelColorToken: 'lavenderWeb2',
+    labelColorToken: 'white300',
     labelTypographyToken: 'primaryBodySmallRegular',
     onChange: jest.fn(),
-    tooltipColorToken: 'lavenderWeb2',
+    tooltipColorToken: 'white300',
     type: 'text',
     typographyToken: 'primaryBodyMediumRegular',
     value: 'Test Value',
@@ -25,7 +25,7 @@ describe('<TextField />', () => {
     render(<TextField {...defaultProps} />);
     expect(screen.getByTestId('TextField-TextFieldBox')).toBeInTheDocument();
     expect(
-      screen.getByTestId('TextField-TextFieldBox-primaryBodySmallRegular-lavenderWeb2'),
+      screen.getByTestId('TextField-TextFieldBox-primaryBodySmallRegular-white300'),
     ).toBeInTheDocument();
     expect(screen.getByTestId('TextField-TextFieldBox-TextInputStyled')).toBeInTheDocument();
   });

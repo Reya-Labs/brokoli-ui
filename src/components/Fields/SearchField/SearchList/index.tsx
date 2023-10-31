@@ -24,7 +24,7 @@ export type SearchListProps = {
 const defaultItemRenderer = (props: SearchItemRendererProps) => {
   const { searchedValue, item } = props;
   return (
-    <Typography colorToken="lavenderWeb2" typographyToken="primaryBodySmallRegular">
+    <Typography colorToken="white300" typographyToken="primaryBodySmallRegular">
       <Highlight highlight={searchedValue}>{item.label}</Highlight>
     </Typography>
   );

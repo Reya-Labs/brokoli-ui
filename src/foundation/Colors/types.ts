@@ -24,7 +24,7 @@ export type ColorTokens =
   | 'white600'
   | 'white500'
   | 'white400'
-  | 'lavenderWeb2'
+  | 'white300'
   | 'lavenderWeb1'
   | 'skyBlueCrayola9'
   | 'skyBlueCrayola8'

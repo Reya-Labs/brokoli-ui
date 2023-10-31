@@ -8,7 +8,7 @@ describe('<FromToTokenTypography />', () => {
     fromColorToken: 'skyBlueCrayola',
     fromValue: '100',
     label: 'From-To',
-    labelColorToken: 'lavenderWeb2',
+    labelColorToken: 'white300',
     labelTypographyToken: 'primaryBodySmallRegular',
     toColorToken: 'ultramarineBlue',
     toValue: '200',

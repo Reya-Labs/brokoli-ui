@@ -18,7 +18,7 @@ const Template: StoryFn<typeof LeverageField> = (args) => {
 export const Default: StoryObj<typeof LeverageField> = {
   args: {
     label: 'Leverage',
-    labelColorToken: 'lavenderWeb2',
+    labelColorToken: 'white300',
     labelTypographyToken: 'primaryBodySmallRegular',
     leverageOptions: ['10', '50', '100'],
     maxLeverageColorToken: 'white400',
@@ -34,7 +34,7 @@ export const Disabled: StoryObj<typeof LeverageField> = {
   args: {
     disabled: true,
     label: 'Leverage',
-    labelColorToken: 'lavenderWeb2',
+    labelColorToken: 'white300',
     labelTypographyToken: 'primaryBodySmallRegular',
     leverageOptions: ['10', '50', '100'],
     maxLeverageColorToken: 'white400',
@@ -49,14 +49,14 @@ export const Disabled: StoryObj<typeof LeverageField> = {
 export const WithTooltip: StoryObj<typeof LeverageField> = {
   args: {
     label: 'Leverage',
-    labelColorToken: 'lavenderWeb2',
+    labelColorToken: 'white300',
     labelTypographyToken: 'primaryBodySmallRegular',
     leverageOptions: ['10', '50', '100'],
     maxLeverageColorToken: 'white400',
     maxLeverageText: 'Max 8,000x Leverage',
     maxLeverageTypographyToken: 'primaryBodySmallRegular',
     tooltip: 'Input leverage!',
-    tooltipColorToken: 'lavenderWeb2',
+    tooltipColorToken: 'white300',
     value: '10',
   },
 
@@ -67,14 +67,14 @@ export const WithError: StoryObj<typeof LeverageField> = {
   args: {
     error: true,
     label: 'Leverage',
-    labelColorToken: 'lavenderWeb2',
+    labelColorToken: 'white300',
     labelTypographyToken: 'primaryBodySmallRegular',
     leverageOptions: ['10', '50', '100'],
     maxLeverageColorToken: 'wildStrawberry3',
     maxLeverageText: 'Max 8,000x Leverage',
     maxLeverageTypographyToken: 'primaryBodySmallRegular',
     tooltip: 'Input leverage!',
-    tooltipColorToken: 'lavenderWeb2',
+    tooltipColorToken: 'white300',
     value: '9000',
   },
 

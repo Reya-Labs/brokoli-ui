@@ -86,10 +86,10 @@ const ItemRenderer: React.FunctionComponent<SearchItemRendererProps> = ({
   const { label, extra } = item as CustomItemType;
   return (
     <Wrapper>
-      <Typography colorToken="lavenderWeb2" typographyToken="primaryBodySmallRegular">
+      <Typography colorToken="white300" typographyToken="primaryBodySmallRegular">
         <Highlight highlight={searchedValue}>{label}</Highlight>
       </Typography>
-      <Typography colorToken="lavenderWeb2" typographyToken="primaryBodySmallRegular">
+      <Typography colorToken="white300" typographyToken="primaryBodySmallRegular">
         <Highlight highlight={searchedValue}>{extra}</Highlight>
       </Typography>
     </Wrapper>
@@ -110,11 +110,11 @@ export const WithCustomisation: StoryObj<typeof SearchField> = {
     itemRenderer: ItemRenderer,
     items: customItems,
     label: 'Search',
-    labelColorToken: 'lavenderWeb2',
+    labelColorToken: 'white300',
     labelTypographyToken: 'primaryBodySmallRegular',
     placeHolder: 'Type to search',
     tooltip: 'Make sure enter valid data!',
-    tooltipColorToken: 'lavenderWeb2',
+    tooltipColorToken: 'white300',
   },
 
   render: Template,
@@ -133,11 +133,11 @@ export const WithCustomisationManyItems: StoryObj<typeof SearchField> = {
       ...customItems,
     ],
     label: 'Search',
-    labelColorToken: 'lavenderWeb2',
+    labelColorToken: 'white300',
     labelTypographyToken: 'primaryBodySmallRegular',
     placeHolder: 'Type to search',
     tooltip: 'Make sure enter valid data!',
-    tooltipColorToken: 'lavenderWeb2',
+    tooltipColorToken: 'white300',
   },
 
   render: Template,

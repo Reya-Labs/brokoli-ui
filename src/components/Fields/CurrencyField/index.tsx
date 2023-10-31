@@ -43,7 +43,7 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
   error,
   suffix,
   allowNegativeValue,
-  labelColorToken = 'lavenderWeb2',
+  labelColorToken = 'white300',
   labelTypographyToken = 'primaryBodySmallRegular',
   label,
   tooltipColorToken,

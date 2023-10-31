@@ -52,7 +52,7 @@ export const MarginAmountList: React.FunctionComponent<MarginAmountListProps> = 
           >
             <TokenTypographyBox>
               <TokenIcon size={20} token={item.token} />
-              <Typography colorToken="lavenderWeb2" typographyToken="primaryBodySmallRegular">
+              <Typography colorToken="white300" typographyToken="primaryBodySmallRegular">
                 {item.token.toUpperCase()}
               </Typography>
             </TokenTypographyBox>

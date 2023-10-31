@@ -26,7 +26,7 @@ export const TextField: React.FunctionComponent<TextFieldProps> = ({
   value,
   disabled,
   error,
-  labelColorToken = 'lavenderWeb2',
+  labelColorToken = 'white300',
   labelTypographyToken = 'primaryBodySmallRegular',
   label,
   tooltipColorToken,

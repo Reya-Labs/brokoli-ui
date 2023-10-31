@@ -7,7 +7,7 @@ describe('<LabelTokenTypography />', () => {
   const defaultProps: LabelTokenTypographyProps = {
     colorToken: 'lavenderWeb',
     label: 'Label',
-    labelColorToken: 'lavenderWeb2',
+    labelColorToken: 'white300',
     labelTypographyToken: 'primaryBodyMediumBold',
     token: 'Token',
     typographyToken: 'primaryBodyMediumRegular',
