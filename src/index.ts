@@ -38,5 +38,6 @@ export * from './components/WalletConnectButton';
 export * from './foundation/Colors';
 export * from './foundation/Gradients';
 export * from './foundation/LayerIndexes';
+export * from './foundation/Theme';
 export * from './foundation/ThemeProvider';
 export * from './foundation/Typography';
