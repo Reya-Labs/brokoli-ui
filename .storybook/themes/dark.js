@@ -9,7 +9,7 @@ export default create({
   // UI
   appBg: colors.liberty6,
   appContentBg: colors.liberty7,
-  appBorderColor: colors.lavenderWeb6,
+  appBorderColor: colors.white700,
   appBorderRadius: 4,
 
   // Typography
@@ -27,7 +27,7 @@ export default create({
 
   // Form colors
   inputBg: colors.liberty5,
-  inputBorder: colors.lavenderWeb6,
+  inputBorder: colors.white700,
   inputTextColor: colors.lavenderWeb,
   inputBorderRadius: 4,
 

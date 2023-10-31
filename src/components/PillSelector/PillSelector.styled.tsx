@@ -40,7 +40,7 @@ export const PillSelectorButton = styled('button', {
     !error
       ? active
         ? `0px 2px 10px ${theme.colors.liberty6}, 0px 8px 40px rgba(38, 103, 255, 0.2), 0px 5px 40px rgba(255, 74, 169, 0.2)`
-        : `0px 0px 1px ${theme.colors.lavenderWeb6}`
+        : `0px 0px 1px ${theme.colors.white700}`
       : `0px 4px 4px ${theme.colors.liberty8}, 0px 0px 1px ${theme.colors.wildStrawberry}`};
 
   border-radius: 4px;
@@ -74,8 +74,7 @@ export const PillSelectorButton = styled('button', {
     cursor: not-allowed;
     color: ${({ theme, active }) =>
       !active ? theme.colors.lavenderWeb4 : theme.colors.lavenderWeb2};
-    background: ${({ theme, active }) =>
-      active ? theme.colors.lavenderWeb6 : theme.colors.liberty7};
+    background: ${({ theme, active }) => (active ? theme.colors.white700 : theme.colors.liberty7)};
   }
 `;
 

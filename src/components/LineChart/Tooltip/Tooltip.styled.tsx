@@ -23,8 +23,8 @@ export const TooltipBox = styled('div')`
     height: ${ARROW_SIZE}px;
     transform: rotate(-45deg);
     background: ${({ theme }) => theme.colors.liberty7};
-    border-left: 1px solid ${({ theme }) => theme.colors.lavenderWeb6};
-    border-bottom: 1px solid ${({ theme }) => theme.colors.lavenderWeb6};
+    border-left: 1px solid ${({ theme }) => theme.colors.white700};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.white700};
     position: absolute;
     z-index: 1;
     bottom: -${ARROW_SIZE / 2}px;

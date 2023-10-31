@@ -20,7 +20,7 @@ export type ColorTokens =
   | 'white950'
   | 'white900'
   | 'white800'
-  | 'lavenderWeb6'
+  | 'white700'
   | 'lavenderWeb5'
   | 'lavenderWeb4'
   | 'lavenderWeb3'

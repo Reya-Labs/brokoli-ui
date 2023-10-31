@@ -48,7 +48,7 @@ export const secondaryButtonCSS = (theme: Theme) => css`
   }
 
   &:disabled {
-    color: ${theme.colors.lavenderWeb6};
+    color: ${theme.colors.white700};
     cursor: not-allowed;
   }
 `;

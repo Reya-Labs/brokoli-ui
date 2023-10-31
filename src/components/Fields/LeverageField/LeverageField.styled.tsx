@@ -45,9 +45,7 @@ export const ButtonStyled = styled('button')<{
       ? `linear-gradient(259.45deg, ${theme.colors.white900} 0%, ${theme.colors.white800} 84.3%)`
       : `linear-gradient(90.95deg, ${theme.colors.white900} 0.66%, ${theme.colors.liberty8} 99.34%)`};
   box-shadow: ${({ theme, active }) =>
-    active
-      ? `0px 0px 1px ${theme.colors.lavenderWeb}`
-      : `0px 0px 1px ${theme.colors.lavenderWeb6}`};
+    active ? `0px 0px 1px ${theme.colors.lavenderWeb}` : `0px 0px 1px ${theme.colors.white700}`};
 
   border-radius: 4px;
 

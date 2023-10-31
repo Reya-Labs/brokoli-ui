@@ -13,8 +13,6 @@ export const colors: ColorsTheme = {
   lavenderWeb4: '#635C84',
   /* Lavender Web 5 */
   lavenderWeb5: '#4D476A',
-  /* Lavender Web 6 */
-  lavenderWeb6: '#393452',
 
   /* Liberty */
   liberty: '#5D5296',
@@ -135,6 +133,9 @@ export const colors: ColorsTheme = {
 
   /* Ultramarine Blue 9 */
   ultramarineBlue9: '#040915',
+
+  /* Lavender Web 6 */
+  white700: '#393452',
 
   /* Lavender Web 7 */
   white800: '#272437',

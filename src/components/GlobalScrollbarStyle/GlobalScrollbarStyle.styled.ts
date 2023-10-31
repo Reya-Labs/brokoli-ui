@@ -19,6 +19,6 @@ export const globalScrollbarCSS = (theme: Theme) => css`
 
   /* Handle on hover styling */
   ::-webkit-scrollbar-thumb:hover {
-    background: ${theme.colors.lavenderWeb6};
+    background: ${theme.colors.white700};
   }
 `;
