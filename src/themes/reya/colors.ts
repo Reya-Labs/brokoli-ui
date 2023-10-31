@@ -2,12 +2,8 @@ import { ColorsTheme } from '../../foundation/Colors';
 
 export const colors: ColorsTheme = {
   black100: '#474747',
-
-  /* Liberty 1 */
-  black200: '#4F4580',
-
-  /* Liberty 2 */
-  black300: '#423A6C',
+  black200: '#3C3C3C',
+  black300: '#363636',
 
   /* Liberty 3 */
   black400: '#38305B',
