@@ -12,7 +12,7 @@ export const Default: StoryObj<typeof FromToTokenTypography> = {
   args: {
     fromColorToken: 'skyBlueCrayola',
     fromValue: 'From',
-    toColorToken: 'ultramarineBlue',
+    toColorToken: 'secondary100',
     toValue: 'To',
     typographyToken: 'secondaryBodySmallRegular',
   },
@@ -25,7 +25,7 @@ export const WithLabel: StoryObj<typeof FromToTokenTypography> = {
     label: 'Label goes here',
     labelColorToken: 'white100',
     labelTypographyToken: 'primaryBodyMediumBold',
-    toColorToken: 'ultramarineBlue',
+    toColorToken: 'secondary100',
     toValue: 'To',
     typographyToken: 'secondaryBodySmallRegular',
   },

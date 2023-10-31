@@ -6,7 +6,7 @@ const rainbow = `linear-gradient(
     ${colors.wildStrawberry} 0%,
     ${colors.orangeYellow} 31.47%,
     ${colors.skyBlueCrayola} 68.91%,
-    ${colors.ultramarineBlue} 100%
+    ${colors.secondary100} 100%
 )`;
 
 const invertedRainbow = `linear-gradient(
@@ -14,7 +14,7 @@ const invertedRainbow = `linear-gradient(
     ${colors.wildStrawberry} 0%,
     ${colors.orangeYellow} 31.47%,
     ${colors.skyBlueCrayola} 68.91%,
-    ${colors.ultramarineBlue} 100%
+    ${colors.secondary100} 100%
 )`;
 
 const background = `conic-gradient(

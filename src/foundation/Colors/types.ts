@@ -4,7 +4,7 @@ export type BaseColorTokens =
   | 'skyBlueCrayola'
   | 'orangeYellow'
   | 'wildStrawberry'
-  | 'ultramarineBlue';
+  | 'secondary100';
 
 export type ColorTokens =
   | BaseColorTokens
@@ -53,14 +53,14 @@ export type ColorTokens =
   | 'wildStrawberry3'
   | 'wildStrawberry2'
   | 'wildStrawberry1'
-  | 'ultramarineBlue9'
-  | 'ultramarineBlue8'
-  | 'ultramarineBlue7'
-  | 'ultramarineBlue6'
-  | 'ultramarineBlue5'
-  | 'ultramarineBlue4'
-  | 'ultramarineBlue3'
-  | 'ultramarineBlue2'
-  | 'ultramarineBlue1';
+  | 'secondary950'
+  | 'secondary900'
+  | 'secondary800'
+  | 'secondary700'
+  | 'secondary600'
+  | 'secondary500'
+  | 'secondary400'
+  | 'secondary300'
+  | 'secondary200';
 
 export type ColorsTheme = Record<ColorTokens, string>;

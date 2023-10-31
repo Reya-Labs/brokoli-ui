@@ -33,7 +33,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
   axisBottomFormat,
   yMarkerText,
   yMarkerColorToken = 'skyBlueCrayola',
-  colorToken = 'ultramarineBlue',
+  colorToken = 'secondary100',
   yMarkerTypographyToken = 'secondaryBodyXSmallRegular',
   axisTypographyToken = 'primaryBodyXSmallRegular',
 }) => {

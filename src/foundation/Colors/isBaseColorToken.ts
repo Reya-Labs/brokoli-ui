@@ -6,4 +6,4 @@ export const isBaseColorToken = (token: string): token is BaseColorTokens =>
   token === 'skyBlueCrayola' ||
   token === 'orangeYellow' ||
   token === 'wildStrawberry' ||
-  token === 'ultramarineBlue';
+  token === 'secondary100';

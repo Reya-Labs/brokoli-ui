@@ -61,6 +61,36 @@ export const colors: ColorsTheme = {
   /* Orange Yellow 9 */
   orangeYellow9: '#1F1808',
 
+  /* Ultramarine Blue */
+  secondary100: '#2667FF',
+
+  /* Ultramarine Blue 1 */
+  secondary200: '#235EE8',
+
+  /* Ultramarine Blue 2 */
+  secondary300: '#1E4CB9',
+
+  /* Ultramarine Blue 3 */
+  secondary400: '#173B8F',
+
+  /* Ultramarine Blue 4 */
+  secondary500: '#122C68',
+
+  /* Ultramarine Blue 5 */
+  secondary600: '#0D204D',
+
+  /* Ultramarine Blue 6 */
+  secondary700: '#0A1838',
+
+  /* Ultramarine Blue 7 */
+  secondary800: '#071025',
+
+  /* Ultramarine Blue 8 */
+  secondary900: '#040915',
+
+  /* Ultramarine Blue 9 */
+  secondary950: '#040915',
+
   /* Sky Blue Crayola */
   skyBlueCrayola: '#4DE5FF',
 
@@ -90,36 +120,6 @@ export const colors: ColorsTheme = {
 
   /* Sky Blue Crayola 9 */
   skyBlueCrayola9: '#091B1E',
-
-  /* Ultramarine Blue */
-  ultramarineBlue: '#2667FF',
-
-  /* Ultramarine Blue 1 */
-  ultramarineBlue1: '#235EE8',
-
-  /* Ultramarine Blue 2 */
-  ultramarineBlue2: '#1E4CB9',
-
-  /* Ultramarine Blue 3 */
-  ultramarineBlue3: '#173B8F',
-
-  /* Ultramarine Blue 4 */
-  ultramarineBlue4: '#122C68',
-
-  /* Ultramarine Blue 5 */
-  ultramarineBlue5: '#0D204D',
-
-  /* Ultramarine Blue 6 */
-  ultramarineBlue6: '#0A1838',
-
-  /* Ultramarine Blue 7 */
-  ultramarineBlue7: '#071025',
-
-  /* Ultramarine Blue 8 */
-  ultramarineBlue8: '#040915',
-
-  /* Ultramarine Blue 9 */
-  ultramarineBlue9: '#040915',
 
   /* Lavender Web */
   white100: '#E1DDF7',

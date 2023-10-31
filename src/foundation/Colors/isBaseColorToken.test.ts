@@ -7,7 +7,7 @@ describe('isBaseColorToken', () => {
     expect(isBaseColorToken('skyBlueCrayola')).toBe(true);
     expect(isBaseColorToken('orangeYellow')).toBe(true);
     expect(isBaseColorToken('wildStrawberry')).toBe(true);
-    expect(isBaseColorToken('ultramarineBlue')).toBe(true);
+    expect(isBaseColorToken('secondary100')).toBe(true);
   });
 
   it('should return false for invalid tokens', () => {
