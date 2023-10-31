@@ -8,7 +8,6 @@ export type BaseColorTokens =
 
 export type ColorTokens =
   | BaseColorTokens
-  | 'liberty0'
   | 'liberty9'
   | 'liberty8'
   | 'liberty7'
@@ -18,7 +17,6 @@ export type ColorTokens =
   | 'liberty3'
   | 'liberty2'
   | 'liberty1'
-  | 'lavenderWeb0'
   | 'lavenderWeb9'
   | 'lavenderWeb8'
   | 'lavenderWeb7'
@@ -28,7 +26,6 @@ export type ColorTokens =
   | 'lavenderWeb3'
   | 'lavenderWeb2'
   | 'lavenderWeb1'
-  | 'skyBlueCrayola0'
   | 'skyBlueCrayola9'
   | 'skyBlueCrayola8'
   | 'skyBlueCrayola7'
@@ -38,7 +35,6 @@ export type ColorTokens =
   | 'skyBlueCrayola3'
   | 'skyBlueCrayola2'
   | 'skyBlueCrayola1'
-  | 'orangeYellow0'
   | 'orangeYellow9'
   | 'orangeYellow8'
   | 'orangeYellow7'
@@ -48,7 +44,6 @@ export type ColorTokens =
   | 'orangeYellow3'
   | 'orangeYellow2'
   | 'orangeYellow1'
-  | 'wildStrawberry0'
   | 'wildStrawberry9'
   | 'wildStrawberry8'
   | 'wildStrawberry7'
@@ -58,7 +53,6 @@ export type ColorTokens =
   | 'wildStrawberry3'
   | 'wildStrawberry2'
   | 'wildStrawberry1'
-  | 'ultramarineBlue0'
   | 'ultramarineBlue9'
   | 'ultramarineBlue8'
   | 'ultramarineBlue7'
