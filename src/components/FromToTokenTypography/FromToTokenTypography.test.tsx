@@ -39,9 +39,9 @@ describe('<FromToTokenTypography />', () => {
   });
 
   test('applies the correct color token to the "from" value', () => {
-    render(<FromToTokenTypography {...defaultProps} fromColorToken="wildStrawberry" />);
+    render(<FromToTokenTypography {...defaultProps} fromColorToken="error100" />);
     const fromTokenTypography = screen.getByTestId(
-      'FromToTokenTypography-FromToBox-FromTokenTypography-wildStrawberry-primaryBodyXSmallBold',
+      'FromToTokenTypography-FromToBox-FromTokenTypography-error100-primaryBodyXSmallBold',
     );
     expect(fromTokenTypography).toBeInTheDocument();
   });

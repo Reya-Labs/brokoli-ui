@@ -28,18 +28,14 @@ export const commonInputStyle = ({ theme, error, typographyToken }: CommonInputS
 
   border-radius: 4px;
   background: ${theme.colors.liberty8};
-  border: ${error
-    ? `1px solid ${theme.colors.wildStrawberry7}`
-    : `1px solid ${theme.colors.white800}`};
-  color: ${error ? theme.colors.wildStrawberry3 : theme.colors.white400};
+  border: ${error ? `1px solid ${theme.colors.error800}` : `1px solid ${theme.colors.white800}`};
+  color: ${error ? theme.colors.error400 : theme.colors.white400};
 
   &:focus,
   &:active,
   &:hover {
-    color: ${error ? theme.colors.wildStrawberry : theme.colors.white100};
-    border: ${error
-      ? `1px solid ${theme.colors.wildStrawberry7}`
-      : `1px solid ${theme.colors.white500}`};
+    color: ${error ? theme.colors.error100 : theme.colors.white100};
+    border: ${error ? `1px solid ${theme.colors.error800}` : `1px solid ${theme.colors.white500}`};
     background: ${theme.colors.white900};
   }
 

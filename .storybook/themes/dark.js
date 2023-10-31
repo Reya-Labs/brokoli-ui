@@ -3,8 +3,8 @@ import { colors } from '../../src/themes/voltz/colors';
 
 export default create({
   base: 'dark',
-  colorPrimary: colors.wildStrawberry,
-  colorSecondary: colors.wildStrawberry2,
+  colorPrimary: colors.error100,
+  colorSecondary: colors.error300,
 
   // UI
   appBg: colors.liberty6,
@@ -22,7 +22,7 @@ export default create({
 
   // Toolbar default and active colors
   barTextColor: colors.white100,
-  barSelectedColor: colors.wildStrawberry,
+  barSelectedColor: colors.error100,
   barBg: colors.liberty6,
 
   // Form colors

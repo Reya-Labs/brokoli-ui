@@ -7,12 +7,12 @@ describe('<Pill />', () => {
   it('renders the correct text and variant', () => {
     const text = 'Hello';
     render(
-      <Pill colorToken="wildStrawberry" typographyToken="primaryBodySmallRegular" variant="regular">
+      <Pill colorToken="error100" typographyToken="primaryBodySmallRegular" variant="regular">
         {text}
       </Pill>,
     );
     const pillTypography = screen.getByTestId(
-      `Pill-PillTypography-regular-wildStrawberry-primaryBodySmallRegular`,
+      `Pill-PillTypography-regular-error100-primaryBodySmallRegular`,
     );
     expect(pillTypography).toHaveTextContent(text);
   });
@@ -22,7 +22,7 @@ describe('<Pill />', () => {
     render(
       <Pill
         className={className}
-        colorToken="wildStrawberry"
+        colorToken="error100"
         typographyToken="primaryBodySmallRegular"
         variant="regular"
       >

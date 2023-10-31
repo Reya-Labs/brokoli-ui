@@ -70,7 +70,7 @@ export const WithError: StoryObj<typeof LeverageField> = {
     labelColorToken: 'white300',
     labelTypographyToken: 'primaryBodySmallRegular',
     leverageOptions: ['10', '50', '100'],
-    maxLeverageColorToken: 'wildStrawberry3',
+    maxLeverageColorToken: 'error400',
     maxLeverageText: 'Max 8,000x Leverage',
     maxLeverageTypographyToken: 'primaryBodySmallRegular',
     tooltip: 'Input leverage!',

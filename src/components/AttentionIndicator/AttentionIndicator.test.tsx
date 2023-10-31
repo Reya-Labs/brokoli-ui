@@ -5,8 +5,8 @@ import { AttentionIndicator } from './index';
 
 describe('<AttentionIndicator />', () => {
   it('renders the attention indicator', () => {
-    render(<AttentionIndicator colorToken="wildStrawberry" />);
-    const component = screen.getByTestId('AttentionIndicator-wildStrawberry');
+    render(<AttentionIndicator colorToken="error100" />);
+    const component = screen.getByTestId('AttentionIndicator-error100');
     expect(component).toBeInTheDocument();
   });
 });

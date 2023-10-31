@@ -34,7 +34,7 @@ export const SwitchButton = styled('button')<{
       ? active
         ? `0px 4px 4px ${theme.colors.liberty8}, 0px 0px 1px ${theme.colors.white100}`
         : `0px 0px 1px ${theme.colors.white900}`
-      : `0px 4px 4px ${theme.colors.liberty8}, 0px 0px 1px ${theme.colors.wildStrawberry}`};
+      : `0px 4px 4px ${theme.colors.liberty8}, 0px 0px 1px ${theme.colors.error100}`};
 
   border-radius: 4px;
   z-index: ${({ active }) => (active ? 1 : 0)};
@@ -48,8 +48,8 @@ export const SwitchButton = styled('button')<{
         ? theme.colors.white100
         : theme.colors.white400
       : active
-      ? theme.colors.wildStrawberry
-      : theme.colors.wildStrawberry3};
+      ? theme.colors.error100
+      : theme.colors.error400};
   cursor: pointer;
   transition: all 200ms ease-in;
 

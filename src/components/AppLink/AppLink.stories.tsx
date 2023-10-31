@@ -36,7 +36,7 @@ const WithinTextTemplate: StoryFn<typeof AppLink> = (args) => (
 export const WithinText: StoryObj<typeof AppLink> = {
   args: {
     children: 'Lorem link',
-    colorToken: 'wildStrawberry',
+    colorToken: 'error100',
     to: '/app-link',
     typographyToken: 'primaryBodySmallBold',
   },

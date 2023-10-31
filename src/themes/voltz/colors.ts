@@ -1,6 +1,36 @@
 import { ColorsTheme } from '../../foundation/Colors';
 
 export const colors: ColorsTheme = {
+  /* Wild Strawberry */
+  error100: '#FF4AA9',
+
+  /* Wild Strawberry 1 */
+  error200: '#DF4395',
+
+  /* Wild Strawberry 2 */
+  error300: '#BB3B7F',
+
+  /* Wild Strawberry 3 */
+  error400: '#9C316A',
+
+  /* Wild Strawberry 4 */
+  error500: '#842A5A',
+
+  /* Wild Strawberry 5 */
+  error600: '#601F41',
+
+  /* Wild Strawberry 6 */
+  error700: '#471730',
+
+  /* Wild Strawberry 7 */
+  error800: '#351124',
+
+  /* Wild Strawberry 8 */
+  error900: '#210A16',
+
+  /* Wild Strawberry 9 */
+  error950: '#210A16',
+
   /* Liberty */
   liberty: '#5D5296',
 
@@ -61,9 +91,6 @@ export const colors: ColorsTheme = {
   /* Sky Blue Crayola 9 */
   primary950: '#091B1E',
 
-  /* Orange Yellow */
-  warning100: '#FBC13A',
-
   /* Ultramarine Blue */
   secondary100: '#2667FF',
 
@@ -93,6 +120,9 @@ export const colors: ColorsTheme = {
 
   /* Ultramarine Blue 9 */
   secondary950: '#040915',
+
+  /* Orange Yellow */
+  warning100: '#FBC13A',
 
   /* Orange Yellow 1 */
   warning200: '#CA9C32',
@@ -150,24 +180,4 @@ export const colors: ColorsTheme = {
 
   /* Lavender Web 9 */
   white950: '#181524',
-  /* Wild Strawberry */
-  wildStrawberry: '#FF4AA9',
-  /* Wild Strawberry 1 */
-  wildStrawberry1: '#DF4395',
-  /* Wild Strawberry 2 */
-  wildStrawberry2: '#BB3B7F',
-  /* Wild Strawberry 3 */
-  wildStrawberry3: '#9C316A',
-  /* Wild Strawberry 4 */
-  wildStrawberry4: '#842A5A',
-  /* Wild Strawberry 5 */
-  wildStrawberry5: '#601F41',
-  /* Wild Strawberry 6 */
-  wildStrawberry6: '#471730',
-  /* Wild Strawberry 7 */
-  wildStrawberry7: '#351124',
-  /* Wild Strawberry 8 */
-  wildStrawberry8: '#210A16',
-  /* Wild Strawberry 9 */
-  wildStrawberry9: '#210A16',
 };

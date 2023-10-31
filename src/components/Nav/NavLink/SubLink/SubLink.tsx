@@ -26,7 +26,7 @@ export const SubLink: React.FunctionComponent<SubLinkProps> = ({
       to={link}
       onClick={onClick}
     >
-      {isNew ? <AttentionIndicator colorToken="wildStrawberry" /> : null}
+      {isNew ? <AttentionIndicator colorToken="error100" /> : null}
       {text}
     </SubLinkUI>
   );

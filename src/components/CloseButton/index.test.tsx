@@ -13,9 +13,9 @@ describe('<CloseButton />', () => {
   });
 
   it('renders with provided color token', () => {
-    render(<CloseButton colorToken="wildStrawberry" />);
+    render(<CloseButton colorToken="error100" />);
 
-    const closeButton = screen.getByTestId('CloseButton-CloseButtonStyled-wildStrawberry');
+    const closeButton = screen.getByTestId('CloseButton-CloseButtonStyled-error100');
     expect(closeButton).toBeInTheDocument();
     expect(closeButton).toHaveTextContent('✕');
   });

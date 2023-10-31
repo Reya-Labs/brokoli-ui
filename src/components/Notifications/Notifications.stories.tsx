@@ -18,7 +18,7 @@ const Template: StoryFn<typeof Notifications> = (args) => {
         variant="secondary"
         onClick={() => {
           showNotification({
-            colorToken: 'wildStrawberry',
+            colorToken: 'error100',
             content:
               'A error message is a modal dialog box, in-place message, notification, or balloon that alerts the user of a condition that might cause a problem in the future',
             title: 'This is a error',

@@ -10,7 +10,7 @@ describe('<TooltipLabel />', () => {
     const tooltip = 'This is a tooltip';
     const label = 'Label text';
     const labelColorToken: ColorTokens = 'white100';
-    const tooltipColorToken: ColorTokens = 'wildStrawberry';
+    const tooltipColorToken: ColorTokens = 'error100';
     const labelTypographyToken: TypographyToken = 'primaryBodyMediumBold';
 
     render(

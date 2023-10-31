@@ -5,5 +5,5 @@ export const isBaseColorToken = (token: string): token is BaseColorTokens =>
   token === 'white100' ||
   token === 'primary100' ||
   token === 'warning100' ||
-  token === 'wildStrawberry' ||
+  token === 'error100' ||
   token === 'secondary100';

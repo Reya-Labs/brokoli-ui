@@ -35,7 +35,7 @@ describe('<NavLink />', () => {
         Some Link
       </NavLink>,
     );
-    expect(screen.getByTestId('AttentionIndicator-wildStrawberry')).toBeInTheDocument();
+    expect(screen.getByTestId('AttentionIndicator-error100')).toBeInTheDocument();
   });
 
   it('renders the ActiveNavLinkButton when the link is active', () => {

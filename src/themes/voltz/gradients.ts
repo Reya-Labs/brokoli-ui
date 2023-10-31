@@ -3,7 +3,7 @@ import { colors } from './colors';
 
 const rainbow = `linear-gradient(
     90deg,
-    ${colors.wildStrawberry} 0%,
+    ${colors.error100} 0%,
     ${colors.warning100} 31.47%,
     ${colors.primary100} 68.91%,
     ${colors.secondary100} 100%
@@ -11,7 +11,7 @@ const rainbow = `linear-gradient(
 
 const invertedRainbow = `linear-gradient(
     180deg,
-    ${colors.wildStrawberry} 0%,
+    ${colors.error100} 0%,
     ${colors.warning100} 31.47%,
     ${colors.primary100} 68.91%,
     ${colors.secondary100} 100%

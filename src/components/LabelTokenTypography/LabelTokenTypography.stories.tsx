@@ -50,7 +50,7 @@ export const WithTooltip: StoryObj<typeof LabelTokenTypography> = {
 
 export const WithAttentionIndicator: StoryObj<typeof LabelTokenTypography> = {
   args: {
-    attentionIndicatorColorToken: 'wildStrawberry',
+    attentionIndicatorColorToken: 'error100',
     colorToken: 'white100',
     label: 'Additional Cashflow',
     labelColorToken: 'white400',

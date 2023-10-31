@@ -52,7 +52,7 @@ export const NavLink: React.FunctionComponent<NavLinkProps> = ({
       isActive={isActive}
       isPopoverOpen={isSubmenuOpened}
     >
-      {isNew ? <AttentionIndicator colorToken="wildStrawberry" /> : null}
+      {isNew ? <AttentionIndicator colorToken="error100" /> : null}
       <NavLinkButton
         colorToken={colorToken}
         isActive={isActive}

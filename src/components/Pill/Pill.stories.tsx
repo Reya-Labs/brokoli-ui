@@ -11,7 +11,7 @@ export default {
 export const Default: StoryObj<typeof Pill> = {
   args: {
     children: 'Headache pill',
-    colorToken: 'wildStrawberry',
+    colorToken: 'error100',
     typographyToken: 'primaryBodySmallRegular',
     variant: 'regular',
   },

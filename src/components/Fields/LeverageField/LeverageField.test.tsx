@@ -11,7 +11,7 @@ describe('<LeverageField />', () => {
     labelColorToken: 'white100',
     labelTypographyToken: 'primaryBodyMediumBold',
     leverageOptions: ['1', '2', '3'],
-    maxLeverageColorToken: 'wildStrawberry',
+    maxLeverageColorToken: 'error100',
     maxLeverageText: 'Max Leverage',
     maxLeverageTypographyToken: 'primaryHeader2Black',
     onLeverageChange: jest.fn(),

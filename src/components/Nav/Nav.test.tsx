@@ -71,12 +71,12 @@ describe('<Nav />', () => {
     expect(
       screen
         .getAllByTestId('NavLinkButton')[3]
-        .querySelector('[data-testid="AttentionIndicator-wildStrawberry"]'),
+        .querySelector('[data-testid="AttentionIndicator-error100"]'),
     ).toBeInTheDocument();
     expect(
       screen
         .getAllByTestId('NavLinkButton')[4]
-        .querySelector('[data-testid="AttentionIndicator-wildStrawberry"]'),
+        .querySelector('[data-testid="AttentionIndicator-error100"]'),
     ).toBeInTheDocument();
   });
 });

@@ -25,9 +25,9 @@ export const WalletConnectButton: React.FunctionComponent<WalletConnectButtonPro
   if (error) {
     return (
       <WalletButton data-testid="WalletConnectButton-WalletError" onClick={onClick}>
-        <AttentionIndicator colorToken="wildStrawberry" />
+        <AttentionIndicator colorToken="error100" />
         <WalletConnectButtonTypography
-          colorToken="wildStrawberry"
+          colorToken="error100"
           typographyToken="primaryBodyMediumRegular"
         >
           {error}
@@ -58,7 +58,7 @@ export const WalletConnectButton: React.FunctionComponent<WalletConnectButtonPro
 
   return (
     <WalletButton data-testid="WalletConnectButton-WalletConnect" onClick={onClick}>
-      <AttentionIndicator colorToken="wildStrawberry" />
+      <AttentionIndicator colorToken="error100" />
       <WalletConnectButtonTypography
         colorToken="white100"
         typographyToken="primaryBodyMediumRegular"

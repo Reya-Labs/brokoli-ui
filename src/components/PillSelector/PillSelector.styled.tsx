@@ -41,7 +41,7 @@ export const PillSelectorButton = styled('button', {
       ? active
         ? `0px 2px 10px ${theme.colors.liberty6}, 0px 8px 40px rgba(38, 103, 255, 0.2), 0px 5px 40px rgba(255, 74, 169, 0.2)`
         : `0px 0px 1px ${theme.colors.white700}`
-      : `0px 4px 4px ${theme.colors.liberty8}, 0px 0px 1px ${theme.colors.wildStrawberry}`};
+      : `0px 4px 4px ${theme.colors.liberty8}, 0px 0px 1px ${theme.colors.error100}`};
 
   border-radius: 4px;
   z-index: ${({ active }) => (active ? 1 : 0)};
@@ -55,8 +55,8 @@ export const PillSelectorButton = styled('button', {
         ? theme.colors.white100
         : theme.colors.white400
       : active
-      ? theme.colors.wildStrawberry
-      : theme.colors.wildStrawberry3};
+      ? theme.colors.error100
+      : theme.colors.error400};
   cursor: pointer;
   transition: all 200ms ease-in;
 

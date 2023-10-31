@@ -38,7 +38,7 @@ export const Container = styled('div')`
   }
   i:nth-of-type(3) {
     transform: translate3d(-89px, 30px, 0) rotate(45deg);
-    background: ${({ theme }) => theme.colors.wildStrawberry};
+    background: ${({ theme }) => theme.colors.error100};
     animation: ${bang} 700ms ease-out forwards;
     opacity: 0;
   }
@@ -56,7 +56,7 @@ export const Container = styled('div')`
   }
   i:nth-of-type(6) {
     transform: translate3d(-6px, 12px, 0) rotate(357deg);
-    background: ${({ theme }) => theme.colors.wildStrawberry};
+    background: ${({ theme }) => theme.colors.error100};
     animation: ${bang} 700ms ease-out forwards;
     opacity: 0;
   }
@@ -86,7 +86,7 @@ export const Container = styled('div')`
   }
   i:nth-of-type(11) {
     transform: translate3d(27px, -17px, 0) rotate(148deg);
-    background: ${({ theme }) => theme.colors.wildStrawberry};
+    background: ${({ theme }) => theme.colors.error100};
     animation: ${bang} 700ms ease-out forwards;
     opacity: 0;
   }
@@ -122,25 +122,25 @@ export const Container = styled('div')`
   }
   i:nth-of-type(17) {
     transform: translate3d(-82px, -8px, 0) rotate(353deg);
-    background: ${({ theme }) => theme.colors.wildStrawberry};
+    background: ${({ theme }) => theme.colors.error100};
     animation: ${bang} 700ms ease-out forwards;
     opacity: 0;
   }
   i:nth-of-type(18) {
     transform: translate3d(-34px, -40px, 0) rotate(181deg);
-    background: ${({ theme }) => theme.colors.wildStrawberry};
+    background: ${({ theme }) => theme.colors.error100};
     animation: ${bang} 700ms ease-out forwards;
     opacity: 0;
   }
   i:nth-of-type(19) {
     transform: translate3d(32px, -48px, 0) rotate(77deg);
-    background: ${({ theme }) => theme.colors.wildStrawberry};
+    background: ${({ theme }) => theme.colors.error100};
     animation: ${bang} 700ms ease-out forwards;
     opacity: 0;
   }
   i:nth-of-type(20) {
     transform: translate3d(85px, -42px, 0) rotate(344deg);
-    background: ${({ theme }) => theme.colors.wildStrawberry};
+    background: ${({ theme }) => theme.colors.error100};
     animation: ${bang} 700ms ease-out forwards;
     opacity: 0;
   }

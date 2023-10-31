@@ -70,7 +70,7 @@ export const WithPositiveDifference: StoryObj<typeof TokenTypography> = {
 
 export const WithAttentionIndicator: StoryObj<typeof TokenTypography> = {
   args: {
-    attentionIndicatorColorToken: 'wildStrawberry',
+    attentionIndicatorColorToken: 'error100',
     colorToken: 'white100',
     differenceValue: 2,
     token: '%',

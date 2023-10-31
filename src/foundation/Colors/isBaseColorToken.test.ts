@@ -6,7 +6,7 @@ describe('isBaseColorToken', () => {
     expect(isBaseColorToken('white100')).toBe(true);
     expect(isBaseColorToken('primary100')).toBe(true);
     expect(isBaseColorToken('warning100')).toBe(true);
-    expect(isBaseColorToken('wildStrawberry')).toBe(true);
+    expect(isBaseColorToken('error100')).toBe(true);
     expect(isBaseColorToken('secondary100')).toBe(true);
   });
 

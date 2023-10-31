@@ -10,6 +10,6 @@ export default {
 
 export const Default: StoryObj<typeof AttentionIndicator> = {
   args: {
-    colorToken: 'wildStrawberry',
+    colorToken: 'error100',
   },
 };
