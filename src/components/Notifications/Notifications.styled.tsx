@@ -16,7 +16,7 @@ export const NotificationBox = styled('div', {
   padding: 16px;
   gap: 8px;
 
-  background: ${({ theme }) => theme.colors.liberty8};
+  background: ${({ theme }) => theme.colors.black900};
 
   border: 1px solid
     ${({ theme, colorToken }) => `${getColorFromToken({ colorToken: `${colorToken}3`, theme })}`};

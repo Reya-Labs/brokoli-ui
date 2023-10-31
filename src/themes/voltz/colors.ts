@@ -1,6 +1,36 @@
 import { ColorsTheme } from '../../foundation/Colors';
 
 export const colors: ColorsTheme = {
+  /* Liberty */
+  black100: '#5D5296',
+
+  /* Liberty 1 */
+  black200: '#4F4580',
+
+  /* Liberty 2 */
+  black300: '#423A6C',
+
+  /* Liberty 3 */
+  black400: '#38305B',
+
+  /* Liberty 4 */
+  black500: '#2B2548',
+
+  /* Liberty 5 */
+  black600: '#1E1933',
+
+  /* Liberty 6 */
+  black700: '#19152A',
+
+  /* Liberty 7 */
+  black800: '#0F0D18',
+
+  /* Liberty 8 */
+  black900: '#0B0911',
+
+  /* Liberty 9 */
+  black950: '#0B0911',
+
   /* Wild Strawberry */
   error100: '#FF4AA9',
 
@@ -30,36 +60,6 @@ export const colors: ColorsTheme = {
 
   /* Wild Strawberry 9 */
   error950: '#210A16',
-
-  /* Liberty */
-  liberty: '#5D5296',
-
-  /* Liberty 1 */
-  liberty1: '#4F4580',
-
-  /* Liberty 2 */
-  liberty2: '#423A6C',
-
-  /* Liberty 3 */
-  liberty3: '#38305B',
-
-  /* Liberty 4 */
-  liberty4: '#2B2548',
-
-  /* Liberty 5 */
-  liberty5: '#1E1933',
-
-  /* Liberty 6 */
-  liberty6: '#19152A',
-
-  /* Liberty 7 */
-  liberty7: '#0F0D18',
-
-  /* Liberty 8 */
-  liberty8: '#0B0911',
-
-  /* Liberty 9 */
-  liberty9: '#0B0911',
 
   /* Sky Blue Crayola */
   primary100: '#4DE5FF',

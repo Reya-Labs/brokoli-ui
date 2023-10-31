@@ -13,7 +13,7 @@ export const IconBox = styled('div', {
   height: 24px;
   border-radius: 50%;
   background: ${({ theme, isActive }) =>
-    isActive ? theme.colors.liberty7 : theme.colors.white900};
+    isActive ? theme.colors.black800 : theme.colors.white900};
   transition: background-color 200ms ease-in;
 `;
 
@@ -29,7 +29,7 @@ export const ChainOptionButton = styled('button')`
 
   color: ${({ theme }) => theme.colors.white100};
   text-decoration: none;
-  background-color: ${({ theme }) => theme.colors.liberty7};
+  background-color: ${({ theme }) => theme.colors.black800};
   border-radius: 2px;
   width: 100%;
   box-sizing: border-box;
@@ -46,7 +46,7 @@ export const ChainOptionButton = styled('button')`
   }
 
   &:hover div {
-    background: ${({ theme }) => theme.colors.liberty7};
+    background: ${({ theme }) => theme.colors.black800};
   }
 `;
 

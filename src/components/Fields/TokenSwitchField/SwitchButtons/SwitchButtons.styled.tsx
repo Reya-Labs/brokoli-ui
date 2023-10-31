@@ -28,13 +28,13 @@ export const SwitchButton = styled('button')<{
   background: ${({ theme, active }) =>
     active
       ? `linear-gradient(259.45deg, ${theme.colors.white900} 0%, ${theme.colors.white800} 84.3%)`
-      : `linear-gradient(261.54deg, ${theme.colors.white900} -58.11%, ${theme.colors.liberty8} 12.89%)`};
+      : `linear-gradient(261.54deg, ${theme.colors.white900} -58.11%, ${theme.colors.black900} 12.89%)`};
   box-shadow: ${({ theme, error, active }) =>
     !error
       ? active
-        ? `0px 4px 4px ${theme.colors.liberty8}, 0px 0px 1px ${theme.colors.white100}`
+        ? `0px 4px 4px ${theme.colors.black900}, 0px 0px 1px ${theme.colors.white100}`
         : `0px 0px 1px ${theme.colors.white900}`
-      : `0px 4px 4px ${theme.colors.liberty8}, 0px 0px 1px ${theme.colors.error100}`};
+      : `0px 4px 4px ${theme.colors.black900}, 0px 0px 1px ${theme.colors.error100}`};
 
   border-radius: 4px;
   z-index: ${({ active }) => (active ? 1 : 0)};
@@ -60,13 +60,13 @@ export const SwitchButton = styled('button')<{
       active
         ? `linear-gradient(
       259.45deg,
-      ${theme.colors.liberty8} 0%,
+      ${theme.colors.black900} 0%,
       ${theme.colors.white900} 33.14%,
       ${theme.colors.white800} 84.3%)`
-        : `linear-gradient(90.95deg, ${theme.colors.white900} 0.66%, ${theme.colors.liberty8} 99.34%)`};
+        : `linear-gradient(90.95deg, ${theme.colors.white900} 0.66%, ${theme.colors.black900} 99.34%)`};
 
     box-shadow: ${({ theme, active }) => `
-      0px 4px 4px ${theme.colors.liberty8},
+      0px 4px 4px ${theme.colors.black900},
       0px 0px 1px ${theme.colors.white100}
     `};
   }

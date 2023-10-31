@@ -8,7 +8,7 @@ export const globalScrollbarCSS = (theme: Theme) => css`
 
   /* Track styling */
   ::-webkit-scrollbar-track {
-    background: ${theme.colors.liberty8};
+    background: ${theme.colors.black900};
   }
 
   /* Handle styling */

@@ -6,14 +6,14 @@ import { Donut, DonutProps } from '.'; // Make sure the path to the Donut compon
 describe('<Donut />', () => {
   const props: DonutProps = {
     colorToken: 'warning100',
-    holeColorToken: 'liberty7',
+    holeColorToken: 'black800',
     percentage: 50,
   };
 
   it('renders the Donut component with provided props', () => {
     render(<Donut {...props} />);
     const container = screen.getByTestId(`Donut-Container-${props.colorToken}-50`);
-    const hole = screen.getByTestId(`Donut-Hole-${props.holeColorToken || 'liberty6'}`);
+    const hole = screen.getByTestId(`Donut-Hole-${props.holeColorToken || 'black700'}`);
     expect(container).toBeInTheDocument();
     expect(hole).toBeInTheDocument();
   });
@@ -42,7 +42,7 @@ describe('<Donut />', () => {
       holeColorToken: undefined,
     };
     render(<Donut {...propsWithoutHoleColor} />);
-    const hole = screen.getByTestId('Donut-Hole-liberty6');
+    const hole = screen.getByTestId('Donut-Hole-black700');
     expect(hole).toBeInTheDocument();
   });
 });

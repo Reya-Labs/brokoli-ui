@@ -29,6 +29,6 @@ export const ItemWrapper = styled('div', {
   transition: background-color 200ms ease-in;
 
   &:hover {
-    background: ${({ theme }) => theme.colors.liberty6};
+    background: ${({ theme }) => theme.colors.black700};
   }
 `;

@@ -69,14 +69,14 @@ export const SearchList: React.FunctionComponent<SearchListProps> = ({
           filteredItems.map((item, index) => (
             <ItemWrapper
               key={`${item.id}-${index}`}
-              backgroundColorToken={index % 2 === 0 ? 'liberty7' : 'liberty8'}
+              backgroundColorToken={index % 2 === 0 ? 'black800' : 'black900'}
               onClick={() => onItemClick(item)}
             >
               {itemRenderer({ item, searchedValue })}
             </ItemWrapper>
           ))
         ) : (
-          <ItemWrapper backgroundColorToken="liberty7">
+          <ItemWrapper backgroundColorToken="black800">
             <Typography colorToken="warning100" typographyToken="primaryBodySmallRegular">
               No items match the filter...
             </Typography>

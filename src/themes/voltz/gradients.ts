@@ -19,9 +19,9 @@ const invertedRainbow = `linear-gradient(
 
 const background = `conic-gradient(
     from -55.74deg at 44.58% 42.11%,
-    ${colors.liberty8} 0deg,
-    ${colors.liberty6} 167.49deg,
-    ${colors.liberty8} 360deg
+    ${colors.black900} 0deg,
+    ${colors.black700} 167.49deg,
+    ${colors.black900} 360deg
 )`;
 
 export const gradients: GradientsTheme = {

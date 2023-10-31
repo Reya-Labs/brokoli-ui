@@ -1,5 +1,5 @@
 export type BaseColorTokens =
-  | 'liberty'
+  | 'black100'
   | 'white100'
   | 'primary100'
   | 'warning100'
@@ -8,15 +8,15 @@ export type BaseColorTokens =
 
 export type ColorTokens =
   | BaseColorTokens
-  | 'liberty9'
-  | 'liberty8'
-  | 'liberty7'
-  | 'liberty6'
-  | 'liberty5'
-  | 'liberty4'
-  | 'liberty3'
-  | 'liberty2'
-  | 'liberty1'
+  | 'black950'
+  | 'black900'
+  | 'black800'
+  | 'black700'
+  | 'black600'
+  | 'black500'
+  | 'black400'
+  | 'black300'
+  | 'black200'
   | 'white950'
   | 'white900'
   | 'white800'

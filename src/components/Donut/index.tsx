@@ -15,7 +15,7 @@ export const Donut: FunctionComponent<DonutProps> = ({
   percentage,
 }) => {
   const computedPercentage = Math.min(Math.max(percentage, 0), 100);
-  const computedHoleColorToken = holeColorToken || 'liberty6';
+  const computedHoleColorToken = holeColorToken || 'black700';
   return (
     <Container
       colorToken={colorToken}

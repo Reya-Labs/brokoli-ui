@@ -27,7 +27,7 @@ export const Pill = ({
   const isBaseColorTokenProvided = isBaseColorToken(colorToken);
   const backgroundColorToken: ColorTokens = isBaseColorTokenProvided
     ? `${colorToken}6`
-    : 'liberty7';
+    : 'black800';
 
   return (
     <PillBox

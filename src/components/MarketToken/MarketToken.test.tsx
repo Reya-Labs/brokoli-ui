@@ -5,7 +5,7 @@ import { MarketToken, MarketTokenProps } from '.';
 
 describe('<MarketToken />', () => {
   const defaultProps: MarketTokenProps = {
-    colorToken: 'liberty',
+    colorToken: 'black100',
     iconSize: 20,
     market: 'Aave',
     typographyToken: 'primaryBodyMediumBold',

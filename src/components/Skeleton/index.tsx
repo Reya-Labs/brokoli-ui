@@ -16,7 +16,7 @@ export const Skeleton: React.FunctionComponent<{
     typographyToken,
     className,
     variant = 'rectangular',
-    colorToken = 'liberty',
+    colorToken = 'black100',
   }) => (
     <SkeletonBox
       className={className}

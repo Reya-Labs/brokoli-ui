@@ -47,7 +47,7 @@ export const MarginAmountList: React.FunctionComponent<MarginAmountListProps> = 
         {(items || []).map((item, index) => (
           <ItemWrapper
             key={`${item.token}-${index}`}
-            backgroundColorToken={index % 2 === 0 ? 'liberty7' : 'liberty8'}
+            backgroundColorToken={index % 2 === 0 ? 'black800' : 'black900'}
             onClick={() => onItemClick(item)}
           >
             <TokenTypographyBox>

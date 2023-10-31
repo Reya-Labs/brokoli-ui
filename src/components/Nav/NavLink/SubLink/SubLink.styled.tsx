@@ -17,7 +17,7 @@ export const SubLinkButton = styled(Link)`
 
   color: ${({ theme }) => theme.colors.white100};
   text-decoration: none;
-  background-color: ${({ theme }) => theme.colors.liberty7};
+  background-color: ${({ theme }) => theme.colors.black800};
   border-radius: 2px;
   width: 100%;
   box-sizing: border-box;

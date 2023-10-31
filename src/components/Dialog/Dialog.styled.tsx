@@ -13,7 +13,7 @@ export const DialogBox = styled('div')`
   background: linear-gradient(
     90.95deg,
     ${({ theme }) => theme.colors.white900} 0.66%,
-    ${({ theme }) => theme.colors.liberty8} 99.34%
+    ${({ theme }) => theme.colors.black900} 99.34%
   );
   border: 1px solid ${({ theme }) => theme.colors.white800};
   border-radius: 8px;

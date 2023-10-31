@@ -7,8 +7,8 @@ export default create({
   colorSecondary: colors.error300,
 
   // UI
-  appBg: colors.liberty6,
-  appContentBg: colors.liberty7,
+  appBg: colors.black700,
+  appContentBg: colors.black800,
   appBorderColor: colors.white700,
   appBorderRadius: 4,
 
@@ -23,10 +23,10 @@ export default create({
   // Toolbar default and active colors
   barTextColor: colors.white100,
   barSelectedColor: colors.error100,
-  barBg: colors.liberty6,
+  barBg: colors.black700,
 
   // Form colors
-  inputBg: colors.liberty5,
+  inputBg: colors.black600,
   inputBorder: colors.white700,
   inputTextColor: colors.white100,
   inputBorderRadius: 4,

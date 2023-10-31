@@ -104,7 +104,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
         defs={[
           linearGradientDef(GRADIENT_ID, [
             { color: color, offset: 0, opacity: 1 },
-            { color: theme.colors.liberty8, offset: 100, opacity: 1 },
+            { color: theme.colors.black900, offset: 100, opacity: 1 },
           ]),
         ]}
         enableArea={true}

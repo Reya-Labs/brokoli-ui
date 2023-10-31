@@ -20,10 +20,10 @@ export const ColorTile: React.FunctionComponent<ColorTileProps> = ({
       </Typography>
     </ColorBackgroundBox>
     <ColorTypographyBox>
-      <Typography colorToken="liberty4" typographyToken="primaryBodyMediumBold">
+      <Typography colorToken="black500" typographyToken="primaryBodyMediumBold">
         {name}
       </Typography>
-      <Typography colorToken="liberty7" typographyToken="primaryBodySmallRegular">
+      <Typography colorToken="black800" typographyToken="primaryBodySmallRegular">
         {backgroundColor.toUpperCase()}
       </Typography>
     </ColorTypographyBox>

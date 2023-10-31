@@ -21,7 +21,7 @@ export const Typography: React.FunctionComponent<TypographyProps> = ({
 }) => {
   const isRainbowColorToken = colorToken === 'rainbow';
   const TypographyUI = isRainbowColorToken ? RainbowTypography : BaseTypography;
-  const typographyColorToken = isRainbowColorToken ? 'liberty7' : colorToken;
+  const typographyColorToken = isRainbowColorToken ? 'black800' : colorToken;
 
   return (
     <TypographyUI

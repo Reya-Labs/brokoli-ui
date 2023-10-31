@@ -12,7 +12,7 @@ export const TooltipBox = styled('div')`
   background: linear-gradient(
     90.95deg,
     ${({ theme }) => theme.colors.white900} 0.66%,
-    ${({ theme }) => theme.colors.liberty8} 99.34%
+    ${({ theme }) => theme.colors.black900} 99.34%
   );
   border: 1px solid ${({ theme }) => theme.colors.white800};
   border-radius: 8px;
@@ -22,7 +22,7 @@ export const TooltipBox = styled('div')`
     width: ${ARROW_SIZE}px;
     height: ${ARROW_SIZE}px;
     transform: rotate(-45deg);
-    background: ${({ theme }) => theme.colors.liberty7};
+    background: ${({ theme }) => theme.colors.black800};
     border-left: 1px solid ${({ theme }) => theme.colors.white700};
     border-bottom: 1px solid ${({ theme }) => theme.colors.white700};
     position: absolute;
