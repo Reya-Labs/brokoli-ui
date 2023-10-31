@@ -13,14 +13,14 @@ export const CloseButtonStyled = styled('button', {
   padding: 4px 8px;
   gap: 4px;
   background: ${({ theme, colorToken }) =>
-    `${getColorFromToken({ colorToken: `${colorToken}8`, theme })}`};
+    `${getColorFromToken({ colorToken: `${colorToken}900`, theme })}`};
   border-radius: 4px;
   color: ${({ theme, colorToken }) =>
-    `${getColorFromToken({ colorToken: `${colorToken}`, theme })}`};
+    `${getColorFromToken({ colorToken: `${colorToken}100`, theme })}`};
   cursor: pointer;
   border: none;
   &:hover {
     background: ${({ theme, colorToken }) =>
-      `${getColorFromToken({ colorToken: `${colorToken}7`, theme })}`};
+      `${getColorFromToken({ colorToken: `${colorToken}800`, theme })}`};
   }
 `;

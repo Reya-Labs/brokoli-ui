@@ -21,13 +21,15 @@ export const NavLinkButtonBox = styled('div', {
   color: ${({ theme, colorToken, isPopoverOpen, isActive }) =>
     colorToken !== 'rainbow'
       ? isPopoverOpen || isActive
-        ? getColorFromToken({ colorToken, theme })
-        : getColorFromToken({ colorToken: `${colorToken}3`, theme })
+        ? getColorFromToken({ colorToken: `${colorToken}100`, theme })
+        : getColorFromToken({ colorToken: `${colorToken}400`, theme })
       : ''};
   transition: color 200ms ease-in;
   &:hover {
     ${({ theme, colorToken }) =>
-      colorToken === 'rainbow' ? '' : `color: ${getColorFromToken({ colorToken, theme })}`};
+      colorToken === 'rainbow'
+        ? ''
+        : `color: ${getColorFromToken({ colorToken: `${colorToken}100`, theme })}`};
   }
 `;
 

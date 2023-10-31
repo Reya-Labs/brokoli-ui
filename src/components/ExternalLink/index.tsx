@@ -16,7 +16,7 @@ export const ExternalLink: React.FunctionComponent<{
   if (disabled) {
     return (
       <Typography
-        colorToken={colorToken}
+        colorToken={`${colorToken}100`}
         data-testid={`ExternalLink-Disabled-${colorToken}`}
         typographyToken={typographyToken}
       >

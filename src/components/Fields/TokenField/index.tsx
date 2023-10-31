@@ -74,7 +74,7 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
   bottomLeftText,
   token,
   bottomRightTextTypographyToken = 'secondaryBodyXSmallRegular',
-  bottomRightTextColorToken = 'white100',
+  bottomRightTextColorToken = 'white',
   bottomRightTextValue,
   bottomRightTextToken,
   bottomRightTextDifferenceValue,

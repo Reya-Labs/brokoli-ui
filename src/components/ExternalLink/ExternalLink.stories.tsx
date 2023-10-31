@@ -13,7 +13,7 @@ export default {
 export const Default: StoryObj<typeof ExternalLink> = {
   args: {
     children: 'visit our storybook link',
-    colorToken: 'white100',
+    colorToken: 'white',
     href: 'https://brokoli.voltz.xyz',
     typographyToken: 'primaryBodyXSmallRegular',
   },
@@ -32,7 +32,7 @@ const WithinTextTemplate: StoryFn<typeof ExternalLink> = (args) => (
 export const WithinText: StoryObj<typeof ExternalLink> = {
   args: {
     children: 'Brokoli wildly appears',
-    colorToken: 'white100',
+    colorToken: 'white',
     href: 'https://brokoli.voltz.xyz',
     typographyToken: 'primaryBodySmallBold',
   },

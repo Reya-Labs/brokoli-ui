@@ -18,7 +18,7 @@ const Template: StoryFn<typeof Notifications> = (args) => {
         variant="secondary"
         onClick={() => {
           showNotification({
-            colorToken: 'error100',
+            colorToken: 'error',
             content:
               'A error message is a modal dialog box, in-place message, notification, or balloon that alerts the user of a condition that might cause a problem in the future',
             title: 'This is a error',
@@ -31,7 +31,7 @@ const Template: StoryFn<typeof Notifications> = (args) => {
         variant="secondary"
         onClick={() => {
           showNotification({
-            colorToken: 'warning100',
+            colorToken: 'warning',
             content:
               'A warning message is a modal dialog box, in-place message, notification, or balloon that alerts the user of a condition that might cause a problem in the future',
             title: 'This is a warning',
@@ -44,7 +44,7 @@ const Template: StoryFn<typeof Notifications> = (args) => {
         variant="secondary"
         onClick={() => {
           showNotification({
-            colorToken: 'primary100',
+            colorToken: 'primary',
             content:
               'A success message is a modal dialog box, in-place message, notification, or balloon that alerts the user of a condition that might cause a problem in the future',
             title: 'This is a success',
@@ -58,7 +58,7 @@ const Template: StoryFn<typeof Notifications> = (args) => {
         onClick={() => {
           showNotification({
             autoClose: 3000,
-            colorToken: 'white100',
+            colorToken: 'white',
             content:
               'A info message is a modal dialog box, in-place message, notification, or balloon that alerts the user of a condition that might cause a problem in the future',
             title: 'This is a info',

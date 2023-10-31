@@ -83,7 +83,7 @@ export const RegularVariant: StoryObj<typeof PillSelector> = {
 
 export const WithAttentionPrefixText: StoryObj<typeof PillSelector> = {
   args: {
-    attentionPrefixColorToken: 'primary100',
+    attentionPrefixColorToken: 'primary',
     pillOptions: pillAttentionOptions,
   },
 
@@ -92,7 +92,7 @@ export const WithAttentionPrefixText: StoryObj<typeof PillSelector> = {
 
 export const WithAttentionPrefixTextColor: StoryObj<typeof PillSelector> = {
   args: {
-    attentionPrefixColorToken: 'error100',
+    attentionPrefixColorToken: 'error',
     pillOptions: pillAttentionOptions,
   },
 
@@ -121,7 +121,7 @@ export const WithDisabled: StoryObj<typeof PillSelector> = {
 
 export const WithAttentionPrefixTextDisabled: StoryObj<typeof PillSelector> = {
   args: {
-    attentionPrefixColorToken: 'error100',
+    attentionPrefixColorToken: 'error',
     disabled: true,
     pillOptions: pillAttentionOptions,
     variant: 'regular',

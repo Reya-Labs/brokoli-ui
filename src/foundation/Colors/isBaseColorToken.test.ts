@@ -2,12 +2,12 @@ import { isBaseColorToken } from './isBaseColorToken';
 
 describe('isBaseColorToken', () => {
   it('should return true for valid base color tokens', () => {
-    expect(isBaseColorToken('black100')).toBe(true);
-    expect(isBaseColorToken('white100')).toBe(true);
-    expect(isBaseColorToken('primary100')).toBe(true);
-    expect(isBaseColorToken('warning100')).toBe(true);
-    expect(isBaseColorToken('error100')).toBe(true);
-    expect(isBaseColorToken('secondary100')).toBe(true);
+    expect(isBaseColorToken('black')).toBe(true);
+    expect(isBaseColorToken('white')).toBe(true);
+    expect(isBaseColorToken('primary')).toBe(true);
+    expect(isBaseColorToken('warning')).toBe(true);
+    expect(isBaseColorToken('error')).toBe(true);
+    expect(isBaseColorToken('secondary')).toBe(true);
   });
 
   it('should return false for invalid tokens', () => {

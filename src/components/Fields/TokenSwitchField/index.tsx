@@ -79,7 +79,7 @@ export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = 
   bottomLeftText,
   token,
   bottomRightTextTypographyToken = 'secondaryBodyXSmallRegular',
-  bottomRightTextColorToken = 'white100',
+  bottomRightTextColorToken = 'white',
   bottomRightTextValue,
   bottomRightTextDifferenceValue,
   switchOffText,

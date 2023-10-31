@@ -38,7 +38,7 @@ export const PillSelector = ({
   activePillId,
   onPillClick,
   disabled,
-  attentionPrefixColorToken = 'primary100',
+  attentionPrefixColorToken = 'primary',
   variant,
   label = '',
   labelTypographyToken = 'primaryBodySmallRegular',

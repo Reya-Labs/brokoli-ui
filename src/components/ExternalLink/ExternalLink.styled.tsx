@@ -20,7 +20,7 @@ export const ExternalLinkStyled = styled('a', {
 
   margin: 0;
   padding: 0;
-  color: ${({ theme, colorToken }) => getColorFromToken({ colorToken: `${colorToken}3`, theme })};
+  color: ${({ theme, colorToken }) => getColorFromToken({ colorToken: `${colorToken}400`, theme })};
   ${({ theme, typographyToken }) =>
     css(getResponsiveTypographyStyleFromToken({ theme, token: typographyToken }))};
   text-decoration: none;
@@ -32,27 +32,30 @@ export const ExternalLinkStyled = styled('a', {
 
   &:visited:hover,
   &:hover {
-    color: ${({ theme, colorToken }) => getColorFromToken({ colorToken: `${colorToken}1`, theme })};
+    color: ${({ theme, colorToken }) =>
+      getColorFromToken({ colorToken: `${colorToken}200`, theme })};
   }
   &:visited:hover path,
   &:hover path {
     stroke: ${({ theme, colorToken }) =>
-      getColorFromToken({ colorToken: `${colorToken}1`, theme })};
+      getColorFromToken({ colorToken: `${colorToken}200`, theme })};
   }
 
   &:active {
-    color: ${({ theme, colorToken }) => getColorFromToken({ colorToken: `${colorToken}2`, theme })};
+    color: ${({ theme, colorToken }) =>
+      getColorFromToken({ colorToken: `${colorToken}300`, theme })};
   }
   &:active path {
     stroke: ${({ theme, colorToken }) =>
-      getColorFromToken({ colorToken: `${colorToken}2`, theme })};
+      getColorFromToken({ colorToken: `${colorToken}300`, theme })};
   }
 
   &:visited {
-    color: ${({ theme, colorToken }) => getColorFromToken({ colorToken: `${colorToken}3`, theme })};
+    color: ${({ theme, colorToken }) =>
+      getColorFromToken({ colorToken: `${colorToken}400`, theme })};
   }
   &:visited path {
     stroke: ${({ theme, colorToken }) =>
-      getColorFromToken({ colorToken: `${colorToken}3`, theme })};
+      getColorFromToken({ colorToken: `${colorToken}400`, theme })};
   }
 `;

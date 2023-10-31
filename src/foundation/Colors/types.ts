@@ -1,13 +1,6 @@
-export type BaseColorTokens =
-  | 'black100'
-  | 'white100'
-  | 'primary100'
-  | 'warning100'
-  | 'error100'
-  | 'secondary100';
+export type BaseColorTokens = 'black' | 'white' | 'primary' | 'warning' | 'error' | 'secondary';
 
 export type ColorTokens =
-  | BaseColorTokens
   | 'black950'
   | 'black900'
   | 'black800'
@@ -17,6 +10,7 @@ export type ColorTokens =
   | 'black400'
   | 'black300'
   | 'black200'
+  | 'black100'
   | 'white950'
   | 'white900'
   | 'white800'
@@ -26,6 +20,7 @@ export type ColorTokens =
   | 'white400'
   | 'white300'
   | 'white200'
+  | 'white100'
   | 'primary950'
   | 'primary900'
   | 'primary800'
@@ -35,6 +30,7 @@ export type ColorTokens =
   | 'primary400'
   | 'primary300'
   | 'primary200'
+  | 'primary100'
   | 'warning950'
   | 'warning900'
   | 'warning800'
@@ -44,6 +40,7 @@ export type ColorTokens =
   | 'warning400'
   | 'warning300'
   | 'warning200'
+  | 'warning100'
   | 'error950'
   | 'error900'
   | 'error800'
@@ -53,6 +50,7 @@ export type ColorTokens =
   | 'error400'
   | 'error300'
   | 'error200'
+  | 'error100'
   | 'secondary950'
   | 'secondary900'
   | 'secondary800'
@@ -61,6 +59,7 @@ export type ColorTokens =
   | 'secondary500'
   | 'secondary400'
   | 'secondary300'
-  | 'secondary200';
+  | 'secondary200'
+  | 'secondary100';
 
 export type ColorsTheme = Record<ColorTokens, string>;

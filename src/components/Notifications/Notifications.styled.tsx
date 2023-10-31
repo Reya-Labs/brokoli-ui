@@ -19,7 +19,7 @@ export const NotificationBox = styled('div', {
   background: ${({ theme }) => theme.colors.black900};
 
   border: 1px solid
-    ${({ theme, colorToken }) => `${getColorFromToken({ colorToken: `${colorToken}3`, theme })}`};
+    ${({ theme, colorToken }) => `${getColorFromToken({ colorToken: `${colorToken}100`, theme })}`};
   border-radius: 4px;
 `;
 

@@ -26,7 +26,7 @@ export const Pill = ({
 }: PillProps) => {
   const isBaseColorTokenProvided = isBaseColorToken(colorToken);
   const backgroundColorToken: ColorTokens = isBaseColorTokenProvided
-    ? `${colorToken}6`
+    ? `${colorToken}700`
     : 'black800';
 
   return (
@@ -38,7 +38,7 @@ export const Pill = ({
       onClick={onClick}
     >
       <Typography
-        colorToken={colorToken}
+        colorToken={isBaseColorTokenProvided ? `${colorToken}100` : 'rainbow'}
         data-testid={
           dataTestId || `Pill-PillTypography-${variant}-${colorToken}-${typographyToken}`
         }

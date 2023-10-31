@@ -6,7 +6,7 @@ import { render, screen } from '../../test-utils';
 import { ExternalLink } from '.';
 
 describe('<ExternalLink />', () => {
-  const colorToken: BaseColorTokens = 'white100';
+  const colorToken: BaseColorTokens = 'white';
   const typographyToken: TypographyToken = 'primaryBodyMediumBold';
 
   it('renders a disabled link when disabled prop is true', () => {

@@ -6,7 +6,7 @@ import { NotificationContent, NotificationContentProps } from '.';
 describe('<NotificationContent />', () => {
   const defaultProps: NotificationContentProps = {
     closeToast: jest.fn(),
-    colorToken: 'error100',
+    colorToken: 'error',
     content: 'Notification Content',
     contentTypographyToken: 'primaryHeader2Black',
     onCloseNotification: jest.fn(),
@@ -23,7 +23,7 @@ describe('<NotificationContent />', () => {
     expect(screen.getByTestId('NotificationContent-NotificationBox')).toBeInTheDocument();
     expect(screen.getByTestId('NotificationContent-TitleBox')).toBeInTheDocument();
     expect(screen.getByText('Notification Title')).toBeInTheDocument();
-    expect(screen.getByTestId('CloseButton-CloseButtonStyled-error100')).toBeInTheDocument();
+    expect(screen.getByTestId('CloseButton-CloseButtonStyled-error')).toBeInTheDocument();
     expect(screen.getByText('Notification Content')).toBeInTheDocument();
   });
 
@@ -37,7 +37,7 @@ describe('<NotificationContent />', () => {
         onCloseNotification={onCloseNotification}
       />,
     );
-    const closeButton = screen.getByTestId('CloseButton-CloseButtonStyled-error100');
+    const closeButton = screen.getByTestId('CloseButton-CloseButtonStyled-error');
     fireEvent.click(closeButton);
     expect(closeToast).toHaveBeenCalled();
     expect(onCloseNotification).toHaveBeenCalled();

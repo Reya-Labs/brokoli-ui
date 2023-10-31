@@ -28,7 +28,7 @@ export const NotificationContent: React.FunctionComponent<NotificationContentPro
   return (
     <NotificationBox colorToken={colorToken} data-testid="NotificationContent-NotificationBox">
       <TitleBox data-testid="NotificationContent-TitleBox">
-        <Typography colorToken={colorToken} typographyToken={titleTypographyToken}>
+        <Typography colorToken={`${colorToken}100`} typographyToken={titleTypographyToken}>
           {title}
         </Typography>
         <CloseButton
@@ -39,7 +39,7 @@ export const NotificationContent: React.FunctionComponent<NotificationContentPro
           }}
         />
       </TitleBox>
-      <Typography colorToken={`${colorToken}2`} typographyToken={contentTypographyToken}>
+      <Typography colorToken={`${colorToken}300`} typographyToken={contentTypographyToken}>
         {content}
       </Typography>
     </NotificationBox>

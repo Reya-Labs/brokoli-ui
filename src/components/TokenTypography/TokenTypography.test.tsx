@@ -7,7 +7,7 @@ describe('<TokenTypography />', () => {
   it('renders without error', () => {
     render(
       <TokenTypography
-        colorToken="white100"
+        colorToken="white"
         token="ETH"
         typographyToken="primaryBodySmallRegular"
         value="123"
@@ -18,7 +18,7 @@ describe('<TokenTypography />', () => {
   it('displays the value and token', () => {
     render(
       <TokenTypography
-        colorToken="white100"
+        colorToken="white"
         token="ETH"
         typographyToken="primaryBodySmallRegular"
         value="123"
@@ -36,7 +36,7 @@ describe('<TokenTypography />', () => {
   it('displays the second value and token if provided', () => {
     render(
       <TokenTypography
-        colorToken="white100"
+        colorToken="white"
         token="ETH"
         typographyToken="primaryBodySmallRegular"
         value="123"
@@ -53,7 +53,7 @@ describe('<TokenTypography />', () => {
   it('displays the difference arrow and value if differenceValue is not NaN', () => {
     render(
       <TokenTypography
-        colorToken="white100"
+        colorToken="white"
         differenceToken="%"
         differenceValue={10}
         token="ETH"

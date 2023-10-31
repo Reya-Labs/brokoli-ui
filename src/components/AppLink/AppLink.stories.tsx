@@ -15,7 +15,7 @@ const Template: StoryFn<typeof AppLink> = (args) => <AppLink {...args} />;
 export const Default: StoryObj<typeof AppLink> = {
   args: {
     children: 'Visit this app link!',
-    colorToken: 'primary100',
+    colorToken: 'primary',
     to: '/app-link',
     typographyToken: 'primaryBodyXSmallRegular',
   },
@@ -36,7 +36,7 @@ const WithinTextTemplate: StoryFn<typeof AppLink> = (args) => (
 export const WithinText: StoryObj<typeof AppLink> = {
   args: {
     children: 'Lorem link',
-    colorToken: 'error100',
+    colorToken: 'error',
     to: '/app-link',
     typographyToken: 'primaryBodySmallBold',
   },

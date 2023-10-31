@@ -46,7 +46,7 @@ export const TokenTypographyStyled = styled(Typography)<TypographyProps>`
   & > .token {
     font-weight: inherit;
     color: ${({ theme, colorToken }) =>
-      getColorFromToken({ colorToken: `${colorToken as BaseColorTokens}3`, theme })};
+      getColorFromToken({ colorToken: `${colorToken as BaseColorTokens}400`, theme })};
   }
 
   & > .difference-value {
@@ -58,7 +58,7 @@ export const TokenTypographyStyled = styled(Typography)<TypographyProps>`
         }),
       )};
     color: ${({ theme, colorToken }) =>
-      getColorFromToken({ colorToken: `${colorToken as BaseColorTokens}3`, theme })};
+      getColorFromToken({ colorToken: `${colorToken as BaseColorTokens}400`, theme })};
   }
 
   & > .difference-arrow {
@@ -81,6 +81,6 @@ export const TokenTypographyStyled = styled(Typography)<TypographyProps>`
         }),
       )};
     color: ${({ theme, colorToken }) =>
-      getColorFromToken({ colorToken: `${colorToken as BaseColorTokens}3`, theme })};
+      getColorFromToken({ colorToken: `${colorToken as BaseColorTokens}400`, theme })};
   }
 `;

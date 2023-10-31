@@ -7,15 +7,15 @@ describe('<CloseButton />', () => {
   it('renders with default props', () => {
     render(<CloseButton />);
 
-    const closeButton = screen.getByTestId('CloseButton-CloseButtonStyled-white100');
+    const closeButton = screen.getByTestId('CloseButton-CloseButtonStyled-white');
     expect(closeButton).toBeInTheDocument();
     expect(closeButton).toHaveTextContent('✕');
   });
 
   it('renders with provided color token', () => {
-    render(<CloseButton colorToken="error100" />);
+    render(<CloseButton colorToken="error" />);
 
-    const closeButton = screen.getByTestId('CloseButton-CloseButtonStyled-error100');
+    const closeButton = screen.getByTestId('CloseButton-CloseButtonStyled-error');
     expect(closeButton).toBeInTheDocument();
     expect(closeButton).toHaveTextContent('✕');
   });
@@ -24,7 +24,7 @@ describe('<CloseButton />', () => {
     const handleClick = jest.fn();
     render(<CloseButton onClick={handleClick} />);
 
-    const closeButton = screen.getByTestId('CloseButton-CloseButtonStyled-white100');
+    const closeButton = screen.getByTestId('CloseButton-CloseButtonStyled-white');
     fireEvent.click(closeButton);
 
     expect(handleClick).toHaveBeenCalledTimes(1);

@@ -17,13 +17,14 @@ export const AppLinkStyled = styled(Link, {
 }>`
   margin: 0;
   padding: 0;
-  color: ${({ theme, colorToken }) => getColorFromToken({ colorToken: `${colorToken}`, theme })};
+  color: ${({ theme, colorToken }) => getColorFromToken({ colorToken: `${colorToken}100`, theme })};
   ${({ theme, typographyToken }) =>
     css(getResponsiveTypographyStyleFromToken({ theme, token: typographyToken }))};
   text-decoration: none;
 
   &:hover {
-    color: ${({ theme, colorToken }) => getColorFromToken({ colorToken: `${colorToken}1`, theme })};
+    color: ${({ theme, colorToken }) =>
+      getColorFromToken({ colorToken: `${colorToken}200`, theme })};
   }
 `;
 

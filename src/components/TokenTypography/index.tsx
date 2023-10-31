@@ -33,7 +33,7 @@ export const TokenTypography: React.FunctionComponent<TokenTypographyProps> = ({
   attentionIndicatorColorToken,
 }) => (
   <TokenTypographyStyled
-    colorToken={colorToken}
+    colorToken={`${colorToken}100`}
     data-testid={
       dataTestId || `TokenTypography-TokenTypographyStyled-${colorToken}-${typographyToken}`
     }

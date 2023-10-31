@@ -1,9 +1,9 @@
 import { BaseColorTokens } from './types';
 
 export const isBaseColorToken = (token: string): token is BaseColorTokens =>
-  token === 'black100' ||
-  token === 'white100' ||
-  token === 'primary100' ||
-  token === 'warning100' ||
-  token === 'error100' ||
-  token === 'secondary100';
+  token === 'black' ||
+  token === 'white' ||
+  token === 'primary' ||
+  token === 'warning' ||
+  token === 'error' ||
+  token === 'secondary';

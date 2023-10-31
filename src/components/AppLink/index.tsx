@@ -27,7 +27,7 @@ export const AppLink: React.FunctionComponent<AppLinkProps> = ({
     return (
       <DisabledTypography
         className={className}
-        colorToken={`${colorToken}2`}
+        colorToken={`${colorToken}300`}
         data-testid={dataTestId || 'AppLink-DisabledTypography'}
         typographyToken={typographyToken}
       >

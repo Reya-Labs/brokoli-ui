@@ -5,12 +5,12 @@ import { FromToTokenTypography, FromToTokenTypographyProps } from '.';
 
 describe('<FromToTokenTypography />', () => {
   const defaultProps: FromToTokenTypographyProps = {
-    fromColorToken: 'primary100',
+    fromColorToken: 'primary',
     fromValue: '100',
     label: 'From-To',
     labelColorToken: 'white300',
     labelTypographyToken: 'primaryBodySmallRegular',
-    toColorToken: 'secondary100',
+    toColorToken: 'secondary',
     toValue: '200',
     typographyToken: 'primaryBodyXSmallBold',
   };
@@ -39,9 +39,9 @@ describe('<FromToTokenTypography />', () => {
   });
 
   test('applies the correct color token to the "from" value', () => {
-    render(<FromToTokenTypography {...defaultProps} fromColorToken="error100" />);
+    render(<FromToTokenTypography {...defaultProps} fromColorToken="error" />);
     const fromTokenTypography = screen.getByTestId(
-      'FromToTokenTypography-FromToBox-FromTokenTypography-error100-primaryBodyXSmallBold',
+      'FromToTokenTypography-FromToBox-FromTokenTypography-error-primaryBodyXSmallBold',
     );
     expect(fromTokenTypography).toBeInTheDocument();
   });

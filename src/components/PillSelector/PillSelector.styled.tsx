@@ -62,12 +62,12 @@ export const PillSelectorButton = styled('button', {
 
   & > span {
     color: ${({ theme, attentionPrefixColorToken }) =>
-      getColorFromToken({ colorToken: attentionPrefixColorToken, theme })};
+      getColorFromToken({ colorToken: `${attentionPrefixColorToken}100`, theme })};
   }
 
   &:disabled > span {
     color: ${({ theme, attentionPrefixColorToken }) =>
-      getColorFromToken({ colorToken: `${attentionPrefixColorToken}3`, theme })};
+      getColorFromToken({ colorToken: `${attentionPrefixColorToken}400`, theme })};
   }
 
   &:disabled {
