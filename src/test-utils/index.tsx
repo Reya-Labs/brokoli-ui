@@ -1,15 +1,14 @@
-import { ThemeProvider } from '@emotion/react';
 // eslint-disable-next-line no-restricted-imports
 import { render, RenderOptions } from '@testing-library/react';
 import React, { ReactElement } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
-import { voltzTheme } from '../themes/voltz';
+import { ThemeProvider } from '../foundation/ThemeProvider';
 
 const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
   return (
     <BrowserRouter>
-      <ThemeProvider theme={voltzTheme}>{children}</ThemeProvider>
+      <ThemeProvider theme="voltz">{children}</ThemeProvider>
     </BrowserRouter>
   );
 };

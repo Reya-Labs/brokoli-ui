@@ -1,7 +1,6 @@
 import React from 'react';
 import darkTheme from './themes/dark';
-import { GlobalScrollbarStyle, Page, voltzTheme, reyaTheme } from '../src';
-import { ThemeProvider } from '@emotion/react';
+import { ThemeProvider, GlobalScrollbarStyle, Page, voltzTheme, reyaTheme } from '../src';
 import { BrowserRouter } from 'react-router-dom';
 import { withThemeFromJSXProvider } from '@storybook/addon-themes';
 
@@ -41,8 +40,8 @@ export const decorators = [
   StoryAsPageDecorator,
   withThemeFromJSXProvider({
     themes: {
-      voltz: voltzTheme,
-      reya: reyaTheme,
+      voltz: 'voltz',
+      reya: 'reya',
     },
     defaultTheme: 'voltz',
     Provider: ThemeProvider,
