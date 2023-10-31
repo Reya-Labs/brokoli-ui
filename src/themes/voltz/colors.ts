@@ -61,6 +61,36 @@ export const colors: ColorsTheme = {
   /* Orange Yellow 9 */
   orangeYellow9: '#1F1808',
 
+  /* Sky Blue Crayola 1 */
+  primary200: '#3FBACF',
+
+  /* Sky Blue Crayola 2 */
+  primary300: '#369DAE',
+
+  /* Sky Blue Crayola 3 */
+  primary400: '#297A88',
+
+  /* Sky Blue Crayola 4 */
+  primary500: '#1F5C67',
+
+  /* Sky Blue Crayola 5 */
+  primary600: '#154148',
+
+  /* Sky Blue Crayola 6 */
+  primary700: '#0F2E33',
+
+  /* Sky Blue Crayola 7 */
+  primary800: '#0B2226',
+
+  /* Sky Blue Crayola 8 */
+  primary900: '#091B1E',
+
+  /* Sky Blue Crayola 9 */
+  primary950: '#091B1E',
+
+  /* Sky Blue Crayola */
+  primary100: '#4DE5FF',
+
   /* Ultramarine Blue */
   secondary100: '#2667FF',
 
@@ -90,36 +120,6 @@ export const colors: ColorsTheme = {
 
   /* Ultramarine Blue 9 */
   secondary950: '#040915',
-
-  /* Sky Blue Crayola */
-  skyBlueCrayola: '#4DE5FF',
-
-  /* Sky Blue Crayola 1 */
-  skyBlueCrayola1: '#3FBACF',
-
-  /* Sky Blue Crayola 2 */
-  skyBlueCrayola2: '#369DAE',
-
-  /* Sky Blue Crayola 3 */
-  skyBlueCrayola3: '#297A88',
-
-  /* Sky Blue Crayola 4 */
-  skyBlueCrayola4: '#1F5C67',
-
-  /* Sky Blue Crayola 5 */
-  skyBlueCrayola5: '#154148',
-
-  /* Sky Blue Crayola 6 */
-  skyBlueCrayola6: '#0F2E33',
-
-  /* Sky Blue Crayola 7 */
-  skyBlueCrayola7: '#0B2226',
-
-  /* Sky Blue Crayola 8 */
-  skyBlueCrayola8: '#091B1E',
-
-  /* Sky Blue Crayola 9 */
-  skyBlueCrayola9: '#091B1E',
 
   /* Lavender Web */
   white100: '#E1DDF7',

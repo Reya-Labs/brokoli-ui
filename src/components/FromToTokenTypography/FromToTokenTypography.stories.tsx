@@ -10,7 +10,7 @@ export default {
 
 export const Default: StoryObj<typeof FromToTokenTypography> = {
   args: {
-    fromColorToken: 'skyBlueCrayola',
+    fromColorToken: 'primary100',
     fromValue: 'From',
     toColorToken: 'secondary100',
     toValue: 'To',
@@ -20,7 +20,7 @@ export const Default: StoryObj<typeof FromToTokenTypography> = {
 
 export const WithLabel: StoryObj<typeof FromToTokenTypography> = {
   args: {
-    fromColorToken: 'skyBlueCrayola',
+    fromColorToken: 'primary100',
     fromValue: 'From',
     label: 'Label goes here',
     labelColorToken: 'white100',

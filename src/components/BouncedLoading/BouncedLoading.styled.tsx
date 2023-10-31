@@ -8,7 +8,7 @@ const bounce = (theme: Theme) => keyframes`
   }
   50% {
     transform: translate(0, -5px);
-    background: ${theme.colors.skyBlueCrayola3};
+    background: ${theme.colors.primary400};
   }
   80%,
   100% {

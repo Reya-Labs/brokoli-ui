@@ -76,7 +76,7 @@ export const Default: StoryObj<typeof LineChart> = {
       },
     ],
     yMarker: 1.82,
-    yMarkerColorToken: 'skyBlueCrayola3',
+    yMarkerColorToken: 'primary400',
     yMarkerText: 'Fixed Rate:',
     yMarkerTypographyToken: 'secondaryBodyXSmallRegular',
   },

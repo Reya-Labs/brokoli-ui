@@ -83,7 +83,7 @@ export const RegularVariant: StoryObj<typeof PillSelector> = {
 
 export const WithAttentionPrefixText: StoryObj<typeof PillSelector> = {
   args: {
-    attentionPrefixColorToken: 'skyBlueCrayola',
+    attentionPrefixColorToken: 'primary100',
     pillOptions: pillAttentionOptions,
   },
 

@@ -44,13 +44,13 @@ export const Container = styled('div')`
   }
   i:nth-of-type(4) {
     transform: translate3d(-8px, 7px, 0) rotate(245deg);
-    background: ${({ theme }) => theme.colors.skyBlueCrayola};
+    background: ${({ theme }) => theme.colors.primary100};
     animation: ${bang} 700ms ease-out forwards;
     opacity: 0;
   }
   i:nth-of-type(5) {
     transform: translate3d(-33px, 28px, 0) rotate(208deg);
-    background: ${({ theme }) => theme.colors.skyBlueCrayola};
+    background: ${({ theme }) => theme.colors.primary100};
     animation: ${bang} 700ms ease-out forwards;
     opacity: 0;
   }
@@ -74,7 +74,7 @@ export const Container = styled('div')`
   }
   i:nth-of-type(9) {
     transform: translate3d(48px, -11px, 0) rotate(272deg);
-    background: ${({ theme }) => theme.colors.skyBlueCrayola};
+    background: ${({ theme }) => theme.colors.primary100};
     animation: ${bang} 700ms ease-out forwards;
     opacity: 0;
   }
@@ -98,13 +98,13 @@ export const Container = styled('div')`
   }
   i:nth-of-type(13) {
     transform: translate3d(-71px, -26px, 0) rotate(308deg);
-    background: ${({ theme }) => theme.colors.skyBlueCrayola};
+    background: ${({ theme }) => theme.colors.primary100};
     animation: ${bang} 700ms ease-out forwards;
     opacity: 0;
   }
   i:nth-of-type(14) {
     transform: translate3d(-65px, 39px, 0) rotate(85deg);
-    background: ${({ theme }) => theme.colors.skyBlueCrayola};
+    background: ${({ theme }) => theme.colors.primary100};
     animation: ${bang} 700ms ease-out forwards;
     opacity: 0;
   }

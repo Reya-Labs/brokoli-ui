@@ -20,7 +20,7 @@ export const Default: StoryObj<typeof Pill> = {
 export const CompactVariant: StoryObj<typeof Pill> = {
   args: {
     children: 'Headache pill',
-    colorToken: 'skyBlueCrayola',
+    colorToken: 'primary100',
     typographyToken: 'primaryBodyXSmallBold',
     variant: 'compact',
   },

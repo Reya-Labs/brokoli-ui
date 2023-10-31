@@ -5,7 +5,7 @@ const rainbow = `linear-gradient(
     90deg,
     ${colors.wildStrawberry} 0%,
     ${colors.orangeYellow} 31.47%,
-    ${colors.skyBlueCrayola} 68.91%,
+    ${colors.primary100} 68.91%,
     ${colors.secondary100} 100%
 )`;
 
@@ -13,7 +13,7 @@ const invertedRainbow = `linear-gradient(
     180deg,
     ${colors.wildStrawberry} 0%,
     ${colors.orangeYellow} 31.47%,
-    ${colors.skyBlueCrayola} 68.91%,
+    ${colors.primary100} 68.91%,
     ${colors.secondary100} 100%
 )`;
 

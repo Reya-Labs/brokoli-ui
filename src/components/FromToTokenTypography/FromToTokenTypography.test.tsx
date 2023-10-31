@@ -5,7 +5,7 @@ import { FromToTokenTypography, FromToTokenTypographyProps } from '.';
 
 describe('<FromToTokenTypography />', () => {
   const defaultProps: FromToTokenTypographyProps = {
-    fromColorToken: 'skyBlueCrayola',
+    fromColorToken: 'primary100',
     fromValue: '100',
     label: 'From-To',
     labelColorToken: 'white300',
