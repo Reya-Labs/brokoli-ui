@@ -5,7 +5,7 @@ import { gradients } from './gradients';
 import { layerIndexes } from './layer-indexes';
 import { typography } from './typography';
 
-export const voltzTheme: Theme = {
+export const reyaTheme: Theme = {
   colors,
   gradients,
   layerIndexes,

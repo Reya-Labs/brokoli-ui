@@ -4,12 +4,12 @@ import { render, RenderOptions } from '@testing-library/react';
 import React, { ReactElement } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
-import { theme } from '../themes/voltz';
+import { voltzTheme } from '../themes/voltz';
 
 const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
   return (
     <BrowserRouter>
-      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+      <ThemeProvider theme={voltzTheme}>{children}</ThemeProvider>
     </BrowserRouter>
   );
 };

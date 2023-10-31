@@ -9,7 +9,7 @@ import { ColorTokens } from './types';
 
 const AllColorsBox = styled('div')`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-auto-flow: row;
   z-index: 1;
   row-gap: 16px;

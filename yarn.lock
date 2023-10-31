@@ -6265,6 +6265,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/addon-themes@npm:7.5.1":
+  version: 7.5.1
+  resolution: "@storybook/addon-themes@npm:7.5.1"
+  dependencies:
+    "@storybook/client-logger": "npm:7.5.1"
+    "@storybook/components": "npm:7.5.1"
+    "@storybook/core-events": "npm:7.5.1"
+    "@storybook/manager-api": "npm:7.5.1"
+    "@storybook/preview-api": "npm:7.5.1"
+    "@storybook/theming": "npm:7.5.1"
+    "@storybook/types": "npm:7.5.1"
+    ts-dedent: "npm:^2.0.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: 5d5ef1950fbba08dced9628098da42c5552805c7fb84788b09090cb6a949688185c835ee3b39484e4b56eff07b934ff6a0e3c2f85b5196f9b701eba74781d079
+  languageName: node
+  linkType: hard
+
 "@storybook/addon-toolbars@npm:7.5.1":
   version: 7.5.1
   resolution: "@storybook/addon-toolbars@npm:7.5.1"
@@ -10556,6 +10580,7 @@ __metadata:
     "@storybook/addon-essentials": "npm:7.5.1"
     "@storybook/addon-interactions": "npm:7.5.1"
     "@storybook/addon-links": "npm:7.5.1"
+    "@storybook/addon-themes": "npm:7.5.1"
     "@storybook/addons": "npm:7.5.1"
     "@storybook/react": "npm:7.5.1"
     "@storybook/react-webpack5": "npm:7.5.1"
