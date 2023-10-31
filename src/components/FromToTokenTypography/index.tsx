@@ -61,7 +61,7 @@ export const FromToTokenTypography: React.FunctionComponent<FromToTokenTypograph
         typographyToken={typographyToken}
         value={fromValue}
       />
-      <Typography colorToken="lavenderWeb3" typographyToken={typographyToken}>
+      <Typography colorToken="white400" typographyToken={typographyToken}>
         ⇢
       </Typography>
       <TokenTypography

@@ -42,9 +42,9 @@ export const PillSelector = ({
   variant,
   label = '',
   labelTypographyToken = 'primaryBodySmallRegular',
-  labelColorToken = 'lavenderWeb3',
+  labelColorToken = 'white400',
   tooltip = '',
-  tooltipColorToken = 'lavenderWeb3',
+  tooltipColorToken = 'white400',
 }: PillSelectorProps) => {
   return (
     <PillWrapperBox>

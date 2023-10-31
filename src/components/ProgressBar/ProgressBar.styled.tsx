@@ -19,6 +19,6 @@ export const ProgressBarPercentageBox = styled('div')<{ percentage: number }>`
 
 export const ProgressBarBoxContainer = styled('div')`
   width: 100%;
-  background: ${({ theme }) => theme.colors.lavenderWeb3};
+  background: ${({ theme }) => theme.colors.white400};
   height: 4px;
 `;

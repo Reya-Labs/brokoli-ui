@@ -33,7 +33,7 @@ export const ChainSelectorButton = styled('button', {
 
   padding: 0px;
   color: ${({ theme, isPopoverOpen }) =>
-    isPopoverOpen ? theme.colors.lavenderWeb : theme.colors.lavenderWeb3};
+    isPopoverOpen ? theme.colors.lavenderWeb : theme.colors.white400};
   text-decoration: none;
   text-transform: none;
   display: flex;

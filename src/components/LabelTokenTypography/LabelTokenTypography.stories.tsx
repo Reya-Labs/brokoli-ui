@@ -12,7 +12,7 @@ export const Default: StoryObj<typeof LabelTokenTypography> = {
   args: {
     colorToken: 'lavenderWeb',
     label: 'Additional Cashflow',
-    labelColorToken: 'lavenderWeb3',
+    labelColorToken: 'white400',
     labelTypographyToken: 'primaryBodyXSmallRegular',
     prefixToken: '+',
     token: ' USDC',
@@ -25,7 +25,7 @@ export const WithRangeValues: StoryObj<typeof LabelTokenTypography> = {
   args: {
     colorToken: 'lavenderWeb',
     label: 'Additional Cashflow',
-    labelColorToken: 'lavenderWeb3',
+    labelColorToken: 'white400',
     labelTypographyToken: 'primaryBodyXSmallRegular',
     prefixToken: '+',
     token: ' USDC',
@@ -39,7 +39,7 @@ export const WithTooltip: StoryObj<typeof LabelTokenTypography> = {
   args: {
     colorToken: 'lavenderWeb',
     label: 'Additional Cashflow',
-    labelColorToken: 'lavenderWeb3',
+    labelColorToken: 'white400',
     labelTypographyToken: 'primaryBodyXSmallRegular',
     token: ' USDC',
     tooltip: 'We support a nice tooltip as well!',
@@ -53,7 +53,7 @@ export const WithAttentionIndicator: StoryObj<typeof LabelTokenTypography> = {
     attentionIndicatorColorToken: 'wildStrawberry',
     colorToken: 'lavenderWeb',
     label: 'Additional Cashflow',
-    labelColorToken: 'lavenderWeb3',
+    labelColorToken: 'white400',
     labelTypographyToken: 'primaryBodyXSmallRegular',
     token: ' USDC',
     tooltip: 'We support a nice tooltip as well!',

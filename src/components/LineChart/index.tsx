@@ -146,11 +146,11 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
             },
             ticks: {
               line: {
-                stroke: theme.colors.lavenderWeb3,
+                stroke: theme.colors.white400,
                 strokeWidth: 1,
               },
               text: {
-                fill: theme.colors.lavenderWeb3,
+                fill: theme.colors.white400,
                 fontFamily: axisTypography.fontFamily as Property.FontFamily,
                 fontSize: parseInt(axisTypography.fontSize, 10),
                 fontWeight: parseInt(axisTypography.fontWeight),
@@ -166,7 +166,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
           },
           fontFamily: axisTypography.fontFamily as Property.FontFamily,
           fontSize: parseInt(axisTypography.fontSize, 10),
-          textColor: theme.colors.lavenderWeb3,
+          textColor: theme.colors.white400,
         }}
         tooltip={(point) => <Tooltip colorToken={colorToken} {...point} />}
         useMesh={true}

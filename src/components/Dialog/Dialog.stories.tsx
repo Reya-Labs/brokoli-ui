@@ -51,7 +51,7 @@ export const Default: StoryObj<typeof Dialog> = {
           This library is created using styled components from @emotion/styled.
         </Typography>
         <br />
-        <Typography colorToken="lavenderWeb3" typographyToken="primaryBodyMediumRegular">
+        <Typography colorToken="white400" typographyToken="primaryBodyMediumRegular">
           It is an UI design language and React UI library powered by 🥦🥦🥦 and ☕
         </Typography>
         <br />

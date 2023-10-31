@@ -31,7 +31,7 @@ export const commonInputStyle = ({ theme, error, typographyToken }: CommonInputS
   border: ${error
     ? `1px solid ${theme.colors.wildStrawberry7}`
     : `1px solid ${theme.colors.white800}`};
-  color: ${error ? theme.colors.wildStrawberry3 : theme.colors.lavenderWeb3};
+  color: ${error ? theme.colors.wildStrawberry3 : theme.colors.white400};
 
   &:focus,
   &:active,
@@ -51,6 +51,6 @@ export const commonInputStyle = ({ theme, error, typographyToken }: CommonInputS
   }
 
   &::placeholder {
-    color: ${theme.colors.lavenderWeb3};
+    color: ${theme.colors.white400};
   }
 `;

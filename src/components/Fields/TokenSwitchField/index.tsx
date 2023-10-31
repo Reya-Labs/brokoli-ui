@@ -174,7 +174,7 @@ export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = 
           ) : null}
           {token ? (
             <TokenBox>
-              <Typography colorToken="lavenderWeb3" typographyToken="secondaryBodySmallRegular">
+              <Typography colorToken="white400" typographyToken="secondaryBodySmallRegular">
                 {token.toUpperCase()}
               </Typography>
             </TokenBox>

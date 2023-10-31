@@ -27,7 +27,7 @@ export const Container = styled('div')`
     width: 2px;
     float: left;
     margin: 0 2px;
-    background: ${({ theme }) => theme.colors.lavenderWeb3};
+    background: ${({ theme }) => theme.colors.white400};
   }
   i:nth-of-type(1) {
     z-index: 1;

@@ -27,7 +27,7 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
   bottomLeftText,
   className,
   'data-testid': dataTestId,
-  bottomLeftTextColorToken = 'lavenderWeb3',
+  bottomLeftTextColorToken = 'white400',
   typographyToken = 'primaryBodyMediumBold',
   bottomLeftTextTypographyToken = 'primaryBodyXSmallRegular',
 }) => {

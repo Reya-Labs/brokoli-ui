@@ -46,7 +46,7 @@ export const SwitchButton = styled('button')<{
     !error
       ? active
         ? theme.colors.lavenderWeb
-        : theme.colors.lavenderWeb3
+        : theme.colors.white400
       : active
       ? theme.colors.wildStrawberry
       : theme.colors.wildStrawberry3};
