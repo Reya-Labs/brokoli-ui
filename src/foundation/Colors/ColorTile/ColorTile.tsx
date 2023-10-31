@@ -16,7 +16,7 @@ export const ColorTile: React.FunctionComponent<ColorTileProps> = ({
         colorToken={highlight ? 'white100' : 'white800'}
         typographyToken="primaryBodySmallRegular"
       >
-        BROK
+        brokoli-ui
       </Typography>
     </ColorBackgroundBox>
     <ColorTypographyBox>
