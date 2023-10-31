@@ -19,28 +19,39 @@ export const colors: ColorsTheme = {
   lavenderWeb7: '#272437',
   /* Lavender Web 8 */
   lavenderWeb8: '#181524',
-  /* Lavender Web 9 */
-  lavenderWeb9: '#181524',
+
   /* Liberty */
   liberty: '#5D5296',
+
   /* Liberty 1 */
   liberty1: '#4F4580',
+
   /* Liberty 2 */
   liberty2: '#423A6C',
+
   /* Liberty 3 */
   liberty3: '#38305B',
+
   /* Liberty 4 */
   liberty4: '#2B2548',
+
   /* Liberty 5 */
   liberty5: '#1E1933',
+
   /* Liberty 6 */
   liberty6: '#19152A',
+
   /* Liberty 7 */
   liberty7: '#0F0D18',
+
   /* Liberty 8 */
   liberty8: '#0B0911',
+
   /* Liberty 9 */
   liberty9: '#0B0911',
+
+  /* Lavender Web 9 */
+  white950: '#181524',
   /* Orange Yellow */
   orangeYellow: '#FBC13A',
   /* Orange Yellow 1 */
