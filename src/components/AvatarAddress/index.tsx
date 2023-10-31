@@ -61,7 +61,7 @@ export const AvatarAddress: FunctionComponent<{
             />
           )}
           <AddressTypography
-            colorToken="lavenderWeb"
+            colorToken="white100"
             data-testid="AvatarAddress-AddressTypography"
             typographyToken={typographyToken}
           >

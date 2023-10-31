@@ -10,7 +10,7 @@ export default {
 
 export const Default: StoryObj<typeof TokenTypography> = {
   args: {
-    colorToken: 'lavenderWeb',
+    colorToken: 'white100',
     token: '%',
     typographyToken: 'secondaryBodyMediumRegular',
     value: 100,
@@ -19,7 +19,7 @@ export const Default: StoryObj<typeof TokenTypography> = {
 
 export const WithPrefixToken: StoryObj<typeof TokenTypography> = {
   args: {
-    colorToken: 'lavenderWeb',
+    colorToken: 'white100',
     prefixToken: '$',
     token: 'K',
     typographyToken: 'secondaryBodyMediumRegular',
@@ -29,7 +29,7 @@ export const WithPrefixToken: StoryObj<typeof TokenTypography> = {
 
 export const WithRangeValues: StoryObj<typeof TokenTypography> = {
   args: {
-    colorToken: 'lavenderWeb',
+    colorToken: 'white100',
     token: '%',
     typographyToken: 'secondaryBodyMediumRegular',
     value: 52,
@@ -39,7 +39,7 @@ export const WithRangeValues: StoryObj<typeof TokenTypography> = {
 
 export const WithRangeValuesPrefixToken: StoryObj<typeof TokenTypography> = {
   args: {
-    colorToken: 'lavenderWeb',
+    colorToken: 'white100',
     prefixToken: '$',
     token: 'M',
     typographyToken: 'secondaryBodyMediumRegular',
@@ -50,7 +50,7 @@ export const WithRangeValuesPrefixToken: StoryObj<typeof TokenTypography> = {
 
 export const WithNegativeDifference: StoryObj<typeof TokenTypography> = {
   args: {
-    colorToken: 'lavenderWeb',
+    colorToken: 'white100',
     differenceValue: -2,
     token: '%',
     typographyToken: 'secondaryBodyMediumRegular',
@@ -60,7 +60,7 @@ export const WithNegativeDifference: StoryObj<typeof TokenTypography> = {
 
 export const WithPositiveDifference: StoryObj<typeof TokenTypography> = {
   args: {
-    colorToken: 'lavenderWeb',
+    colorToken: 'white100',
     differenceValue: 2,
     token: '%',
     typographyToken: 'secondaryBodyMediumRegular',
@@ -71,7 +71,7 @@ export const WithPositiveDifference: StoryObj<typeof TokenTypography> = {
 export const WithAttentionIndicator: StoryObj<typeof TokenTypography> = {
   args: {
     attentionIndicatorColorToken: 'wildStrawberry',
-    colorToken: 'lavenderWeb',
+    colorToken: 'white100',
     differenceValue: 2,
     token: '%',
     typographyToken: 'secondaryBodyMediumRegular',

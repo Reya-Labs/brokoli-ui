@@ -1,7 +1,7 @@
 import { css, Theme } from '@emotion/react';
 
 export const primaryButtonCSS = (theme: Theme) => css`
-  background: ${theme.colors.lavenderWeb};
+  background: ${theme.colors.white100};
   border: 1px solid ${theme.colors.liberty5};
   box-shadow:
     0px 2px 10px ${theme.colors.liberty6},
@@ -38,7 +38,7 @@ export const primaryButtonCSS = (theme: Theme) => css`
 export const secondaryButtonCSS = (theme: Theme) => css`
   background: transparent;
   border: 1px solid ${theme.colors.white800};
-  color: ${theme.colors.lavenderWeb};
+  color: ${theme.colors.white100};
   transition:
     border-color,
     color 200ms ease-in;

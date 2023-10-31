@@ -123,7 +123,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
               strokeWidth: 1,
             },
             textStyle: {
-              fill: theme.colors.lavenderWeb,
+              fill: theme.colors.white100,
               fontFamily: yMarkerTypography.fontFamily as Property.FontFamily,
               fontSize: parseInt(yMarkerTypography.fontSize, 10),
               fontWeight: parseInt(yMarkerTypography.fontWeight),

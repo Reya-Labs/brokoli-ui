@@ -8,7 +8,7 @@ export const globalReactTinyPopoverContainerCSS = (theme: Theme) => css`
     background: ${theme.colors.liberty7};
 
     border: 1px solid ${theme.colors.white800};
-    box-shadow: 0px 0px 20px ${addAlpha(theme.colors.lavenderWeb, 0.1)};
+    box-shadow: 0px 0px 20px ${addAlpha(theme.colors.white100, 0.1)};
     border-radius: 4px;
     min-width: 160px;
     margin-top: 4px;

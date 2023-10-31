@@ -52,7 +52,7 @@ export const PillSelectorButton = styled('button', {
   color: ${({ theme, error, active }) =>
     !error
       ? active
-        ? theme.colors.lavenderWeb
+        ? theme.colors.white100
         : theme.colors.white400
       : active
       ? theme.colors.wildStrawberry

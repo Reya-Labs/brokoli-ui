@@ -3,7 +3,7 @@ import { isBaseColorToken } from './isBaseColorToken';
 describe('isBaseColorToken', () => {
   it('should return true for valid base color tokens', () => {
     expect(isBaseColorToken('liberty')).toBe(true);
-    expect(isBaseColorToken('lavenderWeb')).toBe(true);
+    expect(isBaseColorToken('white100')).toBe(true);
     expect(isBaseColorToken('skyBlueCrayola')).toBe(true);
     expect(isBaseColorToken('orangeYellow')).toBe(true);
     expect(isBaseColorToken('wildStrawberry')).toBe(true);

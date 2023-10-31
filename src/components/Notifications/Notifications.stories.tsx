@@ -58,7 +58,7 @@ const Template: StoryFn<typeof Notifications> = (args) => {
         onClick={() => {
           showNotification({
             autoClose: 3000,
-            colorToken: 'lavenderWeb',
+            colorToken: 'white100',
             content:
               'A info message is a modal dialog box, in-place message, notification, or balloon that alerts the user of a condition that might cause a problem in the future',
             title: 'This is a info',

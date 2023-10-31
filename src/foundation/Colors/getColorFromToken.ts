@@ -8,4 +8,4 @@ type GetColorFromTokenParams = {
 };
 
 export const getColorFromToken = ({ theme, colorToken }: GetColorFromTokenParams) =>
-  theme.colors[colorToken || 'lavenderWeb'];
+  theme.colors[colorToken || 'white100'];

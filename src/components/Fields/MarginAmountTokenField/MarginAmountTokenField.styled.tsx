@@ -60,7 +60,7 @@ export const ToggleCaretBox = styled('div')`
   right: 10px;
   top: calc(50% - 3.75px);
   z-index: 1;
-  color: ${({ theme }) => theme.colors.lavenderWeb};
+  color: ${({ theme }) => theme.colors.white100};
   cursor: pointer;
 `;
 
@@ -69,7 +69,7 @@ export const FloatingBox = styled('div')`
   right: 8px;
   top: calc(50% - 12px);
   z-index: 1;
-  color: ${({ theme }) => theme.colors.lavenderWeb};
+  color: ${({ theme }) => theme.colors.white100};
   cursor: pointer;
   display: flex;
   flex-direction: row;

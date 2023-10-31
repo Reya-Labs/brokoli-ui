@@ -18,7 +18,7 @@ export const Default: StoryObj<typeof Donut> = {
 export const WithHoleColorToken: StoryObj<typeof Donut> = {
   args: {
     colorToken: 'orangeYellow',
-    holeColorToken: 'lavenderWeb',
+    holeColorToken: 'white100',
     percentage: 23,
   },
 };

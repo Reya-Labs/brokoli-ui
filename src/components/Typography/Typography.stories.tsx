@@ -10,7 +10,7 @@ export default {
 export const Default: StoryObj<typeof Typography> = {
   args: {
     children: 'Default',
-    colorToken: 'lavenderWeb',
+    colorToken: 'white100',
     typographyToken: 'primaryHeader1Black',
   },
 };

@@ -11,8 +11,8 @@ describe('<Ellipsis />', () => {
   });
 
   it('should render proper UI when passing color token', () => {
-    render(<Ellipsis colorToken="lavenderWeb" />);
+    render(<Ellipsis colorToken="white100" />);
 
-    expect(screen.getByTestId('EllipsisTypography-lavenderWeb')).not.toBeNull();
+    expect(screen.getByTestId('EllipsisTypography-white100')).not.toBeNull();
   });
 });

@@ -36,7 +36,7 @@ export const commonInputStyle = ({ theme, error, typographyToken }: CommonInputS
   &:focus,
   &:active,
   &:hover {
-    color: ${error ? theme.colors.wildStrawberry : theme.colors.lavenderWeb};
+    color: ${error ? theme.colors.wildStrawberry : theme.colors.white100};
     border: ${error
       ? `1px solid ${theme.colors.wildStrawberry7}`
       : `1px solid ${theme.colors.white500}`};

@@ -80,7 +80,7 @@ export const Container = styled('div')`
   }
   i:nth-of-type(10) {
     transform: translate3d(-53px, 7px, 0) rotate(103deg);
-    background: ${({ theme }) => theme.colors.lavenderWeb};
+    background: ${({ theme }) => theme.colors.white100};
     animation: ${bang} 700ms ease-out forwards;
     opacity: 0;
   }

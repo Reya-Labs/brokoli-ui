@@ -13,7 +13,7 @@ export type ExclaimTooltipProps = {
 
 export const ExclaimTooltip: React.FunctionComponent<ExclaimTooltipProps> = ({
   className,
-  colorToken = 'lavenderWeb',
+  colorToken = 'white100',
   children,
 }) => (
   <Tooltip

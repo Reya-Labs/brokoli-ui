@@ -62,7 +62,7 @@ export const LoadingEllipsis = styled('div', {
   top: 50%;
   border-radius: 20px;
 
-  background: ${({ theme }) => theme.colors.lavenderWeb};
+  background: ${({ theme }) => theme.colors.white100};
   mix-blend-mode: overlay;
   filter: blur(1.25px);
   backdrop-filter: blur(1.2px);

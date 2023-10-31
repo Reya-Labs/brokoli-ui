@@ -15,7 +15,7 @@ export const SubLinkButton = styled(Link)`
   ${({ theme }) =>
     css(getResponsiveTypographyStyleFromToken({ theme, token: 'primaryBodySmallRegular' }))};
 
-  color: ${({ theme }) => theme.colors.lavenderWeb};
+  color: ${({ theme }) => theme.colors.white100};
   text-decoration: none;
   background-color: ${({ theme }) => theme.colors.liberty7};
   border-radius: 2px;
@@ -25,13 +25,13 @@ export const SubLinkButton = styled(Link)`
 
   &:hover {
     text-decoration: none;
-    text-shadow: 0px 0px 20px ${({ theme }) => addAlpha(theme.colors.lavenderWeb, 0.7)};
+    text-shadow: 0px 0px 20px ${({ theme }) => addAlpha(theme.colors.white100, 0.7)};
     background-color: ${({ theme }) => theme.colors.white900};
   }
 `;
 
 export const ActiveSubLinkButton = styled(SubLinkButton)`
   text-decoration: none;
-  text-shadow: 0px 0px 20px ${({ theme }) => addAlpha(theme.colors.lavenderWeb, 0.7)};
+  text-shadow: 0px 0px 20px ${({ theme }) => addAlpha(theme.colors.white100, 0.7)};
   background: ${({ theme }) => theme.colors.white900};
 `;

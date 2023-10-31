@@ -8,7 +8,7 @@ describe('<LeverageField />', () => {
     disabled: false,
     error: false,
     label: 'Leverage',
-    labelColorToken: 'lavenderWeb',
+    labelColorToken: 'white100',
     labelTypographyToken: 'primaryBodyMediumBold',
     leverageOptions: ['1', '2', '3'],
     maxLeverageColorToken: 'wildStrawberry',

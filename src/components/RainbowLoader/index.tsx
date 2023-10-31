@@ -35,7 +35,7 @@ export const RainbowLoader: React.FunctionComponent<RainbowLoaderProps> = React.
         data-testid={dataTestId || 'RainbowLoader-RainbowLoaderBox'}
       >
         <RainbowText
-          colorToken="lavenderWeb"
+          colorToken="white100"
           data-testid="RainbowLoader-RainbowText"
           typographyToken="secondaryBodyMediumRegular"
         >

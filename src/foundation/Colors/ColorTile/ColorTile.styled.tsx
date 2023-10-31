@@ -22,5 +22,5 @@ export const ColorTypographyBox = styled('div')`
   align-items: flex-start;
   padding: 12px;
   border-right: 1px solid gainsboro;
-  background: ${({ theme }) => theme.colors.lavenderWeb};
+  background: ${({ theme }) => theme.colors.white100};
 `;

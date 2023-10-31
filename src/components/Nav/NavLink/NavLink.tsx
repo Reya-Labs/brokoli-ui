@@ -26,7 +26,7 @@ export const NavLink: React.FunctionComponent<NavLinkProps> = ({
   children,
   link,
   isNew,
-  colorToken = 'lavenderWeb',
+  colorToken = 'white100',
 }) => {
   const { pathname } = useLocation();
   const subLinksNotHidden = useMemo(

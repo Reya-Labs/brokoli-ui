@@ -9,7 +9,7 @@ describe('<TooltipLabel />', () => {
   test('renders TooltipWithTypography when both tooltip and label are provided', () => {
     const tooltip = 'This is a tooltip';
     const label = 'Label text';
-    const labelColorToken: ColorTokens = 'lavenderWeb';
+    const labelColorToken: ColorTokens = 'white100';
     const tooltipColorToken: ColorTokens = 'wildStrawberry';
     const labelTypographyToken: TypographyToken = 'primaryBodyMediumBold';
 
@@ -31,7 +31,7 @@ describe('<TooltipLabel />', () => {
 
   test('renders Typography when only label is provided', () => {
     const label = 'Label text';
-    const labelColorToken: ColorTokens = 'lavenderWeb';
+    const labelColorToken: ColorTokens = 'white100';
     const labelTypographyToken: TypographyToken = 'primaryBodyMediumBold';
 
     render(

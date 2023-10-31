@@ -9,7 +9,7 @@ const primaryHeader1Black: TypographyResponsiveConfig = {
     fontStyle: 'normal',
     fontWeight: '900',
     lineHeight: '120%',
-    textShadow: `0px 0px 20px ${addAlpha(colors.lavenderWeb, 0.3)}`,
+    textShadow: `0px 0px 20px ${addAlpha(colors.white100, 0.3)}`,
   },
   mobileDevice: {
     fontFamily: "'Inter', sans-serif",
@@ -17,7 +17,7 @@ const primaryHeader1Black: TypographyResponsiveConfig = {
     fontStyle: 'normal',
     fontWeight: '900',
     lineHeight: '120%',
-    textShadow: `0px 0px 20px ${addAlpha(colors.lavenderWeb, 0.3)}`,
+    textShadow: `0px 0px 20px ${addAlpha(colors.white100, 0.3)}`,
   },
   smallDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
@@ -25,7 +25,7 @@ const primaryHeader1Black: TypographyResponsiveConfig = {
     fontStyle: 'normal',
     fontWeight: '900',
     lineHeight: '120%',
-    textShadow: `0px 0px 20px ${addAlpha(colors.lavenderWeb, 0.3)}`,
+    textShadow: `0px 0px 20px ${addAlpha(colors.white100, 0.3)}`,
   },
   tabletDevice: {
     fontFamily: "'Inter', sans-serif",
@@ -33,7 +33,7 @@ const primaryHeader1Black: TypographyResponsiveConfig = {
     fontStyle: 'normal',
     fontWeight: '900',
     lineHeight: '120%',
-    textShadow: `0px 0px 20px ${addAlpha(colors.lavenderWeb, 0.3)}`,
+    textShadow: `0px 0px 20px ${addAlpha(colors.white100, 0.3)}`,
   },
 };
 
@@ -44,7 +44,7 @@ const primaryHeader1Bold: TypographyResponsiveConfig = {
     fontStyle: 'normal',
     fontWeight: '700',
     lineHeight: '120%',
-    textShadow: `0px 0px 20px ${addAlpha(colors.lavenderWeb, 0.3)}`,
+    textShadow: `0px 0px 20px ${addAlpha(colors.white100, 0.3)}`,
   },
   mobileDevice: {
     fontFamily: "'Inter', sans-serif",
@@ -52,7 +52,7 @@ const primaryHeader1Bold: TypographyResponsiveConfig = {
     fontStyle: 'normal',
     fontWeight: '700',
     lineHeight: '120%',
-    textShadow: `0px 0px 20px ${addAlpha(colors.lavenderWeb, 0.3)}`,
+    textShadow: `0px 0px 20px ${addAlpha(colors.white100, 0.3)}`,
   },
   smallDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
@@ -60,7 +60,7 @@ const primaryHeader1Bold: TypographyResponsiveConfig = {
     fontStyle: 'normal',
     fontWeight: '700',
     lineHeight: '120%',
-    textShadow: `0px 0px 20px ${addAlpha(colors.lavenderWeb, 0.3)}`,
+    textShadow: `0px 0px 20px ${addAlpha(colors.white100, 0.3)}`,
   },
   tabletDevice: {
     fontFamily: "'Inter', sans-serif",
@@ -68,7 +68,7 @@ const primaryHeader1Bold: TypographyResponsiveConfig = {
     fontStyle: 'normal',
     fontWeight: '700',
     lineHeight: '120%',
-    textShadow: `0px 0px 20px ${addAlpha(colors.lavenderWeb, 0.3)}`,
+    textShadow: `0px 0px 20px ${addAlpha(colors.white100, 0.3)}`,
   },
 };
 
@@ -79,7 +79,7 @@ const primaryHeader2Black: TypographyResponsiveConfig = {
     fontStyle: 'normal',
     fontWeight: '900',
     lineHeight: '120%',
-    textShadow: `0px 0px 20px ${addAlpha(colors.lavenderWeb, 0.3)}`,
+    textShadow: `0px 0px 20px ${addAlpha(colors.white100, 0.3)}`,
   },
   mobileDevice: {
     fontFamily: "'Inter', sans-serif",
@@ -87,7 +87,7 @@ const primaryHeader2Black: TypographyResponsiveConfig = {
     fontStyle: 'normal',
     fontWeight: '900',
     lineHeight: '120%',
-    textShadow: `0px 0px 20px ${addAlpha(colors.lavenderWeb, 0.3)}`,
+    textShadow: `0px 0px 20px ${addAlpha(colors.white100, 0.3)}`,
   },
   smallDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
@@ -95,7 +95,7 @@ const primaryHeader2Black: TypographyResponsiveConfig = {
     fontStyle: 'normal',
     fontWeight: '900',
     lineHeight: '120%',
-    textShadow: `0px 0px 20px ${addAlpha(colors.lavenderWeb, 0.3)}`,
+    textShadow: `0px 0px 20px ${addAlpha(colors.white100, 0.3)}`,
   },
   tabletDevice: {
     fontFamily: "'Inter', sans-serif",
@@ -103,7 +103,7 @@ const primaryHeader2Black: TypographyResponsiveConfig = {
     fontStyle: 'normal',
     fontWeight: '900',
     lineHeight: '120%',
-    textShadow: `0px 0px 20px ${addAlpha(colors.lavenderWeb, 0.3)}`,
+    textShadow: `0px 0px 20px ${addAlpha(colors.white100, 0.3)}`,
   },
 };
 
@@ -114,7 +114,7 @@ const primaryHeader2Bold: TypographyResponsiveConfig = {
     fontStyle: 'normal',
     fontWeight: '700',
     lineHeight: '120%',
-    textShadow: `0px 0px 20px ${addAlpha(colors.lavenderWeb, 0.3)}`,
+    textShadow: `0px 0px 20px ${addAlpha(colors.white100, 0.3)}`,
   },
   mobileDevice: {
     fontFamily: "'Inter', sans-serif",
@@ -122,7 +122,7 @@ const primaryHeader2Bold: TypographyResponsiveConfig = {
     fontStyle: 'normal',
     fontWeight: '700',
     lineHeight: '120%',
-    textShadow: `0px 0px 20px ${addAlpha(colors.lavenderWeb, 0.3)}`,
+    textShadow: `0px 0px 20px ${addAlpha(colors.white100, 0.3)}`,
   },
   smallDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
@@ -130,7 +130,7 @@ const primaryHeader2Bold: TypographyResponsiveConfig = {
     fontStyle: 'normal',
     fontWeight: '700',
     lineHeight: '120%',
-    textShadow: `0px 0px 20px ${addAlpha(colors.lavenderWeb, 0.3)}`,
+    textShadow: `0px 0px 20px ${addAlpha(colors.white100, 0.3)}`,
   },
   tabletDevice: {
     fontFamily: "'Inter', sans-serif",
@@ -138,7 +138,7 @@ const primaryHeader2Bold: TypographyResponsiveConfig = {
     fontStyle: 'normal',
     fontWeight: '700',
     lineHeight: '120%',
-    textShadow: `0px 0px 20px ${addAlpha(colors.lavenderWeb, 0.3)}`,
+    textShadow: `0px 0px 20px ${addAlpha(colors.white100, 0.3)}`,
   },
 };
 
@@ -150,7 +150,7 @@ const primaryHeader3Black: TypographyResponsiveConfig = {
     fontWeight: '900',
 
     lineHeight: '120%',
-    textShadow: `0px 0px 20px ${addAlpha(colors.lavenderWeb, 0.3)}`,
+    textShadow: `0px 0px 20px ${addAlpha(colors.white100, 0.3)}`,
   },
   mobileDevice: {
     fontFamily: "'Inter', sans-serif",
@@ -159,7 +159,7 @@ const primaryHeader3Black: TypographyResponsiveConfig = {
     fontWeight: '900',
 
     lineHeight: '120%',
-    textShadow: `0px 0px 20px ${addAlpha(colors.lavenderWeb, 0.3)}`,
+    textShadow: `0px 0px 20px ${addAlpha(colors.white100, 0.3)}`,
   },
   smallDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
@@ -168,7 +168,7 @@ const primaryHeader3Black: TypographyResponsiveConfig = {
     fontWeight: '900',
 
     lineHeight: '120%',
-    textShadow: `0px 0px 20px ${addAlpha(colors.lavenderWeb, 0.3)}`,
+    textShadow: `0px 0px 20px ${addAlpha(colors.white100, 0.3)}`,
   },
   tabletDevice: {
     fontFamily: "'Inter', sans-serif",
@@ -177,7 +177,7 @@ const primaryHeader3Black: TypographyResponsiveConfig = {
     fontWeight: '900',
 
     lineHeight: '120%',
-    textShadow: `0px 0px 20px ${addAlpha(colors.lavenderWeb, 0.3)}`,
+    textShadow: `0px 0px 20px ${addAlpha(colors.white100, 0.3)}`,
   },
 };
 
@@ -188,7 +188,7 @@ const primaryHeader3Bold: TypographyResponsiveConfig = {
     fontStyle: 'normal',
     fontWeight: '700',
     lineHeight: '120%',
-    textShadow: `0px 0px 20px ${addAlpha(colors.lavenderWeb, 0.3)}`,
+    textShadow: `0px 0px 20px ${addAlpha(colors.white100, 0.3)}`,
   },
   mobileDevice: {
     fontFamily: "'Inter', sans-serif",
@@ -196,7 +196,7 @@ const primaryHeader3Bold: TypographyResponsiveConfig = {
     fontStyle: 'normal',
     fontWeight: '700',
     lineHeight: '120%',
-    textShadow: `0px 0px 20px ${addAlpha(colors.lavenderWeb, 0.3)}`,
+    textShadow: `0px 0px 20px ${addAlpha(colors.white100, 0.3)}`,
   },
   smallDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
@@ -204,7 +204,7 @@ const primaryHeader3Bold: TypographyResponsiveConfig = {
     fontStyle: 'normal',
     fontWeight: '700',
     lineHeight: '120%',
-    textShadow: `0px 0px 20px ${addAlpha(colors.lavenderWeb, 0.3)}`,
+    textShadow: `0px 0px 20px ${addAlpha(colors.white100, 0.3)}`,
   },
   tabletDevice: {
     fontFamily: "'Inter', sans-serif",
@@ -212,7 +212,7 @@ const primaryHeader3Bold: TypographyResponsiveConfig = {
     fontStyle: 'normal',
     fontWeight: '700',
     lineHeight: '120%',
-    textShadow: `0px 0px 20px ${addAlpha(colors.lavenderWeb, 0.3)}`,
+    textShadow: `0px 0px 20px ${addAlpha(colors.white100, 0.3)}`,
   },
 };
 

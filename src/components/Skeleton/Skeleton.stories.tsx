@@ -12,7 +12,7 @@ export default {
 
 export const Default: StoryObj<typeof Skeleton> = {
   args: {
-    colorToken: 'lavenderWeb',
+    colorToken: 'white100',
   },
 };
 
@@ -24,7 +24,7 @@ const CircularTemplate: StoryFn<typeof CircularSkeleton> = (args) => <CircularSk
 
 export const CircularVariant: StoryObj<typeof Skeleton> = {
   args: {
-    colorToken: 'lavenderWeb',
+    colorToken: 'white100',
   },
 
   render: CircularTemplate,
@@ -32,7 +32,7 @@ export const CircularVariant: StoryObj<typeof Skeleton> = {
 
 export const WithTypographyToken: StoryObj<typeof Skeleton> = {
   args: {
-    colorToken: 'lavenderWeb',
+    colorToken: 'white100',
     typographyToken: 'primaryHeader1Bold',
   },
 };

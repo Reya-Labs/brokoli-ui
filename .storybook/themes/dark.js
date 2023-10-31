@@ -17,18 +17,18 @@ export default create({
   fontCode: 'monospace',
 
   // Text colors
-  textColor: colors.lavenderWeb,
+  textColor: colors.white100,
   textInverseColor: colors.white900,
 
   // Toolbar default and active colors
-  barTextColor: colors.lavenderWeb,
+  barTextColor: colors.white100,
   barSelectedColor: colors.wildStrawberry,
   barBg: colors.liberty6,
 
   // Form colors
   inputBg: colors.liberty5,
   inputBorder: colors.white700,
-  inputTextColor: colors.lavenderWeb,
+  inputTextColor: colors.white100,
   inputBorderRadius: 4,
 
   brandTitle: 'brokoli-ui',

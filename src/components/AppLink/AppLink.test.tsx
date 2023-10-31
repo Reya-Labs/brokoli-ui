@@ -6,7 +6,7 @@ import { AppLink, AppLinkProps } from '.';
 describe('<AppLink />', () => {
   const defaultProps: AppLinkProps = {
     children: 'Link',
-    colorToken: 'lavenderWeb',
+    colorToken: 'white100',
     to: '/path',
     typographyToken: 'primaryBodyMediumBold',
   };

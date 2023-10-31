@@ -10,6 +10,6 @@ export default {
 
 export const Default: StoryObj<typeof Ellipsis> = {
   args: {
-    colorToken: 'lavenderWeb',
+    colorToken: 'white100',
   },
 };

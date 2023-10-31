@@ -9,7 +9,7 @@ export type CloseButtonProps = {
 };
 
 export const CloseButton: React.FunctionComponent<CloseButtonProps> = React.memo(
-  ({ colorToken = 'lavenderWeb', onClick }) => {
+  ({ colorToken = 'white100', onClick }) => {
     return (
       <CloseButtonStyled
         colorToken={colorToken}

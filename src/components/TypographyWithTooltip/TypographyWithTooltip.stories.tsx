@@ -11,7 +11,7 @@ export default {
 export const Default: StoryObj<typeof TypographyWithTooltip> = {
   args: {
     children: 'What a wonderful UI library!',
-    colorToken: 'lavenderWeb',
+    colorToken: 'white100',
     tooltip: 'Created with ❤️!',
     typographyToken: 'secondaryBodyMediumRegular',
   },

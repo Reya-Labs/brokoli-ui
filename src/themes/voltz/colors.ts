@@ -1,11 +1,6 @@
 import { ColorsTheme } from '../../foundation/Colors';
 
 export const colors: ColorsTheme = {
-  /* Lavender Web */
-  lavenderWeb: '#E1DDF7',
-  /* Lavender Web 1 */
-  lavenderWeb1: '#C7C1DF',
-
   /* Liberty */
   liberty: '#5D5296',
 
@@ -125,6 +120,12 @@ export const colors: ColorsTheme = {
 
   /* Ultramarine Blue 9 */
   ultramarineBlue9: '#040915',
+
+  /* Lavender Web */
+  white100: '#E1DDF7',
+
+  /* Lavender Web 1 */
+  white200: '#C7C1DF',
 
   /* Lavender Web 2 */
   white300: '#A49EBF',

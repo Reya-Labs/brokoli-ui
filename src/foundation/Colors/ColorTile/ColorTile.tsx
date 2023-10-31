@@ -13,7 +13,7 @@ export const ColorTile: React.FunctionComponent<ColorTileProps> = ({
   <ColorTileBox>
     <ColorBackgroundBox backgroundColor={backgroundColor}>
       <Typography
-        colorToken={highlight ? 'lavenderWeb' : 'white800'}
+        colorToken={highlight ? 'white100' : 'white800'}
         typographyToken="primaryBodySmallRegular"
       >
         BROK

@@ -1,6 +1,6 @@
 export type BaseColorTokens =
   | 'liberty'
-  | 'lavenderWeb'
+  | 'white100'
   | 'skyBlueCrayola'
   | 'orangeYellow'
   | 'wildStrawberry'
@@ -25,7 +25,7 @@ export type ColorTokens =
   | 'white500'
   | 'white400'
   | 'white300'
-  | 'lavenderWeb1'
+  | 'white200'
   | 'skyBlueCrayola9'
   | 'skyBlueCrayola8'
   | 'skyBlueCrayola7'

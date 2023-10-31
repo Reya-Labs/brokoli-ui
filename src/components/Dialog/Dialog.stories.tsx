@@ -47,7 +47,7 @@ export const Default: StoryObj<typeof Dialog> = {
   args: {
     children: (
       <React.Fragment>
-        <Typography colorToken="lavenderWeb" typographyToken="primaryBodyLargeRegular">
+        <Typography colorToken="white100" typographyToken="primaryBodyLargeRegular">
           This library is created using styled components from @emotion/styled.
         </Typography>
         <br />
@@ -56,7 +56,7 @@ export const Default: StoryObj<typeof Dialog> = {
         </Typography>
         <br />
         <TypographyWithTooltip
-          colorToken="lavenderWeb"
+          colorToken="white100"
           tooltip="Created with ❤️!"
           typographyToken="secondaryBodyMediumRegular"
         >

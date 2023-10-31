@@ -39,6 +39,6 @@ export default {
 
 export const TypographyStory: StoryObj<typeof AllTypography> = {
   args: {
-    colorToken: 'lavenderWeb',
+    colorToken: 'white100',
   },
 };

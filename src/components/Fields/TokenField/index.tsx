@@ -74,7 +74,7 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
   bottomLeftText,
   token,
   bottomRightTextTypographyToken = 'secondaryBodyXSmallRegular',
-  bottomRightTextColorToken = 'lavenderWeb',
+  bottomRightTextColorToken = 'white100',
   bottomRightTextValue,
   bottomRightTextToken,
   bottomRightTextDifferenceValue,
@@ -158,7 +158,7 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
                 token={token}
               />
               <Typography
-                colorToken="lavenderWeb"
+                colorToken="white100"
                 data-testid="TokenField-CurrencyInputBox-TokenBox-Typography"
                 typographyToken="secondaryBodyMediumRegular"
               >

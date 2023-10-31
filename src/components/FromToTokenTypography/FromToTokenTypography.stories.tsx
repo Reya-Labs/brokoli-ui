@@ -23,7 +23,7 @@ export const WithLabel: StoryObj<typeof FromToTokenTypography> = {
     fromColorToken: 'skyBlueCrayola',
     fromValue: 'From',
     label: 'Label goes here',
-    labelColorToken: 'lavenderWeb',
+    labelColorToken: 'white100',
     labelTypographyToken: 'primaryBodyMediumBold',
     toColorToken: 'ultramarineBlue',
     toValue: 'To',
@@ -33,14 +33,14 @@ export const WithLabel: StoryObj<typeof FromToTokenTypography> = {
 
 export const WithTokens: StoryObj<typeof FromToTokenTypography> = {
   args: {
-    fromColorToken: 'lavenderWeb',
+    fromColorToken: 'white100',
     fromPrefixToken: '$',
     fromToken: '%',
     fromValue: 29,
     label: 'Label goes here',
-    labelColorToken: 'lavenderWeb',
+    labelColorToken: 'white100',
     labelTypographyToken: 'primaryBodyXSmallRegular',
-    toColorToken: 'lavenderWeb',
+    toColorToken: 'white100',
     toPrefixToken: '$',
     toToken: '%',
     toValue: 64,
@@ -51,13 +51,13 @@ export const WithTokens: StoryObj<typeof FromToTokenTypography> = {
 
 export const WithTooltip: StoryObj<typeof FromToTokenTypography> = {
   args: {
-    fromColorToken: 'lavenderWeb',
+    fromColorToken: 'white100',
     fromToken: '%',
     fromValue: 29,
     label: 'Label goes here',
-    labelColorToken: 'lavenderWeb',
+    labelColorToken: 'white100',
     labelTypographyToken: 'primaryBodyXSmallRegular',
-    toColorToken: 'lavenderWeb',
+    toColorToken: 'white100',
     toToken: '%',
     toValue: 64,
     token: 'percentage',

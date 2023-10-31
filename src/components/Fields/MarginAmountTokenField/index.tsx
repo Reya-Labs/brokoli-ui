@@ -81,7 +81,7 @@ export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFi
   bottomLeftText,
   token,
   bottomRightTextTypographyToken = 'secondaryBodyXSmallRegular',
-  bottomRightTextColorToken = 'lavenderWeb',
+  bottomRightTextColorToken = 'white100',
   bottomRightTextValue,
   bottomRightTextDifferenceValue,
   allowNegativeValue,
@@ -218,7 +218,7 @@ export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFi
                   token={token}
                 />
                 <Typography
-                  colorToken="lavenderWeb"
+                  colorToken="white100"
                   data-testid="MarginAmountTokenField-CurrencyInputBox-TokenBox-Typography"
                   typographyToken="primaryBodySmallRegular"
                 >

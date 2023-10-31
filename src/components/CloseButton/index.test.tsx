@@ -7,7 +7,7 @@ describe('<CloseButton />', () => {
   it('renders with default props', () => {
     render(<CloseButton />);
 
-    const closeButton = screen.getByTestId('CloseButton-CloseButtonStyled-lavenderWeb');
+    const closeButton = screen.getByTestId('CloseButton-CloseButtonStyled-white100');
     expect(closeButton).toBeInTheDocument();
     expect(closeButton).toHaveTextContent('✕');
   });
@@ -24,7 +24,7 @@ describe('<CloseButton />', () => {
     const handleClick = jest.fn();
     render(<CloseButton onClick={handleClick} />);
 
-    const closeButton = screen.getByTestId('CloseButton-CloseButtonStyled-lavenderWeb');
+    const closeButton = screen.getByTestId('CloseButton-CloseButtonStyled-white100');
     fireEvent.click(closeButton);
 
     expect(handleClick).toHaveBeenCalledTimes(1);

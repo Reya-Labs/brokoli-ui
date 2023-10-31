@@ -60,7 +60,7 @@ export const WalletConnectButton: React.FunctionComponent<WalletConnectButtonPro
     <WalletButton data-testid="WalletConnectButton-WalletConnect" onClick={onClick}>
       <AttentionIndicator colorToken="wildStrawberry" />
       <WalletConnectButtonTypography
-        colorToken="lavenderWeb"
+        colorToken="white100"
         typographyToken="primaryBodyMediumRegular"
       >
         Connect wallet

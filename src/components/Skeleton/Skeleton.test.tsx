@@ -14,11 +14,7 @@ describe('<Skeleton />', () => {
 
   it('renders a circular skeleton with custom props', () => {
     render(
-      <Skeleton
-        colorToken="lavenderWeb"
-        typographyToken="primaryBodyMediumBold"
-        variant="circular"
-      />,
+      <Skeleton colorToken="white100" typographyToken="primaryBodyMediumBold" variant="circular" />,
     );
     const skeletonBox = screen.getByTestId('Skeleton-SkeletonBox-circular-primaryBodyMediumBold');
 
@@ -29,7 +25,7 @@ describe('<Skeleton />', () => {
     render(
       <Skeleton
         className="custom-class"
-        colorToken="lavenderWeb"
+        colorToken="white100"
         data-testid="custom-test-id"
         typographyToken="primaryBodyMediumBold"
         variant="circular"

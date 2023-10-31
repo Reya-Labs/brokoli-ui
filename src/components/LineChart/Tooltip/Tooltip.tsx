@@ -12,7 +12,7 @@ export const Tooltip: React.FunctionComponent<
 > = ({ point, colorToken }) => {
   return (
     <TooltipBox>
-      <Typography colorToken="lavenderWeb" typographyToken="primaryBodyMediumBold">
+      <Typography colorToken="white100" typographyToken="primaryBodyMediumBold">
         {point.data.xFormatted}
       </Typography>
       <Typography colorToken={colorToken} typographyToken="secondaryBodyMediumBold">

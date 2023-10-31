@@ -33,7 +33,7 @@ export const ChainSelectorButton = styled('button', {
 
   padding: 0px;
   color: ${({ theme, isPopoverOpen }) =>
-    isPopoverOpen ? theme.colors.lavenderWeb : theme.colors.white400};
+    isPopoverOpen ? theme.colors.white100 : theme.colors.white400};
   text-decoration: none;
   text-transform: none;
   display: flex;
@@ -46,7 +46,7 @@ export const ChainSelectorButton = styled('button', {
   background: transparent;
   border: 0;
   &:hover {
-    color: ${({ theme }) => theme.colors.lavenderWeb};
+    color: ${({ theme }) => theme.colors.white100};
   }
 `;
 

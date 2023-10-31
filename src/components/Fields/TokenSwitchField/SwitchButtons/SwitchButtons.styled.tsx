@@ -32,7 +32,7 @@ export const SwitchButton = styled('button')<{
   box-shadow: ${({ theme, error, active }) =>
     !error
       ? active
-        ? `0px 4px 4px ${theme.colors.liberty8}, 0px 0px 1px ${theme.colors.lavenderWeb}`
+        ? `0px 4px 4px ${theme.colors.liberty8}, 0px 0px 1px ${theme.colors.white100}`
         : `0px 0px 1px ${theme.colors.white900}`
       : `0px 4px 4px ${theme.colors.liberty8}, 0px 0px 1px ${theme.colors.wildStrawberry}`};
 
@@ -45,7 +45,7 @@ export const SwitchButton = styled('button')<{
   color: ${({ theme, error, active }) =>
     !error
       ? active
-        ? theme.colors.lavenderWeb
+        ? theme.colors.white100
         : theme.colors.white400
       : active
       ? theme.colors.wildStrawberry
@@ -67,7 +67,7 @@ export const SwitchButton = styled('button')<{
 
     box-shadow: ${({ theme, active }) => `
       0px 4px 4px ${theme.colors.liberty8},
-      0px 0px 1px ${theme.colors.lavenderWeb}
+      0px 0px 1px ${theme.colors.white100}
     `};
   }
 `;

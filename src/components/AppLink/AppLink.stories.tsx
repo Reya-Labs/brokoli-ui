@@ -24,7 +24,7 @@ export const Default: StoryObj<typeof AppLink> = {
 };
 
 const WithinTextTemplate: StoryFn<typeof AppLink> = (args) => (
-  <Typography colorToken="lavenderWeb" typographyToken="primaryBodySmallRegular">
+  <Typography colorToken="white100" typographyToken="primaryBodySmallRegular">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
     labore et dolore magna aliqua. <AppLink {...args} /> Ut enim ad minim veniam, quis nostrud
     exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in

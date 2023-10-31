@@ -9,7 +9,7 @@ export const DialogBox = styled('div')`
   padding: 16px;
 
   position: relative;
-  box-shadow: 0px 0px 40px 0px ${({ theme }) => addAlpha(theme.colors.lavenderWeb, 0.1)};
+  box-shadow: 0px 0px 40px 0px ${({ theme }) => addAlpha(theme.colors.white100, 0.1)};
   background: linear-gradient(
     90.95deg,
     ${({ theme }) => theme.colors.white900} 0.66%,

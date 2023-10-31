@@ -27,7 +27,7 @@ export const ChainOptionButton = styled('button')`
   ${({ theme }) =>
     css(getResponsiveTypographyStyleFromToken({ theme, token: 'primaryBodySmallRegular' }))};
 
-  color: ${({ theme }) => theme.colors.lavenderWeb};
+  color: ${({ theme }) => theme.colors.white100};
   text-decoration: none;
   background-color: ${({ theme }) => theme.colors.liberty7};
   border-radius: 2px;
@@ -41,7 +41,7 @@ export const ChainOptionButton = styled('button')`
 
   &:hover {
     text-decoration: none;
-    text-shadow: 0px 0px 20px ${({ theme }) => addAlpha(theme.colors.lavenderWeb, 0.7)};
+    text-shadow: 0px 0px 20px ${({ theme }) => addAlpha(theme.colors.white100, 0.7)};
     background-color: ${({ theme }) => theme.colors.white900};
   }
 
@@ -52,6 +52,6 @@ export const ChainOptionButton = styled('button')`
 
 export const ActiveChainOptionButton = styled(ChainOptionButton)`
   text-decoration: none;
-  text-shadow: 0px 0px 20px ${({ theme }) => addAlpha(theme.colors.lavenderWeb, 0.7)};
+  text-shadow: 0px 0px 20px ${({ theme }) => addAlpha(theme.colors.white100, 0.7)};
   background: ${({ theme }) => theme.colors.white900};
 `;
