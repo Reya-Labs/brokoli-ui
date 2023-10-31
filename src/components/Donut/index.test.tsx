@@ -5,7 +5,7 @@ import { Donut, DonutProps } from '.'; // Make sure the path to the Donut compon
 
 describe('<Donut />', () => {
   const props: DonutProps = {
-    colorToken: 'orangeYellow',
+    colorToken: 'warning100',
     holeColorToken: 'liberty7',
     percentage: 50,
   };

@@ -32,7 +32,7 @@ export const Container = styled('div')`
   }
   i:nth-of-type(2) {
     transform: translate3d(-67px, -49px, 0) rotate(64deg);
-    background: ${({ theme }) => theme.colors.orangeYellow};
+    background: ${({ theme }) => theme.colors.warning100};
     animation: ${bang} 700ms ease-out forwards;
     opacity: 0;
   }
@@ -92,7 +92,7 @@ export const Container = styled('div')`
   }
   i:nth-of-type(12) {
     transform: translate3d(34px, -34px, 0) rotate(247deg);
-    background: ${({ theme }) => theme.colors.orangeYellow};
+    background: ${({ theme }) => theme.colors.warning100};
     animation: ${bang} 700ms ease-out forwards;
     opacity: 0;
   }
@@ -116,7 +116,7 @@ export const Container = styled('div')`
   }
   i:nth-of-type(16) {
     transform: translate3d(-18px, 12px, 0) rotate(256deg);
-    background: ${({ theme }) => theme.colors.orangeYellow};
+    background: ${({ theme }) => theme.colors.warning100};
     animation: ${bang} 700ms ease-out forwards;
     opacity: 0;
   }

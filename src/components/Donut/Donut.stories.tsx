@@ -10,14 +10,14 @@ export default {
 
 export const Default: StoryObj<typeof Donut> = {
   args: {
-    colorToken: 'orangeYellow',
+    colorToken: 'warning100',
     percentage: 65,
   },
 };
 
 export const WithHoleColorToken: StoryObj<typeof Donut> = {
   args: {
-    colorToken: 'orangeYellow',
+    colorToken: 'warning100',
     holeColorToken: 'white100',
     percentage: 23,
   },

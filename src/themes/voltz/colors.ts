@@ -31,35 +31,8 @@ export const colors: ColorsTheme = {
   /* Liberty 9 */
   liberty9: '#0B0911',
 
-  /* Orange Yellow */
-  orangeYellow: '#FBC13A',
-
-  /* Orange Yellow 1 */
-  orangeYellow1: '#CA9C32',
-
-  /* Orange Yellow 2 */
-  orangeYellow2: '#A27E2E',
-
-  /* Orange Yellow 3 */
-  orangeYellow3: '#826624',
-
-  /* Orange Yellow 4 */
-  orangeYellow4: '#624C1A',
-
-  /* Orange Yellow 5 */
-  orangeYellow5: '#4D3C14',
-
-  /* Orange Yellow 6 */
-  orangeYellow6: '#372B0F',
-
-  /* Orange Yellow 7 */
-  orangeYellow7: '#2C220C',
-
-  /* Orange Yellow 8 */
-  orangeYellow8: '#1F1808',
-
-  /* Orange Yellow 9 */
-  orangeYellow9: '#1F1808',
+  /* Sky Blue Crayola */
+  primary100: '#4DE5FF',
 
   /* Sky Blue Crayola 1 */
   primary200: '#3FBACF',
@@ -88,8 +61,8 @@ export const colors: ColorsTheme = {
   /* Sky Blue Crayola 9 */
   primary950: '#091B1E',
 
-  /* Sky Blue Crayola */
-  primary100: '#4DE5FF',
+  /* Orange Yellow */
+  warning100: '#FBC13A',
 
   /* Ultramarine Blue */
   secondary100: '#2667FF',
@@ -120,6 +93,33 @@ export const colors: ColorsTheme = {
 
   /* Ultramarine Blue 9 */
   secondary950: '#040915',
+
+  /* Orange Yellow 1 */
+  warning200: '#CA9C32',
+
+  /* Orange Yellow 2 */
+  warning300: '#A27E2E',
+
+  /* Orange Yellow 3 */
+  warning400: '#826624',
+
+  /* Orange Yellow 4 */
+  warning500: '#624C1A',
+
+  /* Orange Yellow 5 */
+  warning600: '#4D3C14',
+
+  /* Orange Yellow 6 */
+  warning700: '#372B0F',
+
+  /* Orange Yellow 7 */
+  warning800: '#2C220C',
+
+  /* Orange Yellow 8 */
+  warning900: '#1F1808',
+
+  /* Orange Yellow 9 */
+  warning950: '#1F1808',
 
   /* Lavender Web */
   white100: '#E1DDF7',

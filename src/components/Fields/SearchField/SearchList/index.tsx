@@ -77,7 +77,7 @@ export const SearchList: React.FunctionComponent<SearchListProps> = ({
           ))
         ) : (
           <ItemWrapper backgroundColorToken="liberty7">
-            <Typography colorToken="orangeYellow" typographyToken="primaryBodySmallRegular">
+            <Typography colorToken="warning100" typographyToken="primaryBodySmallRegular">
               No items match the filter...
             </Typography>
           </ItemWrapper>
