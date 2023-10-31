@@ -7856,7 +7856,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/facepaint@npm:^1":
+"@types/facepaint@npm:1.2.4":
   version: 1.2.4
   resolution: "@types/facepaint@npm:1.2.4"
   checksum: ff6969033d567c82d4f6ede4d94cc574e7e614ac6dc7d209ac5c0bb80eb78d19e871fed9916417767379638e68ec874b23c8621650443cb24dcd7ced7b000529
@@ -10592,7 +10592,7 @@ __metadata:
     "@testing-library/jest-dom": "npm:5.16.5"
     "@testing-library/react": "npm:12.1.5"
     "@testing-library/user-event": "npm:13.5.0"
-    "@types/facepaint": "npm:^1"
+    "@types/facepaint": "npm:1.2.4"
     "@types/jest": "npm:29.4.0"
     "@types/react": "npm:17.0.53"
     "@types/react-dom": "npm:17.0.18"
