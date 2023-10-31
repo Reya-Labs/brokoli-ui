@@ -55,8 +55,7 @@ export const SwitchButton = styled('button')<{
 
   &:disabled {
     cursor: not-allowed;
-    color: ${({ theme, active }) =>
-      !active ? theme.colors.lavenderWeb4 : theme.colors.lavenderWeb2};
+    color: ${({ theme, active }) => (!active ? theme.colors.white500 : theme.colors.lavenderWeb2)};
     background: ${({ theme, active }) =>
       active
         ? `linear-gradient(

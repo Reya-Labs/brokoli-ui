@@ -29,7 +29,7 @@ export const primaryButtonCSS = (theme: Theme) => css`
 
   &:disabled {
     background: ${theme.colors.white800};
-    color: ${theme.colors.lavenderWeb4};
+    color: ${theme.colors.white500};
     box-shadow: none;
     cursor: not-allowed;
   }
@@ -44,7 +44,7 @@ export const secondaryButtonCSS = (theme: Theme) => css`
     color 200ms ease-in;
 
   &:hover {
-    border: 1px solid ${theme.colors.lavenderWeb4};
+    border: 1px solid ${theme.colors.white500};
   }
 
   &:disabled {
