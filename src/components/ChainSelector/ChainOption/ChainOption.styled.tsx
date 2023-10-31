@@ -13,7 +13,7 @@ export const IconBox = styled('div', {
   height: 24px;
   border-radius: 50%;
   background: ${({ theme, isActive }) =>
-    isActive ? theme.colors.liberty7 : theme.colors.lavenderWeb8};
+    isActive ? theme.colors.liberty7 : theme.colors.white900};
   transition: background-color 200ms ease-in;
 `;
 
@@ -42,7 +42,7 @@ export const ChainOptionButton = styled('button')`
   &:hover {
     text-decoration: none;
     text-shadow: 0px 0px 20px ${({ theme }) => addAlpha(theme.colors.lavenderWeb, 0.7)};
-    background-color: ${({ theme }) => theme.colors.lavenderWeb8};
+    background-color: ${({ theme }) => theme.colors.white900};
   }
 
   &:hover div {
@@ -53,5 +53,5 @@ export const ChainOptionButton = styled('button')`
 export const ActiveChainOptionButton = styled(ChainOptionButton)`
   text-decoration: none;
   text-shadow: 0px 0px 20px ${({ theme }) => addAlpha(theme.colors.lavenderWeb, 0.7)};
-  background: ${({ theme }) => theme.colors.lavenderWeb8};
+  background: ${({ theme }) => theme.colors.white900};
 `;

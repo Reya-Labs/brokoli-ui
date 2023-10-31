@@ -17,8 +17,6 @@ export const colors: ColorsTheme = {
   lavenderWeb6: '#393452',
   /* Lavender Web 7 */
   lavenderWeb7: '#272437',
-  /* Lavender Web 8 */
-  lavenderWeb8: '#181524',
 
   /* Liberty */
   liberty: '#5D5296',
@@ -50,68 +48,101 @@ export const colors: ColorsTheme = {
   /* Liberty 9 */
   liberty9: '#0B0911',
 
-  /* Lavender Web 9 */
-  white950: '#181524',
   /* Orange Yellow */
   orangeYellow: '#FBC13A',
+
   /* Orange Yellow 1 */
   orangeYellow1: '#CA9C32',
+
   /* Orange Yellow 2 */
   orangeYellow2: '#A27E2E',
+
   /* Orange Yellow 3 */
   orangeYellow3: '#826624',
+
   /* Orange Yellow 4 */
   orangeYellow4: '#624C1A',
+
   /* Orange Yellow 5 */
   orangeYellow5: '#4D3C14',
+
   /* Orange Yellow 6 */
   orangeYellow6: '#372B0F',
+
   /* Orange Yellow 7 */
   orangeYellow7: '#2C220C',
+
   /* Orange Yellow 8 */
   orangeYellow8: '#1F1808',
+
   /* Orange Yellow 9 */
   orangeYellow9: '#1F1808',
+
   /* Sky Blue Crayola */
   skyBlueCrayola: '#4DE5FF',
+
   /* Sky Blue Crayola 1 */
   skyBlueCrayola1: '#3FBACF',
+
   /* Sky Blue Crayola 2 */
   skyBlueCrayola2: '#369DAE',
+
   /* Sky Blue Crayola 3 */
   skyBlueCrayola3: '#297A88',
+
   /* Sky Blue Crayola 4 */
   skyBlueCrayola4: '#1F5C67',
+
   /* Sky Blue Crayola 5 */
   skyBlueCrayola5: '#154148',
+
   /* Sky Blue Crayola 6 */
   skyBlueCrayola6: '#0F2E33',
+
   /* Sky Blue Crayola 7 */
   skyBlueCrayola7: '#0B2226',
+
   /* Sky Blue Crayola 8 */
   skyBlueCrayola8: '#091B1E',
+
   /* Sky Blue Crayola 9 */
   skyBlueCrayola9: '#091B1E',
+
   /* Ultramarine Blue */
   ultramarineBlue: '#2667FF',
+
   /* Ultramarine Blue 1 */
   ultramarineBlue1: '#235EE8',
+
   /* Ultramarine Blue 2 */
   ultramarineBlue2: '#1E4CB9',
+
   /* Ultramarine Blue 3 */
   ultramarineBlue3: '#173B8F',
+
   /* Ultramarine Blue 4 */
   ultramarineBlue4: '#122C68',
+
   /* Ultramarine Blue 5 */
   ultramarineBlue5: '#0D204D',
+
   /* Ultramarine Blue 6 */
   ultramarineBlue6: '#0A1838',
+
   /* Ultramarine Blue 7 */
   ultramarineBlue7: '#071025',
+
   /* Ultramarine Blue 8 */
   ultramarineBlue8: '#040915',
+
   /* Ultramarine Blue 9 */
   ultramarineBlue9: '#040915',
+
+  /* Lavender Web 8 */
+  white900: '#181524',
+
+  /* Lavender Web 9 */
+  white950: '#181524',
   /* Wild Strawberry */
   wildStrawberry: '#FF4AA9',
   /* Wild Strawberry 1 */

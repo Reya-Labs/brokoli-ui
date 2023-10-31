@@ -40,7 +40,7 @@ export const commonInputStyle = ({ theme, error, typographyToken }: CommonInputS
     border: ${error
       ? `1px solid ${theme.colors.wildStrawberry7}`
       : `1px solid ${theme.colors.lavenderWeb4}`};
-    background: ${theme.colors.lavenderWeb8};
+    background: ${theme.colors.white900};
   }
 
   &:disabled {

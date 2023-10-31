@@ -26,12 +26,12 @@ export const SubLinkButton = styled(Link)`
   &:hover {
     text-decoration: none;
     text-shadow: 0px 0px 20px ${({ theme }) => addAlpha(theme.colors.lavenderWeb, 0.7)};
-    background-color: ${({ theme }) => theme.colors.lavenderWeb8};
+    background-color: ${({ theme }) => theme.colors.white900};
   }
 `;
 
 export const ActiveSubLinkButton = styled(SubLinkButton)`
   text-decoration: none;
   text-shadow: 0px 0px 20px ${({ theme }) => addAlpha(theme.colors.lavenderWeb, 0.7)};
-  background: ${({ theme }) => theme.colors.lavenderWeb8};
+  background: ${({ theme }) => theme.colors.white900};
 `;

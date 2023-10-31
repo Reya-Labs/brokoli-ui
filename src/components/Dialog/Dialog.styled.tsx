@@ -12,7 +12,7 @@ export const DialogBox = styled('div')`
   box-shadow: 0px 0px 40px 0px ${({ theme }) => addAlpha(theme.colors.lavenderWeb, 0.1)};
   background: linear-gradient(
     90.95deg,
-    ${({ theme }) => theme.colors.lavenderWeb8} 0.66%,
+    ${({ theme }) => theme.colors.white900} 0.66%,
     ${({ theme }) => theme.colors.liberty8} 99.34%
   );
   border: 1px solid ${({ theme }) => theme.colors.lavenderWeb7};

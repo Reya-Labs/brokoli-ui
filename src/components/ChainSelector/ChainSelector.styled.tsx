@@ -54,5 +54,5 @@ export const IconBox = styled('div')`
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: ${({ theme }) => theme.colors.lavenderWeb8};
+  background: ${({ theme }) => theme.colors.white900};
 `;

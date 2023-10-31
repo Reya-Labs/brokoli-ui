@@ -8,7 +8,7 @@ export const TooltipBox = styled('div', {
   box-sizing: border-box;
   background: linear-gradient(
     90.95deg,
-    ${({ theme }) => theme.colors.lavenderWeb8} 0.66%,
+    ${({ theme }) => theme.colors.white900} 0.66%,
     ${({ theme }) => theme.colors.liberty8} 99.34%
   );
   border: 1px solid ${({ theme }) => theme.colors.lavenderWeb7};

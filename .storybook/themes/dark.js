@@ -18,7 +18,7 @@ export default create({
 
   // Text colors
   textColor: colors.lavenderWeb,
-  textInverseColor: colors.lavenderWeb8,
+  textInverseColor: colors.white900,
 
   // Toolbar default and active colors
   barTextColor: colors.lavenderWeb,

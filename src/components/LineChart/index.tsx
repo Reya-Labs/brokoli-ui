@@ -140,7 +140,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
           axis: {
             domain: {
               line: {
-                stroke: theme.colors.lavenderWeb8,
+                stroke: theme.colors.white900,
                 strokeWidth: 1,
               },
             },
