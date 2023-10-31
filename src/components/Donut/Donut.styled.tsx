@@ -22,7 +22,7 @@ export const Container = styled('div', {
 
   background: ${({ theme, colorToken }) => `conic-gradient(
     ${getColorFromToken({ colorToken, theme })} 0deg var(--angle),
-    ${theme.colors.lavenderWeb5} var(--angle) 360deg
+    ${theme.colors.white600} var(--angle) 360deg
   )`};
 
   display: inline-flex;
