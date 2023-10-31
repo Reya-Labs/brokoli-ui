@@ -35,8 +35,7 @@ export const PillSelectorButton = styled('button', {
   align-items: flex-start;
   padding: 4px 8px;
 
-  background: ${({ theme, active }) =>
-    active ? theme.colors.lavenderWeb7 : theme.colors.liberty8};
+  background: ${({ theme, active }) => (active ? theme.colors.white800 : theme.colors.liberty8)};
   box-shadow: ${({ theme, error, active }) =>
     !error
       ? active

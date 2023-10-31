@@ -30,7 +30,7 @@ export const commonInputStyle = ({ theme, error, typographyToken }: CommonInputS
   background: ${theme.colors.liberty8};
   border: ${error
     ? `1px solid ${theme.colors.wildStrawberry7}`
-    : `1px solid ${theme.colors.lavenderWeb7}`};
+    : `1px solid ${theme.colors.white800}`};
   color: ${error ? theme.colors.wildStrawberry3 : theme.colors.lavenderWeb3};
 
   &:focus,
@@ -46,7 +46,7 @@ export const commonInputStyle = ({ theme, error, typographyToken }: CommonInputS
   &:disabled {
     color: ${theme.colors.lavenderWeb4};
     border: 1px solid ${theme.colors.lavenderWeb4};
-    background: ${theme.colors.lavenderWeb7};
+    background: ${theme.colors.white800};
     cursor: not-allowed;
   }
 

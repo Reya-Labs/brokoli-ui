@@ -27,7 +27,7 @@ export const SwitchButton = styled('button')<{
 
   background: ${({ theme, active }) =>
     active
-      ? `linear-gradient(259.45deg, ${theme.colors.white900} 0%, ${theme.colors.lavenderWeb7} 84.3%)`
+      ? `linear-gradient(259.45deg, ${theme.colors.white900} 0%, ${theme.colors.white800} 84.3%)`
       : `linear-gradient(261.54deg, ${theme.colors.white900} -58.11%, ${theme.colors.liberty8} 12.89%)`};
   box-shadow: ${({ theme, error, active }) =>
     !error
@@ -63,7 +63,7 @@ export const SwitchButton = styled('button')<{
       259.45deg,
       ${theme.colors.liberty8} 0%,
       ${theme.colors.white900} 33.14%,
-      ${theme.colors.lavenderWeb7} 84.3%)`
+      ${theme.colors.white800} 84.3%)`
         : `linear-gradient(90.95deg, ${theme.colors.white900} 0.66%, ${theme.colors.liberty8} 99.34%)`};
 
     box-shadow: ${({ theme, active }) => `

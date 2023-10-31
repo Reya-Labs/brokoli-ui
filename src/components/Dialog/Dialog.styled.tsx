@@ -15,6 +15,6 @@ export const DialogBox = styled('div')`
     ${({ theme }) => theme.colors.white900} 0.66%,
     ${({ theme }) => theme.colors.liberty8} 99.34%
   );
-  border: 1px solid ${({ theme }) => theme.colors.lavenderWeb7};
+  border: 1px solid ${({ theme }) => theme.colors.white800};
   border-radius: 8px;
 `;

@@ -13,7 +13,7 @@ export const globalScrollbarCSS = (theme: Theme) => css`
 
   /* Handle styling */
   ::-webkit-scrollbar-thumb {
-    background: ${theme.colors.lavenderWeb7};
+    background: ${theme.colors.white800};
     border-radius: 2px;
   }
 

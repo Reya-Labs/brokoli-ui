@@ -42,7 +42,7 @@ export const ButtonStyled = styled('button')<{
 
   background: ${({ theme, active }) =>
     active
-      ? `linear-gradient(259.45deg, ${theme.colors.white900} 0%, ${theme.colors.lavenderWeb7} 84.3%)`
+      ? `linear-gradient(259.45deg, ${theme.colors.white900} 0%, ${theme.colors.white800} 84.3%)`
       : `linear-gradient(90.95deg, ${theme.colors.white900} 0.66%, ${theme.colors.liberty8} 99.34%)`};
   box-shadow: ${({ theme, active }) =>
     active
@@ -65,7 +65,7 @@ export const ButtonStyled = styled('button')<{
     background: linear-gradient(
       259.45deg,
       ${({ theme }) => theme.colors.liberty6} 0%,
-      ${({ theme }) => theme.colors.lavenderWeb7} 84.3%
+      ${({ theme }) => theme.colors.white800} 84.3%
     );
     box-shadow:
       0px -1px 4px ${({ theme }) => theme.colors.liberty8},
@@ -82,7 +82,7 @@ export const ButtonStyled = styled('button')<{
       259.45deg,
       ${theme.colors.liberty8} 0%,
       ${theme.colors.white900} 33.14%,
-      ${theme.colors.lavenderWeb7} 84.3%)`
+      ${theme.colors.white800} 84.3%)`
         : `linear-gradient(261.54deg, ${theme.colors.white900} -58.11%, ${theme.colors.liberty8} 12.89%)`};
 
     box-shadow: 0px 0px 1px ${({ theme }) => theme.colors.lavenderWeb};

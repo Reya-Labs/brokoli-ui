@@ -28,7 +28,7 @@ export const primaryButtonCSS = (theme: Theme) => css`
   }
 
   &:disabled {
-    background: ${theme.colors.lavenderWeb7};
+    background: ${theme.colors.white800};
     color: ${theme.colors.lavenderWeb4};
     box-shadow: none;
     cursor: not-allowed;
@@ -37,7 +37,7 @@ export const primaryButtonCSS = (theme: Theme) => css`
 
 export const secondaryButtonCSS = (theme: Theme) => css`
   background: transparent;
-  border: 1px solid ${theme.colors.lavenderWeb7};
+  border: 1px solid ${theme.colors.white800};
   color: ${theme.colors.lavenderWeb};
   transition:
     border-color,
