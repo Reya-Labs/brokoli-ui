@@ -8,6 +8,11 @@
   "directories": {
     "doc": "docs"
   },
+  "files": [
+    "dist/**/*.*",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "prebuild": "yarn code-quality:check && rm -rf dist",
     "build": "rollup -c --bundleConfigAsCjs",
