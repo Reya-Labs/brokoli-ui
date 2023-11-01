@@ -16,9 +16,9 @@
   ],
   "scripts": {
     "prebuild": "yarn code-quality:check && rm -rf dist",
-    "build": "rollup -c --bundleConfigAsCjs",
+    "build": "yarn prebuild && rollup -c --bundleConfigAsCjs",
     "prebuild:storybook": "yarn code-quality:check && rm -rf storybook-static",
-    "build:storybook": "storybook build",
+    "build:storybook": "yarn prebuild:storybook && storybook build",
     "storybook": "storybook dev -p 6006",
     "ts:check": "yarn ts:check-types && yarn ts:circular-check",
     "ts:check-types": "tsc --noEmit",
