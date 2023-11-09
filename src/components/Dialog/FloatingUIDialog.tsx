@@ -94,7 +94,7 @@ export function FloatingUIDialog({
 export const FloatingUIDialogTrigger = React.forwardRef<HTMLElement, React.HTMLProps<HTMLElement>>(
   function FloatingUIDialogTrigger({ children, ...props }, propRef) {
     const context = useFloatingUIDialogContext();
-    const childrenRef = (children as { ref: React.Ref<unknown> }).ref;
+    const childrenRef = (children as unknown as { ref: React.Ref<unknown> }).ref;
     const ref = useMergeRefs([context.refs.setReference, propRef, childrenRef]);
 
     if (React.isValidElement(children)) {

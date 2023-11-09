@@ -104,7 +104,7 @@ export function FloatingUITooltip({
 export const FloatingUITooltipTrigger = React.forwardRef<HTMLElement, React.HTMLProps<HTMLElement>>(
   function FloatingUITooltipTrigger({ children, ...props }, propRef) {
     const context = useFloatingUITooltipContext();
-    const childrenRef = (children as { ref: React.Ref<unknown> }).ref;
+    const childrenRef = (children as unknown as { ref: React.Ref<unknown> }).ref;
     const ref = useMergeRefs([context.refs.setReference, propRef, childrenRef]);
 
     if (React.isValidElement(children)) {

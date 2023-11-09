@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 
 import { Container } from './Confetti.styled';
 
-export const Confetti: FunctionComponent = ({ children }) => {
+export const Confetti: React.FunctionComponent<React.PropsWithChildren> = ({ children }) => {
   const leafElements = React.useMemo(
     () =>
       Array.from({ length: 20 }, (_, index) => (

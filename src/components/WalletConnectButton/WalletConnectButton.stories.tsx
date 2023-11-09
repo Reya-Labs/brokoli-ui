@@ -1,5 +1,5 @@
 import detectEthereumProvider from '@metamask/detect-provider';
-import { Meta, StoryFn, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { ethers } from 'ethers';
 import React, { useState } from 'react';
 
@@ -10,7 +10,7 @@ export default {
   title: 'Components/WalletConnectButton',
 } as Meta<typeof WalletConnectButton>;
 
-const TemplateMetamask: StoryFn<typeof React.Fragment> = () => {
+const TemplateMetamask = () => {
   const [account, setAccount] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');

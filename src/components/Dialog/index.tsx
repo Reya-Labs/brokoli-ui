@@ -3,9 +3,11 @@ import React from 'react';
 import { DialogBox } from './Dialog.styled';
 import { FloatingUIDialog, FloatingUIDialogContent } from './FloatingUIDialog';
 
-export const Dialog: React.FunctionComponent<{
+type DialogProps = React.PropsWithChildren<{
   open: boolean;
-}> = ({ open, children }) => {
+}>;
+
+export const Dialog: React.FunctionComponent<DialogProps> = ({ open, children }) => {
   if (!children) {
     return null;
   }

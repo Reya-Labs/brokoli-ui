@@ -9,7 +9,7 @@ import { isActiveLink } from './helpers';
 import { NavLinkButton, NavLinkButtonBox } from './NavLink.styled';
 import { SubLinks } from './SubLinks/SubLinks';
 
-export type NavLinkProps = {
+export type NavLinkProps = React.PropsWithChildren<{
   link?: string;
   isNew?: boolean;
   colorToken?: BaseColorTokens | 'rainbow';
@@ -19,7 +19,7 @@ export type NavLinkProps = {
     isNew?: boolean;
     isHidden?: boolean;
   }[];
-};
+}>;
 
 export const NavLink: React.FunctionComponent<NavLinkProps> = ({
   subLinks = [],

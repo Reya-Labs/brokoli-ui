@@ -5,13 +5,13 @@ import { ExclaimTooltipProps } from '../ExclaimTooltip';
 import { TypographyProps } from '../Typography';
 import { TooltipStyled, TypographyStyled } from './TypographyWithTooltip.styled';
 
-export type TypographyWithTooltipProps = {
+export type TypographyWithTooltipProps = React.PropsWithChildren<{
   colorToken: TypographyProps['colorToken'];
   typographyToken: TypographyProps['typographyToken'];
   tooltipColorToken?: ColorTokens;
   tooltip: ExclaimTooltipProps['children'];
   'data-testid'?: string;
-};
+}>;
 
 export const TypographyWithTooltip: React.FunctionComponent<TypographyWithTooltipProps> = ({
   children,

@@ -6,7 +6,7 @@ import { Ellipsis } from '../Ellipsis';
 import { Typography } from '../Typography';
 import { ButtonBox, ButtonStyled, ButtonVariant } from './Button.styled';
 
-export type ButtonProps = {
+export type ButtonProps = React.PropsWithChildren<{
   disabled?: boolean;
   variant: ButtonVariant;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
@@ -17,7 +17,8 @@ export type ButtonProps = {
   'data-testid'?: string;
   className?: string;
   typographyToken?: TypographyToken;
-};
+}>;
+
 export const Button: React.FunctionComponent<ButtonProps> = ({
   onClick,
   variant = 'primary',
