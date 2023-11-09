@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 
-export const TooltipBox = styled('div', {
-  shouldForwardProp: (prop) => prop !== 'limitWidth',
-})<{
+import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
+
+export const TooltipBox = styled('div', shouldNotForwardProps(['limitWidth']))<{
   limitWidth: boolean;
 }>`
   box-sizing: border-box;

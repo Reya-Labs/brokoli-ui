@@ -3,10 +3,9 @@ import styled from '@emotion/styled';
 
 import { addAlpha } from '../../../foundation/Colors';
 import { getResponsiveTypographyStyleFromToken } from '../../../foundation/Typography';
+import { shouldNotForwardProps } from '../../../utils/should-not-forward-props';
 
-export const IconBox = styled('div', {
-  shouldForwardProp: (prop) => prop !== 'isActive',
-})<{
+export const IconBox = styled('div', shouldNotForwardProps(['isActive']))<{
   isActive: boolean;
 }>`
   width: 24px;

@@ -1,10 +1,9 @@
 import styled from '@emotion/styled';
 
 import { ColorTokens, getColorFromToken } from '../../foundation/Colors';
+import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 
-export const AttentionIndicatorCircleIcon = styled('span', {
-  shouldForwardProp: (prop) => prop !== 'colorToken',
-})<{
+export const AttentionIndicatorCircleIcon = styled('span', shouldNotForwardProps(['colorToken']))<{
   colorToken: ColorTokens;
 }>`
   display: inline-block;

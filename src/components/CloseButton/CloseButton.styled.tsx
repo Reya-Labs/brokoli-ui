@@ -1,10 +1,9 @@
 import styled from '@emotion/styled';
 
 import { BaseColorTokens, getColorFromToken } from '../../foundation/Colors';
+import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 
-export const CloseButtonStyled = styled('button', {
-  shouldForwardProp: (prop) => prop !== 'colorToken',
-})<{
+export const CloseButtonStyled = styled('button', shouldNotForwardProps(['colorToken']))<{
   colorToken: BaseColorTokens;
 }>`
   display: flex;

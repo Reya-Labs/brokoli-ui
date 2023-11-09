@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { getResponsiveTypographyStyleFromToken } from '../../foundation/Typography';
+import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 import { ReactComponent as Warning } from './icons/warning.svg';
 
 export const SelectorBox = styled('div')`
@@ -23,9 +24,7 @@ export const WarningIcon = styled(Warning)`
   height: 24px;
 `;
 
-export const ChainSelectorButton = styled('button', {
-  shouldForwardProp: (prop) => prop !== 'isPopoverOpen',
-})<{
+export const ChainSelectorButton = styled('button', shouldNotForwardProps(['isPopoverOpen']))<{
   isPopoverOpen: boolean;
 }>`
   ${({ theme }) =>

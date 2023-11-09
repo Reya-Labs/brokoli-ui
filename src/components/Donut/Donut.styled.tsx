@@ -2,6 +2,7 @@ import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { ColorTokens, getColorFromToken } from '../../foundation/Colors';
+import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 
 const animate = (percentage: number) => keyframes`
   100% {
@@ -9,9 +10,7 @@ const animate = (percentage: number) => keyframes`
   }
 `;
 
-export const Container = styled('div', {
-  shouldForwardProp: (prop) => prop !== 'percentage' && prop !== 'colorToken',
-})<{
+export const Container = styled('div', shouldNotForwardProps(['percentage', 'colorToken']))<{
   colorToken: ColorTokens;
   percentage: number;
 }>`
@@ -38,9 +37,7 @@ export const Container = styled('div', {
   }
 `;
 
-export const Hole = styled('div', {
-  shouldForwardProp: (prop) => prop !== 'colorToken',
-})<{
+export const Hole = styled('div', shouldNotForwardProps(['colorToken']))<{
   colorToken: ColorTokens;
 }>`
   width: 8px;

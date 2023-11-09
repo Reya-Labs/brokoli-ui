@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 import { ColorTokens, getColorFromToken } from '../../../../foundation/Colors';
+import { shouldNotForwardProps } from '../../../../utils/should-not-forward-props';
 
 export const ItemsWrapper = styled('div')`
   display: flex;
@@ -13,9 +14,7 @@ export const ItemsWrapper = styled('div')`
   overflow-y: scroll;
 `;
 
-export const ItemWrapper = styled('div', {
-  shouldForwardProp: (prop) => prop !== 'backgroundColorToken',
-})<{
+export const ItemWrapper = styled('div', shouldNotForwardProps(['backgroundColorToken']))<{
   backgroundColorToken: ColorTokens;
 }>`
   cursor: pointer;

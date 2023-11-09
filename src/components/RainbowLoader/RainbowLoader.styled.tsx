@@ -1,6 +1,7 @@
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 
+import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 import { Typography } from '../Typography';
 const ELLIPSE_WIDTH = 10;
 
@@ -25,9 +26,7 @@ export const LoadingBox = styled('div')`
   align-items: center;
 `;
 
-const GradientLayer = styled('div', {
-  shouldForwardProp: (prop) => prop !== 'height',
-})<{
+const GradientLayer = styled('div', shouldNotForwardProps(['height']))<{
   height: number;
 }>`
   width: 100%;
@@ -50,9 +49,7 @@ export const LoadingRect2 = styled(GradientLayer)`
   z-index: 1;
 `;
 
-export const LoadingEllipsis = styled('div', {
-  shouldForwardProp: (prop) => prop !== 'height',
-})<{
+export const LoadingEllipsis = styled('div', shouldNotForwardProps(['height']))<{
   height: number;
 }>`
   position: absolute;

@@ -5,6 +5,7 @@ import {
   getResponsiveTypographyStyleFromToken,
   TypographyToken,
 } from '../../foundation/Typography';
+import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 import { primaryButtonCSS, secondaryButtonCSS } from './Button.css';
 
 export type ButtonVariant = 'primary' | 'secondary';
@@ -12,9 +13,10 @@ const ButtonVariantMap: Record<ButtonVariant, (theme: Theme) => SerializedStyles
   primary: primaryButtonCSS,
   secondary: secondaryButtonCSS,
 };
-export const ButtonStyled = styled('button', {
-  shouldForwardProp: (prop) => prop !== 'typographyToken' && prop !== 'variant',
-})<{
+export const ButtonStyled = styled(
+  'button',
+  shouldNotForwardProps(['typographyToken', 'variant']),
+)<{
   variant: ButtonVariant;
   typographyToken: TypographyToken;
 }>`

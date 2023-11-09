@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 import { addAlpha } from '../../foundation/Colors';
+import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 import { Typography } from '../Typography';
 
 export const AvatarAddressBox = styled('div')`
@@ -9,9 +10,7 @@ export const AvatarAddressBox = styled('div')`
   align-items: center;
 `;
 
-export const AvatarAddressImg = styled('img', {
-  shouldForwardProp: (prop) => prop !== 'size',
-})<{
+export const AvatarAddressImg = styled('img', shouldNotForwardProps(['size']))<{
   size: number;
 }>`
   width: ${({ size }) => size}px;

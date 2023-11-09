@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom';
 
 import { BaseColorTokens, getColorFromToken } from '../../../foundation/Colors';
 import { getResponsiveTypographyStyleFromToken } from '../../../foundation/Typography';
+import { shouldNotForwardProps } from '../../../utils/should-not-forward-props';
 
-export const NavLinkButtonBox = styled('div', {
-  shouldForwardProp: (prop) =>
-    prop !== 'isActive' && prop !== 'isPopoverOpen' && prop !== 'colorToken',
-})<{
+export const NavLinkButtonBox = styled(
+  'div',
+  shouldNotForwardProps(['isActive', 'isPopoverOpen', 'colorToken']),
+)<{
   isPopoverOpen: boolean;
   isActive: boolean;
   colorToken: BaseColorTokens | 'rainbow';
@@ -33,10 +34,10 @@ export const NavLinkButtonBox = styled('div', {
   }
 `;
 
-export const NavLinkButton = styled(Link, {
-  shouldForwardProp: (prop) =>
-    prop !== 'isActive' && prop !== 'isPopoverOpen' && prop !== 'colorToken',
-})<{
+export const NavLinkButton = styled(
+  Link,
+  shouldNotForwardProps(['isActive', 'isPopoverOpen', 'colorToken']),
+)<{
   isPopoverOpen: boolean;
   isActive: boolean;
   colorToken: BaseColorTokens | 'rainbow';

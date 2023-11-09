@@ -1,11 +1,13 @@
 import styled from '@emotion/styled';
 
 import { TypographyToken } from '../../../foundation/Typography';
+import { shouldNotForwardProps } from '../../../utils/should-not-forward-props';
 import { commonInputStyle } from '../_common/common.styled';
 
-export const TextInputStyled = styled('input', {
-  shouldForwardProp: (prop) => prop !== 'typographyToken' && prop !== 'error',
-})<{
+export const TextInputStyled = styled(
+  'input',
+  shouldNotForwardProps(['typographyToken', 'error']),
+)<{
   error?: boolean;
   typographyToken: TypographyToken;
 }>`

@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import CurrencyInput from 'react-currency-input-field';
 
 import { TypographyToken } from '../../../foundation/Typography';
+import { shouldNotForwardProps } from '../../../utils/should-not-forward-props';
 import { Button } from '../../Button';
 import { commonInputStyle } from '../_common/common.styled';
 
@@ -42,10 +43,10 @@ export const SwitchButtonsBox = styled('div')`
   top: calc(50% - 15px);
 `;
 
-export const CurrencyInputStyled = styled(CurrencyInput, {
-  shouldForwardProp: (prop) =>
-    prop !== 'typographyToken' && prop !== 'error' && prop !== 'hasMaxButton',
-})<{
+export const CurrencyInputStyled = styled(
+  CurrencyInput,
+  shouldNotForwardProps(['typographyToken', 'hasMaxButton', 'error']),
+)<{
   error?: boolean;
   typographyToken: TypographyToken;
   hasMaxButton: boolean;

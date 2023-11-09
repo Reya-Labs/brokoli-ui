@@ -1,14 +1,14 @@
 import styled from '@emotion/styled';
 
+import { shouldNotForwardProps } from '../../../utils/should-not-forward-props';
+
 export const ColorTileBox = styled('div')`
   display: flex;
   flex-direction: column;
   width: 100%;
 `;
 
-export const ColorBackgroundBox = styled('div', {
-  shouldForwardProp: (prop) => prop !== 'backgroundColor',
-})<{
+export const ColorBackgroundBox = styled('div', shouldNotForwardProps(['backgroundColor']))<{
   backgroundColor: string;
 }>`
   padding: 26px 34px 26px 32px;

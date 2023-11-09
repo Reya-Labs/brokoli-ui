@@ -2,6 +2,7 @@ import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { ColorTokens, getColorFromToken } from '../../foundation/Colors';
+import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 
 const ellipsisAnimation = keyframes`
   0% {
@@ -15,9 +16,7 @@ const ellipsisAnimation = keyframes`
   }
 `;
 
-export const EllipsisTypography = styled('span', {
-  shouldForwardProp: (prop) => prop !== 'colorToken',
-})<{
+export const EllipsisTypography = styled('span', shouldNotForwardProps(['colorToken']))<{
   colorToken?: ColorTokens;
 }>`
   color: ${({ theme, colorToken }) =>

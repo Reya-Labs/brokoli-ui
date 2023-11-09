@@ -1,10 +1,9 @@
 import styled from '@emotion/styled';
 
 import { BaseColorTokens, getColorFromToken } from '../../foundation/Colors';
+import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 
-export const NotificationBox = styled('div', {
-  shouldForwardProp: (prop) => prop !== 'colorToken',
-})<{
+export const NotificationBox = styled('div', shouldNotForwardProps(['colorToken']))<{
   colorToken: BaseColorTokens;
 }>`
   box-sizing: border-box;

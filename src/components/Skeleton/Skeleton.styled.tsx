@@ -6,6 +6,7 @@ import {
   getResponsiveTypographyStyleFromToken,
   TypographyToken,
 } from '../../foundation/Typography';
+import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 
 const skeletonAnimation = keyframes`
   0% {
@@ -21,10 +22,10 @@ const skeletonAnimation = keyframes`
   }
 `;
 
-export const SkeletonBox = styled('div', {
-  shouldForwardProp: (prop) =>
-    prop !== 'variant' && prop !== 'colorToken' && prop !== 'typographyToken',
-})<{
+export const SkeletonBox = styled(
+  'div',
+  shouldNotForwardProps(['variant', 'colorToken', 'typographyToken']),
+)<{
   colorToken: ColorTokens;
   variant: 'rectangular' | 'circular';
   typographyToken?: TypographyToken;

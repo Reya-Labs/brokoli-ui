@@ -6,10 +6,9 @@ import {
   getResponsiveTypographyStyleFromToken,
   TypographyToken,
 } from '../../foundation/Typography';
+import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 
-export const BaseTypography = styled('p', {
-  shouldForwardProp: (prop) => prop !== 'typographyToken' && prop !== 'colorToken',
-})<{
+export const BaseTypography = styled('p', shouldNotForwardProps(['typography', 'colorToken']))<{
   colorToken: ColorTokens;
   typographyToken: TypographyToken;
 }>`

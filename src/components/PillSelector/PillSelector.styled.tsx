@@ -3,11 +3,10 @@ import styled from '@emotion/styled';
 
 import { BaseColorTokens, getColorFromToken } from '../../foundation/Colors';
 import { getResponsiveTypographyStyleFromToken } from '../../foundation/Typography';
+import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 
 export type PillSelectorVariant = 'compact' | 'regular';
-export const PillSelectorBox = styled('div', {
-  shouldForwardProp: (prop) => prop !== 'variant',
-})<{
+export const PillSelectorBox = styled('div', shouldNotForwardProps(['variant']))<{
   variant: PillSelectorVariant;
 }>`
   display: flex;
@@ -20,10 +19,10 @@ export const PillSelectorBox = styled('div', {
   }
 `;
 
-export const PillSelectorButton = styled('button', {
-  shouldForwardProp: (prop) =>
-    prop !== 'error' && prop !== 'active' && prop !== 'attentionPrefixColorToken',
-})<{
+export const PillSelectorButton = styled(
+  'button',
+  shouldNotForwardProps(['active', 'attentionPrefixColorToken']),
+)<{
   error?: boolean;
   active: boolean;
   attentionPrefixColorToken: BaseColorTokens;
