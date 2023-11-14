@@ -1,11 +1,12 @@
 import React from 'react';
 import darkTheme from './themes/dark';
-import { ThemeProvider, GlobalScrollbarStyle, Page, voltzTheme, reyaTheme } from '../src';
+import { ThemeProvider, GlobalScrollbarStyle, Page, ThemeProviderProps } from '../src';
 import { BrowserRouter } from 'react-router-dom';
 import { withThemeFromJSXProvider } from '@storybook/addon-themes';
 
-const doesntNeedsPadding = (title) => ['Components/Page', 'Components/Nav'].indexOf(title) !== -1;
-function StoryAsPageDecorator(story, storyInfo) {
+const doesntNeedsPadding = (title: string) =>
+  ['Components/Page', 'Components/Nav'].indexOf(title) !== -1;
+function StoryAsPageDecorator(story: () => React.ReactNode, storyInfo: { title: string }) {
   return (
     <BrowserRouter>
       <Page>
@@ -42,7 +43,7 @@ export const decorators = [
     themes: {
       voltz: 'voltz',
       reya: 'reya',
-    },
+    } as any,
     defaultTheme: 'voltz',
     Provider: ThemeProvider,
   }),
