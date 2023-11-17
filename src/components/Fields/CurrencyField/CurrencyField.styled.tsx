@@ -2,9 +2,13 @@ import styled from '@emotion/styled';
 import CurrencyInput from 'react-currency-input-field';
 
 import { TypographyToken } from '../../../foundation/Typography';
+import { shouldNotForwardProps } from '../../../utils/should-not-forward-props';
 import { commonInputStyle } from '../_common/common.styled';
 
-export const CurrencyInputStyled = styled(CurrencyInput)<{
+export const CurrencyInputStyled = styled(
+  CurrencyInput,
+  shouldNotForwardProps(['typographyToken']),
+)<{
   error?: boolean;
   typographyToken: TypographyToken;
 }>`
