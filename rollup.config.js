@@ -12,24 +12,26 @@ const packageJson = require('./package.json');
 
 export default [
   {
+    external: ['react', 'react-dom', 'styled-components'],
     input: 'src/index.ts',
     output: [
       {
         file: packageJson.main,
         format: 'cjs',
+        interop: 'auto',
         sourcemap: true,
       },
       {
         file: packageJson.module,
         format: 'esm',
-        sourcemap: true,
+        interop: 'auto',
       },
     ],
     plugins: [
       css(),
       svgr({
-        memo: true,
         exportType: 'named',
+        memo: true,
       }),
       image(),
       peerDepsExternal(),
@@ -39,7 +41,6 @@ export default [
       terser(),
       bundleSize(),
     ],
-    external: ['react', 'react-dom', 'styled-components'],
   },
   {
     input: 'dist/esm/types/index.d.ts',
