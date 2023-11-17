@@ -11335,7 +11335,7 @@ __metadata:
     react-animate-height: "npm:3.2.2"
     react-currency-input-field: "npm:3.6.11"
     react-dom: "npm:18.2.0"
-    react-metamask-avatar: "npm:1.6.2"
+    react-metamask-avatar: "npm:2.0.0"
     react-responsive: "npm:9.0.2"
     react-router-dom: "npm:6.9.0"
     react-tiny-popover: "npm:7.2.0"
@@ -22320,13 +22320,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-metamask-avatar@npm:1.6.2":
-  version: 1.6.2
-  resolution: "react-metamask-avatar@npm:1.6.2"
+"react-metamask-avatar@npm:2.0.0":
+  version: 2.0.0
+  resolution: "react-metamask-avatar@npm:2.0.0"
   peerDependencies:
+    "@emotion/react": 11.7.1
+    "@emotion/styled": 11.6.0
+    "@metamask/jazzicon": 2.0.0
     react: ">=17.0.2"
     react-dom: ">=17.0.2"
-  checksum: 8cb88d8fdebc66fa6b8a290eac7521e3c523bde1c909bbe6a226e94d415d9ae9d259bdd0ea2a622abbde4f91dd7ebafbe26d21bbf472fb3c0e336baa88d53ace
+  checksum: 53b0d484e798ad1bdd30caee5f09dd25673f4015fffae25e6d6197de84309adff5ac3c16cc8cc7c16ea4cfab25038d25d19578c653f605882fd2a8e27208eaed
   languageName: node
   linkType: hard
 
