@@ -12,19 +12,22 @@ const packageJson = require('./package.json');
 
 export default [
   {
-    external: ['react', 'react-dom', 'styled-components'],
+    // List all peer dependencies here
+    external: [
+      'react',
+      'react-dom',
+      '@emotion/react',
+      '@emotion/styled',
+      'ethers',
+      'react-router-dom',
+    ],
     input: 'src/index.ts',
     output: [
-      {
-        file: packageJson.main,
-        format: 'cjs',
-        interop: 'auto',
-        sourcemap: true,
-      },
       {
         file: packageJson.module,
         format: 'esm',
         interop: 'auto',
+        sourcemap: true,
       },
     ],
     plugins: [

@@ -14,8 +14,8 @@ module.exports = {
   setupFilesAfterEnv: ['./config/jest/setupTests.js'],
   testEnvironment: 'jsdom',
   transform: {
-    '^(?!.*\\.(js|jsx|mjs|cjs|ts|tsx|css|json)$)': '<rootDir>/config/jest/fileTransform.js',
+    '^(?!.*\\.(js|jsx|mjs|cjs|ts|tsx|css|json)$)': '<rootDir>/config/jest/fileTransform.cjs',
     '^.+\\.(t|j)sx?$': ['@swc/jest'],
-    '^.+\\.css$': '<rootDir>/config/jest/cssTransform.js',
+    '^.+\\.css$': '<rootDir>/config/jest/cssTransform.cjs',
   },
 };
