@@ -12,7 +12,14 @@ const packageJson = require('./package.json');
 
 export default [
   {
-    external: ['react', 'react-dom', 'styled-components'],
+    external: [
+      'react',
+      'react-dom',
+      '@emotion/react',
+      '@emotion/styled',
+      'ethers',
+      'react-router-dom',
+    ],
     input: 'src/index.ts',
     output: [
       {
