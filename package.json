@@ -2,9 +2,9 @@
   "name": "brokoli-ui",
   "version": "4.0.0",
   "description": "An UI design language and React UI library",
+  "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/types",
-  "type": "module",
   "directories": {
     "doc": "docs"
   },
@@ -24,7 +24,7 @@
     "ts:check-types": "tsc --noEmit",
     "ts:circular-check": "dpdm --no-output --no-tree --no-warning --exit-code circular:1 -T ./src/index.ts",
     "lint:check": "eslint 'src/**/*.{ts,tsx}'",
-    "lint:fix": "eslint --quiet --fix 'src/**/*.{ts,tsx}'",
+    "lint:fix": "eslint --fix 'src/**/*.{ts,tsx}'",
     "prettier:check": "prettier --log-level silent --check './src/**/*.{ts,tsx}' './.storybook/**/*.{ts,tsx}'",
     "prettier:fix": "prettier --log-level silent --write './src/**/*.{ts,tsx}' './.storybook/**/*.{ts,tsx}'",
     "prepare": "is-ci || husky install",
