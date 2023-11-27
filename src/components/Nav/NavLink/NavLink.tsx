@@ -40,10 +40,7 @@ export const NavLink: React.FunctionComponent<NavLinkProps> = ({
   const handleSubmenuOpen = useCallback(() => setIsSubmenuOpened(true), []);
   const handleSubmenuClose = useCallback(() => setIsSubmenuOpened(false), []);
 
-  const isActive = useMemo(
-    () => isActiveLink(link, subLinksNotHidden?.map((l) => l.link), pathname),
-    [link, subLinksNotHidden, pathname],
-  );
+  const isActive = isActiveLink(link, subLinksNotHidden?.map((l) => l.link), pathname);
 
   const to = link || '';
   const NavLinkButtonComputed = Component ? NavLinkButton.withComponent(Component) : NavLinkButton;
