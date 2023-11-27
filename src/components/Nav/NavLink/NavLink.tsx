@@ -30,7 +30,7 @@ export const NavLink: React.FunctionComponent<NavLinkProps> = ({
   colorToken = 'white',
   Component,
 }) => {
-  const { pathname } = useLocation('http://localhost:3000/#/leaderboard');
+  const { pathname } = useLocation();
   console.log(pathname);
   const subLinksNotHidden = useMemo(
     () => (subLinks || []).filter((sL) => !sL.isHidden),
