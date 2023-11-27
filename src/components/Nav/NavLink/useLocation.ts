@@ -6,6 +6,6 @@ export const useLocation = (url = window.location.href) => {
   const segments = path.split('/').filter((segment) => segment && segment !== '#');
 
   return {
-    pathname: segments.join('/'),
+    pathname: `/${segments.join('/')}`,
   };
 };
