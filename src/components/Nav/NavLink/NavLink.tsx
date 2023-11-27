@@ -31,7 +31,6 @@ export const NavLink: React.FunctionComponent<NavLinkProps> = ({
   Component,
 }) => {
   const { pathname } = useLocation();
-  console.log(pathname);
   const subLinksNotHidden = useMemo(
     () => (subLinks || []).filter((sL) => !sL.isHidden),
     [subLinks],
