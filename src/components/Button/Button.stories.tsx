@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { Button } from './index';
+import { Button } from '.';
 
 export default {
   argTypes: {},

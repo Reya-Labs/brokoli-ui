@@ -3,7 +3,7 @@ import React from 'react';
 
 import { Typography } from '../Typography';
 import { TypographyWithTooltip } from '../TypographyWithTooltip';
-import { Dialog } from './index';
+import { Dialog } from '.';
 
 export default {
   args: {},

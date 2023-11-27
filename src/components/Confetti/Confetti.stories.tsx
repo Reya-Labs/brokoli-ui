@@ -4,7 +4,7 @@ import React from 'react';
 import { Button } from '../Button';
 import { Dialog } from '../Dialog';
 import { Typography } from '../Typography';
-import { Confetti } from './index';
+import { Confetti } from '.';
 
 export default {
   args: {},

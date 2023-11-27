@@ -2,7 +2,7 @@ import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
 import { Typography } from '../Typography';
-import { ExternalLink } from './index';
+import { ExternalLink } from '.';
 
 export default {
   args: {},

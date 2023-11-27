@@ -1,7 +1,7 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
 
-import { TokenField } from './index';
+import { TokenField } from '.';
 
 export default {
   args: {},

@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { LabelTokenTypography } from './index';
+import { LabelTokenTypography } from '.';
 
 export default {
   args: {},

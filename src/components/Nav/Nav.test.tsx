@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { render, screen } from '../../test-utils';
-import { Nav, NavProps } from './index';
+import { Nav, NavProps } from '.';
 
 describe('<Nav />', () => {
   const navProps: NavProps['links'] = [

@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { Page } from './index';
+import { Page } from '.';
 
 export default {
   args: {},

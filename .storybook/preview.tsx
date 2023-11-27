@@ -1,14 +1,14 @@
 import React from 'react';
 import darkTheme from './themes/dark';
 import { ThemeProvider, GlobalScrollbarStyle, Page, ThemeProviderProps } from '../src';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { withThemeFromJSXProvider } from '@storybook/addon-themes';
 
 const doesntNeedsPadding = (title: string) =>
   ['Components/Page', 'Components/Nav'].indexOf(title) !== -1;
 function StoryAsPageDecorator(story: () => React.ReactNode, storyInfo: { title: string }) {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Page>
         <GlobalScrollbarStyle />
         <div
@@ -19,7 +19,7 @@ function StoryAsPageDecorator(story: () => React.ReactNode, storyInfo: { title: 
           {story()}
         </div>
       </Page>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

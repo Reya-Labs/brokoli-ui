@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { LineChart } from './index';
+import { LineChart } from '.';
 
 export default {
   argTypes: {},

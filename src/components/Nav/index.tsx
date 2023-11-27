@@ -8,14 +8,15 @@ export type NavProps = {
     isHidden?: boolean;
     text: string;
   })[];
+  Component?: NavLinkProps['Component'];
 };
 
-export const Nav: React.FunctionComponent<NavProps> = ({ links }) => (
+export const Nav: React.FunctionComponent<NavProps> = ({ links, Component }) => (
   <NavBox>
     {links
       .filter((link) => !link.isHidden)
       .map((link, index) => (
-        <NavLink key={`${link.text}_${index}`} {...link}>
+        <NavLink key={`${link.text}_${index}`} Component={Component} {...link}>
           {link.text}
         </NavLink>
       ))}

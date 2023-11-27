@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { fireEvent, render, screen } from '../../test-utils';
-import { WalletConnectButton } from './index';
+import { WalletConnectButton } from '.';
 
 describe('<WalletConnectButton />', () => {
   test('renders error message when error prop is passed', () => {

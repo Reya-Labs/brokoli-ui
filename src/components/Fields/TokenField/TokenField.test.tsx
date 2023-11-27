@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { fireEvent, render, screen } from '../../../test-utils';
-import { TokenField, TokenFieldProps } from './index';
+import { TokenField, TokenFieldProps } from '.';
 
 describe('<TokenField />', () => {
   const defaultProps: TokenFieldProps = {

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { fireEvent, render, screen } from '../../../../test-utils';
-import { SwitchButtons } from './index';
+import { SwitchButtons } from '.';
 
 describe('<SwitchButtons />', () => {
   const onSwitchChangeMock = jest.fn();

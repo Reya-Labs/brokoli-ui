@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { HTMLAttributeAnchorTarget, ReactNode } from 'react';
 
 import { BaseColorTokens } from '../../foundation/Colors';
 import { TypographyToken } from '../../foundation/Typography';
@@ -12,6 +12,17 @@ export type AppLinkProps = {
   disabled?: boolean;
   className?: string;
   'data-testid'?: string;
+  target?: HTMLAttributeAnchorTarget | undefined;
+  Component?: React.FunctionComponent<{
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    to: any;
+    href?: string;
+    target?: HTMLAttributeAnchorTarget | undefined;
+    disabled?: boolean;
+    className?: string;
+    'data-testid'?: string;
+    children: string | ReactNode;
+  }>;
 };
 
 export const AppLink: React.FunctionComponent<AppLinkProps> = ({
@@ -22,6 +33,8 @@ export const AppLink: React.FunctionComponent<AppLinkProps> = ({
   children,
   colorToken,
   typographyToken,
+  target,
+  Component,
 }) => {
   if (!to || disabled) {
     return (
@@ -35,15 +48,18 @@ export const AppLink: React.FunctionComponent<AppLinkProps> = ({
       </DisabledTypography>
     );
   }
+  const AppLinkStyledComputed = Component ? AppLinkStyled.withComponent(Component) : AppLinkStyled;
   return (
-    <AppLinkStyled
+    <AppLinkStyledComputed
       className={className}
       colorToken={colorToken}
       data-testid={dataTestId || 'AppLink-AppLinkStyled'}
+      href={to}
+      target={target}
       to={to}
       typographyToken={typographyToken}
     >
       {children}
-    </AppLinkStyled>
+    </AppLinkStyledComputed>
   );
 };

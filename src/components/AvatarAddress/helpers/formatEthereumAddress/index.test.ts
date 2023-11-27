@@ -1,4 +1,4 @@
-import { formatEthereumAddress } from './index';
+import { formatEthereumAddress } from '.';
 
 describe('formatEthereumAddress', () => {
   test.each([

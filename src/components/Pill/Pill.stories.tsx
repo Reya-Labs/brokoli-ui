@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { Pill } from './index';
+import { Pill } from '.';
 
 export default {
   args: {},

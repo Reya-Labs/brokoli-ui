@@ -1,7 +1,7 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
-import { CurrencyField } from './index';
+import { CurrencyField } from '.';
 
 export default {
   args: {},

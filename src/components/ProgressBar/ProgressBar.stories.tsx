@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { ProgressBar } from './index';
+import { ProgressBar } from '.';
 
 export default {
   component: ProgressBar,

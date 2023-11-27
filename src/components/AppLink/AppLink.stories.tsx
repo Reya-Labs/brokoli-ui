@@ -1,8 +1,9 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { Typography } from '../Typography';
-import { AppLink } from './index';
+import { AppLink } from '.';
 
 export default {
   args: {},
@@ -42,4 +43,28 @@ export const WithinText: StoryObj<typeof AppLink> = {
   },
 
   render: WithinTextTemplate,
+};
+
+export const WithOpeningNewPage: StoryObj<typeof AppLink> = {
+  args: {
+    children: 'Visit this app link!',
+    colorToken: 'primary',
+    target: '_blank',
+    to: 'https://brokoli.voltz.xyz',
+    typographyToken: 'primaryBodyXSmallRegular',
+  },
+
+  render: Template,
+};
+
+export const WithCustomComponentForLink: StoryObj<typeof AppLink> = {
+  args: {
+    Component: Link,
+    children: 'Visit this app link!',
+    colorToken: 'primary',
+    to: '/app-link-via-react-router-dom',
+    typographyToken: 'primaryBodyXSmallRegular',
+  },
+
+  render: Template,
 };

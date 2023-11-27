@@ -1,6 +1,5 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
 
 import { BaseColorTokens, getColorFromToken } from '../../../foundation/Colors';
 import { getResponsiveTypographyStyleFromToken } from '../../../foundation/Typography';
@@ -35,7 +34,7 @@ export const NavLinkButtonBox = styled(
 `;
 
 export const NavLinkButton = styled(
-  Link,
+  'a',
   shouldNotForwardProps(['isActive', 'isPopoverOpen', 'colorToken']),
 )<{
   isPopoverOpen: boolean;

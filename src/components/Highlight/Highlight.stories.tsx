@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { Highlight } from './index';
+import { Highlight } from '.';
 
 export default {
   args: {},

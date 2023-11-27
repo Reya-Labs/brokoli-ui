@@ -1,7 +1,7 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
 
-import { LeverageField } from './index';
+import { LeverageField } from '.';
 
 export default {
   args: {},

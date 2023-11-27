@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { MarketToken } from './index';
+import { MarketToken } from '.';
 
 export default {
   args: {},

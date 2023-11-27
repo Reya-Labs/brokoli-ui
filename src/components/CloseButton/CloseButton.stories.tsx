@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { CloseButton } from './index';
+import { CloseButton } from '.';
 
 export default {
   args: {},

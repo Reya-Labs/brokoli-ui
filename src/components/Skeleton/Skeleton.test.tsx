@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { render, screen } from '../../test-utils';
-import { Skeleton } from './index';
+import { Skeleton } from '.';
 
 describe('<Skeleton />', () => {
   it('renders a rectangular skeleton with default props', () => {

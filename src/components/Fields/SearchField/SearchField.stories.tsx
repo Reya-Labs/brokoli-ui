@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 import { Highlight } from '../../Highlight';
 import { Typography } from '../../Typography';
-import { SearchField, SearchFieldProps } from './index';
+import { SearchField, SearchFieldProps } from '.';
 import { SearchItemRendererProps } from './SearchList';
 
 export default {

@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { TypographyWithTooltip } from './index';
+import { TypographyWithTooltip } from '.';
 
 export default {
   args: {},

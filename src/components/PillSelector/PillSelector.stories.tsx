@@ -1,7 +1,7 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
 
-import { PillSelector, PillSelectorProps } from './index';
+import { PillSelector, PillSelectorProps } from '.';
 
 export default {
   args: {},

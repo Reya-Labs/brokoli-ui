@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { render, screen } from '../../test-utils';
-import { AttentionIndicator } from './index';
+import { AttentionIndicator } from '.';
 
 describe('<AttentionIndicator />', () => {
   it('renders the attention indicator', () => {

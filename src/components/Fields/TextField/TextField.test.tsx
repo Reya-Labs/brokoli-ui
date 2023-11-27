@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { fireEvent, render, screen } from '../../../test-utils';
-import { TextField, TextFieldProps } from './index';
+import { TextField, TextFieldProps } from '.';
 
 describe('<TextField />', () => {
   const defaultProps: TextFieldProps = {

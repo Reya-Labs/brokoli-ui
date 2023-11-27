@@ -1,16 +1,11 @@
 // eslint-disable-next-line no-restricted-imports
 import { render, RenderOptions } from '@testing-library/react';
 import React, { ReactElement } from 'react';
-import { BrowserRouter } from 'react-router-dom';
 
 import { ThemeProvider } from '../foundation/ThemeProvider';
 
 const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <BrowserRouter>
-      <ThemeProvider theme="voltz">{children}</ThemeProvider>
-    </BrowserRouter>
-  );
+  return <ThemeProvider theme="voltz">{children}</ThemeProvider>;
 };
 
 const customRender = (ui: ReactElement, options?: Omit<RenderOptions, 'wrapper'>) =>

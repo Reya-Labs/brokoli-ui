@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { AttentionIndicator } from './index';
+import { AttentionIndicator } from '.';
 
 export default {
   argTypes: {},

@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { Typography } from './index';
+import { Typography } from '.';
 
 export default {
   component: Typography,

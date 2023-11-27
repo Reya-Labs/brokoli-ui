@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { HorizontalLine } from './index';
+import { HorizontalLine } from '.';
 
 export default {
   args: {},

@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { BouncedLoading } from './index';
+import { BouncedLoading } from '.';
 
 export default {
   args: {},

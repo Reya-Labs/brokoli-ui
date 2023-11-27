@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { fireEvent, render, screen } from '../../../test-utils';
-import { MarginAmountTokenField, MarginAmountTokenFieldProps } from './index';
+import { MarginAmountTokenField, MarginAmountTokenFieldProps } from '.';
 
 describe('<MarginAmountTokenField />', () => {
   const defaultProps: MarginAmountTokenFieldProps = {

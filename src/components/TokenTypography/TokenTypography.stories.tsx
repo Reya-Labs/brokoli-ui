@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { TokenTypography } from './index';
+import { TokenTypography } from '.';
 
 export default {
   args: {},

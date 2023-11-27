@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { Ellipsis } from './index';
+import { Ellipsis } from '.';
 
 export default {
   args: {},

@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
-import { Skeleton } from './index';
+import { Skeleton } from '.';
 
 export default {
   args: {},

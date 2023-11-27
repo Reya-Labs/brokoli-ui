@@ -3,7 +3,7 @@ import React from 'react';
 
 import { Button } from '../Button';
 import { Typography } from '../Typography';
-import { ExclaimTooltip } from './index';
+import { ExclaimTooltip } from '.';
 
 export default {
   args: {},

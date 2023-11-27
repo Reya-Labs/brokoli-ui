@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { render, screen } from '../../test-utils';
-import { Pill } from './index';
+import { Pill } from '.';
 
 describe('<Pill />', () => {
   it('renders the correct text and variant', () => {

@@ -1,7 +1,7 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
-import { TextField } from './index';
+import { TextField } from '.';
 
 export default {
   args: {},

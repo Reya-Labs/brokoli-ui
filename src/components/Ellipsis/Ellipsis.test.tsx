@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { render, screen } from '../../test-utils';
-import { Ellipsis } from './index';
+import { Ellipsis } from '.';
 
 describe('<Ellipsis />', () => {
   it('should render proper UI', () => {

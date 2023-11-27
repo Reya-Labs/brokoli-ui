@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { ethers } from 'ethers';
 import React, { useState } from 'react';
 
-import { WalletConnectButton } from './index';
+import { WalletConnectButton } from '.';
 
 export default {
   component: WalletConnectButton,

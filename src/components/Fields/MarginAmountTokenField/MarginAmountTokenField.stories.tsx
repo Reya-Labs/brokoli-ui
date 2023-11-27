@@ -1,7 +1,7 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
 
-import { MarginAmountTokenField } from './index';
+import { MarginAmountTokenField } from '.';
 import { MarginAmountListProps } from './MarginAmountsList';
 
 export default {

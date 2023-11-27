@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { AvatarAddress } from './index';
+import { AvatarAddress } from '.';
 
 export default {
   args: {},

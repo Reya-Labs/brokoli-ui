@@ -1,9 +1,9 @@
 import React, { useLayoutEffect, useState } from 'react';
 import AnimateHeight from 'react-animate-height';
-import { useLocation } from 'react-router-dom';
 
 import { isActiveLink } from '../helpers';
-import { SubLink } from '../SubLink/SubLink';
+import { SubLink, SubLinkProps } from '../SubLink/SubLink';
+import { useLocation } from '../useLocation';
 import { SubLinksButtonGroup } from './SubLinks.styled';
 
 export type SubLinksProps = {
@@ -12,9 +12,14 @@ export type SubLinksProps = {
     link: string;
     isNew?: boolean;
   }[];
+  Component?: SubLinkProps['Component'];
   onClick: () => void;
 };
-export const SubLinks: React.FunctionComponent<SubLinksProps> = ({ subLinks, onClick }) => {
+export const SubLinks: React.FunctionComponent<SubLinksProps> = ({
+  Component,
+  subLinks,
+  onClick,
+}) => {
   const { pathname } = useLocation();
   const [height, setHeight] = useState<'auto' | number>(0);
 
@@ -28,6 +33,7 @@ export const SubLinks: React.FunctionComponent<SubLinksProps> = ({ subLinks, onC
         {subLinks.map((subLink) => (
           <SubLink
             key={subLink.text}
+            Component={Component}
             isActive={isActiveLink(subLink.link, [], pathname)}
             isNew={Boolean(subLink.isNew)}
             link={subLink.link}

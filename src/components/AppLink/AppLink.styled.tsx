@@ -1,6 +1,5 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
 
 import { BaseColorTokens, getColorFromToken } from '../../foundation/Colors';
 import {
@@ -10,10 +9,7 @@ import {
 import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 import { Typography } from '../Typography';
 
-export const AppLinkStyled = styled(
-  Link,
-  shouldNotForwardProps(['colorToken', 'typographyToken']),
-)<{
+export const AppLinkStyled = styled('a', shouldNotForwardProps(['colorToken', 'typographyToken']))<{
   colorToken: BaseColorTokens;
   typographyToken: TypographyToken;
 }>`
@@ -23,7 +19,7 @@ export const AppLinkStyled = styled(
   ${({ theme, typographyToken }) =>
     css(getResponsiveTypographyStyleFromToken({ theme, token: typographyToken }))};
   text-decoration: none;
-
+  cursor: pointer;
   &:hover {
     color: ${({ theme, colorToken }) =>
       getColorFromToken({ colorToken: `${colorToken}200`, theme })};

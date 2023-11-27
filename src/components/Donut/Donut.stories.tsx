@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { Donut } from './index';
+import { Donut } from '.';
 
 export default {
   args: {},

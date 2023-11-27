@@ -3,7 +3,7 @@ import React from 'react';
 
 import { Button } from '../Button';
 import { Typography } from '../Typography';
-import { Tooltip } from './index';
+import { Tooltip } from '.';
 
 export default {
   args: {},

@@ -1,7 +1,7 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
-import { RainbowLoader } from './index';
+import { RainbowLoader } from '.';
 
 export default {
   args: {},

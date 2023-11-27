@@ -1,14 +1,13 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
 
 import { render, screen } from '../../../../test-utils';
+import { useLocation } from '../useLocation';
 import { SubLinks } from './SubLinks';
 
 jest.mock(
-  'react-router-dom',
+  '../useLocation',
   () =>
     ({
-      ...jest.requireActual('react-router-dom'),
       useLocation: jest.fn(),
     }) as unknown,
 );

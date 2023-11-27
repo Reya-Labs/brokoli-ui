@@ -1,5 +1,4 @@
 import React, { useCallback, useMemo } from 'react';
-import { useLocation } from 'react-router-dom';
 
 import { BaseColorTokens } from '../../../foundation/Colors';
 import { AttentionIndicator } from '../../AttentionIndicator';
@@ -7,10 +6,12 @@ import { Popover } from '../../Popover';
 import { ToggleCaret } from '../../ToggleCaret';
 import { isActiveLink } from './helpers';
 import { NavLinkButton, NavLinkButtonBox } from './NavLink.styled';
-import { SubLinks } from './SubLinks/SubLinks';
+import { SubLinks, SubLinksProps } from './SubLinks/SubLinks';
+import { useLocation } from './useLocation';
 
 export type NavLinkProps = React.PropsWithChildren<{
   link?: string;
+  Component?: SubLinksProps['Component'];
   isNew?: boolean;
   colorToken?: BaseColorTokens | 'rainbow';
   subLinks?: {
@@ -27,6 +28,7 @@ export const NavLink: React.FunctionComponent<NavLinkProps> = ({
   link,
   isNew,
   colorToken = 'white',
+  Component,
 }) => {
   const { pathname } = useLocation();
   const subLinksNotHidden = useMemo(
@@ -43,6 +45,8 @@ export const NavLink: React.FunctionComponent<NavLinkProps> = ({
     [link, subLinksNotHidden, pathname],
   );
 
+  const to = link || '';
+  const NavLinkButtonComputed = Component ? NavLinkButton.withComponent(Component) : NavLinkButton;
   const linkButton = (
     <NavLinkButtonBox
       colorToken={colorToken}
@@ -53,15 +57,16 @@ export const NavLink: React.FunctionComponent<NavLinkProps> = ({
       isPopoverOpen={isSubmenuOpened}
     >
       {isNew ? <AttentionIndicator colorToken="error100" /> : null}
-      <NavLinkButton
+      <NavLinkButtonComputed
         colorToken={colorToken}
+        href={to}
         isActive={isActive}
         isPopoverOpen={isSubmenuOpened}
         role="link"
-        to={link || ''}
+        to={to}
       >
         {children}
-      </NavLinkButton>
+      </NavLinkButtonComputed>
       {!hasSubLinks ? null : <ToggleCaret isOpen={isSubmenuOpened} />}
     </NavLinkButtonBox>
   );
@@ -73,7 +78,13 @@ export const NavLink: React.FunctionComponent<NavLinkProps> = ({
     >
       {hasSubLinks ? (
         <Popover
-          content={<SubLinks subLinks={subLinksNotHidden || []} onClick={handleSubmenuClose} />}
+          content={
+            <SubLinks
+              Component={Component}
+              subLinks={subLinksNotHidden || []}
+              onClick={handleSubmenuClose}
+            />
+          }
           data-testid="NavLinkPopover"
           isOpen={isSubmenuOpened}
           onClickOutside={handleSubmenuClose}

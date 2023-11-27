@@ -2,7 +2,7 @@ import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
 import { Button } from '../Button';
-import { Notifications, showNotification } from './index';
+import { Notifications, showNotification } from '.';
 
 export default {
   args: {},
