@@ -9,10 +9,11 @@ export type NavProps = {
     text: string;
   })[];
   Component?: NavLinkProps['Component'];
+  className?: string;
 };
 
-export const Nav: React.FunctionComponent<NavProps> = ({ links, Component }) => (
-  <NavBox>
+export const Nav: React.FunctionComponent<NavProps> = ({ className, links, Component }) => (
+  <NavBox className={className} data-testid="Nav-NavBox">
     {links
       .filter((link) => !link.isHidden)
       .map((link, index) => (
