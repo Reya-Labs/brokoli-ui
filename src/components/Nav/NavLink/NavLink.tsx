@@ -50,7 +50,7 @@ export const NavLink: React.FunctionComponent<NavLinkProps> = ({
       data-testid={
         isSubmenuOpened ? 'OpenNavLinkButton' : isActive ? 'ActiveNavLinkButton' : 'NavLinkButton'
       }
-      isActive={!!isNew}
+      isActive={isActive}
       isPopoverOpen={isSubmenuOpened}
     >
       {isNew ? <AttentionIndicator colorToken="error100" /> : null}
