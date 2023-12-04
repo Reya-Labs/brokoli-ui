@@ -4,6 +4,7 @@ export const globalScrollbarCSS = (theme: Theme) => css`
   /* Scroll bar styling */
   ::-webkit-scrollbar {
     width: 4px;
+    height: 4px;
   }
 
   /* Track styling */
