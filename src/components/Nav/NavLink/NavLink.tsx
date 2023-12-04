@@ -4,7 +4,7 @@ import { BaseColorTokens } from '../../../foundation/Colors';
 import { AttentionIndicator } from '../../AttentionIndicator';
 import { Popover } from '../../Popover';
 import { ToggleCaret } from '../../ToggleCaret';
-import { isActiveLink } from './helpers';
+import { isActiveLink } from './is-active-link';
 import { NavLinkButton, NavLinkButtonBox } from './NavLink.styled';
 import { SubLinks, SubLinksProps } from './SubLinks/SubLinks';
 import { useLocation } from './useLocation';

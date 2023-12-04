@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useState } from 'react';
 import AnimateHeight from 'react-animate-height';
 
-import { isActiveLink } from '../helpers';
+import { isActiveLink } from '../is-active-link';
 import { SubLink, SubLinkProps } from '../SubLink/SubLink';
 import { useLocation } from '../useLocation';
 import { SubLinksButtonGroup } from './SubLinks.styled';

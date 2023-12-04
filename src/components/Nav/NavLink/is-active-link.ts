@@ -10,6 +10,9 @@ export function isActiveLink(
   subLinks: string[] = [],
   pathName: string,
 ): boolean {
+  if (link === '/' && pathName === '') {
+    return true;
+  }
   return (
     (link && pathName.indexOf(link) !== -1) || subLinks?.some((l) => isActiveLink(l, [], pathName))
   );
