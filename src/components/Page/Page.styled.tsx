@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 
+import { getColorFromToken } from '../../foundation/Colors';
+
 export const PageBox = styled('div')`
   position: relative;
   height: 100vh;
@@ -21,5 +23,5 @@ export const BackgroundBox = styled('div')`
   z-index: ${({ theme }) => theme.layerIndexes.background};
   width: 100%;
   height: 100%;
-  background: ${({ theme }) => theme.gradients.background};
+  background: ${({ theme }) => getColorFromToken({ colorToken: 'black800', theme })};
 `;
