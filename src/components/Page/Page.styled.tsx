@@ -23,5 +23,5 @@ export const BackgroundBox = styled('div')`
   z-index: ${({ theme }) => theme.layerIndexes.background};
   width: 100%;
   height: 100%;
-  background: ${({ theme }) => getColorFromToken({ colorToken: 'black800', theme })};
+  background: ${({ theme }) => getColorFromToken({ colorToken: 'black950', theme })};
 `;
