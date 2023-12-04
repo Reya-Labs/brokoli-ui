@@ -22,8 +22,11 @@ export const NavLinkButtonBox = styled(
     colorToken !== 'rainbow'
       ? isPopoverOpen || isActive
         ? getColorFromToken({ colorToken: `${colorToken}100`, theme })
-        : getColorFromToken({ colorToken: `${colorToken}400`, theme })
+        : getColorFromToken({ colorToken: `black100`, theme })
       : ''};
+  border-radius: ${({ isActive }) => (isActive ? '8px' : '0px')};
+  background: ${({ isActive, theme }) =>
+    isActive ? getColorFromToken({ colorToken: `black800`, theme }) : undefined};
   transition: color 200ms ease-in;
   &:hover {
     ${({ theme, colorToken }) =>
