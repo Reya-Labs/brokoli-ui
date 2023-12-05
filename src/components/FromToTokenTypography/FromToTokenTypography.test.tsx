@@ -12,7 +12,7 @@ describe('<FromToTokenTypography />', () => {
     labelTypographyToken: 'primaryBodySmallRegular',
     toColorToken: 'secondary',
     toValue: '200',
-    typographyToken: 'primaryBodyXSmallBold',
+    typographyToken: 'bodyXsmallBold',
   };
 
   test('renders correctly with default props', () => {
@@ -41,7 +41,7 @@ describe('<FromToTokenTypography />', () => {
   test('applies the correct color token to the "from" value', () => {
     render(<FromToTokenTypography {...defaultProps} fromColorToken="error" />);
     const fromTokenTypography = screen.getByTestId(
-      'FromToTokenTypography-FromToBox-FromTokenTypography-error-primaryBodyXSmallBold',
+      'FromToTokenTypography-FromToBox-FromTokenTypography-error-bodyXsmallBold',
     );
     expect(fromTokenTypography).toBeInTheDocument();
   });

@@ -21,7 +21,7 @@ export const CompactVariant: StoryObj<typeof Pill> = {
   args: {
     children: 'Headache pill',
     colorToken: 'primary',
-    typographyToken: 'primaryBodyXSmallBold',
+    typographyToken: 'bodyXsmallBold',
     variant: 'compact',
   },
 };
