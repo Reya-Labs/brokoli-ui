@@ -31,6 +31,11 @@ export const ExternalLinkStyled = styled(
     width: 1em;
     height: 1em;
   }
+  & path,
+  & path {
+    stroke: ${({ theme, colorToken }) =>
+      getColorFromToken({ colorToken: `${colorToken}400`, theme })};
+  }
 
   &:visited:hover,
   &:hover {
