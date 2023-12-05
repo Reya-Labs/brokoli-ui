@@ -12,12 +12,14 @@ export const ExternalLink: React.FunctionComponent<{
   children: string;
   href: string;
   disabled?: boolean;
-}> = ({ disabled, href, children, colorToken, typographyToken }) => {
+  id?: string;
+}> = ({ id, disabled, href, children, colorToken, typographyToken }) => {
   if (disabled) {
     return (
       <Typography
         colorToken={`${colorToken}100`}
         data-testid={`ExternalLink-Disabled-${colorToken}`}
+        id={id}
         typographyToken={typographyToken}
       >
         {children}
@@ -29,6 +31,7 @@ export const ExternalLink: React.FunctionComponent<{
       colorToken={colorToken}
       data-testid={`ExternalLink-ExternalLinkStyled-${colorToken}`}
       href={href}
+      id={id}
       target="_blank"
       typographyToken={typographyToken}
     >
