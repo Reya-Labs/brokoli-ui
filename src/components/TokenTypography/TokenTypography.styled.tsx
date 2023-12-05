@@ -11,8 +11,9 @@ import { Typography, TypographyProps } from '../Typography';
 const differenceTypographyMap: Record<TypographyToken, TypographyToken> = {
   h1smallBold: 'h2Regular',
   h1xlbold: 'h2Bold',
-  h2Bold: 'primaryHeader3Black',
+  h2Bold: 'h3Bold',
   h2Regular: 'primaryHeader3Bold',
+  h3Bold: 'primaryBodyMediumBold',
   primaryBodyExtraLargeBold: 'primaryBodyMediumBold',
   primaryBodyExtraLargeRegular: 'primaryBodyMediumRegular',
   primaryBodyLargeBold: 'primaryBodySmallBold',
@@ -23,7 +24,6 @@ const differenceTypographyMap: Record<TypographyToken, TypographyToken> = {
   primaryBodySmallRegular: 'primaryBodySmallRegular',
   primaryBodyXSmallBold: 'primaryBodyXSmallBold',
   primaryBodyXSmallRegular: 'primaryBodyXSmallRegular',
-  primaryHeader3Black: 'primaryBodyMediumBold',
   primaryHeader3Bold: 'primaryBodyMediumRegular',
   secondaryBodyExtraLargeBold: 'secondaryBodyMediumBold',
   secondaryBodyExtraLargeRegular: 'secondaryBodyMediumRegular',
