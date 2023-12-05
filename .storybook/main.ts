@@ -1,7 +1,7 @@
 module.exports = {
   stories: ['../src/**/**/*.stories.mdx', '../src/**/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: ['@storybook/addon-themes', '@storybook/addon-essentials'],
-
+  staticDirs: ['../public'], //👈 Configures the static asset folder in Storybook
   framework: {
     name: '@storybook/react-webpack5',
     options: {},
