@@ -4,7 +4,7 @@ export type TypographyToken =
   | 'h1xlbold'
   | 'h1smallBold'
   | 'h2Bold'
-  | 'primaryHeader2Bold'
+  | 'h2Regular'
   | 'primaryHeader3Black'
   | 'primaryHeader3Bold'
   | 'primaryBodyXSmallRegular'
