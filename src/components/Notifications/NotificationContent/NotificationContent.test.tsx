@@ -8,7 +8,7 @@ describe('<NotificationContent />', () => {
     closeToast: jest.fn(),
     colorToken: 'error',
     content: 'Notification Content',
-    contentTypographyToken: 'primaryHeader2Black',
+    contentTypographyToken: 'h2Bold',
     onCloseNotification: jest.fn(),
     title: 'Notification Title',
     titleTypographyToken: 'primaryBodyMediumBold',

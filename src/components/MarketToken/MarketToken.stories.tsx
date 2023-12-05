@@ -14,7 +14,7 @@ export const Default: StoryObj<typeof MarketToken> = {
     iconSize: 30,
     market: 'Aave',
     token: 'usdc',
-    typographyToken: 'primaryHeader2Black',
+    typographyToken: 'h2Bold',
   },
 };
 

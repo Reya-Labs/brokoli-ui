@@ -13,7 +13,7 @@ describe('<LeverageField />', () => {
     leverageOptions: ['1', '2', '3'],
     maxLeverageColorToken: 'error100',
     maxLeverageText: 'Max Leverage',
-    maxLeverageTypographyToken: 'primaryHeader2Black',
+    maxLeverageTypographyToken: 'h2Bold',
     onLeverageChange: jest.fn(),
     tooltipColorToken: 'white400',
     value: '2',
