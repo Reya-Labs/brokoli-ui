@@ -2,7 +2,7 @@ import { SupportedMedias } from '../Media';
 
 export type TypographyToken =
   | 'h1xlbold'
-  | 'primaryHeader1Bold'
+  | 'h1smallBold'
   | 'primaryHeader2Black'
   | 'primaryHeader2Bold'
   | 'primaryHeader3Black'

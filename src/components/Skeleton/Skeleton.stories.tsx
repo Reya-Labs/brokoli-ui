@@ -33,6 +33,6 @@ export const CircularVariant: StoryObj<typeof Skeleton> = {
 export const WithTypographyToken: StoryObj<typeof Skeleton> = {
   args: {
     colorToken: 'white100',
-    typographyToken: 'primaryHeader1Bold',
+    typographyToken: 'h1smallBold',
   },
 };
