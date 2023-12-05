@@ -1,6 +1,4 @@
-import { addAlpha } from '../../foundation/Colors';
 import { TypographyResponsiveConfig, TypographyTheme } from '../../foundation/Typography';
-import { colors } from './colors';
 
 const h1XLBold: TypographyResponsiveConfig = {
   largeDesktopDevice: {
