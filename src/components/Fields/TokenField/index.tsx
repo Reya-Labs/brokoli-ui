@@ -60,20 +60,20 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
   defaultValue,
   disabled,
   error,
-  typographyToken = 'secondaryBodyMediumBold',
+  typographyToken = 'bodyMediumBold',
   placeholder,
   labelColorToken = 'white300',
-  labelTypographyToken = 'primaryBodySmallRegular',
+  labelTypographyToken = 'bodySmallRegular',
   tooltip,
   label,
-  topRightTextTypographyToken = 'bodyXsmallRegular',
+  topRightTextTypographyToken = 'bodyXSmallRegular',
   topRightTextColorToken = 'white300',
   topRightText,
-  bottomLeftTextTypographyToken = 'bodyXsmallRegular',
+  bottomLeftTextTypographyToken = 'bodyXSmallRegular',
   bottomLeftTextColorToken = 'white300',
   bottomLeftText,
   token,
-  bottomRightTextTypographyToken = 'secondaryBodyXSmallRegular',
+  bottomRightTextTypographyToken = 'bodyXSmallRegular',
   bottomRightTextColorToken = 'white',
   bottomRightTextValue,
   bottomRightTextToken,
@@ -143,7 +143,7 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
             <MaxButton
               data-testid="TokenField-MaxButton"
               disabled={disabled}
-              typographyToken="bodyXsmallRegular"
+              typographyToken="bodyXSmallRegular"
               variant="secondary"
               onClick={handleOnMaxButtonClick}
             >
@@ -160,7 +160,7 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
               <Typography
                 colorToken="white100"
                 data-testid="TokenField-CurrencyInputBox-TokenBox-Typography"
-                typographyToken="secondaryBodyMediumRegular"
+                typographyToken="bodyMediumRegular"
               >
                 {token.toUpperCase()}
               </Typography>

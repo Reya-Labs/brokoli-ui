@@ -11,7 +11,7 @@ export const Default: StoryObj<typeof Typography> = {
   args: {
     children: 'Default',
     colorToken: 'white100',
-    typographyToken: 'h1xlbold',
+    typographyToken: 'h1XLBold',
   },
 };
 
@@ -19,6 +19,6 @@ export const RainbowVariant: StoryObj<typeof Typography> = {
   args: {
     children: 'Rainbow Variant',
     colorToken: 'rainbow',
-    typographyToken: 'h1xlbold',
+    typographyToken: 'h1XLBold',
   },
 };

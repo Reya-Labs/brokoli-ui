@@ -11,9 +11,9 @@ export const getTypographyFromToken = ({
   theme,
   token,
 }: GetTypographyFromTokenParams): TypographyResponsiveConfig => {
-  let typography = theme.typography[token || 'primaryBodyMediumRegular'];
+  let typography = theme.typography[token || 'bodyMediumRegular'];
   if (!typography) {
-    typography = theme.typography.primaryBodyMediumRegular;
+    typography = theme.typography.bodyMediumRegular;
   }
   return typography;
 };

@@ -27,13 +27,13 @@ export const TextField: React.FunctionComponent<TextFieldProps> = ({
   disabled,
   error,
   labelColorToken = 'white300',
-  labelTypographyToken = 'primaryBodySmallRegular',
+  labelTypographyToken = 'bodySmallRegular',
   label,
   tooltipColorToken,
   tooltip,
   type = 'text',
   placeHolder,
-  typographyToken = 'primaryBodyMediumRegular',
+  typographyToken = 'bodyMediumRegular',
 }) => {
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onChange && onChange(event.target.value);

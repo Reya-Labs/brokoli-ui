@@ -25,7 +25,7 @@ export const Tooltip: React.FunctionComponent<TooltipProps> = ({
     </FloatingUITooltipTrigger>
     <FloatingUITooltipContent>
       <TooltipBox limitWidth={typeof children === 'string'}>
-        <Typography colorToken="white100" typographyToken="primaryBodySmallRegular">
+        <Typography colorToken="white100" typographyToken="bodySmallRegular">
           {children}
         </Typography>
       </TooltipBox>

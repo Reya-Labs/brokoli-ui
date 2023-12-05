@@ -2,7 +2,7 @@ import { addAlpha } from '../../foundation/Colors';
 import { TypographyResponsiveConfig, TypographyTheme } from '../../foundation/Typography';
 import { colors } from './colors';
 
-const h1xlbold: TypographyResponsiveConfig = {
+const h1XLBold: TypographyResponsiveConfig = {
   largeDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
     fontSize: '32px',
@@ -37,7 +37,7 @@ const h1xlbold: TypographyResponsiveConfig = {
   },
 };
 
-const h1smallBold: TypographyResponsiveConfig = {
+const h1SmallBold: TypographyResponsiveConfig = {
   largeDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
     fontSize: '32px',
@@ -216,7 +216,7 @@ const h3Regular: TypographyResponsiveConfig = {
   },
 };
 
-const bodyXsmallRegular: TypographyResponsiveConfig = {
+const bodyXSmallRegular: TypographyResponsiveConfig = {
   largeDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
     fontSize: '10px',
@@ -251,7 +251,7 @@ const bodyXsmallRegular: TypographyResponsiveConfig = {
   },
 };
 
-const bodyXsmallBold: TypographyResponsiveConfig = {
+const bodyXSmallBold: TypographyResponsiveConfig = {
   largeDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
     fontSize: '10px',
@@ -286,7 +286,7 @@ const bodyXsmallBold: TypographyResponsiveConfig = {
   },
 };
 
-const primaryBodySmallRegular: TypographyResponsiveConfig = {
+const bodySmallRegular: TypographyResponsiveConfig = {
   largeDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
     fontSize: '12px',
@@ -317,7 +317,7 @@ const primaryBodySmallRegular: TypographyResponsiveConfig = {
   },
 };
 
-const primaryBodySmallBold: TypographyResponsiveConfig = {
+const bodySmallBold: TypographyResponsiveConfig = {
   largeDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
     fontSize: '12px',
@@ -348,7 +348,7 @@ const primaryBodySmallBold: TypographyResponsiveConfig = {
   },
 };
 
-const primaryBodyMediumRegular: TypographyResponsiveConfig = {
+const bodyMediumRegular: TypographyResponsiveConfig = {
   largeDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
     fontSize: '14px',
@@ -379,7 +379,7 @@ const primaryBodyMediumRegular: TypographyResponsiveConfig = {
   },
 };
 
-const primaryBodyMediumBold: TypographyResponsiveConfig = {
+const bodyMediumBold: TypographyResponsiveConfig = {
   largeDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
     fontSize: '14px',
@@ -410,7 +410,7 @@ const primaryBodyMediumBold: TypographyResponsiveConfig = {
   },
 };
 
-const primaryBodyLargeRegular: TypographyResponsiveConfig = {
+const bodyLargeRegular: TypographyResponsiveConfig = {
   largeDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
     fontSize: '16px',
@@ -441,7 +441,7 @@ const primaryBodyLargeRegular: TypographyResponsiveConfig = {
   },
 };
 
-const primaryBodyLargeBold: TypographyResponsiveConfig = {
+const bodyLargeBold: TypographyResponsiveConfig = {
   largeDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
     fontSize: '16px',
@@ -472,7 +472,7 @@ const primaryBodyLargeBold: TypographyResponsiveConfig = {
   },
 };
 
-const primaryBodyExtraLargeRegular: TypographyResponsiveConfig = {
+const bodyExtraLargeRegular: TypographyResponsiveConfig = {
   largeDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
     fontSize: '18px',
@@ -503,7 +503,7 @@ const primaryBodyExtraLargeRegular: TypographyResponsiveConfig = {
   },
 };
 
-const primaryBodyExtraLargeBold: TypographyResponsiveConfig = {
+const bodyExtraLargeBold: TypographyResponsiveConfig = {
   largeDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
     fontSize: '18px',
@@ -531,344 +531,24 @@ const primaryBodyExtraLargeBold: TypographyResponsiveConfig = {
     fontStyle: 'normal',
     fontWeight: '700',
     lineHeight: '150%',
-  },
-};
-
-const secondaryBodyExtraLargeBold: TypographyResponsiveConfig = {
-  largeDesktopDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '24px',
-    fontStyle: 'normal',
-    fontWeight: '700',
-    lineHeight: '150%',
-  },
-  mobileDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '24px',
-    fontStyle: 'normal',
-    fontWeight: '700',
-    lineHeight: '150%',
-  },
-  smallDesktopDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '24px',
-    fontStyle: 'normal',
-    fontWeight: '700',
-    lineHeight: '150%',
-  },
-  tabletDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '24px',
-    fontStyle: 'normal',
-    fontWeight: '700',
-    lineHeight: '150%',
-  },
-};
-
-const secondaryBodyExtraLargeRegular: TypographyResponsiveConfig = {
-  largeDesktopDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '24px',
-    fontStyle: 'normal',
-    fontWeight: '400',
-    lineHeight: '150%',
-  },
-  mobileDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '24px',
-    fontStyle: 'normal',
-    fontWeight: '400',
-    lineHeight: '150%',
-  },
-  smallDesktopDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '24px',
-    fontStyle: 'normal',
-    fontWeight: '400',
-    lineHeight: '150%',
-  },
-  tabletDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '24px',
-    fontStyle: 'normal',
-    fontWeight: '400',
-    lineHeight: '150%',
-  },
-};
-
-const secondaryBodyLargeBold: TypographyResponsiveConfig = {
-  largeDesktopDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '16px',
-    fontStyle: 'normal',
-    fontWeight: '700',
-    lineHeight: '150%',
-  },
-  mobileDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '16px',
-    fontStyle: 'normal',
-    fontWeight: '700',
-    lineHeight: '150%',
-  },
-  smallDesktopDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '16px',
-    fontStyle: 'normal',
-    fontWeight: '700',
-    lineHeight: '150%',
-  },
-  tabletDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '16px',
-    fontStyle: 'normal',
-    fontWeight: '700',
-    lineHeight: '150%',
-  },
-};
-
-const secondaryBodyLargeRegular: TypographyResponsiveConfig = {
-  largeDesktopDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '16px',
-    fontStyle: 'normal',
-    fontWeight: '400',
-    lineHeight: '150%',
-  },
-  mobileDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '16px',
-    fontStyle: 'normal',
-    fontWeight: '400',
-    lineHeight: '150%',
-  },
-  smallDesktopDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '16px',
-    fontStyle: 'normal',
-    fontWeight: '400',
-    lineHeight: '150%',
-  },
-  tabletDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '16px',
-    fontStyle: 'normal',
-    fontWeight: '400',
-    lineHeight: '150%',
-  },
-};
-
-const secondaryBodyMediumBold: TypographyResponsiveConfig = {
-  largeDesktopDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '14px',
-    fontStyle: 'normal',
-    fontWeight: '700',
-    lineHeight: '150%',
-  },
-  mobileDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '14px',
-    fontStyle: 'normal',
-    fontWeight: '700',
-    lineHeight: '150%',
-  },
-  smallDesktopDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '14px',
-    fontStyle: 'normal',
-    fontWeight: '700',
-    lineHeight: '150%',
-  },
-  tabletDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '14px',
-    fontStyle: 'normal',
-    fontWeight: '700',
-    lineHeight: '150%',
-  },
-};
-
-const secondaryBodyMediumRegular: TypographyResponsiveConfig = {
-  largeDesktopDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '14px',
-    fontStyle: 'normal',
-    fontWeight: '400',
-    lineHeight: '150%',
-  },
-  mobileDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '14px',
-    fontStyle: 'normal',
-    fontWeight: '400',
-    lineHeight: '150%',
-  },
-  smallDesktopDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '14px',
-    fontStyle: 'normal',
-    fontWeight: '400',
-    lineHeight: '150%',
-  },
-  tabletDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '14px',
-    fontStyle: 'normal',
-    fontWeight: '400',
-    lineHeight: '150%',
-  },
-};
-
-const secondaryBodySmallBold: TypographyResponsiveConfig = {
-  largeDesktopDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '12px',
-    fontStyle: 'normal',
-    fontWeight: '700',
-    lineHeight: '150%',
-  },
-  mobileDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '12px',
-    fontStyle: 'normal',
-    fontWeight: '700',
-    lineHeight: '150%',
-  },
-  smallDesktopDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '12px',
-    fontStyle: 'normal',
-    fontWeight: '700',
-    lineHeight: '150%',
-  },
-  tabletDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '12px',
-    fontStyle: 'normal',
-    fontWeight: '700',
-    lineHeight: '150%',
-  },
-};
-
-const secondaryBodySmallRegular: TypographyResponsiveConfig = {
-  largeDesktopDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '12px',
-    fontStyle: 'normal',
-    fontWeight: '400',
-    lineHeight: '150%',
-  },
-  mobileDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '12px',
-    fontStyle: 'normal',
-    fontWeight: '400',
-    lineHeight: '150%',
-  },
-  smallDesktopDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '12px',
-    fontStyle: 'normal',
-    fontWeight: '400',
-    lineHeight: '150%',
-  },
-  tabletDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '12px',
-    fontStyle: 'normal',
-    fontWeight: '400',
-    lineHeight: '150%',
-  },
-};
-
-const secondaryBodyXSmallBold: TypographyResponsiveConfig = {
-  largeDesktopDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '10px',
-    fontStyle: 'normal',
-    fontWeight: '700',
-    lineHeight: '140%',
-  },
-  mobileDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '10px',
-    fontStyle: 'normal',
-    fontWeight: '700',
-    lineHeight: '140%',
-  },
-  smallDesktopDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '10px',
-    fontStyle: 'normal',
-    fontWeight: '700',
-    lineHeight: '140%',
-  },
-  tabletDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '10px',
-    fontStyle: 'normal',
-    fontWeight: '700',
-    lineHeight: '140%',
-  },
-};
-
-const secondaryBodyXSmallRegular: TypographyResponsiveConfig = {
-  largeDesktopDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '10px',
-    fontStyle: 'normal',
-    fontWeight: '400',
-    lineHeight: '140%',
-  },
-  mobileDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '10px',
-    fontStyle: 'normal',
-    fontWeight: '400',
-    lineHeight: '140%',
-  },
-  smallDesktopDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '10px',
-    fontStyle: 'normal',
-    fontWeight: '400',
-    lineHeight: '140%',
-  },
-  tabletDevice: {
-    fontFamily: "'IBM Plex Mono', monospace",
-    fontSize: '10px',
-    fontStyle: 'normal',
-    fontWeight: '400',
-    lineHeight: '140%',
   },
 };
 
 export const typography: TypographyTheme = {
-  bodyXsmallRegular,
-  h1smallBold,
-  h1xlbold,
+  bodyExtraLargeBold,
+  bodyExtraLargeRegular,
+  bodyLargeBold,
+  bodyLargeRegular,
+  bodyMediumBold,
+  bodyMediumRegular,
+  bodySmallBold,
+  bodySmallRegular,
+  bodyXSmallBold,
+  bodyXSmallRegular,
+  h1SmallBold,
+  h1XLBold,
   h2Bold,
   h2Regular,
-  bodyXsmallBold,
   h3Bold,
   h3Regular,
-  primaryBodyExtraLargeBold,
-  primaryBodyExtraLargeRegular,
-  primaryBodyLargeBold,
-  primaryBodyLargeRegular,
-  primaryBodyMediumBold,
-  primaryBodyMediumRegular,
-  primaryBodySmallBold,
-  primaryBodySmallRegular,
-  secondaryBodyExtraLargeBold,
-  secondaryBodyExtraLargeRegular,
-  secondaryBodyLargeBold,
-  secondaryBodyLargeRegular,
-  secondaryBodyMediumBold,
-  secondaryBodyMediumRegular,
-  secondaryBodySmallBold,
-  secondaryBodySmallRegular,
-  secondaryBodyXSmallBold,
-  secondaryBodyXSmallRegular,
 };

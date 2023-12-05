@@ -45,7 +45,7 @@ export const NavLinkButton = styled(
   colorToken: BaseColorTokens | 'rainbow';
 }>`
   ${({ theme }) =>
-    css(getResponsiveTypographyStyleFromToken({ theme, token: 'primaryBodyMediumRegular' }))};
+    css(getResponsiveTypographyStyleFromToken({ theme, token: 'bodyMediumRegular' }))};
 
   text-decoration: none;
   text-transform: none;

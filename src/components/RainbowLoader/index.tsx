@@ -37,7 +37,7 @@ export const RainbowLoader: React.FunctionComponent<RainbowLoaderProps> = React.
         <RainbowText
           colorToken="white100"
           data-testid="RainbowLoader-RainbowText"
-          typographyToken="secondaryBodyMediumRegular"
+          typographyToken="bodyMediumRegular"
         >
           {text}
         </RainbowText>

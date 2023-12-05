@@ -34,8 +34,8 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
   yMarkerText,
   yMarkerColorToken = 'primary100',
   colorToken = 'secondary100',
-  yMarkerTypographyToken = 'secondaryBodyXSmallRegular',
-  axisTypographyToken = 'bodyXsmallRegular',
+  yMarkerTypographyToken = 'bodyXSmallRegular',
+  axisTypographyToken = 'bodyXSmallRegular',
 }) => {
   const theme = useTheme();
   const yMarkerTypographyConfig = getTypographyFromToken({

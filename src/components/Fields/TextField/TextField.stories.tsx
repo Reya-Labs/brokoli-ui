@@ -20,7 +20,7 @@ export const Default: StoryObj<typeof TextField> = {
 
 export const WithTypographyToken: StoryObj<typeof TextField> = {
   args: {
-    typographyToken: 'primaryBodyExtraLargeBold',
+    typographyToken: 'bodyExtraLargeBold',
   },
 
   render: Template,
@@ -30,7 +30,7 @@ export const WithLabel: StoryObj<typeof TextField> = {
   args: {
     label: 'Username',
     labelColorToken: 'white300',
-    labelTypographyToken: 'primaryBodySmallRegular',
+    labelTypographyToken: 'bodySmallRegular',
   },
 
   render: Template,
@@ -40,7 +40,7 @@ export const WithTooltip: StoryObj<typeof TextField> = {
   args: {
     label: 'Password',
     labelColorToken: 'white300',
-    labelTypographyToken: 'primaryBodySmallRegular',
+    labelTypographyToken: 'bodySmallRegular',
     placeHolder: 'Type your password',
     tooltip: 'Make sure your password is secure and safe!',
     tooltipColorToken: 'white300',

@@ -28,10 +28,10 @@ export const CustomComponentTooltip: StoryObj<typeof ExclaimTooltip> = {
   args: {
     children: (
       <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-        <Typography colorToken="white100" typographyToken="h1smallBold">
+        <Typography colorToken="white100" typographyToken="h1SmallBold">
           CustomComponentTooltip
         </Typography>
-        <Typography colorToken="white100" typographyToken="primaryBodyMediumRegular">
+        <Typography colorToken="white100" typographyToken="bodyMediumRegular">
           Really it all fits
         </Typography>
         <Button variant="primary">A button! Click iit!</Button>

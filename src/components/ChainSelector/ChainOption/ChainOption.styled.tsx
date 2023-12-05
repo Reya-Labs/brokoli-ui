@@ -24,7 +24,7 @@ export const ChainOptionButton = styled('button')`
   gap: 8px;
 
   ${({ theme }) =>
-    css(getResponsiveTypographyStyleFromToken({ theme, token: 'primaryBodySmallRegular' }))};
+    css(getResponsiveTypographyStyleFromToken({ theme, token: 'bodySmallRegular' }))};
 
   color: ${({ theme }) => theme.colors.white100};
   text-decoration: none;

@@ -40,7 +40,7 @@ export const SwitchButton = styled('button')<{
   z-index: ${({ active }) => (active ? 1 : 0)};
 
   ${({ theme }) =>
-    css(getResponsiveTypographyStyleFromToken({ theme, token: 'bodyXsmallRegular' }))};
+    css(getResponsiveTypographyStyleFromToken({ theme, token: 'bodyXSmallRegular' }))};
 
   color: ${({ theme, error, active }) =>
     !error

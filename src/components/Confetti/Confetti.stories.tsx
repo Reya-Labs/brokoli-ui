@@ -26,7 +26,7 @@ export const ButtonConfetti: StoryObj<typeof Confetti> = {
 const DialogTemplate: StoryFn<typeof Confetti> = (args) => (
   <Dialog open={true}>
     <Confetti {...args}>
-      <Typography colorToken="white100" typographyToken="primaryBodyExtraLargeBold">
+      <Typography colorToken="white100" typographyToken="bodyExtraLargeBold">
         I am wrapped in confetti!
       </Typography>
     </Confetti>

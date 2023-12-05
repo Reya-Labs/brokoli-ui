@@ -42,7 +42,7 @@ export const WithBottomLeftText: StoryObj<typeof Button> = {
 export const WithCustomTypography: StoryObj<typeof Button> = {
   args: {
     children: 'Default',
-    typographyToken: 'primaryBodySmallRegular',
+    typographyToken: 'bodySmallRegular',
     variant: 'primary',
   },
 };
@@ -51,7 +51,7 @@ export const WithBottomLeftTextAsError: StoryObj<typeof Button> = {
   args: {
     bottomLeftText: 'Bottom left text!',
     bottomLeftTextColorToken: 'error100',
-    bottomLeftTextTypographyToken: 'primaryBodySmallBold',
+    bottomLeftTextTypographyToken: 'bodySmallBold',
     children: 'Default',
     variant: 'primary',
   },

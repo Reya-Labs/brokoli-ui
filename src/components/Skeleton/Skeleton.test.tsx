@@ -13,10 +13,8 @@ describe('<Skeleton />', () => {
   });
 
   it('renders a circular skeleton with custom props', () => {
-    render(
-      <Skeleton colorToken="white100" typographyToken="primaryBodyMediumBold" variant="circular" />,
-    );
-    const skeletonBox = screen.getByTestId('Skeleton-SkeletonBox-circular-primaryBodyMediumBold');
+    render(<Skeleton colorToken="white100" typographyToken="bodyMediumBold" variant="circular" />);
+    const skeletonBox = screen.getByTestId('Skeleton-SkeletonBox-circular-bodyMediumBold');
 
     expect(skeletonBox).toBeInTheDocument();
   });
@@ -27,7 +25,7 @@ describe('<Skeleton />', () => {
         className="custom-class"
         colorToken="white100"
         data-testid="custom-test-id"
-        typographyToken="primaryBodyMediumBold"
+        typographyToken="bodyMediumBold"
         variant="circular"
       />,
     );

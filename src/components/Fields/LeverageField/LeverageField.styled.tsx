@@ -50,7 +50,7 @@ export const ButtonStyled = styled('button')<{
   border-radius: 4px;
 
   ${({ theme }) =>
-    css(getResponsiveTypographyStyleFromToken({ theme, token: 'secondaryBodyXSmallRegular' }))};
+    css(getResponsiveTypographyStyleFromToken({ theme, token: 'bodyXSmallRegular' }))};
   color: ${({ theme }) => theme.colors.white100};
   cursor: pointer;
   transition: all 200ms ease-in;

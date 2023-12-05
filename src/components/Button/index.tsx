@@ -29,8 +29,8 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
   className,
   'data-testid': dataTestId,
   bottomLeftTextColorToken = 'white400',
-  typographyToken = 'primaryBodyMediumBold',
-  bottomLeftTextTypographyToken = 'bodyXsmallRegular',
+  typographyToken = 'bodyMediumBold',
+  bottomLeftTextTypographyToken = 'bodyXSmallRegular',
 }) => {
   const childrenToRender = !loading ? children : <Ellipsis />;
   const button = (

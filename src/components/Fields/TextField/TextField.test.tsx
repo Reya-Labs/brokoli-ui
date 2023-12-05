@@ -9,11 +9,11 @@ describe('<TextField />', () => {
     error: false,
     label: 'Text Field',
     labelColorToken: 'white300',
-    labelTypographyToken: 'primaryBodySmallRegular',
+    labelTypographyToken: 'bodySmallRegular',
     onChange: jest.fn(),
     tooltipColorToken: 'white300',
     type: 'text',
-    typographyToken: 'primaryBodyMediumRegular',
+    typographyToken: 'bodyMediumRegular',
     value: 'Test Value',
   };
 
@@ -25,7 +25,7 @@ describe('<TextField />', () => {
     render(<TextField {...defaultProps} />);
     expect(screen.getByTestId('TextField-TextFieldBox')).toBeInTheDocument();
     expect(
-      screen.getByTestId('TextField-TextFieldBox-primaryBodySmallRegular-white300'),
+      screen.getByTestId('TextField-TextFieldBox-bodySmallRegular-white300'),
     ).toBeInTheDocument();
     expect(screen.getByTestId('TextField-TextFieldBox-TextInputStyled')).toBeInTheDocument();
   });

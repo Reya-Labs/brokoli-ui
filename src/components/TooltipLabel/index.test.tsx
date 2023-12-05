@@ -11,7 +11,7 @@ describe('<TooltipLabel />', () => {
     const label = 'Label text';
     const labelColorToken: ColorTokens = 'white100';
     const tooltipColorToken: ColorTokens = 'error100';
-    const labelTypographyToken: TypographyToken = 'primaryBodyMediumBold';
+    const labelTypographyToken: TypographyToken = 'bodyMediumBold';
 
     render(
       <TooltipLabel
@@ -32,7 +32,7 @@ describe('<TooltipLabel />', () => {
   test('renders Typography when only label is provided', () => {
     const label = 'Label text';
     const labelColorToken: ColorTokens = 'white100';
-    const labelTypographyToken: TypographyToken = 'primaryBodyMediumBold';
+    const labelTypographyToken: TypographyToken = 'bodyMediumBold';
 
     render(
       <TooltipLabel

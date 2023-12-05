@@ -18,14 +18,14 @@ export const Default: StoryObj<typeof AppLink> = {
     children: 'Visit this app link!',
     colorToken: 'primary',
     to: '/app-link',
-    typographyToken: 'bodyXsmallRegular',
+    typographyToken: 'bodyXSmallRegular',
   },
 
   render: Template,
 };
 
 const WithinTextTemplate: StoryFn<typeof AppLink> = (args) => (
-  <Typography colorToken="white100" typographyToken="primaryBodySmallRegular">
+  <Typography colorToken="white100" typographyToken="bodySmallRegular">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
     labore et dolore magna aliqua. <AppLink {...args} /> Ut enim ad minim veniam, quis nostrud
     exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
@@ -39,7 +39,7 @@ export const WithinText: StoryObj<typeof AppLink> = {
     children: 'Lorem link',
     colorToken: 'error',
     to: '/app-link',
-    typographyToken: 'primaryBodySmallBold',
+    typographyToken: 'bodySmallBold',
   },
 
   render: WithinTextTemplate,
@@ -51,7 +51,7 @@ export const WithOpeningNewPage: StoryObj<typeof AppLink> = {
     colorToken: 'primary',
     target: '_blank',
     to: 'https://brokoli.voltz.xyz',
-    typographyToken: 'bodyXsmallRegular',
+    typographyToken: 'bodyXSmallRegular',
   },
 
   render: Template,
@@ -63,7 +63,7 @@ export const WithCustomComponentForLink: StoryObj<typeof AppLink> = {
     children: 'Visit this app link!',
     colorToken: 'primary',
     to: '/app-link-via-react-router-dom',
-    typographyToken: 'bodyXsmallRegular',
+    typographyToken: 'bodyXSmallRegular',
   },
 
   render: Template,

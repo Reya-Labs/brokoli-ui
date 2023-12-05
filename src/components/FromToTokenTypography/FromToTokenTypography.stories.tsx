@@ -14,7 +14,7 @@ export const Default: StoryObj<typeof FromToTokenTypography> = {
     fromValue: 'From',
     toColorToken: 'secondary',
     toValue: 'To',
-    typographyToken: 'secondaryBodySmallRegular',
+    typographyToken: 'bodySmallRegular',
   },
 };
 
@@ -24,10 +24,10 @@ export const WithLabel: StoryObj<typeof FromToTokenTypography> = {
     fromValue: 'From',
     label: 'Label goes here',
     labelColorToken: 'white100',
-    labelTypographyToken: 'primaryBodyMediumBold',
+    labelTypographyToken: 'bodyMediumBold',
     toColorToken: 'secondary',
     toValue: 'To',
-    typographyToken: 'secondaryBodySmallRegular',
+    typographyToken: 'bodySmallRegular',
   },
 };
 
@@ -39,13 +39,13 @@ export const WithTokens: StoryObj<typeof FromToTokenTypography> = {
     fromValue: 29,
     label: 'Label goes here',
     labelColorToken: 'white100',
-    labelTypographyToken: 'bodyXsmallRegular',
+    labelTypographyToken: 'bodyXSmallRegular',
     toColorToken: 'white',
     toPrefixToken: '$',
     toToken: '%',
     toValue: 64,
     token: 'percentage',
-    typographyToken: 'secondaryBodySmallRegular',
+    typographyToken: 'bodySmallRegular',
   },
 };
 
@@ -56,12 +56,12 @@ export const WithTooltip: StoryObj<typeof FromToTokenTypography> = {
     fromValue: 29,
     label: 'Label goes here',
     labelColorToken: 'white100',
-    labelTypographyToken: 'bodyXsmallRegular',
+    labelTypographyToken: 'bodyXSmallRegular',
     toColorToken: 'white',
     toToken: '%',
     toValue: 64,
     token: 'percentage',
     tooltip: 'Created with ❤️!',
-    typographyToken: 'secondaryBodySmallRegular',
+    typographyToken: 'bodySmallRegular',
   },
 };

@@ -8,7 +8,7 @@ describe('<AppLink />', () => {
     children: 'Link',
     colorToken: 'white',
     to: '/path',
-    typographyToken: 'primaryBodyMediumBold',
+    typographyToken: 'bodyMediumBold',
   };
 
   it('renders enabled link correctly', () => {

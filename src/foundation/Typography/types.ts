@@ -1,32 +1,22 @@
 import { SupportedMedias } from '../Media';
 
 export type TypographyToken =
-  | 'h1xlbold'
-  | 'h1smallBold'
+  | 'h1XLBold'
+  | 'h1SmallBold'
   | 'h2Bold'
   | 'h2Regular'
   | 'h3Bold'
   | 'h3Regular'
-  | 'bodyXsmallRegular'
-  | 'bodyXsmallBold'
-  | 'primaryBodySmallRegular'
-  | 'primaryBodySmallBold'
-  | 'primaryBodyMediumRegular'
-  | 'primaryBodyMediumBold'
-  | 'primaryBodyLargeRegular'
-  | 'primaryBodyLargeBold'
-  | 'primaryBodyExtraLargeRegular'
-  | 'primaryBodyExtraLargeBold'
-  | 'secondaryBodyXSmallRegular'
-  | 'secondaryBodyXSmallBold'
-  | 'secondaryBodySmallRegular'
-  | 'secondaryBodySmallBold'
-  | 'secondaryBodyMediumRegular'
-  | 'secondaryBodyMediumBold'
-  | 'secondaryBodyLargeBold'
-  | 'secondaryBodyLargeRegular'
-  | 'secondaryBodyExtraLargeBold'
-  | 'secondaryBodyExtraLargeRegular';
+  | 'bodyXSmallRegular'
+  | 'bodyXSmallBold'
+  | 'bodySmallRegular'
+  | 'bodySmallBold'
+  | 'bodyMediumRegular'
+  | 'bodyMediumBold'
+  | 'bodyLargeRegular'
+  | 'bodyLargeBold'
+  | 'bodyExtraLargeRegular'
+  | 'bodyExtraLargeBold';
 
 export type TypographyConfig = {
   fontFamily: string;

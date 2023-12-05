@@ -13,7 +13,7 @@ export default {
 
 const Template: StoryFn<typeof Dialog> = (args) => (
   <React.Fragment>
-    <Typography colorToken="error100" typographyToken="primaryBodyExtraLargeBold">
+    <Typography colorToken="error100" typographyToken="bodyExtraLargeBold">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
       labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
       laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
@@ -47,18 +47,18 @@ export const Default: StoryObj<typeof Dialog> = {
   args: {
     children: (
       <React.Fragment>
-        <Typography colorToken="white100" typographyToken="primaryBodyLargeRegular">
+        <Typography colorToken="white100" typographyToken="bodyLargeRegular">
           This library is created using styled components from @emotion/styled.
         </Typography>
         <br />
-        <Typography colorToken="white400" typographyToken="primaryBodyMediumRegular">
+        <Typography colorToken="white400" typographyToken="bodyMediumRegular">
           It is an UI design language and React UI library powered by 🥦🥦🥦 and ☕
         </Typography>
         <br />
         <TypographyWithTooltip
           colorToken="white100"
           tooltip="Created with ❤️!"
-          typographyToken="secondaryBodyMediumRegular"
+          typographyToken="bodyMediumRegular"
         >
           Tooltips in dialog? ✅
         </TypographyWithTooltip>

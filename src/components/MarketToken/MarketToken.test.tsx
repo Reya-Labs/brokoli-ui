@@ -8,7 +8,7 @@ describe('<MarketToken />', () => {
     colorToken: 'black100',
     iconSize: 20,
     market: 'Aave',
-    typographyToken: 'primaryBodyMediumBold',
+    typographyToken: 'bodyMediumBold',
   };
 
   it('renders the market token component correctly', () => {

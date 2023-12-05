@@ -11,7 +11,7 @@ describe('<NotificationContent />', () => {
     contentTypographyToken: 'h2Bold',
     onCloseNotification: jest.fn(),
     title: 'Notification Title',
-    titleTypographyToken: 'primaryBodyMediumBold',
+    titleTypographyToken: 'bodyMediumBold',
   };
 
   afterEach(() => {

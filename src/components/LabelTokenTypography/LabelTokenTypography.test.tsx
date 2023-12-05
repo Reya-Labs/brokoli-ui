@@ -8,9 +8,9 @@ describe('<LabelTokenTypography />', () => {
     colorToken: 'white',
     label: 'Label',
     labelColorToken: 'white300',
-    labelTypographyToken: 'primaryBodyMediumBold',
+    labelTypographyToken: 'bodyMediumBold',
     token: 'Token',
-    typographyToken: 'primaryBodyMediumRegular',
+    typographyToken: 'bodyMediumRegular',
     value: '100',
   };
 

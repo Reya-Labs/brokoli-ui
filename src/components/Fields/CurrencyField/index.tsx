@@ -44,7 +44,7 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
   suffix,
   allowNegativeValue,
   labelColorToken = 'white300',
-  labelTypographyToken = 'primaryBodySmallRegular',
+  labelTypographyToken = 'bodySmallRegular',
   label,
   tooltipColorToken,
   tooltip,
@@ -53,7 +53,7 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
   max,
   placeholder,
   'data-testid': dataTestId,
-  typographyToken = 'secondaryBodySmallRegular',
+  typographyToken = 'bodySmallRegular',
 }) => {
   const handleOnChange = (newValue: string | undefined) => {
     if (newValue === value) {

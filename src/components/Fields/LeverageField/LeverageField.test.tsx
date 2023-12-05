@@ -9,7 +9,7 @@ describe('<LeverageField />', () => {
     error: false,
     label: 'Leverage',
     labelColorToken: 'white100',
-    labelTypographyToken: 'primaryBodyMediumBold',
+    labelTypographyToken: 'bodyMediumBold',
     leverageOptions: ['1', '2', '3'],
     maxLeverageColorToken: 'error100',
     maxLeverageText: 'Max Leverage',

@@ -12,7 +12,7 @@ export const Default: StoryObj<typeof Pill> = {
   args: {
     children: 'Headache pill',
     colorToken: 'error',
-    typographyToken: 'primaryBodySmallRegular',
+    typographyToken: 'bodySmallRegular',
     variant: 'regular',
   },
 };
@@ -21,7 +21,7 @@ export const CompactVariant: StoryObj<typeof Pill> = {
   args: {
     children: 'Headache pill',
     colorToken: 'primary',
-    typographyToken: 'bodyXsmallBold',
+    typographyToken: 'bodyXSmallBold',
     variant: 'compact',
   },
 };

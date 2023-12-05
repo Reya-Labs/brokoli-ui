@@ -14,16 +14,16 @@ export const ColorTile: React.FunctionComponent<ColorTileProps> = ({
     <ColorBackgroundBox backgroundColor={backgroundColor}>
       <Typography
         colorToken={highlight ? 'white100' : 'black400'}
-        typographyToken="primaryBodySmallRegular"
+        typographyToken="bodySmallRegular"
       >
         brokoli-ui
       </Typography>
     </ColorBackgroundBox>
     <ColorTypographyBox>
-      <Typography colorToken="black500" typographyToken="primaryBodyMediumBold">
+      <Typography colorToken="black500" typographyToken="bodyMediumBold">
         {name}
       </Typography>
-      <Typography colorToken="black800" typographyToken="primaryBodySmallRegular">
+      <Typography colorToken="black800" typographyToken="bodySmallRegular">
         {backgroundColor.toUpperCase()}
       </Typography>
     </ColorTypographyBox>

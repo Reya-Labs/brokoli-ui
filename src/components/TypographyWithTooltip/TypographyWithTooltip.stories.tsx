@@ -13,6 +13,6 @@ export const Default: StoryObj<typeof TypographyWithTooltip> = {
     children: 'What a wonderful UI library!',
     colorToken: 'white100',
     tooltip: 'Created with ❤️!',
-    typographyToken: 'secondaryBodyMediumRegular',
+    typographyToken: 'bodyMediumRegular',
   },
 };

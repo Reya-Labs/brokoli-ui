@@ -7,7 +7,7 @@ import { ExternalLink } from '.';
 
 describe('<ExternalLink />', () => {
   const colorToken: BaseColorTokens = 'white';
-  const typographyToken: TypographyToken = 'primaryBodyMediumBold';
+  const typographyToken: TypographyToken = 'bodyMediumBold';
 
   it('renders a disabled link when disabled prop is true', () => {
     render(

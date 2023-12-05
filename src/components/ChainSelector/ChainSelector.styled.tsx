@@ -28,7 +28,7 @@ export const ChainSelectorButton = styled('button', shouldNotForwardProps(['isPo
   isPopoverOpen: boolean;
 }>`
   ${({ theme }) =>
-    css(getResponsiveTypographyStyleFromToken({ theme, token: 'primaryBodyMediumRegular' }))};
+    css(getResponsiveTypographyStyleFromToken({ theme, token: 'bodyMediumRegular' }))};
 
   padding: 0px;
   color: ${({ theme, isPopoverOpen }) =>

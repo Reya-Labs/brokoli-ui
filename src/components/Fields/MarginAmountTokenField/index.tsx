@@ -67,20 +67,20 @@ export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFi
   defaultValue,
   disabled,
   error,
-  typographyToken = 'secondaryBodyMediumBold',
+  typographyToken = 'bodyMediumBold',
   placeholder,
   labelColorToken = 'white300',
-  labelTypographyToken = 'primaryBodySmallRegular',
+  labelTypographyToken = 'bodySmallRegular',
   tooltip,
   label,
-  topRightTextTypographyToken = 'bodyXsmallRegular',
+  topRightTextTypographyToken = 'bodyXSmallRegular',
   topRightTextColorToken = 'white300',
   topRightText,
-  bottomLeftTextTypographyToken = 'bodyXsmallRegular',
+  bottomLeftTextTypographyToken = 'bodyXSmallRegular',
   bottomLeftTextColorToken = 'white300',
   bottomLeftText,
   token,
-  bottomRightTextTypographyToken = 'secondaryBodyXSmallRegular',
+  bottomRightTextTypographyToken = 'bodyXSmallRegular',
   bottomRightTextColorToken = 'white',
   bottomRightTextValue,
   bottomRightTextDifferenceValue,
@@ -200,7 +200,7 @@ export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFi
               <MaxButton
                 data-testid="MarginAmountTokenField-MaxButton"
                 disabled={disabled}
-                typographyToken="bodyXsmallRegular"
+                typographyToken="bodyXSmallRegular"
                 variant="secondary"
                 onClick={handleOnMaxButtonClick}
               >
@@ -220,7 +220,7 @@ export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFi
                 <Typography
                   colorToken="white100"
                   data-testid="MarginAmountTokenField-CurrencyInputBox-TokenBox-Typography"
-                  typographyToken="primaryBodySmallRegular"
+                  typographyToken="bodySmallRegular"
                 >
                   {token.toUpperCase()}
                 </Typography>
