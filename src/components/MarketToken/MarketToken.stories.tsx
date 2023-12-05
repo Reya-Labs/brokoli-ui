@@ -24,7 +24,7 @@ export const WithSmallerIcon: StoryObj<typeof MarketToken> = {
     iconSize: 24,
     market: 'Lido',
     token: 'dai',
-    typographyToken: 'primaryHeader3Bold',
+    typographyToken: 'h3Regular',
   },
 };
 
@@ -34,7 +34,7 @@ export const WithNoIcons: StoryObj<typeof MarketToken> = {
     iconSize: 0,
     market: 'Lido',
     token: 'dai',
-    typographyToken: 'primaryHeader3Bold',
+    typographyToken: 'h3Regular',
   },
 };
 
@@ -43,7 +43,7 @@ export const WithNoMarket: StoryObj<typeof MarketToken> = {
     colorToken: 'white100',
     iconSize: 24,
     token: 'dai',
-    typographyToken: 'primaryHeader3Bold',
+    typographyToken: 'h3Regular',
   },
 };
 
@@ -52,7 +52,7 @@ export const WithNoToken: StoryObj<typeof MarketToken> = {
     colorToken: 'white100',
     iconSize: 24,
     market: 'Aave',
-    typographyToken: 'primaryHeader3Bold',
+    typographyToken: 'h3Regular',
   },
 };
 
@@ -64,6 +64,6 @@ export const WithCustomFormatter: StoryObj<typeof MarketToken> = {
       `This is custom formatter ${market || ''} - ${token || ''}`,
     market: 'Lido',
     token: 'dai',
-    typographyToken: 'primaryHeader3Bold',
+    typographyToken: 'h3Regular',
   },
 };
