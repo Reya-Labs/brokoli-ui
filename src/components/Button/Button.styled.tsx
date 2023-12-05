@@ -6,12 +6,13 @@ import {
   TypographyToken,
 } from '../../foundation/Typography';
 import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
-import { primaryButtonCSS, secondaryButtonCSS } from './Button.css';
+import { primaryButtonCSS, secondaryButtonCSS, tertiaryButtonCSS } from './Button.css';
 
-export type ButtonVariant = 'primary' | 'secondary';
+export type ButtonVariant = 'primary' | 'secondary' | 'tertiary';
 const ButtonVariantMap: Record<ButtonVariant, (theme: Theme) => SerializedStyles> = {
   primary: primaryButtonCSS,
   secondary: secondaryButtonCSS,
+  tertiary: tertiaryButtonCSS,
 };
 export const ButtonStyled = styled(
   'button',

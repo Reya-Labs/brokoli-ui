@@ -52,3 +52,21 @@ export const secondaryButtonCSS = (theme: Theme) => css`
     cursor: not-allowed;
   }
 `;
+
+export const tertiaryButtonCSS = (theme: Theme) => css`
+  background: ${theme.colors.primary950};
+  border: 1px solid ${theme.colors.primary800};
+  color: ${theme.colors.primary500};
+  transition:
+    border-color,
+    color 200ms ease-in;
+
+  &:hover {
+    border: 1px solid ${theme.colors.primary500};
+  }
+
+  &:disabled {
+    color: ${theme.colors.primary100};
+    cursor: not-allowed;
+  }
+`;

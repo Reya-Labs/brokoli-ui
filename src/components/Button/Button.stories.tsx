@@ -22,6 +22,13 @@ export const Secondary: StoryObj<typeof Button> = {
   },
 };
 
+export const Tertiary: StoryObj<typeof Button> = {
+  args: {
+    children: 'Tertiary',
+    variant: 'tertiary',
+  },
+};
+
 export const WithLoading: StoryObj<typeof Button> = {
   args: {
     bottomLeftText: 'Bottom left text!',
