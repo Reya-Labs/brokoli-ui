@@ -21,6 +21,7 @@ export const AppLinkStyled = styled('a', shouldNotForwardProps(['colorToken', 't
   text-decoration: none;
   cursor: pointer;
   &:hover {
+    text-decoration: underline;
     color: ${({ theme, colorToken }) =>
       getColorFromToken({ colorToken: `${colorToken}200`, theme })};
   }
