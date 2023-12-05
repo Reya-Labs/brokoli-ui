@@ -3,6 +3,7 @@ import React from 'react';
 import { TypographyToken } from '../../foundation/Typography';
 
 export const tokenTagMap: Record<TypographyToken, React.ElementType> = {
+  h1xlbold: 'h1',
   primaryBodyExtraLargeBold: 'p',
   primaryBodyExtraLargeRegular: 'p',
   primaryBodyLargeBold: 'p',
@@ -13,7 +14,6 @@ export const tokenTagMap: Record<TypographyToken, React.ElementType> = {
   primaryBodySmallRegular: 'p',
   primaryBodyXSmallBold: 'p',
   primaryBodyXSmallRegular: 'p',
-  primaryHeader1Black: 'h1',
   primaryHeader1Bold: 'h1',
   primaryHeader2Black: 'h2',
   primaryHeader2Bold: 'h2',

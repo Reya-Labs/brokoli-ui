@@ -2,7 +2,7 @@ import { addAlpha } from '../../foundation/Colors';
 import { TypographyResponsiveConfig, TypographyTheme } from '../../foundation/Typography';
 import { colors } from './colors';
 
-const primaryHeader1Black: TypographyResponsiveConfig = {
+const h1xlbold: TypographyResponsiveConfig = {
   largeDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
     fontSize: '32px',
@@ -845,6 +845,7 @@ const secondaryBodyXSmallRegular: TypographyResponsiveConfig = {
 };
 
 export const typography: TypographyTheme = {
+  h1xlbold,
   primaryBodyExtraLargeBold,
   primaryBodyExtraLargeRegular,
   primaryBodyLargeBold,
@@ -855,7 +856,6 @@ export const typography: TypographyTheme = {
   primaryBodySmallRegular,
   primaryBodyXSmallBold,
   primaryBodyXSmallRegular,
-  primaryHeader1Black,
   primaryHeader1Bold,
   primaryHeader2Black,
   primaryHeader2Bold,
