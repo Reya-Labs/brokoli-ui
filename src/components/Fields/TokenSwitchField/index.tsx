@@ -71,10 +71,10 @@ export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = 
   labelTypographyToken = 'primaryBodySmallRegular',
   tooltip,
   label,
-  topRightTextTypographyToken = 'primaryBodyXSmallRegular',
+  topRightTextTypographyToken = 'bodyXsmallRegular',
   topRightTextColorToken = 'white300',
   topRightText,
-  bottomLeftTextTypographyToken = 'primaryBodyXSmallRegular',
+  bottomLeftTextTypographyToken = 'bodyXsmallRegular',
   bottomLeftTextColorToken = 'white300',
   bottomLeftText,
   token,
@@ -165,7 +165,7 @@ export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = 
             <MaxButton
               data-testid="TokenSwitchField-MaxButton"
               disabled={disabled}
-              typographyToken="primaryBodyXSmallRegular"
+              typographyToken="bodyXsmallRegular"
               variant="secondary"
               onClick={handleOnMaxButtonClick}
             >

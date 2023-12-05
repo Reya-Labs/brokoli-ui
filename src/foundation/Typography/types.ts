@@ -7,7 +7,7 @@ export type TypographyToken =
   | 'h2Regular'
   | 'h3Bold'
   | 'h3Regular'
-  | 'primaryBodyXSmallRegular'
+  | 'bodyXsmallRegular'
   | 'primaryBodyXSmallBold'
   | 'primaryBodySmallRegular'
   | 'primaryBodySmallBold'

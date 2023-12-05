@@ -15,7 +15,7 @@ export const Default: StoryObj<typeof ExternalLink> = {
     children: 'visit our storybook link',
     colorToken: 'white',
     href: 'https://brokoli.voltz.xyz',
-    typographyToken: 'primaryBodyXSmallRegular',
+    typographyToken: 'bodyXsmallRegular',
   },
 };
 

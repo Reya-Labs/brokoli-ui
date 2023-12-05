@@ -73,10 +73,10 @@ export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFi
   labelTypographyToken = 'primaryBodySmallRegular',
   tooltip,
   label,
-  topRightTextTypographyToken = 'primaryBodyXSmallRegular',
+  topRightTextTypographyToken = 'bodyXsmallRegular',
   topRightTextColorToken = 'white300',
   topRightText,
-  bottomLeftTextTypographyToken = 'primaryBodyXSmallRegular',
+  bottomLeftTextTypographyToken = 'bodyXsmallRegular',
   bottomLeftTextColorToken = 'white300',
   bottomLeftText,
   token,
@@ -200,7 +200,7 @@ export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFi
               <MaxButton
                 data-testid="MarginAmountTokenField-MaxButton"
                 disabled={disabled}
-                typographyToken="primaryBodyXSmallRegular"
+                typographyToken="bodyXsmallRegular"
                 variant="secondary"
                 onClick={handleOnMaxButtonClick}
               >

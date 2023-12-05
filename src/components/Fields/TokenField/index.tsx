@@ -66,10 +66,10 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
   labelTypographyToken = 'primaryBodySmallRegular',
   tooltip,
   label,
-  topRightTextTypographyToken = 'primaryBodyXSmallRegular',
+  topRightTextTypographyToken = 'bodyXsmallRegular',
   topRightTextColorToken = 'white300',
   topRightText,
-  bottomLeftTextTypographyToken = 'primaryBodyXSmallRegular',
+  bottomLeftTextTypographyToken = 'bodyXsmallRegular',
   bottomLeftTextColorToken = 'white300',
   bottomLeftText,
   token,
@@ -143,7 +143,7 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
             <MaxButton
               data-testid="TokenField-MaxButton"
               disabled={disabled}
-              typographyToken="primaryBodyXSmallRegular"
+              typographyToken="bodyXsmallRegular"
               variant="secondary"
               onClick={handleOnMaxButtonClick}
             >

@@ -30,7 +30,7 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
   'data-testid': dataTestId,
   bottomLeftTextColorToken = 'white400',
   typographyToken = 'primaryBodyMediumBold',
-  bottomLeftTextTypographyToken = 'primaryBodyXSmallRegular',
+  bottomLeftTextTypographyToken = 'bodyXsmallRegular',
 }) => {
   const childrenToRender = !loading ? children : <Ellipsis />;
   const button = (

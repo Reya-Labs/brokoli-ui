@@ -10,7 +10,7 @@ export default {
 
 export const Default: StoryObj<typeof LineChart> = {
   args: {
-    axisTypographyToken: 'primaryBodyXSmallRegular',
+    axisTypographyToken: 'bodyXsmallRegular',
     colorToken: 'secondary100',
     data: [
       {

@@ -216,7 +216,7 @@ const h3Regular: TypographyResponsiveConfig = {
   },
 };
 
-const primaryBodyXSmallRegular: TypographyResponsiveConfig = {
+const bodyXsmallRegular: TypographyResponsiveConfig = {
   largeDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
     fontSize: '10px',
@@ -850,6 +850,7 @@ export const typography: TypographyTheme = {
   h2Bold,
   h2Regular,
   h3Bold,
+  bodyXsmallRegular,
   h3Regular,
   primaryBodyExtraLargeBold,
   primaryBodyExtraLargeRegular,
@@ -860,7 +861,6 @@ export const typography: TypographyTheme = {
   primaryBodySmallBold,
   primaryBodySmallRegular,
   primaryBodyXSmallBold,
-  primaryBodyXSmallRegular,
   secondaryBodyExtraLargeBold,
   secondaryBodyExtraLargeRegular,
   secondaryBodyLargeBold,
