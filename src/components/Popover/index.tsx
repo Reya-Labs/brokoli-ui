@@ -13,6 +13,8 @@ type PopoverProps = {
   onClickOutside: TinyPopoverProps['onClickOutside'];
   children: TinyPopoverProps['children'];
   'data-testid'?: string;
+  align?: TinyPopoverProps['align'];
+  containerClassName?: TinyPopoverProps['align'];
 };
 
 export const Popover: React.FunctionComponent<PopoverProps> = ({
@@ -21,14 +23,16 @@ export const Popover: React.FunctionComponent<PopoverProps> = ({
   isOpen,
   onClickOutside,
   'data-testid': dataTestId,
+  align,
+  containerClassName,
 }) => {
   const theme = useTheme();
   return (
     <React.Fragment>
-      <Global styles={globalReactTinyPopoverContainerCSS(theme)} />
+      {containerClassName ? null : <Global styles={globalReactTinyPopoverContainerCSS(theme)} />}
       <TinyPopover
-        align="start"
-        containerClassName={TINY_POPOVER_CONTAINER_CLASS_NAME}
+        align={align || 'start'}
+        containerClassName={containerClassName || TINY_POPOVER_CONTAINER_CLASS_NAME}
         content={content}
         data-testid={dataTestId}
         isOpen={isOpen}
