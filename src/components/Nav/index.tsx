@@ -11,6 +11,7 @@ export type NavProps = {
   })[];
   Component?: NavLinkProps['Component'];
   className?: string;
+  id?: string;
   typographyToken?: TypographyToken;
 };
 
@@ -19,8 +20,9 @@ export const Nav: React.FunctionComponent<NavProps> = ({
   className,
   links,
   Component,
+  id,
 }) => (
-  <NavBox className={className} data-testid="Nav-NavBox">
+  <NavBox className={className} data-testid="Nav-NavBox" id={id}>
     {links
       .filter((link) => !link.isHidden)
       .map((link, index) => (
