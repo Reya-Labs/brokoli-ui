@@ -4,5 +4,5 @@ export const mediaBreakPoints: Record<SupportedMediasWidths, number> = {
   largeDesktopDevice: 1920,
   mobileDevice: 390,
   smallDesktopDevice: 1440,
-  tabletDevice: 834,
+  tabletDevice: 768,
 };
