@@ -1,6 +1,7 @@
 import React, { useCallback, useMemo } from 'react';
 
 import { BaseColorTokens } from '../../../foundation/Colors';
+import { TypographyToken } from '../../../foundation/Typography';
 import { AttentionIndicator } from '../../AttentionIndicator';
 import { Popover } from '../../Popover';
 import { ToggleCaret } from '../../ToggleCaret';
@@ -14,6 +15,7 @@ export type NavLinkProps = React.PropsWithChildren<{
   Component?: SubLinksProps['Component'];
   isNew?: boolean;
   colorToken?: BaseColorTokens | 'rainbow';
+  typographyToken?: TypographyToken;
   subLinks?: {
     text: string;
     link: string;
@@ -29,6 +31,7 @@ export const NavLink: React.FunctionComponent<NavLinkProps> = ({
   isNew,
   colorToken = 'white',
   Component,
+  typographyToken = 'bodyMediumRegular',
 }) => {
   const { pathname } = useLocation();
   const subLinksNotHidden = useMemo(
@@ -61,6 +64,7 @@ export const NavLink: React.FunctionComponent<NavLinkProps> = ({
         isPopoverOpen={isSubmenuOpened}
         role="link"
         to={to}
+        typographyToken={typographyToken}
       >
         {children}
       </NavLinkButtonComputed>

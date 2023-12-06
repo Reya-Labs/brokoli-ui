@@ -2,7 +2,10 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { BaseColorTokens, getColorFromToken } from '../../../foundation/Colors';
-import { getResponsiveTypographyStyleFromToken } from '../../../foundation/Typography';
+import {
+  getResponsiveTypographyStyleFromToken,
+  TypographyToken,
+} from '../../../foundation/Typography';
 import { shouldNotForwardProps } from '../../../utils/should-not-forward-props';
 
 export const NavLinkButtonBox = styled(
@@ -40,14 +43,20 @@ export const NavLinkButtonBox = styled(
 
 export const NavLinkButton = styled(
   'a',
-  shouldNotForwardProps(['isActive', 'isPopoverOpen', 'colorToken']),
+  shouldNotForwardProps(['typographyToken', 'isActive', 'isPopoverOpen', 'colorToken']),
 )<{
   isPopoverOpen: boolean;
   isActive: boolean;
   colorToken: BaseColorTokens | 'rainbow';
+  typographyToken: TypographyToken;
 }>`
-  ${({ theme }) =>
-    css(getResponsiveTypographyStyleFromToken({ theme, token: 'bodyMediumRegular' }))};
+  ${({ theme, typographyToken }) =>
+    css(
+      getResponsiveTypographyStyleFromToken({
+        theme,
+        token: typographyToken,
+      }),
+    )};
 
   text-decoration: none;
   text-transform: none;
