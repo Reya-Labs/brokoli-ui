@@ -14,7 +14,8 @@ export const ExternalLink: React.FunctionComponent<{
   disabled?: boolean;
   id?: string;
   className?: string;
-}> = ({ className, id, disabled, href, children, colorToken, typographyToken }) => {
+  hideArrowIcon?: boolean;
+}> = ({ hideArrowIcon, className, id, disabled, href, children, colorToken, typographyToken }) => {
   if (disabled) {
     return (
       <Typography
@@ -39,7 +40,7 @@ export const ExternalLink: React.FunctionComponent<{
       typographyToken={typographyToken}
     >
       {children}
-      <LinkArrow data-testid="ExternalLink-LinkArrow" viewBox="0 0 7 7" />
+      {hideArrowIcon ? null : <LinkArrow data-testid="ExternalLink-LinkArrow" viewBox="0 0 7 7" />}
     </ExternalLinkStyled>
   );
 };
