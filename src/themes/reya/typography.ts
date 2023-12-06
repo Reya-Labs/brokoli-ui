@@ -10,7 +10,7 @@ const h1XLBold: TypographyResponsiveConfig = {
   },
   mobileDevice: {
     fontFamily: "'Satoshi-Bold', sans-serif",
-    fontSize: '64px',
+    fontSize: '32px',
     fontStyle: 'normal',
     fontWeight: '700',
     lineHeight: '130%',
