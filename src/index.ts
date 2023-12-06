@@ -22,6 +22,7 @@ export * from './components/LabelTokenTypography';
 export * from './components/LineChart';
 export * from './components/MarketToken';
 export * from './components/Nav';
+export * from './components/Nav/NavLink';
 export * from './components/Notifications';
 export * from './components/Page';
 export * from './components/Pill';

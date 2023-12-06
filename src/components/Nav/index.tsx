@@ -2,7 +2,7 @@ import React from 'react';
 
 import { TypographyToken } from '../../foundation/Typography';
 import { NavBox } from './Nav.styled';
-import { NavLink, NavLinkProps } from './NavLink/NavLink';
+import { NavLink, NavLinkProps } from './NavLink';
 
 export type NavProps = {
   links: (NavLinkProps & {
