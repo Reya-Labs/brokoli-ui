@@ -16,6 +16,7 @@ export type NavLinkProps = React.PropsWithChildren<{
   isNew?: boolean;
   colorToken?: BaseColorTokens | 'rainbow';
   typographyToken?: TypographyToken;
+  className?: string;
   subLinks?: {
     text: string;
     link: string;
@@ -25,6 +26,7 @@ export type NavLinkProps = React.PropsWithChildren<{
 }>;
 
 export const NavLink: React.FunctionComponent<NavLinkProps> = ({
+  className,
   subLinks = [],
   children,
   link,
@@ -49,6 +51,7 @@ export const NavLink: React.FunctionComponent<NavLinkProps> = ({
   const NavLinkButtonComputed = Component ? NavLinkButton.withComponent(Component) : NavLinkButton;
   const linkButton = (
     <NavLinkButtonBox
+      className={className}
       colorToken={colorToken}
       data-testid={
         isSubmenuOpened ? 'OpenNavLinkButton' : isActive ? 'ActiveNavLinkButton' : 'NavLinkButton'
