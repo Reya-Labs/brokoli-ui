@@ -14,7 +14,7 @@ type PopoverProps = {
   children: TinyPopoverProps['children'];
   'data-testid'?: string;
   align?: TinyPopoverProps['align'];
-  containerClassName?: TinyPopoverProps['align'];
+  containerClassName?: TinyPopoverProps['containerClassName'];
 };
 
 export const Popover: React.FunctionComponent<PopoverProps> = ({
