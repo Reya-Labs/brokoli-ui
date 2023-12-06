@@ -1,4 +1,4 @@
-import { SupportedMedias } from '../Media';
+import { SupportedMediasWidths } from '../Media';
 
 export type TypographyToken =
   | 'h1XLBold'
@@ -28,6 +28,6 @@ export type TypographyConfig = {
   textShadow?: string;
 };
 
-export type TypographyResponsiveConfig = Record<SupportedMedias, TypographyConfig>;
+export type TypographyResponsiveConfig = Record<SupportedMediasWidths, TypographyConfig>;
 
 export type TypographyTheme = Record<TypographyToken, TypographyResponsiveConfig>;

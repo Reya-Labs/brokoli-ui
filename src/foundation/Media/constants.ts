@@ -1,6 +1,6 @@
-import { SupportedMedias } from './types';
+import { SupportedMediasWidths } from './types';
 
-export const mediaBreakPoints: Record<SupportedMedias, number> = {
+export const mediaBreakPoints: Record<SupportedMediasWidths, number> = {
   largeDesktopDevice: 1920,
   mobileDevice: 390,
   smallDesktopDevice: 1440,

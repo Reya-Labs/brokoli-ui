@@ -1,42 +1,98 @@
 import { useMediaQuery } from 'react-responsive';
 
 import { mediaBreakPoints } from '../constants';
+import { SupportedMedias } from '../types';
 
 type UseResponsiveQueryReturn = {
-  isSmallDesktopDevice: boolean;
-  isLargeDesktopDevice: boolean;
-  isTabletDevice: boolean;
-  isMobileDevice: boolean;
+  isSmallDesktopDeviceAndUp: boolean;
+  isLargeDesktopDeviceAndUp: boolean;
+  isTabletDeviceAndUp: boolean;
+  isMobileDeviceAndUp: boolean;
+  isSmallDesktopDeviceAndDown: boolean;
+  isLargeDesktopDeviceAndDown: boolean;
+  isTabletDeviceAndDown: boolean;
+  isMobileDeviceAndDown: boolean;
+  isSmallDesktopDeviceOnly: boolean;
+  isLargeDesktopDeviceOnly: boolean;
+  isTabletDeviceOnly: boolean;
+  isMobileDeviceOnly: boolean;
 };
 
-export const mediaQuery = {
-  largeDesktopDevice: `(min-width: ${mediaBreakPoints.largeDesktopDevice}px)`,
-  mobileDevice: `(min-width: ${mediaBreakPoints.mobileDevice}px)`,
-  smallDesktopDevice: `(min-width: ${mediaBreakPoints.smallDesktopDevice}px)`,
-  tabletDevice: `(min-width: ${mediaBreakPoints.tabletDevice}px)`,
+export const mediaQuery: Record<SupportedMedias, string> = {
+  largeDesktopDeviceAndDown: `(max-width: ${mediaBreakPoints.largeDesktopDevice - 1}px)`,
+  largeDesktopDeviceAndUp: `(min-width: ${mediaBreakPoints.largeDesktopDevice}px)`,
+  // same as largeDesktopDeviceAndUp as currently largeDesktop is max screen width we support
+  largeDesktopDeviceOnly: `(min-width: ${mediaBreakPoints.largeDesktopDevice}px)`,
+
+  mobileDeviceAndDown: `(max-width: ${mediaBreakPoints.mobileDevice - 1}px)`,
+  mobileDeviceAndUp: `(min-width: ${mediaBreakPoints.mobileDevice}px)`,
+  mobileDeviceOnly: `(min-width: ${mediaBreakPoints.mobileDevice}px) and (max-width: ${
+    mediaBreakPoints.tabletDevice - 1
+  }px)`,
+
+  smallDesktopDeviceAndDown: `(max-width: ${mediaBreakPoints.smallDesktopDevice - 1}px)`,
+  smallDesktopDeviceAndUp: `(min-width: ${mediaBreakPoints.smallDesktopDevice}px)`,
+  smallDesktopDeviceOnly: `(min-width: ${mediaBreakPoints.smallDesktopDevice}px) and (max-width: ${
+    mediaBreakPoints.largeDesktopDevice - 1
+  }px)`,
+
+  tabletDeviceAndDown: `(max-width: ${mediaBreakPoints.tabletDevice - 1}px)`,
+  tabletDeviceAndUp: `(min-width: ${mediaBreakPoints.tabletDevice}px)`,
+  tabletDeviceOnly: `(min-width: ${mediaBreakPoints.tabletDevice}px) and (max-width: ${
+    mediaBreakPoints.smallDesktopDevice - 1
+  }px)`,
 };
 
 export const useResponsiveQuery = (): UseResponsiveQueryReturn => {
-  const isMobileDevice = useMediaQuery({
-    query: mediaQuery.mobileDevice,
+  const isMobileDeviceAndUp = useMediaQuery({
+    query: mediaQuery.mobileDeviceAndUp,
   });
-
-  const isTabletDevice = useMediaQuery({
-    query: mediaQuery.tabletDevice,
+  const isTabletDeviceAndUp = useMediaQuery({
+    query: mediaQuery.tabletDeviceAndUp,
   });
-
-  const isSmallDesktopDevice = useMediaQuery({
-    query: mediaQuery.smallDesktopDevice,
+  const isSmallDesktopDeviceAndUp = useMediaQuery({
+    query: mediaQuery.smallDesktopDeviceAndUp,
   });
-
-  const isLargeDesktopDevice = useMediaQuery({
-    query: mediaQuery.largeDesktopDevice,
+  const isLargeDesktopDeviceAndUp = useMediaQuery({
+    query: mediaQuery.largeDesktopDeviceAndUp,
+  });
+  const isMobileDeviceAndDown = useMediaQuery({
+    query: mediaQuery.mobileDeviceAndDown,
+  });
+  const isTabletDeviceAndDown = useMediaQuery({
+    query: mediaQuery.tabletDeviceAndDown,
+  });
+  const isSmallDesktopDeviceAndDown = useMediaQuery({
+    query: mediaQuery.smallDesktopDeviceAndDown,
+  });
+  const isLargeDesktopDeviceAndDown = useMediaQuery({
+    query: mediaQuery.largeDesktopDeviceAndDown,
+  });
+  const isMobileDeviceOnly = useMediaQuery({
+    query: mediaQuery.mobileDeviceOnly,
+  });
+  const isTabletDeviceOnly = useMediaQuery({
+    query: mediaQuery.tabletDeviceOnly,
+  });
+  const isSmallDesktopDeviceOnly = useMediaQuery({
+    query: mediaQuery.smallDesktopDeviceOnly,
+  });
+  const isLargeDesktopDeviceOnly = useMediaQuery({
+    query: mediaQuery.largeDesktopDeviceOnly,
   });
 
   return {
-    isLargeDesktopDevice,
-    isMobileDevice,
-    isSmallDesktopDevice,
-    isTabletDevice,
+    isLargeDesktopDeviceAndDown,
+    isLargeDesktopDeviceAndUp,
+    isLargeDesktopDeviceOnly,
+    isMobileDeviceAndDown,
+    isMobileDeviceAndUp,
+    isMobileDeviceOnly,
+    isSmallDesktopDeviceAndDown,
+    isSmallDesktopDeviceAndUp,
+    isSmallDesktopDeviceOnly,
+    isTabletDeviceAndDown,
+    isTabletDeviceAndUp,
+    isTabletDeviceOnly,
   };
 };

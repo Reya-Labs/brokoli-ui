@@ -46,19 +46,20 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
     theme,
     token: axisTypographyToken,
   });
-  const { isSmallDesktopDevice, isTabletDevice, isMobileDevice } = useResponsiveQuery();
-  const yMarkerTypography = isMobileDevice
+  const { isSmallDesktopDeviceAndUp, isTabletDeviceAndUp, isMobileDeviceAndUp } =
+    useResponsiveQuery();
+  const yMarkerTypography = isMobileDeviceAndUp
     ? yMarkerTypographyConfig.mobileDevice
-    : isTabletDevice
+    : isTabletDeviceAndUp
     ? yMarkerTypographyConfig.tabletDevice
-    : isSmallDesktopDevice
+    : isSmallDesktopDeviceAndUp
     ? yMarkerTypographyConfig.smallDesktopDevice
     : yMarkerTypographyConfig.largeDesktopDevice;
-  const axisTypography = isMobileDevice
+  const axisTypography = isMobileDeviceAndUp
     ? axisTypographyConfig.mobileDevice
-    : isTabletDevice
+    : isTabletDeviceAndUp
     ? axisTypographyConfig.tabletDevice
-    : isSmallDesktopDevice
+    : isSmallDesktopDeviceAndUp
     ? axisTypographyConfig.smallDesktopDevice
     : axisTypographyConfig.largeDesktopDevice;
 

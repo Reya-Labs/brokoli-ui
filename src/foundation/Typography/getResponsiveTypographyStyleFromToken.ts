@@ -1,7 +1,7 @@
 import { Theme } from '@emotion/react';
 import facepaint from 'facepaint';
 
-import { mediaBreakPoints } from '../Media/constants';
+import { mediaBreakPoints } from '../Media';
 import { getTypographyFromToken } from './getTypographyFromToken';
 import { TypographyConfig, TypographyToken } from './types';
 
@@ -27,49 +27,50 @@ export const getResponsiveTypographyStyleFromToken = ({
       theme,
       token,
     });
+  const isDefined = (s: string | undefined) => s;
   const mediaTypography: Record<keyof TypographyConfig, (undefined | string)[]> = {
     fontFamily: [
       mobileDevice.fontFamily,
       tabletDevice.fontFamily,
       smallDesktopDevice.fontFamily,
       largeDesktopDevice.fontFamily,
-    ].filter((s) => s),
+    ].filter(isDefined),
     fontSize: [
       mobileDevice.fontSize,
       tabletDevice.fontSize,
       smallDesktopDevice.fontSize,
       largeDesktopDevice.fontSize,
-    ].filter((s) => s),
+    ].filter(isDefined),
     fontStyle: [
       mobileDevice.fontStyle,
       tabletDevice.fontStyle,
       smallDesktopDevice.fontStyle,
       largeDesktopDevice.fontStyle,
-    ].filter((s) => s),
+    ].filter(isDefined),
     fontWeight: [
       mobileDevice.fontWeight,
       tabletDevice.fontWeight,
       smallDesktopDevice.fontWeight,
       largeDesktopDevice.fontWeight,
-    ].filter((s) => s),
+    ].filter(isDefined),
     letterSpacing: [
       mobileDevice.letterSpacing,
       tabletDevice.letterSpacing,
       smallDesktopDevice.letterSpacing,
       largeDesktopDevice.letterSpacing,
-    ].filter((s) => s),
+    ].filter(isDefined),
     lineHeight: [
       mobileDevice.lineHeight,
       tabletDevice.lineHeight,
       smallDesktopDevice.lineHeight,
       largeDesktopDevice.lineHeight,
-    ].filter((s) => s),
+    ].filter(isDefined),
     textShadow: [
       mobileDevice.textShadow,
       tabletDevice.textShadow,
       smallDesktopDevice.textShadow,
       largeDesktopDevice.textShadow,
-    ].filter((s) => s),
+    ].filter(isDefined),
   };
   return mq(mediaTypography);
 };
