@@ -19,6 +19,7 @@ export type TextFieldProps = {
   type: HTMLInputElement['type'];
   typographyToken: TypographyToken;
   placeHolder?: string;
+  name?: string;
 };
 
 export const TextField: React.FunctionComponent<TextFieldProps> = ({
@@ -34,6 +35,7 @@ export const TextField: React.FunctionComponent<TextFieldProps> = ({
   type = 'text',
   placeHolder,
   typographyToken = 'bodyMediumRegular',
+  name,
 }) => {
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onChange && onChange(event.target.value);
@@ -52,6 +54,7 @@ export const TextField: React.FunctionComponent<TextFieldProps> = ({
         data-testid={`TextField-TextFieldBox-TextInputStyled`}
         disabled={disabled}
         error={error}
+        name={name}
         placeholder={placeHolder}
         type={type}
         typographyToken={typographyToken}
