@@ -33,6 +33,8 @@ export const NavLinkButtonBox = styled(
       colorToken === 'rainbow'
         ? ''
         : `color: ${getColorFromToken({ colorToken: `${colorToken}100`, theme })}`};
+    border-radius: 8px;
+    background: ${({ theme }) => getColorFromToken({ colorToken: `black800`, theme })};
   }
 `;
 
