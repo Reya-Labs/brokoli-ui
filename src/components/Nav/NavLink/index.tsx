@@ -51,7 +51,6 @@ export const NavLink: React.FunctionComponent<NavLinkProps> = ({
   const NavLinkButtonComputed = Component ? NavLinkButton.withComponent(Component) : NavLinkButton;
   const linkButton = (
     <NavLinkButtonBox
-      className={className}
       colorToken={colorToken}
       data-testid={
         isSubmenuOpened ? 'OpenNavLinkButton' : isActive ? 'ActiveNavLinkButton' : 'NavLinkButton'
@@ -77,6 +76,7 @@ export const NavLink: React.FunctionComponent<NavLinkProps> = ({
 
   return (
     <div
+      className={className}
       data-testid={hasSubLinks ? 'NavLinkWithSubLinks' : 'NavLinkWithoutSubLinks'}
       onClick={hasSubLinks ? handleSubmenuOpen : undefined}
     >
