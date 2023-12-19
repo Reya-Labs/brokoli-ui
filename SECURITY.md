@@ -10,7 +10,7 @@ Security is of the utmost importance to us and we strive to make our software as
 
 ## Reporting a Vulnerability
 
-To report a security issue, please do not disclose it publicly. Instead, please contact us directly by submitting a ticket in our  [discord support channel](https://discord.com/channels/896685581487210577/1005057396160336004). This will ensure that the issue is addressed as quickly and discreetly as possible. We ask that you provide as much detail as possible about the issue, including steps to reproduce it, and any relevant information such as affected versions of the software.
+To report a security issue, please do not disclose it publicly. Instead, please contact us directly by submitting a ticket in our  discord. This will ensure that the issue is addressed as quickly and discreetly as possible. We ask that you provide as much detail as possible about the issue, including steps to reproduce it, and any relevant information such as affected versions of the software.
 
 Alternatively, you can also report the issue through GitHub's built-in issue tracking system by clicking on the "Issues" tab in the repository and creating a new issue. When creating the issue, please use the label "security" to ensure that it is properly identified and handled as a security issue.
 
