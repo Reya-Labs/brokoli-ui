@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { HTMLAttributeAnchorTarget, useCallback, useMemo } from 'react';
 
 import { BaseColorTokens } from '../../../foundation/Colors';
 import { TypographyToken } from '../../../foundation/Typography';
@@ -17,11 +17,13 @@ export type NavLinkProps = React.PropsWithChildren<{
   colorToken?: BaseColorTokens | 'rainbow';
   typographyToken?: TypographyToken;
   className?: string;
+  target?: HTMLAttributeAnchorTarget | undefined;
   subLinks?: {
     text: string;
     link: string;
     isNew?: boolean;
     isHidden?: boolean;
+    target?: HTMLAttributeAnchorTarget | undefined;
   }[];
 }>;
 
@@ -34,6 +36,7 @@ export const NavLink: React.FunctionComponent<NavLinkProps> = ({
   colorToken = 'white',
   Component,
   typographyToken = 'bodyMediumRegular',
+  target,
 }) => {
   const { pathname } = useLocation();
   const subLinksNotHidden = useMemo(
@@ -65,6 +68,7 @@ export const NavLink: React.FunctionComponent<NavLinkProps> = ({
         isActive={isActive}
         isPopoverOpen={isSubmenuOpened}
         role="link"
+        target={target}
         to={to}
         typographyToken={typographyToken}
       >

@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from 'react';
+import React, { HTMLAttributeAnchorTarget, useLayoutEffect, useState } from 'react';
 import AnimateHeight from 'react-animate-height';
 
 import { isActiveLink } from '../is-active-link';
@@ -11,6 +11,7 @@ export type SubLinksProps = {
     text: string;
     link: string;
     isNew?: boolean;
+    target?: HTMLAttributeAnchorTarget | undefined;
   }[];
   Component?: SubLinkProps['Component'];
   onClick: () => void;
@@ -37,6 +38,7 @@ export const SubLinks: React.FunctionComponent<SubLinksProps> = ({
             isActive={isActiveLink(subLink.link, [], pathname)}
             isNew={Boolean(subLink.isNew)}
             link={subLink.link}
+            target={subLink.target}
             text={subLink.text}
             onClick={onClick}
           />

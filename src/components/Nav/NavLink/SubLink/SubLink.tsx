@@ -9,6 +9,7 @@ export type SubLinkProps = {
   onClick: () => void;
   text: string;
   isActive: boolean;
+  target?: HTMLAttributeAnchorTarget | undefined;
   Component?: React.FunctionComponent<{
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     to: any;
@@ -28,6 +29,7 @@ export const SubLink: React.FunctionComponent<SubLinkProps> = ({
   onClick,
   isActive,
   Component,
+  target,
 }: SubLinkProps) => {
   const SubLinkUI = isActive
     ? Component
@@ -42,6 +44,7 @@ export const SubLink: React.FunctionComponent<SubLinkProps> = ({
       data-testid={isActive ? 'ActiveSubLinkButton' : 'SubLinkButton'}
       href={link}
       role="link"
+      target={target}
       to={link}
       onClick={onClick}
     >
