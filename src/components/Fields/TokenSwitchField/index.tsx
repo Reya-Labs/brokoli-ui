@@ -163,10 +163,13 @@ export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = 
         <FloatingBox>
           {hasMaxButton ? (
             <MaxButton
+              borderColorToken="white800"
               data-testid="TokenSwitchField-MaxButton"
               disabled={disabled}
+              disabledTypographyColorToken="white700"
+              hoverBorderColorToken="white500"
+              typographyColorToken="white100"
               typographyToken="bodyXSmallRegular"
-              variant="secondary"
               onClick={handleOnMaxButtonClick}
             >
               Max

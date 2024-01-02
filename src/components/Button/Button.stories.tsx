@@ -8,58 +8,62 @@ export default {
   title: 'Components/Button',
 } as Meta<typeof Button>;
 
-export const Primary: StoryObj<typeof Button> = {
+export const Default: StoryObj<typeof Button> = {
   args: {
-    children: 'Primary',
-    variant: 'primary',
+    backgroundColorToken: 'white100',
+    borderColorToken: 'white900',
+    children: 'Default',
+    typographyColorToken: 'white950',
   },
 };
 
-export const Secondary: StoryObj<typeof Button> = {
+export const Rounded: StoryObj<typeof Button> = {
   args: {
-    children: 'Secondary',
-    variant: 'secondary',
-  },
-};
-
-export const Tertiary: StoryObj<typeof Button> = {
-  args: {
-    children: 'Tertiary',
-    variant: 'tertiary',
+    backgroundColorToken: 'white100',
+    borderColorToken: 'white900',
+    children: 'Default',
+    rounded: true,
+    typographyColorToken: 'white950',
   },
 };
 
 export const WithLoading: StoryObj<typeof Button> = {
   args: {
+    backgroundColorToken: 'white100',
+    borderColorToken: 'white900',
     bottomLeftText: 'Bottom left text!',
     children: 'Default',
     loading: true,
-    variant: 'primary',
   },
 };
 
 export const WithBottomLeftText: StoryObj<typeof Button> = {
   args: {
+    backgroundColorToken: 'white100',
+    borderColorToken: 'white900',
     bottomLeftText: 'Bottom left text!',
     children: 'Default',
-    variant: 'primary',
   },
 };
 
 export const WithCustomTypography: StoryObj<typeof Button> = {
   args: {
+    backgroundColorToken: 'white100',
+    borderColorToken: 'white900',
     children: 'Default',
+    typographyColorToken: 'error500',
     typographyToken: 'bodySmallRegular',
-    variant: 'primary',
   },
 };
 
 export const WithBottomLeftTextAsError: StoryObj<typeof Button> = {
   args: {
+    borderColorToken: 'white900',
     bottomLeftText: 'Bottom left text!',
     bottomLeftTextColorToken: 'error100',
     bottomLeftTextTypographyToken: 'bodySmallBold',
     children: 'Default',
-    variant: 'primary',
+    typographyColorToken: 'error500',
+    typographyToken: 'bodySmallRegular',
   },
 };

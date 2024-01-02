@@ -14,7 +14,14 @@ export default {
 
 const ButtonTemplate: StoryFn<typeof Confetti> = (args) => (
   <Confetti {...args}>
-    <Button variant="primary">Confetti button!</Button>
+    <Button
+      borderColorToken="white800"
+      disabledTypographyColorToken="white700"
+      hoverBorderColorToken="white500"
+      typographyColorToken="white100"
+    >
+      Confetti button!
+    </Button>
   </Confetti>
 );
 

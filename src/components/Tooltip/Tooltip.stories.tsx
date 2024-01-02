@@ -44,7 +44,13 @@ export const CustomComponentTooltip: StoryObj<typeof Tooltip> = {
         <Typography colorToken="white100" typographyToken="bodyMediumRegular">
           Really it all fits
         </Typography>
-        <Button variant="primary">A button! Click iit!</Button>
+        <Button
+          backgroundColorToken="white100"
+          borderColorToken="white900"
+          typographyColorToken="white950"
+        >
+          A button! Click iit!
+        </Button>
       </div>
     ),
     trigger: (

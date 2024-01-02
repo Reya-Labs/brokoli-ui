@@ -15,7 +15,10 @@ const Template: StoryFn<typeof Notifications> = (args) => {
     <React.Fragment>
       <Notifications {...args} />
       <Button
-        variant="secondary"
+        borderColorToken="white800"
+        disabledTypographyColorToken="white700"
+        hoverBorderColorToken="white500"
+        typographyColorToken="white100"
         onClick={() => {
           showNotification({
             colorToken: 'error',
@@ -28,7 +31,10 @@ const Template: StoryFn<typeof Notifications> = (args) => {
         Show error
       </Button>
       <Button
-        variant="secondary"
+        borderColorToken="white800"
+        disabledTypographyColorToken="white700"
+        hoverBorderColorToken="white500"
+        typographyColorToken="white100"
         onClick={() => {
           showNotification({
             colorToken: 'warning',
@@ -41,7 +47,10 @@ const Template: StoryFn<typeof Notifications> = (args) => {
         Show warning
       </Button>
       <Button
-        variant="secondary"
+        borderColorToken="white800"
+        disabledTypographyColorToken="white700"
+        hoverBorderColorToken="white500"
+        typographyColorToken="white100"
         onClick={() => {
           showNotification({
             colorToken: 'primary',
@@ -54,7 +63,9 @@ const Template: StoryFn<typeof Notifications> = (args) => {
         Show success
       </Button>
       <Button
-        variant="secondary"
+        backgroundColorToken="black950"
+        borderColorToken="white900"
+        typographyColorToken="white950"
         onClick={() => {
           showNotification({
             autoClose: 3000,

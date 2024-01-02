@@ -1,28 +1,35 @@
-import { css, SerializedStyles, Theme } from '@emotion/react';
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
+import { ColorTokens, getColorFromToken } from '../../foundation/Colors';
 import {
   getResponsiveTypographyStyleFromToken,
   TypographyToken,
 } from '../../foundation/Typography';
 import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
-import { primaryButtonCSS, secondaryButtonCSS, tertiaryButtonCSS } from './Button.css';
 
-export type ButtonVariant = 'primary' | 'secondary' | 'tertiary';
-const ButtonVariantMap: Record<ButtonVariant, (theme: Theme) => SerializedStyles> = {
-  primary: primaryButtonCSS,
-  secondary: secondaryButtonCSS,
-  tertiary: tertiaryButtonCSS,
-};
 export const ButtonStyled = styled(
   'button',
-  shouldNotForwardProps(['typographyToken', 'variant']),
+  shouldNotForwardProps([
+    'typographyToken',
+    'borderColorToken',
+    'backgroundColorToken',
+    'typographyColorToken',
+    'disabledTypographyColorToken',
+    'disabledBackgroundColorToken',
+    'hoverBorderColorToken',
+    'rounded',
+  ]),
 )<{
-  variant: ButtonVariant;
   typographyToken: TypographyToken;
+  borderColorToken?: ColorTokens;
+  backgroundColorToken?: ColorTokens;
+  typographyColorToken?: ColorTokens;
+  disabledTypographyColorToken?: ColorTokens;
+  disabledBackgroundColorToken?: ColorTokens;
+  hoverBorderColorToken?: ColorTokens;
+  rounded: boolean;
 }>`
-  ${({ theme, variant }) => ButtonVariantMap[variant](theme)};
-
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -31,9 +38,51 @@ export const ButtonStyled = styled(
   gap: 10px;
   ${({ theme, typographyToken }) =>
     css(getResponsiveTypographyStyleFromToken({ theme, token: typographyToken }))};
-  border-radius: 4px;
+  border-radius: ${({ rounded }) => (rounded ? '8px' : '0px')};
   cursor: pointer;
   width: 100%;
+
+  background: ${({ theme, backgroundColorToken }) =>
+    backgroundColorToken
+      ? getColorFromToken({ colorToken: backgroundColorToken, theme })
+      : 'transparent'};
+  border: ${({ theme, borderColorToken }) =>
+    borderColorToken
+      ? `1px solid ${getColorFromToken({ colorToken: borderColorToken, theme })}`
+      : undefined};
+  color: ${({ theme, typographyColorToken }) =>
+    typographyColorToken
+      ? getColorFromToken({ colorToken: typographyColorToken, theme })
+      : undefined};
+  transition: all 200ms ease-in;
+
+  &:hover {
+    border: ${({ theme, borderColorToken, hoverBorderColorToken }) =>
+      hoverBorderColorToken || borderColorToken
+        ? `1px solid ${getColorFromToken({
+            colorToken: hoverBorderColorToken || borderColorToken,
+            theme,
+          })}`
+        : undefined};
+  }
+
+  &:disabled {
+    color: ${({ theme, disabledTypographyColorToken, typographyColorToken }) =>
+      disabledTypographyColorToken || typographyColorToken
+        ? getColorFromToken({
+            colorToken: disabledTypographyColorToken || typographyColorToken,
+            theme,
+          })
+        : undefined};
+    background-color: ${({ theme, disabledBackgroundColorToken, backgroundColorToken }) =>
+      disabledBackgroundColorToken || backgroundColorToken
+        ? getColorFromToken({
+            colorToken: disabledBackgroundColorToken || backgroundColorToken,
+            theme,
+          })
+        : undefined};
+    cursor: not-allowed;
+  }
 `;
 
 export const ButtonBox = styled('div')`

@@ -4,11 +4,10 @@ import { ColorTokens } from '../../foundation/Colors';
 import { TypographyToken } from '../../foundation/Typography';
 import { Ellipsis } from '../Ellipsis';
 import { Typography } from '../Typography';
-import { ButtonBox, ButtonStyled, ButtonVariant } from './Button.styled';
+import { ButtonBox, ButtonStyled } from './Button.styled';
 
 export type ButtonProps = React.PropsWithChildren<{
   disabled?: boolean;
-  variant: ButtonVariant;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   bottomLeftText?: string;
   bottomLeftTextColorToken?: ColorTokens;
@@ -17,11 +16,21 @@ export type ButtonProps = React.PropsWithChildren<{
   'data-testid'?: string;
   className?: string;
   typographyToken?: TypographyToken;
+  borderColorToken?: ColorTokens;
+  backgroundColorToken?: ColorTokens;
+  typographyColorToken?: ColorTokens;
+  rounded?: boolean;
+  disabledTypographyColorToken?: ColorTokens;
+  disabledBackgroundColorToken?: ColorTokens;
+  hoverBorderColorToken?: ColorTokens;
 }>;
 
 export const Button: React.FunctionComponent<ButtonProps> = ({
   onClick,
-  variant = 'primary',
+  borderColorToken,
+  backgroundColorToken,
+  typographyColorToken,
+  rounded,
   loading = false,
   children,
   disabled = false,
@@ -31,15 +40,24 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
   bottomLeftTextColorToken = 'white400',
   typographyToken = 'bodyMediumBold',
   bottomLeftTextTypographyToken = 'bodyXSmallRegular',
+  disabledBackgroundColorToken,
+  disabledTypographyColorToken,
+  hoverBorderColorToken,
 }) => {
   const childrenToRender = !loading ? children : <Ellipsis />;
   const button = (
     <ButtonStyled
+      backgroundColorToken={backgroundColorToken}
+      borderColorToken={borderColorToken}
       className={className}
       data-testid={dataTestId}
       disabled={disabled}
+      disabledBackgroundColorToken={disabledBackgroundColorToken}
+      disabledTypographyColorToken={disabledTypographyColorToken}
+      hoverBorderColorToken={hoverBorderColorToken}
+      rounded={Boolean(rounded)}
+      typographyColorToken={typographyColorToken}
       typographyToken={typographyToken}
-      variant={variant}
       onClick={disabled ? undefined : onClick}
     >
       {childrenToRender}
