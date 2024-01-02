@@ -49,7 +49,7 @@ export const ButtonStyled = styled(
   border: ${({ theme, borderColorToken }) =>
     borderColorToken
       ? `1px solid ${getColorFromToken({ colorToken: borderColorToken, theme })}`
-      : undefined};
+      : 'none'};
   color: ${({ theme, typographyColorToken }) =>
     typographyColorToken
       ? getColorFromToken({ colorToken: typographyColorToken, theme })
@@ -63,7 +63,7 @@ export const ButtonStyled = styled(
             colorToken: hoverBorderColorToken || borderColorToken,
             theme,
           })}`
-        : undefined};
+        : 'none'};
   }
 
   &:disabled {
