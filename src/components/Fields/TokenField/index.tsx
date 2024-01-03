@@ -185,13 +185,9 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
           <TokenTypography
             colorToken={bottomRightTextColorToken}
             data-testid="TokenField-BottomBox-TokenTypography"
-            differenceToken={
-              bottomRightTextTokenComputed ? ` ${bottomRightTextTokenComputed.toUpperCase()}` : ''
-            }
+            differenceToken={bottomRightTextTokenComputed ? ` ${bottomRightTextTokenComputed}` : ''}
             differenceValue={bottomRightTextDifferenceValue}
-            token={
-              bottomRightTextTokenComputed ? ` ${bottomRightTextTokenComputed.toUpperCase()}` : ''
-            }
+            token={bottomRightTextTokenComputed ? ` ${bottomRightTextTokenComputed}` : ''}
             typographyToken={bottomRightTextTypographyToken}
             value={bottomRightTextValue}
           />
