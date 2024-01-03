@@ -225,7 +225,7 @@ export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFi
                   data-testid="MarginAmountTokenField-CurrencyInputBox-TokenBox-Typography"
                   typographyToken="bodySmallRegular"
                 >
-                  {token.toUpperCase()}
+                  {token}
                 </Typography>
               </TokenBox>
             ) : null}
@@ -247,9 +247,9 @@ export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFi
           <TokenTypography
             colorToken={bottomRightTextColorToken}
             data-testid="MarginAmountTokenField-BottomBox-TokenTypography"
-            differenceToken={token ? ` ${token.toUpperCase()}` : ''}
+            differenceToken={token ? ` ${token}` : ''}
             differenceValue={bottomRightTextDifferenceValue}
-            token={token ? ` ${token.toUpperCase()}` : ''}
+            token={token ? ` ${token}` : ''}
             typographyToken={bottomRightTextTypographyToken}
             value={bottomRightTextValue}
           />

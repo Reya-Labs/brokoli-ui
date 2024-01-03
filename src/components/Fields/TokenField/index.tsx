@@ -165,7 +165,7 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
                 data-testid="TokenField-CurrencyInputBox-TokenBox-Typography"
                 typographyToken="bodyMediumRegular"
               >
-                {token.toUpperCase()}
+                {token}
               </Typography>
             </TokenBox>
           ) : null}
