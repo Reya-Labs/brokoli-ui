@@ -534,6 +534,40 @@ const bodyExtraLargeBold: TypographyResponsiveConfig = {
   },
 };
 
+const ctaBold: TypographyResponsiveConfig = {
+  largeDesktopDevice: {
+    fontFamily: "'Inter', sans-serif",
+    fontSize: '14px',
+    fontStyle: 'normal',
+    fontWeight: '900',
+    letterSpacing: '2.8px',
+    lineHeight: '150%',
+  },
+  mobileDevice: {
+    fontFamily: "'Inter', sans-serif",
+    fontSize: '14px',
+    fontStyle: 'normal',
+    fontWeight: '900',
+    letterSpacing: '2.8px',
+    lineHeight: '150%',
+  },
+  smallDesktopDevice: {
+    fontFamily: "'Inter', sans-serif",
+    fontSize: '14px',
+    fontStyle: 'normal',
+    fontWeight: '900',
+    letterSpacing: '2.8px',
+    lineHeight: '150%',
+  },
+  tabletDevice: {
+    fontFamily: "'Inter', sans-serif",
+    fontSize: '14px',
+    fontStyle: 'normal',
+    fontWeight: '900',
+    letterSpacing: '2.8px',
+    lineHeight: '150%',
+  },
+};
 export const typography: TypographyTheme = {
   bodyExtraLargeBold,
   bodyExtraLargeRegular,
@@ -545,6 +579,7 @@ export const typography: TypographyTheme = {
   bodySmallRegular,
   bodyXSmallBold,
   bodyXSmallRegular,
+  ctaBold,
   h1SmallBold,
   h1XLBold,
   h2Bold,
