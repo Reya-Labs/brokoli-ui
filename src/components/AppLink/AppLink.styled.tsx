@@ -4,14 +4,14 @@ import styled from '@emotion/styled';
 import { BaseColorTokens, getColorFromToken } from '../../foundation/Colors';
 import {
   getResponsiveTypographyStyleFromToken,
-  TypographyToken,
+  TypographyTokens,
 } from '../../foundation/Typography';
 import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 import { Typography } from '../Typography';
 
 export const AppLinkStyled = styled('a', shouldNotForwardProps(['colorToken', 'typographyToken']))<{
   colorToken: BaseColorTokens;
-  typographyToken: TypographyToken;
+  typographyToken: TypographyTokens;
 }>`
   margin: 0;
   padding: 0;

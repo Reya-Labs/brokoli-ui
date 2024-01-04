@@ -1,6 +1,6 @@
 import { SupportedMediasWidths } from '../Media';
 
-export type TypographyToken =
+export type TypographyTokens =
   | 'h1XLBold'
   | 'h1SmallBold'
   | 'h2Bold'
@@ -31,4 +31,4 @@ export type TypographyConfig = {
 
 export type TypographyResponsiveConfig = Record<SupportedMediasWidths, TypographyConfig>;
 
-export type TypographyTheme = Record<TypographyToken, TypographyResponsiveConfig>;
+export type TypographyTheme = Record<TypographyTokens, TypographyResponsiveConfig>;

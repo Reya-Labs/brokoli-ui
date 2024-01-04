@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ColorTokens } from '../../../foundation/Colors';
-import { TypographyToken } from '../../../foundation/Typography';
+import { TypographyTokens } from '../../../foundation/Typography';
 import { ExclaimTooltipProps } from '../../ExclaimTooltip';
 import { TooltipLabel } from '../../TooltipLabel';
 import { Typography } from '../../Typography';
@@ -17,7 +17,7 @@ import {
 export type LeverageFieldProps = {
   label: string;
   labelColorToken: ColorTokens;
-  labelTypographyToken: TypographyToken;
+  labelTypographyToken: TypographyTokens;
   tooltip?: ExclaimTooltipProps['children'];
   tooltipColorToken?: ColorTokens;
   error?: boolean;
@@ -27,7 +27,7 @@ export type LeverageFieldProps = {
   leverageOptions: string[];
   maxLeverageColorToken: ColorTokens;
   maxLeverageText: string;
-  maxLeverageTypographyToken: TypographyToken;
+  maxLeverageTypographyToken: TypographyTokens;
 };
 
 export const LeverageField: React.FunctionComponent<LeverageFieldProps> = ({

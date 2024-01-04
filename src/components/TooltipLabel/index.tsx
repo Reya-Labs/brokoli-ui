@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ColorTokens } from '../../foundation/Colors';
-import { TypographyToken } from '../../foundation/Typography';
+import { TypographyTokens } from '../../foundation/Typography';
 import { Typography } from '../Typography';
 import { TypographyWithTooltip, TypographyWithTooltipProps } from '../TypographyWithTooltip';
 
@@ -10,7 +10,7 @@ type TooltipLabelProps = {
   label?: React.ComponentProps<typeof Typography>['children'];
   labelColorToken?: ColorTokens;
   tooltipColorToken?: ColorTokens;
-  labelTypographyToken?: TypographyToken;
+  labelTypographyToken?: TypographyTokens;
   'data-testid'?: string;
 };
 export const TooltipLabel: React.FC<TooltipLabelProps> = ({

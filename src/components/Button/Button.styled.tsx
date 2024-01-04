@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { ColorTokens, getColorFromToken } from '../../foundation/Colors';
 import {
   getResponsiveTypographyStyleFromToken,
-  TypographyToken,
+  TypographyTokens,
 } from '../../foundation/Typography';
 import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 
@@ -21,7 +21,7 @@ export const ButtonStyled = styled(
     'rounded',
   ]),
 )<{
-  typographyToken: TypographyToken;
+  typographyToken: TypographyTokens;
   borderColorToken?: ColorTokens;
   backgroundColorToken?: ColorTokens;
   typographyColorToken?: ColorTokens;

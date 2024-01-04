@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ColorTokens } from '../../foundation/Colors';
-import { TypographyToken } from '../../foundation/Typography';
+import { TypographyTokens } from '../../foundation/Typography';
 import { AttentionIndicator } from '../AttentionIndicator';
 import { ReactComponent as DownIcon } from './assets/down.svg';
 import { ReactComponent as UpIcon } from './assets/up.svg';
@@ -17,7 +17,7 @@ import {
 export type TokenTypographyProps = {
   colorToken: ColorTokens;
   value: string | number;
-  typographyToken: TypographyToken;
+  typographyToken: TypographyTokens;
   token: string;
   prefixToken?: string;
   differenceValue?: number;

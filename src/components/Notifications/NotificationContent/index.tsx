@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { BaseColorTokens } from '../../../foundation/Colors';
-import { TypographyToken } from '../../../foundation/Typography';
+import { TypographyTokens } from '../../../foundation/Typography';
 import { CloseButton } from '../../CloseButton';
 import { Typography } from '../../Typography';
 import { NotificationBox, TitleBox } from '../Notifications.styled';
@@ -10,8 +10,8 @@ export type NotificationContentProps = {
   content: string;
   title: string;
   colorToken: BaseColorTokens;
-  titleTypographyToken: TypographyToken;
-  contentTypographyToken: TypographyToken;
+  titleTypographyToken: TypographyTokens;
+  contentTypographyToken: TypographyTokens;
   onCloseNotification?: () => void;
   closeToast?: () => void;
 };

@@ -32,6 +32,7 @@ export * from './components/Popover';
 export * from './components/ProgressBar';
 export * from './components/RainbowLoader';
 export * from './components/Skeleton';
+export * from './components/Tabs';
 export * from './components/ToggleCaret';
 export * from './components/TokenTypography';
 export * from './components/Tooltip';

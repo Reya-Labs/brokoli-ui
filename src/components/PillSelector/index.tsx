@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { BaseColorTokens, ColorTokens } from '../../foundation/Colors';
-import { TypographyToken } from '../../foundation/Typography';
+import { TypographyTokens } from '../../foundation/Typography';
 import { ExclaimTooltipProps } from '../ExclaimTooltip';
 import { TooltipLabel } from '../TooltipLabel';
 import {
@@ -27,7 +27,7 @@ export type PillSelectorProps = {
 
   label?: string;
   labelColorToken?: ColorTokens;
-  labelTypographyToken?: TypographyToken;
+  labelTypographyToken?: TypographyTokens;
   tooltip?: ExclaimTooltipProps['children'];
   tooltipColorToken?: ColorTokens;
 };

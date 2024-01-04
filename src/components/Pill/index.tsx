@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { BaseColorTokens, ColorTokens, isBaseColorToken } from '../../foundation/Colors';
-import { TypographyToken } from '../../foundation/Typography';
+import { TypographyTokens } from '../../foundation/Typography';
 import { Typography } from '../Typography';
 import { PillBox, PillVariant } from './Pill.styled';
 
@@ -9,7 +9,7 @@ export type PillProps = {
   children: string;
   className?: string;
   colorToken: BaseColorTokens | 'rainbow';
-  typographyToken: TypographyToken;
+  typographyToken: TypographyTokens;
   'data-testid'?: string;
   variant: PillVariant;
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;

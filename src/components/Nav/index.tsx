@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { TypographyToken } from '../../foundation/Typography';
+import { TypographyTokens } from '../../foundation/Typography';
 import { NavBox } from './Nav.styled';
 import { NavLink, NavLinkProps } from './NavLink';
 
@@ -12,7 +12,7 @@ export type NavProps = {
   Component?: NavLinkProps['Component'];
   className?: string;
   id?: string;
-  typographyToken?: TypographyToken;
+  typographyToken?: TypographyTokens;
 };
 
 export const Nav: React.FunctionComponent<NavProps> = ({

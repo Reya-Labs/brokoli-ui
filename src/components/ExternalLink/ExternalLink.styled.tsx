@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { BaseColorTokens, getColorFromToken } from '../../foundation/Colors';
 import {
   getResponsiveTypographyStyleFromToken,
-  TypographyToken,
+  TypographyTokens,
 } from '../../foundation/Typography';
 import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 
@@ -13,7 +13,7 @@ export const ExternalLinkStyled = styled(
   shouldNotForwardProps(['colorToken', 'typographyToken']),
 )<{
   colorToken: BaseColorTokens;
-  typographyToken: TypographyToken;
+  typographyToken: TypographyTokens;
 }>`
   display: inline-flex;
   flex-direction: row;

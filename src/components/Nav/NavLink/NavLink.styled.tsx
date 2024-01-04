@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { BaseColorTokens, getColorFromToken } from '../../../foundation/Colors';
 import {
   getResponsiveTypographyStyleFromToken,
-  TypographyToken,
+  TypographyTokens,
 } from '../../../foundation/Typography';
 import { shouldNotForwardProps } from '../../../utils/should-not-forward-props';
 
@@ -48,7 +48,7 @@ export const NavLinkButton = styled(
   isPopoverOpen: boolean;
   isActive: boolean;
   colorToken: BaseColorTokens | 'rainbow';
-  typographyToken: TypographyToken;
+  typographyToken: TypographyTokens;
 }>`
   ${({ theme, typographyToken }) =>
     css(

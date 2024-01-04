@@ -4,12 +4,12 @@ import styled from '@emotion/styled';
 import { ColorTokens, getColorFromToken } from '../../foundation/Colors';
 import {
   getResponsiveTypographyStyleFromToken,
-  TypographyToken,
+  TypographyTokens,
 } from '../../foundation/Typography';
 import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 import { Typography, TypographyProps } from '../Typography';
 
-const differenceTypographyMap: Record<TypographyToken, TypographyToken> = {
+const differenceTypographyMap: Record<TypographyTokens, TypographyTokens> = {
   bodyExtraLargeBold: 'bodyMediumBold',
   bodyExtraLargeRegular: 'bodyMediumRegular',
   bodyLargeBold: 'bodySmallBold',
@@ -48,7 +48,7 @@ export const DifferenceArrow = styled(
   shouldNotForwardProps(['colorToken', 'typographyToken']),
 )<{
   colorToken: ColorTokens;
-  typographyToken: TypographyToken;
+  typographyToken: TypographyTokens;
 }>`
   margin-left: 8px;
   margin-right: 2px;
@@ -76,7 +76,7 @@ export const DifferenceValue = styled(
   shouldNotForwardProps(['colorToken', 'typographyToken']),
 )<{
   colorToken: ColorTokens;
-  typographyToken: TypographyToken;
+  typographyToken: TypographyTokens;
 }>`
   ${({ theme, typographyToken }) =>
     css(
@@ -93,7 +93,7 @@ export const DifferenceToken = styled(
   shouldNotForwardProps(['colorToken', 'typographyToken']),
 )<{
   colorToken: ColorTokens;
-  typographyToken: TypographyToken;
+  typographyToken: TypographyTokens;
 }>`
   ${({ theme, typographyToken }) =>
     css(

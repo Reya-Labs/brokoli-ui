@@ -1,7 +1,7 @@
 import React, { HTMLAttributeAnchorTarget, useCallback, useMemo } from 'react';
 
 import { BaseColorTokens } from '../../../foundation/Colors';
-import { TypographyToken } from '../../../foundation/Typography';
+import { TypographyTokens } from '../../../foundation/Typography';
 import { AttentionIndicator } from '../../AttentionIndicator';
 import { Popover } from '../../Popover';
 import { ToggleCaret } from '../../ToggleCaret';
@@ -15,7 +15,7 @@ export type NavLinkProps = React.PropsWithChildren<{
   Component?: SubLinksProps['Component'];
   isNew?: boolean;
   colorToken?: BaseColorTokens | 'rainbow';
-  typographyToken?: TypographyToken;
+  typographyToken?: TypographyTokens;
   className?: string;
   target?: HTMLAttributeAnchorTarget | undefined;
   subLinks?: {

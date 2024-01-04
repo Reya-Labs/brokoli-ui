@@ -2,7 +2,7 @@ import React from 'react';
 import { formatValue } from 'react-currency-input-field';
 
 import { ColorTokens } from '../../../foundation/Colors';
-import { TypographyToken } from '../../../foundation/Typography';
+import { TypographyTokens } from '../../../foundation/Typography';
 import { ExclaimTooltipProps } from '../../ExclaimTooltip';
 import { TooltipLabel } from '../../TooltipLabel';
 import { MaxConfig } from '../_common/types';
@@ -26,10 +26,10 @@ type CurrencyFieldProps = {
 
   label?: string;
   labelColorToken?: ColorTokens;
-  labelTypographyToken?: TypographyToken;
+  labelTypographyToken?: TypographyTokens;
   tooltip?: ExclaimTooltipProps['children'];
   tooltipColorToken?: ColorTokens;
-  typographyToken?: TypographyToken;
+  typographyToken?: TypographyTokens;
   placeholder?: string;
 };
 

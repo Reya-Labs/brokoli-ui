@@ -1,12 +1,12 @@
 import React, { HTMLAttributeAnchorTarget, ReactNode } from 'react';
 
 import { BaseColorTokens } from '../../foundation/Colors';
-import { TypographyToken } from '../../foundation/Typography';
+import { TypographyTokens } from '../../foundation/Typography';
 import { AppLinkStyled, DisabledTypography } from './AppLink.styled';
 
 export type AppLinkProps = {
   colorToken: BaseColorTokens;
-  typographyToken: TypographyToken;
+  typographyToken: TypographyTokens;
   children: string;
   to: string;
   disabled?: boolean;

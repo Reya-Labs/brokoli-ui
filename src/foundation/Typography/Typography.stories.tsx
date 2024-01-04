@@ -5,7 +5,7 @@ import React from 'react';
 
 import { Typography as TypographyComponent } from '../../components/Typography';
 import { ColorTokens } from '../Colors';
-import { TypographyToken } from './types';
+import { TypographyTokens } from './types';
 
 const Grid = styled('div')`
   display: grid;
@@ -23,7 +23,7 @@ const AllTypography: React.FunctionComponent<{
         <TypographyComponent
           key={key}
           colorToken={colorToken}
-          typographyToken={key as TypographyToken}
+          typographyToken={key as TypographyTokens}
         >
           {key}
         </TypographyComponent>

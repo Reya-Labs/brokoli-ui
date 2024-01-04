@@ -1,14 +1,14 @@
 import React from 'react';
 
 import { BaseColorTokens } from '../../foundation/Colors';
-import { TypographyToken } from '../../foundation/Typography';
+import { TypographyTokens } from '../../foundation/Typography';
 import { Typography } from '../Typography';
 import { ExternalLinkStyled } from './ExternalLink.styled';
 import { ReactComponent as LinkArrow } from './link-arrow.svg';
 
 export const ExternalLink: React.FunctionComponent<{
   colorToken: BaseColorTokens;
-  typographyToken: TypographyToken;
+  typographyToken: TypographyTokens;
   children: string;
   href: string;
   disabled?: boolean;

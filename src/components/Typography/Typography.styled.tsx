@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { ColorTokens, getColorFromToken } from '../../foundation/Colors';
 import {
   getResponsiveTypographyStyleFromToken,
-  TypographyToken,
+  TypographyTokens,
 } from '../../foundation/Typography';
 import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 
@@ -13,7 +13,7 @@ export const BaseTypography = styled(
   shouldNotForwardProps(['typographyToken', 'colorToken']),
 )<{
   colorToken: ColorTokens;
-  typographyToken: TypographyToken;
+  typographyToken: TypographyTokens;
 }>`
   margin: 0;
   padding: 0;

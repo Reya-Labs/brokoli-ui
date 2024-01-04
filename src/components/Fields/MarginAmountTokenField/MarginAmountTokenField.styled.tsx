@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import CurrencyInput from 'react-currency-input-field';
 
-import { TypographyToken } from '../../../foundation/Typography';
+import { TypographyTokens } from '../../../foundation/Typography';
 import { Button } from '../../Button';
 import { commonInputStyle } from '../_common/common.styled';
 
@@ -42,7 +42,7 @@ export const MaxButton = styled(Button)`
 
 export const CurrencyInputStyled = styled(CurrencyInput)<{
   error?: boolean;
-  typographyToken: TypographyToken;
+  typographyToken: TypographyTokens;
 }>`
   padding: 10px 96px 10px 16px;
   height: 44px;

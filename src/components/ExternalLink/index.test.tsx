@@ -1,13 +1,13 @@
 import React from 'react';
 
 import { BaseColorTokens } from '../../foundation/Colors';
-import { TypographyToken } from '../../foundation/Typography';
+import { TypographyTokens } from '../../foundation/Typography';
 import { render, screen } from '../../test-utils';
 import { ExternalLink } from '.';
 
 describe('<ExternalLink />', () => {
   const colorToken: BaseColorTokens = 'white';
-  const typographyToken: TypographyToken = 'bodyMediumBold';
+  const typographyToken: TypographyTokens = 'bodyMediumBold';
 
   it('renders a disabled link when disabled prop is true', () => {
     render(

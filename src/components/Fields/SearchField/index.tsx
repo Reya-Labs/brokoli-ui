@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { ColorTokens } from '../../../foundation/Colors';
-import { TypographyToken } from '../../../foundation/Typography';
+import { TypographyTokens } from '../../../foundation/Typography';
 import { ExclaimTooltipProps } from '../../ExclaimTooltip';
 import { Popover } from '../../Popover';
 import { ToggleCaret } from '../../ToggleCaret';
@@ -24,10 +24,10 @@ export type SearchFieldProps = {
   error?: boolean;
   label?: string;
   labelColorToken?: ColorTokens;
-  labelTypographyToken?: TypographyToken;
+  labelTypographyToken?: TypographyTokens;
   tooltip?: ExclaimTooltipProps['children'];
   tooltipColorToken?: ColorTokens;
-  typographyToken: TypographyToken;
+  typographyToken: TypographyTokens;
   placeHolder?: string;
   selectedItemId?: SearchItem['id'];
   onItemSelected?: (id: SearchItem['id']) => void;

@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { ColorTokens, getColorFromToken } from '../../foundation/Colors';
 import {
   getResponsiveTypographyStyleFromToken,
-  TypographyToken,
+  TypographyTokens,
 } from '../../foundation/Typography';
 import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 
@@ -28,7 +28,7 @@ export const SkeletonBox = styled(
 )<{
   colorToken: ColorTokens;
   variant: 'rectangular' | 'circular';
-  typographyToken?: TypographyToken;
+  typographyToken?: TypographyTokens;
 }>`
   background-color: ${({ theme, colorToken }) =>
     getColorFromToken({ colorToken: `${colorToken}`, theme })};

@@ -3,11 +3,11 @@ import facepaint from 'facepaint';
 
 import { mediaBreakPoints } from '../Media';
 import { getTypographyFromToken } from './getTypographyFromToken';
-import { TypographyConfig, TypographyToken } from './types';
+import { TypographyConfig, TypographyTokens } from './types';
 
 type GetTypographyFromTokenParams = {
   theme: Theme;
-  token?: TypographyToken;
+  token?: TypographyTokens;
 };
 
 const breakpoints = [

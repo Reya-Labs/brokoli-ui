@@ -6,7 +6,7 @@ import React, { useMemo } from 'react';
 
 import { ColorTokens, getColorFromToken } from '../../foundation/Colors';
 import { useResponsiveQuery } from '../../foundation/Media';
-import { getTypographyFromToken, TypographyToken } from '../../foundation/Typography';
+import { getTypographyFromToken, TypographyTokens } from '../../foundation/Typography';
 import { LineChartBox } from './LineChart.styled';
 import { Tooltip } from './Tooltip/Tooltip';
 
@@ -22,8 +22,8 @@ export type LineChartProps = {
   yMarkerText: string;
   colorToken: ColorTokens;
   yMarkerColorToken: ColorTokens;
-  yMarkerTypographyToken: TypographyToken;
-  axisTypographyToken: TypographyToken;
+  yMarkerTypographyToken: TypographyTokens;
+  axisTypographyToken: TypographyTokens;
   axisBottomFormat: 'days' | 'hours';
 };
 const GRADIENT_ID = 'gradient';

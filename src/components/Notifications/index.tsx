@@ -6,15 +6,15 @@ import React from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 
 import { BaseColorTokens } from '../../foundation/Colors';
-import { TypographyToken } from '../../foundation/Typography';
+import { TypographyTokens } from '../../foundation/Typography';
 import { NotificationContent } from './NotificationContent';
 
 export type ShowNotificationParams = {
   content: string;
   title: string;
   colorToken: BaseColorTokens;
-  titleTypographyToken?: TypographyToken;
-  contentTypographyToken?: TypographyToken;
+  titleTypographyToken?: TypographyTokens;
+  contentTypographyToken?: TypographyTokens;
   autoClose?: number | false;
   onCloseNotification?: () => void;
 };

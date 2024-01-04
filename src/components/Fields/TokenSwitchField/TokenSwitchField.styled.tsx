@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import CurrencyInput from 'react-currency-input-field';
 
-import { TypographyToken } from '../../../foundation/Typography';
+import { TypographyTokens } from '../../../foundation/Typography';
 import { shouldNotForwardProps } from '../../../utils/should-not-forward-props';
 import { Button } from '../../Button';
 import { commonInputStyle } from '../_common/common.styled';
@@ -48,7 +48,7 @@ export const CurrencyInputStyled = styled(
   shouldNotForwardProps(['typographyToken', 'hasMaxButton', 'error']),
 )<{
   error?: boolean;
-  typographyToken: TypographyToken;
+  typographyToken: TypographyTokens;
   hasMaxButton: boolean;
 }>`
   text-align: right;

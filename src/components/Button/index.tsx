@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ColorTokens } from '../../foundation/Colors';
-import { TypographyToken } from '../../foundation/Typography';
+import { TypographyTokens } from '../../foundation/Typography';
 import { Ellipsis } from '../Ellipsis';
 import { Typography } from '../Typography';
 import { ButtonBox, ButtonStyled } from './Button.styled';
@@ -11,11 +11,11 @@ export type ButtonProps = React.PropsWithChildren<{
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   bottomLeftText?: string;
   bottomLeftTextColorToken?: ColorTokens;
-  bottomLeftTextTypographyToken?: TypographyToken;
+  bottomLeftTextTypographyToken?: TypographyTokens;
   loading?: boolean;
   'data-testid'?: string;
   className?: string;
-  typographyToken?: TypographyToken;
+  typographyToken?: TypographyTokens;
   borderColorToken?: ColorTokens;
   backgroundColorToken?: ColorTokens;
   typographyColorToken?: ColorTokens;

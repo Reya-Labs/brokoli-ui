@@ -2,12 +2,12 @@ import { css, Theme } from '@emotion/react';
 
 import {
   getResponsiveTypographyStyleFromToken,
-  TypographyToken,
+  TypographyTokens,
 } from '../../../foundation/Typography';
 
 type CommonInputStyleArgs = {
   error?: boolean;
-  typographyToken: TypographyToken;
+  typographyToken: TypographyTokens;
   theme: Theme;
 };
 

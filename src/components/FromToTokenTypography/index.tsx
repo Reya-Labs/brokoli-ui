@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ColorTokens } from '../../foundation/Colors';
-import { TypographyToken } from '../../foundation/Typography';
+import { TypographyTokens } from '../../foundation/Typography';
 import { ExclaimTooltipProps } from '../ExclaimTooltip';
 import { TokenTypography } from '../TokenTypography';
 import { TooltipLabel } from '../TooltipLabel';
@@ -17,12 +17,12 @@ export type FromToTokenTypographyProps = {
   toValue: string | number;
   toToken?: string;
   toPrefixToken?: string;
-  typographyToken: TypographyToken;
+  typographyToken: TypographyTokens;
   token?: string;
   tokenColorToken?: ColorTokens;
   label?: string;
   labelColorToken?: ColorTokens;
-  labelTypographyToken?: TypographyToken;
+  labelTypographyToken?: TypographyTokens;
   tooltip?: ExclaimTooltipProps['children'];
   tooltipColorToken?: ColorTokens;
   fromPrefixColorToken?: ColorTokens;

@@ -1,12 +1,12 @@
 import React from 'react';
 
 import { ColorTokens } from '../../foundation/Colors';
-import { TypographyToken } from '../../foundation/Typography';
+import { TypographyTokens } from '../../foundation/Typography';
 import { tokenTagMap } from './token-tag-map';
 import { BaseTypography, RainbowTypography } from './Typography.styled';
 
 export type TypographyProps = React.PropsWithChildren<{
-  typographyToken: TypographyToken;
+  typographyToken: TypographyTokens;
   colorToken: ColorTokens | 'rainbow';
   className?: string;
   'data-testid'?: string;

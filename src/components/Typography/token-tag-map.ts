@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { TypographyToken } from '../../foundation/Typography';
+import { TypographyTokens } from '../../foundation/Typography';
 
-export const tokenTagMap: Record<TypographyToken, React.ElementType> = {
+export const tokenTagMap: Record<TypographyTokens, React.ElementType> = {
   bodyExtraLargeBold: 'p',
   bodyExtraLargeRegular: 'p',
   bodyLargeBold: 'p',

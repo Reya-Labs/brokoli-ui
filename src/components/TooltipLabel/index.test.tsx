@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ColorTokens } from '../../foundation/Colors';
-import { TypographyToken } from '../../foundation/Typography';
+import { TypographyTokens } from '../../foundation/Typography';
 import { render, screen } from '../../test-utils';
 import { TooltipLabel } from '.';
 
@@ -11,7 +11,7 @@ describe('<TooltipLabel />', () => {
     const label = 'Label text';
     const labelColorToken: ColorTokens = 'white100';
     const tooltipColorToken: ColorTokens = 'error100';
-    const labelTypographyToken: TypographyToken = 'bodyMediumBold';
+    const labelTypographyToken: TypographyTokens = 'bodyMediumBold';
 
     render(
       <TooltipLabel
@@ -32,7 +32,7 @@ describe('<TooltipLabel />', () => {
   test('renders Typography when only label is provided', () => {
     const label = 'Label text';
     const labelColorToken: ColorTokens = 'white100';
-    const labelTypographyToken: TypographyToken = 'bodyMediumBold';
+    const labelTypographyToken: TypographyTokens = 'bodyMediumBold';
 
     render(
       <TooltipLabel

@@ -1,12 +1,12 @@
 import React from 'react';
 
 import { ColorTokens } from '../../foundation/Colors';
-import { TypographyToken } from '../../foundation/Typography';
+import { TypographyTokens } from '../../foundation/Typography';
 import { SkeletonBox } from './Skeleton.styled';
 
 export const Skeleton: React.FunctionComponent<{
   colorToken: ColorTokens;
-  typographyToken?: TypographyToken;
+  typographyToken?: TypographyTokens;
   variant: 'rectangular' | 'circular';
   className?: string;
   'data-testid'?: string;

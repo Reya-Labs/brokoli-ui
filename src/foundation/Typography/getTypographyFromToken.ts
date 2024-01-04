@@ -1,10 +1,10 @@
 import { Theme } from '@emotion/react';
 
-import { TypographyResponsiveConfig, TypographyToken } from './types';
+import { TypographyResponsiveConfig, TypographyTokens } from './types';
 
 type GetTypographyFromTokenParams = {
   theme: Theme;
-  token?: TypographyToken;
+  token?: TypographyTokens;
 };
 
 export const getTypographyFromToken = ({

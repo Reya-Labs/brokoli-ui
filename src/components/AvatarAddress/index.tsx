@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import { MetaMaskAvatar } from 'react-metamask-avatar';
 
-import { TypographyToken } from '../../foundation/Typography';
+import { TypographyTokens } from '../../foundation/Typography';
 import { RainbowLoader } from '../RainbowLoader';
 import {
   AddressTypography,
@@ -17,7 +17,7 @@ export { formatEthereumAddress } from './helpers/formatEthereumAddress';
 export const AvatarAddress: FunctionComponent<{
   address?: string | null;
   avatarSize: 'small' | 'medium';
-  typographyToken: TypographyToken;
+  typographyToken: TypographyTokens;
 }> = ({ typographyToken, avatarSize, address }) => {
   const [name, setName] = useState(address);
   const [avatarUrl, setAvatarUrl] = useState('');

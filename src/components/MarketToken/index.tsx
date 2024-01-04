@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ColorTokens } from '../../foundation/Colors';
-import { TypographyToken } from '../../foundation/Typography';
+import { TypographyTokens } from '../../foundation/Typography';
 import { MarketIcon, MarketIconProps, TokenIcon } from '../Icons';
 import { Typography } from '../Typography';
 import { IconsBox, MarketTokenBox } from './MarketToken.styled';
@@ -12,7 +12,7 @@ export type MarketTokenProps = {
   market?: 'Aave' | 'Aave V2' | 'Aave V3' | 'Compound' | 'Lido' | 'Rocket' | 'GMX:GLP' | 'SOFR';
   iconSize: number;
   colorToken: ColorTokens;
-  typographyToken: TypographyToken;
+  typographyToken: TypographyTokens;
   infoFormatter?: ({
     market,
     token,
