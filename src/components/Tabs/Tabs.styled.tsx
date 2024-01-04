@@ -11,6 +11,8 @@ import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 export const TabsAndComponentBox = styled('div')`
   display: flex;
   flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
 `;
 
 export const TabsBox = styled('div')`
@@ -18,6 +20,7 @@ export const TabsBox = styled('div')`
   width: 100%;
   box-sizing: border-box;
   flex-direction: row;
+  padding: 8px 4px 0px 4px;
 `;
 
 export const TabStyled = styled(
