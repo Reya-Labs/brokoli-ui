@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import CurrencyInput from 'react-currency-input-field';
 
 import { TypographyToken } from '../../../foundation/Typography';
+import { shouldNotForwardProps } from '../../../utils/should-not-forward-props';
 import { Button } from '../../Button';
 import { commonInputStyle } from '../_common/common.styled';
 
@@ -36,7 +37,10 @@ export const TokenBox = styled('div')`
   cursor: pointer;
 `;
 
-export const CurrencyInputStyled = styled(CurrencyInput)<{
+export const CurrencyInputStyled = styled(
+  CurrencyInput,
+  shouldNotForwardProps(['typographyToken', 'error']),
+)<{
   error?: boolean;
   typographyToken: TypographyToken;
 }>`
