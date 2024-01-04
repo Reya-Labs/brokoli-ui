@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ColorTokens } from '../../foundation/Colors';
 import { TypographyTokens } from '../../foundation/Typography';
-import { TabsAndComponentBox, TabsBox, TabStyled } from './Tabs.styled';
+import { BorderLine, TabsAndComponentBox, TabsBox, TabStyled } from './Tabs.styled';
 
 type TabProps = {
   id: string;
@@ -35,6 +35,7 @@ export const Tabs: React.FunctionComponent<TabsProps> = ({
   return (
     <TabsAndComponentBox>
       <TabsBox>
+        <BorderLine borderColorToken={borderColorToken} />
         {tabs.map((tab) => (
           <TabStyled
             key={tab.id}

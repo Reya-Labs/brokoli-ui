@@ -20,7 +20,21 @@ export const TabsBox = styled('div')`
   width: 100%;
   box-sizing: border-box;
   flex-direction: row;
-  padding: 8px 4px 0px 4px;
+  padding: 7px 7px 0px 7px;
+  position: relative;
+`;
+
+export const BorderLine = styled('div', shouldNotForwardProps(['borderColorToken']))<{
+  borderColorToken: ColorTokens;
+}>`
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background: ${({ theme, borderColorToken }) =>
+    getColorFromToken({ colorToken: borderColorToken, theme })};
+  z-index: 0;
 `;
 
 export const TabStyled = styled(
@@ -55,7 +69,7 @@ export const TabStyled = styled(
     getColorFromToken({ colorToken: backgroundColorToken, theme })};
   background-color: ${({ theme, backgroundColorToken }) =>
     getColorFromToken({ colorToken: backgroundColorToken, theme })};
-
+  z-index: 1;
   border-radius: 8px 8px 0px 0px;
   border-top: 1px solid
     ${({ theme, borderColorToken, backgroundColorToken, isActive }) =>
