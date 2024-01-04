@@ -78,7 +78,9 @@ export const SearchList: React.FunctionComponent<SearchListProps> = ({
         ) : (
           <ItemWrapper backgroundColorToken="black800">
             <Typography colorToken="warning100" typographyToken="bodySmallRegular">
-              No items match the filter...
+              {searchedValue.length === 0
+                ? 'Nothing to search for... Try searching for unicorns instead!'
+                : 'No items match the filter... Perhaps they joined the NFT craze?'}
             </Typography>
           </ItemWrapper>
         )}
