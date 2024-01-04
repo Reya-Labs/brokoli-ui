@@ -10,12 +10,14 @@ export default {
 
 export const Default: StoryObj<typeof LabelTokenTypography> = {
   args: {
-    colorToken: 'white',
+    colorToken: 'white100',
     label: 'Additional Cashflow',
     labelColorToken: 'white400',
     labelTypographyToken: 'bodyXSmallRegular',
+    prefixColorToken: 'white950',
     prefixToken: '+',
     token: ' USDC',
+    tokenColorToken: 'white950',
     typographyToken: 'bodyMediumRegular',
     value: '0.00',
   },
@@ -23,12 +25,14 @@ export const Default: StoryObj<typeof LabelTokenTypography> = {
 
 export const WithRangeValues: StoryObj<typeof LabelTokenTypography> = {
   args: {
-    colorToken: 'white',
+    colorToken: 'white100',
     label: 'Additional Cashflow',
     labelColorToken: 'white400',
     labelTypographyToken: 'bodyXSmallRegular',
+    prefixColorToken: 'white950',
     prefixToken: '+',
     token: ' USDC',
+    tokenColorToken: 'white950',
     typographyToken: 'bodyMediumRegular',
     value: '0.00',
     value2: '4.00',
@@ -37,11 +41,12 @@ export const WithRangeValues: StoryObj<typeof LabelTokenTypography> = {
 
 export const WithTooltip: StoryObj<typeof LabelTokenTypography> = {
   args: {
-    colorToken: 'white',
+    colorToken: 'white100',
     label: 'Additional Cashflow',
     labelColorToken: 'white400',
     labelTypographyToken: 'bodyXSmallRegular',
     token: ' USDC',
+    tokenColorToken: 'white950',
     tooltip: 'We support a nice tooltip as well!',
     typographyToken: 'bodyMediumRegular',
     value: '+0.00',
@@ -51,11 +56,12 @@ export const WithTooltip: StoryObj<typeof LabelTokenTypography> = {
 export const WithAttentionIndicator: StoryObj<typeof LabelTokenTypography> = {
   args: {
     attentionIndicatorColorToken: 'error100',
-    colorToken: 'white',
+    colorToken: 'white100',
     label: 'Additional Cashflow',
     labelColorToken: 'white400',
     labelTypographyToken: 'bodyXSmallRegular',
     token: ' USDC',
+    tokenColorToken: 'white950',
     tooltip: 'We support a nice tooltip as well!',
     typographyToken: 'bodyMediumRegular',
     value: '+0.00',

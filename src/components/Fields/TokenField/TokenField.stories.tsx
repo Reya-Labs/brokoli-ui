@@ -48,6 +48,7 @@ export const WithDifferentBottomRightTextToken: StoryObj<typeof TokenField> = {
   args: {
     bottomLeftText: 'Max value is',
     bottomRightTextToken: '%',
+    bottomRightTextTokenColorToken: 'white950',
     bottomRightTextValue: '123456',
     label: 'Label',
     max: {

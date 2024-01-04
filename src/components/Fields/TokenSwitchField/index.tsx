@@ -1,7 +1,7 @@
 import React from 'react';
 import { formatValue } from 'react-currency-input-field';
 
-import { BaseColorTokens, ColorTokens } from '../../../foundation/Colors';
+import { ColorTokens } from '../../../foundation/Colors';
 import { TypographyToken } from '../../../foundation/Typography';
 import { ExclaimTooltipProps } from '../../ExclaimTooltip';
 import { IconProps } from '../../Icons/TokenIcon/Icon';
@@ -45,7 +45,7 @@ export type TokenSwitchFieldProps = {
   bottomLeftTextTypographyToken?: TypographyToken;
   token?: IconProps['token'];
   bottomRightTextValue?: string | number;
-  bottomRightTextColorToken?: BaseColorTokens;
+  bottomRightTextColorToken?: ColorTokens;
   bottomRightTextTypographyToken?: TypographyToken;
   bottomRightTextDifferenceValue?: number;
   switchOnText: string;
@@ -57,6 +57,8 @@ export type TokenSwitchFieldProps = {
   allowNegativeValue?: boolean;
   typographyToken?: TypographyToken;
   placeholder?: string;
+  bottomRightTextDifferenceColorToken?: ColorTokens;
+  bottomRightTextTokenColorToken?: ColorTokens;
 };
 
 export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = ({
@@ -79,9 +81,11 @@ export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = 
   bottomLeftText,
   token,
   bottomRightTextTypographyToken = 'bodyXSmallRegular',
-  bottomRightTextColorToken = 'white',
+  bottomRightTextColorToken = 'white950',
   bottomRightTextValue,
   bottomRightTextDifferenceValue,
+  bottomRightTextDifferenceColorToken,
+  bottomRightTextTokenColorToken,
   switchOffText,
   switchOffValue,
   switchOnText,
@@ -196,9 +200,11 @@ export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = 
         {bottomRightTextValue && (
           <TokenTypography
             colorToken={bottomRightTextColorToken}
+            differenceColorToken={bottomRightTextDifferenceColorToken}
             differenceToken={token ? ` ${token}` : ''}
             differenceValue={bottomRightTextDifferenceValue}
             token={token ? ` ${token}` : ''}
+            tokenColorToken={bottomRightTextTokenColorToken}
             typographyToken={bottomRightTextTypographyToken}
             value={bottomRightTextValue}
           />

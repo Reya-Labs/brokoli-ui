@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { BaseColorTokens, ColorTokens } from '../../foundation/Colors';
+import { ColorTokens } from '../../foundation/Colors';
 import { TypographyToken } from '../../foundation/Typography';
 import { ExclaimTooltipProps } from '../ExclaimTooltip';
 import { TokenTypography } from '../TokenTypography';
@@ -9,21 +9,26 @@ import { Typography } from '../Typography';
 import { FromToBox, FromToTokenTypographyBox } from './FromToTokenTypography.styled';
 
 export type FromToTokenTypographyProps = {
-  fromColorToken: BaseColorTokens;
+  fromColorToken: ColorTokens;
   fromValue: string | number;
   fromToken?: string;
   fromPrefixToken?: string;
-  toColorToken: BaseColorTokens;
+  toColorToken: ColorTokens;
   toValue: string | number;
   toToken?: string;
   toPrefixToken?: string;
   typographyToken: TypographyToken;
   token?: string;
+  tokenColorToken?: ColorTokens;
   label?: string;
   labelColorToken?: ColorTokens;
   labelTypographyToken?: TypographyToken;
   tooltip?: ExclaimTooltipProps['children'];
   tooltipColorToken?: ColorTokens;
+  fromPrefixColorToken?: ColorTokens;
+  fromTokenColorToken?: ColorTokens;
+  toPrefixColorToken?: ColorTokens;
+  toTokenColorToken?: ColorTokens;
 };
 
 export const FromToTokenTypography: React.FunctionComponent<FromToTokenTypographyProps> = ({
@@ -31,10 +36,14 @@ export const FromToTokenTypography: React.FunctionComponent<FromToTokenTypograph
   fromValue,
   fromToken = '',
   fromPrefixToken = '',
+  fromTokenColorToken,
+  fromPrefixColorToken,
   toColorToken,
   toValue,
   toToken = '',
   toPrefixToken = '',
+  toTokenColorToken,
+  toPrefixColorToken,
   typographyToken,
   token = '',
   label,
@@ -42,6 +51,7 @@ export const FromToTokenTypography: React.FunctionComponent<FromToTokenTypograph
   labelTypographyToken,
   tooltip,
   tooltipColorToken,
+  tokenColorToken = 'white100',
 }) => (
   <FromToTokenTypographyBox data-testid="FromToTokenTypography-FromToTokenTypographyBox">
     <TooltipLabel
@@ -56,8 +66,10 @@ export const FromToTokenTypography: React.FunctionComponent<FromToTokenTypograph
       <TokenTypography
         colorToken={fromColorToken}
         data-testid={`FromToTokenTypography-FromToBox-FromTokenTypography-${fromColorToken}-${typographyToken}`}
+        prefixColorToken={fromPrefixColorToken}
         prefixToken={fromPrefixToken}
         token={fromToken}
+        tokenColorToken={fromTokenColorToken}
         typographyToken={typographyToken}
         value={fromValue}
       />
@@ -67,14 +79,16 @@ export const FromToTokenTypography: React.FunctionComponent<FromToTokenTypograph
       <TokenTypography
         colorToken={toColorToken}
         data-testid={`FromToTokenTypography-FromToBox-ToTokenTypography-${toColorToken}-${typographyToken}`}
+        prefixColorToken={toPrefixColorToken}
         prefixToken={toPrefixToken}
         token={toToken}
+        tokenColorToken={toTokenColorToken}
         typographyToken={typographyToken}
         value={toValue}
       />
       {token ? (
         <Typography
-          colorToken={`${fromColorToken}400`}
+          colorToken={tokenColorToken}
           data-testid={`FromToTokenTypography-FromToBox-TokenTypography-${fromColorToken}3`}
           typographyToken="bodySmallRegular"
         >

@@ -1,7 +1,7 @@
 import React from 'react';
 import { formatValue } from 'react-currency-input-field';
 
-import { BaseColorTokens, ColorTokens } from '../../../foundation/Colors';
+import { ColorTokens } from '../../../foundation/Colors';
 import { TypographyToken } from '../../../foundation/Typography';
 import { ExclaimTooltipProps } from '../../ExclaimTooltip';
 import { TokenIcon, TokenIconProps } from '../../Icons';
@@ -40,7 +40,7 @@ export type TokenFieldProps = {
   bottomLeftTextTypographyToken?: TypographyToken;
   token?: TokenIconProps['token'];
   bottomRightTextValue?: string | number;
-  bottomRightTextColorToken?: BaseColorTokens;
+  bottomRightTextColorToken?: ColorTokens;
   bottomRightTextTypographyToken?: TypographyToken;
   bottomRightTextDifferenceValue?: number;
   bottomRightTextToken?: string;
@@ -50,6 +50,8 @@ export type TokenFieldProps = {
   min?: number | string | undefined;
   typographyToken?: TypographyToken;
   placeholder?: string;
+  bottomRightTextDifferenceColorToken?: ColorTokens;
+  bottomRightTextTokenColorToken?: ColorTokens;
 };
 
 export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
@@ -74,7 +76,9 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
   bottomLeftText,
   token,
   bottomRightTextTypographyToken = 'bodyXSmallRegular',
-  bottomRightTextColorToken = 'white',
+  bottomRightTextColorToken = 'white950',
+  bottomRightTextDifferenceColorToken,
+  bottomRightTextTokenColorToken,
   bottomRightTextValue,
   bottomRightTextToken,
   bottomRightTextDifferenceValue,
@@ -185,9 +189,11 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
           <TokenTypography
             colorToken={bottomRightTextColorToken}
             data-testid="TokenField-BottomBox-TokenTypography"
+            differenceColorToken={bottomRightTextDifferenceColorToken}
             differenceToken={bottomRightTextTokenComputed ? ` ${bottomRightTextTokenComputed}` : ''}
             differenceValue={bottomRightTextDifferenceValue}
             token={bottomRightTextTokenComputed ? ` ${bottomRightTextTokenComputed}` : ''}
+            tokenColorToken={bottomRightTextTokenColorToken}
             typographyToken={bottomRightTextTypographyToken}
             value={bottomRightTextValue}
           />

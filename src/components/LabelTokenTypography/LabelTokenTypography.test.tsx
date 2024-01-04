@@ -5,7 +5,7 @@ import { LabelTokenTypography, LabelTokenTypographyProps } from '.';
 
 describe('<LabelTokenTypography />', () => {
   const defaultProps: LabelTokenTypographyProps = {
-    colorToken: 'white',
+    colorToken: 'white100',
     label: 'Label',
     labelColorToken: 'white300',
     labelTypographyToken: 'bodyMediumBold',

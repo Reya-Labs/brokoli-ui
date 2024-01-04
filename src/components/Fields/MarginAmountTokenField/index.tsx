@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { formatValue } from 'react-currency-input-field';
 
-import { BaseColorTokens, ColorTokens } from '../../../foundation/Colors';
+import { ColorTokens } from '../../../foundation/Colors';
 import { TypographyToken } from '../../../foundation/Typography';
 import { ExclaimTooltipProps } from '../../ExclaimTooltip';
 import { TokenIcon, TokenIconProps } from '../../Icons';
@@ -47,7 +47,7 @@ export type MarginAmountTokenFieldProps = {
   bottomLeftTextTypographyToken?: TypographyToken;
   token?: TokenIconProps['token'];
   bottomRightTextValue?: string | number;
-  bottomRightTextColorToken?: BaseColorTokens;
+  bottomRightTextColorToken?: ColorTokens;
   bottomRightTextTypographyToken?: TypographyToken;
   bottomRightTextDifferenceValue?: number;
   allowNegativeValue?: boolean;
@@ -57,6 +57,8 @@ export type MarginAmountTokenFieldProps = {
   typographyToken?: TypographyToken;
   placeholder?: string;
   marginAmountOptions: MarginAmountListProps['items'];
+  bottomRightTextDifferenceColorToken?: ColorTokens;
+  bottomRightTextTokenColorToken?: ColorTokens;
 };
 
 export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFieldProps> = ({
@@ -81,7 +83,9 @@ export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFi
   bottomLeftText,
   token,
   bottomRightTextTypographyToken = 'bodyXSmallRegular',
-  bottomRightTextColorToken = 'white',
+  bottomRightTextColorToken = 'white950',
+  bottomRightTextDifferenceColorToken,
+  bottomRightTextTokenColorToken,
   bottomRightTextValue,
   bottomRightTextDifferenceValue,
   allowNegativeValue,
@@ -247,9 +251,11 @@ export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFi
           <TokenTypography
             colorToken={bottomRightTextColorToken}
             data-testid="MarginAmountTokenField-BottomBox-TokenTypography"
+            differenceColorToken={bottomRightTextDifferenceColorToken}
             differenceToken={token ? ` ${token}` : ''}
             differenceValue={bottomRightTextDifferenceValue}
             token={token ? ` ${token}` : ''}
+            tokenColorToken={bottomRightTextTokenColorToken}
             typographyToken={bottomRightTextTypographyToken}
             value={bottomRightTextValue}
           />
