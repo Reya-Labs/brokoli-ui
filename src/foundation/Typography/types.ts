@@ -17,7 +17,7 @@ export type TypographyToken =
   | 'bodyLargeBold'
   | 'bodyExtraLargeRegular'
   | 'bodyExtraLargeBold'
-  | 'ctaBold';
+  | 'ctaBlack';
 
 export type TypographyConfig = {
   fontFamily: string;

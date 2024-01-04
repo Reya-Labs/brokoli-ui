@@ -19,7 +19,7 @@ const differenceTypographyMap: Record<TypographyToken, TypographyToken> = {
   bodySmallRegular: 'bodySmallRegular',
   bodyXSmallBold: 'bodyXSmallBold',
   bodyXSmallRegular: 'bodyXSmallRegular',
-  ctaBold: 'bodyXSmallBold',
+  ctaBlack: 'bodyXSmallBold',
   h1SmallBold: 'h2Regular',
   h1XLBold: 'h2Bold',
   h2Bold: 'h3Bold',

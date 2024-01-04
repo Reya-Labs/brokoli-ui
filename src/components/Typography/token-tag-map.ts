@@ -13,7 +13,7 @@ export const tokenTagMap: Record<TypographyToken, React.ElementType> = {
   bodySmallRegular: 'p',
   bodyXSmallBold: 'p',
   bodyXSmallRegular: 'p',
-  ctaBold: 'p',
+  ctaBlack: 'p',
   h1SmallBold: 'h1',
   h1XLBold: 'h1',
   h2Bold: 'h2',

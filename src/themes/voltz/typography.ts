@@ -534,7 +534,7 @@ const bodyExtraLargeBold: TypographyResponsiveConfig = {
   },
 };
 
-const ctaBold: TypographyResponsiveConfig = {
+const ctaBlack: TypographyResponsiveConfig = {
   largeDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
     fontSize: '14px',
@@ -579,7 +579,7 @@ export const typography: TypographyTheme = {
   bodySmallRegular,
   bodyXSmallBold,
   bodyXSmallRegular,
-  ctaBold,
+  ctaBlack,
   h1SmallBold,
   h1XLBold,
   h2Bold,
