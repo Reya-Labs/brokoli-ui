@@ -20,7 +20,7 @@ export const TabsBox = styled('div')`
   width: 100%;
   box-sizing: border-box;
   flex-direction: row;
-  padding: 7px 7px 0px 7px;
+  padding: 8px 8px 0px 8px;
   position: relative;
 `;
 
