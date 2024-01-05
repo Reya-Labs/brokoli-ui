@@ -44,11 +44,11 @@ export const Tabs: React.FunctionComponent<TabsProps> = ({
   const [hiddenTabContent, setHiddenTabContent] = useState(false);
   const activeTab = tabs.find((tab) => tab.id === activeTabId);
   const handleHideTabContent = useCallback(() => {
-    if (!allowContentHiding) {
+    if (!allowContentHiding || !activeTab?.id) {
       return;
     }
     setHiddenTabContent(!hiddenTabContent);
-  }, [hiddenTabContent, allowContentHiding]);
+  }, [activeTab?.id, hiddenTabContent, allowContentHiding]);
 
   return (
     <TabsAndComponentBox>
