@@ -15,6 +15,11 @@ export const TabsAndComponentBox = styled('div')`
   box-sizing: border-box;
 `;
 
+export const TabPillsBox = styled('div')`
+  display: flex;
+  flex-direction: row;
+`;
+
 export const TabsBox = styled('div')`
   display: flex;
   width: 100%;
@@ -22,6 +27,7 @@ export const TabsBox = styled('div')`
   flex-direction: row;
   padding: 8px 8px 0px 8px;
   position: relative;
+  justify-content: space-between;
 `;
 
 export const BorderLine = styled('div', shouldNotForwardProps(['borderColorToken']))<{
@@ -83,4 +89,10 @@ export const TabStyled = styled(
   border-bottom: 1px solid
     ${({ theme, borderColorToken, backgroundColorToken, isActive }) =>
       getColorFromToken({ colorToken: isActive ? backgroundColorToken : borderColorToken, theme })};
+`;
+
+export const ComponentBox = styled('div', shouldNotForwardProps(['hidden']))<{
+  hidden: boolean;
+}>`
+  display: ${({ hidden }) => (hidden ? 'none' : undefined)};
 `;

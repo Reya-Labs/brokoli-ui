@@ -39,30 +39,46 @@ const Template: StoryFn<typeof Tabs> = (args) => {
   return <Tabs {...args} activeTabId={activeTabId} onTabChange={setActiveTabId} />;
 };
 
+const tabs = [
+  {
+    Component: Tab1,
+    id: '1',
+    label: 'Tab 1',
+  },
+  {
+    Component: Tab2,
+    id: '2',
+    label: 'Tab 2',
+  },
+  {
+    Component: Tab3,
+    id: '3',
+    label: 'Tab 3',
+  },
+];
+
 export const Default: StoryObj<typeof Tabs> = {
   args: {
     activeTabColorToken: 'white100',
     activeTabId: '1',
-    backgroundColorToken: 'black900',
+    backgroundColorToken: 'black950',
     borderColorToken: 'black700',
     colorToken: 'black100',
-    tabs: [
-      {
-        Component: Tab1,
-        id: '1',
-        label: 'Tab 1',
-      },
-      {
-        Component: Tab2,
-        id: '2',
-        label: 'Tab 2',
-      },
-      {
-        Component: Tab3,
-        id: '3',
-        label: 'Tab 3',
-      },
-    ],
+    tabs,
+    typographyToken: 'bodyMediumRegular',
+  } as TabsProps,
+  render: Template,
+};
+
+export const AllowContentHiding: StoryObj<typeof Tabs> = {
+  args: {
+    activeTabColorToken: 'white100',
+    activeTabId: '1',
+    allowContentHiding: true,
+    backgroundColorToken: 'black950',
+    borderColorToken: 'black700',
+    colorToken: 'black100',
+    tabs,
     typographyToken: 'bodyMediumRegular',
   } as TabsProps,
   render: Template,
