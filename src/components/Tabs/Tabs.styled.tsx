@@ -24,7 +24,6 @@ export const TabPillsBox = styled('div')`
 export const TabsBox = styled('div')`
   display: flex;
   width: 100%;
-  height: 100%;
   box-sizing: border-box;
   flex-direction: row;
   padding: 7px 8px 0px 8px;
