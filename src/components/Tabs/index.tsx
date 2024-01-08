@@ -51,10 +51,10 @@ export const Tabs: React.FunctionComponent<TabsProps> = ({
   }, [activeTab?.id, hiddenTabContent, allowContentHiding]);
 
   return (
-    <TabsAndComponentBox>
-      <TabsBox>
-        <BorderLine borderColorToken={borderColorToken} />
-        <TabPillsBox>
+    <TabsAndComponentBox data-testid="Tabs-TabsAndComponentBox">
+      <TabsBox data-testid="Tabs-TabsBox">
+        <BorderLine borderColorToken={borderColorToken} data-testid="Tabs-BorderLine" />
+        <TabPillsBox data-testid="Tabs-TabPillsBox">
           {tabs.map((tab) => (
             <TabStyled
               key={tab.id}
@@ -62,6 +62,7 @@ export const Tabs: React.FunctionComponent<TabsProps> = ({
               backgroundColorToken={backgroundColorToken}
               borderColorToken={borderColorToken}
               colorToken={colorToken}
+              data-testid={`Tabs-TabStyled-${tab.id}`}
               isActive={activeTabId === tab.id}
               typographyToken={typographyToken}
               onClick={() => onTabChange && onTabChange(tab.id)}
@@ -76,6 +77,7 @@ export const Tabs: React.FunctionComponent<TabsProps> = ({
             backgroundColorToken={backgroundColorToken}
             borderColorToken={borderColorToken}
             colorToken={colorToken}
+            data-testid={`Tabs-TabStyled-ToggleCaret`}
             isActive={true}
             typographyToken={typographyToken}
             onClick={handleHideTabContent}
@@ -85,7 +87,7 @@ export const Tabs: React.FunctionComponent<TabsProps> = ({
         ) : null}
       </TabsBox>
       {activeTab && activeTab.Component ? (
-        <ComponentBox hidden={hiddenTabContent}>
+        <ComponentBox data-testid="Tabs-ComponentBox" hidden={hiddenTabContent}>
           <activeTab.Component />
         </ComponentBox>
       ) : null}
