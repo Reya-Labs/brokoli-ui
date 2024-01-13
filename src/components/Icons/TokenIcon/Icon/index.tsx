@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { ReactComponent as BTCIcon } from './assets/btc.svg';
 import { ReactComponent as DaiIcon } from './assets/dai.svg';
 import { ReactComponent as EthIcon } from './assets/eth.svg';
 import { ReactComponent as OtherIcon } from './assets/other.svg';
@@ -14,12 +15,21 @@ export type IconProps = {
   'data-testid'?: string;
 };
 
-export type SupportedTokenIcons = 'other' | 'dai' | 'eth' | 'reth' | 'steth' | 'usdc' | 'usdt';
+export type SupportedTokenIcons =
+  | 'other'
+  | 'btc'
+  | 'dai'
+  | 'eth'
+  | 'reth'
+  | 'steth'
+  | 'usdc'
+  | 'usdt';
 
 const TokenIconMap: Record<
   SupportedTokenIcons,
   React.FunctionComponent<{ viewBox?: string; className?: string }>
 > = {
+  btc: BTCIcon,
   dai: DaiIcon,
   eth: EthIcon,
   other: OtherIcon,
