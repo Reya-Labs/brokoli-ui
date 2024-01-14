@@ -28,7 +28,7 @@ export type TabsProps = {
   activeTabColorToken: ColorTokens;
   onTabChange?: (id: TabProps['id']) => void;
   allowContentHiding?: boolean;
-  onTabContentHide?: (hiddenTabContent: boolean) => boolean;
+  onTabContentHide?: (hiddenTabContent: boolean) => void;
 };
 
 export const Tabs: React.FunctionComponent<TabsProps> = ({
