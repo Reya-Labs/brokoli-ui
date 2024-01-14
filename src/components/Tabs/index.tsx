@@ -28,6 +28,7 @@ export type TabsProps = {
   activeTabColorToken: ColorTokens;
   onTabChange?: (id: TabProps['id']) => void;
   allowContentHiding?: boolean;
+  onTabContentHide?: (hiddenTabContent: boolean) => boolean;
 };
 
 export const Tabs: React.FunctionComponent<TabsProps> = ({
@@ -40,6 +41,7 @@ export const Tabs: React.FunctionComponent<TabsProps> = ({
   activeTabId,
   onTabChange,
   allowContentHiding,
+  onTabContentHide,
 }) => {
   const [hiddenTabContent, setHiddenTabContent] = useState(false);
   const activeTab = tabs.find((tab) => tab.id === activeTabId);
@@ -48,7 +50,8 @@ export const Tabs: React.FunctionComponent<TabsProps> = ({
       return;
     }
     setHiddenTabContent(!hiddenTabContent);
-  }, [activeTab?.id, hiddenTabContent, allowContentHiding]);
+    onTabContentHide && onTabContentHide(!hiddenTabContent);
+  }, [onTabContentHide, activeTab?.id, hiddenTabContent, allowContentHiding]);
 
   return (
     <TabsAndComponentBox data-testid="Tabs-TabsAndComponentBox">
