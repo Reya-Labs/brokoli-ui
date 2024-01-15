@@ -9,12 +9,8 @@ export const TooltipBox = styled('div')`
   flex-direction: column;
   padding: 8px;
 
-  background: linear-gradient(
-    90.95deg,
-    ${({ theme }) => theme.colors.white900} 0.66%,
-    ${({ theme }) => theme.colors.black900} 99.34%
-  );
-  border: 1px solid ${({ theme }) => theme.colors.white800};
+  background: ${({ theme }) => theme.colors.black900};
+  border: 1px solid ${({ theme }) => theme.colors.black500};
   border-radius: 8px;
 
   &:after {

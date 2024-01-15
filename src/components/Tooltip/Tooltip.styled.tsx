@@ -6,12 +6,8 @@ export const TooltipBox = styled('div', shouldNotForwardProps(['limitWidth']))<{
   limitWidth: boolean;
 }>`
   box-sizing: border-box;
-  background: linear-gradient(
-    90.95deg,
-    ${({ theme }) => theme.colors.white900} 0.66%,
-    ${({ theme }) => theme.colors.black900} 99.34%
-  );
-  border: 1px solid ${({ theme }) => theme.colors.white800};
+  background: ${({ theme }) => theme.colors.black900};
+  border: 1px solid ${({ theme }) => theme.colors.black500};
   border-radius: 8px;
   width: max-content;
   ${({ limitWidth }) => (limitWidth ? 'max-width: 240px' : '')};
