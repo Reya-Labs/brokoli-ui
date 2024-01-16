@@ -92,7 +92,7 @@
     "eslint-plugin-sort-keys-fix": "1.1.2",
     "eslint-plugin-storybook": "^0.6.15",
     "eslint-plugin-unused-imports": "3.0.0",
-    "ethers": "5.7.2",
+    "ethers": "6.10.0",
     "husky": "8.0.3",
     "is-ci": "3.0.1",
     "istanbul-badges-readme": "1.8.4",
@@ -120,7 +120,7 @@
   "peerDependencies": {
     "@emotion/react": "11.7.1",
     "@emotion/styled": "11.6.0",
-    "ethers": "5.7.2",
+    "ethers": "6.10.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },

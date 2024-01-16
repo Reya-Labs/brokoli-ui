@@ -24,7 +24,7 @@ export const getENSDetails = async (
     return CACHED_ENS[address];
   }
 
-  const provider = new ethers.providers.Web3Provider(web3Provider as never);
+  const provider = new ethers.BrowserProvider(web3Provider as never);
   let name;
   try {
     name = await provider.lookupAddress(address);
@@ -57,7 +57,7 @@ export const getENSDetails = async (
   }
 
   const result = {
-    avatarUrl: avatar?.url,
+    avatarUrl: avatar,
     name: name,
   };
   CACHED_ENS[address] = result;

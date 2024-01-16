@@ -2,17 +2,13 @@ import { getENSDetails } from '.';
 
 jest.mock('ethers', () => ({
   ethers: {
-    providers: {
-      Web3Provider: function () {
-        return {
-          getResolver: jest.fn().mockResolvedValue({
-            getAvatar: jest.fn().mockResolvedValue({
-              url: 'AVATAR_URL',
-            }),
-          }),
-          lookupAddress: jest.fn().mockResolvedValue('ENS_NAME'),
-        };
-      },
+    BrowserProvider: function () {
+      return {
+        getResolver: jest.fn().mockResolvedValue({
+          getAvatar: jest.fn().mockResolvedValue('AVATAR_URL'),
+        }),
+        lookupAddress: jest.fn().mockResolvedValue('ENS_NAME'),
+      };
     },
   },
 }));

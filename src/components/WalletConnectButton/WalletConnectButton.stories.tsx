@@ -22,11 +22,9 @@ const TemplateMetamask = () => {
     const externalProvider = await detectEthereumProvider();
     if (externalProvider) {
       try {
-        const provider = new ethers.providers.Web3Provider(
-          externalProvider as ethers.providers.ExternalProvider,
-        );
+        const provider = new ethers.BrowserProvider(externalProvider as never);
         await provider.send('eth_requestAccounts', []);
-        const newSigner = provider.getSigner();
+        const newSigner = await provider.getSigner();
         const walletAddress = await newSigner.getAddress();
         setAccount(walletAddress);
         setLoading(false);
