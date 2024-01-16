@@ -18,7 +18,8 @@ export const AvatarAddress: FunctionComponent<{
   address?: string | null;
   avatarSize: 'small' | 'medium';
   typographyToken: TypographyTokens;
-}> = ({ typographyToken, avatarSize, address }) => {
+  isEnsAddress?: boolean;
+}> = ({ isEnsAddress, typographyToken, avatarSize, address }) => {
   const [name, setName] = useState(address);
   const [avatarUrl, setAvatarUrl] = useState('');
   const [loading, setLoading] = useState(false);
@@ -31,12 +32,15 @@ export const AvatarAddress: FunctionComponent<{
   };
 
   useEffect(() => {
+    if (isEnsAddress) {
+      return;
+    }
     if (!address) {
       setLoading(false);
       return;
     }
     void fetchENSDetails(address);
-  }, [address]);
+  }, [isEnsAddress, address]);
 
   if (!name) {
     return null;
