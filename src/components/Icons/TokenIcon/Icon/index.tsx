@@ -3,9 +3,7 @@ import React from 'react';
 import { ReactComponent as BTCIcon } from './assets/btc.svg';
 import { ReactComponent as DaiIcon } from './assets/dai.svg';
 import { ReactComponent as EthIcon } from './assets/eth.svg';
-import { ReactComponent as OtherIcon } from './assets/other.svg';
-import { ReactComponent as REthIcon } from './assets/reth.svg';
-import { ReactComponent as StEthIcon } from './assets/steth.svg';
+import { ReactComponent as ReyaIcon } from './assets/reya.svg';
 import { ReactComponent as USDCIcon } from './assets/usdc.svg';
 import { ReactComponent as USDTIcon } from './assets/usdt.svg';
 
@@ -15,15 +13,7 @@ export type IconProps = {
   'data-testid'?: string;
 };
 
-export type SupportedTokenIcons =
-  | 'other'
-  | 'btc'
-  | 'dai'
-  | 'eth'
-  | 'reth'
-  | 'steth'
-  | 'usdc'
-  | 'usdt';
+export type SupportedTokenIcons = 'btc' | 'dai' | 'eth' | 'reya' | 'usdc' | 'usdt';
 
 const TokenIconMap: Record<
   SupportedTokenIcons,
@@ -32,9 +22,7 @@ const TokenIconMap: Record<
   btc: BTCIcon,
   dai: DaiIcon,
   eth: EthIcon,
-  other: OtherIcon,
-  reth: REthIcon,
-  steth: StEthIcon,
+  reya: ReyaIcon,
   usdc: USDCIcon,
   usdt: USDTIcon,
 };
@@ -52,7 +40,7 @@ export const Icon: React.FunctionComponent<IconProps> = ({
     <SupportedIcon
       className={className}
       data-testid={dataTestId || `Icon-${token}`}
-      viewBox="0 0 40 40"
+      viewBox="0 0 32 32"
     />
   );
 };
