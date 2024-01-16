@@ -1,21 +1,12 @@
 import styled from '@emotion/styled';
 
 import { addAlpha } from '../../foundation/Colors';
-import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 import { Typography } from '../Typography';
 
 export const AvatarAddressBox = styled('div')`
   display: flex;
   column-gap: 16px;
   align-items: center;
-`;
-
-export const AvatarAddressImg = styled('img', shouldNotForwardProps(['size']))<{
-  size: number;
-}>`
-  width: ${({ size }) => size}px;
-  height: ${({ size }) => size}px;
-  border-radius: 50%;
 `;
 
 export const AddressTypography = styled(Typography)`

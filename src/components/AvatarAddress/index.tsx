@@ -1,14 +1,9 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
-import { MetaMaskAvatar } from 'react-metamask-avatar';
 
 import { TypographyTokens } from '../../foundation/Typography';
+import { AvatarAddressImage } from '../AvatarAddressImage';
 import { RainbowLoader } from '../RainbowLoader';
-import {
-  AddressTypography,
-  AvatarAddressBox,
-  AvatarAddressImg,
-  RainbowLoaderBox,
-} from './AvatarAddress.styled';
+import { AddressTypography, AvatarAddressBox, RainbowLoaderBox } from './AvatarAddress.styled';
 import { formatEthereumAddress } from './helpers/formatEthereumAddress';
 import { getENSDetails } from './helpers/getENSDetails';
 
@@ -55,15 +50,11 @@ export const AvatarAddress: FunctionComponent<{
         </RainbowLoaderBox>
       ) : (
         <>
-          {!avatarUrl ? (
-            <MetaMaskAvatar address={address || ''} size={avatarSize === 'medium' ? 24 : 16} />
-          ) : (
-            <AvatarAddressImg
-              alt="avatar"
-              size={avatarSize === 'medium' ? 24 : 16}
-              src={avatarUrl}
-            />
-          )}
+          <AvatarAddressImage
+            address={address || ''}
+            size={avatarSize === 'medium' ? 24 : 16}
+            url={avatarUrl}
+          />
           <AddressTypography
             colorToken="white100"
             data-testid="AvatarAddress-AddressTypography"
