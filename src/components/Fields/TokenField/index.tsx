@@ -52,6 +52,7 @@ export type TokenFieldProps = {
   placeholder?: string;
   bottomRightTextDifferenceColorToken?: ColorTokens;
   bottomRightTextTokenColorToken?: ColorTokens;
+  className?: string;
 };
 
 export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
@@ -68,6 +69,7 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
   labelTypographyToken = 'bodySmallRegular',
   tooltip,
   label,
+  className,
   topRightTextTypographyToken = 'bodyXSmallRegular',
   topRightTextColorToken = 'white300',
   topRightText,
@@ -121,6 +123,7 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
       <CurrencyInputBox data-testid="TokenField-CurrencyInputBox">
         <CurrencyInputStyled
           allowNegativeValue={allowNegativeValue}
+          className={className}
           data-testid="TokenField-CurrencyInputBox-CurrencyInputStyled"
           decimalsLimit={decimalsLimit}
           defaultValue={
