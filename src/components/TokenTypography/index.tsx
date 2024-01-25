@@ -28,6 +28,7 @@ export type TokenTypographyProps = {
   prefixColorToken?: ColorTokens;
   differenceColorToken?: ColorTokens;
   tokenColorToken?: ColorTokens;
+  className?: string;
 };
 
 export const TokenTypography: React.FunctionComponent<TokenTypographyProps> = ({
@@ -44,8 +45,10 @@ export const TokenTypography: React.FunctionComponent<TokenTypographyProps> = ({
   prefixColorToken,
   tokenColorToken = 'white100',
   differenceColorToken = 'white100',
+  className,
 }) => (
   <TokenTypographyStyled
+    className={className}
     colorToken={colorToken}
     data-testid={
       dataTestId || `TokenTypography-TokenTypographyStyled-${colorToken}-${typographyToken}`
