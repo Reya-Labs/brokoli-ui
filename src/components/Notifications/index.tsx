@@ -17,6 +17,12 @@ export type ShowNotificationParams = {
   contentTypographyToken?: TypographyTokens;
   autoClose?: number | false;
   onCloseNotification?: () => void;
+  Component?: React.FunctionComponent;
+};
+
+export type ShowCustomNotificationParams = {
+  autoClose?: number | false;
+  Component: React.FunctionComponent;
 };
 
 export const showNotification = ({
@@ -45,6 +51,16 @@ export const showNotification = ({
       closeButton: false,
     },
   );
+};
+
+export const showCustomNotification = ({
+  autoClose = false,
+  Component,
+}: ShowCustomNotificationParams) => {
+  toast(({ closeToast }) => <Component />, {
+    autoClose,
+    closeButton: false,
+  });
 };
 
 export const Notifications = styled(ToastContainer)`

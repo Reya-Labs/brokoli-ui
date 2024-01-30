@@ -1,8 +1,10 @@
+import styled from '@emotion/styled';
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
 import { Button } from '../Button';
-import { Notifications, showNotification } from '.';
+import { Typography } from '../Typography';
+import { Notifications, showCustomNotification, showNotification } from '.';
 
 export default {
   args: {},
@@ -10,9 +12,23 @@ export default {
   title: 'Components/Notifications',
 } as Meta<typeof Notifications>;
 
+const ButtonBox = styled('div')`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+`;
+
+const NotificationContentBox = styled('div')`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: ${({ theme }) => theme.colors.black700};
+  padding: 8px;
+`;
+
 const Template: StoryFn<typeof Notifications> = (args) => {
   return (
-    <React.Fragment>
+    <ButtonBox>
       <Notifications {...args} />
       <Button
         borderColorToken="white800"
@@ -63,9 +79,38 @@ const Template: StoryFn<typeof Notifications> = (args) => {
         Show success
       </Button>
       <Button
-        backgroundColorToken="black950"
-        borderColorToken="white900"
-        typographyColorToken="white950"
+        borderColorToken="white800"
+        disabledTypographyColorToken="white700"
+        hoverBorderColorToken="white500"
+        typographyColorToken="white100"
+        onClick={() => {
+          showCustomNotification({
+            Component: () => (
+              <NotificationContentBox>
+                <Typography colorToken="white950" typographyToken="bodyMediumRegular">
+                  Custom notification
+                </Typography>
+                <Button
+                  backgroundColorToken="black700"
+                  borderColorToken="white800"
+                  disabledTypographyColorToken="white700"
+                  hoverBorderColorToken="white500"
+                  typographyColorToken="white100"
+                >
+                  Button can fit!
+                </Button>
+              </NotificationContentBox>
+            ),
+          });
+        }}
+      >
+        Show Custom Notification
+      </Button>
+      <Button
+        borderColorToken="white800"
+        disabledTypographyColorToken="white700"
+        hoverBorderColorToken="white500"
+        typographyColorToken="white100"
         onClick={() => {
           showNotification({
             autoClose: 3000,
@@ -78,7 +123,7 @@ const Template: StoryFn<typeof Notifications> = (args) => {
       >
         Show info that auto closes in 3 seconds
       </Button>
-    </React.Fragment>
+    </ButtonBox>
   );
 };
 
