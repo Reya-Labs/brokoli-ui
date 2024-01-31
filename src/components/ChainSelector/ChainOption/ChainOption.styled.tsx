@@ -1,7 +1,6 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { addAlpha } from '../../../foundation/Colors';
 import { getResponsiveTypographyStyleFromToken } from '../../../foundation/Typography';
 import { shouldNotForwardProps } from '../../../utils/should-not-forward-props';
 
@@ -48,6 +47,5 @@ export const ChainOptionButton = styled('button')`
 
 export const ActiveChainOptionButton = styled(ChainOptionButton)`
   text-decoration: none;
-  text-shadow: 0px 0px 20px ${({ theme }) => addAlpha(theme.colors.white100, 0.7)};
-  background: ${({ theme }) => theme.colors.white900};
+  background: ${({ theme }) => theme.colors.black900};
 `;
