@@ -11,20 +11,34 @@ export type ChainOptionsProps = {
     Icon: React.FunctionComponent;
     isActive: boolean;
   }[];
+  parentWidth: number;
   onClick: (chainId: number) => void;
 };
 export const ChainOptions: React.FunctionComponent<ChainOptionsProps> = ({
   chainOptions,
+  parentWidth,
   onClick,
 }) => {
   const [height, setHeight] = useState<'auto' | number>(0);
+  const [width, setWidth] = useState<'auto' | number>('auto');
 
   useLayoutEffect(() => {
     setHeight('auto');
-  }, []);
+    setWidth(parentWidth);
+    console.log('parentWidth', parentWidth);
+  }, [parentWidth]);
 
   return (
-    <AnimateHeight duration={300} easing="ease-in" height={height} id="ChainOptionsButtonGroup">
+    <AnimateHeight
+      duration={300}
+      easing="ease-in"
+      height={height}
+      id="ChainOptionsButtonGroup"
+      // eslint-disable-next-line react/forbid-component-props
+      style={{
+        width,
+      }}
+    >
       <ChainOptionsButtonGroup data-testid="ChainOptions-ChainOptionsButtonGroup">
         {chainOptions.map((chainOption) => (
           <ChainOption

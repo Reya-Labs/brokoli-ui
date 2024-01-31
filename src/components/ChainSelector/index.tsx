@@ -1,9 +1,9 @@
-import React, { useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 
 import { Popover } from '../Popover';
 import { ToggleCaret } from '../ToggleCaret';
 import { ChainOptions } from './ChainOptions/ChainOptions';
-import { ChainSelectorButton, IconBox, SelectorBox, WarningIcon } from './ChainSelector.styled';
+import { ChainSelectorButton, IconBox, SelectorBox } from './ChainSelector.styled';
 
 export type ChainOption = {
   id: number;
@@ -15,15 +15,14 @@ export type ChainSelectorProps = {
   onChainChange: (optionId: ChainOption['id']) => void;
   selectedChainId?: ChainOption['id'];
   chainOptions: ChainOption[];
-  approving?: boolean;
 };
 
 export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
   chainOptions,
   selectedChainId,
   onChainChange,
-  approving,
 }) => {
+  const [width, setWidth] = useState(0);
   const [isSubmenuOpened, setIsSubmenuOpened] = useState(false);
   const handleSubmenuOpen = () => setIsSubmenuOpened(true);
   const handleSubmenuClose = () => setIsSubmenuOpened(false);
@@ -31,6 +30,13 @@ export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
     onChainChange && onChainChange(chainId);
     handleSubmenuClose();
   };
+
+  const parentRef = useCallback((node: HTMLButtonElement) => {
+    if (node !== null) {
+      setWidth(node.getBoundingClientRect().width);
+    }
+  }, []);
+
   const selectedChain = useMemo(() => {
     return chainOptions.find((o) => o.id === selectedChainId);
   }, [chainOptions, selectedChainId]);
@@ -47,6 +53,7 @@ export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
             ...c,
             isActive: c.id === selectedChain?.id,
           }))}
+          parentWidth={width}
           onClick={(chainId) => handleChainOptionSelection(chainId)}
         />
       }
@@ -55,26 +62,19 @@ export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
       onClickOutside={handleSubmenuClose}
     >
       <SelectorBox data-testid="ChainSelector-SelectorBox">
-        <IconBox data-testid="ChainSelector-IconBox">
-          {selectedChain ? (
+        {selectedChain ? (
+          <IconBox data-testid="ChainSelector-IconBox">
             <selectedChain.Icon data-testid={`ChainSelector-${selectedChain.name}`} />
-          ) : (
-            <WarningIcon data-testid="ChainSelector-WarningIcon" />
-          )}
-        </IconBox>
+          </IconBox>
+        ) : null}
         <ChainSelectorButton
+          ref={parentRef}
           data-testid={isSubmenuOpened ? 'OpenChainSelectorButton' : 'ChainSelectorButton'}
           isPopoverOpen={isSubmenuOpened}
           onClick={handleSubmenuOpen}
         >
           <React.Fragment>
-            {approving ? (
-              <React.Fragment>Approve in wallet...</React.Fragment>
-            ) : !selectedChain ? (
-              'Unsupported'
-            ) : (
-              selectedChain.name
-            )}
+            {!selectedChain ? 'Pick a network' : selectedChain.name}
             <ToggleCaret isOpen={isSubmenuOpened} />
           </React.Fragment>
         </ChainSelectorButton>
