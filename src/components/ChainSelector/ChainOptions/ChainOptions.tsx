@@ -25,7 +25,6 @@ export const ChainOptions: React.FunctionComponent<ChainOptionsProps> = ({
   useLayoutEffect(() => {
     setHeight('auto');
     setWidth(parentWidth);
-    console.log('parentWidth', parentWidth);
   }, [parentWidth]);
 
   return (

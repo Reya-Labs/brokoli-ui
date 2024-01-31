@@ -12,7 +12,7 @@ export const IconBox = styled('div', shouldNotForwardProps(['isActive']))<{
   height: 24px;
   border-radius: 50%;
   background: ${({ theme, isActive }) =>
-    isActive ? theme.colors.black800 : theme.colors.white900};
+    isActive ? theme.colors.black900 : theme.colors.black700};
   transition: background-color 200ms ease-in;
 `;
 
@@ -20,28 +20,25 @@ export const ChainOptionButton = styled('button')`
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 16px;
-  gap: 8px;
+  padding: 8px 10px;
+  gap: 4px;
 
   ${({ theme }) =>
     css(getResponsiveTypographyStyleFromToken({ theme, token: 'bodySmallRegular' }))};
 
   color: ${({ theme }) => theme.colors.white100};
   text-decoration: none;
-  background-color: ${({ theme }) => theme.colors.black800};
+  background-color: ${({ theme }) => theme.colors.black900};
   border-radius: 2px;
   width: 100%;
   box-sizing: border-box;
-  transition:
-    background-color,
-    text-shadow 200ms ease-in;
+  transition: background-color 200ms ease-in;
   border: 0;
   cursor: pointer;
 
   &:hover {
     text-decoration: none;
-    text-shadow: 0px 0px 20px ${({ theme }) => addAlpha(theme.colors.white100, 0.7)};
-    background-color: ${({ theme }) => theme.colors.white900};
+    background-color: ${({ theme }) => theme.colors.black700};
   }
 
   &:hover div {

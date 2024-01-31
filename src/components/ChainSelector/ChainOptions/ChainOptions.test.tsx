@@ -26,21 +26,21 @@ describe('<ChainOptions />', () => {
   });
 
   it('renders chain options correctly', () => {
-    render(<ChainOptions chainOptions={chainOptions} onClick={onClickMock} />);
+    render(<ChainOptions chainOptions={chainOptions} parentWidth={100} onClick={onClickMock} />);
     const chainOptionsButtonGroup = screen.getByTestId('ChainOptions-ChainOptionsButtonGroup');
     expect(chainOptionsButtonGroup).toBeInTheDocument();
     expect(chainOptionsButtonGroup.children.length).toBe(chainOptions.length);
   });
 
   it('calls the onClick callback when a chain option is clicked', () => {
-    render(<ChainOptions chainOptions={chainOptions} onClick={onClickMock} />);
+    render(<ChainOptions chainOptions={chainOptions} parentWidth={100} onClick={onClickMock} />);
     const chainOptionButton = screen.getAllByTestId(/(ChainOptionButton|ActiveChainOptionButton)/);
     fireEvent.click(chainOptionButton[0]);
     expect(onClickMock).toHaveBeenCalledWith(chainOptions[0].id);
   });
 
   it('call the onClick callback when an active chain option is clicked', () => {
-    render(<ChainOptions chainOptions={chainOptions} onClick={onClickMock} />);
+    render(<ChainOptions chainOptions={chainOptions} parentWidth={100} onClick={onClickMock} />);
     const chainOptionButton = screen.getAllByTestId(/(ChainOptionButton|ActiveChainOptionButton)/);
     fireEvent.click(chainOptionButton[1]);
     expect(onClickMock).toHaveBeenCalled();

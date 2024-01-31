@@ -18,7 +18,6 @@ describe('<ChainSelector />', () => {
 
   const renderChainSelector = (props?: Partial<ChainSelectorProps>) => {
     const defaultProps: ChainSelectorProps = {
-      approving: false,
       chainOptions,
       onChainChange: onChainChangeMock,
       selectedChainId: 1,

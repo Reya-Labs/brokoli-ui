@@ -3,7 +3,7 @@ import React, { useCallback, useMemo, useState } from 'react';
 import { Popover } from '../Popover';
 import { ToggleCaret } from '../ToggleCaret';
 import { ChainOptions } from './ChainOptions/ChainOptions';
-import { ChainSelectorButton, IconBox, SelectorBox } from './ChainSelector.styled';
+import { Box, ChainSelectorButton, IconBox, SelectorBox } from './ChainSelector.styled';
 
 export type ChainOption = {
   id: number;
@@ -31,11 +31,14 @@ export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
     handleSubmenuClose();
   };
 
-  const parentRef = useCallback((node: HTMLButtonElement) => {
-    if (node !== null) {
-      setWidth(node.getBoundingClientRect().width);
-    }
-  }, []);
+  const parentRef = useCallback(
+    (node: HTMLDivElement) => {
+      if (node !== null && isSubmenuOpened) {
+        setWidth(node.getBoundingClientRect().width);
+      }
+    },
+    [isSubmenuOpened],
+  );
 
   const selectedChain = useMemo(() => {
     return chainOptions.find((o) => o.id === selectedChainId);
@@ -61,24 +64,25 @@ export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
       isOpen={isSubmenuOpened}
       onClickOutside={handleSubmenuClose}
     >
-      <SelectorBox data-testid="ChainSelector-SelectorBox">
-        {selectedChain ? (
-          <IconBox data-testid="ChainSelector-IconBox">
-            <selectedChain.Icon data-testid={`ChainSelector-${selectedChain.name}`} />
-          </IconBox>
-        ) : null}
-        <ChainSelectorButton
-          ref={parentRef}
-          data-testid={isSubmenuOpened ? 'OpenChainSelectorButton' : 'ChainSelectorButton'}
-          isPopoverOpen={isSubmenuOpened}
-          onClick={handleSubmenuOpen}
-        >
-          <React.Fragment>
-            {!selectedChain ? 'Pick a network' : selectedChain.name}
-            <ToggleCaret isOpen={isSubmenuOpened} />
-          </React.Fragment>
-        </ChainSelectorButton>
-      </SelectorBox>
+      <Box>
+        <SelectorBox ref={parentRef} data-testid="ChainSelector-SelectorBox">
+          {selectedChain ? (
+            <IconBox data-testid="ChainSelector-IconBox">
+              <selectedChain.Icon data-testid={`ChainSelector-${selectedChain.name}`} />
+            </IconBox>
+          ) : null}
+          <ChainSelectorButton
+            data-testid={isSubmenuOpened ? 'OpenChainSelectorButton' : 'ChainSelectorButton'}
+            isPopoverOpen={isSubmenuOpened}
+            onClick={handleSubmenuOpen}
+          >
+            <React.Fragment>
+              {!selectedChain ? 'Pick a network' : selectedChain.name}
+              <ToggleCaret isOpen={isSubmenuOpened} />
+            </React.Fragment>
+          </ChainSelectorButton>
+        </SelectorBox>
+      </Box>
     </Popover>
   );
 };

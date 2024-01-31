@@ -3,10 +3,9 @@ import styled from '@emotion/styled';
 
 import { getResponsiveTypographyStyleFromToken } from '../../foundation/Typography';
 import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
-import { ReactComponent as Warning } from './icons/warning.svg';
 
 export const SelectorBox = styled('div')`
-  display: inline-flex;
+  display: flex;
   flex-direction: row;
   gap: 4px;
   align-items: center;
@@ -17,11 +16,11 @@ export const SelectorBox = styled('div')`
   cursor: pointer;
   position: relative;
   border-radius: 4px;
+  width: 100%;
 `;
 
-export const WarningIcon = styled(Warning)`
-  width: 24px;
-  height: 24px;
+export const Box = styled('div')`
+  position: relative;
 `;
 
 export const ChainSelectorButton = styled('button', shouldNotForwardProps(['isPopoverOpen']))<{
@@ -53,5 +52,5 @@ export const IconBox = styled('div')`
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: ${({ theme }) => theme.colors.white900};
+  background: ${({ theme }) => theme.colors.black900};
 `;
