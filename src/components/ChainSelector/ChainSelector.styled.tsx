@@ -36,10 +36,10 @@ export const ChainSelectorButton = styled('button', shouldNotForwardProps(['isPo
   text-transform: none;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   column-gap: 14px;
   align-items: center;
   cursor: pointer;
-
   transition: color 200ms ease-in;
   background: transparent;
   border: 0;
