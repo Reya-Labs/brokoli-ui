@@ -15,12 +15,14 @@ export type ChainSelectorProps = {
   onChainChange: (optionId: ChainOption['id']) => void;
   selectedChainId?: ChainOption['id'];
   chainOptions: ChainOption[];
+  approving?: boolean;
 };
 
 export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
   chainOptions,
   selectedChainId,
   onChainChange,
+  approving,
 }) => {
   const [width, setWidth] = useState(0);
   const [isSubmenuOpened, setIsSubmenuOpened] = useState(false);
@@ -77,7 +79,11 @@ export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
             onClick={handleSubmenuOpen}
           >
             <React.Fragment>
-              {!selectedChain ? 'Pick a network' : selectedChain.name}
+              {approving
+                ? 'Approve in wallet...'
+                : !selectedChain
+                ? 'Pick a network'
+                : selectedChain.name}
               <ToggleCaret isOpen={isSubmenuOpened} />
             </React.Fragment>
           </ChainSelectorButton>

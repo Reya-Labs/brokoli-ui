@@ -46,3 +46,13 @@ export const Default: StoryObj<typeof ChainSelector> = {
 
   render: Template,
 };
+
+export const Approving: StoryObj<typeof ChainSelector> = {
+  args: {
+    approving: true,
+    chainOptions,
+    selectedChainId: 1,
+  },
+
+  render: Template,
+};
