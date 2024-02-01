@@ -19,7 +19,7 @@ export const NotificationBox = styled('div', shouldNotForwardProps(['colorToken'
 
   border: 1px solid
     ${({ theme, colorToken }) => `${getColorFromToken({ colorToken: `${colorToken}100`, theme })}`};
-  border-radius: 4px;
+  border-radius: 8px;
 `;
 
 export const TitleBox = styled('div')`

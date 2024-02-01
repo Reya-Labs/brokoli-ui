@@ -70,5 +70,7 @@ export const Notifications = styled(ToastContainer)`
   .Toastify__toast {
     padding: 0;
     min-height: auto;
+    border-radius: 8px;
+    background: transparent;
   }
 `;
