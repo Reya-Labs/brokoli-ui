@@ -37,6 +37,8 @@ export const ChainSelectorButton = styled('button', shouldNotForwardProps(['isPo
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
   column-gap: 14px;
   align-items: center;
   cursor: pointer;
