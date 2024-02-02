@@ -97,7 +97,6 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
     onChange && onChange(newValue);
   };
 
-  const handleOnMaxButtonClick = () => max && onChange && onChange(max.value.toString());
   const bottomRightTextTokenComputed = bottomRightTextToken ? bottomRightTextToken : token;
   return (
     <TokenFieldBox data-testid="TokenField-TokenFieldBox">
@@ -157,7 +156,7 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
               rounded={true}
               typographyColorToken="white950"
               typographyToken="bodyXSmallRegular"
-              onClick={handleOnMaxButtonClick}
+              onClick={max?.onClick}
             >
               Max
             </MaxButton>
