@@ -97,7 +97,7 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
     onChange && onChange(newValue);
   };
 
-  const handleOnMaxButtonClick = () => max && onChange && onChange(max.toString());
+  const handleOnMaxButtonClick = () => max && onChange && onChange(max.value.toString());
   const bottomRightTextTokenComputed = bottomRightTextToken ? bottomRightTextToken : token;
   return (
     <TokenFieldBox data-testid="TokenField-TokenFieldBox">

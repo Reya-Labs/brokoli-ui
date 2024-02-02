@@ -106,7 +106,7 @@ export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = 
     onChange && onChange(newValue);
   };
 
-  const handleOnMaxButtonClick = () => max && onChange && onChange(max.toString());
+  const handleOnMaxButtonClick = () => max && onChange && onChange(max.value.toString());
   const hasMaxButton = Boolean(max && max.showButton);
 
   return (
