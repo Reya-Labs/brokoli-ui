@@ -11,7 +11,21 @@ export default {
 
 const Template: StoryFn<typeof TokenField> = (args) => {
   const [value, setValue] = useState<string | undefined>(args.value);
-  return <TokenField {...args} value={value} onChange={setValue} />;
+  return (
+    <TokenField
+      {...args}
+      max={
+        args.max
+          ? {
+              ...args.max,
+              onClick: () => setValue(args.max?.value.toString()),
+            }
+          : undefined
+      }
+      value={value}
+      onChange={setValue}
+    />
+  );
 };
 
 export const Default: StoryObj<typeof TokenField> = {
@@ -33,6 +47,7 @@ export const WithMax: StoryObj<typeof TokenField> = {
     bottomRightTextValue: '123456',
     label: 'Label',
     max: {
+      onClick: () => {},
       showButton: true,
       value: '123456',
     },
@@ -52,6 +67,7 @@ export const WithDifferentBottomRightTextToken: StoryObj<typeof TokenField> = {
     bottomRightTextValue: '123456',
     label: 'Label',
     max: {
+      onClick: () => {},
       showButton: true,
       value: '123456',
     },

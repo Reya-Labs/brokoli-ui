@@ -16,6 +16,14 @@ const Template: StoryFn<typeof TokenSwitchField> = (args) => {
   return (
     <TokenSwitchField
       {...args}
+      max={
+        args.max
+          ? {
+              ...args.max,
+              onClick: () => setValue(args.max?.value.toString()),
+            }
+          : undefined
+      }
       switchValue={switchValue}
       value={value}
       onChange={setValue}
@@ -48,6 +56,7 @@ export const WithMax: StoryObj<typeof TokenSwitchField> = {
     bottomRightTextValue: '123456',
     label: 'Label',
     max: {
+      onClick: () => {},
       showButton: true,
       value: '123456',
     },
