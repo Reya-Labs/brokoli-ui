@@ -13,7 +13,7 @@ export type IconProps = {
   'data-testid'?: string;
 };
 
-export type SupportedTokenIcons = 'btc' | 'dai' | 'eth' | 'reya' | 'usdc' | 'usdt';
+export type SupportedTokenIcons = 'btc' | 'dai' | 'eth' | 'rusd' | 'usdc' | 'usdt';
 
 const TokenIconMap: Record<
   SupportedTokenIcons,
@@ -22,7 +22,7 @@ const TokenIconMap: Record<
   btc: BTCIcon,
   dai: DaiIcon,
   eth: EthIcon,
-  reya: ReyaIcon,
+  rusd: ReyaIcon,
   usdc: USDCIcon,
   usdt: USDTIcon,
 };
