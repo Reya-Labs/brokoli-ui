@@ -33,7 +33,7 @@ export type LineChartProps = {
   tooltip: TooltipConfig;
   colorToken: ColorTokens;
   axisTypographyToken: TypographyTokens;
-  axisBottomFormat: 'days' | 'hours';
+  axisBottomFormat: 'minutes' | 'days' | 'hours';
 };
 const GRADIENT_ID = 'gradient';
 export const LineChart: React.FunctionComponent<LineChartProps> = ({
@@ -99,7 +99,12 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
         animate={true}
         areaBaselineValue={yScale.min}
         axisBottom={{
-          format: axisBottomFormat === 'hours' ? '%H:%M' : '%d %b',
+          format:
+            axisBottomFormat === 'minutes'
+              ? '%M:%S'
+              : axisBottomFormat === 'hours'
+              ? '%H:%M'
+              : '%d %b',
           legendOffset: 16,
           tickPadding: 4,
           tickRotation: 0,
