@@ -1,4 +1,6 @@
-import { Meta, StoryObj } from '@storybook/react';
+import styled from '@emotion/styled';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
+import React from 'react';
 
 import { LineChart } from '.';
 
@@ -66,6 +68,14 @@ const points1 = [
     y: 1.85,
   },
 ];
+const Box = styled('div')`
+  height: 445px;
+`;
+const Template: StoryFn<typeof LineChart> = (args) => (
+  <Box>
+    <LineChart {...args} />
+  </Box>
+);
 
 export const Default: StoryObj<typeof LineChart> = {
   args: {
@@ -82,6 +92,7 @@ export const Default: StoryObj<typeof LineChart> = {
       tokenColorToken: 'secondary500',
     },
   },
+  render: Template,
 };
 
 export const WithYMarker: StoryObj<typeof LineChart> = {
@@ -105,4 +116,5 @@ export const WithYMarker: StoryObj<typeof LineChart> = {
       value: 1.82,
     },
   },
+  render: Template,
 };
