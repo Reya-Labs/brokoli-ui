@@ -77,6 +77,10 @@ export const Default: StoryObj<typeof LineChart> = {
         id: 'points1',
       },
     ],
+    tooltip: {
+      token: '%',
+      tokenColorToken: 'secondary500',
+    },
   },
 };
 
@@ -90,6 +94,10 @@ export const WithYMarker: StoryObj<typeof LineChart> = {
         id: 'points1',
       },
     ],
+    tooltip: {
+      token: '%',
+      tokenColorToken: 'secondary500',
+    },
     yMarker: {
       colorToken: 'primary400',
       text: 'Fixed Rate:',

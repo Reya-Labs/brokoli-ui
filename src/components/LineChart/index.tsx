@@ -16,6 +16,11 @@ type YMarkerConfig = {
   colorToken: ColorTokens;
   typographyToken: TypographyTokens;
 };
+type TooltipConfig = {
+  token: string;
+  tokenColorToken: ColorTokens;
+};
+
 export type LineChartProps = {
   data: {
     id: string;
@@ -25,6 +30,7 @@ export type LineChartProps = {
     }[];
   }[];
   yMarker?: YMarkerConfig;
+  tooltip: TooltipConfig;
   colorToken: ColorTokens;
   axisTypographyToken: TypographyTokens;
   axisBottomFormat: 'days' | 'hours';
@@ -36,6 +42,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
   axisBottomFormat,
   colorToken = 'secondary100',
   axisTypographyToken = 'bodyXSmallRegular',
+  tooltip,
 }) => {
   const theme = useTheme();
   const {
@@ -44,6 +51,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
     colorToken: yMarkerColorToken = 'primary100',
     value: yMarkerValue,
   } = yMarker || {};
+  const { tokenColorToken: tooltipTokenColorToken, token: tooltipToken } = tooltip || {};
 
   const yMarkerTypographyConfig = getTypographyFromToken({
     theme,
@@ -176,11 +184,20 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
               strokeWidth: 1,
             },
           },
-          fontFamily: axisTypography.fontFamily as Property.FontFamily,
-          fontSize: parseInt(axisTypography.fontSize, 10),
-          textColor: theme.colors.white400,
+          text: {
+            color: theme.colors.white400,
+            fontFamily: axisTypography.fontFamily as Property.FontFamily,
+            fontSize: parseInt(axisTypography.fontSize, 10),
+          },
         }}
-        tooltip={(point) => <Tooltip colorToken={colorToken} {...point} />}
+        tooltip={(point) => (
+          <Tooltip
+            colorToken={colorToken}
+            tokenColorToken={tooltipTokenColorToken}
+            yToken={tooltipToken}
+            {...point}
+          />
+        )}
         useMesh={true}
         xFormat="time:%H:%M - %b %d"
         xScale={{
