@@ -24,7 +24,7 @@ export type LineChartProps = {
       y: number;
     }[];
   }[];
-  yMarker: YMarkerConfig;
+  yMarker?: YMarkerConfig;
   colorToken: ColorTokens;
   axisTypographyToken: TypographyTokens;
   axisBottomFormat: 'days' | 'hours';
@@ -138,7 +138,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
                     fontSize: parseInt(yMarkerTypography.fontSize, 10),
                     fontWeight: parseInt(yMarkerTypography.fontWeight),
                   },
-                  value: yMarkerValue,
+                  value: yMarkerValue!,
                 },
               ]
             : []
