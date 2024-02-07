@@ -22,6 +22,7 @@ export type LabelTokenTypographyProps = {
   differenceValue?: number;
   differenceToken?: string;
   attentionIndicatorColorToken?: ColorTokens;
+  labelAttentionIndicatorColorToken?: ColorTokens;
 
   prefixColorToken?: ColorTokens;
   differenceColorToken?: ColorTokens;
@@ -43,12 +44,14 @@ export const LabelTokenTypography: React.FunctionComponent<LabelTokenTypographyP
   differenceToken,
   prefixToken,
   attentionIndicatorColorToken,
+  labelAttentionIndicatorColorToken,
   prefixColorToken,
   tokenColorToken,
   differenceColorToken,
 }) => (
   <LabelTokenTypographyBox data-testid="LabelTokenTypography-LabelTokenTypographyBox">
     <TooltipLabel
+      attentionIndicatorColorToken={labelAttentionIndicatorColorToken}
       data-testid="LabelTokenTypography-TooltipLabel"
       label={label}
       labelColorToken={labelColorToken}

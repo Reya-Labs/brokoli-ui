@@ -4,6 +4,7 @@ import { ColorTokens } from '../../foundation/Colors';
 import { TypographyTokens } from '../../foundation/Typography';
 import { Typography } from '../Typography';
 import { TypographyWithTooltip, TypographyWithTooltipProps } from '../TypographyWithTooltip';
+import { AttentionIndicatorStyled } from './TooltipLabel.styled';
 
 type TooltipLabelProps = {
   tooltip?: TypographyWithTooltipProps['tooltip'];
@@ -12,6 +13,7 @@ type TooltipLabelProps = {
   tooltipColorToken?: ColorTokens;
   labelTypographyToken?: TypographyTokens;
   'data-testid'?: string;
+  attentionIndicatorColorToken?: ColorTokens;
 };
 export const TooltipLabel: React.FC<TooltipLabelProps> = ({
   tooltip,
@@ -20,6 +22,7 @@ export const TooltipLabel: React.FC<TooltipLabelProps> = ({
   tooltipColorToken,
   labelTypographyToken,
   'data-testid': dataTestId,
+  attentionIndicatorColorToken,
 }) => {
   if (tooltip && label && labelColorToken && labelTypographyToken) {
     return (
@@ -30,6 +33,12 @@ export const TooltipLabel: React.FC<TooltipLabelProps> = ({
         tooltipColorToken={tooltipColorToken}
         typographyToken={labelTypographyToken}
       >
+        {attentionIndicatorColorToken ? (
+          <AttentionIndicatorStyled
+            className="attentionIndicator"
+            colorToken={attentionIndicatorColorToken}
+          />
+        ) : null}
         {label}
       </TypographyWithTooltip>
     );
@@ -42,6 +51,12 @@ export const TooltipLabel: React.FC<TooltipLabelProps> = ({
         data-testid={dataTestId || 'TooltipLabel-Typography'}
         typographyToken={labelTypographyToken}
       >
+        {attentionIndicatorColorToken ? (
+          <AttentionIndicatorStyled
+            className="attentionIndicator"
+            colorToken={attentionIndicatorColorToken}
+          />
+        ) : null}
         {label}
       </Typography>
     );

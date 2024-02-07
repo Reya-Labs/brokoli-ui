@@ -59,6 +59,7 @@ export type MarginAmountTokenFieldProps = {
   marginAmountOptions: MarginAmountListProps['items'];
   bottomRightTextDifferenceColorToken?: ColorTokens;
   bottomRightTextTokenColorToken?: ColorTokens;
+  labelAttentionIndicatorColorToken?: ColorTokens;
 };
 
 export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFieldProps> = ({
@@ -93,6 +94,7 @@ export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFi
   min,
   max,
   marginAmountOptions,
+  labelAttentionIndicatorColorToken,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const closePopover = () => setIsOpen(false);
@@ -145,6 +147,7 @@ export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFi
     <MarginAmountTokenFieldBox data-testid="MarginAmountTokenField-MarginAmountTokenFieldBox">
       <TopBox data-testid="MarginAmountTokenField-TopBox">
         <TooltipLabel
+          attentionIndicatorColorToken={labelAttentionIndicatorColorToken}
           data-testid="MarginAmountTokenField-TopBox-TooltipLabel"
           label={label}
           labelColorToken={labelColorToken}

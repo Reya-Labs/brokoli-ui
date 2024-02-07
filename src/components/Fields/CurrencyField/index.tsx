@@ -31,6 +31,7 @@ type CurrencyFieldProps = {
   tooltipColorToken?: ColorTokens;
   typographyToken?: TypographyTokens;
   placeholder?: string;
+  labelAttentionIndicatorColorToken?: ColorTokens;
 };
 
 export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
@@ -54,6 +55,7 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
   placeholder,
   'data-testid': dataTestId,
   typographyToken = 'bodySmallRegular',
+  labelAttentionIndicatorColorToken,
 }) => {
   const handleOnChange = (newValue: string | undefined) => {
     if (newValue === value) {
@@ -65,6 +67,7 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
   return (
     <CurrencyFieldBox data-testid="CurrencyField-CurrencyFieldBox">
       <TooltipLabel
+        attentionIndicatorColorToken={labelAttentionIndicatorColorToken}
         label={label}
         labelColorToken={labelColorToken}
         labelTypographyToken={labelTypographyToken}

@@ -32,6 +32,7 @@ export type SearchFieldProps = {
   selectedItemId?: SearchItem['id'];
   onItemSelected?: (id: SearchItem['id']) => void;
   className?: string;
+  labelAttentionIndicatorColorToken?: ColorTokens;
 };
 
 export const SearchField: React.FunctionComponent<SearchFieldProps> = ({
@@ -50,6 +51,7 @@ export const SearchField: React.FunctionComponent<SearchFieldProps> = ({
   selectedItemId,
   onItemSelected,
   className,
+  labelAttentionIndicatorColorToken,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [value, setValue] = useState<string | undefined>('');
@@ -119,6 +121,7 @@ export const SearchField: React.FunctionComponent<SearchFieldProps> = ({
     >
       <SearchFieldBox data-testid="SearchField-SearchFieldBox">
         <TooltipLabel
+          attentionIndicatorColorToken={labelAttentionIndicatorColorToken}
           data-testid={`SearchField-SearchFieldBox-${labelTypographyToken}-${labelColorToken}`}
           label={label}
           labelColorToken={labelColorToken}

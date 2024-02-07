@@ -30,6 +30,7 @@ export type PillSelectorProps = {
   labelTypographyToken?: TypographyTokens;
   tooltip?: ExclaimTooltipProps['children'];
   tooltipColorToken?: ColorTokens;
+  labelAttentionIndicatorColorToken?: ColorTokens;
 };
 
 export const PillSelector = ({
@@ -45,10 +46,12 @@ export const PillSelector = ({
   labelColorToken = 'white400',
   tooltip = '',
   tooltipColorToken = 'white400',
+  labelAttentionIndicatorColorToken,
 }: PillSelectorProps) => {
   return (
     <PillWrapperBox>
       <TooltipLabel
+        attentionIndicatorColorToken={labelAttentionIndicatorColorToken}
         data-testid="LabelTokenTypography-TooltipLabel"
         label={label}
         labelColorToken={labelColorToken}

@@ -53,6 +53,7 @@ export type TokenFieldProps = {
   bottomRightTextDifferenceColorToken?: ColorTokens;
   bottomRightTextTokenColorToken?: ColorTokens;
   className?: string;
+  labelAttentionIndicatorColorToken?: ColorTokens;
 };
 
 export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
@@ -88,6 +89,7 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
   onBlur,
   min,
   max,
+  labelAttentionIndicatorColorToken,
 }) => {
   const hasMaxButton = Boolean(max && max.showButton);
   const handleOnChange = (newValue: string | undefined) => {
@@ -102,6 +104,7 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
     <TokenFieldBox data-testid="TokenField-TokenFieldBox">
       <TopBox data-testid="TokenField-TopBox">
         <TooltipLabel
+          attentionIndicatorColorToken={labelAttentionIndicatorColorToken}
           data-testid="TokenField-TopBox-TooltipLabel"
           label={label}
           labelColorToken={labelColorToken}

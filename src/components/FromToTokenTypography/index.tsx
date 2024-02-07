@@ -29,6 +29,7 @@ export type FromToTokenTypographyProps = {
   fromTokenColorToken?: ColorTokens;
   toPrefixColorToken?: ColorTokens;
   toTokenColorToken?: ColorTokens;
+  labelAttentionIndicatorColorToken?: ColorTokens;
 };
 
 export const FromToTokenTypography: React.FunctionComponent<FromToTokenTypographyProps> = ({
@@ -52,9 +53,11 @@ export const FromToTokenTypography: React.FunctionComponent<FromToTokenTypograph
   tooltip,
   tooltipColorToken,
   tokenColorToken = 'white100',
+  labelAttentionIndicatorColorToken,
 }) => (
   <FromToTokenTypographyBox data-testid="FromToTokenTypography-FromToTokenTypographyBox">
     <TooltipLabel
+      attentionIndicatorColorToken={labelAttentionIndicatorColorToken}
       data-testid="FromToTokenTypography-TooltipLabel"
       label={label}
       labelColorToken={labelColorToken}

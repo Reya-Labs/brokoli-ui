@@ -59,6 +59,7 @@ export type TokenSwitchFieldProps = {
   placeholder?: string;
   bottomRightTextDifferenceColorToken?: ColorTokens;
   bottomRightTextTokenColorToken?: ColorTokens;
+  labelAttentionIndicatorColorToken?: ColorTokens;
 };
 
 export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = ({
@@ -98,6 +99,7 @@ export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = 
   max,
   typographyToken = 'bodyMediumBold',
   placeholder,
+  labelAttentionIndicatorColorToken,
 }) => {
   const handleOnChange = (newValue: string | undefined) => {
     if (newValue === value) {
@@ -112,6 +114,7 @@ export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = 
     <TokenFieldBox>
       <TopBox>
         <TooltipLabel
+          attentionIndicatorColorToken={labelAttentionIndicatorColorToken}
           label={label}
           labelColorToken={labelColorToken}
           labelTypographyToken={labelTypographyToken}

@@ -20,6 +20,7 @@ export type TextFieldProps = {
   typographyToken: TypographyTokens;
   placeHolder?: string;
   name?: string;
+  labelAttentionIndicatorColorToken?: ColorTokens;
 };
 
 export const TextField: React.FunctionComponent<TextFieldProps> = ({
@@ -36,6 +37,7 @@ export const TextField: React.FunctionComponent<TextFieldProps> = ({
   placeHolder,
   typographyToken = 'bodyMediumRegular',
   name,
+  labelAttentionIndicatorColorToken,
 }) => {
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onChange && onChange(event.target.value);
@@ -43,6 +45,7 @@ export const TextField: React.FunctionComponent<TextFieldProps> = ({
   return (
     <TextFieldBox data-testid="TextField-TextFieldBox">
       <TooltipLabel
+        attentionIndicatorColorToken={labelAttentionIndicatorColorToken}
         data-testid={`TextField-TextFieldBox-${labelTypographyToken}-${labelColorToken}`}
         label={label}
         labelColorToken={labelColorToken}

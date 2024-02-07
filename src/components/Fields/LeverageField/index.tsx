@@ -28,6 +28,7 @@ export type LeverageFieldProps = {
   maxLeverageColorToken: ColorTokens;
   maxLeverageText: string;
   maxLeverageTypographyToken: TypographyTokens;
+  labelAttentionIndicatorColorToken?: ColorTokens;
 };
 
 export const LeverageField: React.FunctionComponent<LeverageFieldProps> = ({
@@ -44,6 +45,7 @@ export const LeverageField: React.FunctionComponent<LeverageFieldProps> = ({
   maxLeverageColorToken,
   maxLeverageText,
   maxLeverageTypographyToken,
+  labelAttentionIndicatorColorToken,
 }) => {
   const handleOnChange = (changedValue: string = '', changeType: 'button' | 'input') => {
     onLeverageChange && onLeverageChange(changedValue, changeType);
@@ -52,6 +54,7 @@ export const LeverageField: React.FunctionComponent<LeverageFieldProps> = ({
   return (
     <LeverageFieldBox data-testid="LeverageField-LeverageFieldBox">
       <TooltipLabel
+        attentionIndicatorColorToken={labelAttentionIndicatorColorToken}
         label={label}
         labelColorToken={labelColorToken}
         labelTypographyToken={labelTypographyToken}
