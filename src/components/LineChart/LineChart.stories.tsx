@@ -68,6 +68,12 @@ const points1 = [
     y: 1.85,
   },
 ];
+
+const points2 = points1.map((p) => ({
+  ...p,
+  y: p.y + Math.random() / 10 + 0.2,
+}));
+
 const Box = styled('div')`
   height: 445px;
 `;
@@ -80,17 +86,18 @@ const Template: StoryFn<typeof LineChart> = (args) => (
 export const Default: StoryObj<typeof LineChart> = {
   args: {
     axisTypographyToken: 'bodyXSmallRegular',
-    colorToken: 'secondary100',
+
     data: [
       {
+        colorToken: 'secondary500',
         data: points1,
         id: 'points1',
+        tooltip: {
+          token: '%',
+          tokenColorToken: 'secondary700',
+        },
       },
     ],
-    tooltip: {
-      token: '%',
-      tokenColorToken: 'secondary500',
-    },
   },
   render: Template,
 };
@@ -98,17 +105,69 @@ export const Default: StoryObj<typeof LineChart> = {
 export const WithYMarker: StoryObj<typeof LineChart> = {
   args: {
     axisTypographyToken: 'bodyXSmallRegular',
-    colorToken: 'secondary100',
     data: [
       {
+        colorToken: 'secondary500',
         data: points1,
         id: 'points1',
+        tooltip: {
+          token: '%',
+          tokenColorToken: 'secondary700',
+        },
       },
     ],
-    tooltip: {
-      token: '%',
-      tokenColorToken: 'secondary500',
+    yMarker: {
+      colorToken: 'primary400',
+      text: 'Fixed Rate:',
+      typographyToken: 'bodyXSmallRegular',
+      value: 1.82,
     },
+  },
+  render: Template,
+};
+
+export const WithCrossHairColor: StoryObj<typeof LineChart> = {
+  args: {
+    axisTypographyToken: 'bodyXSmallRegular',
+    crosshairColorToken: 'warning500',
+    data: [
+      {
+        colorToken: 'secondary500',
+        data: points1,
+        id: 'points1',
+        tooltip: {
+          token: '%',
+          tokenColorToken: 'secondary700',
+        },
+      },
+    ],
+  },
+  render: Template,
+};
+
+export const WithMultipleLines: StoryObj<typeof LineChart> = {
+  args: {
+    axisTypographyToken: 'bodyXSmallRegular',
+    data: [
+      {
+        colorToken: 'secondary500',
+        data: points1,
+        id: 'points1',
+        tooltip: {
+          token: '%',
+          tokenColorToken: 'secondary700',
+        },
+      },
+      {
+        colorToken: 'primary500',
+        data: points2,
+        id: 'points2',
+        tooltip: {
+          token: '%',
+          tokenColorToken: 'primary700',
+        },
+      },
+    ],
     yMarker: {
       colorToken: 'primary400',
       text: 'Fixed Rate:',

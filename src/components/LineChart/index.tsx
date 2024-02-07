@@ -1,6 +1,6 @@
 import { useTheme } from '@emotion/react';
 import { linearGradientDef } from '@nivo/core';
-import { ResponsiveLine } from '@nivo/line';
+import { Datum, ResponsiveLine } from '@nivo/line';
 import { Property } from 'csstype';
 import React, { useMemo } from 'react';
 
@@ -24,25 +24,27 @@ type TooltipConfig = {
 export type LineChartProps = {
   data: {
     id: string;
+    colorToken: ColorTokens;
+    tooltip: TooltipConfig;
     data: {
       x: Date;
       y: number;
     }[];
   }[];
   yMarker?: YMarkerConfig;
-  tooltip: TooltipConfig;
-  colorToken: ColorTokens;
   axisTypographyToken: TypographyTokens;
   axisBottomFormat: 'minutes' | 'days' | 'hours';
+  yScaleStacked?: boolean;
+  crosshairColorToken: ColorTokens;
 };
-const GRADIENT_ID = 'gradient';
+
 export const LineChart: React.FunctionComponent<LineChartProps> = ({
   data,
   yMarker,
   axisBottomFormat,
-  colorToken = 'secondary100',
   axisTypographyToken = 'bodyXSmallRegular',
-  tooltip,
+  yScaleStacked = false,
+  crosshairColorToken = 'primary500',
 }) => {
   const theme = useTheme();
   const {
@@ -51,7 +53,6 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
     colorToken: yMarkerColorToken = 'primary100',
     value: yMarkerValue,
   } = yMarker || {};
-  const { tokenColorToken: tooltipTokenColorToken, token: tooltipToken } = tooltip || {};
 
   const yMarkerTypographyConfig = getTypographyFromToken({
     theme,
@@ -78,7 +79,37 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
     ? axisTypographyConfig.smallDesktopDevice
     : axisTypographyConfig.largeDesktopDevice;
 
-  const color = useMemo(() => getColorFromToken({ colorToken, theme }), [theme, colorToken]);
+  const { tooltips, colorTokensMap, colors, gradients } = useMemo(() => {
+    const memoColors = data.map((d) => getColorFromToken({ colorToken: d.colorToken, theme }));
+    const memoGradients = data.map((d, index) => {
+      return linearGradientDef(d.id, [
+        { color: memoColors[index], offset: 0, opacity: 1 },
+        { color: theme.colors.black300, offset: 100, opacity: 1 },
+      ]);
+    });
+    return {
+      colorTokensMap: data.reduce(
+        (pV, cI, index) => ({
+          ...pV,
+          [data[index].id]: data[index].colorToken,
+        }),
+        {} as Record<string, ColorTokens>,
+      ),
+      colors: memoColors,
+      gradients: {
+        defs: memoGradients,
+        fill: memoGradients.map((g) => ({ id: g.id, match: (point: Datum) => point.id === g.id })),
+        ids: memoGradients.map((g) => g.id),
+      },
+      tooltips: data.reduce(
+        (pV, cI, index) => ({
+          ...pV,
+          [data[index].id]: data[index].tooltip,
+        }),
+        {} as Record<string, TooltipConfig>,
+      ),
+    };
+  }, [theme, data]);
   const yScale = useMemo(() => {
     const yS = data.reduce((pV, cI) => {
       const validData: number[] = cI.data
@@ -87,11 +118,11 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
       return [...pV, ...validData];
     }, [] as number[]);
 
-    data[0].data.map((d) => d.y);
     const min = Math.min(...yS);
     const max = Math.max(...yS);
     return { max, min };
   }, [data]);
+  const crossHairColor = getColorFromToken({ colorToken: crosshairColorToken, theme });
 
   return (
     <LineChartBox>
@@ -118,20 +149,15 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
         }}
         axisRight={null}
         axisTop={null}
-        colors={[color]}
+        colors={colors}
         crosshairType="cross"
         curve="linear"
         data={data}
-        defs={[
-          linearGradientDef(GRADIENT_ID, [
-            { color: color, offset: 0, opacity: 1 },
-            { color: theme.colors.black900, offset: 100, opacity: 1 },
-          ]),
-        ]}
+        defs={gradients.defs}
         enableArea={true}
         enableGridX={false}
         enableGridY={false}
-        fill={[{ id: GRADIENT_ID, match: '*' }]}
+        fill={gradients.fill}
         margin={{ bottom: 20, left: 40, right: 0, top: 40 }}
         markers={
           yMarker
@@ -158,7 +184,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
         }
         pointBorderColor={{ from: 'serieColor' }}
         pointBorderWidth={3}
-        pointColor={color}
+        pointColor={colors}
         pointLabelYOffset={-1}
         pointSize={3}
         theme={{
@@ -185,7 +211,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
           background: 'transparent',
           crosshair: {
             line: {
-              stroke: color,
+              stroke: crossHairColor,
               strokeWidth: 1,
             },
           },
@@ -195,14 +221,18 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
             fontSize: parseInt(axisTypography.fontSize, 10),
           },
         }}
-        tooltip={(point) => (
-          <Tooltip
-            colorToken={colorToken}
-            tokenColorToken={tooltipTokenColorToken}
-            yToken={tooltipToken}
-            {...point}
-          />
-        )}
+        tooltip={(point) => {
+          const tooltip = tooltips[point.point.serieId] || {};
+          const { tokenColorToken: tooltipTokenColorToken, token: tooltipToken } = tooltip;
+          return (
+            <Tooltip
+              colorToken={colorTokensMap[point.point.serieId]}
+              tokenColorToken={tooltipTokenColorToken}
+              yToken={tooltipToken}
+              {...point}
+            />
+          );
+        }}
         useMesh={true}
         xFormat="time:%H:%M - %b %d"
         xScale={{
@@ -216,7 +246,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
           max: 'auto',
           min: 'auto',
           reverse: false,
-          stacked: true,
+          stacked: yScaleStacked,
           type: 'linear',
         }}
       />

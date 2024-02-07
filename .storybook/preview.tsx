@@ -44,7 +44,7 @@ export const decorators = [
       voltz: 'voltz',
       reya: 'reya',
     } as any,
-    defaultTheme: 'voltz',
+    defaultTheme: 'reya',
     Provider: ThemeProvider,
   }),
 ];
