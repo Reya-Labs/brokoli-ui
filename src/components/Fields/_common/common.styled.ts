@@ -26,7 +26,7 @@ export const commonInputStyle = ({ theme, error, typographyToken }: CommonInputS
   outline: none;
   transition: all 200ms ease-in;
 
-  border-radius: 4px;
+  border-radius: 8px;
   background: ${theme.colors.black900};
   border: ${error ? `1px solid ${theme.colors.error800}` : `1px solid ${theme.colors.black700}`};
   color: ${error ? theme.colors.error400 : theme.colors.white100};
