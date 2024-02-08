@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { BaseColorTokens, getColorFromToken } from '../../foundation/Colors';
+import { ColorTokens, getColorFromToken } from '../../foundation/Colors';
 import {
   getResponsiveTypographyStyleFromToken,
   TypographyTokens,
@@ -10,9 +10,11 @@ import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 
 export const ExternalLinkStyled = styled(
   'a',
-  shouldNotForwardProps(['colorToken', 'typographyToken']),
+  shouldNotForwardProps(['colorToken', 'hoverColorToken', 'activeColorToken', 'typographyToken']),
 )<{
-  colorToken: BaseColorTokens;
+  colorToken: ColorTokens;
+  activeColorToken: ColorTokens;
+  hoverColorToken: ColorTokens;
   typographyToken: TypographyTokens;
 }>`
   display: inline-flex;
@@ -22,7 +24,7 @@ export const ExternalLinkStyled = styled(
 
   margin: 0;
   padding: 0;
-  color: ${({ theme, colorToken }) => getColorFromToken({ colorToken: `${colorToken}400`, theme })};
+  color: ${({ theme, colorToken }) => getColorFromToken({ colorToken, theme })};
   ${({ theme, typographyToken }) =>
     css(getResponsiveTypographyStyleFromToken({ theme, token: typographyToken }))};
   text-decoration: none;
@@ -33,37 +35,34 @@ export const ExternalLinkStyled = styled(
   }
   & path,
   & path {
-    stroke: ${({ theme, colorToken }) =>
-      getColorFromToken({ colorToken: `${colorToken}400`, theme })};
+    stroke: ${({ theme, colorToken }) => getColorFromToken({ colorToken, theme })};
   }
 
   &:visited:hover,
   &:hover {
     text-decoration: underline;
-    color: ${({ theme, colorToken }) =>
-      getColorFromToken({ colorToken: `${colorToken}200`, theme })};
+    color: ${({ theme, hoverColorToken }) =>
+      getColorFromToken({ colorToken: hoverColorToken, theme })};
   }
   &:visited:hover path,
   &:hover path {
-    stroke: ${({ theme, colorToken }) =>
-      getColorFromToken({ colorToken: `${colorToken}200`, theme })};
+    stroke: ${({ theme, hoverColorToken }) =>
+      getColorFromToken({ colorToken: hoverColorToken, theme })};
   }
 
   &:active {
-    color: ${({ theme, colorToken }) =>
-      getColorFromToken({ colorToken: `${colorToken}300`, theme })};
+    color: ${({ theme, activeColorToken }) =>
+      getColorFromToken({ colorToken: activeColorToken, theme })};
   }
   &:active path {
-    stroke: ${({ theme, colorToken }) =>
-      getColorFromToken({ colorToken: `${colorToken}300`, theme })};
+    stroke: ${({ theme, activeColorToken }) =>
+      getColorFromToken({ colorToken: activeColorToken, theme })};
   }
 
   &:visited {
-    color: ${({ theme, colorToken }) =>
-      getColorFromToken({ colorToken: `${colorToken}400`, theme })};
+    color: ${({ theme, colorToken }) => getColorFromToken({ colorToken, theme })};
   }
   &:visited path {
-    stroke: ${({ theme, colorToken }) =>
-      getColorFromToken({ colorToken: `${colorToken}400`, theme })};
+    stroke: ${({ theme, colorToken }) => getColorFromToken({ colorToken, theme })};
   }
 `;

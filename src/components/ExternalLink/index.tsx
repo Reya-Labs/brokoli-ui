@@ -1,13 +1,15 @@
 import React from 'react';
 
-import { BaseColorTokens } from '../../foundation/Colors';
+import { ColorTokens } from '../../foundation/Colors';
 import { TypographyTokens } from '../../foundation/Typography';
 import { Typography } from '../Typography';
 import { ExternalLinkStyled } from './ExternalLink.styled';
 import { ReactComponent as LinkArrow } from './link-arrow.svg';
 
-export const ExternalLink: React.FunctionComponent<{
-  colorToken: BaseColorTokens;
+type ExternalLinkProps = {
+  colorToken: ColorTokens;
+  activeColorToken?: ColorTokens;
+  hoverColorToken?: ColorTokens;
   typographyToken: TypographyTokens;
   children: string;
   href: string;
@@ -15,12 +17,25 @@ export const ExternalLink: React.FunctionComponent<{
   id?: string;
   className?: string;
   hideArrowIcon?: boolean;
-}> = ({ hideArrowIcon, className, id, disabled, href, children, colorToken, typographyToken }) => {
+};
+
+export const ExternalLink: React.FunctionComponent<ExternalLinkProps> = ({
+  activeColorToken,
+  hoverColorToken,
+  hideArrowIcon,
+  className,
+  id,
+  disabled,
+  href,
+  children,
+  colorToken,
+  typographyToken,
+}) => {
   if (disabled) {
     return (
       <Typography
         className={className}
-        colorToken={`${colorToken}100`}
+        colorToken={colorToken}
         data-testid={`ExternalLink-Disabled-${colorToken}`}
         id={id}
         typographyToken={typographyToken}
@@ -31,9 +46,11 @@ export const ExternalLink: React.FunctionComponent<{
   }
   return (
     <ExternalLinkStyled
+      activeColorToken={activeColorToken || colorToken}
       className={className}
       colorToken={colorToken}
       data-testid={`ExternalLink-ExternalLinkStyled-${colorToken}`}
+      hoverColorToken={hoverColorToken || colorToken}
       href={href}
       id={id}
       target="_blank"
