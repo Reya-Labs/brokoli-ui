@@ -53,6 +53,7 @@ export const TabStyled = styled(
     'borderColorToken',
     'isActive',
     'activeTabColorToken',
+    'hoverTabColorToken',
   ]),
 )<{
   typographyToken: TypographyTokens;
@@ -61,12 +62,15 @@ export const TabStyled = styled(
   borderColorToken: ColorTokens;
   isActive: boolean;
   activeTabColorToken: ColorTokens;
+  hoverTabColorToken: ColorTokens;
 }>`
   display: inline-flex;
   padding: 6px 16px;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  z-index: 1;
+  border-radius: 8px 8px 0px 0px;
 
   ${({ theme, typographyToken }) =>
     css(getResponsiveTypographyStyleFromToken({ theme, token: typographyToken }))};
@@ -74,10 +78,7 @@ export const TabStyled = styled(
     getColorFromToken({ colorToken: isActive ? activeTabColorToken : colorToken, theme })};
   background-color: ${({ theme, backgroundColorToken }) =>
     getColorFromToken({ colorToken: backgroundColorToken, theme })};
-  background-color: ${({ theme, backgroundColorToken }) =>
-    getColorFromToken({ colorToken: backgroundColorToken, theme })};
-  z-index: 1;
-  border-radius: 8px 8px 0px 0px;
+
   border-top: 1px solid
     ${({ theme, borderColorToken, backgroundColorToken, isActive }) =>
       getColorFromToken({ colorToken: isActive ? borderColorToken : backgroundColorToken, theme })};
@@ -90,6 +91,15 @@ export const TabStyled = styled(
   border-bottom: 1px solid
     ${({ theme, borderColorToken, backgroundColorToken, isActive }) =>
       getColorFromToken({ colorToken: isActive ? backgroundColorToken : borderColorToken, theme })};
+
+  transition:
+    background-color,
+    color 200ms ease-in;
+
+  &:hover {
+    color: ${({ theme, hoverTabColorToken }) =>
+      getColorFromToken({ colorToken: hoverTabColorToken, theme })};
+  }
 `;
 
 export const ComponentBox = styled('div', shouldNotForwardProps(['hidden']))<{

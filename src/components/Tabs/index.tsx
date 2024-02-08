@@ -30,6 +30,7 @@ export type TabsProps = {
   backgroundColorToken: ColorTokens;
   borderColorToken: ColorTokens;
   activeTabColorToken: ColorTokens;
+  hoverTabColorToken?: ColorTokens;
   onTabChange?: (id: TabProps['id']) => void;
   contentHiding?: ContentHidingConfig;
   onTabContentHide?: (hiddenTabContent: boolean) => void;
@@ -46,10 +47,11 @@ export const Tabs: React.FunctionComponent<TabsProps> = ({
   onTabChange,
   contentHiding,
   onTabContentHide,
+  hoverTabColorToken,
 }) => {
   const allowContentHiding = Boolean(contentHiding);
-  const { isHiddenInitially } = contentHiding || {};
-  const [hiddenTabContent, setHiddenTabContent] = useState<boolean>(isHiddenInitially || true);
+  const { isHiddenInitially = true } = contentHiding || {};
+  const [hiddenTabContent, setHiddenTabContent] = useState<boolean>(isHiddenInitially);
   const activeTab = tabs.find((tab) => tab.id === activeTabId);
   const handleHideTabContent = useCallback(() => {
     if (!allowContentHiding || !activeTab?.id) {
@@ -72,6 +74,7 @@ export const Tabs: React.FunctionComponent<TabsProps> = ({
               borderColorToken={borderColorToken}
               colorToken={colorToken}
               data-testid={`Tabs-TabStyled-${tab.id}`}
+              hoverTabColorToken={hoverTabColorToken || activeTabColorToken}
               isActive={activeTabId === tab.id}
               typographyToken={typographyToken}
               onClick={() => onTabChange && onTabChange(tab.id)}
@@ -87,6 +90,7 @@ export const Tabs: React.FunctionComponent<TabsProps> = ({
             borderColorToken={borderColorToken}
             colorToken={colorToken}
             data-testid={`Tabs-TabStyled-ToggleCaret`}
+            hoverTabColorToken={hoverTabColorToken || activeTabColorToken}
             isActive={true}
             typographyToken={typographyToken}
             onClick={handleHideTabContent}

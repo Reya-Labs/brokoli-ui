@@ -70,7 +70,21 @@ export const Default: StoryObj<typeof Tabs> = {
   render: Template,
 };
 
-export const ContentHidingInitiallyShown: StoryObj<typeof Tabs> = {
+export const TabsWithDifferentHoverColor: StoryObj<typeof Tabs> = {
+  args: {
+    activeTabColorToken: 'white100',
+    activeTabId: '1',
+    backgroundColorToken: 'black950',
+    borderColorToken: 'black700',
+    colorToken: 'black100',
+    hoverTabColorToken: 'white950',
+    tabs,
+    typographyToken: 'bodyMediumRegular',
+  } as TabsProps,
+  render: Template,
+};
+
+export const ContentInitiallyShown: StoryObj<typeof Tabs> = {
   args: {
     activeTabColorToken: 'white100',
     activeTabId: '1',
@@ -86,7 +100,7 @@ export const ContentHidingInitiallyShown: StoryObj<typeof Tabs> = {
   render: Template,
 };
 
-export const ContentHidingInitiallyHidden: StoryObj<typeof Tabs> = {
+export const ContentInitiallyHidden: StoryObj<typeof Tabs> = {
   args: {
     activeTabColorToken: 'white100',
     activeTabId: '1',
