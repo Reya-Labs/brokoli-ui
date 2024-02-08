@@ -70,14 +70,32 @@ export const Default: StoryObj<typeof Tabs> = {
   render: Template,
 };
 
-export const AllowContentHiding: StoryObj<typeof Tabs> = {
+export const ContentHidingInitiallyShown: StoryObj<typeof Tabs> = {
   args: {
     activeTabColorToken: 'white100',
     activeTabId: '1',
-    allowContentHiding: true,
     backgroundColorToken: 'black950',
     borderColorToken: 'black700',
     colorToken: 'black100',
+    contentHiding: {
+      isHiddenInitially: false,
+    },
+    tabs,
+    typographyToken: 'bodyMediumRegular',
+  } as TabsProps,
+  render: Template,
+};
+
+export const ContentHidingInitiallyHidden: StoryObj<typeof Tabs> = {
+  args: {
+    activeTabColorToken: 'white100',
+    activeTabId: '1',
+    backgroundColorToken: 'black950',
+    borderColorToken: 'black700',
+    colorToken: 'black100',
+    contentHiding: {
+      isHiddenInitially: true,
+    },
     tabs,
     typographyToken: 'bodyMediumRegular',
   } as TabsProps,

@@ -18,6 +18,10 @@ type TabProps = {
   Component?: React.FunctionComponent | null;
 };
 
+type ContentHidingConfig = {
+  isHiddenInitially: boolean;
+};
+
 export type TabsProps = {
   tabs: TabProps[];
   activeTabId?: TabProps['id'] | null;
@@ -27,7 +31,7 @@ export type TabsProps = {
   borderColorToken: ColorTokens;
   activeTabColorToken: ColorTokens;
   onTabChange?: (id: TabProps['id']) => void;
-  allowContentHiding?: boolean;
+  contentHiding?: ContentHidingConfig;
   onTabContentHide?: (hiddenTabContent: boolean) => void;
 };
 
@@ -40,10 +44,12 @@ export const Tabs: React.FunctionComponent<TabsProps> = ({
   tabs,
   activeTabId,
   onTabChange,
-  allowContentHiding,
+  contentHiding,
   onTabContentHide,
 }) => {
-  const [hiddenTabContent, setHiddenTabContent] = useState(true);
+  const allowContentHiding = Boolean(contentHiding);
+  const { isHiddenInitially } = contentHiding || {};
+  const [hiddenTabContent, setHiddenTabContent] = useState<boolean>(isHiddenInitially || true);
   const activeTab = tabs.find((tab) => tab.id === activeTabId);
   const handleHideTabContent = useCallback(() => {
     if (!allowContentHiding || !activeTab?.id) {
