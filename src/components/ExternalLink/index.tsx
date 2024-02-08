@@ -17,6 +17,7 @@ type ExternalLinkProps = {
   id?: string;
   className?: string;
   hideArrowIcon?: boolean;
+  disabledColorToken?: ColorTokens;
 };
 
 export const ExternalLink: React.FunctionComponent<ExternalLinkProps> = ({
@@ -30,13 +31,14 @@ export const ExternalLink: React.FunctionComponent<ExternalLinkProps> = ({
   children,
   colorToken,
   typographyToken,
+  disabledColorToken,
 }) => {
   if (disabled) {
     return (
       <Typography
         className={className}
-        colorToken={colorToken}
-        data-testid={`ExternalLink-Disabled-${colorToken}`}
+        colorToken={disabledColorToken || colorToken}
+        data-testid={`ExternalLink-Disabled-${disabledColorToken || colorToken}`}
         id={id}
         typographyToken={typographyToken}
       >

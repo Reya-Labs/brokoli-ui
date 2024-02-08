@@ -16,7 +16,7 @@ const Template: StoryFn<typeof AppLink> = (args) => <AppLink {...args} />;
 export const Default: StoryObj<typeof AppLink> = {
   args: {
     children: 'Visit this app link!',
-    colorToken: 'primary',
+    colorToken: 'primary100',
     to: '/app-link',
     typographyToken: 'bodyXSmallRegular',
   },
@@ -37,7 +37,7 @@ const WithinTextTemplate: StoryFn<typeof AppLink> = (args) => (
 export const WithinText: StoryObj<typeof AppLink> = {
   args: {
     children: 'Lorem link',
-    colorToken: 'error',
+    colorToken: 'error100',
     to: '/app-link',
     typographyToken: 'bodySmallBold',
   },
@@ -48,7 +48,7 @@ export const WithinText: StoryObj<typeof AppLink> = {
 export const WithOpeningNewPage: StoryObj<typeof AppLink> = {
   args: {
     children: 'Visit this app link!',
-    colorToken: 'primary',
+    colorToken: 'primary100',
     target: '_blank',
     to: 'https://brokoli.voltz.xyz',
     typographyToken: 'bodyXSmallRegular',
@@ -61,7 +61,7 @@ export const WithCustomComponentForLink: StoryObj<typeof AppLink> = {
   args: {
     Component: Link,
     children: 'Visit this app link!',
-    colorToken: 'primary',
+    colorToken: 'primary100',
     to: '/app-link-via-react-router-dom',
     typographyToken: 'bodyXSmallRegular',
   },

@@ -1,11 +1,12 @@
 import React, { HTMLAttributeAnchorTarget, ReactNode } from 'react';
 
-import { BaseColorTokens } from '../../foundation/Colors';
+import { ColorTokens } from '../../foundation/Colors';
 import { TypographyTokens } from '../../foundation/Typography';
 import { AppLinkStyled, DisabledTypography } from './AppLink.styled';
 
 export type AppLinkProps = {
-  colorToken: BaseColorTokens;
+  colorToken: ColorTokens;
+  disabledColorToken?: ColorTokens;
   typographyToken: TypographyTokens;
   children: string;
   to: string;
@@ -13,6 +14,7 @@ export type AppLinkProps = {
   className?: string;
   'data-testid'?: string;
   target?: HTMLAttributeAnchorTarget | undefined;
+  hoverColorToken?: ColorTokens;
   Component?: React.FunctionComponent<{
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     to: any;
@@ -35,12 +37,14 @@ export const AppLink: React.FunctionComponent<AppLinkProps> = ({
   typographyToken,
   target,
   Component,
+  disabledColorToken,
+  hoverColorToken,
 }) => {
   if (!to || disabled) {
     return (
       <DisabledTypography
         className={className}
-        colorToken={`${colorToken}300`}
+        colorToken={disabledColorToken || colorToken}
         data-testid={dataTestId || 'AppLink-DisabledTypography'}
         typographyToken={typographyToken}
       >
@@ -54,6 +58,7 @@ export const AppLink: React.FunctionComponent<AppLinkProps> = ({
       className={className}
       colorToken={colorToken}
       data-testid={dataTestId || 'AppLink-AppLinkStyled'}
+      hoverColorToken={hoverColorToken || colorToken}
       href={to}
       target={target}
       to={to}
