@@ -1,8 +1,6 @@
 import { SupportedMediasWidths } from '../Media';
 
 export type TypographyTokens =
-  | 'ctaRegular'
-  | 'bodyMegaLargeBold'
   | 'h1XLBold'
   | 'h1SmallBold'
   | 'h2Bold'
@@ -19,7 +17,9 @@ export type TypographyTokens =
   | 'bodyLargeBold'
   | 'bodyExtraLargeRegular'
   | 'bodyExtraLargeBold'
-  | 'ctaBlack';
+  | 'bodyMegaLargeBold'
+  | 'ctaBlack'
+  | 'ctaRegular';
 
 export type TypographyConfig = {
   fontFamily: string;
