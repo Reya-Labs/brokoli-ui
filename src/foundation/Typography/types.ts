@@ -1,6 +1,8 @@
 import { SupportedMediasWidths } from '../Media';
 
 export type TypographyTokens =
+  | 'ctaRegular'
+  | 'bodyMegaLargeBold'
   | 'h1XLBold'
   | 'h1SmallBold'
   | 'h2Bold'

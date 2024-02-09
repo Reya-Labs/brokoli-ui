@@ -504,6 +504,72 @@ const bodyExtraLargeBold: TypographyResponsiveConfig = {
   },
 };
 
+const bodyMegaLargeBold: TypographyResponsiveConfig = {
+  largeDesktopDevice: {
+    fontFamily: "'Satoshi-Bold', sans-serif",
+    fontSize: '120px',
+    fontStyle: 'normal',
+    fontWeight: '700',
+    lineHeight: '150%',
+  },
+  mobileDevice: {
+    fontFamily: "'Satoshi-Bold', sans-serif",
+    fontSize: '32px',
+    fontStyle: 'normal',
+    fontWeight: '700',
+    lineHeight: '150%',
+  },
+  smallDesktopDevice: {
+    fontFamily: "'Satoshi-Bold', sans-serif",
+    fontSize: '120px',
+    fontStyle: 'normal',
+    fontWeight: '700',
+    lineHeight: '150%',
+  },
+  tabletDevice: {
+    fontFamily: "'Satoshi-Bold', sans-serif",
+    fontSize: '120px',
+    fontStyle: 'normal',
+    fontWeight: '700',
+    lineHeight: '150%',
+  },
+};
+
+const ctaRegular: TypographyResponsiveConfig = {
+  largeDesktopDevice: {
+    fontFamily: "'Satoshi', sans-serif",
+    fontSize: '14px',
+    fontStyle: 'normal',
+    fontWeight: '500',
+    letterSpacing: '2.8px',
+    lineHeight: '150%',
+  },
+  mobileDevice: {
+    fontFamily: "'Satoshi', sans-serif",
+    fontSize: '14px',
+    fontStyle: 'normal',
+    fontWeight: '500',
+    letterSpacing: '2.8px',
+    lineHeight: '150%',
+  },
+  smallDesktopDevice: {
+    fontFamily: "'Satoshi', sans-serif",
+    fontSize: '14px',
+    fontStyle: 'normal',
+    fontWeight: '500',
+    letterSpacing: '2.8px',
+    lineHeight: '150%',
+  },
+  tabletDevice: {
+    fontFamily: "'Satoshi', sans-serif",
+    fontSize: '14px',
+    fontStyle: 'normal',
+    fontWeight: '500',
+    letterSpacing: '2.8px',
+    lineHeight: '150%',
+  },
+};
+
 const ctaBlack: TypographyResponsiveConfig = {
   largeDesktopDevice: {
     fontFamily: "'Satoshi', sans-serif",
@@ -546,11 +612,13 @@ export const typography: TypographyTheme = {
   bodyLargeRegular,
   bodyMediumBold,
   bodyMediumRegular,
+  bodyMegaLargeBold,
   bodySmallBold,
   bodySmallRegular,
   bodyXSmallBold,
   bodyXSmallRegular,
   ctaBlack,
+  ctaRegular,
   h1SmallBold,
   h1XLBold,
   h2Bold,
