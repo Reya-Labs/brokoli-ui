@@ -82,7 +82,7 @@ export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
       onClickOutside={handleSubmenuClose}
     >
       <Box>
-        <SelectorBox ref={parentRef} data-testid="ChainSelector-SelectorBox">
+        <SelectorBox ref={parentRef} data-testid="ChainSelector-SelectorBox" disabled={disabled}>
           {selectedChain ? (
             <IconBox data-testid="ChainSelector-IconBox">
               <selectedChain.Icon data-testid={`ChainSelector-${selectedChain.name}`} />
@@ -90,6 +90,7 @@ export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
           ) : null}
           <ChainSelectorButton
             data-testid={isSubmenuOpened ? 'OpenChainSelectorButton' : 'ChainSelectorButton'}
+            disabled={disabled}
             isPopoverOpen={isSubmenuOpened}
             onClick={handleSubmenuOpen}
           >
@@ -99,7 +100,7 @@ export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
                 : !selectedChain
                 ? 'Pick a network'
                 : selectedChain.name}
-              <ToggleCaret isOpen={isSubmenuOpened} />
+              <ToggleCaret disabled={disabled} isOpen={isSubmenuOpened} />
             </React.Fragment>
           </ChainSelectorButton>
         </SelectorBox>

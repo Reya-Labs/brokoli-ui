@@ -56,3 +56,13 @@ export const Approving: StoryObj<typeof ChainSelector> = {
 
   render: Template,
 };
+
+export const Disabled: StoryObj<typeof ChainSelector> = {
+  args: {
+    chainOptions,
+    disabled: true,
+    selectedChainId: 1,
+  },
+
+  render: Template,
+};
