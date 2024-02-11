@@ -16,6 +16,7 @@ export type ChainSelectorProps = {
   selectedChainId?: ChainOption['id'];
   chainOptions: ChainOption[];
   approving?: boolean;
+  disabled?: boolean;
 };
 
 export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
@@ -23,12 +24,26 @@ export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
   selectedChainId,
   onChainChange,
   approving,
+  disabled = false,
 }) => {
   const [width, setWidth] = useState(0);
   const [isSubmenuOpened, setIsSubmenuOpened] = useState(false);
-  const handleSubmenuOpen = () => setIsSubmenuOpened(true);
-  const handleSubmenuClose = () => setIsSubmenuOpened(false);
+  const handleSubmenuOpen = () => {
+    if (disabled) {
+      return;
+    }
+    setIsSubmenuOpened(true);
+  };
+  const handleSubmenuClose = () => {
+    if (disabled) {
+      return;
+    }
+    setIsSubmenuOpened(false);
+  };
   const handleChainOptionSelection = (chainId: ChainOption['id']) => {
+    if (disabled) {
+      return;
+    }
     onChainChange && onChainChange(chainId);
     handleSubmenuClose();
   };
