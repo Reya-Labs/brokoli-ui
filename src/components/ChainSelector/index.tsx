@@ -100,7 +100,7 @@ export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
                 : !selectedChain
                 ? 'Pick a network'
                 : selectedChain.name}
-              <ToggleCaret disabled={disabled} isOpen={isSubmenuOpened} />
+              {disabled ? null : <ToggleCaret disabled={disabled} isOpen={isSubmenuOpened} />}
             </React.Fragment>
           </ChainSelectorButton>
         </SelectorBox>
