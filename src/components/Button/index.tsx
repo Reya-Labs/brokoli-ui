@@ -22,7 +22,7 @@ export type ButtonProps = React.PropsWithChildren<{
   rounded?: boolean;
   disabledTypographyColorToken?: ColorTokens;
   disabledBackgroundColorToken?: ColorTokens;
-  hoverTypographyToken?: ColorTokens;
+  hoverTypographyColorToken?: ColorTokens;
   hoverBackgroundColorToken?: ColorTokens;
   hoverBorderColorToken?: ColorTokens;
 }>;
@@ -45,7 +45,7 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
   disabledBackgroundColorToken,
   disabledTypographyColorToken,
   hoverBorderColorToken,
-  hoverTypographyToken,
+  hoverTypographyColorToken,
   hoverBackgroundColorToken,
 }) => {
   const childrenToRender = !loading ? children : <Ellipsis />;
@@ -60,7 +60,7 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
       disabledTypographyColorToken={disabledTypographyColorToken}
       hoverBackgroundColorToken={hoverBackgroundColorToken}
       hoverBorderColorToken={hoverBorderColorToken}
-      hoverTypographyToken={hoverTypographyToken}
+      hoverTypographyColorToken={hoverTypographyColorToken}
       rounded={Boolean(rounded)}
       typographyColorToken={typographyColorToken}
       typographyToken={typographyToken}

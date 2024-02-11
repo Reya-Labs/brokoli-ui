@@ -34,7 +34,7 @@ export const WithHover: StoryObj<typeof Button> = {
     children: 'Default',
     hoverBackgroundColorToken: 'primary200',
     hoverBorderColorToken: 'primary700',
-    hoverTypographyToken: 'primary500',
+    hoverTypographyColorToken: 'primary500',
     typographyColorToken: 'white950',
   },
 };

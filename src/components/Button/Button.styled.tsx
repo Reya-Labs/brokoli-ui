@@ -18,7 +18,7 @@ export const ButtonStyled = styled(
     'disabledTypographyColorToken',
     'disabledBackgroundColorToken',
     'hoverBorderColorToken',
-    'hoverTypographyToken',
+    'hoverTypographyColorToken',
     'hoverBackgroundColorToken',
     'rounded',
   ]),
@@ -30,7 +30,7 @@ export const ButtonStyled = styled(
   disabledTypographyColorToken?: ColorTokens;
   disabledBackgroundColorToken?: ColorTokens;
   hoverBorderColorToken?: ColorTokens;
-  hoverTypographyToken?: ColorTokens;
+  hoverTypographyColorToken?: ColorTokens;
   hoverBackgroundColorToken?: ColorTokens;
   rounded: boolean;
 }>`
@@ -71,9 +71,9 @@ export const ButtonStyled = styled(
             theme,
           })}`
         : 'none'};
-    color: ${({ theme, hoverTypographyToken }) =>
-      hoverTypographyToken
-        ? getColorFromToken({ colorToken: hoverTypographyToken, theme })
+    color: ${({ theme, hoverTypographyColorToken }) =>
+      hoverTypographyColorToken
+        ? getColorFromToken({ colorToken: hoverTypographyColorToken, theme })
         : undefined};
     background: ${({ theme, hoverBackgroundColorToken }) =>
       hoverBackgroundColorToken
