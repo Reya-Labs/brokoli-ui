@@ -27,6 +27,18 @@ export const Rounded: StoryObj<typeof Button> = {
   },
 };
 
+export const WithHover: StoryObj<typeof Button> = {
+  args: {
+    backgroundColorToken: 'white100',
+    borderColorToken: 'white900',
+    children: 'Default',
+    hoverBackgroundColorToken: 'primary200',
+    hoverBorderColorToken: 'primary700',
+    hoverTypographyToken: 'primary500',
+    typographyColorToken: 'white950',
+  },
+};
+
 export const WithLoading: StoryObj<typeof Button> = {
   args: {
     backgroundColorToken: 'white100',

@@ -18,6 +18,8 @@ export const ButtonStyled = styled(
     'disabledTypographyColorToken',
     'disabledBackgroundColorToken',
     'hoverBorderColorToken',
+    'hoverTypographyToken',
+    'hoverBackgroundColorToken',
     'rounded',
   ]),
 )<{
@@ -28,6 +30,8 @@ export const ButtonStyled = styled(
   disabledTypographyColorToken?: ColorTokens;
   disabledBackgroundColorToken?: ColorTokens;
   hoverBorderColorToken?: ColorTokens;
+  hoverTypographyToken?: ColorTokens;
+  hoverBackgroundColorToken?: ColorTokens;
   rounded: boolean;
 }>`
   display: flex;
@@ -54,7 +58,10 @@ export const ButtonStyled = styled(
     typographyColorToken
       ? getColorFromToken({ colorToken: typographyColorToken, theme })
       : undefined};
-  transition: all 200ms ease-in;
+  transition:
+    border,
+    background,
+    color 200ms ease-in;
 
   &:hover {
     border: ${({ theme, borderColorToken, hoverBorderColorToken }) =>
@@ -64,6 +71,14 @@ export const ButtonStyled = styled(
             theme,
           })}`
         : 'none'};
+    color: ${({ theme, hoverTypographyToken }) =>
+      hoverTypographyToken
+        ? getColorFromToken({ colorToken: hoverTypographyToken, theme })
+        : undefined};
+    background: ${({ theme, hoverBackgroundColorToken }) =>
+      hoverBackgroundColorToken
+        ? getColorFromToken({ colorToken: hoverBackgroundColorToken, theme })
+        : 'transparent'};
   }
 
   &:disabled {
