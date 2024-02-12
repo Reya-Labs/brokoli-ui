@@ -57,6 +57,32 @@ export const Approving: StoryObj<typeof ChainSelector> = {
   render: Template,
 };
 
+export const WithLabel: StoryObj<typeof ChainSelector> = {
+  args: {
+    chainOptions,
+    disabled: false,
+    label: 'Choose chain',
+    labelColorToken: 'white100',
+    labelTypographyToken: 'bodySmallRegular',
+    selectedChainId: 1,
+  },
+  render: Template,
+};
+
+export const WithLabelTooltip: StoryObj<typeof ChainSelector> = {
+  args: {
+    chainOptions,
+    disabled: false,
+    label: 'Choose chain',
+    labelColorToken: 'white100',
+    labelTypographyToken: 'bodySmallRegular',
+    selectedChainId: 1,
+    tooltip: 'Created with ❤️!',
+    tooltipColorToken: 'white950',
+  },
+  render: Template,
+};
+
 export const Disabled: StoryObj<typeof ChainSelector> = {
   args: {
     chainOptions,

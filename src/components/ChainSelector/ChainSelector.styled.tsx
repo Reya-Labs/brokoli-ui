@@ -1,7 +1,10 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { getResponsiveTypographyStyleFromToken } from '../../foundation/Typography';
+import {
+  getResponsiveTypographyStyleFromToken,
+  TypographyTokens,
+} from '../../foundation/Typography';
 import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 
 export const SelectorBox = styled('div', shouldNotForwardProps(['disabled']))<{
@@ -14,26 +17,38 @@ export const SelectorBox = styled('div', shouldNotForwardProps(['disabled']))<{
   height: 100%;
   box-sizing: border-box;
   z-index: 1;
-  padding: 8px 8px 8px 0px;
+  padding: 8px 10px;
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   position: relative;
-  border-radius: 4px;
   width: 100%;
+  border-radius: 8px;
+  border: 1px solid ${({ theme }) => theme.colors.black700};
+  background: ${({ theme }) => theme.colors.black900};
+  transition: all 200ms ease-in;
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.black700};
+    border: 1px solid ${({ theme }) => theme.colors.black500};
+  }
 `;
 
 export const Box = styled('div')`
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 `;
 
 export const ChainSelectorButton = styled(
   'button',
-  shouldNotForwardProps(['disabled', 'isPopoverOpen']),
+  shouldNotForwardProps(['typographyToken', 'disabled', 'isPopoverOpen']),
 )<{
   isPopoverOpen: boolean;
   disabled: boolean;
+  typographyToken: TypographyTokens;
 }>`
-  ${({ theme }) =>
-    css(getResponsiveTypographyStyleFromToken({ theme, token: 'bodyMediumRegular' }))};
+  ${({ theme, typographyToken }) =>
+    css(getResponsiveTypographyStyleFromToken({ theme, token: typographyToken }))};
 
   padding: 0px;
   color: ${({ theme, isPopoverOpen }) =>

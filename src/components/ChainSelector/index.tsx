@@ -1,7 +1,11 @@
 import React, { useCallback, useMemo, useState } from 'react';
 
+import { ColorTokens } from '../../foundation/Colors';
+import { TypographyTokens } from '../../foundation/Typography';
+import { ExclaimTooltipProps } from '../ExclaimTooltip';
 import { Popover } from '../Popover';
 import { ToggleCaret } from '../ToggleCaret';
+import { TooltipLabel } from '../TooltipLabel';
 import { ChainOptions } from './ChainOptions/ChainOptions';
 import { Box, ChainSelectorButton, IconBox, SelectorBox } from './ChainSelector.styled';
 
@@ -17,6 +21,13 @@ export type ChainSelectorProps = {
   chainOptions: ChainOption[];
   approving?: boolean;
   disabled?: boolean;
+  label?: string;
+  labelColorToken?: ColorTokens;
+  labelTypographyToken?: TypographyTokens;
+  labelAttentionIndicatorColorToken?: ColorTokens;
+  tooltip?: ExclaimTooltipProps['children'];
+  tooltipColorToken?: ColorTokens;
+  selectedChainTypographyToken?: TypographyTokens;
 };
 
 export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
@@ -25,6 +36,13 @@ export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
   onChainChange,
   approving,
   disabled = false,
+  label,
+  labelColorToken,
+  labelTypographyToken,
+  labelAttentionIndicatorColorToken,
+  tooltip,
+  tooltipColorToken,
+  selectedChainTypographyToken = 'bodyMediumRegular',
 }) => {
   const [width, setWidth] = useState(0);
   const [isSubmenuOpened, setIsSubmenuOpened] = useState(false);
@@ -82,6 +100,15 @@ export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
       onClickOutside={handleSubmenuClose}
     >
       <Box>
+        <TooltipLabel
+          attentionIndicatorColorToken={labelAttentionIndicatorColorToken}
+          data-testid="ChainSelector-TooltipLabel"
+          label={label}
+          labelColorToken={labelColorToken}
+          labelTypographyToken={labelTypographyToken}
+          tooltip={tooltip}
+          tooltipColorToken={tooltipColorToken}
+        />
         <SelectorBox ref={parentRef} data-testid="ChainSelector-SelectorBox" disabled={disabled}>
           {selectedChain ? (
             <IconBox data-testid="ChainSelector-IconBox">
@@ -92,6 +119,7 @@ export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
             data-testid={isSubmenuOpened ? 'OpenChainSelectorButton' : 'ChainSelectorButton'}
             disabled={disabled}
             isPopoverOpen={isSubmenuOpened}
+            typographyToken={selectedChainTypographyToken}
             onClick={handleSubmenuOpen}
           >
             <React.Fragment>
