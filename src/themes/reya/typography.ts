@@ -528,10 +528,10 @@ const bodyMegaLargeBold: TypographyResponsiveConfig = {
   },
   tabletDevice: {
     fontFamily: "'Satoshi-Bold', sans-serif",
-    fontSize: '120px',
+    fontSize: '48px',
     fontStyle: 'normal',
     fontWeight: '700',
-    lineHeight: '150%',
+    lineHeight: '120%',
   },
 };
 
