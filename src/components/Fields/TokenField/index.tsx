@@ -5,6 +5,7 @@ import { ColorTokens } from '../../../foundation/Colors';
 import { TypographyTokens } from '../../../foundation/Typography';
 import { ExclaimTooltipProps } from '../../ExclaimTooltip';
 import { TokenIcon, TokenIconProps } from '../../Icons';
+import { ToggleCaret } from '../../ToggleCaret';
 import { TokenTypography } from '../../TokenTypography';
 import { TooltipLabel } from '../../TooltipLabel';
 import { Typography } from '../../Typography';
@@ -17,6 +18,7 @@ import {
   MaxButton,
   TokenBox,
   TokenFieldBox,
+  TokenSelect,
   TopBox,
 } from './TokenField.styled';
 
@@ -54,7 +56,12 @@ export type TokenFieldProps = {
   bottomRightTextTokenColorToken?: ColorTokens;
   className?: string;
   labelAttentionIndicatorColorToken?: ColorTokens;
+  tokenFormatter?: (token: string | undefined) => string;
+  tokenOptions?: string[];
+  onTokenOptionSelected?: (selectedToken: string) => void;
 };
+
+const defaultTokenFormatter = (token: string | undefined) => token;
 
 export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
   onChange,
@@ -90,6 +97,9 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
   min,
   max,
   labelAttentionIndicatorColorToken,
+  tokenFormatter = defaultTokenFormatter,
+  tokenOptions = [],
+  onTokenOptionSelected,
 }) => {
   const hasMaxButton = Boolean(max && max.showButton);
   const handleOnChange = (newValue: string | undefined) => {
@@ -99,7 +109,13 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
     onChange && onChange(newValue);
   };
 
-  const bottomRightTextTokenComputed = bottomRightTextToken ? bottomRightTextToken : token;
+  const handleOnTokenOptionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    onTokenOptionSelected && onTokenOptionSelected(event.target.value);
+  };
+
+  const bottomRightTextTokenComputed = bottomRightTextToken
+    ? bottomRightTextToken
+    : tokenFormatter(token);
   return (
     <TokenFieldBox data-testid="TokenField-TokenFieldBox">
       <TopBox data-testid="TokenField-TopBox">
@@ -171,13 +187,27 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
                 size={22}
                 token={token}
               />
-              <Typography
-                colorToken="white100"
-                data-testid="TokenField-CurrencyInputBox-TokenBox-Typography"
-                typographyToken="bodyMediumRegular"
-              >
-                {token}
-              </Typography>
+              {tokenOptions?.length === 0 ? (
+                <Typography
+                  colorToken="white100"
+                  data-testid="TokenField-CurrencyInputBox-TokenBox-Typography"
+                  typographyToken="bodyMediumRegular"
+                >
+                  {tokenFormatter(token)}
+                </Typography>
+              ) : null}
+              {tokenOptions?.length !== 0 ? (
+                <React.Fragment>
+                  <ToggleCaret isOpen={false} />
+                  <TokenSelect value={token} onChange={handleOnTokenOptionChange}>
+                    {tokenOptions.map((tokenOption) => (
+                      <option key={tokenOption} value={tokenOption}>
+                        {tokenFormatter(tokenOption)}
+                      </option>
+                    ))}
+                  </TokenSelect>
+                </React.Fragment>
+              ) : null}
             </TokenBox>
           ) : null}
         </FloatingBox>

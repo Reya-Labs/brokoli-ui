@@ -72,3 +72,11 @@ export const FloatingBox = styled('div')`
   align-items: center;
   height: 24px;
 `;
+
+export const TokenSelect = styled('select')`
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+`;

@@ -11,6 +11,7 @@ export default {
 
 const Template: StoryFn<typeof TokenField> = (args) => {
   const [value, setValue] = useState<string | undefined>(args.value);
+  const [tokenOption, setTokenOption] = useState<string | undefined>(args.token);
   return (
     <TokenField
       {...args}
@@ -22,8 +23,10 @@ const Template: StoryFn<typeof TokenField> = (args) => {
             }
           : undefined
       }
+      token={tokenOption}
       value={value}
       onChange={setValue}
+      onTokenOptionSelected={setTokenOption}
     />
   );
 };
@@ -72,6 +75,26 @@ export const WithDifferentBottomRightTextToken: StoryObj<typeof TokenField> = {
       value: '123456',
     },
     token: 'usdc',
+    tooltip: 'Tooltip message here!',
+    topRightText: 'Top right text',
+  },
+
+  render: Template,
+};
+
+export const WithMaxTokenOptionsAndTokenFormatter: StoryObj<typeof TokenField> = {
+  args: {
+    bottomLeftText: 'Max value is',
+    bottomRightTextValue: '123456',
+    label: 'Label',
+    max: {
+      onClick: () => {},
+      showButton: true,
+      value: '123456',
+    },
+    token: 'usdc',
+    tokenFormatter: (token: string | undefined) => (!token ? '' : token.toUpperCase()),
+    tokenOptions: ['eth', 'usdc'],
     tooltip: 'Tooltip message here!',
     topRightText: 'Top right text',
   },
