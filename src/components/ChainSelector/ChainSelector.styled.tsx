@@ -27,8 +27,8 @@ export const SelectorBox = styled('div', shouldNotForwardProps(['disabled']))<{
   transition: all 200ms ease-in;
 
   &:hover {
-    background: ${({ theme }) => theme.colors.black700};
-    border: 1px solid ${({ theme }) => theme.colors.black500};
+    background: ${({ theme, disabled }) => (disabled ? undefined : theme.colors.black700)};
+    border: 1px solid ${({ theme, disabled }) => (disabled ? undefined : theme.colors.black500)};
   }
 `;
 
