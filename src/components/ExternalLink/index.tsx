@@ -59,7 +59,7 @@ export const ExternalLink: React.FunctionComponent<ExternalLinkProps> = ({
       typographyToken={typographyToken}
     >
       {children}
-      {hideArrowIcon ? null : <LinkArrow data-testid="ExternalLink-LinkArrow" viewBox="0 0 7 7" />}
+      {hideArrowIcon ? null : <LinkArrow data-testid="ExternalLink-LinkArrow" />}
     </ExternalLinkStyled>
   );
 };

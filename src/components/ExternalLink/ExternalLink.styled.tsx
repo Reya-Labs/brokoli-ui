@@ -20,7 +20,7 @@ export const ExternalLinkStyled = styled(
   display: inline-flex;
   flex-direction: row;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
 
   margin: 0;
   padding: 0;
