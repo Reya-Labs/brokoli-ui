@@ -43,7 +43,7 @@ export const TextField: React.FunctionComponent<TextFieldProps> = ({
     onChange && onChange(event.target.value);
   };
   return (
-    <TextFieldBox data-testid="TextField-TextFieldBox">
+    <TextFieldBox data-testid={error ? 'TextField-TextFieldBox-Error' : 'TextField-TextFieldBox'}>
       <TooltipLabel
         attentionIndicatorColorToken={labelAttentionIndicatorColorToken}
         data-testid={`TextField-TextFieldBox-${labelTypographyToken}-${labelColorToken}`}

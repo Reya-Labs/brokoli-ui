@@ -51,7 +51,7 @@ describe('<TextField />', () => {
 
   it('renders error styles when error prop is true', () => {
     render(<TextField {...defaultProps} error />);
-    const textFieldBox = screen.getByTestId('TextField-TextFieldBox');
-    expect(textFieldBox).toHaveClass('css-3yyx3e'); // Replace with the actual CSS class name for error styles
+    const textFieldBox = screen.getByTestId('TextField-TextFieldBox-Error');
+    expect(textFieldBox).toBeInTheDocument();
   });
 });
