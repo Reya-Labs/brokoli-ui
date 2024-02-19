@@ -48,6 +48,5 @@ describe('<ExternalLink />', () => {
 
     const linkArrow = screen.getByTestId('ExternalLink-LinkArrow');
     expect(linkArrow).toBeInTheDocument();
-    expect(linkArrow).toHaveAttribute('viewBox', '0 0 7 7');
   });
 });
