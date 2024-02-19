@@ -64,13 +64,13 @@ export const ButtonStyled = styled(
     color 200ms ease-in;
 
   &:hover {
-    border: ${({ theme, borderColorToken, hoverBorderColorToken }) =>
+    border: ${({ theme, disabled, borderColorToken, hoverBorderColorToken }) =>
       hoverBorderColorToken || borderColorToken
         ? `1px solid ${getColorFromToken({
             colorToken: hoverBorderColorToken || borderColorToken,
             theme,
           })}`
-        : 'none'};
+        : '1px solid transparent'};
     color: ${({ theme, hoverTypographyColorToken }) =>
       hoverTypographyColorToken
         ? getColorFromToken({ colorToken: hoverTypographyColorToken, theme })
