@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 
-export const globalStyles = css`
+export const resetStyles = css`
   *,
   *::before,
   *::after {
