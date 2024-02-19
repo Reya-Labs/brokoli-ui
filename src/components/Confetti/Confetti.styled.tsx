@@ -11,8 +11,6 @@ const bang = keyframes`
 export const Container = styled('div')`
   position: relative;
   width: 100%;
-  box-sizing: border-box;
-
   & i {
     position: absolute;
     display: block;

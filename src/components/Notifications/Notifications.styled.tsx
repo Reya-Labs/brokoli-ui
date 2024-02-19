@@ -6,8 +6,6 @@ import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 export const NotificationBox = styled('div', shouldNotForwardProps(['colorToken']))<{
   colorToken: BaseColorTokens;
 }>`
-  box-sizing: border-box;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,7 +21,6 @@ export const NotificationBox = styled('div', shouldNotForwardProps(['colorToken'
 `;
 
 export const TitleBox = styled('div')`
-  box-sizing: border-box;
   width: 100%;
   display: flex;
   flex-direction: row;

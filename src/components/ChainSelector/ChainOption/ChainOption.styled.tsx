@@ -30,7 +30,6 @@ export const ChainOptionButton = styled('button')`
   background-color: ${({ theme }) => theme.colors.black900};
   border-radius: 2px;
   width: 100%;
-  box-sizing: border-box;
   transition: background-color 200ms ease-in;
   border: 0;
   cursor: pointer;

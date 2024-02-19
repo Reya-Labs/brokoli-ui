@@ -12,8 +12,6 @@ type CommonInputStyleArgs = {
 };
 
 export const commonInputStyle = ({ theme, error, typographyToken }: CommonInputStyleArgs) => css`
-  box-sizing: border-box;
-
   width: 100%;
   display: flex;
   flex-direction: row;

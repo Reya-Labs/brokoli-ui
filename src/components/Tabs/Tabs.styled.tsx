@@ -12,7 +12,6 @@ export const TabsAndComponentBox = styled('div')`
   display: flex;
   flex-direction: column;
   width: 100%;
-  box-sizing: border-box;
   height: 100%;
 `;
 
@@ -24,7 +23,6 @@ export const TabPillsBox = styled('div')`
 export const TabsBox = styled('div')`
   display: flex;
   width: 100%;
-  box-sizing: border-box;
   flex-direction: row;
   padding: 7px 8px 0px 8px;
   position: relative;

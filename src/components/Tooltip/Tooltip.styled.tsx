@@ -5,7 +5,6 @@ import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 export const TooltipBox = styled('div', shouldNotForwardProps(['limitWidth']))<{
   limitWidth: boolean;
 }>`
-  box-sizing: border-box;
   background: ${({ theme }) => theme.colors.black900};
   border: 1px solid ${({ theme }) => theme.colors.black500};
   border-radius: 8px;

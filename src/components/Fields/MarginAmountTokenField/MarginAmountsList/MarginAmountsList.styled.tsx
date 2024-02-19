@@ -9,7 +9,6 @@ export const ItemsWrapper = styled('div')`
   padding: 4px;
   gap: 4px;
   width: 100%;
-  box-sizing: border-box;
   max-height: 250px;
   overflow-y: scroll;
 `;
@@ -21,7 +20,6 @@ export const ItemWrapper = styled('div', shouldNotForwardProps(['backgroundColor
   display: flex;
   padding: 8px;
   width: 100%;
-  box-sizing: border-box;
   align-items: center;
   justify-content: space-between;
   background: ${({ theme, backgroundColorToken }) =>

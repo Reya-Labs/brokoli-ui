@@ -19,7 +19,6 @@ export const SubLinkButton = styled('a')`
   background-color: ${({ theme }) => theme.colors.black800};
   border-radius: 2px;
   width: 100%;
-  box-sizing: border-box;
   transition: background-color 200ms ease-in;
 
   &:hover {
@@ -44,7 +43,6 @@ export const ActiveSubLinkButton = styled('a')`
   background-color: ${({ theme }) => theme.colors.black800};
   border-radius: 2px;
   width: 100%;
-  box-sizing: border-box;
   transition: background-color 200ms ease-in;
 
   &:hover {
