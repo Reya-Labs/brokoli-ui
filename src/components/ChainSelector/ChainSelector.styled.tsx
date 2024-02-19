@@ -15,7 +15,6 @@ export const SelectorBox = styled('div', shouldNotForwardProps(['disabled']))<{
   gap: 4px;
   align-items: center;
   height: 100%;
-  box-sizing: border-box;
   z-index: 1;
   padding: 8px 10px;
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
@@ -59,7 +58,6 @@ export const ChainSelectorButton = styled(
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  box-sizing: border-box;
   column-gap: 14px;
   align-items: center;
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};

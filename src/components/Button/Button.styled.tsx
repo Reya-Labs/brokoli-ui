@@ -103,7 +103,6 @@ export const ButtonStyled = styled(
 export const ButtonBox = styled('div')`
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
   width: 100%;
   gap: 8px;
 `;
