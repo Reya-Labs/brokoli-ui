@@ -4,7 +4,7 @@ import React from 'react';
 import { reyaTheme } from '../../themes/reya';
 import { voltzTheme } from '../../themes/voltz';
 import { globalColorVarsCss } from './global-color-vars-css';
-import { globalStyles } from './globalStyles';
+import { globalStyles } from './resetStyles';
 
 export type ThemeProviderProps = React.PropsWithChildren<{
   theme: 'voltz' | 'reya';
