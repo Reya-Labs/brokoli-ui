@@ -33,21 +33,22 @@ describe('<TokenTypography />', () => {
     expect(tokenElement).toHaveTextContent('ETH');
   });
 
-  it('displays the second value and token if provided', () => {
+  it('displays the second token if provided', () => {
     render(
       <TokenTypography
         colorToken="white100"
         token="ETH"
+        token2="BTC"
         typographyToken="bodySmallRegular"
         value="123"
         value2="456"
       />,
     );
 
-    const value2Element = screen.getByTestId('TokenTypography-Token-Value2');
+    const token2Element = screen.getByTestId('TokenTypography-Token-Token2');
 
-    expect(value2Element).toBeInTheDocument();
-    expect(value2Element).toHaveTextContent('ETH');
+    expect(token2Element).toBeInTheDocument();
+    expect(token2Element).toHaveTextContent('BTC');
   });
 
   it('displays the difference arrow and value if differenceValue is not NaN', () => {
