@@ -85,8 +85,8 @@ export const TokenTypography: React.FunctionComponent<TokenTypographyProps> = ({
         {value2}
       </React.Fragment>
     ) : null}
-    {value2 !== undefined && value2 !== null && token ? (
-      <Token colorToken={tokenColorToken} data-testid="TokenTypography-Token-Value2">
+    {value2 !== undefined && value2 !== null && token2 ? (
+      <Token colorToken={tokenColorToken} data-testid="TokenTypography-Token-Token2">
         {token2}
       </Token>
     ) : null}
