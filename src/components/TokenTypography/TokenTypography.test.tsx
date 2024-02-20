@@ -46,9 +46,12 @@ describe('<TokenTypography />', () => {
     );
 
     const token2Element = screen.getByTestId('TokenTypography-Token-Token2');
+    const value2Element = screen.getByText(/456/);
 
     expect(token2Element).toBeInTheDocument();
+    expect(value2Element).toBeInTheDocument();
     expect(token2Element).toHaveTextContent('BTC');
+    expect(value2Element).toHaveTextContent('456');
   });
 
   it('displays the difference arrow and value if differenceValue is not NaN', () => {
