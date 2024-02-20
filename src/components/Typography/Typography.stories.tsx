@@ -22,3 +22,12 @@ export const RainbowVariant: StoryObj<typeof Typography> = {
     typographyToken: 'h1XLBold',
   },
 };
+
+export const PolymorphicVariant: StoryObj<typeof Typography> = {
+  args: {
+    as: 'a',
+    children: 'Polymorphic Variant',
+    colorToken: 'white100',
+    typographyToken: 'h1XLBold',
+  },
+};
