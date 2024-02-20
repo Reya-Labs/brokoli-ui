@@ -23,10 +23,10 @@ export const RainbowVariant: StoryObj<typeof Typography> = {
   },
 };
 
-export const PolymorphicVariant: StoryObj<typeof Typography> = {
+export const AsSpanVariant: StoryObj<typeof Typography> = {
   args: {
-    as: 'a',
-    children: 'Polymorphic Variant',
+    as: 'span',
+    children: 'As <Span /> Variant',
     colorToken: 'white100',
     typographyToken: 'h1XLBold',
   },
