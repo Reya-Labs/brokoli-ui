@@ -1,35 +1,35 @@
-import React, { ComponentPropsWithoutRef, ElementType } from 'react';
+import React, { ComponentProps } from 'react';
 
 import { ColorTokens } from '../../foundation/Colors';
 import { TypographyTokens } from '../../foundation/Typography';
 import { tokenTagMap } from './token-tag-map';
 import { BaseTypography, RainbowTypography } from './Typography.styled';
 
-type PolymorphicPropsWithoutRef<E extends ElementType> = {
-  as?: E;
-} & ComponentPropsWithoutRef<E>;
-
-export type TypographyProps<E extends ElementType = ElementType> = PolymorphicPropsWithoutRef<E> & {
+export type TypographyProps = {
   typographyToken: TypographyTokens;
   colorToken: ColorTokens | 'rainbow';
   className?: string;
   'data-testid'?: string;
   id?: string;
+  as?: ComponentProps<typeof BaseTypography>['as'];
+  children?: React.ReactNode;
 };
 
-export const Typography = <E extends ElementType>({
+export const Typography = ({
   className,
   children,
   typographyToken,
   colorToken,
-  as: Component = tokenTagMap[typographyToken] as E,
+  as,
   'data-testid': dataTestId,
   id,
   ...rest
-}: TypographyProps<E>): React.ReactElement => {
+}: TypographyProps) => {
   const isRainbowColorToken = colorToken === 'rainbow';
   const TypographyUI = isRainbowColorToken ? RainbowTypography : BaseTypography;
   const typographyColorToken = isRainbowColorToken ? 'black800' : colorToken;
+
+  const Component = as || tokenTagMap[typographyToken];
 
   return (
     <TypographyUI
