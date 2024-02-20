@@ -90,3 +90,17 @@ export const WithAttentionIndicator: StoryObj<typeof TokenTypography> = {
     value: 100,
   },
 };
+
+export const WithTwoTokens: StoryObj<typeof TokenTypography> = {
+  args: {
+    colorToken: 'white100',
+    prefixColorToken: 'white950',
+    prefixToken: '$',
+    token: 'M',
+    token2: 'K',
+    tokenColorToken: 'white950',
+    typographyToken: 'bodyMediumRegular',
+    value: 52,
+    value2: 97,
+  },
+};

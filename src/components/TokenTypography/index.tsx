@@ -19,6 +19,7 @@ export type TokenTypographyProps = {
   value: string | number;
   typographyToken: TypographyTokens;
   token: string;
+  token2?: string;
   prefixToken?: string;
   differenceValue?: number;
   differenceToken?: string;
@@ -36,6 +37,7 @@ export const TokenTypography: React.FunctionComponent<TokenTypographyProps> = ({
   value2,
   differenceValue = NaN,
   token,
+  token2 = token,
   typographyToken,
   value,
   colorToken,
@@ -85,7 +87,7 @@ export const TokenTypography: React.FunctionComponent<TokenTypographyProps> = ({
     ) : null}
     {value2 !== undefined && value2 !== null && token ? (
       <Token colorToken={tokenColorToken} data-testid="TokenTypography-Token-Value2">
-        {token}
+        {token2}
       </Token>
     ) : null}
     {isNaN(differenceValue) || !differenceColorToken ? null : (
