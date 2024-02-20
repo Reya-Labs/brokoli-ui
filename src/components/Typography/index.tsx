@@ -20,7 +20,7 @@ export const Typography = ({
   children,
   typographyToken,
   colorToken,
-  as,
+  as: Component = tokenTagMap[typographyToken],
   'data-testid': dataTestId,
   id,
   ...rest
@@ -28,8 +28,6 @@ export const Typography = ({
   const isRainbowColorToken = colorToken === 'rainbow';
   const TypographyUI = isRainbowColorToken ? RainbowTypography : BaseTypography;
   const typographyColorToken = isRainbowColorToken ? 'black800' : colorToken;
-
-  const Component = as || tokenTagMap[typographyToken];
 
   return (
     <TypographyUI
