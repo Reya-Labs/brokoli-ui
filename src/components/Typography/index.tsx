@@ -7,6 +7,7 @@ import { BaseTypography, RainbowTypography } from './Typography.styled';
 
 export type TypographyProps = React.PropsWithChildren<{
   typographyToken: TypographyTokens;
+  backgroundColorToken?: ColorTokens;
   colorToken: ColorTokens | 'rainbow';
   className?: string;
   'data-testid'?: string;
@@ -19,6 +20,7 @@ export const Typography: React.FunctionComponent<TypographyProps> = ({
   typographyToken,
   colorToken,
   'data-testid': dataTestId,
+  backgroundColorToken,
   id,
 }) => {
   const isRainbowColorToken = colorToken === 'rainbow';
@@ -28,6 +30,7 @@ export const Typography: React.FunctionComponent<TypographyProps> = ({
   return (
     <TypographyUI
       as={tokenTagMap[typographyToken]}
+      backgroundColorToken={backgroundColorToken}
       className={className}
       colorToken={typographyColorToken}
       data-testid={dataTestId || `Typography-${colorToken}-${typographyToken}`}

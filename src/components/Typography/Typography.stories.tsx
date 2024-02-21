@@ -22,3 +22,12 @@ export const RainbowVariant: StoryObj<typeof Typography> = {
     typographyToken: 'h1XLBold',
   },
 };
+
+export const WithBackgroundColor: StoryObj<typeof Typography> = {
+  args: {
+    backgroundColorToken: 'primary500',
+    children: 'With Background Color',
+    colorToken: 'white100',
+    typographyToken: 'h1XLBold',
+  },
+};

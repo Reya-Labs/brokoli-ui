@@ -14,10 +14,15 @@ export const BaseTypography = styled(
 )<{
   colorToken: ColorTokens;
   typographyToken: TypographyTokens;
+  backgroundColorToken?: ColorTokens;
 }>`
   margin: 0;
   padding: 0;
   color: ${({ theme, colorToken }) => getColorFromToken({ colorToken, theme })};
+  background: ${({ theme, backgroundColorToken }) =>
+    !backgroundColorToken
+      ? 'transparent'
+      : getColorFromToken({ colorToken: backgroundColorToken, theme })};
   ${({ theme, typographyToken }) =>
     css(getResponsiveTypographyStyleFromToken({ theme, token: typographyToken }))};
 `;
