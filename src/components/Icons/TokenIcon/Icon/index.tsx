@@ -1,11 +1,15 @@
 import React from 'react';
 
 import { ReactComponent as BTCIcon } from './assets/btc.svg';
-import { ReactComponent as DaiIcon } from './assets/dai.svg';
-import { ReactComponent as EthIcon } from './assets/eth.svg';
-import { ReactComponent as ReyaIcon } from './assets/reya.svg';
+import { ReactComponent as DAIIcon } from './assets/dai.svg';
+import { ReactComponent as ETHIcon } from './assets/eth.svg';
+import { ReactComponent as MATICIcon } from './assets/matic.svg';
+import { ReactComponent as RETHIcon } from './assets/reth.svg';
+import { ReactComponent as RUSDIcon } from './assets/rusd.svg';
+import { ReactComponent as SETHIcon } from './assets/seth.svg';
 import { ReactComponent as USDCIcon } from './assets/usdc.svg';
 import { ReactComponent as USDTIcon } from './assets/usdt.svg';
+import { ReactComponent as WBTCIcon } from './assets/wbtc.svg';
 
 export type IconProps = {
   token: SupportedTokenIcons | string;
@@ -13,18 +17,32 @@ export type IconProps = {
   'data-testid'?: string;
 };
 
-export type SupportedTokenIcons = 'btc' | 'dai' | 'eth' | 'rusd' | 'usdc' | 'usdt';
+export type SupportedTokenIcons =
+  | 'btc'
+  | 'dai'
+  | 'eth'
+  | 'matic'
+  | 'reth'
+  | 'rusd'
+  | 'seth'
+  | 'usdc'
+  | 'usdt'
+  | 'wbtc';
 
 const TokenIconMap: Record<
   SupportedTokenIcons,
   React.FunctionComponent<{ viewBox?: string; className?: string }>
 > = {
   btc: BTCIcon,
-  dai: DaiIcon,
-  eth: EthIcon,
-  rusd: ReyaIcon,
+  dai: DAIIcon,
+  eth: ETHIcon,
+  matic: MATICIcon,
+  reth: RETHIcon,
+  rusd: RUSDIcon,
+  seth: SETHIcon,
   usdc: USDCIcon,
   usdt: USDTIcon,
+  wbtc: WBTCIcon,
 };
 
 export const Icon: React.FunctionComponent<IconProps> = ({
