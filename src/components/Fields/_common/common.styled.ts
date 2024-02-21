@@ -39,7 +39,7 @@ export const commonInputStyle = ({ theme, error, typographyToken }: CommonInputS
 
   &:disabled {
     color: ${theme.colors.black100};
-    border: 1px solid ${theme.colors.black900};
+    border: 1px solid ${theme.colors.black700};
     background: ${theme.colors.black900};
     cursor: not-allowed;
   }
