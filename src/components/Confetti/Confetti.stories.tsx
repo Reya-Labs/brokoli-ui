@@ -16,7 +16,6 @@ const ButtonTemplate: StoryFn<typeof Confetti> = (args) => (
   <Confetti {...args}>
     <Button
       borderColorToken="white800"
-      disabledTypographyColorToken="white700"
       hoverBorderColorToken="white500"
       typographyColorToken="white100"
     >

@@ -15,8 +15,6 @@ export const ButtonStyled = styled(
     'borderColorToken',
     'backgroundColorToken',
     'typographyColorToken',
-    'disabledTypographyColorToken',
-    'disabledBackgroundColorToken',
     'hoverBorderColorToken',
     'hoverTypographyColorToken',
     'hoverBackgroundColorToken',
@@ -27,8 +25,6 @@ export const ButtonStyled = styled(
   borderColorToken?: ColorTokens;
   backgroundColorToken?: ColorTokens;
   typographyColorToken?: ColorTokens;
-  disabledTypographyColorToken?: ColorTokens;
-  disabledBackgroundColorToken?: ColorTokens;
   hoverBorderColorToken?: ColorTokens;
   hoverTypographyColorToken?: ColorTokens;
   hoverBackgroundColorToken?: ColorTokens;
@@ -82,20 +78,6 @@ export const ButtonStyled = styled(
   }
 
   &:disabled {
-    color: ${({ theme, disabledTypographyColorToken, typographyColorToken }) =>
-      disabledTypographyColorToken || typographyColorToken
-        ? getColorFromToken({
-            colorToken: disabledTypographyColorToken || typographyColorToken,
-            theme,
-          })
-        : undefined};
-    background-color: ${({ theme, disabledBackgroundColorToken, backgroundColorToken }) =>
-      disabledBackgroundColorToken || backgroundColorToken
-        ? getColorFromToken({
-            colorToken: disabledBackgroundColorToken || backgroundColorToken,
-            theme,
-          })
-        : undefined};
     cursor: not-allowed;
   }
 `;

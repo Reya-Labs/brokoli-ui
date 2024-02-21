@@ -32,7 +32,6 @@ const Template: StoryFn<typeof Notifications> = (args) => {
       <Notifications {...args} />
       <Button
         borderColorToken="white800"
-        disabledTypographyColorToken="white700"
         hoverBorderColorToken="white500"
         typographyColorToken="white100"
         onClick={() => {
@@ -48,7 +47,6 @@ const Template: StoryFn<typeof Notifications> = (args) => {
       </Button>
       <Button
         borderColorToken="white800"
-        disabledTypographyColorToken="white700"
         hoverBorderColorToken="white500"
         typographyColorToken="white100"
         onClick={() => {
@@ -64,7 +62,6 @@ const Template: StoryFn<typeof Notifications> = (args) => {
       </Button>
       <Button
         borderColorToken="white800"
-        disabledTypographyColorToken="white700"
         hoverBorderColorToken="white500"
         typographyColorToken="white100"
         onClick={() => {
@@ -80,7 +77,6 @@ const Template: StoryFn<typeof Notifications> = (args) => {
       </Button>
       <Button
         borderColorToken="white800"
-        disabledTypographyColorToken="white700"
         hoverBorderColorToken="white500"
         typographyColorToken="white100"
         onClick={() => {
@@ -93,7 +89,6 @@ const Template: StoryFn<typeof Notifications> = (args) => {
                 <Button
                   backgroundColorToken="black700"
                   borderColorToken="white800"
-                  disabledTypographyColorToken="white700"
                   hoverBorderColorToken="white500"
                   typographyColorToken="white100"
                 >
@@ -108,7 +103,6 @@ const Template: StoryFn<typeof Notifications> = (args) => {
       </Button>
       <Button
         borderColorToken="white800"
-        disabledTypographyColorToken="white700"
         hoverBorderColorToken="white500"
         typographyColorToken="white100"
         onClick={() => {

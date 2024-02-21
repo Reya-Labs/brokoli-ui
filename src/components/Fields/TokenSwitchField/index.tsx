@@ -172,9 +172,8 @@ export const TokenSwitchField: React.FunctionComponent<TokenSwitchFieldProps> = 
               borderColorToken="white800"
               data-testid="TokenSwitchField-MaxButton"
               disabled={disabled}
-              disabledTypographyColorToken="white700"
               hoverBorderColorToken="white500"
-              typographyColorToken="white100"
+              typographyColorToken={disabled ? 'white700' : 'white100'}
               typographyToken="bodyXSmallRegular"
               onClick={max?.onClick}
             >

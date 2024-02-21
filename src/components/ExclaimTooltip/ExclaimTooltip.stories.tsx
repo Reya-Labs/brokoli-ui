@@ -36,7 +36,6 @@ export const CustomComponentTooltip: StoryObj<typeof ExclaimTooltip> = {
         </Typography>
         <Button
           borderColorToken="white800"
-          disabledTypographyColorToken="white700"
           hoverBorderColorToken="white500"
           typographyColorToken="white100"
         >

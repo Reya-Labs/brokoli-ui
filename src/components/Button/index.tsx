@@ -20,8 +20,6 @@ export type ButtonProps = React.PropsWithChildren<{
   backgroundColorToken?: ColorTokens;
   typographyColorToken?: ColorTokens;
   rounded?: boolean;
-  disabledTypographyColorToken?: ColorTokens;
-  disabledBackgroundColorToken?: ColorTokens;
   hoverTypographyColorToken?: ColorTokens;
   hoverBackgroundColorToken?: ColorTokens;
   hoverBorderColorToken?: ColorTokens;
@@ -42,8 +40,6 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
   bottomLeftTextColorToken = 'white400',
   typographyToken = 'bodyMediumBold',
   bottomLeftTextTypographyToken = 'bodyXSmallRegular',
-  disabledBackgroundColorToken,
-  disabledTypographyColorToken,
   hoverBorderColorToken,
   hoverTypographyColorToken,
   hoverBackgroundColorToken,
@@ -56,8 +52,6 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
       className={className}
       data-testid={dataTestId}
       disabled={disabled}
-      disabledBackgroundColorToken={disabledBackgroundColorToken}
-      disabledTypographyColorToken={disabledTypographyColorToken}
       hoverBackgroundColorToken={hoverBackgroundColorToken || backgroundColorToken}
       hoverBorderColorToken={hoverBorderColorToken}
       hoverTypographyColorToken={hoverTypographyColorToken || typographyColorToken}

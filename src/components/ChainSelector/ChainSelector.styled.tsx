@@ -27,7 +27,8 @@ export const SelectorBox = styled('div', shouldNotForwardProps(['disabled']))<{
 
   &:hover {
     background: ${({ theme, disabled }) => (disabled ? undefined : theme.colors.black700)};
-    border: 1px solid ${({ theme, disabled }) => (disabled ? undefined : theme.colors.black500)};
+    border: ${({ theme, disabled }) =>
+      disabled ? undefined : `1px solid  ${theme.colors.black500}`};
   }
 `;
 

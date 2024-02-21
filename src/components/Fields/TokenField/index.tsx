@@ -166,14 +166,13 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
         <FloatingBox>
           {hasMaxButton ? (
             <MaxButton
-              backgroundColorToken="black700"
+              backgroundColorToken={disabled ? 'black800' : 'black700'}
               borderColorToken="black700"
               data-testid="TokenField-MaxButton"
               disabled={disabled}
-              disabledTypographyColorToken="black900"
-              hoverBorderColorToken="black500"
+              hoverBorderColorToken={disabled ? 'black800' : 'black500'}
               rounded={true}
-              typographyColorToken="white950"
+              typographyColorToken={disabled ? 'black200' : 'white950'}
               typographyToken="bodyXSmallRegular"
               onClick={max?.onClick}
             >

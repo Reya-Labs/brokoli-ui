@@ -205,12 +205,12 @@ export const MarginAmountTokenField: React.FunctionComponent<MarginAmountTokenFi
           <FloatingBox>
             {hasMaxButton ? (
               <MaxButton
+                backgroundColorToken="black900"
                 borderColorToken="white800"
                 data-testid="MarginAmountTokenField-MaxButton"
                 disabled={disabled}
-                disabledTypographyColorToken="white700"
-                hoverBorderColorToken="white500"
-                typographyColorToken="white100"
+                hoverBorderColorToken={disabled ? 'white700' : 'black900'}
+                typographyColorToken={disabled ? 'white700' : 'white100'}
                 typographyToken="bodyXSmallRegular"
                 onClick={handleOnMaxButtonClick}
               >
