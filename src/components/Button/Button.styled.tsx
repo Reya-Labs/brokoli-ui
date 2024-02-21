@@ -59,7 +59,7 @@ export const ButtonStyled = styled(
     background,
     color 200ms ease-in;
 
-  &:hover {
+  &:hover:enabled {
     border: ${({ theme, borderColorToken, hoverBorderColorToken }) =>
       hoverBorderColorToken || borderColorToken
         ? `1px solid ${getColorFromToken({
