@@ -40,7 +40,7 @@ export type LineChartProps = {
   axisTicksTextColorToken?: ColorTokens;
   axisDomainLineColorToken?: ColorTokens | 'transparent';
   visibleAxis?: ('top' | 'bottom' | 'right' | 'left')[];
-  axisTickPadding: number;
+  axisTickPadding?: number;
 };
 
 const yFormatter = (y: LineChartProps['data'][number]['data'][number]['y']) => y.toFixed(3);
