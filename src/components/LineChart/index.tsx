@@ -36,6 +36,9 @@ export type LineChartProps = {
   axisBottomFormat: 'minutes' | 'days' | 'hours';
   yScaleStacked?: boolean;
   crosshairColorToken: ColorTokens;
+  axisTicksTextColorToken?: ColorTokens;
+  axisDomainLineColorToken?: ColorTokens | 'transparent';
+  visibleAxis?: ('top' | 'bottom' | 'right' | 'left')[];
 };
 
 export const LineChart: React.FunctionComponent<LineChartProps> = ({
@@ -45,6 +48,9 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
   axisTypographyToken = 'bodyXSmallRegular',
   yScaleStacked = false,
   crosshairColorToken = 'primary500',
+  axisTicksTextColorToken = 'white400',
+  axisDomainLineColorToken = 'white900',
+  visibleAxis = ['left', 'bottom'],
 }) => {
   const theme = useTheme();
   const {
@@ -123,32 +129,44 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
     return { max, min };
   }, [data]);
   const crossHairColor = getColorFromToken({ colorToken: crosshairColorToken, theme });
+  const axisTicksTextColor = getColorFromToken({ colorToken: axisTicksTextColorToken, theme });
+  const axisDomainLineColor =
+    axisDomainLineColorToken === 'transparent'
+      ? 'transparent'
+      : getColorFromToken({ colorToken: axisDomainLineColorToken, theme });
+  const axisVisible = useMemo(() => {
+    return {
+      bottom: visibleAxis.indexOf('bottom') !== -1,
+      left: visibleAxis.indexOf('left') !== -1,
+      right: visibleAxis.indexOf('right') !== -1,
+      top: visibleAxis.indexOf('top') !== -1,
+    };
+  }, [visibleAxis]);
+
+  const axisTopBottomConfig = {
+    format:
+      axisBottomFormat === 'minutes' ? '%M:%S' : axisBottomFormat === 'hours' ? '%H:%M' : '%d %b',
+    legendOffset: 16,
+    tickPadding: 4,
+    tickRotation: 0,
+    tickSize: 0,
+  };
+  const axisLeftRightConfig = {
+    legendOffset: 32,
+    tickPadding: 8,
+    tickRotation: 0,
+    tickSize: 0,
+  };
 
   return (
     <LineChartBox>
       <ResponsiveLine
         animate={true}
         areaBaselineValue={yScale.min}
-        axisBottom={{
-          format:
-            axisBottomFormat === 'minutes'
-              ? '%M:%S'
-              : axisBottomFormat === 'hours'
-              ? '%H:%M'
-              : '%d %b',
-          legendOffset: 16,
-          tickPadding: 4,
-          tickRotation: 0,
-          tickSize: 0,
-        }}
-        axisLeft={{
-          legendOffset: 32,
-          tickPadding: 8,
-          tickRotation: 0,
-          tickSize: 0,
-        }}
-        axisRight={null}
-        axisTop={null}
+        axisBottom={axisVisible.bottom ? axisTopBottomConfig : null}
+        axisLeft={axisVisible.left ? axisLeftRightConfig : null}
+        axisRight={axisVisible.right ? axisLeftRightConfig : null}
+        axisTop={axisVisible.top ? axisTopBottomConfig : null}
         colors={colors}
         crosshairType="cross"
         curve="linear"
@@ -158,7 +176,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
         enableGridX={false}
         enableGridY={false}
         fill={gradients.fill}
-        margin={{ bottom: 20, left: 40, right: 0, top: 40 }}
+        margin={{ bottom: 20, left: 40, right: 40, top: 20 }}
         markers={
           yMarker
             ? [
@@ -191,7 +209,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
           axis: {
             domain: {
               line: {
-                stroke: theme.colors.white900,
+                stroke: axisDomainLineColor,
                 strokeWidth: 1,
               },
             },
@@ -201,7 +219,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
                 strokeWidth: 1,
               },
               text: {
-                fill: theme.colors.white400,
+                fill: axisTicksTextColor,
                 fontFamily: axisTypography.fontFamily as Property.FontFamily,
                 fontSize: parseInt(axisTypography.fontSize, 10),
                 fontWeight: parseInt(axisTypography.fontWeight),

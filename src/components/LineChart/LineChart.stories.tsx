@@ -177,3 +177,73 @@ export const WithMultipleLines: StoryObj<typeof LineChart> = {
   },
   render: Template,
 };
+
+export const WithDifferentAxisVisible: StoryObj<typeof LineChart> = {
+  args: {
+    axisTypographyToken: 'bodyXSmallRegular',
+    data: [
+      {
+        colorToken: 'secondary500',
+        data: points1,
+        id: 'points1',
+        tooltip: {
+          token: '%',
+          tokenColorToken: 'secondary700',
+        },
+      },
+      {
+        colorToken: 'primary500',
+        data: points2,
+        id: 'points2',
+        tooltip: {
+          token: '%',
+          tokenColorToken: 'primary700',
+        },
+      },
+    ],
+    visibleAxis: ['top', 'right'],
+    yMarker: {
+      colorToken: 'primary400',
+      text: 'Fixed Rate:',
+      typographyToken: 'bodyXSmallRegular',
+      value: 1.82,
+    },
+  },
+  render: Template,
+};
+
+export const WithTransparentAxis: StoryObj<typeof LineChart> = {
+  args: {
+    axisDomainLineColorToken: 'transparent',
+    axisTicksTextColorToken: 'warning500',
+    axisTypographyToken: 'bodyXSmallRegular',
+    data: [
+      {
+        colorToken: 'secondary500',
+        data: points1,
+        id: 'points1',
+        tooltip: {
+          token: '%',
+          tokenColorToken: 'secondary700',
+        },
+      },
+      {
+        colorToken: 'primary500',
+        data: points2,
+        id: 'points2',
+        tooltip: {
+          token: '%',
+          tokenColorToken: 'primary700',
+        },
+      },
+    ],
+    visibleAxis: ['bottom', 'right'],
+    yMarker: {
+      colorToken: 'primary400',
+      text: 'Fixed Rate:',
+      typographyToken: 'bodyXSmallRegular',
+      value: 1.82,
+    },
+  },
+  render: Template,
+};
