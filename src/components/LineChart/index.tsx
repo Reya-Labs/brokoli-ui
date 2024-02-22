@@ -7,6 +7,7 @@ import React, { useMemo } from 'react';
 import { ColorTokens, getColorFromToken } from '../../foundation/Colors';
 import { useResponsiveQuery } from '../../foundation/Media';
 import { getTypographyFromToken, TypographyTokens } from '../../foundation/Typography';
+import { getTextWidth } from '../../utils/get-text-width';
 import { LineChartBox } from './LineChart.styled';
 import { Tooltip } from './Tooltip/Tooltip';
 
@@ -39,8 +40,10 @@ export type LineChartProps = {
   axisTicksTextColorToken?: ColorTokens;
   axisDomainLineColorToken?: ColorTokens | 'transparent';
   visibleAxis?: ('top' | 'bottom' | 'right' | 'left')[];
+  axisTickPadding: number;
 };
 
+const yFormatter = (y: LineChartProps['data'][number]['data'][number]['y']) => y.toFixed(3);
 export const LineChart: React.FunctionComponent<LineChartProps> = ({
   data,
   yMarker,
@@ -51,6 +54,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
   axisTicksTextColorToken = 'white400',
   axisDomainLineColorToken = 'white900',
   visibleAxis = ['left', 'bottom'],
+  axisTickPadding = 8,
 }) => {
   const theme = useTheme();
   const {
@@ -84,6 +88,8 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
     : isSmallDesktopDeviceAndUp
     ? axisTypographyConfig.smallDesktopDevice
     : axisTypographyConfig.largeDesktopDevice;
+  const axisFontSize = parseInt(axisTypography.fontSize, 10);
+  const axisFontFamily = axisTypography.fontFamily;
 
   const { tooltips, colorTokensMap, colors, gradients } = useMemo(() => {
     const memoColors = data.map((d) => getColorFromToken({ colorToken: d.colorToken, theme }));
@@ -116,6 +122,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
       ),
     };
   }, [theme, data]);
+
   const yScale = useMemo(() => {
     const yS = data.reduce((pV, cI) => {
       const validData: number[] = cI.data
@@ -126,8 +133,24 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
 
     const min = Math.min(...yS);
     const max = Math.max(...yS);
-    return { max, min };
+    return { max, min, yS };
   }, [data]);
+
+  const yAxisUI = useMemo(() => {
+    const yMargin =
+      Math.max(
+        ...yScale.yS.map((y) =>
+          getTextWidth({
+            fontFamily: axisFontFamily,
+            fontSize: axisFontSize,
+            text: yFormatter(y),
+          }),
+        ),
+      ) +
+      2 * axisTickPadding;
+    return { yMargin };
+  }, [axisFontFamily, axisTickPadding, axisFontSize, yScale.yS]);
+
   const crossHairColor = getColorFromToken({ colorToken: crosshairColorToken, theme });
   const axisTicksTextColor = getColorFromToken({ colorToken: axisTicksTextColorToken, theme });
   const axisDomainLineColor =
@@ -146,14 +169,15 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
   const axisTopBottomConfig = {
     format:
       axisBottomFormat === 'minutes' ? '%M:%S' : axisBottomFormat === 'hours' ? '%H:%M' : '%d %b',
-    legendOffset: 16,
-    tickPadding: 4,
+    legendOffset: 0,
+    tickPadding: axisTickPadding,
     tickRotation: 0,
     tickSize: 0,
   };
   const axisLeftRightConfig = {
-    legendOffset: 32,
-    tickPadding: 8,
+    format: yFormatter,
+    legendOffset: 0,
+    tickPadding: axisTickPadding,
     tickRotation: 0,
     tickSize: 0,
   };
@@ -176,7 +200,12 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
         enableGridX={false}
         enableGridY={false}
         fill={gradients.fill}
-        margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
+        margin={{
+          bottom: axisVisible.bottom ? axisFontSize * 2 : 0,
+          left: axisVisible.left ? yAxisUI.yMargin : 0,
+          right: axisVisible.right ? yAxisUI.yMargin : 0,
+          top: axisVisible.top ? axisFontSize * 2 : axisFontSize,
+        }}
         markers={
           yMarker
             ? [
@@ -220,8 +249,8 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
               },
               text: {
                 fill: axisTicksTextColor,
-                fontFamily: axisTypography.fontFamily as Property.FontFamily,
-                fontSize: parseInt(axisTypography.fontSize, 10),
+                fontFamily: axisFontFamily as Property.FontFamily,
+                fontSize: axisFontSize,
                 fontWeight: parseInt(axisTypography.fontWeight),
               },
             },
@@ -235,8 +264,8 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
           },
           text: {
             color: theme.colors.white400,
-            fontFamily: axisTypography.fontFamily as Property.FontFamily,
-            fontSize: parseInt(axisTypography.fontSize, 10),
+            fontFamily: axisFontFamily as Property.FontFamily,
+            fontSize: axisFontSize,
           },
         }}
         tooltip={(point) => {
@@ -259,7 +288,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
           type: 'time',
           useUTC: false,
         }}
-        yFormat=" >-.2f"
+        yFormat={(c) => yFormatter(c as number)}
         yScale={{
           max: 'auto',
           min: 'auto',
