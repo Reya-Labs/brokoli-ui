@@ -176,7 +176,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
         enableGridX={false}
         enableGridY={false}
         fill={gradients.fill}
-        margin={{ bottom: 20, left: 40, right: 40, top: 20 }}
+        margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
         markers={
           yMarker
             ? [
