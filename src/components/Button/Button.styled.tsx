@@ -79,6 +79,7 @@ export const ButtonStyled = styled(
 
   &:disabled {
     cursor: not-allowed;
+    filter: blur(1px);
   }
 `;
 

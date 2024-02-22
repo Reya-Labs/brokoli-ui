@@ -79,3 +79,13 @@ export const WithBottomLeftTextAsError: StoryObj<typeof Button> = {
     typographyToken: 'bodySmallRegular',
   },
 };
+
+export const Disabled: StoryObj<typeof Button> = {
+  args: {
+    backgroundColorToken: 'white100',
+    borderColorToken: 'white900',
+    children: 'Default',
+    disabled: true,
+    typographyColorToken: 'white950',
+  },
+};
