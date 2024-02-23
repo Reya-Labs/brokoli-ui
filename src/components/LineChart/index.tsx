@@ -139,7 +139,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
 
   const yAxisUI = useMemo(() => {
     if ((yScale.yS || []).length === 0) {
-      return 2 * axisTickPadding;
+      return { yMargin: 2 * axisTickPadding };
     }
 
     const yMargin =
