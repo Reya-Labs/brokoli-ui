@@ -43,7 +43,8 @@ export type LineChartProps = {
   axisTickPadding?: number;
 };
 
-const yFormatter = (y: LineChartProps['data'][number]['data'][number]['y']) => y.toFixed(3);
+const yFormatter = (y: LineChartProps['data'][number]['data'][number]['y']) =>
+  parseFloat(y.toFixed(2)).toString();
 export const LineChart: React.FunctionComponent<LineChartProps> = ({
   data,
   yMarker,
