@@ -5,7 +5,6 @@ import { getColorFromToken } from '../../foundation/Colors';
 export const PageBox = styled('div')`
   position: relative;
   height: 100svh;
-  width: 100vw;
 `;
 
 export const PageContentBox = styled('div')`
