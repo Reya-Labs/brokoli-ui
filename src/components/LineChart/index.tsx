@@ -138,6 +138,10 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
   }, [data]);
 
   const yAxisUI = useMemo(() => {
+    if ((yScale.yS || []).length === 0) {
+      return 2 * axisTickPadding;
+    }
+
     const yMargin =
       Math.max(
         ...yScale.yS.map((y) =>
