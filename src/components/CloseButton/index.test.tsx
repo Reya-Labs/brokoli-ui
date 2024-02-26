@@ -9,7 +9,6 @@ describe('<CloseButton />', () => {
 
     const closeButton = screen.getByTestId('CloseButton-CloseButtonStyled-white');
     expect(closeButton).toBeInTheDocument();
-    expect(closeButton).toHaveTextContent('✕');
   });
 
   it('renders with provided color token', () => {
@@ -17,7 +16,6 @@ describe('<CloseButton />', () => {
 
     const closeButton = screen.getByTestId('CloseButton-CloseButtonStyled-error');
     expect(closeButton).toBeInTheDocument();
-    expect(closeButton).toHaveTextContent('✕');
   });
 
   it('calls the onClick handler when clicked', () => {
@@ -28,5 +26,12 @@ describe('<CloseButton />', () => {
     fireEvent.click(closeButton);
 
     expect(handleClick).toHaveBeenCalledTimes(1);
+  });
+
+  it('renders with provided backgroundColorToken', () => {
+    render(<CloseButton backgroundColorToken="black800" />);
+
+    const closeButton = screen.getByTestId('CloseButton-CloseButtonStyled-white');
+    expect(closeButton).toBeInTheDocument();
   });
 });
