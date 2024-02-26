@@ -1,25 +1,25 @@
 import styled from '@emotion/styled';
 
-import { BaseColorTokens, getColorFromToken } from '../../foundation/Colors';
+import { ColorTokens } from '../../foundation/Colors';
 import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 
-export const CloseButtonStyled = styled('button', shouldNotForwardProps(['colorToken']))<{
-  colorToken: BaseColorTokens;
+export const CloseButtonWrapper = styled(
+  'button',
+  shouldNotForwardProps(['colorToken, backgroundColorToken, hoverColorToken']),
+)<{
+  colorToken: ColorTokens;
+  backgroundColorToken: ColorTokens;
+  hoverBackgroundColorToken: ColorTokens;
 }>`
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  padding: 4px 8px;
-  gap: 4px;
-  background: ${({ theme, colorToken }) =>
-    `${getColorFromToken({ colorToken: `${colorToken}900`, theme })}`};
+  padding: 6px;
+  line-height: 0;
+  color: ${({ colorToken }) => colorToken};
+  background: ${({ backgroundColorToken }) => backgroundColorToken};
   border-radius: 4px;
-  color: ${({ theme, colorToken }) =>
-    `${getColorFromToken({ colorToken: `${colorToken}100`, theme })}`};
   cursor: pointer;
   border: none;
+
   &:hover {
-    background: ${({ theme, colorToken }) =>
-      `${getColorFromToken({ colorToken: `${colorToken}800`, theme })}`};
+    background: ${({ hoverBackgroundColorToken }) => hoverBackgroundColorToken};
   }
 `;
