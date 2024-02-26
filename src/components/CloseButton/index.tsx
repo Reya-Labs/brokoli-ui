@@ -1,7 +1,8 @@
 import React from 'react';
+
 import { ColorTokens } from '../../foundation/Colors';
-import { CloseButtonWrapper } from './CloseButton.styled';
 import { ReactComponent as CloseIcon } from './close-icon.svg';
+import { CloseButtonWrapper } from './CloseButton.styled';
 
 export type CloseButtonProps = {
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
@@ -19,10 +20,10 @@ export const CloseButton: React.FunctionComponent<CloseButtonProps> = React.memo
   }) => {
     return (
       <CloseButtonWrapper
-        colorToken={colorToken}
         backgroundColorToken={backgroundColorToken}
-        hoverBackgroundColorToken={hoverBackgroundColorToken}
+        colorToken={colorToken}
         data-testid={`CloseButton-CloseButtonStyled-${colorToken}`}
+        hoverBackgroundColorToken={hoverBackgroundColorToken}
         onClick={onClick}
       >
         <CloseIcon />
