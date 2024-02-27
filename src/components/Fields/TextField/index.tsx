@@ -17,7 +17,7 @@ export type TextFieldProps = {
   labelTypographyToken?: TypographyTokens;
   tooltip?: ExclaimTooltipProps['children'];
   tooltipColorToken?: ColorTokens;
-  type: HTMLInputElement['type'];
+  type?: HTMLInputElement['type'];
   typographyToken: TypographyTokens;
   placeHolder?: string;
   name?: string;
