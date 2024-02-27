@@ -4,7 +4,8 @@ import { ColorTokens } from '../../../foundation/Colors';
 import { TypographyTokens } from '../../../foundation/Typography';
 import { ExclaimTooltipProps } from '../../ExclaimTooltip';
 import { TooltipLabel } from '../../TooltipLabel';
-import { TextFieldBox, TextInputStyled } from './TextField.styled';
+import { Typography } from '../../Typography';
+import { BottomBox, TextFieldBox, TextInputStyled } from './TextField.styled';
 
 export type TextFieldProps = {
   onChange?: (value: string | undefined) => void;
@@ -21,6 +22,10 @@ export type TextFieldProps = {
   placeHolder?: string;
   name?: string;
   labelAttentionIndicatorColorToken?: ColorTokens;
+
+  bottomLeftText?: string;
+  bottomLeftTextColorToken?: ColorTokens;
+  bottomLeftTextTypographyToken?: TypographyTokens;
 };
 
 export const TextField: React.FunctionComponent<TextFieldProps> = ({
@@ -38,6 +43,9 @@ export const TextField: React.FunctionComponent<TextFieldProps> = ({
   typographyToken = 'bodyMediumRegular',
   name,
   labelAttentionIndicatorColorToken,
+  bottomLeftTextTypographyToken = 'bodyXSmallRegular',
+  bottomLeftTextColorToken = 'white300',
+  bottomLeftText,
 }) => {
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onChange && onChange(event.target.value);
@@ -64,6 +72,17 @@ export const TextField: React.FunctionComponent<TextFieldProps> = ({
         value={value}
         onChange={handleOnChange}
       />
+      <BottomBox data-testid="TokenField-BottomBox">
+        {bottomLeftText ? (
+          <Typography
+            colorToken={bottomLeftTextColorToken}
+            data-testid="TokenField-BottomBox-Typography"
+            typographyToken={bottomLeftTextTypographyToken}
+          >
+            {bottomLeftText}
+          </Typography>
+        ) : null}
+      </BottomBox>
     </TextFieldBox>
   );
 };

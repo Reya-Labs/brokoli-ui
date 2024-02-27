@@ -49,3 +49,16 @@ export const WithTooltip: StoryObj<typeof TextField> = {
 
   render: Template,
 };
+
+export const WithBottomLeftText: StoryObj<typeof TextField> = {
+  args: {
+    bottomLeftText: 'Bottom left text',
+    bottomLeftTextColorToken: 'error500',
+    bottomLeftTextTypographyToken: 'bodySmallRegular',
+    label: 'Username',
+    labelColorToken: 'white300',
+    labelTypographyToken: 'bodySmallRegular',
+  },
+
+  render: Template,
+};
