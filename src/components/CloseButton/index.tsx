@@ -19,7 +19,7 @@ export const CloseButton: React.FunctionComponent<CloseButtonProps> = ({
   backgroundColorToken,
   hoverBackgroundColorToken,
   onClick,
-  size = 12,
+  size = originalSVGSize,
 }) => {
   return (
     <CloseButtonWrapper
@@ -27,10 +27,10 @@ export const CloseButton: React.FunctionComponent<CloseButtonProps> = ({
       colorToken={colorToken}
       data-testid={`CloseButton-CloseButtonStyled-${colorToken}`}
       hoverBackgroundColorToken={hoverBackgroundColorToken}
-      onClick={onClick}
       size={size}
+      onClick={onClick}
     >
-      <CloseIcon width={size} height={size} />
+      <CloseIcon />
     </CloseButtonWrapper>
   );
 };
