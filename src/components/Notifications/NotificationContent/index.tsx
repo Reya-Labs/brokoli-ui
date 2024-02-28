@@ -32,6 +32,10 @@ export const NotificationContent: React.FunctionComponent<NotificationContentPro
           {title}
         </Typography>
         <CloseButton
+          buttonBackgroundColorToken={`${colorToken}950`}
+          buttonHoverBackgroundColorToken={`${colorToken}900`}
+          iconColorToken={`${colorToken}500`}
+          iconHoverColorToken={`${colorToken}700`}
           onClick={() => {
             closeToast && closeToast();
             onCloseNotification && onCloseNotification();
