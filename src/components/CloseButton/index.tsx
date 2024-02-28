@@ -14,10 +14,10 @@ export type CloseButtonProps = {
 };
 
 export const CloseButton: React.FunctionComponent<CloseButtonProps> = ({
-  buttonBackgroundColorToken = 'white900',
+  buttonBackgroundColorToken = 'black800',
   buttonHoverBackgroundColorToken = buttonBackgroundColorToken,
-  iconColorToken,
-  iconHoverColorToken,
+  iconColorToken = 'white950',
+  iconHoverColorToken = iconColorToken,
   onClick,
   size = 16,
 }) => {
