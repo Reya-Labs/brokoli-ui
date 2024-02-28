@@ -23,7 +23,7 @@ describe('<NotificationContent />', () => {
     expect(screen.getByTestId('NotificationContent-NotificationBox')).toBeInTheDocument();
     expect(screen.getByTestId('NotificationContent-TitleBox')).toBeInTheDocument();
     expect(screen.getByText('Notification Title')).toBeInTheDocument();
-    expect(screen.getByTestId('CloseButton-CloseButtonStyled-error')).toBeInTheDocument();
+    expect(screen.getByTestId('CloseButton-CloseButtonStyled-white900')).toBeInTheDocument();
     expect(screen.getByText('Notification Content')).toBeInTheDocument();
   });
 
@@ -37,7 +37,7 @@ describe('<NotificationContent />', () => {
         onCloseNotification={onCloseNotification}
       />,
     );
-    const closeButton = screen.getByTestId('CloseButton-CloseButtonStyled-error');
+    const closeButton = screen.getByTestId('CloseButton-CloseButtonStyled-white900');
     fireEvent.click(closeButton);
     expect(closeToast).toHaveBeenCalled();
     expect(onCloseNotification).toHaveBeenCalled();

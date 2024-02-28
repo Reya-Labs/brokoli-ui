@@ -1,14 +1,13 @@
 import styled from '@emotion/styled';
 
-import { BaseColorTokens, ColorTokens, getColorFromToken } from '../../foundation/Colors';
+import { ColorTokens } from '../../foundation/Colors';
 import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 
 export const CloseButtonWrapper = styled(
   'button',
   shouldNotForwardProps(['colorToken, backgroundColorToken, hoverColorToken, size']),
 )<{
-  colorToken: BaseColorTokens;
-  backgroundColorToken?: ColorTokens;
+  backgroundColorToken: ColorTokens;
   hoverBackgroundColorToken?: ColorTokens;
   size: number;
 }>`
@@ -16,19 +15,13 @@ export const CloseButtonWrapper = styled(
   place-content: center;
 
   padding: 6px;
-  background-color: ${({ theme, backgroundColorToken, colorToken }) =>
-    backgroundColorToken
-      ? theme.colors[backgroundColorToken]
-      : getColorFromToken({ colorToken: `${colorToken}900`, theme })};
+  background-color: ${({ backgroundColorToken }) => backgroundColorToken};
   border-radius: 4px;
   cursor: pointer;
   border: none;
 
   &:hover {
-    background-color: ${({ theme, hoverBackgroundColorToken, colorToken }) =>
-      hoverBackgroundColorToken
-        ? theme.colors[hoverBackgroundColorToken]
-        : getColorFromToken({ colorToken: `${colorToken}800`, theme })};
+    background-color: ${({ hoverBackgroundColorToken }) => hoverBackgroundColorToken};
   }
 
   & > svg {
