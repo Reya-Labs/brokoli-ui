@@ -24,10 +24,10 @@ export const CloseButtonWrapper = styled(
   &:hover {
     background-color: ${({ theme, hoverBackgroundColorToken }) =>
       getColorFromToken({ colorToken: hoverBackgroundColorToken, theme })};
+  }
 
-    & > svg {
-      width: ${({ size }) => `${size}px`};
-      height: ${({ size }) => `${size}px`};
-    }
+  & > svg {
+    width: ${({ size }) => `${size}px`};
+    height: ${({ size }) => `${size}px`};
   }
 `;
