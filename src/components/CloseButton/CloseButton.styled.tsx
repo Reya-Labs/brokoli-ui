@@ -6,36 +6,36 @@ import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 export const CloseButtonWrapper = styled(
   'button',
   shouldNotForwardProps([
-    'buttonBackgroundColor',
-    'buttonHoverBackgroundColor',
-    'iconColor',
-    'iconHoverColor',
+    'buttonBackgroundColorToken',
+    'buttonHoverBackgroundColorToken',
+    'iconColorToken',
+    'iconHoverColorToken',
     'size',
   ]),
 )<{
-  buttonBackgroundColor: ColorTokens;
-  buttonHoverBackgroundColor: ColorTokens;
-  iconColor?: ColorTokens;
-  iconHoverColor?: ColorTokens;
+  buttonBackgroundColorToken: ColorTokens;
+  buttonHoverBackgroundColorToken: ColorTokens;
+  iconColorToken?: ColorTokens;
+  iconHoverColorToken?: ColorTokens;
   size: number;
 }>`
   display: grid;
   place-content: center;
 
   padding: 6px;
-  background-color: ${({ theme, buttonBackgroundColor }) =>
-    getColorFromToken({ colorToken: buttonBackgroundColor, theme })};
+  background-color: ${({ theme, buttonBackgroundColorToken }) =>
+    getColorFromToken({ colorToken: buttonBackgroundColorToken, theme })};
   border-radius: 4px;
   cursor: pointer;
   border: none;
 
   &:hover {
-    background-color: ${({ theme, buttonHoverBackgroundColor }) =>
-      getColorFromToken({ colorToken: buttonHoverBackgroundColor, theme })};
+    background-color: ${({ theme, buttonHoverBackgroundColorToken }) =>
+      getColorFromToken({ colorToken: buttonHoverBackgroundColorToken, theme })};
 
     & * {
-      stroke: ${({ theme, iconHoverColor }) =>
-        iconHoverColor && getColorFromToken({ colorToken: iconHoverColor, theme })};
+      stroke: ${({ theme, iconHoverColorToken }) =>
+        iconHoverColorToken && getColorFromToken({ colorToken: iconHoverColorToken, theme })};
     }
   }
 
@@ -45,7 +45,7 @@ export const CloseButtonWrapper = styled(
   }
 
   & * {
-    stroke: ${({ theme, iconColor }) =>
-      iconColor && getColorFromToken({ colorToken: iconColor, theme })};
+    stroke: ${({ theme, iconColorToken }) =>
+      iconColorToken && getColorFromToken({ colorToken: iconColorToken, theme })};
   }
 `;

@@ -14,7 +14,7 @@ export const Default: StoryObj<typeof CloseButton> = {
 
 export const CustomColors: StoryObj<typeof CloseButton> = {
   args: {
-    buttonBackgroundColor: 'black800',
-    buttonHoverBackgroundColor: 'black900',
+    buttonBackgroundColorToken: 'black800',
+    buttonHoverBackgroundColorToken: 'black900',
   },
 };
