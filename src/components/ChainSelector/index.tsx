@@ -15,7 +15,7 @@ import { CHAIN_NAME_MAP, SupportedChainNames } from './constants';
 export type ChainOption = number;
 export type ChainSelectorProps = {
   onChainChange: (optionId: ChainOption) => void;
-  selectedChainId?: ChainOption;
+  selectedChainId?: ChainOption | null;
   chainOptions: ChainOption[];
   approving?: boolean;
   disabled?: boolean;
