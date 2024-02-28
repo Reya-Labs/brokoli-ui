@@ -6,28 +6,28 @@ import { CloseButtonWrapper } from './CloseButton.styled';
 
 export type CloseButtonProps = {
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  buttonBackgroundColor?: ColorTokens;
-  buttonHoverBackgroundColor?: ColorTokens;
-  iconColor?: ColorTokens;
-  iconHoverColor?: ColorTokens;
+  buttonBackgroundColorToken?: ColorTokens;
+  buttonHoverBackgroundColorToken?: ColorTokens;
+  iconColorToken?: ColorTokens;
+  iconHoverColorToken?: ColorTokens;
   size?: number;
 };
 
 export const CloseButton: React.FunctionComponent<CloseButtonProps> = ({
-  buttonBackgroundColor = 'white900',
-  buttonHoverBackgroundColor = buttonBackgroundColor,
-  iconColor,
-  iconHoverColor,
+  buttonBackgroundColorToken = 'white900',
+  buttonHoverBackgroundColorToken = buttonBackgroundColorToken,
+  iconColorToken,
+  iconHoverColorToken,
   onClick,
   size = 16,
 }) => {
   return (
     <CloseButtonWrapper
-      buttonBackgroundColor={buttonBackgroundColor}
-      buttonHoverBackgroundColor={buttonHoverBackgroundColor}
-      data-testid={`CloseButton-CloseButtonStyled-${buttonBackgroundColor}`}
-      iconColor={iconColor}
-      iconHoverColor={iconHoverColor}
+      buttonBackgroundColorToken={buttonBackgroundColorToken}
+      buttonHoverBackgroundColorToken={buttonHoverBackgroundColorToken}
+      data-testid={`CloseButton-CloseButtonStyled-${buttonBackgroundColorToken}`}
+      iconColorToken={iconColorToken}
+      iconHoverColorToken={iconHoverColorToken}
       size={size}
       onClick={onClick}
     >

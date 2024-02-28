@@ -12,7 +12,12 @@ describe('<CloseButton />', () => {
   });
 
   it('renders with provided color token', () => {
-    render(<CloseButton buttonBackgroundColor="error900" buttonHoverBackgroundColor="error800" />);
+    render(
+      <CloseButton
+        buttonBackgroundColorToken="error900"
+        buttonHoverBackgroundColorToken="error800"
+      />,
+    );
 
     const closeButton = screen.getByTestId('CloseButton-CloseButtonStyled-error900');
     expect(closeButton).toBeInTheDocument();
@@ -29,7 +34,7 @@ describe('<CloseButton />', () => {
   });
 
   it('renders with provided backgroundColorToken', () => {
-    render(<CloseButton buttonBackgroundColor="black800" />);
+    render(<CloseButton buttonBackgroundColorToken="black800" />);
 
     const closeButton = screen.getByTestId('CloseButton-CloseButtonStyled-black800');
     expect(closeButton).toBeInTheDocument();
