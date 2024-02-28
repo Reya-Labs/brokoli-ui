@@ -8,22 +8,28 @@ const originalSVGSize = 16;
 
 export type CloseButtonProps = {
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  backgroundColorToken?: ColorTokens;
-  hoverBackgroundColorToken?: ColorTokens;
+  buttonBackgroundColor?: ColorTokens;
+  buttonHoverBackgroundColor?: ColorTokens;
+  iconColor?: ColorTokens;
+  iconHoverColor?: ColorTokens;
   size?: number;
 };
 
 export const CloseButton: React.FunctionComponent<CloseButtonProps> = ({
-  backgroundColorToken = 'white900',
-  hoverBackgroundColorToken = backgroundColorToken,
+  buttonBackgroundColor = 'white900',
+  buttonHoverBackgroundColor = buttonBackgroundColor,
+  iconColor,
+  iconHoverColor,
   onClick,
   size = originalSVGSize,
 }) => {
   return (
     <CloseButtonWrapper
-      backgroundColorToken={backgroundColorToken}
-      data-testid={`CloseButton-CloseButtonStyled-${backgroundColorToken}`}
-      hoverBackgroundColorToken={hoverBackgroundColorToken}
+      buttonBackgroundColor={buttonBackgroundColor}
+      buttonHoverBackgroundColor={buttonHoverBackgroundColor}
+      data-testid={`CloseButton-CloseButtonStyled-${buttonBackgroundColor}`}
+      iconColor={iconColor}
+      iconHoverColor={iconHoverColor}
       size={size}
       onClick={onClick}
     >
