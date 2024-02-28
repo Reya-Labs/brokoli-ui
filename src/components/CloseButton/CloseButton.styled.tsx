@@ -5,7 +5,7 @@ import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 
 export const CloseButtonWrapper = styled(
   'button',
-  shouldNotForwardProps(['colorToken, backgroundColorToken, hoverColorToken, size']),
+  shouldNotForwardProps(['backgroundColorToken, hoverColorToken, size']),
 )<{
   backgroundColorToken: ColorTokens;
   hoverBackgroundColorToken: ColorTokens;
