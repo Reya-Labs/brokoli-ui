@@ -10,7 +10,7 @@ export const CloseButtonWrapper = styled(
   colorToken: BaseColorTokens;
   backgroundColorToken?: ColorTokens;
   hoverBackgroundColorToken?: ColorTokens;
-  size?: number;
+  size: number;
 }>`
   display: grid;
   place-content: center;
@@ -29,5 +29,10 @@ export const CloseButtonWrapper = styled(
       hoverBackgroundColorToken
         ? theme.colors[hoverBackgroundColorToken]
         : getColorFromToken({ colorToken: `${colorToken}800`, theme })};
+  }
+
+  & > svg {
+    width: ${({ size }) => `${size}px`};
+    height: ${({ size }) => `${size}px`};
   }
 `;
