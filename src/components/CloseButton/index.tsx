@@ -4,8 +4,6 @@ import { ColorTokens } from '../../foundation/Colors';
 import { ReactComponent as CloseIcon } from './close-icon.svg';
 import { CloseButtonWrapper } from './CloseButton.styled';
 
-const originalSVGSize = 16;
-
 export type CloseButtonProps = {
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   buttonBackgroundColor?: ColorTokens;
@@ -21,7 +19,7 @@ export const CloseButton: React.FunctionComponent<CloseButtonProps> = ({
   iconColor,
   iconHoverColor,
   onClick,
-  size = originalSVGSize,
+  size = 16,
 }) => {
   return (
     <CloseButtonWrapper
