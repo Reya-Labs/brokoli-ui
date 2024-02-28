@@ -45,6 +45,6 @@ export const commonInputStyle = ({ theme, error, typographyToken }: CommonInputS
   }
 
   &::placeholder {
-    color: ${theme.colors.black100};
+    color: ${theme.colors.white950};
   }
 `;

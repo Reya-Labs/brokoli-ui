@@ -13,6 +13,8 @@ export const IconBox = styled('div', shouldNotForwardProps(['isActive']))<{
   background: ${({ theme, isActive }) =>
     isActive ? theme.colors.black900 : theme.colors.black700};
   transition: background-color 200ms ease-in;
+  display: flex;
+  align-items: center;
 `;
 
 export const ChainOptionButton = styled('button')`

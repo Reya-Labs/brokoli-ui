@@ -5,7 +5,7 @@ import { ChainOption, ChainOptionProps } from './ChainOption';
 
 describe('ChainOption', () => {
   const defaultProps: ChainOptionProps = {
-    Icon: () => <span>Icon</span>,
+    id: 1,
     isActive: false,
     name: 'Option 1',
     onClick: jest.fn(),

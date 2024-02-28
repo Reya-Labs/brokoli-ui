@@ -1,6 +1,6 @@
 {
   "name": "brokoli-ui",
-  "version": "8.24.4",
+  "version": "8.26.1",
   "description": "An UI design language and React UI library",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",

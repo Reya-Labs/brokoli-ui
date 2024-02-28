@@ -1,23 +1,21 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
 import { ColorTokens } from '../../foundation/Colors';
 import { TypographyTokens } from '../../foundation/Typography';
 import { ExclaimTooltipProps } from '../ExclaimTooltip';
+import { ChainIcon } from '../Icons';
+import { SupportedChainIcons } from '../Icons/ChainIcon/Icon/constants';
 import { Popover } from '../Popover';
 import { ToggleCaret } from '../ToggleCaret';
 import { TooltipLabel } from '../TooltipLabel';
 import { ChainOptions } from './ChainOptions/ChainOptions';
 import { Box, ChainSelectorButton, IconBox, SelectorBox } from './ChainSelector.styled';
+import { CHAIN_NAME_MAP, SupportedChainNames } from './constants';
 
-export type ChainOption = {
-  id: number;
-  name: string;
-  Icon: React.FunctionComponent;
-};
-
+export type ChainOption = number;
 export type ChainSelectorProps = {
-  onChainChange: (optionId: ChainOption['id']) => void;
-  selectedChainId?: ChainOption['id'];
+  onChainChange: (optionId: ChainOption) => void;
+  selectedChainId?: ChainOption | null;
   chainOptions: ChainOption[];
   approving?: boolean;
   disabled?: boolean;
@@ -46,6 +44,7 @@ export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
 }) => {
   const [width, setWidth] = useState(0);
   const [isSubmenuOpened, setIsSubmenuOpened] = useState(false);
+  const selectedChainName = CHAIN_NAME_MAP[selectedChainId as SupportedChainNames];
   const handleSubmenuOpen = () => {
     if (disabled) {
       return;
@@ -58,7 +57,7 @@ export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
     }
     setIsSubmenuOpened(false);
   };
-  const handleChainOptionSelection = (chainId: ChainOption['id']) => {
+  const handleChainOptionSelection = (chainId: ChainOption) => {
     if (disabled) {
       return;
     }
@@ -75,10 +74,6 @@ export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
     [isSubmenuOpened],
   );
 
-  const selectedChain = useMemo(() => {
-    return chainOptions.find((o) => o.id === selectedChainId);
-  }, [chainOptions, selectedChainId]);
-
   if (chainOptions.length === 0) {
     return null;
   }
@@ -87,9 +82,10 @@ export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
     <Popover
       content={
         <ChainOptions
-          chainOptions={chainOptions.map((c) => ({
-            ...c,
-            isActive: c.id === selectedChain?.id,
+          chainOptions={chainOptions.map((cId) => ({
+            id: cId,
+            isActive: cId === selectedChainId,
+            name: CHAIN_NAME_MAP[cId as SupportedChainNames] || `Unknown chain, ${cId}`,
           }))}
           parentWidth={width}
           onClick={(chainId) => handleChainOptionSelection(chainId)}
@@ -110,9 +106,12 @@ export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
           tooltipColorToken={tooltipColorToken}
         />
         <SelectorBox ref={parentRef} data-testid="ChainSelector-SelectorBox" disabled={disabled}>
-          {selectedChain ? (
+          {selectedChainName && selectedChainId ? (
             <IconBox data-testid="ChainSelector-IconBox">
-              <selectedChain.Icon data-testid={`ChainSelector-${selectedChain.name}`} />
+              <ChainIcon
+                chainId={selectedChainId as SupportedChainIcons}
+                data-testid={`ChainSelector-${selectedChainName}`}
+              />
             </IconBox>
           ) : null}
           <ChainSelectorButton
@@ -125,9 +124,9 @@ export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
             <React.Fragment>
               {approving
                 ? 'Approve in wallet...'
-                : !selectedChain
+                : !selectedChainId
                 ? 'Pick a network'
-                : selectedChain.name}
+                : selectedChainName || `Unknown chain, ${selectedChainId}`}
               {disabled ? null : <ToggleCaret disabled={disabled} isOpen={isSubmenuOpened} />}
             </React.Fragment>
           </ChainSelectorButton>

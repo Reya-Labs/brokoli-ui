@@ -5,12 +5,11 @@ import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 
 export const ExperiencePillsBox = styled('div')`
   display: flex;
-  padding: 4px 0px;
   flex-direction: row;
   align-items: flex-start;
   gap: 4px;
-  height: 6px;
   width: 26px;
+  height: 6px;
 `;
 
 export const ExperiencePill = styled('div', shouldNotForwardProps(['isActive', 'colorToken']))<{

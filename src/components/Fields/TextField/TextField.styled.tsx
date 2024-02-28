@@ -28,3 +28,10 @@ export const TextFieldBox = styled('div')`
   gap: 8px;
   width: 100%;
 `;
+
+export const BottomBox = styled('div')`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`;
