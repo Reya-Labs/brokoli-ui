@@ -3,10 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { CloseButton } from '.';
 
 export default {
-  args: {
-    backgroundColorToken: 'white900',
-    hoverBackgroundColorToken: 'white800',
-  },
+  args: {},
   component: CloseButton,
   title: 'Components/CloseButton',
 } as Meta<typeof CloseButton>;
