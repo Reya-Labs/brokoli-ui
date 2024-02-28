@@ -8,20 +8,21 @@ export const CloseButtonWrapper = styled(
   shouldNotForwardProps(['colorToken, backgroundColorToken, hoverColorToken, size']),
 )<{
   backgroundColorToken: ColorTokens;
-  hoverBackgroundColorToken?: ColorTokens;
+  hoverBackgroundColorToken: ColorTokens;
   size: number;
 }>`
   display: grid;
   place-content: center;
 
   padding: 6px;
-  background-color: ${({ backgroundColorToken }) => backgroundColorToken};
+  background-color: ${({ theme, backgroundColorToken }) => theme.colors[backgroundColorToken]};
   border-radius: 4px;
   cursor: pointer;
   border: none;
 
   &:hover {
-    background-color: ${({ hoverBackgroundColorToken }) => hoverBackgroundColorToken};
+    background-color: ${({ theme, hoverBackgroundColorToken }) =>
+      theme.colors[hoverBackgroundColorToken]};
   }
 
   & > svg {
