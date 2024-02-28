@@ -8,7 +8,6 @@ export type ChainOptionsProps = {
   chainOptions: {
     id: number;
     name: string;
-    Icon: React.FunctionComponent;
     isActive: boolean;
   }[];
   parentWidth: number;
@@ -42,7 +41,7 @@ export const ChainOptions: React.FunctionComponent<ChainOptionsProps> = ({
         {chainOptions.map((chainOption) => (
           <ChainOption
             key={chainOption.name}
-            Icon={chainOption.Icon}
+            id={chainOption.id}
             isActive={chainOption.isActive}
             name={chainOption.name}
             onClick={() => onClick && onClick(chainOption.id)}

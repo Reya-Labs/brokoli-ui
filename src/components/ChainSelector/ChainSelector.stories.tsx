@@ -2,8 +2,6 @@ import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
 
 import { ChainSelector } from '.';
-import { ReactComponent as Arbitrum } from './icons/arbitrum.svg';
-import { ReactComponent as Ethereum } from './icons/ethereum.svg';
 
 export default {
   args: {},
@@ -12,31 +10,12 @@ export default {
 } as Meta<typeof ChainSelector>;
 
 const Template: StoryFn<typeof ChainSelector> = (args) => {
-  const [chainId, setChainId] = useState(args.selectedChainId || -1);
+  const [chainId, setChainId] = useState(args.selectedChainId);
 
   return <ChainSelector {...args} selectedChainId={chainId} onChainChange={setChainId} />;
 };
 const chainOptions = [
-  {
-    Icon: Ethereum,
-    id: 1,
-    name: 'Ethereum',
-  },
-  {
-    Icon: Ethereum,
-    id: 5,
-    name: 'Görli',
-  },
-  {
-    Icon: Arbitrum,
-    id: 42161,
-    name: 'Arbitrum One',
-  },
-  {
-    Icon: Arbitrum,
-    id: 421613,
-    name: 'Arbitrum Görli',
-  },
+  1, 10, 1101, 11155111, 11155420, 137, 1442, 1729, 420, 42161, 421613, 421614, 42170, 5, 80001,
 ];
 
 export const Default: StoryObj<typeof ChainSelector> = {

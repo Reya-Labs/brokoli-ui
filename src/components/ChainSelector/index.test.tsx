@@ -4,11 +4,7 @@ import { fireEvent, render, screen } from '../../test-utils';
 import { ChainOption, ChainSelector, ChainSelectorProps } from '.';
 
 describe('<ChainSelector />', () => {
-  const chainOptions: ChainOption[] = [
-    { Icon: (props) => <div {...props}>Chain 1 Icon</div>, id: 1, name: 'Chain 1' },
-    { Icon: (props) => <div {...props}>Chain 2 Icon</div>, id: 2, name: 'Chain 2' },
-    { Icon: (props) => <div {...props}>Chain 3 Icon</div>, id: 3, name: 'Chain 3' },
-  ];
+  const chainOptions: ChainOption[] = [1, 2, 3];
 
   const onChainChangeMock = jest.fn();
 
@@ -39,7 +35,7 @@ describe('<ChainSelector />', () => {
   test('renders the selected chain icon', () => {
     renderChainSelector();
 
-    const selectedChainIcon = screen.getByTestId('ChainSelector-Chain 1');
+    const selectedChainIcon = screen.getByTestId('ChainSelector-Ethereum');
 
     expect(selectedChainIcon).toBeInTheDocument();
   });
