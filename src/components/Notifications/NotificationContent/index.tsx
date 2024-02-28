@@ -32,7 +32,6 @@ export const NotificationContent: React.FunctionComponent<NotificationContentPro
           {title}
         </Typography>
         <CloseButton
-          colorToken={colorToken}
           onClick={() => {
             closeToast && closeToast();
             onCloseNotification && onCloseNotification();
