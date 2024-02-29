@@ -12,6 +12,7 @@ import { LineChartBox } from './LineChart.styled';
 import { Tooltip } from './Tooltip/Tooltip';
 import { LineChartProps, TooltipConfig } from './types';
 import { useMinMaxYSeries } from './useMinMaxYSeries';
+import { useYMarkerProps } from './useYMarkerProps';
 export * from './types';
 
 const yFormatter = (y: LineChartProps['data'][number]['data'][number]['y']) =>
@@ -30,30 +31,13 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
   axisTickPadding = 8,
 }) => {
   const theme = useTheme();
-  const {
-    typographyToken: yMarkerTypographyToken = 'bodyXSmallRegular',
-    text: yMarkerText,
-    colorToken: yMarkerColorToken = 'primary100',
-    value: yMarkerValue,
-  } = yMarker || {};
 
-  const yMarkerTypographyConfig = getTypographyFromToken({
-    theme,
-    token: yMarkerTypographyToken,
-  });
   const axisTypographyConfig = getTypographyFromToken({
     theme,
     token: axisTypographyToken,
   });
   const { isSmallDesktopDeviceAndUp, isTabletDeviceAndUp, isMobileDeviceAndUp } =
     useResponsiveQuery();
-  const yMarkerTypography = isMobileDeviceAndUp
-    ? yMarkerTypographyConfig.mobileDevice
-    : isTabletDeviceAndUp
-    ? yMarkerTypographyConfig.tabletDevice
-    : isSmallDesktopDeviceAndUp
-    ? yMarkerTypographyConfig.smallDesktopDevice
-    : yMarkerTypographyConfig.largeDesktopDevice;
   const axisTypography = isMobileDeviceAndUp
     ? axisTypographyConfig.mobileDevice
     : isTabletDeviceAndUp
@@ -97,6 +81,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
   }, [theme, data]);
 
   const minMaxYSeries = useMinMaxYSeries(data);
+  const yMarkerProps = useYMarkerProps({ yMarker });
   const yS = minMaxYSeries.yS;
 
   const yAxisUI = useMemo(() => {
@@ -174,29 +159,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
           right: axisVisible.right ? yAxisUI.yMargin : 0,
           top: axisVisible.top ? axisFontSize * 2 : axisFontSize,
         }}
-        markers={
-          yMarker
-            ? [
-                {
-                  axis: 'y',
-                  legend: yMarkerText,
-                  legendPosition: 'top-left',
-                  lineStyle: {
-                    stroke: getColorFromToken({ colorToken: yMarkerColorToken, theme }),
-                    strokeDasharray: 5,
-                    strokeWidth: 1,
-                  },
-                  textStyle: {
-                    fill: theme.colors.white100,
-                    fontFamily: yMarkerTypography.fontFamily as Property.FontFamily,
-                    fontSize: parseInt(yMarkerTypography.fontSize, 10),
-                    fontWeight: parseInt(yMarkerTypography.fontWeight),
-                  },
-                  value: yMarkerValue!,
-                },
-              ]
-            : []
-        }
+        markers={yMarkerProps ? [yMarkerProps] : []}
         pointBorderColor={{ from: 'serieColor' }}
         pointBorderWidth={3}
         pointColor={colors}
