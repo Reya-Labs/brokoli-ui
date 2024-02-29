@@ -1,49 +1,17 @@
 import { useTheme } from '@emotion/react';
 import { linearGradientDef } from '@nivo/core';
-import { Datum, LineSvgProps, ResponsiveLine } from '@nivo/line';
+import { Datum, ResponsiveLine } from '@nivo/line';
 import { Property } from 'csstype';
 import React, { useMemo } from 'react';
 
 import { ColorTokens, getColorFromToken } from '../../foundation/Colors';
 import { useResponsiveQuery } from '../../foundation/Media';
-import { getTypographyFromToken, TypographyTokens } from '../../foundation/Typography';
+import { getTypographyFromToken } from '../../foundation/Typography';
 import { getTextWidth } from '../../utils/get-text-width';
 import { LineChartBox } from './LineChart.styled';
 import { Tooltip } from './Tooltip/Tooltip';
-
-type YMarkerConfig = {
-  value: number;
-  text: string;
-  colorToken: ColorTokens;
-  typographyToken: TypographyTokens;
-};
-
-type TooltipConfig = {
-  token: string;
-  tokenColorToken: ColorTokens;
-};
-
-export type LineChartProps = {
-  data: {
-    id: string;
-    colorToken: ColorTokens;
-    tooltip: TooltipConfig;
-    data: {
-      x: Date;
-      y: number;
-    }[];
-  }[];
-  yMarker?: YMarkerConfig;
-  axisTypographyToken: TypographyTokens;
-  axisBottomFormat: 'minutes' | 'days' | 'hours';
-  yScaleStacked?: boolean;
-  crosshairColorToken: ColorTokens;
-  axisTicksTextColorToken?: ColorTokens;
-  axisDomainLineColorToken?: ColorTokens | 'transparent';
-  visibleAxis?: ('top' | 'bottom' | 'right' | 'left')[];
-  axisTickPadding?: number;
-  enablePoints?: LineSvgProps['enablePoints'];
-};
+import { LineChartProps, TooltipConfig } from './types';
+export * from './types';
 
 const yFormatter = (y: LineChartProps['data'][number]['data'][number]['y']) =>
   parseFloat(y.toFixed(2)).toString();
