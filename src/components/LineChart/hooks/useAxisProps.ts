@@ -1,12 +1,12 @@
 import { AxisProps } from '@nivo/axes';
 import { useMemo } from 'react';
 
-import { LineChartProps } from '../types';
+import { LineChartProps, YDataType } from '../types';
 import { useAxisVisible } from './useAxisVisible';
 
 type UseAxisPropsParams = {
   visibleAxis: LineChartProps['visibleAxis'];
-  yFormatter: (y: LineChartProps['data'][number]['data'][number]['y']) => string;
+  yFormatter: (y: YDataType) => string;
   axisTickPadding: LineChartProps['axisTickPadding'];
   axisBottomFormat: LineChartProps['axisBottomFormat'];
 };

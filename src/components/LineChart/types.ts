@@ -15,14 +15,16 @@ export type TooltipConfig = {
   tokenColorToken: ColorTokens;
 };
 
+export type XDataType = Date;
+export type YDataType = number;
 export type LineChartProps = {
   data: {
     id: string;
     colorToken: ColorTokens;
     tooltip: TooltipConfig;
     data: {
-      x: Date;
-      y: number;
+      x: XDataType;
+      y: YDataType;
     }[];
   }[];
   yMarker?: YMarkerConfig;

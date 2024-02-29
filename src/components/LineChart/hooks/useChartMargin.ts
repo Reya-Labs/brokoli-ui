@@ -1,14 +1,14 @@
 import { useMemo } from 'react';
 
 import { getTextWidth } from '../../../utils/get-text-width';
-import { LineChartProps } from '../types';
+import { LineChartProps, YDataType } from '../types';
 import { useAxisVisible } from './useAxisVisible';
 
 type UseChartMarginParams = {
   visibleAxis: LineChartProps['visibleAxis'];
   yS: number[];
   axisTickPadding: LineChartProps['axisTickPadding'];
-  yFormatter: (y: LineChartProps['data'][number]['data'][number]['y']) => string;
+  yFormatter: (y: YDataType) => string;
   axisFontSize: number;
   axisFontFamily: string;
 };

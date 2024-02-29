@@ -10,7 +10,7 @@ import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 
 export const BaseTypography = styled(
   'p',
-  shouldNotForwardProps(['typographyToken', 'colorToken']),
+  shouldNotForwardProps(['backgroundColorToken', 'typographyToken', 'colorToken']),
 )<{
   colorToken: ColorTokens;
   typographyToken: TypographyTokens;
