@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 
-import { getTextWidth } from '../../utils/get-text-width';
-import { LineChartProps } from './types';
+import { getTextWidth } from '../../../utils/get-text-width';
+import { LineChartProps } from '../types';
 import { useAxisVisible } from './useAxisVisible';
 
 type UseChartMarginParams = {

@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import { LineChartProps } from './types';
+import { LineChartProps } from '../types';
 
 export type UseMinMaxYSeriesResult = {
   max: number;

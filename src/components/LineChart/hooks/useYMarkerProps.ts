@@ -3,10 +3,10 @@ import { CartesianMarkerProps } from '@nivo/core';
 import { Property } from 'csstype';
 import { useMemo } from 'react';
 
-import { getColorFromToken } from '../../foundation/Colors';
-import { useResponsiveQuery } from '../../foundation/Media';
-import { getTypographyFromToken } from '../../foundation/Typography';
-import { LineChartProps } from './types';
+import { getColorFromToken } from '../../../foundation/Colors';
+import { useResponsiveQuery } from '../../../foundation/Media';
+import { getTypographyFromToken } from '../../../foundation/Typography';
+import { LineChartProps } from '../types';
 
 type UseYMarkerParams = {
   yMarker?: LineChartProps['yMarker'];

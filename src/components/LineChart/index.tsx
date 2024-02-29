@@ -1,16 +1,16 @@
 import { ResponsiveLine } from '@nivo/line';
 import React from 'react';
 
+import { useAxisProps } from './hooks/useAxisProps';
+import { useChartMargin } from './hooks/useChartMargin';
+import { useChartTheme } from './hooks/useChartTheme';
+import { useColorsAndGradients } from './hooks/useColorsAndGradients';
+import { useMinMaxYSeries } from './hooks/useMinMaxYSeries';
+import { useTooltips } from './hooks/useTooltips';
+import { useYMarkerProps } from './hooks/useYMarkerProps';
 import { LineChartBox } from './LineChart.styled';
 import { Tooltip } from './Tooltip/Tooltip';
 import { LineChartProps } from './types';
-import { useAxisProps } from './useAxisProps';
-import { useChartMargin } from './useChartMargin';
-import { useChartTheme } from './useChartTheme';
-import { useColorsAndGradients } from './useColorsAndGradients';
-import { useMinMaxYSeries } from './useMinMaxYSeries';
-import { useTooltips } from './useTooltips';
-import { useYMarkerProps } from './useYMarkerProps';
 export * from './types';
 
 const yFormatter = (y: LineChartProps['data'][number]['data'][number]['y']) =>

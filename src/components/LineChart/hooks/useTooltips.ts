@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import { LineChartProps, TooltipConfig } from './types';
+import { LineChartProps, TooltipConfig } from '../types';
 
 export const useTooltips = (
   data: LineChartProps['data'],

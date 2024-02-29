@@ -1,7 +1,7 @@
 import { AxisProps } from '@nivo/axes';
 import { useMemo } from 'react';
 
-import { LineChartProps } from './types';
+import { LineChartProps } from '../types';
 import { useAxisVisible } from './useAxisVisible';
 
 type UseAxisPropsParams = {

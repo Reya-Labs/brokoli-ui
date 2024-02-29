@@ -3,8 +3,8 @@ import { linearGradientDef } from '@nivo/core';
 import { Datum } from '@nivo/line';
 import { useMemo } from 'react';
 
-import { ColorTokens, getColorFromToken } from '../../foundation/Colors';
-import { LineChartProps } from './types';
+import { ColorTokens, getColorFromToken } from '../../../foundation/Colors';
+import { LineChartProps } from '../types';
 
 export const useColorsAndGradients = (data: LineChartProps['data']) => {
   const theme = useTheme();

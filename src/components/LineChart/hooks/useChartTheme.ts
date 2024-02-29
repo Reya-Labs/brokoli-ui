@@ -1,10 +1,10 @@
 import { useTheme } from '@emotion/react';
 import { useMemo } from 'react';
 
-import { getColorFromToken } from '../../foundation/Colors';
-import { useResponsiveQuery } from '../../foundation/Media';
-import { getTypographyFromToken } from '../../foundation/Typography';
-import { LineChartProps } from './types';
+import { getColorFromToken } from '../../../foundation/Colors';
+import { useResponsiveQuery } from '../../../foundation/Media';
+import { getTypographyFromToken } from '../../../foundation/Typography';
+import { LineChartProps } from '../types';
 
 export const useChartTheme = ({
   crosshairColorToken = 'primary500',
