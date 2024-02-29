@@ -1,6 +1,6 @@
 import { useTheme } from '@emotion/react';
 import { linearGradientDef } from '@nivo/core';
-import { Datum, ResponsiveLine } from '@nivo/line';
+import { Datum, LineSvgProps, ResponsiveLine } from '@nivo/line';
 import { Property } from 'csstype';
 import React, { useMemo } from 'react';
 
@@ -17,6 +17,7 @@ type YMarkerConfig = {
   colorToken: ColorTokens;
   typographyToken: TypographyTokens;
 };
+
 type TooltipConfig = {
   token: string;
   tokenColorToken: ColorTokens;
@@ -41,6 +42,7 @@ export type LineChartProps = {
   axisDomainLineColorToken?: ColorTokens | 'transparent';
   visibleAxis?: ('top' | 'bottom' | 'right' | 'left')[];
   axisTickPadding?: number;
+  enablePoints?: LineSvgProps['enablePoints'];
 };
 
 const yFormatter = (y: LineChartProps['data'][number]['data'][number]['y']) =>
@@ -51,6 +53,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
   axisBottomFormat,
   axisTypographyToken = 'bodyXSmallRegular',
   yScaleStacked = false,
+  enablePoints = false,
   crosshairColorToken = 'primary500',
   axisTicksTextColorToken = 'white400',
   axisDomainLineColorToken = 'white900',
@@ -204,6 +207,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
         enableArea={true}
         enableGridX={false}
         enableGridY={false}
+        enablePoints={enablePoints}
         fill={gradients.fill}
         margin={{
           bottom: axisVisible.bottom ? axisFontSize * 2 : 0,
