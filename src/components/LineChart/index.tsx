@@ -11,6 +11,7 @@ import { getTextWidth } from '../../utils/get-text-width';
 import { LineChartBox } from './LineChart.styled';
 import { Tooltip } from './Tooltip/Tooltip';
 import { LineChartProps, TooltipConfig } from './types';
+import { useMinMaxYSeries } from './useMinMaxYSeries';
 export * from './types';
 
 const yFormatter = (y: LineChartProps['data'][number]['data'][number]['y']) =>
@@ -95,27 +96,17 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
     };
   }, [theme, data]);
 
-  const yScale = useMemo(() => {
-    const yS = data.reduce((pV, cI) => {
-      const validData: number[] = cI.data
-        .filter((d) => d.y !== null && d.y !== undefined)
-        .map((d) => d.y);
-      return [...pV, ...validData];
-    }, [] as number[]);
-
-    const min = Math.min(...yS);
-    const max = Math.max(...yS);
-    return { max, min, yS };
-  }, [data]);
+  const minMaxYSeries = useMinMaxYSeries(data);
+  const yS = minMaxYSeries.yS;
 
   const yAxisUI = useMemo(() => {
-    if ((yScale.yS || []).length === 0) {
+    if ((yS || []).length === 0) {
       return { yMargin: 2 * axisTickPadding };
     }
 
     const yMargin =
       Math.max(
-        ...yScale.yS.map((y) =>
+        ...yS.map((y) =>
           getTextWidth({
             fontFamily: axisFontFamily,
             fontSize: axisFontSize,
@@ -125,7 +116,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
       ) +
       2 * axisTickPadding;
     return { yMargin };
-  }, [axisFontFamily, axisTickPadding, axisFontSize, yScale.yS]);
+  }, [axisFontFamily, axisTickPadding, axisFontSize, yS]);
 
   const crossHairColor = getColorFromToken({ colorToken: crosshairColorToken, theme });
   const axisTicksTextColor = getColorFromToken({ colorToken: axisTicksTextColorToken, theme });
@@ -162,7 +153,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
     <LineChartBox>
       <ResponsiveLine
         animate={true}
-        areaBaselineValue={yScale.min}
+        areaBaselineValue={minMaxYSeries.min}
         axisBottom={axisVisible.bottom ? axisTopBottomConfig : null}
         axisLeft={axisVisible.left ? axisLeftRightConfig : null}
         axisRight={axisVisible.right ? axisLeftRightConfig : null}
