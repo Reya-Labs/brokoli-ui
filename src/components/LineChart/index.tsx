@@ -1,17 +1,15 @@
-import { useTheme } from '@emotion/react';
-import { linearGradientDef } from '@nivo/core';
-import { Datum, ResponsiveLine } from '@nivo/line';
-import { Property } from 'csstype';
-import React, { useMemo } from 'react';
+import { ResponsiveLine } from '@nivo/line';
+import React from 'react';
 
-import { ColorTokens, getColorFromToken } from '../../foundation/Colors';
-import { useResponsiveQuery } from '../../foundation/Media';
-import { getTypographyFromToken } from '../../foundation/Typography';
-import { getTextWidth } from '../../utils/get-text-width';
 import { LineChartBox } from './LineChart.styled';
 import { Tooltip } from './Tooltip/Tooltip';
-import { LineChartProps, TooltipConfig } from './types';
+import { LineChartProps } from './types';
+import { useAxisProps } from './useAxisProps';
+import { useChartMargin } from './useChartMargin';
+import { useChartTheme } from './useChartTheme';
+import { useColorsAndGradients } from './useColorsAndGradients';
 import { useMinMaxYSeries } from './useMinMaxYSeries';
+import { useTooltips } from './useTooltips';
 import { useYMarkerProps } from './useYMarkerProps';
 export * from './types';
 
@@ -30,119 +28,42 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
   visibleAxis = ['left', 'bottom'],
   axisTickPadding = 8,
 }) => {
-  const theme = useTheme();
-
-  const axisTypographyConfig = getTypographyFromToken({
-    theme,
-    token: axisTypographyToken,
+  const chartTheme = useChartTheme({
+    axisDomainLineColorToken,
+    axisTicksTextColorToken,
+    axisTypographyToken,
+    crosshairColorToken,
   });
-  const { isSmallDesktopDeviceAndUp, isTabletDeviceAndUp, isMobileDeviceAndUp } =
-    useResponsiveQuery();
-  const axisTypography = isMobileDeviceAndUp
-    ? axisTypographyConfig.mobileDevice
-    : isTabletDeviceAndUp
-    ? axisTypographyConfig.tabletDevice
-    : isSmallDesktopDeviceAndUp
-    ? axisTypographyConfig.smallDesktopDevice
-    : axisTypographyConfig.largeDesktopDevice;
-  const axisFontSize = parseInt(axisTypography.fontSize, 10);
-  const axisFontFamily = axisTypography.fontFamily;
-
-  const { tooltips, colorTokensMap, colors, gradients } = useMemo(() => {
-    const memoColors = data.map((d) => getColorFromToken({ colorToken: d.colorToken, theme }));
-    const memoGradients = data.map((d, index) => {
-      return linearGradientDef(d.id, [
-        { color: memoColors[index], offset: 0, opacity: 1 },
-        { color: theme.colors.black300, offset: 100, opacity: 1 },
-      ]);
-    });
-    return {
-      colorTokensMap: data.reduce(
-        (pV, cI, index) => ({
-          ...pV,
-          [data[index].id]: data[index].colorToken,
-        }),
-        {} as Record<string, ColorTokens>,
-      ),
-      colors: memoColors,
-      gradients: {
-        defs: memoGradients,
-        fill: memoGradients.map((g) => ({ id: g.id, match: (point: Datum) => point.id === g.id })),
-        ids: memoGradients.map((g) => g.id),
-      },
-      tooltips: data.reduce(
-        (pV, cI, index) => ({
-          ...pV,
-          [data[index].id]: data[index].tooltip,
-        }),
-        {} as Record<string, TooltipConfig>,
-      ),
-    };
-  }, [theme, data]);
-
+  const axisFontFamily = chartTheme.axis.ticks.text.fontFamily;
+  const axisFontSize = chartTheme.axis.ticks.text.fontSize;
+  const { tooltips } = useTooltips(data);
+  const { colorTokensMap, colors, gradients } = useColorsAndGradients(data);
   const minMaxYSeries = useMinMaxYSeries(data);
   const yMarkerProps = useYMarkerProps({ yMarker });
-  const yS = minMaxYSeries.yS;
-
-  const yAxisUI = useMemo(() => {
-    if ((yS || []).length === 0) {
-      return { yMargin: 2 * axisTickPadding };
-    }
-
-    const yMargin =
-      Math.max(
-        ...yS.map((y) =>
-          getTextWidth({
-            fontFamily: axisFontFamily,
-            fontSize: axisFontSize,
-            text: yFormatter(y),
-          }),
-        ),
-      ) +
-      2 * axisTickPadding;
-    return { yMargin };
-  }, [axisFontFamily, axisTickPadding, axisFontSize, yS]);
-
-  const crossHairColor = getColorFromToken({ colorToken: crosshairColorToken, theme });
-  const axisTicksTextColor = getColorFromToken({ colorToken: axisTicksTextColorToken, theme });
-  const axisDomainLineColor =
-    axisDomainLineColorToken === 'transparent'
-      ? 'transparent'
-      : getColorFromToken({ colorToken: axisDomainLineColorToken, theme });
-  const axisVisible = useMemo(() => {
-    return {
-      bottom: visibleAxis.indexOf('bottom') !== -1,
-      left: visibleAxis.indexOf('left') !== -1,
-      right: visibleAxis.indexOf('right') !== -1,
-      top: visibleAxis.indexOf('top') !== -1,
-    };
-  }, [visibleAxis]);
-
-  const axisTopBottomConfig = {
-    format:
-      axisBottomFormat === 'minutes' ? '%M:%S' : axisBottomFormat === 'hours' ? '%H:%M' : '%d %b',
-    legendOffset: 0,
-    tickPadding: axisTickPadding,
-    tickRotation: 0,
-    tickSize: 0,
-  };
-  const axisLeftRightConfig = {
-    format: yFormatter,
-    legendOffset: 0,
-    tickPadding: axisTickPadding,
-    tickRotation: 0,
-    tickSize: 0,
-  };
+  const chartMargin = useChartMargin({
+    axisFontFamily,
+    axisFontSize,
+    axisTickPadding,
+    visibleAxis,
+    yFormatter,
+    yS: minMaxYSeries.yS,
+  });
+  const axisProps = useAxisProps({
+    axisBottomFormat,
+    axisTickPadding,
+    visibleAxis,
+    yFormatter,
+  });
 
   return (
     <LineChartBox>
       <ResponsiveLine
         animate={true}
         areaBaselineValue={minMaxYSeries.min}
-        axisBottom={axisVisible.bottom ? axisTopBottomConfig : null}
-        axisLeft={axisVisible.left ? axisLeftRightConfig : null}
-        axisRight={axisVisible.right ? axisLeftRightConfig : null}
-        axisTop={axisVisible.top ? axisTopBottomConfig : null}
+        axisBottom={axisProps.bottom}
+        axisLeft={axisProps.left}
+        axisRight={axisProps.right}
+        axisTop={axisProps.top}
         colors={colors}
         crosshairType="cross"
         curve="linear"
@@ -153,52 +74,14 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
         enableGridY={false}
         enablePoints={enablePoints}
         fill={gradients.fill}
-        margin={{
-          bottom: axisVisible.bottom ? axisFontSize * 2 : 0,
-          left: axisVisible.left ? yAxisUI.yMargin : 0,
-          right: axisVisible.right ? yAxisUI.yMargin : 0,
-          top: axisVisible.top ? axisFontSize * 2 : axisFontSize,
-        }}
+        margin={chartMargin}
         markers={yMarkerProps ? [yMarkerProps] : []}
         pointBorderColor={{ from: 'serieColor' }}
         pointBorderWidth={3}
         pointColor={colors}
         pointLabelYOffset={-1}
         pointSize={3}
-        theme={{
-          axis: {
-            domain: {
-              line: {
-                stroke: axisDomainLineColor,
-                strokeWidth: 1,
-              },
-            },
-            ticks: {
-              line: {
-                stroke: theme.colors.white400,
-                strokeWidth: 1,
-              },
-              text: {
-                fill: axisTicksTextColor,
-                fontFamily: axisFontFamily as Property.FontFamily,
-                fontSize: axisFontSize,
-                fontWeight: parseInt(axisTypography.fontWeight),
-              },
-            },
-          },
-          background: 'transparent',
-          crosshair: {
-            line: {
-              stroke: crossHairColor,
-              strokeWidth: 1,
-            },
-          },
-          text: {
-            color: theme.colors.white400,
-            fontFamily: axisFontFamily as Property.FontFamily,
-            fontSize: axisFontSize,
-          },
-        }}
+        theme={chartTheme}
         tooltip={(point) => {
           const tooltip = tooltips[point.point.serieId] || {};
           const { tokenColorToken: tooltipTokenColorToken, token: tooltipToken } = tooltip;
