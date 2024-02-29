@@ -37,4 +37,8 @@ export type LineChartProps = {
   visibleAxis?: ('top' | 'bottom' | 'right' | 'left')[];
   axisTickPadding?: number;
   enablePoints?: LineSvgProps['enablePoints'];
+  yScaleMax?: YDataType;
+  yScaleMin?: YDataType;
+  xScaleMax?: XDataType;
+  xScaleMin?: XDataType;
 };

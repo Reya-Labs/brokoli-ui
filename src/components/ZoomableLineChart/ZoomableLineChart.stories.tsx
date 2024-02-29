@@ -1,0 +1,249 @@
+import styled from '@emotion/styled';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
+import React from 'react';
+
+import { ZoomableLineChart } from '.';
+
+export default {
+  argTypes: {},
+  component: ZoomableLineChart,
+  title: 'Components/ZoomableLineChart',
+} as Meta<typeof ZoomableLineChart>;
+
+const points1 = [
+  {
+    x: new Date(1676036699000),
+    y: 100.782,
+  },
+  {
+    x: new Date(1676123099000),
+    y: 100.79,
+  },
+  {
+    x: new Date(1676209511000),
+    y: 100.811,
+  },
+  {
+    x: new Date(1676295911000),
+    y: 100.813,
+  },
+  {
+    x: new Date(1676382311000),
+    y: 100.82,
+  },
+  {
+    x: new Date(1676468711000),
+    y: 100.82,
+  },
+  {
+    x: new Date(1676555123000),
+    y: 100.81,
+  },
+  {
+    x: new Date(1676641523000),
+    y: 100.89,
+  },
+  {
+    x: new Date(1676727935000),
+    y: 100.9,
+  },
+  {
+    x: new Date(1676814335000),
+    y: 100.88,
+  },
+  {
+    x: new Date(1676900735000),
+    y: 100.85,
+  },
+  {
+    x: new Date(1676987135000),
+    y: 100.85,
+  },
+  {
+    x: new Date(1677073535000),
+    y: 100.82,
+  },
+  {
+    x: new Date(1677159959000),
+    y: 100.85,
+  },
+];
+
+const points2 = points1.map((p) => ({
+  ...p,
+  y: p.y + Math.random() / 10 + 0.2,
+}));
+
+const Box = styled('div')`
+  height: 445px;
+`;
+const Template: StoryFn<typeof ZoomableLineChart> = (args) => (
+  <Box>
+    <ZoomableLineChart {...args} />
+  </Box>
+);
+
+export const Default: StoryObj<typeof ZoomableLineChart> = {
+  args: {
+    axisTypographyToken: 'bodyXSmallRegular',
+
+    data: [
+      {
+        colorToken: 'secondary500',
+        data: points1,
+        id: 'points1',
+        tooltip: {
+          token: '%',
+          tokenColorToken: 'secondary700',
+        },
+      },
+    ],
+  },
+  render: Template,
+};
+
+export const WithYMarker: StoryObj<typeof ZoomableLineChart> = {
+  args: {
+    axisTypographyToken: 'bodyXSmallRegular',
+    data: [
+      {
+        colorToken: 'secondary500',
+        data: points1,
+        id: 'points1',
+        tooltip: {
+          token: '%',
+          tokenColorToken: 'secondary700',
+        },
+      },
+    ],
+    yMarker: {
+      colorToken: 'primary400',
+      text: 'Fixed Rate:',
+      typographyToken: 'bodyXSmallRegular',
+      value: 100.82,
+    },
+  },
+  render: Template,
+};
+
+export const WithCrossHairColor: StoryObj<typeof ZoomableLineChart> = {
+  args: {
+    axisTypographyToken: 'bodyXSmallRegular',
+    crosshairColorToken: 'warning500',
+    data: [
+      {
+        colorToken: 'secondary500',
+        data: points1,
+        id: 'points1',
+        tooltip: {
+          token: '%',
+          tokenColorToken: 'secondary700',
+        },
+      },
+    ],
+  },
+  render: Template,
+};
+
+export const WithMultipleLines: StoryObj<typeof ZoomableLineChart> = {
+  args: {
+    axisTypographyToken: 'bodyXSmallRegular',
+    data: [
+      {
+        colorToken: 'secondary500',
+        data: points1,
+        id: 'points1',
+        tooltip: {
+          token: '%',
+          tokenColorToken: 'secondary700',
+        },
+      },
+      {
+        colorToken: 'primary500',
+        data: points2,
+        id: 'points2',
+        tooltip: {
+          token: '%',
+          tokenColorToken: 'primary700',
+        },
+      },
+    ],
+    yMarker: {
+      colorToken: 'primary400',
+      text: 'Fixed Rate:',
+      typographyToken: 'bodyXSmallRegular',
+      value: 100.82,
+    },
+  },
+  render: Template,
+};
+
+export const WithDifferentAxisVisible: StoryObj<typeof ZoomableLineChart> = {
+  args: {
+    axisTypographyToken: 'bodyXSmallRegular',
+    data: [
+      {
+        colorToken: 'secondary500',
+        data: points1,
+        id: 'points1',
+        tooltip: {
+          token: '%',
+          tokenColorToken: 'secondary700',
+        },
+      },
+      {
+        colorToken: 'primary500',
+        data: points2,
+        id: 'points2',
+        tooltip: {
+          token: '%',
+          tokenColorToken: 'primary700',
+        },
+      },
+    ],
+    visibleAxis: ['top', 'right', 'left', 'bottom'],
+    yMarker: {
+      colorToken: 'primary400',
+      text: 'Fixed Rate:',
+      typographyToken: 'bodyXSmallRegular',
+      value: 100.82,
+    },
+  },
+  render: Template,
+};
+
+export const WithTransparentAxis: StoryObj<typeof ZoomableLineChart> = {
+  args: {
+    axisDomainLineColorToken: 'transparent',
+    axisTicksTextColorToken: 'warning500',
+    axisTypographyToken: 'bodyXSmallRegular',
+    data: [
+      {
+        colorToken: 'secondary500',
+        data: points1,
+        id: 'points1',
+        tooltip: {
+          token: '%',
+          tokenColorToken: 'secondary700',
+        },
+      },
+      {
+        colorToken: 'primary500',
+        data: points2,
+        id: 'points2',
+        tooltip: {
+          token: '%',
+          tokenColorToken: 'primary700',
+        },
+      },
+    ],
+    visibleAxis: ['bottom', 'right'],
+    yMarker: {
+      colorToken: 'primary400',
+      text: 'Fixed Rate:',
+      typographyToken: 'bodyXSmallRegular',
+      value: 100.82,
+    },
+  },
+  render: Template,
+};
