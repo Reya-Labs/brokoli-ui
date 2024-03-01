@@ -1,6 +1,6 @@
 import React from 'react';
 import darkTheme from './themes/dark';
-import { ThemeProvider, GlobalScrollbarStyle, Page, ThemeProviderProps } from '../src';
+import { ThemeProvider, GlobalScrollbarStyle, Page } from '../src';
 import { HashRouter } from 'react-router-dom';
 import { withThemeFromJSXProvider } from '@storybook/addon-themes';
 
