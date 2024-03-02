@@ -66,7 +66,6 @@ const Template: StoryFn<typeof TimeSeriesChart> = (args) => {
     <Box>
       <TimeSeriesChart
         data={data}
-        id="funding-chart"
         margin={{
           bottom: 32,
           left: 88,
@@ -112,7 +111,6 @@ const Template: StoryFn<typeof TimeSeriesChart> = (args) => {
             </Pill>
           );
         }}
-        selectedLocale={window.navigator.language}
         series={[
           {
             colorAccessor: () => 'var(--brokoli-ui-primary500)',

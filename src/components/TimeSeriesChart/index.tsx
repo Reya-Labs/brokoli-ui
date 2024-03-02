@@ -9,7 +9,6 @@ import {
   Grid,
   LineSeries,
   type Margin,
-  type TooltipContextType,
   XYChart,
 } from '@visx/xychart';
 import { RenderTooltipParams } from '@visx/xychart/lib/components/Tooltip';
@@ -33,8 +32,6 @@ type GlyphSeriesProps<Datum extends {} = {}> = Parameters<
 type ThresholdProps<Datum extends {} = {}> = Parameters<typeof Threshold<Datum>>[0];
 
 type ElementProps<Datum extends {}> = {
-  id: string;
-  selectedLocale: string;
   yAxisScaleType?: ScaleConfig['type'];
   data: Datum[];
   series: (Pick<
@@ -63,9 +60,6 @@ type ElementProps<Datum extends {}> = {
   renderXAxisLabel?: (_: RenderTooltipParams<Datum>) => React.ReactNode;
   renderYAxisLabel?: (_: RenderTooltipParams<Datum>) => React.ReactNode;
   renderTooltip?: (_: RenderTooltipParams<Datum>) => React.ReactNode;
-  onTooltipContext?: (tooltipContext: TooltipContextType<Datum>) => void;
-  onVisibleDataChange?: (data: Datum[]) => void;
-  onZoom?: (_: { zoomDomain: number | undefined }) => void;
   slotEmpty: React.ReactNode;
   children: React.ReactNode;
   className?: string;
@@ -84,14 +78,12 @@ type StyleProps = {
 };
 
 export const TimeSeriesChart = <Datum extends {}>({
-  id,
-  selectedLocale,
   yAxisScaleType = 'linear',
   data,
   series,
   tickFormatX = (timestamp, { zoomDomain, numTicks }) =>
     formatAbsoluteTime(timestamp, {
-      locale: selectedLocale,
+      locale: window.navigator.language,
       resolutionUnit:
         objectEntries(allTimeUnits)
           .sort((a, b) => a[1] - b[1])
@@ -101,13 +93,9 @@ export const TimeSeriesChart = <Datum extends {}>({
   renderXAxisLabel,
   renderYAxisLabel,
   renderTooltip,
-  onTooltipContext,
-  onVisibleDataChange,
-  onZoom,
   slotEmpty,
   children,
   className,
-
   margin,
   padding,
   defaultZoomDomain,
@@ -139,10 +127,6 @@ export const TimeSeriesChart = <Datum extends {}>({
       setZoomDomainAnimateTo(defaultZoomDomain);
     }
   }, [defaultZoomDomain]);
-
-  useEffect(() => {
-    onZoom?.({ zoomDomain });
-  }, [zoomDomain]);
 
   useAnimationFrame(
     (elapsedMilliseconds) => {
@@ -187,12 +171,6 @@ export const TimeSeriesChart = <Datum extends {}>({
       zoom: zoomComputed,
     };
   }, [data, zoomDomain, minZoomDomain]);
-
-  useEffect(() => {
-    if (visibleData) {
-      onVisibleDataChange?.(visibleData);
-    }
-  }, [visibleData]);
 
   // Events
   const onWheel = ({ deltaX, deltaY }: React.WheelEvent) => {
@@ -389,7 +367,6 @@ export const TimeSeriesChart = <Datum extends {}>({
                         snapCrosshairToDatumY
                         snapTooltipToDatumX
                         unstyled
-                        onTooltipContext={onTooltipContext}
                       />
                     )}
                   </XYChart>
