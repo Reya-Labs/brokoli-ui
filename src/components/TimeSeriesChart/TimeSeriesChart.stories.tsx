@@ -121,7 +121,6 @@ const Template: StoryFn<typeof TimeSeriesChart> = (args) => {
           },
         ]}
         slotEmpty={<div id="funding-chart-loading">Loading...</div>}
-        tickFormatY={(value) => `${value.toFixed(3)}%`}
         yAxisScaleType="symlog"
       >
         Hello

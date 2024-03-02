@@ -55,8 +55,6 @@ type ElementProps<Datum extends {}> = {
         yAccessor: LineSeriesProps<Datum>['yAccessor'];
       };
     })[];
-  tickFormatX?: (x: number, _: { zoom: number; zoomDomain: number; numTicks: number }) => string;
-  tickFormatY?: (y: number, _: { zoom: number; zoomDomain: number; numTicks: number }) => string;
   renderXAxisLabel?: (_: RenderTooltipParams<Datum>) => React.ReactNode;
   renderYAxisLabel?: (_: RenderTooltipParams<Datum>) => React.ReactNode;
   renderTooltip?: (_: RenderTooltipParams<Datum>) => React.ReactNode;
@@ -64,6 +62,21 @@ type ElementProps<Datum extends {}> = {
   children: React.ReactNode;
   className?: string;
 };
+
+type AxisFormatterFn = (
+  axisValue: number,
+  _: { zoom: number; zoomDomain: number; numTicks: number },
+) => string;
+
+const xFormatter: AxisFormatterFn = (xValue, { zoomDomain }) =>
+  formatAbsoluteTime(xValue, {
+    locale: window.navigator.language,
+    resolutionUnit:
+      objectEntries(allTimeUnits)
+        .sort((a, b) => a[1] - b[1])
+        .find(([, milliseconds]) => zoomDomain <= milliseconds)?.[0] ?? 'year',
+  });
+const yFormatter: AxisFormatterFn = (yValue) => parseFloat(yValue.toFixed(2)).toString();
 
 type StyleProps = {
   margin?: Margin;
@@ -81,15 +94,6 @@ export const TimeSeriesChart = <Datum extends {}>({
   yAxisScaleType = 'linear',
   data,
   series,
-  tickFormatX = (timestamp, { zoomDomain, numTicks }) =>
-    formatAbsoluteTime(timestamp, {
-      locale: window.navigator.language,
-      resolutionUnit:
-        objectEntries(allTimeUnits)
-          .sort((a, b) => a[1] - b[1])
-          .find(([, milliseconds]) => zoomDomain <= milliseconds)?.[0] ?? 'year',
-    }),
-  tickFormatY = (y) => String(y),
   renderXAxisLabel,
   renderYAxisLabel,
   renderTooltip,
@@ -321,7 +325,7 @@ export const TimeSeriesChart = <Datum extends {}>({
                           orientation="left"
                           stroke="var(--brokoli-ui-white950)"
                           tickFormat={(y) =>
-                            tickFormatY(y, { numTicks: numTicksY, zoom, zoomDomain })
+                            yFormatter(y, { numTicks: numTicksY, zoom, zoomDomain })
                           }
                           tickStroke="var(--brokoli-ui-white950)"
                         />
@@ -334,7 +338,7 @@ export const TimeSeriesChart = <Datum extends {}>({
                       orientation="bottom"
                       stroke="var(--brokoli-ui-white950)"
                       strokeWidth={1}
-                      tickFormat={(x) => tickFormatX(x, { numTicks: numTicksX, zoom, zoomDomain })}
+                      tickFormat={(x) => xFormatter(x, { numTicks: numTicksX, zoom, zoomDomain })}
                       tickStroke="var(--brokoli-ui-white950)"
                     />
 
