@@ -53,14 +53,15 @@ function generateFundingDataPerHour(): FundingChartDatum[] {
 }
 
 // Usage
-const fundingDataPerHour = generateFundingDataPerHour();
+const fundingDataPerHour1 = generateFundingDataPerHour();
+const fundingDataPerHour2 = generateFundingDataPerHour();
 const FUNDING_RATE_TIME_RESOLUTION = 60 * 60 * 1000; // 1 hour
 const Box = styled('div')`
   height: 445px;
 `;
 
 const Template: StoryFn<typeof TimeSeriesChart> = (args) => {
-  const data = fundingDataPerHour;
+  const data = fundingDataPerHour1;
   const latestDatum = data?.[data.length - 1];
   return (
     <Box>
@@ -102,7 +103,13 @@ const Template: StoryFn<typeof TimeSeriesChart> = (args) => {
         series={[
           {
             colorAccessor: () => 'var(--brokoli-ui-primary500)',
-            dataKey: 'funding-rate',
+            data: fundingDataPerHour1,
+            dataKey: 'funding-rate1',
+          },
+          {
+            colorAccessor: () => 'var(--brokoli-ui-secondary500)',
+            data: fundingDataPerHour2,
+            dataKey: 'funding-rate2',
           },
         ]}
       />

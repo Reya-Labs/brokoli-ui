@@ -12,8 +12,7 @@ export type Datum = {
 };
 
 export type TimeSeriesChartProps = {
-  data: Datum[];
-  series: Pick<LineSeriesProps<Datum>, 'dataKey' | 'colorAccessor'>[];
+  series: Pick<LineSeriesProps<Datum>, 'data' | 'dataKey' | 'colorAccessor'>[];
   renderXAxisLabel?: (_: RenderTooltipParams<Datum>) => React.ReactNode;
   renderYAxisLabel?: (_: RenderTooltipParams<Datum>) => React.ReactNode;
   renderTooltip?: (_: RenderTooltipParams<Datum>) => React.ReactNode;
