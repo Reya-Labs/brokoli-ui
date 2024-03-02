@@ -41,7 +41,7 @@ export const TimeSeriesChart = <Datum extends {}>({
   const latestDatum = data[data.length - 1];
 
   // Chart state
-  const [zoomDomain, setZoomDomain] = useState<number | undefined>(
+  const [zoomDomain, setZoomDomain] = useState<number>(
     xAccessor(latestDatum) - xAccessor(earliestDatum),
   );
 
