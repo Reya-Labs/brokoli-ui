@@ -1,11 +1,10 @@
 import { curveMonotoneX, curveStepAfter } from '@visx/curve';
-import { LinearGradient } from '@visx/gradient';
+import { ParentSize } from '@visx/responsive';
 import { Axis, DataProvider, EventEmitterProvider, Grid, LineSeries, XYChart } from '@visx/xychart';
 import React, { useMemo, useState } from 'react';
 
-import { useResponsiveQuery } from '../../foundation/Media';
 import { allTimeUnits, clamp, formatAbsoluteTime, lerp, objectEntries } from './helpers';
-import { Container, ParentSize, YAxisBackground } from './TimeSeriesChart.styled';
+import { Container, YAxisBackground } from './TimeSeriesChart.styled';
 import { AxisFormatterFn, TimeSeriesChartProps } from './types';
 import { useAnimationFrame } from './useAnimationFrame';
 import { XYChartTooltipWithBounds } from './XYChartTooltipWithBounds';
@@ -29,8 +28,6 @@ export const TimeSeriesChart = <Datum extends {}>({
   renderTooltip,
   children,
   className,
-  margin,
-  padding,
   minZoomDomain = 0,
   numGridLines,
   withGridRows = true,
@@ -38,9 +35,6 @@ export const TimeSeriesChart = <Datum extends {}>({
   tickSpacingX = 150,
   tickSpacingY = 50,
 }: TimeSeriesChartProps<Datum>) => {
-  // Context
-  const { isMobileDeviceAndDown: isMobile } = useResponsiveQuery();
-
   // Chart data
   const { xAccessor, yAccessor } = series[0];
 
@@ -122,20 +116,14 @@ export const TimeSeriesChart = <Datum extends {}>({
           xScale={{
             // 'linear'
             clamp: false,
-            domain: [
-              lerp(0 - (padding?.left ?? 0), domain[0], domain[1]),
-              lerp(1 + (padding?.right ?? 0), domain[0], domain[1]),
-            ],
+            domain: [lerp(0, domain[0], domain[1]), lerp(1, domain[0], domain[1])],
             nice: false,
             type: 'time',
             zero: false,
           }}
           yScale={{
             clamp: true,
-            domain: [
-              lerp(0 - (padding?.bottom ?? 0.05), range[0], range[1]),
-              lerp(1 + (padding?.top ?? 0.05), range[0], range[1]),
-            ],
+            domain: [lerp(-0.05, range[0], range[1]), lerp(1.05, range[0], range[1])],
             nice: true,
             type: yAxisScaleType,
             zero: false,
@@ -144,13 +132,11 @@ export const TimeSeriesChart = <Datum extends {}>({
           <EventEmitterProvider>
             <ParentSize>
               {({ width, height }: { width: number; height: number }) => {
-                const numTicksX =
-                  (width - (margin?.left ?? 0) - (margin?.right ?? 0)) / tickSpacingX;
-                const numTicksY =
-                  (height - (margin?.top ?? 0) - (margin?.bottom ?? 0)) / tickSpacingY;
+                const numTicksX = width / tickSpacingX;
+                const numTicksY = height / tickSpacingY;
 
                 return (
-                  <XYChart height={height} margin={margin} width={width}>
+                  <XYChart height={height} width={width}>
                     <Grid
                       columns={withGridColumns}
                       lineStyle={{
@@ -163,44 +149,28 @@ export const TimeSeriesChart = <Datum extends {}>({
                     />
 
                     {series.map((serie) => (
-                      <React.Fragment key={serie.dataKey}>
-                        <LineSeries
-                          colorAccessor={serie.colorAccessor}
-                          curve={zoom > 12 ? curveMonotoneX : curveStepAfter}
-                          data={data}
-                          dataKey={`LineSeries-${serie.dataKey}`}
-                          xAccessor={serie.xAccessor}
-                          yAccessor={serie.yAccessor}
-                          onPointerMove={serie?.onPointerMove}
-                          onPointerOut={serie?.onPointerOut}
-                        />
-                        <LinearGradient
-                          from="var(--brokoli-ui--primary500)"
-                          id="LinearGradient-Bids"
-                          to="var(--brokoli-ui--black900)"
-                          toOpacity={0.4}
-                        />
-                      </React.Fragment>
+                      <LineSeries
+                        colorAccessor={serie.colorAccessor}
+                        curve={zoom > 12 ? curveMonotoneX : curveStepAfter}
+                        data={data}
+                        dataKey={`LineSeries-${serie.dataKey}`}
+                        xAccessor={serie.xAccessor}
+                        yAccessor={serie.yAccessor}
+                        onPointerMove={serie?.onPointerMove}
+                        onPointerOut={serie?.onPointerOut}
+                      />
                     ))}
 
                     {/* Y-Axis */}
-                    {!isMobile && (
-                      <>
-                        {margin?.left && margin.left > 0 && (
-                          <YAxisBackground height="100%" width={margin.left} x="0" y="0" />
-                        )}
+                    {<YAxisBackground height="100%" width={88} x="0" y="0" />}
 
-                        <Axis
-                          numTicks={numTicksY}
-                          orientation="left"
-                          stroke="var(--brokoli-ui-white950)"
-                          tickFormat={(y) =>
-                            yFormatter(y, { numTicks: numTicksY, zoom, zoomDomain })
-                          }
-                          tickStroke="var(--brokoli-ui-white950)"
-                        />
-                      </>
-                    )}
+                    <Axis
+                      numTicks={numTicksY}
+                      orientation="left"
+                      stroke="var(--brokoli-ui-white950)"
+                      tickFormat={(y) => yFormatter(y, { numTicks: numTicksY, zoom, zoomDomain })}
+                      tickStroke="var(--brokoli-ui-white950)"
+                    />
 
                     {/* X-Axis */}
                     <Axis

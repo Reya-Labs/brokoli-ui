@@ -58,6 +58,7 @@ const FUNDING_RATE_TIME_RESOLUTION = 60 * 60 * 1000; // 1 hour
 const Box = styled('div')`
   height: 445px;
 `;
+
 const Template: StoryFn<typeof TimeSeriesChart> = (args) => {
   const data = fundingDataPerHour;
   const latestDatum = data?.[data.length - 1];
@@ -65,20 +66,8 @@ const Template: StoryFn<typeof TimeSeriesChart> = (args) => {
     <Box>
       <TimeSeriesChart
         data={data}
-        margin={{
-          bottom: 32,
-          left: 88,
-          right: 0,
-          top: 60,
-        }}
         minZoomDomain={FUNDING_RATE_TIME_RESOLUTION * 4}
         numGridLines={1}
-        padding={{
-          bottom: 0.05,
-          left: 0.025,
-          right: 0.025,
-          top: 0.05,
-        }}
         renderTooltip={({ tooltipData }) => (
           <Tooltip
             colorToken={'black950'}

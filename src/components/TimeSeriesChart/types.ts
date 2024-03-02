@@ -1,5 +1,5 @@
 import { ScaleConfig } from '@visx/scale';
-import { AxisScale, LineSeries, Margin } from '@visx/xychart';
+import { AxisScale, LineSeries } from '@visx/xychart';
 import { RenderTooltipParams } from '@visx/xychart/lib/components/Tooltip';
 import React from 'react';
 
@@ -22,9 +22,6 @@ export type TimeSeriesChartProps<Datum extends {}> = {
 } & StyleProps;
 
 type StyleProps = {
-  margin?: Margin;
-  padding?: Margin;
-  defaultZoomDomain?: number;
   minZoomDomain: number;
   numGridLines?: number;
   withGridRows?: boolean;
