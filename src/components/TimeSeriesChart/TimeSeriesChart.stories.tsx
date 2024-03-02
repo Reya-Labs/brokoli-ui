@@ -107,8 +107,6 @@ const Template: StoryFn<typeof TimeSeriesChart> = (args) => {
             yAccessor: (datum) => datum?.fundingRate,
           },
         ]}
-        slotEmpty={<div id="funding-chart-loading">Loading...</div>}
-        yAxisScaleType="symlog"
       >
         Hello
       </TimeSeriesChart>

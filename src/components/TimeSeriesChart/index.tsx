@@ -20,7 +20,6 @@ const xFormatter: AxisFormatterFn = (xValue, { zoomDomain }) =>
 const yFormatter: AxisFormatterFn = (yValue) => parseFloat(yValue.toFixed(2)).toString();
 
 export const TimeSeriesChart = <Datum extends {}>({
-  yAxisScaleType = 'linear',
   data = [],
   series,
   renderXAxisLabel,
@@ -109,6 +108,9 @@ export const TimeSeriesChart = <Datum extends {}>({
     // TODO: scroll horizontally to pan
   };
 
+  const xScaleDomain = [lerp(0, domain[0], domain[1]), lerp(1, domain[0], domain[1])];
+  const yScaleDomain = [lerp(-0.05, range[0], range[1]), lerp(1.05, range[0], range[1])];
+  console.log('###', xScaleDomain, domain);
   return (
     <Container className={className} onWheel={onWheel}>
       {
@@ -116,16 +118,16 @@ export const TimeSeriesChart = <Datum extends {}>({
           xScale={{
             // 'linear'
             clamp: false,
-            domain: [lerp(0, domain[0], domain[1]), lerp(1, domain[0], domain[1])],
+            domain: xScaleDomain,
             nice: false,
             type: 'time',
             zero: false,
           }}
           yScale={{
             clamp: true,
-            domain: [lerp(-0.05, range[0], range[1]), lerp(1.05, range[0], range[1])],
+            domain: yScaleDomain,
             nice: true,
-            type: yAxisScaleType,
+            type: 'linear',
             zero: false,
           }}
         >
