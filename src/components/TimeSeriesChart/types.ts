@@ -6,16 +6,17 @@ type LineSeriesProps<Datum extends {}> = Parameters<
   typeof LineSeries<AxisScale, AxisScale, Datum>
 >[0];
 
-export type TimeSeriesChartProps<Datum extends {}> = {
+export type Datum = {
+  x: number;
+  y: number;
+};
+
+export type TimeSeriesChartProps = {
   data: Datum[];
-  series: Pick<
-    LineSeriesProps<Datum>,
-    'dataKey' | 'xAccessor' | 'yAccessor' | 'colorAccessor' | 'onPointerMove' | 'onPointerOut'
-  >[];
+  series: Pick<LineSeriesProps<Datum>, 'dataKey' | 'colorAccessor'>[];
   renderXAxisLabel?: (_: RenderTooltipParams<Datum>) => React.ReactNode;
   renderYAxisLabel?: (_: RenderTooltipParams<Datum>) => React.ReactNode;
   renderTooltip?: (_: RenderTooltipParams<Datum>) => React.ReactNode;
-  children: React.ReactNode;
   className?: string;
 } & StyleProps;
 

@@ -19,8 +19,8 @@ export enum FundingDirection {
 }
 
 export type FundingChartDatum = {
-  time: number;
-  fundingRate: number;
+  x: number;
+  y: number;
   direction: FundingDirection;
 };
 
@@ -43,8 +43,8 @@ function generateFundingDataPerHour(): FundingChartDatum[] {
 
       data.push({
         direction,
-        fundingRate,
-        time: date.getTime(),
+        x: date.getTime(),
+        y: fundingRate,
       });
     }
   }
@@ -73,8 +73,8 @@ const Template: StoryFn<typeof TimeSeriesChart> = (args) => {
             colorToken={'black950'}
             point={{
               data: {
-                xFormatted: tooltipData?.nearestDatum?.datum.time.toLocaleString(),
-                yFormatted: tooltipData?.nearestDatum?.datum.fundingRate.toFixed(3),
+                xFormatted: tooltipData?.nearestDatum?.datum.x.toLocaleString(),
+                yFormatted: tooltipData?.nearestDatum?.datum.y.toFixed(3),
               },
             }}
             tokenColorToken={'black950'}
@@ -86,7 +86,7 @@ const Template: StoryFn<typeof TimeSeriesChart> = (args) => {
 
           return (
             <Pill colorToken="secondary" typographyToken="bodySmallRegular" variant="compact">
-              {`${new Date(tooltipDatum.time).toLocaleString()}`}
+              {`${new Date(tooltipDatum.x).toLocaleString()}`}
             </Pill>
           );
         }}
@@ -95,7 +95,7 @@ const Template: StoryFn<typeof TimeSeriesChart> = (args) => {
 
           return (
             <Pill colorToken="primary" typographyToken="bodySmallRegular" variant="compact">
-              {`${tooltipDatum.fundingRate.toLocaleString()}%`}
+              {`${tooltipDatum.y.toLocaleString()}%`}
             </Pill>
           );
         }}
@@ -103,13 +103,9 @@ const Template: StoryFn<typeof TimeSeriesChart> = (args) => {
           {
             colorAccessor: () => 'var(--brokoli-ui-primary500)',
             dataKey: 'funding-rate',
-            xAccessor: (datum) => datum?.time,
-            yAccessor: (datum) => datum?.fundingRate,
           },
         ]}
-      >
-        Hello
-      </TimeSeriesChart>
+      />
     </Box>
   );
 };

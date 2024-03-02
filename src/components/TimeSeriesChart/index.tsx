@@ -5,7 +5,7 @@ import React, { useMemo, useState } from 'react';
 
 import { allTimeUnits, clamp, formatAbsoluteTime, lerp, objectEntries } from './helpers';
 import { Container, YAxisBackground } from './TimeSeriesChart.styled';
-import { AxisFormatterFn, TimeSeriesChartProps } from './types';
+import { AxisFormatterFn, Datum, TimeSeriesChartProps } from './types';
 import { XYChartTooltipWithBounds } from './XYChartTooltipWithBounds';
 
 const xFormatter: AxisFormatterFn = (xValue, { zoomDomain }) =>
@@ -18,13 +18,15 @@ const xFormatter: AxisFormatterFn = (xValue, { zoomDomain }) =>
   });
 const yFormatter: AxisFormatterFn = (yValue) => parseFloat(yValue.toFixed(2)).toString();
 
-export const TimeSeriesChart = <Datum extends {}>({
+const xAccessor = (d: Datum) => d.x;
+const yAccessor = (d: Datum) => d.y;
+
+export const TimeSeriesChart = ({
   data = [],
   series,
   renderXAxisLabel,
   renderYAxisLabel,
   renderTooltip,
-  children,
   className,
   minZoomDomain = 0,
   numGridLines,
@@ -32,10 +34,7 @@ export const TimeSeriesChart = <Datum extends {}>({
   withGridColumns = false,
   tickSpacingX = 150,
   tickSpacingY = 50,
-}: TimeSeriesChartProps<Datum>) => {
-  // Chart data
-  const { xAccessor, yAccessor } = series[0];
-
+}: TimeSeriesChartProps) => {
   const earliestDatum = data[0];
   const latestDatum = data[data.length - 1];
 
@@ -138,10 +137,8 @@ export const TimeSeriesChart = <Datum extends {}>({
                         curve={zoom > 12 ? curveMonotoneX : curveStepAfter}
                         data={data}
                         dataKey={`LineSeries-${serie.dataKey}`}
-                        xAccessor={serie.xAccessor}
-                        yAccessor={serie.yAccessor}
-                        onPointerMove={serie?.onPointerMove}
-                        onPointerOut={serie?.onPointerOut}
+                        xAccessor={xAccessor}
+                        yAccessor={yAccessor}
                       />
                     ))}
 
@@ -204,8 +201,6 @@ export const TimeSeriesChart = <Datum extends {}>({
           </EventEmitterProvider>
         </DataProvider>
       }
-
-      {children}
     </Container>
   );
 };
