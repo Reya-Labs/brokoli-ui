@@ -9140,18 +9140,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@visx/clip-path@npm:3.0.0":
-  version: 3.0.0
-  resolution: "@visx/clip-path@npm:3.0.0"
-  dependencies:
-    "@types/react": "npm:*"
-    prop-types: "npm:^15.5.10"
-  peerDependencies:
-    react: ^16.0.0-0 || ^17.0.0-0 || ^18.0.0-0
-  checksum: 10c0/226a3eeecc11c2625231d7dfb608ea5f4723fef611a6e619be4a604415b9b0dace00d57f3c82de5afd7cc34c6c1b14285a470408d88227b4efe259983e4a1080
-  languageName: node
-  linkType: hard
-
 "@visx/curve@npm:3.0.0":
   version: 3.0.0
   resolution: "@visx/curve@npm:3.0.0"
@@ -9333,21 +9321,6 @@ __metadata:
   peerDependencies:
     react: ^16.3.0-0 || ^17.0.0-0 || ^18.0.0-0
   checksum: 10c0/6fa57c343e0d4df3dc7055810d0ea7fde2420e0259ef74f6148d4a9344199271866ae721f0c54e7e06d72da013e39e47c5808cfbddb0c775b8f319dcca45a281
-  languageName: node
-  linkType: hard
-
-"@visx/threshold@npm:3.0.0":
-  version: 3.0.0
-  resolution: "@visx/threshold@npm:3.0.0"
-  dependencies:
-    "@types/react": "npm:*"
-    "@visx/clip-path": "npm:3.0.0"
-    "@visx/shape": "npm:3.0.0"
-    classnames: "npm:^2.3.1"
-    prop-types: "npm:^15.5.10"
-  peerDependencies:
-    react: ^16.0.0-0 || ^17.0.0-0 || ^18.0.0-0
-  checksum: 10c0/56c9c5ee70f4b2234f9ea0c3abefe01223c937a4a6a2022830fc8e32496c771b9c5f5c9d3f0bea52660c42fb274f3b4e3bd36d52a079d690f0681678a03969c4
   languageName: node
   linkType: hard
 
@@ -11539,7 +11512,6 @@ __metadata:
     "@visx/scale": "npm:3.0.0"
     "@visx/shape": "npm:3.0.0"
     "@visx/text": "npm:3.0.0"
-    "@visx/threshold": "npm:3.0.0"
     "@visx/tooltip": "npm:3.1.2"
     "@visx/xychart": "npm:3.1.2"
     babel-loader: "npm:8.3.0"

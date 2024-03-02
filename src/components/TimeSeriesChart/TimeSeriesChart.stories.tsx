@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
-import { curveMonotoneX, curveStepAfter } from '@visx/curve';
 import React from 'react';
 
 import { Pill } from '../Pill';
@@ -115,7 +114,6 @@ const Template: StoryFn<typeof TimeSeriesChart> = (args) => {
           {
             colorAccessor: () => 'var(--brokoli-ui-primary500)',
             dataKey: 'funding-rate',
-            getCurve: ({ zoom }) => (zoom > 12 ? curveMonotoneX : curveStepAfter),
             xAccessor: (datum) => datum?.time,
             yAccessor: (datum) => datum?.fundingRate,
           },

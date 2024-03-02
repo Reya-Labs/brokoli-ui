@@ -1,21 +1,13 @@
+import { curveMonotoneX, curveStepAfter } from '@visx/curve';
 import { LinearGradient } from '@visx/gradient';
-import {
-  Axis,
-  DataProvider,
-  EventEmitterProvider,
-  GlyphSeries,
-  Grid,
-  LineSeries,
-  XYChart,
-} from '@visx/xychart';
+import { Axis, DataProvider, EventEmitterProvider, Grid, LineSeries, XYChart } from '@visx/xychart';
 import React, { useMemo, useState } from 'react';
 
 import { useResponsiveQuery } from '../../foundation/Media';
-import { allTimeUnits, clamp, formatAbsoluteTime, lerp, map, objectEntries } from './helpers';
+import { allTimeUnits, clamp, formatAbsoluteTime, lerp, objectEntries } from './helpers';
 import { Container, ParentSize, YAxisBackground } from './TimeSeriesChart.styled';
 import { AxisFormatterFn, TimeSeriesChartProps } from './types';
 import { useAnimationFrame } from './useAnimationFrame';
-import { XYChartThreshold } from './XYChartThreshold';
 import { XYChartTooltipWithBounds } from './XYChartTooltipWithBounds';
 
 const xFormatter: AxisFormatterFn = (xValue, { zoomDomain }) =>
@@ -173,51 +165,9 @@ export const TimeSeriesChart = <Datum extends {}>({
 
                     {series.map((serie) => (
                       <React.Fragment key={serie.dataKey}>
-                        {serie.threshold && (
-                          <>
-                            <XYChartThreshold<Datum>
-                              aboveAreaProps={{
-                                fill: 'url(#XYChartThresholdAbove)',
-                                fillOpacity: serie.threshold.aboveAreaProps?.fillOpacity,
-                                stroke: serie.threshold.aboveAreaProps?.stroke,
-                                strokeWidth: serie.threshold.aboveAreaProps?.strokeWidth,
-                              }}
-                              belowAreaProps={{
-                                fill: 'url(#XYChartThresholdBelow)',
-                                fillOpacity: serie.threshold.belowAreaProps?.fillOpacity,
-                                stroke: serie.threshold.belowAreaProps?.stroke,
-                                strokeWidth: serie.threshold.belowAreaProps?.strokeWidth,
-                              }}
-                              clipAboveTo={margin?.top ?? 0}
-                              clipBelowTo={height - (margin?.bottom ?? 0)}
-                              curve={serie.getCurve?.({ zoom, zoomDomain }) ?? serie.curve}
-                              data={data}
-                              id={`${Math.random()}`}
-                              x={serie.xAccessor}
-                              y0={serie.yAccessor}
-                              y1={serie.threshold.yAccessor}
-                            />
-                            <LinearGradient
-                              from={serie.threshold.aboveAreaProps?.fill}
-                              id="XYChartThresholdAbove"
-                              to={serie.threshold.aboveAreaProps?.fill}
-                              toOffset={`${map(0, range[0], range[1], 100, 0)}%`}
-                              toOpacity={serie.threshold.aboveAreaProps?.fillOpacity}
-                            />
-                            <LinearGradient
-                              from={serie.threshold.belowAreaProps?.fill}
-                              fromOffset={`${map(0, range[0], range[1], 100, 0)}%`}
-                              fromOpacity={serie.threshold.aboveAreaProps?.fillOpacity}
-                              id="XYChartThresholdBelow"
-                              to={serie.threshold.belowAreaProps?.fill}
-                            />
-                          </>
-                        )}
                         <LineSeries
-                          colorAccessor={
-                            serie.threshold ? () => 'transparent' : serie.colorAccessor
-                          }
-                          curve={serie.getCurve?.({ zoom, zoomDomain }) ?? serie.curve}
+                          colorAccessor={serie.colorAccessor}
+                          curve={zoom > 12 ? curveMonotoneX : curveStepAfter}
                           data={data}
                           dataKey={`LineSeries-${serie.dataKey}`}
                           xAccessor={serie.xAccessor}
@@ -225,21 +175,12 @@ export const TimeSeriesChart = <Datum extends {}>({
                           onPointerMove={serie?.onPointerMove}
                           onPointerOut={serie?.onPointerOut}
                         />
-
-                        {(serie.glyphSize || serie.getGlyphSize) && (
-                          <GlyphSeries
-                            colorAccessor={serie.colorAccessor}
-                            data={data}
-                            dataKey={`GlyphSeries-${serie.dataKey}`}
-                            size={
-                              serie.getGlyphSize
-                                ? (datum) => serie.getGlyphSize?.({ datum, zoom }) || 0
-                                : serie.glyphSize || 0
-                            }
-                            xAccessor={serie.xAccessor}
-                            yAccessor={serie.yAccessor}
-                          />
-                        )}
+                        <LinearGradient
+                          from="var(--brokoli-ui--primary500)"
+                          id="LinearGradient-Bids"
+                          to="var(--brokoli-ui--black900)"
+                          toOpacity={0.4}
+                        />
                       </React.Fragment>
                     ))}
 
