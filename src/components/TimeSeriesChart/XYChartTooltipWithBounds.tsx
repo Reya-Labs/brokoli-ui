@@ -13,8 +13,7 @@ import {
 } from '@visx/xychart';
 import React, { Fragment, useCallback, useContext, useEffect } from 'react';
 
-import { getScaleBandwidth } from './getScaleBandwidth';
-import { isValidNumber } from './isValidNumber';
+import { getScaleBandwidth, isValidNumber } from './helpers';
 
 export type RenderTooltipParams<Datum extends object> = TooltipContextType<Datum> & {
   colorScale?: PickD3Scale<'ordinal', string, string>;
@@ -298,6 +297,6 @@ function TooltipInner<Datum extends object>({
  * If many charts with Tooltips are rendered on a page,
  * this avoids creating many resize observers / hitting browser limits.
  */
-export default function Tooltip<Datum extends object>(props: TooltipProps<Datum>) {
+export function XYChartTooltipWithBounds<Datum extends object>(props: TooltipProps<Datum>) {
   return <TooltipInner {...props} />;
 }

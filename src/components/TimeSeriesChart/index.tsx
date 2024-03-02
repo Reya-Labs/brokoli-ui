@@ -16,14 +16,11 @@ import { RenderTooltipParams } from '@visx/xychart/lib/components/Tooltip';
 import React, { useEffect, useMemo, useState } from 'react';
 
 import { useResponsiveQuery } from '../../foundation/Media';
-import { formatAbsoluteTime } from './dateTime';
-import { clamp, lerp, map } from './math';
-import { objectEntries } from './objectEntries';
-import { allTimeUnits } from './time';
+import { allTimeUnits, clamp, formatAbsoluteTime, lerp, map, objectEntries } from './helpers';
 import { Container, ParentSize, YAxisBackground } from './TimeSeriesChart.styled';
 import { useAnimationFrame } from './useAnimationFrame';
 import { type Threshold, XYChartThreshold } from './XYChartThreshold';
-import Tooltip from './XYChartTooltipWithBounds';
+import { XYChartTooltipWithBounds } from './XYChartTooltipWithBounds';
 
 type LineSeriesProps<Datum extends {}> = Parameters<
   typeof LineSeries<AxisScale, AxisScale, Datum>
@@ -151,9 +148,7 @@ export const TimeSeriesChart = <Datum extends {}>({
     (elapsedMilliseconds) => {
       if (zoomDomainAnimateTo) {
         setZoomDomain(
-          (zoomDomain) =>
-            zoomDomain &&
-            zoomDomain * (zoomDomainAnimateTo / zoomDomain) ** (elapsedMilliseconds * 0.0166),
+          (zD) => zD && zD * (zoomDomainAnimateTo / zD) ** (elapsedMilliseconds * 0.0166),
         );
       }
     },
@@ -164,26 +159,33 @@ export const TimeSeriesChart = <Datum extends {}>({
   const { zoom, domain, range, visibleData } = useMemo(() => {
     if (!zoomDomain) return { domain: [0, 0], range: [0, 0], zoom: 0 };
 
-    const zoom = zoomDomain / minZoomDomain;
+    const zoomComputed = zoomDomain / minZoomDomain;
 
-    const domain = [
+    const domainComputed = [
       clamp(xAccessor(latestDatum) - zoomDomain, xAccessor(earliestDatum), xAccessor(latestDatum)),
       xAccessor(latestDatum),
     ] as const;
 
-    const visibleData = data.filter(
-      (datum) => xAccessor(datum) >= domain[0] && xAccessor(datum) <= domain[1],
+    const visibleDataComputed = data.filter(
+      (datum) => xAccessor(datum) >= domainComputed[0] && xAccessor(datum) <= domainComputed[1],
     );
 
-    const range = visibleData
-      .filter((datum) => xAccessor(datum) >= domain[0] && xAccessor(datum) <= domain[1])
+    const rangeComputed = visibleDataComputed
+      .filter(
+        (datum) => xAccessor(datum) >= domainComputed[0] && xAccessor(datum) <= domainComputed[1],
+      )
       .map((datum) => yAccessor(datum))
-      .reduce((range, y) => [Math.min(range[0], y), Math.max(range[1], y)] as const, [
+      .reduce((r, y) => [Math.min(r[0], y), Math.max(r[1], y)] as const, [
         Infinity,
         -Infinity,
       ] as const);
 
-    return { domain, range, visibleData, zoom };
+    return {
+      domain: domainComputed,
+      range: rangeComputed,
+      visibleData: visibleDataComputed,
+      zoom: zoomComputed,
+    };
   }, [data, zoomDomain, minZoomDomain]);
 
   useEffect(() => {
@@ -257,73 +259,73 @@ export const TimeSeriesChart = <Datum extends {}>({
                       rows={withGridRows}
                     />
 
-                    {series.map((series) => (
-                      <React.Fragment key={series.dataKey}>
-                        {series.threshold && (
+                    {series.map((serie) => (
+                      <React.Fragment key={serie.dataKey}>
+                        {serie.threshold && (
                           <>
                             <XYChartThreshold<Datum>
                               aboveAreaProps={{
                                 fill: 'url(#XYChartThresholdAbove)',
-                                fillOpacity: series.threshold.aboveAreaProps?.fillOpacity,
-                                stroke: series.threshold.aboveAreaProps?.stroke,
-                                strokeWidth: series.threshold.aboveAreaProps?.strokeWidth,
+                                fillOpacity: serie.threshold.aboveAreaProps?.fillOpacity,
+                                stroke: serie.threshold.aboveAreaProps?.stroke,
+                                strokeWidth: serie.threshold.aboveAreaProps?.strokeWidth,
                               }}
                               belowAreaProps={{
                                 fill: 'url(#XYChartThresholdBelow)',
-                                fillOpacity: series.threshold.belowAreaProps?.fillOpacity,
-                                stroke: series.threshold.belowAreaProps?.stroke,
-                                strokeWidth: series.threshold.belowAreaProps?.strokeWidth,
+                                fillOpacity: serie.threshold.belowAreaProps?.fillOpacity,
+                                stroke: serie.threshold.belowAreaProps?.stroke,
+                                strokeWidth: serie.threshold.belowAreaProps?.strokeWidth,
                               }}
                               clipAboveTo={margin?.top ?? 0}
                               clipBelowTo={height - (margin?.bottom ?? 0)}
-                              curve={series.getCurve?.({ zoom, zoomDomain }) ?? series.curve}
+                              curve={serie.getCurve?.({ zoom, zoomDomain }) ?? serie.curve}
                               data={data}
                               id={`${Math.random()}`}
-                              x={series.xAccessor}
-                              y0={series.yAccessor}
-                              y1={series.threshold.yAccessor}
+                              x={serie.xAccessor}
+                              y0={serie.yAccessor}
+                              y1={serie.threshold.yAccessor}
                             />
                             <LinearGradient
-                              from={series.threshold.aboveAreaProps?.fill}
+                              from={serie.threshold.aboveAreaProps?.fill}
                               id="XYChartThresholdAbove"
-                              to={series.threshold.aboveAreaProps?.fill}
+                              to={serie.threshold.aboveAreaProps?.fill}
                               toOffset={`${map(0, range[0], range[1], 100, 0)}%`}
-                              toOpacity={series.threshold.aboveAreaProps?.fillOpacity}
+                              toOpacity={serie.threshold.aboveAreaProps?.fillOpacity}
                             />
                             <LinearGradient
-                              from={series.threshold.belowAreaProps?.fill}
+                              from={serie.threshold.belowAreaProps?.fill}
                               fromOffset={`${map(0, range[0], range[1], 100, 0)}%`}
-                              fromOpacity={series.threshold.aboveAreaProps?.fillOpacity}
+                              fromOpacity={serie.threshold.aboveAreaProps?.fillOpacity}
                               id="XYChartThresholdBelow"
-                              to={series.threshold.belowAreaProps?.fill}
+                              to={serie.threshold.belowAreaProps?.fill}
                             />
                           </>
                         )}
                         <LineSeries
                           colorAccessor={
-                            series.threshold ? () => 'transparent' : series.colorAccessor
+                            serie.threshold ? () => 'transparent' : serie.colorAccessor
                           }
-                          curve={series.getCurve?.({ zoom, zoomDomain }) ?? series.curve}
+                          curve={serie.getCurve?.({ zoom, zoomDomain }) ?? serie.curve}
                           data={data}
-                          dataKey={`LineSeries-${series.dataKey}`}
-                          xAccessor={series.xAccessor}
-                          yAccessor={series.yAccessor}
-                          onPointerMove={series?.onPointerMove}
-                          onPointerOut={series?.onPointerOut}
+                          dataKey={`LineSeries-${serie.dataKey}`}
+                          xAccessor={serie.xAccessor}
+                          yAccessor={serie.yAccessor}
+                          onPointerMove={serie?.onPointerMove}
+                          onPointerOut={serie?.onPointerOut}
                         />
 
-                        {(series.glyphSize || series.getGlyphSize) && (
+                        {(serie.glyphSize || serie.getGlyphSize) && (
                           <GlyphSeries
-                            colorAccessor={series.colorAccessor}
+                            colorAccessor={serie.colorAccessor}
                             data={data}
-                            dataKey={`GlyphSeries-${series.dataKey}`}
+                            dataKey={`GlyphSeries-${serie.dataKey}`}
                             size={
-                              series.getGlyphSize
-                                ? (datum) => series.getGlyphSize?.({ datum, zoom }) || 0
-                                : series.glyphSize || 0
+                              serie.getGlyphSize
+                                ? (datum) => serie.getGlyphSize?.({ datum, zoom }) || 0
+                                : serie.glyphSize || 0
                             }
-                            xAccessor={series.xAccessor}
-                            yAccessor={series.yAccessor}
+                            xAccessor={serie.xAccessor}
+                            yAccessor={serie.yAccessor}
                           />
                         )}
                       </React.Fragment>
@@ -337,15 +339,13 @@ export const TimeSeriesChart = <Datum extends {}>({
                         )}
 
                         <Axis
-                          orientation="left"
-                          tickFormat={(y) =>
-                            tickFormatY(y, { zoom, zoomDomain, numTicks: numTicksY })
-                          }
-                          // hideTicks
-                          tickStroke="var(--brokoli-ui-white950)"
                           numTicks={numTicksY}
-                          // hideAxisLine
+                          orientation="left"
                           stroke="var(--brokoli-ui-white950)"
+                          tickFormat={(y) =>
+                            tickFormatY(y, { numTicks: numTicksY, zoom, zoomDomain })
+                          }
+                          tickStroke="var(--brokoli-ui-white950)"
                         />
                       </>
                     )}
@@ -361,7 +361,7 @@ export const TimeSeriesChart = <Datum extends {}>({
                     />
 
                     {renderTooltip && (
-                      <Tooltip<Datum>
+                      <XYChartTooltipWithBounds<Datum>
                         glyphStyle={{
                           fill: 'var(--brokoli-ui-primary500)',
                           radius: 4,

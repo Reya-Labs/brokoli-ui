@@ -4,8 +4,8 @@ export const useAnimationFrame = (callback: (_: number) => void, deps: React.Dep
   const requestRef = useRef<number | undefined>();
   const previousTimeRef = useRef<number | undefined>();
 
-  const animate = useCallback(async (time: number) => {
-    if (previousTimeRef.current != undefined) {
+  const animate = useCallback((time: number) => {
+    if (previousTimeRef.current !== undefined) {
       const deltaTime = time - previousTimeRef.current;
       callback(deltaTime);
     }
