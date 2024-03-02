@@ -14,6 +14,6 @@ export const Container = styled.div`
 `;
 
 export const YAxisBackground = styled.foreignObject`
-  background: transparent;
+  background: yellow;
   z-index: 1;
 `;

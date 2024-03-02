@@ -6,7 +6,6 @@ import React, { useMemo, useState } from 'react';
 import { allTimeUnits, clamp, formatAbsoluteTime, lerp, objectEntries } from './helpers';
 import { Container, YAxisBackground } from './TimeSeriesChart.styled';
 import { AxisFormatterFn, TimeSeriesChartProps } from './types';
-import { useAnimationFrame } from './useAnimationFrame';
 import { XYChartTooltipWithBounds } from './XYChartTooltipWithBounds';
 
 const xFormatter: AxisFormatterFn = (xValue, { zoomDomain }) =>
@@ -43,19 +42,6 @@ export const TimeSeriesChart = <Datum extends {}>({
   // Chart state
   const [zoomDomain, setZoomDomain] = useState<number>(
     xAccessor(latestDatum) - xAccessor(earliestDatum),
-  );
-
-  const [zoomDomainAnimateTo, setZoomDomainAnimateTo] = useState<number | undefined>();
-
-  useAnimationFrame(
-    (elapsedMilliseconds) => {
-      if (zoomDomainAnimateTo) {
-        setZoomDomain(
-          (zD) => zD && zD * (zoomDomainAnimateTo / zD) ** (elapsedMilliseconds * 0.0166),
-        );
-      }
-    },
-    [zoomDomainAnimateTo],
   );
 
   // Computations
@@ -102,21 +88,16 @@ export const TimeSeriesChart = <Datum extends {}>({
         xAccessor(latestDatum) - xAccessor(earliestDatum),
       ),
     );
-
-    setZoomDomainAnimateTo(undefined);
-
-    // TODO: scroll horizontally to pan
   };
 
   const xScaleDomain = [lerp(0, domain[0], domain[1]), lerp(1, domain[0], domain[1])];
   const yScaleDomain = [lerp(-0.05, range[0], range[1]), lerp(1.05, range[0], range[1])];
-  console.log('###', xScaleDomain, domain);
+
   return (
     <Container className={className} onWheel={onWheel}>
       {
         <DataProvider
           xScale={{
-            // 'linear'
             clamp: false,
             domain: xScaleDomain,
             nice: false,
@@ -152,6 +133,7 @@ export const TimeSeriesChart = <Datum extends {}>({
 
                     {series.map((serie) => (
                       <LineSeries
+                        key={serie.dataKey}
                         colorAccessor={serie.colorAccessor}
                         curve={zoom > 12 ? curveMonotoneX : curveStepAfter}
                         data={data}
@@ -164,7 +146,7 @@ export const TimeSeriesChart = <Datum extends {}>({
                     ))}
 
                     {/* Y-Axis */}
-                    {<YAxisBackground height="100%" width={88} x="0" y="0" />}
+                    <YAxisBackground height="100%" width={50} x="0" y="0" />
 
                     <Axis
                       numTicks={numTicksY}
