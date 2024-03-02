@@ -8245,6 +8245,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/d3-random@npm:^2.2.0":
+  version: 2.2.3
+  resolution: "@types/d3-random@npm:2.2.3"
+  checksum: 10c0/a0f5ef08372bd3f1d48b639477418550c1ce5b8f63152edd2dff6b42431656bc6e1a85ebe7ef6c91aafb13bc032a23bb5a30cf987e55efff90d046a3b5212eae
+  languageName: node
+  linkType: hard
+
 "@types/d3-scale-chromatic@npm:^2.0.0":
   version: 2.0.4
   resolution: "@types/d3-scale-chromatic@npm:2.0.4"
@@ -9190,6 +9197,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@visx/glyph@npm:3.3.0":
+  version: 3.3.0
+  resolution: "@visx/glyph@npm:3.3.0"
+  dependencies:
+    "@types/d3-shape": "npm:^1.3.1"
+    "@types/react": "npm:*"
+    "@visx/group": "npm:3.3.0"
+    classnames: "npm:^2.3.1"
+    d3-shape: "npm:^1.2.0"
+    prop-types: "npm:^15.6.2"
+  peerDependencies:
+    react: ^16.3.0-0 || ^17.0.0-0 || ^18.0.0-0
+  checksum: 10c0/9ca2f0787a07b3c6d378a05e29f32ebf30c97f0a5e19e20e6a753043a447764820e82a4057e46af58c5785d708e68cb9aeaa5fa83ed2c5202221c0a5d1df4c9a
+  languageName: node
+  linkType: hard
+
 "@visx/gradient@npm:3.0.0":
   version: 3.0.0
   resolution: "@visx/gradient@npm:3.0.0"
@@ -9230,6 +9253,42 @@ __metadata:
   peerDependencies:
     react: ^16.0.0-0 || ^17.0.0-0 || ^18.0.0-0
   checksum: 10c0/42a0f1e46f5c5e3fa3cf47c7395b6ff82ad39731f348e76295ef138d37c207f513b76dd695a96593fc8796380e033a6848028c26c727068259a127870200a2c3
+  languageName: node
+  linkType: hard
+
+"@visx/group@npm:3.3.0":
+  version: 3.3.0
+  resolution: "@visx/group@npm:3.3.0"
+  dependencies:
+    "@types/react": "npm:*"
+    classnames: "npm:^2.3.1"
+    prop-types: "npm:^15.6.2"
+  peerDependencies:
+    react: ^16.0.0-0 || ^17.0.0-0 || ^18.0.0-0
+  checksum: 10c0/43ab4fc285cb1a0f9bae8aa5e1ac906f207163da4bd3104f431141b21e5987fe86dafee70808b074c3644aa2b117768997d35e18fe3e695008599a62759982fc
+  languageName: node
+  linkType: hard
+
+"@visx/mock-data@npm:3.3.0":
+  version: 3.3.0
+  resolution: "@visx/mock-data@npm:3.3.0"
+  dependencies:
+    "@types/d3-random": "npm:^2.2.0"
+    d3-random: "npm:^2.2.2"
+  checksum: 10c0/dffb891eb888a9e76e21c136b1469e5b2bc5448b83c1338c31d26dda52dcecf95805983bf0c5687b00b785a57228bd6ed252c2a3f54d2e7a83ce3069d3d07c9c
+  languageName: node
+  linkType: hard
+
+"@visx/pattern@npm:3.3.0":
+  version: 3.3.0
+  resolution: "@visx/pattern@npm:3.3.0"
+  dependencies:
+    "@types/react": "npm:*"
+    classnames: "npm:^2.3.1"
+    prop-types: "npm:^15.5.10"
+  peerDependencies:
+    react: ^16.0.0-0 || ^17.0.0-0 || ^18.0.0-0
+  checksum: 10c0/7808ef575a9e47b16fd987d790dfa7b4188be01b3c5c290936ba5007f1e1d04f81dbb9ffbf700e8fbf6fe8e7f3d9973b90fcc0b93222d1079350071dd7d7be27
   languageName: node
   linkType: hard
 
@@ -11504,8 +11563,11 @@ __metadata:
     "@visx/axis": "npm:3.1.0"
     "@visx/curve": "npm:3.0.0"
     "@visx/event": "npm:3.0.1"
+    "@visx/glyph": "npm:3.3.0"
     "@visx/gradient": "npm:3.0.0"
     "@visx/group": "npm:3.0.0"
+    "@visx/mock-data": "npm:3.3.0"
+    "@visx/pattern": "npm:3.3.0"
     "@visx/point": "npm:3.0.1"
     "@visx/react-spring": "npm:3.1.0"
     "@visx/responsive": "npm:3.0.0"
@@ -13127,6 +13189,13 @@ __metadata:
   version: 1.0.9
   resolution: "d3-path@npm:1.0.9"
   checksum: 10c0/e35e84df5abc18091f585725b8235e1fa97efc287571585427d3a3597301e6c506dea56b11dfb3c06ca5858b3eb7f02c1bf4f6a716aa9eade01c41b92d497eb5
+  languageName: node
+  linkType: hard
+
+"d3-random@npm:^2.2.2":
+  version: 2.2.2
+  resolution: "d3-random@npm:2.2.2"
+  checksum: 10c0/2c7413c4c626272cf12945ff14dacffdccc531989b551f8cfdd9c0266ae902cd9ffffc9ff98b693594a5ff342fb0f22e70afcce908cc6c43fb082bd52ace5acf
   languageName: node
   linkType: hard
 
