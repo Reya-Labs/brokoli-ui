@@ -1,72 +1,22 @@
 import { LinearGradient } from '@visx/gradient';
-import type { ScaleConfig } from '@visx/scale';
 import {
   Axis,
-  type AxisScale,
   DataProvider,
   EventEmitterProvider,
   GlyphSeries,
   Grid,
   LineSeries,
-  type Margin,
   XYChart,
 } from '@visx/xychart';
-import { RenderTooltipParams } from '@visx/xychart/lib/components/Tooltip';
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 
 import { useResponsiveQuery } from '../../foundation/Media';
 import { allTimeUnits, clamp, formatAbsoluteTime, lerp, map, objectEntries } from './helpers';
 import { Container, ParentSize, YAxisBackground } from './TimeSeriesChart.styled';
+import { AxisFormatterFn, TimeSeriesChartProps } from './types';
 import { useAnimationFrame } from './useAnimationFrame';
-import { type Threshold, XYChartThreshold } from './XYChartThreshold';
+import { XYChartThreshold } from './XYChartThreshold';
 import { XYChartTooltipWithBounds } from './XYChartTooltipWithBounds';
-
-type LineSeriesProps<Datum extends {}> = Parameters<
-  typeof LineSeries<AxisScale, AxisScale, Datum>
->[0];
-
-type GlyphSeriesProps<Datum extends {} = {}> = Parameters<
-  typeof GlyphSeries<AxisScale, AxisScale, Datum>
->[0];
-
-type ThresholdProps<Datum extends {} = {}> = Parameters<typeof Threshold<Datum>>[0];
-
-type ElementProps<Datum extends {}> = {
-  yAxisScaleType?: ScaleConfig['type'];
-  data: Datum[];
-  series: (Pick<
-    LineSeriesProps<Datum>,
-    | 'dataKey'
-    // | 'xAccessor'
-    // | 'yAccessor'
-    | 'colorAccessor'
-    // | 'curve'
-    | 'onPointerMove'
-    | 'onPointerOut'
-  > &
-    Pick<ThresholdProps<Datum>, 'curve'> & {
-      colorAccessor: GlyphSeriesProps<Datum>['colorAccessor'];
-      xAccessor: (_: Datum) => number;
-      yAccessor: (_: Datum) => number;
-      getCurve?: (_: { zoom: number; zoomDomain: number }) => ThresholdProps<Datum>['curve']; // LineSeriesProps<Datum>['curve'];
-      glyphSize?: GlyphSeriesProps<Datum>['size'];
-      getGlyphSize?: (_: { datum: Datum; zoom: number }) => number;
-      threshold?: Pick<ThresholdProps<Datum>, 'aboveAreaProps' | 'belowAreaProps'> & {
-        yAccessor: LineSeriesProps<Datum>['yAccessor'];
-      };
-    })[];
-  renderXAxisLabel?: (_: RenderTooltipParams<Datum>) => React.ReactNode;
-  renderYAxisLabel?: (_: RenderTooltipParams<Datum>) => React.ReactNode;
-  renderTooltip?: (_: RenderTooltipParams<Datum>) => React.ReactNode;
-  slotEmpty: React.ReactNode;
-  children: React.ReactNode;
-  className?: string;
-};
-
-type AxisFormatterFn = (
-  axisValue: number,
-  _: { zoom: number; zoomDomain: number; numTicks: number },
-) => string;
 
 const xFormatter: AxisFormatterFn = (xValue, { zoomDomain }) =>
   formatAbsoluteTime(xValue, {
@@ -78,21 +28,9 @@ const xFormatter: AxisFormatterFn = (xValue, { zoomDomain }) =>
   });
 const yFormatter: AxisFormatterFn = (yValue) => parseFloat(yValue.toFixed(2)).toString();
 
-type StyleProps = {
-  margin?: Margin;
-  padding?: Margin;
-  defaultZoomDomain?: number;
-  minZoomDomain: number;
-  numGridLines?: number;
-  withGridRows?: boolean;
-  withGridColumns?: boolean;
-  tickSpacingX?: number;
-  tickSpacingY?: number;
-};
-
 export const TimeSeriesChart = <Datum extends {}>({
   yAxisScaleType = 'linear',
-  data,
+  data = [],
   series,
   renderXAxisLabel,
   renderYAxisLabel,
@@ -102,35 +40,28 @@ export const TimeSeriesChart = <Datum extends {}>({
   className,
   margin,
   padding,
-  defaultZoomDomain,
   minZoomDomain = 0,
   numGridLines,
   withGridRows = true,
   withGridColumns = false,
   tickSpacingX = 150,
   tickSpacingY = 50,
-}: ElementProps<Datum> & StyleProps) => {
+}: TimeSeriesChartProps<Datum>) => {
   // Context
   const { isMobileDeviceAndDown: isMobile } = useResponsiveQuery();
 
   // Chart data
   const { xAccessor, yAccessor } = series[0];
 
-  const earliestDatum = data?.[0];
-  const latestDatum = data?.[data.length - 1];
+  const earliestDatum = data[0];
+  const latestDatum = data[data.length - 1];
 
   // Chart state
   const [zoomDomain, setZoomDomain] = useState<number | undefined>(
-    defaultZoomDomain ?? xAccessor(latestDatum) - xAccessor(earliestDatum),
+    xAccessor(latestDatum) - xAccessor(earliestDatum),
   );
 
   const [zoomDomainAnimateTo, setZoomDomainAnimateTo] = useState<number | undefined>();
-
-  useEffect(() => {
-    if (defaultZoomDomain && defaultZoomDomain !== zoomDomain) {
-      setZoomDomainAnimateTo(defaultZoomDomain);
-    }
-  }, [defaultZoomDomain]);
 
   useAnimationFrame(
     (elapsedMilliseconds) => {
@@ -144,7 +75,7 @@ export const TimeSeriesChart = <Datum extends {}>({
   );
 
   // Computations
-  const { zoom, domain, range, visibleData } = useMemo(() => {
+  const { zoom, domain, range } = useMemo(() => {
     if (!zoomDomain) return { domain: [0, 0], range: [0, 0], zoom: 0 };
 
     const zoomComputed = zoomDomain / minZoomDomain;
@@ -171,7 +102,6 @@ export const TimeSeriesChart = <Datum extends {}>({
     return {
       domain: domainComputed,
       range: rangeComputed,
-      visibleData: visibleDataComputed,
       zoom: zoomComputed,
     };
   }, [data, zoomDomain, minZoomDomain]);
