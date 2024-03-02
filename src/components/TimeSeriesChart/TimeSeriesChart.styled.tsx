@@ -4,6 +4,7 @@ export const Container = styled.div`
   height: 100%;
   cursor: crosshair;
   user-select: none;
+  position: relative;
 
   text {
     font-feature-settings:

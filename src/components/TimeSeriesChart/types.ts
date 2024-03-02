@@ -1,6 +1,6 @@
 import { AxisScale, LineSeries } from '@visx/xychart';
-import { RenderTooltipParams } from '@visx/xychart/lib/components/Tooltip';
-import React from 'react';
+
+import { ColorTokens } from '../../foundation/Colors';
 
 type LineSeriesProps<Datum extends {}> = Parameters<
   typeof LineSeries<AxisScale, AxisScale, Datum>
@@ -12,10 +12,11 @@ export type Datum = {
 };
 
 export type TimeSeriesChartProps = {
-  series: Pick<LineSeriesProps<Datum>, 'data' | 'dataKey' | 'colorAccessor'>[];
-  renderXAxisLabel?: (_: RenderTooltipParams<Datum>) => React.ReactNode;
-  renderYAxisLabel?: (_: RenderTooltipParams<Datum>) => React.ReactNode;
-  renderTooltip?: (_: RenderTooltipParams<Datum>) => React.ReactNode;
+  series: {
+    id: string;
+    data: Datum[];
+    colorToken: ColorTokens;
+  }[];
   className?: string;
 } & StyleProps;
 

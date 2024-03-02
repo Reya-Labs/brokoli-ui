@@ -2,9 +2,7 @@ import styled from '@emotion/styled';
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
-import { Pill } from '../Pill';
 import { TimeSeriesChart } from '.';
-import { Tooltip } from './Tooltip/Tooltip';
 
 export default {
   args: {},
@@ -61,55 +59,21 @@ const Box = styled('div')`
 `;
 
 const Template: StoryFn<typeof TimeSeriesChart> = (args) => {
-  const data = fundingDataPerHour1;
-  const latestDatum = data?.[data.length - 1];
   return (
     <Box>
       <TimeSeriesChart
-        data={data}
         minZoomDomain={FUNDING_RATE_TIME_RESOLUTION * 4}
         numGridLines={1}
-        renderTooltip={({ tooltipData }) => (
-          <Tooltip
-            colorToken={'black950'}
-            point={{
-              data: {
-                xFormatted: tooltipData?.nearestDatum?.datum.x.toLocaleString(),
-                yFormatted: tooltipData?.nearestDatum?.datum.y.toFixed(3),
-              },
-            }}
-            tokenColorToken={'black950'}
-            yToken={''}
-          />
-        )}
-        renderXAxisLabel={({ tooltipData }) => {
-          const tooltipDatum = tooltipData!.nearestDatum?.datum ?? latestDatum;
-
-          return (
-            <Pill colorToken="secondary" typographyToken="bodySmallRegular" variant="compact">
-              {`${new Date(tooltipDatum.x).toLocaleString()}`}
-            </Pill>
-          );
-        }}
-        renderYAxisLabel={({ tooltipData }) => {
-          const tooltipDatum = tooltipData!.nearestDatum?.datum ?? latestDatum;
-
-          return (
-            <Pill colorToken="primary" typographyToken="bodySmallRegular" variant="compact">
-              {`${tooltipDatum.y.toLocaleString()}%`}
-            </Pill>
-          );
-        }}
         series={[
           {
-            colorAccessor: () => 'var(--brokoli-ui-primary500)',
+            colorToken: 'primary500',
             data: fundingDataPerHour1,
-            dataKey: 'funding-rate1',
+            id: 'funding-rate1',
           },
           {
-            colorAccessor: () => 'var(--brokoli-ui-secondary500)',
+            colorToken: 'secondary500',
             data: fundingDataPerHour2,
-            dataKey: 'funding-rate2',
+            id: 'funding-rate2',
           },
         ]}
       />

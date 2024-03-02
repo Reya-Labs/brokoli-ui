@@ -1,12 +1,13 @@
+import { useTheme } from '@emotion/react';
 import { curveMonotoneX, curveStepAfter } from '@visx/curve';
 import { ParentSize } from '@visx/responsive';
-import { Axis, EventEmitterProvider, Grid, LineSeries, XYChart } from '@visx/xychart';
+import { Axis, Grid, LineSeries, Tooltip, XYChart } from '@visx/xychart';
 import React, { useMemo, useState } from 'react';
 
+import { getColorFromToken } from '../../foundation/Colors';
 import { allTimeUnits, clamp, formatAbsoluteTime, objectEntries } from './helpers';
 import { Container, YAxisBackground } from './TimeSeriesChart.styled';
 import { AxisFormatterFn, Datum, TimeSeriesChartProps } from './types';
-import { XYChartTooltipWithBounds } from './XYChartTooltipWithBounds';
 
 const xFormatter: AxisFormatterFn = (xValue, { zoomDomain }) =>
   formatAbsoluteTime(xValue, {
@@ -23,9 +24,6 @@ const yAccessor = (d: Datum) => d.y;
 
 export const TimeSeriesChart = ({
   series,
-  renderXAxisLabel,
-  renderYAxisLabel,
-  renderTooltip,
   className,
   minZoomDomain = 0,
   numGridLines,
@@ -34,6 +32,7 @@ export const TimeSeriesChart = ({
   tickSpacingX = 150,
   tickSpacingY = 50,
 }: TimeSeriesChartProps) => {
+  const theme = useTheme();
   const data = useMemo(
     () =>
       series.reduce(
@@ -83,7 +82,7 @@ export const TimeSeriesChart = ({
   }, [data, zoomDomain, minZoomDomain]);
 
   // Events
-  const onWheel = ({ deltaX, deltaY }: React.WheelEvent) => {
+  const onWheel = ({ deltaY }: React.WheelEvent) => {
     setZoomDomain(
       clamp(
         Math.max(
@@ -98,113 +97,97 @@ export const TimeSeriesChart = ({
 
   return (
     <Container className={className} onWheel={onWheel}>
-      {
-        <EventEmitterProvider>
-          <ParentSize>
-            {({ width, height }: { width: number; height: number }) => {
-              const numTicksX = width / tickSpacingX;
-              const numTicksY = height / tickSpacingY;
+      <ParentSize>
+        {({ width, height }: { width: number; height: number }) => {
+          const numTicksX = width / tickSpacingX;
+          const numTicksY = height / tickSpacingY;
 
-              return (
-                <XYChart
-                  height={height}
-                  width={width}
-                  xScale={{
-                    clamp: false,
-                    domain: [...domain],
-                    nice: false,
-                    type: 'time',
-                    zero: false,
-                  }}
-                  yScale={{
-                    clamp: true,
-                    domain: [...range],
-                    nice: true,
-                    type: 'linear',
-                    zero: false,
-                  }}
-                >
-                  <Grid
-                    columns={withGridColumns}
-                    lineStyle={{
-                      stroke: 'var(--brokoli-ui-white950)',
-                      strokeDasharray: '4',
-                      strokeWidth: 1,
-                    }}
-                    numTicks={numGridLines !== undefined ? numGridLines : numTicksY}
-                    rows={withGridRows}
-                  />
+          return (
+            <XYChart
+              height={height}
+              width={width}
+              xScale={{
+                clamp: false,
+                domain: [...domain],
+                nice: false,
+                type: 'time',
+                zero: false,
+              }}
+              yScale={{
+                clamp: true,
+                domain: [...range],
+                nice: true,
+                type: 'linear',
+                zero: false,
+              }}
+            >
+              <Grid
+                columns={withGridColumns}
+                lineStyle={{
+                  stroke: theme.colors.white950,
+                  strokeDasharray: '4',
+                  strokeWidth: 1,
+                }}
+                numTicks={numGridLines !== undefined ? numGridLines : numTicksY}
+                rows={withGridRows}
+              />
 
-                  {series.map((serie) => (
-                    <LineSeries
-                      key={serie.dataKey}
-                      colorAccessor={serie.colorAccessor}
-                      curve={zoom > 12 ? curveMonotoneX : curveStepAfter}
-                      data={serie.data}
-                      dataKey={`LineSeries-${serie.dataKey}`}
-                      xAccessor={xAccessor}
-                      yAccessor={yAccessor}
-                    />
-                  ))}
+              {series.map((serie) => (
+                <LineSeries
+                  key={serie.id}
+                  colorAccessor={() => getColorFromToken({ colorToken: serie.colorToken, theme })}
+                  curve={zoom > 12 ? curveMonotoneX : curveStepAfter}
+                  data={serie.data}
+                  dataKey={`LineSeries-${serie.id}`}
+                  xAccessor={xAccessor}
+                  yAccessor={yAccessor}
+                />
+              ))}
 
-                  {/* Y-Axis */}
-                  <YAxisBackground height="100%" width={50} x="0" y="0" />
+              {/* Y-Axis */}
+              <YAxisBackground height="100%" width={50} x="0" y="0" />
 
-                  <Axis
-                    numTicks={numTicksY}
-                    orientation="left"
-                    stroke="var(--brokoli-ui-white950)"
-                    tickFormat={(y) => yFormatter(y, { numTicks: numTicksY, zoom, zoomDomain })}
-                    tickStroke="var(--brokoli-ui-white950)"
-                  />
+              <Axis
+                numTicks={numTicksY}
+                orientation="left"
+                stroke={theme.colors.white950}
+                tickFormat={(y) => yFormatter(y, { numTicks: numTicksY, zoom, zoomDomain })}
+                tickStroke={theme.colors.white950}
+              />
 
-                  {/* X-Axis */}
-                  <Axis
-                    numTicks={numTicksX}
-                    orientation="bottom"
-                    stroke="var(--brokoli-ui-white950)"
-                    strokeWidth={1}
-                    tickFormat={(x) => xFormatter(x, { numTicks: numTicksX, zoom, zoomDomain })}
-                    tickStroke="var(--brokoli-ui-white950)"
-                  />
-
-                  {renderTooltip && (
-                    <XYChartTooltipWithBounds<Datum>
-                      glyphStyle={{
-                        fill: 'var(--brokoli-ui-primary500)',
-                        radius: 4,
-                        stroke: 'var(--brokoli-ui-secondary500)',
+              {/* X-Axis */}
+              <Axis
+                numTicks={numTicksX}
+                orientation="bottom"
+                stroke={theme.colors.white950}
+                strokeWidth={1}
+                tickFormat={(x) => xFormatter(x, { numTicks: numTicksX, zoom, zoomDomain })}
+                tickStroke={theme.colors.white950}
+              />
+              <Tooltip
+                renderTooltip={({ tooltipData, colorScale }) => (
+                  <div>
+                    <div
+                      style={{
+                        color: colorScale ? colorScale(tooltipData!.nearestDatum!.key) : 'red',
                       }}
-                      horizontalCrosshairStyle={{
-                        opacity: 0.7,
-                        strokeDasharray: '5 5',
-                        strokeWidth: 1,
-                      }}
-                      renderTooltip={renderTooltip}
-                      renderXAxisLabel={renderXAxisLabel}
-                      renderYAxisLabel={renderYAxisLabel}
-                      snapTooltipToDatumY={false}
-                      verticalCrosshairStyle={{
-                        opacity: 0.7,
-                        strokeDasharray: '5 5',
-                        strokeWidth: 1,
-                      }}
-                      applyPositionStyle
-                      showDatumGlyph
-                      showHorizontalCrosshair
-                      showVerticalCrosshair
-                      snapCrosshairToDatumX
-                      snapCrosshairToDatumY
-                      snapTooltipToDatumX
-                      unstyled
-                    />
-                  )}
-                </XYChart>
-              );
-            }}
-          </ParentSize>
-        </EventEmitterProvider>
-      }
+                    >
+                      {tooltipData!.nearestDatum!.key}
+                    </div>
+                    {xAccessor(tooltipData!.nearestDatum!.datum as Datum)}
+                    {', '}
+                    {yAccessor(tooltipData!.nearestDatum!.datum as Datum)}
+                  </div>
+                )}
+                showSeriesGlyphs
+                showVerticalCrosshair
+                snapTooltipToDatumX
+                snapTooltipToDatumY
+              />
+            </XYChart>
+          );
+        }}
+      </ParentSize>
     </Container>
   );
 };
