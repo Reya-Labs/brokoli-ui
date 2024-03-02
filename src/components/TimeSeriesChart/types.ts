@@ -17,7 +17,6 @@ export type TimeSeriesChartProps<Datum extends {}> = {
   renderXAxisLabel?: (_: RenderTooltipParams<Datum>) => React.ReactNode;
   renderYAxisLabel?: (_: RenderTooltipParams<Datum>) => React.ReactNode;
   renderTooltip?: (_: RenderTooltipParams<Datum>) => React.ReactNode;
-  slotEmpty: React.ReactNode;
   children: React.ReactNode;
   className?: string;
 } & StyleProps;

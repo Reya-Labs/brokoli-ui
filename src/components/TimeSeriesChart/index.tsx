@@ -27,7 +27,6 @@ export const TimeSeriesChart = <Datum extends {}>({
   renderXAxisLabel,
   renderYAxisLabel,
   renderTooltip,
-  slotEmpty,
   children,
   className,
   margin,
@@ -118,7 +117,7 @@ export const TimeSeriesChart = <Datum extends {}>({
 
   return (
     <Container className={className} onWheel={onWheel}>
-      {data.length && zoomDomain ? (
+      {
         <DataProvider
           xScale={{
             // 'linear'
@@ -250,9 +249,7 @@ export const TimeSeriesChart = <Datum extends {}>({
             </ParentSize>
           </EventEmitterProvider>
         </DataProvider>
-      ) : (
-        slotEmpty ?? null
-      )}
+      }
 
       {children}
     </Container>
