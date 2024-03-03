@@ -1,6 +1,4 @@
-import { curveCardinal, curveLinear, curveStep } from '@visx/curve';
 import { AnimationTrajectory } from '@visx/react-spring';
-import { XYChartTheme } from '@visx/xychart';
 import type {
   RenderTooltipGlyphProps,
   RenderTooltipParams,
@@ -14,14 +12,17 @@ type SimpleScaleConfig = { type: 'band' | 'linear'; paddingInner?: number };
 
 export type VisxChartProps<Datum extends object> = {
   animated?: boolean;
-  renderTooltip: (_: RenderTooltipParams<Datum>) => React.ReactNode;
+  renderTooltip?: (_: RenderTooltipParams<Datum>) => React.ReactNode;
   series: {
     id: string;
     accessors: {
       x: Accessor<Datum>;
       y: Accessor<Datum>;
       date: Accessor<Datum>;
-      colorAccessor: (id: VisxChartProps<Datum>['series'][number]['id'], d: Datum) => string | null;
+      colorAccessor?: (
+        id: VisxChartProps<Datum>['series'][number]['id'],
+        d: Datum,
+      ) => string | null;
     };
   }[];
   animationTrajectory?: AnimationTrajectory;
@@ -29,11 +30,10 @@ export type VisxChartProps<Datum extends object> = {
     x: SimpleScaleConfig;
     y: SimpleScaleConfig;
   };
-  curve: typeof curveLinear | typeof curveCardinal | typeof curveStep;
+  curveType?: 'linear' | 'cardinal' | 'step';
   data: Datum[];
   numTicks: number;
-  renderGlyph: React.FC<GlyphProps<Datum>>;
-  renderGlyphSeries: boolean;
+  renderGlyph?: React.FC<GlyphProps<Datum>>;
   renderTooltipGlyph?: React.FC<RenderTooltipGlyphProps<Datum>>;
   renderHorizontally: boolean;
   sharedTooltip: boolean;
@@ -44,8 +44,9 @@ export type VisxChartProps<Datum extends object> = {
   tooltipSnapTooltipToDatumX: boolean;
   tooltipSnapTooltipToDatumY: boolean;
   stackOffset?: 'wiggle' | 'expand' | 'diverging' | 'silhouette';
-  theme: XYChartTheme;
+  themeName: 'dark' | 'light' | 'reya';
   xAxisOrientation?: 'top' | 'bottom';
   yAxisOrientation?: 'left' | 'right';
-  renderAs: 'bar' | 'barstack' | 'bargroup' | 'line' | 'area' | 'areastack' | 'none';
+  renderAs: 'glyph' | 'bar' | 'barstack' | 'bargroup' | 'line' | 'area' | 'areastack' | 'none';
+  customChartBackground?: React.ReactNode;
 };

@@ -1,7 +1,9 @@
+import { curveCardinal, curveLinear, curveStep } from '@visx/curve';
 import { ParentSize } from '@visx/responsive';
-import React from 'react';
+import { darkTheme, lightTheme } from '@visx/xychart';
+import React, { useMemo } from 'react';
 
-import { CustomChartBackground } from './CustomChartBackground';
+import { customTheme } from './customTheme';
 import { getAnimatedOrUnanimatedComponents } from './getAnimatedOrUnanimatedComponents';
 import { VisxChartProps } from './types';
 import { userPrefersReducedMotion } from './userPrefersReducedMotion';
@@ -11,11 +13,10 @@ export const VisxChart = <Datum extends object>({
   series,
   animationTrajectory = 'outside',
   config,
-  curve,
+  curveType = 'linear',
   data,
   numTicks,
   renderGlyph,
-  renderGlyphSeries,
   renderTooltip,
   renderTooltipGlyph,
   renderHorizontally,
@@ -27,10 +28,11 @@ export const VisxChart = <Datum extends object>({
   tooltipSnapTooltipToDatumX,
   tooltipSnapTooltipToDatumY,
   stackOffset,
-  theme,
+  themeName,
   xAxisOrientation = 'bottom',
   yAxisOrientation = 'right',
   renderAs = 'line',
+  customChartBackground = null,
 }: VisxChartProps<Datum>) => {
   const {
     AreaSeries,
@@ -51,14 +53,34 @@ export const VisxChart = <Datum extends object>({
   const renderAreaSeries = renderAs === 'area';
   const renderAreaStack = renderAs === 'areastack';
   const renderBarSeries = renderAs === 'bar';
+  const renderGlyphSeries = renderAs === 'glyph';
+  const curve = useMemo(() => {
+    if (curveType === 'cardinal') return curveCardinal;
+    if (curveType === 'step') return curveStep;
+    return curveLinear;
+  }, [curveType]);
   // cannot snap to a stack position
   const canSnapTooltipToDatum = renderAs !== 'barstack' && renderAs !== 'areastack';
+  const chartTheme = useMemo(() => {
+    if (themeName === 'dark') {
+      return darkTheme;
+    }
+    if (themeName === 'light') {
+      return lightTheme;
+    }
+    return customTheme;
+  }, [themeName]);
 
   return (
     <ParentSize>
       {({ height }) => (
-        <XYChart height={Math.min(400, height)} theme={theme} xScale={config.x} yScale={config.y}>
-          <CustomChartBackground />
+        <XYChart
+          height={Math.min(400, height)}
+          theme={chartTheme}
+          xScale={config.x}
+          yScale={config.y}
+        >
+          {customChartBackground}
           <Grid
             key={`grid-${animationTrajectory}`} // force animate on update
             animationTrajectory={animationTrajectory}
@@ -87,7 +109,11 @@ export const VisxChart = <Datum extends object>({
                 return (
                   <BarSeries
                     key={id}
-                    colorAccessor={(d) => accessors.colorAccessor(id, d)}
+                    colorAccessor={
+                      typeof accessors.colorAccessor === 'function'
+                        ? (d) => accessors.colorAccessor!(id, d)
+                        : undefined
+                    }
                     data={data}
                     dataKey={id}
                     xAccessor={accessors.x}
@@ -103,7 +129,11 @@ export const VisxChart = <Datum extends object>({
                 return (
                   <BarSeries
                     key={id}
-                    colorAccessor={(d) => accessors.colorAccessor(id, d)}
+                    colorAccessor={
+                      typeof accessors.colorAccessor === 'function'
+                        ? (d) => accessors.colorAccessor!(id, d)
+                        : undefined
+                    }
                     data={data}
                     dataKey={id}
                     xAccessor={accessors.x}
@@ -162,13 +192,17 @@ export const VisxChart = <Datum extends object>({
               })}
             </>
           )}
-          {renderGlyphSeries && (
+          {renderGlyphSeries && typeof renderGlyph === 'function' && (
             <>
               {series.map(({ accessors, id }) => {
                 return (
                   <GlyphSeries
                     key={id}
-                    colorAccessor={(d) => accessors.colorAccessor(id, d)}
+                    colorAccessor={
+                      typeof accessors.colorAccessor === 'function'
+                        ? (d) => accessors.colorAccessor!(id, d)
+                        : undefined
+                    }
                     data={data}
                     dataKey={id}
                     renderGlyph={renderGlyph}

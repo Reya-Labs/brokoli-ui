@@ -1,15 +1,14 @@
 import styled from '@emotion/styled';
-import { Meta, StoryFn, StoryObj } from '@storybook/react';
-import { curveCardinal, curveLinear, curveStep } from '@visx/curve';
+import { Meta, StoryObj } from '@storybook/react';
 import { GlyphCross, GlyphDot, GlyphStar } from '@visx/glyph';
 import cityTemperature, { CityTemperature } from '@visx/mock-data/lib/mocks/cityTemperature';
-import { darkTheme, GlyphProps, lightTheme, XYChartTheme } from '@visx/xychart';
+import { GlyphProps, ThemeContext } from '@visx/xychart';
 import { RenderTooltipGlyphProps } from '@visx/xychart/lib/components/Tooltip';
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useContext, useMemo, useState } from 'react';
 
 import { Typography } from '../Typography';
 import { VisxChart } from '.';
-import { customTheme } from './customTheme';
+import { CustomChartBackground } from './CustomChartBackground';
 import { VisxChartProps } from './types';
 
 const dateScaleConfig = { paddingInner: 0.3, type: 'band' } as const;
@@ -40,133 +39,127 @@ const Box = styled('div')`
   height: 445px;
 `;
 
-const Template: StoryFn<typeof VisxChart> = (args) => {
-  const [theme, setTheme] = useState<XYChartTheme>(darkTheme);
-  const [renderHorizontally, setRenderHorizontally] = useState(false);
-  const [showTooltip, setShowTooltip] = useState(true);
-  const sharedTooltip = args.sharedTooltip;
-  const [renderBarStackOrGroup, setRenderBarStackOrGroup] = useState<
-    'bar' | 'barstack' | 'bargroup' | 'none'
-  >('none');
-  const [renderAreaLineOrStack, setRenderAreaLineOrStack] = useState<
-    'line' | 'area' | 'areastack' | 'none'
-  >('areastack');
-  const [stackOffset, setStackOffset] = useState<VisxChartProps<CityTemperature>['stackOffset']>();
-  const [renderGlyphSeries, setRenderGlyphSeries] = useState(false);
-  const [negativeValues, setNegativeValues] = useState(false);
-  const [fewerDatum, setFewerDatum] = useState(false);
-  const [missingValues, setMissingValues] = useState(false);
-  const [glyphComponent, setGlyphComponent] = useState<'star' | 'cross' | 'circle' | '🍍'>('star');
-  const [curveType, setCurveType] = useState<'linear' | 'cardinal' | 'step'>('linear');
+const Glyph = ({
+  x,
+  y,
+  size,
+  color,
+  onPointerMove,
+  onPointerOut,
+  onPointerUp,
+  glyphComponent,
+}: GlyphProps<CityTemperature> & Pick<TemplateProps, 'glyphComponent'>) => {
+  const theme = useContext(ThemeContext);
   const glyphOutline = theme.gridStyles.stroke;
-  const renderGlyph = useCallback(
-    ({
-      x,
-      y,
-      size,
-      color,
-      onPointerMove,
-      onPointerOut,
-      onPointerUp,
-    }: GlyphProps<CityTemperature>) => {
-      const handlers = { onPointerMove, onPointerOut, onPointerUp };
-      if (glyphComponent === 'star') {
-        return (
-          <GlyphStar
-            fill={color}
-            left={x}
-            size={size * 10}
-            stroke={glyphOutline}
-            top={y}
-            {...handlers}
-          />
-        );
-      }
-      if (glyphComponent === 'circle') {
-        return (
-          <GlyphDot
-            fill={color}
-            left={x}
-            r={size / 2}
-            stroke={glyphOutline}
-            top={y}
-            {...handlers}
-          />
-        );
-      }
-      if (glyphComponent === 'cross') {
-        return (
-          <GlyphCross
-            fill={color}
-            left={x}
-            size={size * 10}
-            stroke={glyphOutline}
-            top={y}
-            {...handlers}
-          />
-        );
-      }
-      return (
-        <text dx="-0.75em" dy="0.25em" fontSize={14} x={x} y={y} {...handlers}>
-          🍍
-        </text>
-      );
-    },
-    [glyphComponent, glyphOutline],
+  const handlers = { onPointerMove, onPointerOut, onPointerUp };
+  if (glyphComponent === 'star') {
+    return (
+      <GlyphStar
+        fill={color}
+        left={x}
+        size={size * 10}
+        stroke={glyphOutline}
+        top={y}
+        {...handlers}
+      />
+    );
+  }
+  if (glyphComponent === 'circle') {
+    return (
+      <GlyphDot fill={color} left={x} r={size / 2} stroke={glyphOutline} top={y} {...handlers} />
+    );
+  }
+  if (glyphComponent === 'cross') {
+    return (
+      <GlyphCross
+        fill={color}
+        left={x}
+        size={size * 10}
+        stroke={glyphOutline}
+        top={y}
+        {...handlers}
+      />
+    );
+  }
+  return (
+    <text dx="-0.75em" dy="0.25em" fontSize={14} x={x} y={y} {...handlers}>
+      🍍
+    </text>
   );
-  const [enableTooltipGlyph, setEnableTooltipGlyph] = useState(false);
-  const [tooltipGlyphComponent, setTooltipGlyphComponent] = useState<
-    'star' | 'cross' | 'circle' | '🍍'
-  >('star');
-  const renderTooltipGlyph = useCallback(
-    ({
-      x,
-      y,
-      size,
-      color,
-      onPointerMove,
-      onPointerOut,
-      onPointerUp,
-      isNearestDatum,
-    }: RenderTooltipGlyphProps<CityTemperature>) => {
-      const handlers = { onPointerMove, onPointerOut, onPointerUp };
-      if (tooltipGlyphComponent === 'star') {
-        return (
-          <GlyphStar
-            fill={color}
-            left={x}
-            size={size * 10}
-            stroke={glyphOutline}
-            top={y}
-            {...handlers}
-          />
-        );
-      }
-      if (tooltipGlyphComponent === 'circle') {
-        return (
-          <GlyphDot fill={color} left={x} r={size} stroke={glyphOutline} top={y} {...handlers} />
-        );
-      }
-      if (tooltipGlyphComponent === 'cross') {
-        return (
-          <GlyphCross
-            fill={color}
-            left={x}
-            size={size * 10}
-            stroke={glyphOutline}
-            top={y}
-            {...handlers}
-          />
-        );
-      }
-      return (
-        <text dx="-0.75em" dy="0.25em" fontSize={14} x={x} y={y} {...handlers}>
-          {isNearestDatum ? '🍍' : '🍌'}
-        </text>
-      );
-    },
-    [tooltipGlyphComponent, glyphOutline],
+};
+
+const TooltipGlyph = ({
+  x,
+  y,
+  size,
+  color,
+  onPointerMove,
+  onPointerOut,
+  onPointerUp,
+  isNearestDatum,
+  tooltipGlyphComponent,
+}: RenderTooltipGlyphProps<CityTemperature> & Pick<TemplateProps, 'tooltipGlyphComponent'>) => {
+  const handlers = { onPointerMove, onPointerOut, onPointerUp };
+  const theme = useContext(ThemeContext);
+  const glyphOutline = theme.gridStyles.stroke;
+  if (tooltipGlyphComponent === 'star') {
+    return (
+      <GlyphStar
+        fill={color}
+        left={x}
+        size={size * 10}
+        stroke={glyphOutline}
+        top={y}
+        {...handlers}
+      />
+    );
+  }
+  if (tooltipGlyphComponent === 'circle') {
+    return <GlyphDot fill={color} left={x} r={size} stroke={glyphOutline} top={y} {...handlers} />;
+  }
+  if (tooltipGlyphComponent === 'cross') {
+    return (
+      <GlyphCross
+        fill={color}
+        left={x}
+        size={size * 10}
+        stroke={glyphOutline}
+        top={y}
+        {...handlers}
+      />
+    );
+  }
+  return (
+    <text dx="-0.75em" dy="0.25em" fontSize={14} x={x} y={y} {...handlers}>
+      {isNearestDatum ? '🍍' : '🍌'}
+    </text>
   );
+};
+type TemplateProps = {
+  glyphComponent: 'star' | 'cross' | 'circle' | '🍍';
+  tooltipGlyphComponent: 'star' | 'cross' | 'circle' | '🍍';
+  enableTooltipGlyph: boolean;
+  showTooltip: boolean;
+  negativeValues: boolean;
+  missingValues: boolean;
+  fewerDatum: boolean;
+  withCustomBackground: boolean;
+};
+const Template: React.FunctionComponent<VisxChartProps<CityTemperature> & TemplateProps> = (
+  args,
+) => {
+  const glyphComponent = args.glyphComponent || 'star';
+  const enableTooltipGlyph = args.enableTooltipGlyph;
+  const showTooltip = args.showTooltip;
+  const tooltipGlyphComponent = args.tooltipGlyphComponent || 'star';
+  const negativeValues = args.negativeValues || false;
+  const missingValues = args.missingValues || false;
+  const withCustomBackground = args.withCustomBackground || false;
+  const fewerDatum = args.fewerDatum || false;
+  const themeName = args.themeName;
+  const sharedTooltip = args.sharedTooltip;
+
+  const [renderHorizontally, setRenderHorizontally] = useState(false);
 
   const accessors = useMemo(
     () => ({
@@ -200,9 +193,13 @@ const Template: StoryFn<typeof VisxChart> = (args) => {
     }),
     [renderHorizontally],
   );
-
-  // cannot snap to a stack position
-  const canSnapTooltipToDatum = args.renderAs !== 'barstack' && args.renderAs !== 'areastack';
+  const computedData = fewerDatum
+    ? missingValues
+      ? dataSmallMissingValues
+      : dataSmall
+    : missingValues
+    ? dataMissingValues
+    : data;
 
   return (
     <>
@@ -212,67 +209,58 @@ const Template: StoryFn<typeof VisxChart> = (args) => {
             animated: args.animated,
             animationTrajectory: args.animationTrajectory,
             config,
-            curve:
-              (curveType === 'cardinal' && curveCardinal) ||
-              (curveType === 'step' && curveStep) ||
-              curveLinear,
-            data: fewerDatum
-              ? missingValues
-                ? dataSmallMissingValues
-                : dataSmall
-              : missingValues
-              ? dataMissingValues
-              : data,
+            curveType: args.curveType,
+            customChartBackground: withCustomBackground ? <CustomChartBackground /> : null,
+            data: computedData,
             numTicks,
-            renderAreaSeries: renderAreaLineOrStack === 'area',
-            renderAreaStack: renderAreaLineOrStack === 'areastack',
             renderAs: args.renderAs,
-            renderBarGroup: renderBarStackOrGroup === 'bargroup',
-            renderBarSeries: renderBarStackOrGroup === 'bar',
-            renderBarStack: renderBarStackOrGroup === 'barstack',
-            renderGlyph,
-            renderGlyphSeries,
+            renderGlyph: (props) => <Glyph {...props} glyphComponent={glyphComponent} />,
             renderHorizontally,
-            renderLineSeries: renderAreaLineOrStack === 'line',
-            renderTooltip: ({ tooltipData, colorScale }) => (
-              <>
-                {/** date */}
-                {(tooltipData?.nearestDatum?.datum &&
-                  accessors.date(tooltipData?.nearestDatum?.datum)) ||
-                  'No date'}
-                <br />
-                <br />
-                {/** temperatures */}
-                {(
-                  (sharedTooltip
-                    ? Object.keys(tooltipData?.datumByKey ?? {})
-                    : [tooltipData?.nearestDatum?.key]
-                  ).filter((city) => city) as City[]
-                ).map((city) => {
-                  const temperature =
-                    tooltipData?.nearestDatum?.datum &&
-                    accessors[renderHorizontally ? 'x' : 'y'][city](
-                      tooltipData?.nearestDatum?.datum,
-                    );
+            renderTooltip: showTooltip
+              ? ({ tooltipData, colorScale }) => (
+                  <>
+                    {/** date */}
+                    {(tooltipData?.nearestDatum?.datum &&
+                      accessors.date(tooltipData?.nearestDatum?.datum)) ||
+                      'No date'}
+                    <br />
+                    <br />
+                    {/** temperatures */}
+                    {(
+                      (sharedTooltip
+                        ? Object.keys(tooltipData?.datumByKey ?? {})
+                        : [tooltipData?.nearestDatum?.key]
+                      ).filter((city) => city) as City[]
+                    ).map((city) => {
+                      const temperature =
+                        tooltipData?.nearestDatum?.datum &&
+                        accessors[renderHorizontally ? 'x' : 'y'][city](
+                          tooltipData?.nearestDatum?.datum,
+                        );
 
-                  return (
-                    <div key={city}>
-                      <em
-                        style={{
-                          color: colorScale?.(city),
-                          textDecoration:
-                            tooltipData?.nearestDatum?.key === city ? 'underline' : undefined,
-                        }}
-                      >
-                        {city}
-                      </em>{' '}
-                      {temperature == null || Number.isNaN(temperature) ? '–' : `${temperature}° F`}
-                    </div>
-                  );
-                })}
-              </>
-            ),
-            renderTooltipGlyph,
+                      return (
+                        <div key={city}>
+                          <em
+                            style={{
+                              color: colorScale?.(city),
+                              textDecoration:
+                                tooltipData?.nearestDatum?.key === city ? 'underline' : undefined,
+                            }}
+                          >
+                            {city}
+                          </em>{' '}
+                          {temperature == null || Number.isNaN(temperature)
+                            ? '–'
+                            : `${temperature}° F`}
+                        </div>
+                      );
+                    })}
+                  </>
+                )
+              : undefined,
+            renderTooltipGlyph: enableTooltipGlyph
+              ? (props) => <TooltipGlyph {...props} tooltipGlyphComponent={tooltipGlyphComponent} />
+              : undefined,
             series: [
               {
                 accessors: {
@@ -305,8 +293,8 @@ const Template: StoryFn<typeof VisxChart> = (args) => {
             sharedTooltip,
             showGridColumns: args.showGridColumns,
             showGridRows: args.showGridRows,
-            stackOffset,
-            theme,
+            stackOffset: args.stackOffset,
+            themeName,
             tooltipShowHorizontalCrosshair: args.tooltipShowHorizontalCrosshair,
             tooltipShowVerticalCrosshair: args.tooltipShowVerticalCrosshair,
             tooltipSnapTooltipToDatumX: args.tooltipSnapTooltipToDatumX,
@@ -317,72 +305,6 @@ const Template: StoryFn<typeof VisxChart> = (args) => {
         />
       </Box>
       <div className="controls">
-        {/** data */}
-        <div>
-          <Typography colorToken="white100" typographyToken="h3Bold">
-            data
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            {' '}
-            <input
-              checked={negativeValues}
-              type="checkbox"
-              onChange={() => setNegativeValues(!negativeValues)}
-            />
-            negative values (SF)
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={missingValues}
-              type="checkbox"
-              onChange={() => setMissingValues(!missingValues)}
-            />
-            missing values
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={fewerDatum}
-              type="checkbox"
-              onChange={() => setFewerDatum(!fewerDatum)}
-            />
-            fewer datum
-          </Typography>
-        </div>
-
-        {/** theme */}
-        <div>
-          <Typography colorToken="white100" typographyToken="h3Bold">
-            theme
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={theme === lightTheme}
-              type="radio"
-              onChange={() => setTheme(lightTheme)}
-            />
-            light
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={theme === darkTheme}
-              type="radio"
-              onChange={() => setTheme(darkTheme)}
-            />
-            dark
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={theme === customTheme}
-              type="radio"
-              onChange={() => setTheme(customTheme)}
-            />
-            custom
-          </Typography>
-        </div>
-
-        <br />
-
-        {/** series */}
         {/** orientation */}
         <div>
           <Typography colorToken="white100" typographyToken="h3Bold">
@@ -405,312 +327,11 @@ const Template: StoryFn<typeof VisxChart> = (args) => {
             horizontal
           </Typography>
         </div>
-        <div>
-          <Typography colorToken="white100" typographyToken="h3Bold">
-            line series
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={renderAreaLineOrStack === 'line'}
-              type="radio"
-              onChange={() => {
-                if (renderBarStackOrGroup === 'barstack' || renderBarStackOrGroup === 'bargroup') {
-                  setRenderBarStackOrGroup('none');
-                }
-                setRenderAreaLineOrStack('line');
-              }}
-            />
-            line
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={renderAreaLineOrStack === 'area'}
-              type="radio"
-              onChange={() => {
-                if (renderBarStackOrGroup === 'barstack' || renderBarStackOrGroup === 'bargroup') {
-                  setRenderBarStackOrGroup('none');
-                }
-                setRenderAreaLineOrStack('area');
-              }}
-            />
-            area
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={renderAreaLineOrStack === 'areastack'}
-              type="radio"
-              onChange={() => {
-                setRenderBarStackOrGroup('none');
-                setRenderAreaLineOrStack('areastack');
-              }}
-            />
-            area stack
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={renderAreaLineOrStack === 'none'}
-              type="radio"
-              onChange={() => setRenderAreaLineOrStack('none')}
-            />
-            none
-          </Typography>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <Typography colorToken="white100" typographyToken="h3Bold">
-            curve shape
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={curveType === 'linear'}
-              disabled={renderAreaLineOrStack === 'none'}
-              type="radio"
-              onChange={() => setCurveType('linear')}
-            />
-            linear
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={curveType === 'cardinal'}
-              disabled={renderAreaLineOrStack === 'none'}
-              type="radio"
-              onChange={() => setCurveType('cardinal')}
-            />
-            cardinal (smooth)
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={curveType === 'step'}
-              disabled={renderAreaLineOrStack === 'none'}
-              type="radio"
-              onChange={() => setCurveType('step')}
-            />
-            step
-          </Typography>
-        </div>
-        {/** glyph */}
-        <div>
-          <Typography colorToken="white100" typographyToken="h3Bold">
-            glyph series
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={renderGlyphSeries}
-              type="checkbox"
-              onChange={() => setRenderGlyphSeries(!renderGlyphSeries)}
-            />
-            render glyphs
-          </Typography>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={glyphComponent === 'circle'}
-              disabled={!renderGlyphSeries}
-              type="radio"
-              onChange={() => setGlyphComponent('circle')}
-            />
-            circle
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={glyphComponent === 'star'}
-              disabled={!renderGlyphSeries}
-              type="radio"
-              onChange={() => setGlyphComponent('star')}
-            />
-            star
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={glyphComponent === 'cross'}
-              disabled={!renderGlyphSeries}
-              type="radio"
-              onChange={() => setGlyphComponent('cross')}
-            />
-            cross
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={glyphComponent === '🍍'}
-              disabled={!renderGlyphSeries}
-              type="radio"
-              onChange={() => setGlyphComponent('🍍')}
-            />
-            🍍
-          </Typography>
-        </div>
-        <div>
-          <Typography colorToken="white100" typographyToken="h3Bold">
-            bar series
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={renderBarStackOrGroup === 'bar'}
-              type="radio"
-              onChange={() => {
-                if (renderAreaLineOrStack === 'areastack') {
-                  setRenderAreaLineOrStack('none');
-                }
-                setRenderBarStackOrGroup('bar');
-              }}
-            />
-            bar
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={renderBarStackOrGroup === 'barstack'}
-              type="radio"
-              onChange={() => {
-                setRenderAreaLineOrStack('none');
-                setRenderBarStackOrGroup('barstack');
-              }}
-            />
-            bar stack
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={renderBarStackOrGroup === 'bargroup'}
-              type="radio"
-              onChange={() => {
-                setRenderAreaLineOrStack('none');
-                setRenderBarStackOrGroup('bargroup');
-              }}
-            />
-            bar group
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={renderBarStackOrGroup === 'none'}
-              type="radio"
-              onChange={() => setRenderBarStackOrGroup('none')}
-            />
-            none
-          </Typography>
-        </div>
-        <div>
-          <Typography colorToken="white100" typographyToken="h3Bold">
-            stack series offset
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={stackOffset == null}
-              disabled={
-                renderAreaLineOrStack !== 'areastack' && renderBarStackOrGroup !== 'barstack'
-              }
-              type="radio"
-              onChange={() => setStackOffset(undefined)}
-            />
-            auto (zero-baseline)
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={stackOffset === 'expand'}
-              disabled={
-                renderAreaLineOrStack !== 'areastack' && renderBarStackOrGroup !== 'barstack'
-              }
-              type="radio"
-              onChange={() => setStackOffset('expand')}
-            />
-            expand (values sum to 1)
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={stackOffset === 'wiggle'}
-              disabled={
-                renderAreaLineOrStack !== 'areastack' && renderBarStackOrGroup !== 'barstack'
-              }
-              type="radio"
-              onChange={() => setStackOffset('wiggle')}
-            />
-            wiggle (stream graph)
-          </Typography>
-        </div>
-
-        <br />
-        {/** tooltip */}
-        <div>
-          <Typography colorToken="white100" typographyToken="h3Bold">
-            <input
-              checked={showTooltip}
-              type="checkbox"
-              onChange={() => setShowTooltip(!showTooltip)}
-            />
-            show tooltip
-          </Typography>
-          <div>
-            <Typography colorToken="white100" typographyToken="h3Bold">
-              tooltip glyph
-            </Typography>
-            <Typography colorToken="white100" typographyToken="bodySmallRegular">
-              <input
-                checked={enableTooltipGlyph}
-                disabled={!canSnapTooltipToDatum}
-                type="checkbox"
-                onChange={() => setEnableTooltipGlyph(!enableTooltipGlyph)}
-              />
-              show custom tooltip glyph
-            </Typography>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <Typography colorToken="white100" typographyToken="bodySmallRegular">
-              <input
-                checked={tooltipGlyphComponent === 'circle'}
-                disabled={!enableTooltipGlyph || !canSnapTooltipToDatum}
-                type="radio"
-                onChange={() => setTooltipGlyphComponent('circle')}
-              />
-              circle
-            </Typography>
-            <Typography colorToken="white100" typographyToken="bodySmallRegular">
-              <input
-                checked={tooltipGlyphComponent === 'star'}
-                disabled={!enableTooltipGlyph || !canSnapTooltipToDatum}
-                type="radio"
-                onChange={() => setTooltipGlyphComponent('star')}
-              />
-              star
-            </Typography>
-            <Typography colorToken="white100" typographyToken="bodySmallRegular">
-              <input
-                checked={tooltipGlyphComponent === 'cross'}
-                disabled={!enableTooltipGlyph || !canSnapTooltipToDatum}
-                type="radio"
-                onChange={() => setTooltipGlyphComponent('cross')}
-              />
-              cross
-            </Typography>
-            <Typography colorToken="white100" typographyToken="bodySmallRegular">
-              <input
-                checked={tooltipGlyphComponent === '🍍'}
-                disabled={!enableTooltipGlyph || !canSnapTooltipToDatum}
-                type="radio"
-                onChange={() => setTooltipGlyphComponent('🍍')}
-              />
-              🍍
-            </Typography>
-          </div>
-        </div>
       </div>
-      <style>{`
-        .controls > div {
-          margin-bottom: 4px;
-          display: flex;
-          gap: 8px;
-        }
-        label {
-          font-size: 12px;
-        }
-        input[type='radio'] {
-          height: 10px;
-        }
-        .pattern-lines {
-          position: absolute;
-          pointer-events: none;
-          opacity: 0;
-        }
-      `}</style>
     </>
   );
 };
 
-export const Default: StoryObj<typeof VisxChart> = {
+export const Default: StoryObj<typeof Template> = {
   args: {},
-  render: Template,
 };
