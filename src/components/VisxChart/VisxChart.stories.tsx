@@ -4,9 +4,8 @@ import { GlyphCross, GlyphDot, GlyphStar } from '@visx/glyph';
 import cityTemperature, { CityTemperature } from '@visx/mock-data/lib/mocks/cityTemperature';
 import { GlyphProps, ThemeContext } from '@visx/xychart';
 import { RenderTooltipGlyphProps } from '@visx/xychart/lib/components/Tooltip';
-import React, { useContext, useMemo, useState } from 'react';
+import React, { useContext, useMemo } from 'react';
 
-import { Typography } from '../Typography';
 import { VisxChart } from '.';
 import { CustomChartBackground } from './CustomChartBackground';
 import { VisxChartProps } from './types';
@@ -158,33 +157,7 @@ const Template: React.FunctionComponent<VisxChartProps<CityTemperature> & Templa
   const fewerDatum = args.fewerDatum || false;
   const themeName = args.themeName;
   const sharedTooltip = args.sharedTooltip;
-
-  const [renderHorizontally, setRenderHorizontally] = useState(false);
-
-  const accessors = useMemo(
-    () => ({
-      date: getDate,
-      x: {
-        Austin: renderHorizontally ? getAustinTemperature : getDate,
-        'New York': renderHorizontally ? getNyTemperature : getDate,
-        'San Francisco': renderHorizontally
-          ? negativeValues
-            ? getNegativeSfTemperature
-            : getSfTemperature
-          : getDate,
-      },
-      y: {
-        Austin: renderHorizontally ? getDate : getAustinTemperature,
-        'New York': renderHorizontally ? getDate : getNyTemperature,
-        'San Francisco': renderHorizontally
-          ? getDate
-          : negativeValues
-          ? getNegativeSfTemperature
-          : getSfTemperature,
-      },
-    }),
-    [renderHorizontally, negativeValues],
-  );
+  const renderHorizontally = args.renderHorizontally || false;
 
   const config = useMemo(
     () => ({
@@ -201,137 +174,129 @@ const Template: React.FunctionComponent<VisxChartProps<CityTemperature> & Templa
     ? dataMissingValues
     : data;
 
-  return (
-    <>
-      <Box>
-        <VisxChart<CityTemperature>
-          {...{
-            animated: args.animated,
-            animationTrajectory: args.animationTrajectory,
-            config,
-            curveType: args.curveType,
-            customChartBackground: withCustomBackground ? <CustomChartBackground /> : null,
-            data: computedData,
-            numTicks,
-            renderAs: args.renderAs,
-            renderGlyph: (props) => <Glyph {...props} glyphComponent={glyphComponent} />,
-            renderHorizontally,
-            renderTooltip: showTooltip
-              ? ({ tooltipData, colorScale }) => (
-                  <>
-                    {/** date */}
-                    {(tooltipData?.nearestDatum?.datum &&
-                      accessors.date(tooltipData?.nearestDatum?.datum)) ||
-                      'No date'}
-                    <br />
-                    <br />
-                    {/** temperatures */}
-                    {(
-                      (sharedTooltip
-                        ? Object.keys(tooltipData?.datumByKey ?? {})
-                        : [tooltipData?.nearestDatum?.key]
-                      ).filter((city) => city) as City[]
-                    ).map((city) => {
-                      const temperature =
-                        tooltipData?.nearestDatum?.datum &&
-                        accessors[renderHorizontally ? 'x' : 'y'][city](
-                          tooltipData?.nearestDatum?.datum,
-                        );
+  const series = [
+    {
+      accessors: {
+        x: negativeValues ? getNegativeSfTemperature : getSfTemperature,
+        y: getDate,
+      },
+      id: 'San Francisco',
+    },
+    {
+      accessors: {
+        x: getNyTemperature,
+        y: getDate,
+      },
+      id: 'New York',
+    },
+    {
+      accessors: {
+        x: getAustinTemperature,
+        y: getDate,
+      },
+      id: 'Austin',
+    },
+  ];
 
-                      return (
-                        <div key={city}>
-                          <em
-                            style={{
-                              color: colorScale?.(city),
-                              textDecoration:
-                                tooltipData?.nearestDatum?.key === city ? 'underline' : undefined,
-                            }}
-                          >
-                            {city}
-                          </em>{' '}
-                          {temperature == null || Number.isNaN(temperature)
-                            ? '–'
-                            : `${temperature}° F`}
-                        </div>
-                      );
-                    })}
-                  </>
-                )
-              : undefined,
-            renderTooltipGlyph: enableTooltipGlyph
-              ? (props) => <TooltipGlyph {...props} tooltipGlyphComponent={tooltipGlyphComponent} />
-              : undefined,
-            series: [
-              {
-                accessors: {
-                  colorAccessor: () => null,
-                  date: accessors.date,
-                  x: accessors.x['San Francisco'],
-                  y: accessors.y['San Francisco'],
-                },
-                id: 'San Francisco',
-              },
-              {
-                accessors: {
-                  colorAccessor: () => null,
-                  date: accessors.date,
-                  x: accessors.x['New York'],
-                  y: accessors.y['New York'],
-                },
-                id: 'New York',
-              },
-              {
-                accessors: {
-                  colorAccessor: () => null,
-                  date: accessors.date,
-                  x: accessors.x['Austin'],
-                  y: accessors.y['Austin'],
-                },
-                id: 'Austin',
-              },
-            ],
-            sharedTooltip,
-            showGridColumns: args.showGridColumns,
-            showGridRows: args.showGridRows,
-            stackOffset: args.stackOffset,
-            themeName,
-            tooltipShowHorizontalCrosshair: args.tooltipShowHorizontalCrosshair,
-            tooltipShowVerticalCrosshair: args.tooltipShowVerticalCrosshair,
-            tooltipSnapTooltipToDatumX: args.tooltipSnapTooltipToDatumX,
-            tooltipSnapTooltipToDatumY: args.tooltipSnapTooltipToDatumY,
-            xAxisOrientation: args.xAxisOrientation,
-            yAxisOrientation: args.yAxisOrientation,
-          }}
-        />
-      </Box>
-      <div className="controls">
-        {/** orientation */}
-        <div>
-          <Typography colorToken="white100" typographyToken="h3Bold">
-            series orientation
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={!renderHorizontally}
-              type="radio"
-              onChange={() => setRenderHorizontally(false)}
-            />
-            vertical
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={renderHorizontally}
-              type="radio"
-              onChange={() => setRenderHorizontally(true)}
-            />
-            horizontal
-          </Typography>
-        </div>
-      </div>
-    </>
+  const renderTooltipGlyph: VisxChartProps<CityTemperature>['renderTooltipGlyph'] =
+    enableTooltipGlyph
+      ? (props) => <TooltipGlyph {...props} tooltipGlyphComponent={tooltipGlyphComponent} />
+      : undefined;
+
+  const renderTooltip: VisxChartProps<CityTemperature>['renderTooltip'] = showTooltip
+    ? ({ tooltipData, colorScale }) => (
+        <>
+          {/** date */}
+          {(tooltipData?.nearestDatum?.datum && getDate(tooltipData?.nearestDatum?.datum)) ||
+            'No date'}
+          <br />
+          <br />
+          {/** temperatures */}
+          {(
+            (sharedTooltip
+              ? Object.keys(tooltipData?.datumByKey ?? {})
+              : [tooltipData?.nearestDatum?.key]
+            ).filter((city) => city) as City[]
+          ).map((city) => {
+            const accessorY = getDate;
+            const accessorX =
+              city === 'New York'
+                ? getNyTemperature
+                : city === 'Austin'
+                ? getAustinTemperature
+                : getSfTemperature;
+            const accessor = renderHorizontally ? accessorX : accessorY;
+            const temperature =
+              tooltipData?.nearestDatum?.datum && accessor(tooltipData?.nearestDatum?.datum);
+
+            return (
+              <div key={city}>
+                <em
+                  style={{
+                    color: colorScale?.(city),
+                    textDecoration:
+                      tooltipData?.nearestDatum?.key === city ? 'underline' : undefined,
+                  }}
+                >
+                  {city}
+                </em>{' '}
+                {temperature == null || Number.isNaN(temperature) ? '–' : `${temperature}° F`}
+              </div>
+            );
+          })}
+        </>
+      )
+    : undefined;
+
+  const renderGlyph: VisxChartProps<CityTemperature>['renderGlyph'] = (props) => (
+    <Glyph {...props} glyphComponent={glyphComponent} />
+  );
+  return (
+    <Box>
+      <VisxChart<CityTemperature>
+        {...{
+          animated: args.animated,
+          animationTrajectory: args.animationTrajectory,
+          config,
+          curveType: args.curveType,
+          customChartBackground: withCustomBackground ? <CustomChartBackground /> : null,
+          data: computedData,
+          numTicks,
+          renderAs: args.renderAs,
+          renderGlyph,
+          renderHorizontally,
+          renderTooltip,
+          renderTooltipGlyph,
+          series,
+          sharedTooltip,
+          showGridColumns: args.showGridColumns,
+          showGridRows: args.showGridRows,
+          stackOffset: args.stackOffset,
+          themeName,
+          tooltipShowHorizontalCrosshair: args.tooltipShowHorizontalCrosshair,
+          tooltipShowVerticalCrosshair: args.tooltipShowVerticalCrosshair,
+          tooltipSnapTooltipToDatumX: args.tooltipSnapTooltipToDatumX,
+          tooltipSnapTooltipToDatumY: args.tooltipSnapTooltipToDatumY,
+          xAxisOrientation: args.xAxisOrientation,
+          yAxisOrientation: args.yAxisOrientation,
+        }}
+      />
+    </Box>
   );
 };
 
 export const Default: StoryObj<typeof Template> = {
-  args: {},
+  args: {
+    enableTooltipGlyph: false,
+    fewerDatum: false,
+    glyphComponent: 'star',
+    missingValues: false,
+    negativeValues: false,
+    renderHorizontally: true,
+    sharedTooltip: false,
+    showTooltip: false,
+    themeName: 'dark',
+    tooltipGlyphComponent: 'star',
+    withCustomBackground: false,
+  },
 };

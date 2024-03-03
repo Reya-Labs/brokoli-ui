@@ -18,7 +18,6 @@ export type VisxChartProps<Datum extends object> = {
     accessors: {
       x: Accessor<Datum>;
       y: Accessor<Datum>;
-      date: Accessor<Datum>;
       colorAccessor?: (
         id: VisxChartProps<Datum>['series'][number]['id'],
         d: Datum,

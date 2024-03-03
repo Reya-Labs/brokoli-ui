@@ -96,8 +96,8 @@ export const VisxChart = <Datum extends object>({
                     key={id}
                     data={data}
                     dataKey={id}
-                    xAccessor={accessors.x}
-                    yAccessor={accessors.y}
+                    xAccessor={renderHorizontally ? accessors.x : accessors.y}
+                    yAccessor={renderHorizontally ? accessors.y : accessors.x}
                   />
                 );
               })}
@@ -116,8 +116,8 @@ export const VisxChart = <Datum extends object>({
                     }
                     data={data}
                     dataKey={id}
-                    xAccessor={accessors.x}
-                    yAccessor={accessors.y}
+                    xAccessor={renderHorizontally ? accessors.x : accessors.y}
+                    yAccessor={renderHorizontally ? accessors.y : accessors.x}
                   />
                 );
               })}
@@ -136,8 +136,8 @@ export const VisxChart = <Datum extends object>({
                     }
                     data={data}
                     dataKey={id}
-                    xAccessor={accessors.x}
-                    yAccessor={accessors.y}
+                    xAccessor={renderHorizontally ? accessors.x : accessors.y}
+                    yAccessor={renderHorizontally ? accessors.y : accessors.x}
                   />
                 );
               })}
@@ -153,8 +153,8 @@ export const VisxChart = <Datum extends object>({
                     data={data}
                     dataKey={id}
                     fillOpacity={0.4}
-                    xAccessor={accessors.x}
-                    yAccessor={accessors.y}
+                    xAccessor={renderHorizontally ? accessors.x : accessors.y}
+                    yAccessor={renderHorizontally ? accessors.y : accessors.x}
                   />
                 );
               })}
@@ -169,8 +169,8 @@ export const VisxChart = <Datum extends object>({
                     data={data}
                     dataKey={id}
                     fillOpacity={0.4}
-                    xAccessor={accessors.x}
-                    yAccessor={accessors.y}
+                    xAccessor={renderHorizontally ? accessors.x : accessors.y}
+                    yAccessor={renderHorizontally ? accessors.y : accessors.x}
                   />
                 );
               })}
@@ -185,8 +185,8 @@ export const VisxChart = <Datum extends object>({
                     curve={curve}
                     data={data}
                     dataKey={id}
-                    xAccessor={accessors.x}
-                    yAccessor={accessors.y}
+                    xAccessor={renderHorizontally ? accessors.x : accessors.y}
+                    yAccessor={renderHorizontally ? accessors.y : accessors.x}
                   />
                 );
               })}
@@ -206,8 +206,8 @@ export const VisxChart = <Datum extends object>({
                     data={data}
                     dataKey={id}
                     renderGlyph={renderGlyph}
-                    xAccessor={accessors.x}
-                    yAccessor={accessors.y}
+                    xAccessor={renderHorizontally ? accessors.x : accessors.y}
+                    yAccessor={renderHorizontally ? accessors.y : accessors.x}
                   />
                 );
               })}
