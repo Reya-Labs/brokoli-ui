@@ -14,30 +14,23 @@ export const VisxChart = <Datum extends object>({
   curve,
   data,
   numTicks,
-  renderAreaSeries,
-  renderAreaStack,
-  renderBarGroup,
-  renderBarSeries,
-  renderBarStack,
   renderGlyph,
   renderGlyphSeries,
   renderTooltip,
-  enableTooltipGlyph,
   renderTooltipGlyph,
   renderHorizontally,
-  renderLineSeries,
   sharedTooltip,
   showGridColumns,
   showGridRows,
-  showHorizontalCrosshair,
-  showTooltip,
-  showVerticalCrosshair,
-  snapTooltipToDatumX,
-  snapTooltipToDatumY,
+  tooltipShowHorizontalCrosshair,
+  tooltipShowVerticalCrosshair,
+  tooltipSnapTooltipToDatumX,
+  tooltipSnapTooltipToDatumY,
   stackOffset,
   theme,
   xAxisOrientation = 'bottom',
   yAxisOrientation = 'right',
+  renderAs = 'line',
 }: VisxChartProps<Datum>) => {
   const {
     AreaSeries,
@@ -52,6 +45,15 @@ export const VisxChart = <Datum extends object>({
     Tooltip,
     XYChart,
   } = getAnimatedOrUnanimatedComponents(animated);
+  const renderBarGroup = renderAs === 'bargroup';
+  const renderBarStack = renderAs === 'barstack';
+  const renderLineSeries = renderAs === 'line';
+  const renderAreaSeries = renderAs === 'area';
+  const renderAreaStack = renderAs === 'areastack';
+  const renderBarSeries = renderAs === 'bar';
+  // cannot snap to a stack position
+  const canSnapTooltipToDatum = renderAs !== 'barstack' && renderAs !== 'areastack';
+
   return (
     <ParentSize>
       {({ height }) => (
@@ -194,18 +196,24 @@ export const VisxChart = <Datum extends object>({
             orientation={renderHorizontally ? xAxisOrientation : yAxisOrientation}
             tickFormat={stackOffset === 'wiggle' ? () => '' : undefined}
           />
-          {showTooltip && (
+          {typeof renderTooltip === 'function' ? (
             <Tooltip<Datum>
-              renderGlyph={enableTooltipGlyph ? renderTooltipGlyph : undefined}
+              renderGlyph={
+                typeof renderTooltipGlyph === 'function' ? renderTooltipGlyph : undefined
+              }
               renderTooltip={renderTooltip}
-              showDatumGlyph={(snapTooltipToDatumX || snapTooltipToDatumY) && !renderBarGroup}
-              showHorizontalCrosshair={showHorizontalCrosshair}
+              showDatumGlyph={
+                !canSnapTooltipToDatum
+                  ? false
+                  : tooltipSnapTooltipToDatumX || tooltipSnapTooltipToDatumY
+              }
+              showHorizontalCrosshair={tooltipShowHorizontalCrosshair}
               showSeriesGlyphs={sharedTooltip && !renderBarGroup}
-              showVerticalCrosshair={showVerticalCrosshair}
-              snapTooltipToDatumX={snapTooltipToDatumX}
-              snapTooltipToDatumY={snapTooltipToDatumY}
+              showVerticalCrosshair={tooltipShowVerticalCrosshair}
+              snapTooltipToDatumX={!canSnapTooltipToDatum ? false : tooltipSnapTooltipToDatumX}
+              snapTooltipToDatumY={!canSnapTooltipToDatum ? false : tooltipSnapTooltipToDatumY}
             />
-          )}
+          ) : undefined}
         </XYChart>
       )}
     </ParentSize>

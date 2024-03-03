@@ -44,11 +44,7 @@ const Template: StoryFn<typeof VisxChart> = (args) => {
   const [theme, setTheme] = useState<XYChartTheme>(darkTheme);
   const [renderHorizontally, setRenderHorizontally] = useState(false);
   const [showTooltip, setShowTooltip] = useState(true);
-  const [showVerticalCrosshair, setShowVerticalCrosshair] = useState(true);
-  const [showHorizontalCrosshair, setShowHorizontalCrosshair] = useState(false);
-  const [snapTooltipToDatumX, setSnapTooltipToDatumX] = useState(true);
-  const [snapTooltipToDatumY, setSnapTooltipToDatumY] = useState(true);
-  const [sharedTooltip, setSharedTooltip] = useState(true);
+  const sharedTooltip = args.sharedTooltip;
   const [renderBarStackOrGroup, setRenderBarStackOrGroup] = useState<
     'bar' | 'barstack' | 'bargroup' | 'none'
   >('none');
@@ -206,8 +202,7 @@ const Template: StoryFn<typeof VisxChart> = (args) => {
   );
 
   // cannot snap to a stack position
-  const canSnapTooltipToDatum =
-    renderBarStackOrGroup !== 'barstack' && renderAreaLineOrStack !== 'areastack';
+  const canSnapTooltipToDatum = args.renderAs !== 'barstack' && args.renderAs !== 'areastack';
 
   return (
     <>
@@ -228,10 +223,10 @@ const Template: StoryFn<typeof VisxChart> = (args) => {
               : missingValues
               ? dataMissingValues
               : data,
-            enableTooltipGlyph,
             numTicks,
             renderAreaSeries: renderAreaLineOrStack === 'area',
             renderAreaStack: renderAreaLineOrStack === 'areastack',
+            renderAs: args.renderAs,
             renderBarGroup: renderBarStackOrGroup === 'bargroup',
             renderBarSeries: renderBarStackOrGroup === 'bar',
             renderBarStack: renderBarStackOrGroup === 'barstack',
@@ -310,13 +305,12 @@ const Template: StoryFn<typeof VisxChart> = (args) => {
             sharedTooltip,
             showGridColumns: args.showGridColumns,
             showGridRows: args.showGridRows,
-            showHorizontalCrosshair,
-            showTooltip,
-            showVerticalCrosshair,
-            snapTooltipToDatumX: canSnapTooltipToDatum && snapTooltipToDatumX,
-            snapTooltipToDatumY: canSnapTooltipToDatum && snapTooltipToDatumY,
             stackOffset,
             theme,
+            tooltipShowHorizontalCrosshair: args.tooltipShowHorizontalCrosshair,
+            tooltipShowVerticalCrosshair: args.tooltipShowVerticalCrosshair,
+            tooltipSnapTooltipToDatumX: args.tooltipSnapTooltipToDatumX,
+            tooltipSnapTooltipToDatumY: args.tooltipSnapTooltipToDatumY,
             xAxisOrientation: args.xAxisOrientation,
             yAxisOrientation: args.yAxisOrientation,
           }}
@@ -634,9 +628,6 @@ const Template: StoryFn<typeof VisxChart> = (args) => {
         {/** tooltip */}
         <div>
           <Typography colorToken="white100" typographyToken="h3Bold">
-            tooltip
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={showTooltip}
               type="checkbox"
@@ -644,102 +635,57 @@ const Template: StoryFn<typeof VisxChart> = (args) => {
             />
             show tooltip
           </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={showTooltip && snapTooltipToDatumX}
-              disabled={!showTooltip || !canSnapTooltipToDatum}
-              type="checkbox"
-              onChange={() => setSnapTooltipToDatumX(!snapTooltipToDatumX)}
-            />
-            snap tooltip to datum x
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={showTooltip && snapTooltipToDatumY}
-              disabled={!showTooltip || !canSnapTooltipToDatum}
-              type="checkbox"
-              onChange={() => setSnapTooltipToDatumY(!snapTooltipToDatumY)}
-            />
-            snap tooltip to datum y
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={showTooltip && showVerticalCrosshair}
-              disabled={!showTooltip}
-              type="checkbox"
-              onChange={() => setShowVerticalCrosshair(!showVerticalCrosshair)}
-            />
-            vertical crosshair
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={showTooltip && showHorizontalCrosshair}
-              disabled={!showTooltip}
-              type="checkbox"
-              onChange={() => setShowHorizontalCrosshair(!showHorizontalCrosshair)}
-            />
-            horizontal crosshair
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={showTooltip && sharedTooltip}
-              disabled={!showTooltip}
-              type="checkbox"
-              onChange={() => setSharedTooltip(!sharedTooltip)}
-            />
-            shared tooltip
-          </Typography>
-        </div>
-        <div>
-          <Typography colorToken="white100" typographyToken="h3Bold">
-            tooltip glyph
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={enableTooltipGlyph}
-              disabled={!canSnapTooltipToDatum}
-              type="checkbox"
-              onChange={() => setEnableTooltipGlyph(!enableTooltipGlyph)}
-            />
-            show custom tooltip glyph
-          </Typography>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={tooltipGlyphComponent === 'circle'}
-              disabled={!enableTooltipGlyph || !canSnapTooltipToDatum}
-              type="radio"
-              onChange={() => setTooltipGlyphComponent('circle')}
-            />
-            circle
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={tooltipGlyphComponent === 'star'}
-              disabled={!enableTooltipGlyph || !canSnapTooltipToDatum}
-              type="radio"
-              onChange={() => setTooltipGlyphComponent('star')}
-            />
-            star
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={tooltipGlyphComponent === 'cross'}
-              disabled={!enableTooltipGlyph || !canSnapTooltipToDatum}
-              type="radio"
-              onChange={() => setTooltipGlyphComponent('cross')}
-            />
-            cross
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={tooltipGlyphComponent === '🍍'}
-              disabled={!enableTooltipGlyph || !canSnapTooltipToDatum}
-              type="radio"
-              onChange={() => setTooltipGlyphComponent('🍍')}
-            />
-            🍍
-          </Typography>
+          <div>
+            <Typography colorToken="white100" typographyToken="h3Bold">
+              tooltip glyph
+            </Typography>
+            <Typography colorToken="white100" typographyToken="bodySmallRegular">
+              <input
+                checked={enableTooltipGlyph}
+                disabled={!canSnapTooltipToDatum}
+                type="checkbox"
+                onChange={() => setEnableTooltipGlyph(!enableTooltipGlyph)}
+              />
+              show custom tooltip glyph
+            </Typography>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <Typography colorToken="white100" typographyToken="bodySmallRegular">
+              <input
+                checked={tooltipGlyphComponent === 'circle'}
+                disabled={!enableTooltipGlyph || !canSnapTooltipToDatum}
+                type="radio"
+                onChange={() => setTooltipGlyphComponent('circle')}
+              />
+              circle
+            </Typography>
+            <Typography colorToken="white100" typographyToken="bodySmallRegular">
+              <input
+                checked={tooltipGlyphComponent === 'star'}
+                disabled={!enableTooltipGlyph || !canSnapTooltipToDatum}
+                type="radio"
+                onChange={() => setTooltipGlyphComponent('star')}
+              />
+              star
+            </Typography>
+            <Typography colorToken="white100" typographyToken="bodySmallRegular">
+              <input
+                checked={tooltipGlyphComponent === 'cross'}
+                disabled={!enableTooltipGlyph || !canSnapTooltipToDatum}
+                type="radio"
+                onChange={() => setTooltipGlyphComponent('cross')}
+              />
+              cross
+            </Typography>
+            <Typography colorToken="white100" typographyToken="bodySmallRegular">
+              <input
+                checked={tooltipGlyphComponent === '🍍'}
+                disabled={!enableTooltipGlyph || !canSnapTooltipToDatum}
+                type="radio"
+                onChange={() => setTooltipGlyphComponent('🍍')}
+              />
+              🍍
+            </Typography>
+          </div>
         </div>
       </div>
       <style>{`
