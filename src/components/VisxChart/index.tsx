@@ -1,20 +1,17 @@
-import { CityTemperature } from '@visx/mock-data/lib/mocks/cityTemperature';
+import { ParentSize } from '@visx/responsive';
 import React from 'react';
 
 import { CustomChartBackground } from './CustomChartBackground';
+import { getAnimatedOrUnanimatedComponents } from './getAnimatedOrUnanimatedComponents';
+import { VisxChartProps } from './types';
 
-export const VisxChart: React.FunctionComponent = ({
-  accessors,
-  animationTrajectory,
-  annotationDataKey,
-  annotationDatum,
-  annotationLabelPosition,
-  annotationType,
-  colorAccessorFactory,
+export const VisxChart = <Datum extends object>({
+  animated,
+  series,
+  animationTrajectory = 'outside',
   config,
   curve,
   data,
-  editAnnotationLabelPosition,
   numTicks,
   renderAreaSeries,
   renderAreaStack,
@@ -23,13 +20,11 @@ export const VisxChart: React.FunctionComponent = ({
   renderBarStack,
   renderGlyph,
   renderGlyphSeries,
+  renderTooltip,
   enableTooltipGlyph,
   renderTooltipGlyph,
   renderHorizontally,
   renderLineSeries,
-  setAnnotationDataIndex,
-  setAnnotationDataKey,
-  setAnnotationLabelPosition,
   sharedTooltip,
   showGridColumns,
   showGridRows,
@@ -42,283 +37,176 @@ export const VisxChart: React.FunctionComponent = ({
   theme,
   xAxisOrientation,
   yAxisOrientation,
-
-  // components are animated or not depending on selection
-  Annotation,
-  AreaSeries,
-  AreaStack,
-  Axis,
-  BarGroup,
-  BarSeries,
-  BarStack,
-  GlyphSeries,
-  Grid,
-  LineSeries,
-  AnnotationCircleSubject,
-  AnnotationConnector,
-  AnnotationLabel,
-  AnnotationLineSubject,
-  Tooltip,
-  XYChart,
-}) => {
+}: VisxChartProps<Datum>) => {
+  const {
+    AreaSeries,
+    AreaStack,
+    Axis,
+    BarGroup,
+    BarSeries,
+    BarStack,
+    GlyphSeries,
+    Grid,
+    LineSeries,
+    Tooltip,
+    XYChart,
+  } = getAnimatedOrUnanimatedComponents(animated);
   return (
-    <XYChart
-      captureEvents={!editAnnotationLabelPosition}
-      height={Math.min(400, height)}
-      theme={theme}
-      xScale={config.x}
-      yScale={config.y}
-      onPointerUp={(d) => {
-        setAnnotationDataKey(d.key as 'New York' | 'San Francisco' | 'Austin');
-        setAnnotationDataIndex(d.index);
-      }}
-    >
-      <CustomChartBackground />
-      <Grid
-        key={`grid-${animationTrajectory}`} // force animate on update
-        animationTrajectory={animationTrajectory}
-        columns={showGridColumns}
-        numTicks={numTicks}
-        rows={showGridRows}
-      />
-      {renderBarStack && (
-        <BarStack offset={stackOffset}>
-          <BarSeries
-            data={data}
-            dataKey="New York"
-            xAccessor={accessors.x['New York']}
-            yAccessor={accessors.y['New York']}
+    <ParentSize>
+      {({ height }) => (
+        <XYChart height={Math.min(400, height)} theme={theme} xScale={config.x} yScale={config.y}>
+          <CustomChartBackground />
+          <Grid
+            key={`grid-${animationTrajectory}`} // force animate on update
+            animationTrajectory={animationTrajectory}
+            columns={showGridColumns}
+            numTicks={numTicks}
+            rows={showGridRows}
           />
-          <BarSeries
-            data={data}
-            dataKey="San Francisco"
-            xAccessor={accessors.x['San Francisco']}
-            yAccessor={accessors.y['San Francisco']}
-          />
-          <BarSeries
-            data={data}
-            dataKey="Austin"
-            xAccessor={accessors.x.Austin}
-            yAccessor={accessors.y.Austin}
-          />
-        </BarStack>
-      )}
-      {renderBarGroup && (
-        <BarGroup>
-          <BarSeries
-            colorAccessor={colorAccessorFactory('New York')}
-            data={data}
-            dataKey="New York"
-            xAccessor={accessors.x['New York']}
-            yAccessor={accessors.y['New York']}
-          />
-          <BarSeries
-            colorAccessor={colorAccessorFactory('San Francisco')}
-            data={data}
-            dataKey="San Francisco"
-            xAccessor={accessors.x['San Francisco']}
-            yAccessor={accessors.y['San Francisco']}
-          />
-          <BarSeries
-            colorAccessor={colorAccessorFactory('Austin')}
-            data={data}
-            dataKey="Austin"
-            xAccessor={accessors.x.Austin}
-            yAccessor={accessors.y.Austin}
-          />
-        </BarGroup>
-      )}
-      {renderBarSeries && (
-        <BarSeries
-          colorAccessor={colorAccessorFactory('New York')}
-          data={data}
-          dataKey="New York"
-          xAccessor={accessors.x['New York']}
-          yAccessor={accessors.y['New York']}
-        />
-      )}
-      {renderAreaSeries && (
-        <>
-          <AreaSeries
-            curve={curve}
-            data={data}
-            dataKey="Austin"
-            fillOpacity={0.4}
-            xAccessor={accessors.x.Austin}
-            yAccessor={accessors.y.Austin}
-          />
-          <AreaSeries
-            curve={curve}
-            data={data}
-            dataKey="New York"
-            fillOpacity={0.4}
-            xAccessor={accessors.x['New York']}
-            yAccessor={accessors.y['New York']}
-          />
-          <AreaSeries
-            curve={curve}
-            data={data}
-            dataKey="San Francisco"
-            fillOpacity={0.4}
-            xAccessor={accessors.x['San Francisco']}
-            yAccessor={accessors.y['San Francisco']}
-          />
-        </>
-      )}
-      {renderAreaStack && (
-        <AreaStack curve={curve} offset={stackOffset} renderLine={stackOffset !== 'wiggle'}>
-          <AreaSeries
-            data={data}
-            dataKey="Austin"
-            fillOpacity={0.4}
-            xAccessor={accessors.x.Austin}
-            yAccessor={accessors.y.Austin}
-          />
-          <AreaSeries
-            data={data}
-            dataKey="New York"
-            fillOpacity={0.4}
-            xAccessor={accessors.x['New York']}
-            yAccessor={accessors.y['New York']}
-          />
-          <AreaSeries
-            data={data}
-            dataKey="San Francisco"
-            fillOpacity={0.4}
-            xAccessor={accessors.x['San Francisco']}
-            yAccessor={accessors.y['San Francisco']}
-          />
-        </AreaStack>
-      )}
-      {renderLineSeries && (
-        <>
-          <LineSeries
-            curve={curve}
-            data={data}
-            dataKey="Austin"
-            xAccessor={accessors.x.Austin}
-            yAccessor={accessors.y.Austin}
-          />
-          {!renderBarSeries && (
-            <LineSeries
-              curve={curve}
-              data={data}
-              dataKey="New York"
-              xAccessor={accessors.x['New York']}
-              yAccessor={accessors.y['New York']}
-            />
-          )}
-          <LineSeries
-            curve={curve}
-            data={data}
-            dataKey="San Francisco"
-            xAccessor={accessors.x['San Francisco']}
-            yAccessor={accessors.y['San Francisco']}
-          />
-        </>
-      )}
-      {renderGlyphSeries && (
-        <GlyphSeries
-          colorAccessor={colorAccessorFactory('San Francisco')}
-          data={data}
-          dataKey="San Francisco"
-          renderGlyph={renderGlyph}
-          xAccessor={accessors.x['San Francisco']}
-          yAccessor={accessors.y['San Francisco']}
-        />
-      )}
-      <Axis
-        key={`time-axis-${animationTrajectory}-${renderHorizontally}`}
-        animationTrajectory={animationTrajectory}
-        numTicks={numTicks}
-        orientation={renderHorizontally ? yAxisOrientation : xAxisOrientation}
-      />
-      <Axis
-        key={`temp-axis-${animationTrajectory}-${renderHorizontally}`}
-        label={
-          stackOffset == null
-            ? 'Temperature (°F)'
-            : stackOffset === 'expand'
-            ? 'Fraction of total temperature'
-            : ''
-        }
-        numTicks={numTicks}
-        orientation={renderHorizontally ? xAxisOrientation : yAxisOrientation}
-        animationTrajectory={animationTrajectory}
-        // values don't make sense in stream graph
-        tickFormat={stackOffset === 'wiggle' ? () => '' : undefined}
-      />
-      {annotationDataKey && annotationDatum && (
-        <Annotation
-          canEditSubject={false}
-          dataKey={annotationDataKey}
-          datum={annotationDatum}
-          dx={annotationLabelPosition.dx}
-          dy={annotationLabelPosition.dy}
-          editable={editAnnotationLabelPosition}
-          onDragEnd={({ dx, dy }) => setAnnotationLabelPosition({ dx, dy })}
-        >
-          <AnnotationConnector />
-          {annotationType === 'circle' ? <AnnotationCircleSubject /> : <AnnotationLineSubject />}
-          <AnnotationLabel
-            backgroundProps={{
-              fillOpacity: 0.8,
-              stroke: theme.gridStyles.stroke,
-              strokeOpacity: 0.5,
-            }}
-            subtitle={`${annotationDatum.date}, ${annotationDatum[annotationDataKey]}°F`}
-            title={annotationDataKey}
-            width={135}
-          />
-        </Annotation>
-      )}
-      {showTooltip && (
-        <Tooltip<CityTemperature>
-          renderGlyph={enableTooltipGlyph ? renderTooltipGlyph : undefined}
-          renderTooltip={({ tooltipData, colorScale }) => (
-            <>
-              {/** date */}
-              {(tooltipData?.nearestDatum?.datum &&
-                accessors.date(tooltipData?.nearestDatum?.datum)) ||
-                'No date'}
-              <br />
-              <br />
-              {/** temperatures */}
-              {(
-                (sharedTooltip
-                  ? Object.keys(tooltipData?.datumByKey ?? {})
-                  : [tooltipData?.nearestDatum?.key]
-                ).filter((city) => city) as City[]
-              ).map((city) => {
-                const temperature =
-                  tooltipData?.nearestDatum?.datum &&
-                  accessors[renderHorizontally ? 'x' : 'y'][city](tooltipData?.nearestDatum?.datum);
-
+          {renderBarStack && (
+            <BarStack offset={stackOffset}>
+              {series.map(({ accessors, id }) => {
                 return (
-                  <div key={city}>
-                    <em
-                      style={{
-                        color: colorScale?.(city),
-                        textDecoration:
-                          tooltipData?.nearestDatum?.key === city ? 'underline' : undefined,
-                      }}
-                    >
-                      {city}
-                    </em>{' '}
-                    {temperature == null || Number.isNaN(temperature) ? '–' : `${temperature}° F`}
-                  </div>
+                  <BarSeries
+                    key={id}
+                    data={data}
+                    dataKey={id}
+                    xAccessor={accessors.x}
+                    yAccessor={accessors.y}
+                  />
+                );
+              })}
+            </BarStack>
+          )}
+          {renderBarGroup && (
+            <BarGroup>
+              {series.map(({ accessors, id }) => {
+                return (
+                  <BarSeries
+                    key={id}
+                    colorAccessor={(d) => accessors.colorAccessor(id, d)}
+                    data={data}
+                    dataKey={id}
+                    xAccessor={accessors.x}
+                    yAccessor={accessors.y}
+                  />
+                );
+              })}
+            </BarGroup>
+          )}
+          {renderBarSeries && (
+            <>
+              {series.map(({ accessors, id }) => {
+                return (
+                  <BarSeries
+                    key={id}
+                    colorAccessor={(d) => accessors.colorAccessor(id, d)}
+                    data={data}
+                    dataKey={id}
+                    xAccessor={accessors.x}
+                    yAccessor={accessors.y}
+                  />
                 );
               })}
             </>
           )}
-          showDatumGlyph={(snapTooltipToDatumX || snapTooltipToDatumY) && !renderBarGroup}
-          showHorizontalCrosshair={showHorizontalCrosshair}
-          showSeriesGlyphs={sharedTooltip && !renderBarGroup}
-          showVerticalCrosshair={showVerticalCrosshair}
-          snapTooltipToDatumX={snapTooltipToDatumX}
-          snapTooltipToDatumY={snapTooltipToDatumY}
-        />
+          {renderAreaSeries && (
+            <>
+              {series.map(({ accessors, id }) => {
+                return (
+                  <AreaSeries
+                    key={id}
+                    curve={curve}
+                    data={data}
+                    dataKey={id}
+                    fillOpacity={0.4}
+                    xAccessor={accessors.x}
+                    yAccessor={accessors.y}
+                  />
+                );
+              })}
+            </>
+          )}
+          {renderAreaStack && (
+            <AreaStack curve={curve} offset={stackOffset} renderLine={stackOffset !== 'wiggle'}>
+              {series.map(({ accessors, id }) => {
+                return (
+                  <AreaSeries
+                    key={id}
+                    data={data}
+                    dataKey={id}
+                    fillOpacity={0.4}
+                    xAccessor={accessors.x}
+                    yAccessor={accessors.y}
+                  />
+                );
+              })}
+            </AreaStack>
+          )}
+          {renderLineSeries && (
+            <>
+              {series.map(({ accessors, id }) => {
+                return (
+                  <LineSeries
+                    key={id}
+                    curve={curve}
+                    data={data}
+                    dataKey={id}
+                    xAccessor={accessors.x}
+                    yAccessor={accessors.y}
+                  />
+                );
+              })}
+            </>
+          )}
+          {renderGlyphSeries && (
+            <>
+              {series.map(({ accessors, id }) => {
+                return (
+                  <GlyphSeries
+                    key={id}
+                    colorAccessor={(d) => accessors.colorAccessor(id, d)}
+                    data={data}
+                    dataKey={id}
+                    renderGlyph={renderGlyph}
+                    xAccessor={accessors.x}
+                    yAccessor={accessors.y}
+                  />
+                );
+              })}
+            </>
+          )}
+          <Axis
+            key={`time-axis-${animationTrajectory}-${
+              renderHorizontally ? 'renderHorizontally' : 'renderVertically'
+            }`}
+            animationTrajectory={animationTrajectory}
+            numTicks={numTicks}
+            orientation={renderHorizontally ? yAxisOrientation : xAxisOrientation}
+          />
+          <Axis
+            key={`temp-axis-${animationTrajectory}-${
+              renderHorizontally ? 'renderHorizontally' : 'renderVertically'
+            }`}
+            animationTrajectory={animationTrajectory}
+            numTicks={numTicks}
+            orientation={renderHorizontally ? xAxisOrientation : yAxisOrientation}
+            tickFormat={stackOffset === 'wiggle' ? () => '' : undefined}
+          />
+          {showTooltip && (
+            <Tooltip<Datum>
+              renderGlyph={enableTooltipGlyph ? renderTooltipGlyph : undefined}
+              renderTooltip={renderTooltip}
+              showDatumGlyph={(snapTooltipToDatumX || snapTooltipToDatumY) && !renderBarGroup}
+              showHorizontalCrosshair={showHorizontalCrosshair}
+              showSeriesGlyphs={sharedTooltip && !renderBarGroup}
+              showVerticalCrosshair={showVerticalCrosshair}
+              snapTooltipToDatumX={snapTooltipToDatumX}
+              snapTooltipToDatumY={snapTooltipToDatumY}
+            />
+          )}
+        </XYChart>
       )}
-    </XYChart>
+    </ParentSize>
   );
 };

@@ -1,7 +1,5 @@
 // eslint-disable-next-line
 import {
-  // animated
-  AnimatedAnnotation,
   AnimatedAreaSeries,
   AnimatedAreaStack,
   AnimatedAxis,
@@ -11,9 +9,6 @@ import {
   AnimatedGlyphSeries,
   AnimatedGrid,
   AnimatedLineSeries,
-
-  // not animated
-  Annotation,
   AreaSeries,
   AreaStack,
   Axis,
@@ -23,12 +18,6 @@ import {
   GlyphSeries,
   Grid,
   LineSeries,
-
-  // no animated equivalents
-  AnnotationCircleSubject,
-  AnnotationConnector,
-  AnnotationLabel,
-  AnnotationLineSubject,
   Tooltip,
   XYChart,
 } from '@visx/xychart';
@@ -36,13 +25,8 @@ import {
 export function getAnimatedOrUnanimatedComponents(animated?: boolean) {
   return animated
     ? {
-        Annotation: AnimatedAnnotation,
-        AnnotationCircleSubject,
-        AnnotationConnector,
         AreaSeries: AnimatedAreaSeries,
-        AnnotationLabel,
         AreaStack: AnimatedAreaStack,
-        AnnotationLineSubject,
         Axis: AnimatedAxis,
         BarGroup: AnimatedBarGroup,
         BarSeries: AnimatedBarSeries,
@@ -54,13 +38,8 @@ export function getAnimatedOrUnanimatedComponents(animated?: boolean) {
         XYChart,
       }
     : {
-        Annotation,
-        AnnotationCircleSubject,
-        AnnotationConnector,
         AreaSeries,
-        AnnotationLabel,
         AreaStack,
-        AnnotationLineSubject,
         Axis,
         BarGroup,
         BarSeries,

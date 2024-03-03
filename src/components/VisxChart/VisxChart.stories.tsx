@@ -1,17 +1,17 @@
-/* eslint-disable jsx-a11y/accessible-emoji */
-/* eslint-disable jsx-a11y/label-has-associated-control */
+import styled from '@emotion/styled';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { curveCardinal, curveLinear, curveStep } from '@visx/curve';
 import { GlyphCross, GlyphDot, GlyphStar } from '@visx/glyph';
 import cityTemperature, { CityTemperature } from '@visx/mock-data/lib/mocks/cityTemperature';
-import { PatternLines } from '@visx/pattern';
-import { AnimationTrajectory } from '@visx/react-spring/lib/types';
-import { darkTheme, lightTheme, XYChartTheme } from '@visx/xychart';
+import { AnimationTrajectory } from '@visx/react-spring';
+import { darkTheme, GlyphProps, lightTheme, XYChartTheme } from '@visx/xychart';
 import { RenderTooltipGlyphProps } from '@visx/xychart/lib/components/Tooltip';
-import { GlyphProps } from '@visx/xychart/lib/types';
 import React, { useCallback, useMemo, useState } from 'react';
 
+import { Typography } from '../Typography';
+import { VisxChart } from '.';
 import { customTheme } from './customTheme';
-import { getAnimatedOrUnanimatedComponents } from './getAnimatedOrUnanimatedComponents';
+import { VisxChartProps } from './types';
 import { userPrefersReducedMotion } from './userPrefersReducedMotion';
 
 const dateScaleConfig = { paddingInner: 0.3, type: 'band' } as const;
@@ -30,74 +30,20 @@ const getSfTemperature = (d: CityTemperature) => Number(d['San Francisco']);
 const getNegativeSfTemperature = (d: CityTemperature) => -getSfTemperature(d);
 const getNyTemperature = (d: CityTemperature) => Number(d['New York']);
 const getAustinTemperature = (d: CityTemperature) => Number(d.Austin);
-const defaultAnnotationDataIndex = 13;
-const selectedDatumPatternId = 'xychart-selected-datum';
+type City = 'San Francisco' | 'New York' | 'Austin';
 
-type Accessor = (d: CityTemperature) => number | string;
+export default {
+  args: {},
+  component: VisxChart,
+  title: 'Components/VisxChart',
+} as Meta<typeof VisxChart>;
 
-interface Accessors {
-  'San Francisco': Accessor;
-  'New York': Accessor;
-  Austin: Accessor;
-}
+const Box = styled('div')`
+  height: 445px;
+  position: relative;
+`;
 
-type DataKey = keyof Accessors;
-
-type SimpleScaleConfig = { type: 'band' | 'linear'; paddingInner?: number };
-
-type ProvidedProps = {
-  accessors: {
-    x: Accessors;
-    y: Accessors;
-    date: Accessor;
-  };
-  animationTrajectory?: AnimationTrajectory;
-  annotationDataKey: DataKey | null;
-  annotationDatum?: CityTemperature;
-  annotationLabelPosition: { dx: number; dy: number };
-  annotationType?: 'line' | 'circle';
-  colorAccessorFactory: (key: DataKey) => (d: CityTemperature) => string | null;
-  config: {
-    x: SimpleScaleConfig;
-    y: SimpleScaleConfig;
-  };
-  curve: typeof curveLinear | typeof curveCardinal | typeof curveStep;
-  data: CityTemperature[];
-  editAnnotationLabelPosition: boolean;
-  numTicks: number;
-  setAnnotationDataIndex: (index: number) => void;
-  setAnnotationDataKey: (key: DataKey | null) => void;
-  setAnnotationLabelPosition: (position: { dx: number; dy: number }) => void;
-  renderAreaSeries: boolean;
-  renderAreaStack: boolean;
-  renderBarGroup: boolean;
-  renderBarSeries: boolean;
-  renderBarStack: boolean;
-  renderGlyph: React.FC<GlyphProps<CityTemperature>>;
-  renderGlyphSeries: boolean;
-  enableTooltipGlyph: boolean;
-  renderTooltipGlyph: React.FC<RenderTooltipGlyphProps<CityTemperature>>;
-  renderHorizontally: boolean;
-  renderLineSeries: boolean;
-  sharedTooltip: boolean;
-  showGridColumns: boolean;
-  showGridRows: boolean;
-  showHorizontalCrosshair: boolean;
-  showTooltip: boolean;
-  showVerticalCrosshair: boolean;
-  snapTooltipToDatumX: boolean;
-  snapTooltipToDatumY: boolean;
-  stackOffset?: 'wiggle' | 'expand' | 'diverging' | 'silhouette';
-  theme: XYChartTheme;
-  xAxisOrientation: 'top' | 'bottom';
-  yAxisOrientation: 'left' | 'right';
-} & ReturnType<typeof getAnimatedOrUnanimatedComponents>;
-
-type ControlsProps = {
-  children: (props: ProvidedProps) => React.ReactNode;
-};
-
-export default function ExampleControls({ children }: ControlsProps) {
+const Template: StoryFn<typeof VisxChart> = (args) => {
   const [useAnimatedComponents, setUseAnimatedComponents] = useState(!userPrefersReducedMotion());
   const [theme, setTheme] = useState<XYChartTheme>(darkTheme);
   const [animationTrajectory, setAnimationTrajectory] = useState<AnimationTrajectory | undefined>(
@@ -109,9 +55,6 @@ export default function ExampleControls({ children }: ControlsProps) {
   const [yAxisOrientation, setYAxisOrientation] = useState<'left' | 'right'>('right');
   const [renderHorizontally, setRenderHorizontally] = useState(false);
   const [showTooltip, setShowTooltip] = useState(true);
-  const [annotationDataKey, setAnnotationDataKey] =
-    useState<ProvidedProps['annotationDataKey']>(null);
-  const [annotationType, setAnnotationType] = useState<ProvidedProps['annotationType']>('circle');
   const [showVerticalCrosshair, setShowVerticalCrosshair] = useState(true);
   const [showHorizontalCrosshair, setShowHorizontalCrosshair] = useState(false);
   const [snapTooltipToDatumX, setSnapTooltipToDatumX] = useState(true);
@@ -123,11 +66,9 @@ export default function ExampleControls({ children }: ControlsProps) {
   const [renderAreaLineOrStack, setRenderAreaLineOrStack] = useState<
     'line' | 'area' | 'areastack' | 'none'
   >('areastack');
-  const [stackOffset, setStackOffset] = useState<ProvidedProps['stackOffset']>();
+  const [stackOffset, setStackOffset] = useState<VisxChartProps<CityTemperature>['stackOffset']>();
   const [renderGlyphSeries, setRenderGlyphSeries] = useState(false);
   const [editAnnotationLabelPosition, setEditAnnotationLabelPosition] = useState(false);
-  const [annotationLabelPosition, setAnnotationLabelPosition] = useState({ dx: -40, dy: -20 });
-  const [annotationDataIndex, setAnnotationDataIndex] = useState(defaultAnnotationDataIndex);
   const [negativeValues, setNegativeValues] = useState(false);
   const [fewerDatum, setFewerDatum] = useState(false);
   const [missingValues, setMissingValues] = useState(false);
@@ -242,14 +183,6 @@ export default function ExampleControls({ children }: ControlsProps) {
     },
     [tooltipGlyphComponent, glyphOutline],
   );
-  // for series that support it, return a colorAccessor which returns a custom color if the datum is selected
-  const colorAccessorFactory = useCallback(
-    (dataKey: DataKey) => (d: CityTemperature) =>
-      annotationDataKey === dataKey && d === data[annotationDataIndex]
-        ? `url(#${selectedDatumPatternId})`
-        : null,
-    [annotationDataIndex, annotationDataKey],
-  );
 
   const accessors = useMemo(
     () => ({
@@ -290,124 +223,180 @@ export default function ExampleControls({ children }: ControlsProps) {
 
   return (
     <>
-      {children({
-        accessors,
-        animationTrajectory,
-        annotationDataKey,
-        annotationDatum: data[annotationDataIndex],
-        annotationLabelPosition,
-        annotationType,
-        colorAccessorFactory,
-        config,
-        curve:
-          (curveType === 'cardinal' && curveCardinal) ||
-          (curveType === 'step' && curveStep) ||
-          curveLinear,
-        data: fewerDatum
-          ? missingValues
-            ? dataSmallMissingValues
-            : dataSmall
-          : missingValues
-          ? dataMissingValues
-          : data,
-        editAnnotationLabelPosition,
-        enableTooltipGlyph,
-        numTicks,
-        renderAreaSeries: renderAreaLineOrStack === 'area',
-        renderAreaStack: renderAreaLineOrStack === 'areastack',
-        renderBarGroup: renderBarStackOrGroup === 'bargroup',
-        renderBarSeries: renderBarStackOrGroup === 'bar',
-        renderBarStack: renderBarStackOrGroup === 'barstack',
-        renderGlyph,
-        renderGlyphSeries,
-        renderHorizontally,
-        renderLineSeries: renderAreaLineOrStack === 'line',
-        renderTooltipGlyph,
-        setAnnotationDataIndex,
-        setAnnotationDataKey,
-        setAnnotationLabelPosition,
-        sharedTooltip,
-        showGridColumns,
-        showGridRows,
-        showHorizontalCrosshair,
-        showTooltip,
-        showVerticalCrosshair,
-        snapTooltipToDatumX: canSnapTooltipToDatum && snapTooltipToDatumX,
-        snapTooltipToDatumY: canSnapTooltipToDatum && snapTooltipToDatumY,
-        stackOffset,
-        theme,
-        xAxisOrientation,
-        yAxisOrientation,
-        ...getAnimatedOrUnanimatedComponents(useAnimatedComponents),
-      })}
-      {/** This style is used for annotated elements via colorAccessor. */}
-      <svg className="pattern-lines">
-        <PatternLines
-          height={6}
-          id={selectedDatumPatternId}
-          orientation={['diagonalRightToLeft']}
-          stroke={theme?.axisStyles.x.bottom.axisLine.stroke}
-          strokeWidth={1.5}
-          width={6}
+      <Box>
+        <VisxChart<CityTemperature>
+          {...{
+            animated: useAnimatedComponents,
+            animationTrajectory,
+            config,
+            curve:
+              (curveType === 'cardinal' && curveCardinal) ||
+              (curveType === 'step' && curveStep) ||
+              curveLinear,
+            data: fewerDatum
+              ? missingValues
+                ? dataSmallMissingValues
+                : dataSmall
+              : missingValues
+              ? dataMissingValues
+              : data,
+            editAnnotationLabelPosition,
+            enableTooltipGlyph,
+            numTicks,
+            renderAreaSeries: renderAreaLineOrStack === 'area',
+            renderAreaStack: renderAreaLineOrStack === 'areastack',
+            renderBarGroup: renderBarStackOrGroup === 'bargroup',
+            renderBarSeries: renderBarStackOrGroup === 'bar',
+            renderBarStack: renderBarStackOrGroup === 'barstack',
+            renderGlyph,
+            renderGlyphSeries,
+            renderHorizontally,
+            renderLineSeries: renderAreaLineOrStack === 'line',
+            renderTooltip: ({ tooltipData, colorScale }) => (
+              <>
+                {/** date */}
+                {(tooltipData?.nearestDatum?.datum &&
+                  accessors.date(tooltipData?.nearestDatum?.datum)) ||
+                  'No date'}
+                <br />
+                <br />
+                {/** temperatures */}
+                {(
+                  (sharedTooltip
+                    ? Object.keys(tooltipData?.datumByKey ?? {})
+                    : [tooltipData?.nearestDatum?.key]
+                  ).filter((city) => city) as City[]
+                ).map((city) => {
+                  const temperature =
+                    tooltipData?.nearestDatum?.datum &&
+                    accessors[renderHorizontally ? 'x' : 'y'][city](
+                      tooltipData?.nearestDatum?.datum,
+                    );
+
+                  return (
+                    <div key={city}>
+                      <em
+                        style={{
+                          color: colorScale?.(city),
+                          textDecoration:
+                            tooltipData?.nearestDatum?.key === city ? 'underline' : undefined,
+                        }}
+                      >
+                        {city}
+                      </em>{' '}
+                      {temperature == null || Number.isNaN(temperature) ? '–' : `${temperature}° F`}
+                    </div>
+                  );
+                })}
+              </>
+            ),
+            renderTooltipGlyph,
+            series: [
+              {
+                accessors: {
+                  colorAccessor: () => null,
+                  date: accessors.date,
+                  x: accessors.x['San Francisco'],
+                  y: accessors.y['San Francisco'],
+                },
+                id: 'San Francisco',
+              },
+              {
+                accessors: {
+                  colorAccessor: () => null,
+                  date: accessors.date,
+                  x: accessors.x['New York'],
+                  y: accessors.y['New York'],
+                },
+                id: 'New York',
+              },
+              {
+                accessors: {
+                  colorAccessor: () => null,
+                  date: accessors.date,
+                  x: accessors.x['Austin'],
+                  y: accessors.y['Austin'],
+                },
+                id: 'Austin',
+              },
+            ],
+            sharedTooltip,
+            showGridColumns,
+            showGridRows,
+            showHorizontalCrosshair,
+            showTooltip,
+            showVerticalCrosshair,
+            snapTooltipToDatumX: canSnapTooltipToDatum && snapTooltipToDatumX,
+            snapTooltipToDatumY: canSnapTooltipToDatum && snapTooltipToDatumY,
+            stackOffset,
+            theme,
+            xAxisOrientation,
+            yAxisOrientation,
+          }}
         />
-      </svg>
+      </Box>
       <div className="controls">
         {/** data */}
         <div>
-          <strong>data</strong>
-          <label>
+          <Typography colorToken="white100" typographyToken="h3Bold">
+            data
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
+            {' '}
             <input
               checked={negativeValues}
               type="checkbox"
               onChange={() => setNegativeValues(!negativeValues)}
             />
             negative values (SF)
-          </label>
-          <label>
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={missingValues}
               type="checkbox"
               onChange={() => setMissingValues(!missingValues)}
             />
             missing values
-          </label>
-          <label>
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={fewerDatum}
               type="checkbox"
               onChange={() => setFewerDatum(!fewerDatum)}
             />
             fewer datum
-          </label>
+          </Typography>
         </div>
 
         {/** theme */}
         <div>
-          <strong>theme</strong>
-          <label>
+          <Typography colorToken="white100" typographyToken="h3Bold">
+            theme
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={theme === lightTheme}
               type="radio"
               onChange={() => setTheme(lightTheme)}
             />
             light
-          </label>
-          <label>
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={theme === darkTheme}
               type="radio"
               onChange={() => setTheme(darkTheme)}
             />
             dark
-          </label>
-          <label>
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={theme === customTheme}
               type="radio"
               onChange={() => setTheme(customTheme)}
             />
             custom
-          </label>
+          </Typography>
         </div>
 
         <br />
@@ -415,27 +404,31 @@ export default function ExampleControls({ children }: ControlsProps) {
         {/** series */}
         {/** orientation */}
         <div>
-          <strong>series orientation</strong>
-          <label>
+          <Typography colorToken="white100" typographyToken="h3Bold">
+            series orientation
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={!renderHorizontally}
               type="radio"
               onChange={() => setRenderHorizontally(false)}
             />
             vertical
-          </label>
-          <label>
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={renderHorizontally}
               type="radio"
               onChange={() => setRenderHorizontally(true)}
             />
             horizontal
-          </label>
+          </Typography>
         </div>
         <div>
-          <strong>line series</strong>
-          <label>
+          <Typography colorToken="white100" typographyToken="h3Bold">
+            line series
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={renderAreaLineOrStack === 'line'}
               type="radio"
@@ -447,8 +440,8 @@ export default function ExampleControls({ children }: ControlsProps) {
               }}
             />
             line
-          </label>
-          <label>
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={renderAreaLineOrStack === 'area'}
               type="radio"
@@ -460,8 +453,8 @@ export default function ExampleControls({ children }: ControlsProps) {
               }}
             />
             area
-          </label>
-          <label>
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={renderAreaLineOrStack === 'areastack'}
               type="radio"
@@ -471,18 +464,20 @@ export default function ExampleControls({ children }: ControlsProps) {
               }}
             />
             area stack
-          </label>
-          <label>
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={renderAreaLineOrStack === 'none'}
               type="radio"
               onChange={() => setRenderAreaLineOrStack('none')}
             />
             none
-          </label>
+          </Typography>
           &nbsp;&nbsp;&nbsp;&nbsp;
-          <strong>curve shape</strong>
-          <label>
+          <Typography colorToken="white100" typographyToken="h3Bold">
+            curve shape
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={curveType === 'linear'}
               disabled={renderAreaLineOrStack === 'none'}
@@ -490,8 +485,8 @@ export default function ExampleControls({ children }: ControlsProps) {
               onChange={() => setCurveType('linear')}
             />
             linear
-          </label>
-          <label>
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={curveType === 'cardinal'}
               disabled={renderAreaLineOrStack === 'none'}
@@ -499,8 +494,8 @@ export default function ExampleControls({ children }: ControlsProps) {
               onChange={() => setCurveType('cardinal')}
             />
             cardinal (smooth)
-          </label>
-          <label>
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={curveType === 'step'}
               disabled={renderAreaLineOrStack === 'none'}
@@ -508,21 +503,23 @@ export default function ExampleControls({ children }: ControlsProps) {
               onChange={() => setCurveType('step')}
             />
             step
-          </label>
+          </Typography>
         </div>
         {/** glyph */}
         <div>
-          <strong>glyph series</strong>
-          <label>
+          <Typography colorToken="white100" typographyToken="h3Bold">
+            glyph series
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={renderGlyphSeries}
               type="checkbox"
               onChange={() => setRenderGlyphSeries(!renderGlyphSeries)}
             />
             render glyphs
-          </label>
+          </Typography>
           &nbsp;&nbsp;&nbsp;&nbsp;
-          <label>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={glyphComponent === 'circle'}
               disabled={!renderGlyphSeries}
@@ -530,8 +527,8 @@ export default function ExampleControls({ children }: ControlsProps) {
               onChange={() => setGlyphComponent('circle')}
             />
             circle
-          </label>
-          <label>
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={glyphComponent === 'star'}
               disabled={!renderGlyphSeries}
@@ -539,8 +536,8 @@ export default function ExampleControls({ children }: ControlsProps) {
               onChange={() => setGlyphComponent('star')}
             />
             star
-          </label>
-          <label>
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={glyphComponent === 'cross'}
               disabled={!renderGlyphSeries}
@@ -548,8 +545,8 @@ export default function ExampleControls({ children }: ControlsProps) {
               onChange={() => setGlyphComponent('cross')}
             />
             cross
-          </label>
-          <label>
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={glyphComponent === '🍍'}
               disabled={!renderGlyphSeries}
@@ -557,11 +554,13 @@ export default function ExampleControls({ children }: ControlsProps) {
               onChange={() => setGlyphComponent('🍍')}
             />
             🍍
-          </label>
+          </Typography>
         </div>
         <div>
-          <strong>bar series</strong>
-          <label>
+          <Typography colorToken="white100" typographyToken="h3Bold">
+            bar series
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={renderBarStackOrGroup === 'bar'}
               type="radio"
@@ -573,8 +572,8 @@ export default function ExampleControls({ children }: ControlsProps) {
               }}
             />
             bar
-          </label>
-          <label>
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={renderBarStackOrGroup === 'barstack'}
               type="radio"
@@ -584,8 +583,8 @@ export default function ExampleControls({ children }: ControlsProps) {
               }}
             />
             bar stack
-          </label>
-          <label>
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={renderBarStackOrGroup === 'bargroup'}
               type="radio"
@@ -595,19 +594,21 @@ export default function ExampleControls({ children }: ControlsProps) {
               }}
             />
             bar group
-          </label>
-          <label>
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={renderBarStackOrGroup === 'none'}
               type="radio"
               onChange={() => setRenderBarStackOrGroup('none')}
             />
             none
-          </label>
+          </Typography>
         </div>
         <div>
-          <strong>stack series offset</strong>
-          <label>
+          <Typography colorToken="white100" typographyToken="h3Bold">
+            stack series offset
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={stackOffset == null}
               disabled={
@@ -617,8 +618,8 @@ export default function ExampleControls({ children }: ControlsProps) {
               onChange={() => setStackOffset(undefined)}
             />
             auto (zero-baseline)
-          </label>
-          <label>
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={stackOffset === 'expand'}
               disabled={
@@ -628,8 +629,8 @@ export default function ExampleControls({ children }: ControlsProps) {
               onChange={() => setStackOffset('expand')}
             />
             expand (values sum to 1)
-          </label>
-          <label>
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={stackOffset === 'wiggle'}
               disabled={
@@ -639,22 +640,24 @@ export default function ExampleControls({ children }: ControlsProps) {
               onChange={() => setStackOffset('wiggle')}
             />
             wiggle (stream graph)
-          </label>
+          </Typography>
         </div>
 
         <br />
         {/** tooltip */}
         <div>
-          <strong>tooltip</strong>
-          <label>
+          <Typography colorToken="white100" typographyToken="h3Bold">
+            tooltip
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={showTooltip}
               type="checkbox"
               onChange={() => setShowTooltip(!showTooltip)}
             />
             show tooltip
-          </label>
-          <label>
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={showTooltip && snapTooltipToDatumX}
               disabled={!showTooltip || !canSnapTooltipToDatum}
@@ -662,8 +665,8 @@ export default function ExampleControls({ children }: ControlsProps) {
               onChange={() => setSnapTooltipToDatumX(!snapTooltipToDatumX)}
             />
             snap tooltip to datum x
-          </label>
-          <label>
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={showTooltip && snapTooltipToDatumY}
               disabled={!showTooltip || !canSnapTooltipToDatum}
@@ -671,8 +674,8 @@ export default function ExampleControls({ children }: ControlsProps) {
               onChange={() => setSnapTooltipToDatumY(!snapTooltipToDatumY)}
             />
             snap tooltip to datum y
-          </label>
-          <label>
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={showTooltip && showVerticalCrosshair}
               disabled={!showTooltip}
@@ -680,8 +683,8 @@ export default function ExampleControls({ children }: ControlsProps) {
               onChange={() => setShowVerticalCrosshair(!showVerticalCrosshair)}
             />
             vertical crosshair
-          </label>
-          <label>
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={showTooltip && showHorizontalCrosshair}
               disabled={!showTooltip}
@@ -689,8 +692,8 @@ export default function ExampleControls({ children }: ControlsProps) {
               onChange={() => setShowHorizontalCrosshair(!showHorizontalCrosshair)}
             />
             horizontal crosshair
-          </label>
-          <label>
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={showTooltip && sharedTooltip}
               disabled={!showTooltip}
@@ -698,11 +701,13 @@ export default function ExampleControls({ children }: ControlsProps) {
               onChange={() => setSharedTooltip(!sharedTooltip)}
             />
             shared tooltip
-          </label>
+          </Typography>
         </div>
         <div>
-          <strong>tooltip glyph</strong>
-          <label>
+          <Typography colorToken="white100" typographyToken="h3Bold">
+            tooltip glyph
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={enableTooltipGlyph}
               disabled={!canSnapTooltipToDatum}
@@ -710,9 +715,9 @@ export default function ExampleControls({ children }: ControlsProps) {
               onChange={() => setEnableTooltipGlyph(!enableTooltipGlyph)}
             />
             show custom tooltip glyph
-          </label>
+          </Typography>
           &nbsp;&nbsp;&nbsp;&nbsp;
-          <label>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={tooltipGlyphComponent === 'circle'}
               disabled={!enableTooltipGlyph || !canSnapTooltipToDatum}
@@ -720,8 +725,8 @@ export default function ExampleControls({ children }: ControlsProps) {
               onChange={() => setTooltipGlyphComponent('circle')}
             />
             circle
-          </label>
-          <label>
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={tooltipGlyphComponent === 'star'}
               disabled={!enableTooltipGlyph || !canSnapTooltipToDatum}
@@ -729,8 +734,8 @@ export default function ExampleControls({ children }: ControlsProps) {
               onChange={() => setTooltipGlyphComponent('star')}
             />
             star
-          </label>
-          <label>
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={tooltipGlyphComponent === 'cross'}
               disabled={!enableTooltipGlyph || !canSnapTooltipToDatum}
@@ -738,8 +743,8 @@ export default function ExampleControls({ children }: ControlsProps) {
               onChange={() => setTooltipGlyphComponent('cross')}
             />
             cross
-          </label>
-          <label>
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={tooltipGlyphComponent === '🍍'}
               disabled={!enableTooltipGlyph || !canSnapTooltipToDatum}
@@ -747,206 +752,145 @@ export default function ExampleControls({ children }: ControlsProps) {
               onChange={() => setTooltipGlyphComponent('🍍')}
             />
             🍍
-          </label>
-        </div>
-        {/** annotation */}
-        <div>
-          <strong>annotation</strong> (click chart to update)
-          <label>
-            <input
-              checked={annotationDataKey == null}
-              type="radio"
-              onChange={() => setAnnotationDataKey(null)}
-            />
-            none
-          </label>
-          <label>
-            <input
-              checked={annotationDataKey === 'San Francisco'}
-              type="radio"
-              onChange={() => setAnnotationDataKey('San Francisco')}
-            />
-            SF
-          </label>
-          <label>
-            <input
-              checked={annotationDataKey === 'New York'}
-              type="radio"
-              onChange={() => setAnnotationDataKey('New York')}
-            />
-            NY
-          </label>
-          <label>
-            <input
-              checked={annotationDataKey === 'Austin'}
-              type="radio"
-              onChange={() => setAnnotationDataKey('Austin')}
-            />
-            Austin
-          </label>
-          &nbsp;&nbsp;&nbsp;
-          <strong>type</strong>
-          <label>
-            <input
-              checked={annotationType === 'circle'}
-              type="radio"
-              onChange={() => setAnnotationType('circle')}
-            />
-            circle
-          </label>
-          <label>
-            <input
-              checked={annotationType === 'line'}
-              type="radio"
-              onChange={() => setAnnotationType('line')}
-            />
-            line
-          </label>
-          &nbsp;&nbsp;&nbsp;
-          <label>
-            <input
-              checked={editAnnotationLabelPosition}
-              type="checkbox"
-              onChange={() => setEditAnnotationLabelPosition(!editAnnotationLabelPosition)}
-            />
-            edit label position
-          </label>
+          </Typography>
         </div>
 
         <br />
 
         {/** axes */}
         <div>
-          <strong>axes</strong>
-          <label>
+          <Typography colorToken="white100" typographyToken="h3Bold">
+            axes
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={xAxisOrientation === 'bottom'}
               type="radio"
               onChange={() => setXAxisOrientation('bottom')}
             />
             bottom
-          </label>
-          <label>
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={xAxisOrientation === 'top'}
               type="radio"
               onChange={() => setXAxisOrientation('top')}
             />
             top
-          </label>
+          </Typography>
           &nbsp;&nbsp;&nbsp;&nbsp;
-          <label>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={yAxisOrientation === 'left'}
               type="radio"
               onChange={() => setYAxisOrientation('left')}
             />
             left
-          </label>
-          <label>
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={yAxisOrientation === 'right'}
               type="radio"
               onChange={() => setYAxisOrientation('right')}
             />
             right
-          </label>
+          </Typography>
         </div>
 
         {/** grid */}
         <div>
-          <strong>grid</strong>
-          <label>
+          <Typography colorToken="white100" typographyToken="h3Bold">
+            grid
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={showGridRows && !showGridColumns}
               type="radio"
               onChange={() => setGridProps([true, false])}
             />
             rows
-          </label>
-          <label>
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={!showGridRows && showGridColumns}
               type="radio"
               onChange={() => setGridProps([false, true])}
             />
             columns
-          </label>
-          <label>
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={showGridRows && showGridColumns}
               type="radio"
               onChange={() => setGridProps([true, true])}
             />
             both
-          </label>
-          <label>
+          </Typography>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={!showGridRows && !showGridColumns}
               type="radio"
               onChange={() => setGridProps([false, false])}
             />
             none
-          </label>
+          </Typography>
         </div>
         {/** animation trajectory */}
         <div>
-          <label>
+          <Typography colorToken="white100" typographyToken="bodySmallRegular">
             <input
               checked={useAnimatedComponents}
               type="checkbox"
               onChange={() => setUseAnimatedComponents(!useAnimatedComponents)}
             />
             use animated components
-          </label>
+          </Typography>
 
           {useAnimatedComponents && (
             <>
               &nbsp;&nbsp;&nbsp;
               <strong>axis + grid animation</strong>
-              <label>
+              <Typography colorToken="white100" typographyToken="bodySmallRegular">
                 <input
                   checked={animationTrajectory === 'center'}
                   type="radio"
                   onChange={() => setAnimationTrajectory('center')}
                 />
                 from center
-              </label>
-              <label>
+              </Typography>
+              <Typography colorToken="white100" typographyToken="bodySmallRegular">
                 <input
                   checked={animationTrajectory === 'outside'}
                   type="radio"
                   onChange={() => setAnimationTrajectory('outside')}
                 />
                 from outside
-              </label>
-              <label>
+              </Typography>
+              <Typography colorToken="white100" typographyToken="bodySmallRegular">
                 <input
                   checked={animationTrajectory === 'min'}
                   type="radio"
                   onChange={() => setAnimationTrajectory('min')}
                 />
                 from min
-              </label>
-              <label>
+              </Typography>
+              <Typography colorToken="white100" typographyToken="bodySmallRegular">
                 <input
                   checked={animationTrajectory === 'max'}
                   type="radio"
                   onChange={() => setAnimationTrajectory('max')}
                 />
                 from max
-              </label>
+              </Typography>
             </>
           )}
         </div>
       </div>
-      <style jsx>{`
-        .controls {
-          font-size: 13px;
-          line-height: 1.5em;
-        }
+      <style>{`
         .controls > div {
           margin-bottom: 4px;
+          display: flex;
+          gap: 8px;
         }
         label {
           font-size: 12px;
@@ -962,4 +906,9 @@ export default function ExampleControls({ children }: ControlsProps) {
       `}</style>
     </>
   );
-}
+};
+
+export const Default: StoryObj<typeof VisxChart> = {
+  args: {},
+  render: Template,
+};

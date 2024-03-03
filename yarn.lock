@@ -9213,18 +9213,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@visx/gradient@npm:3.0.0":
-  version: 3.0.0
-  resolution: "@visx/gradient@npm:3.0.0"
-  dependencies:
-    "@types/react": "npm:*"
-    prop-types: "npm:^15.5.7"
-  peerDependencies:
-    react: ^16.0.0-0 || ^17.0.0-0 || ^18.0.0-0
-  checksum: 10c0/0c5529311b03a8c33e963056128d236c5c25cf20d53c81b4d23115e38a0c4e6316f6b517969153aeeadeb49c2ececb00d8edac5c0189c0ebebd1593d201c33da
-  languageName: node
-  linkType: hard
-
 "@visx/grid@npm:3.0.1":
   version: 3.0.1
   resolution: "@visx/grid@npm:3.0.1"
@@ -11562,13 +11550,10 @@ __metadata:
     "@types/react-dom": "npm:17.0.18"
     "@visx/axis": "npm:3.1.0"
     "@visx/curve": "npm:3.0.0"
-    "@visx/event": "npm:3.0.1"
     "@visx/glyph": "npm:3.3.0"
-    "@visx/gradient": "npm:3.0.0"
     "@visx/group": "npm:3.0.0"
     "@visx/mock-data": "npm:3.3.0"
     "@visx/pattern": "npm:3.3.0"
-    "@visx/point": "npm:3.0.1"
     "@visx/react-spring": "npm:3.1.0"
     "@visx/responsive": "npm:3.0.0"
     "@visx/scale": "npm:3.0.0"
@@ -22253,7 +22238,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.5.10, prop-types@npm:^15.5.7, prop-types@npm:^15.6.0, prop-types@npm:^15.6.1, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.5.10, prop-types@npm:^15.6.0, prop-types@npm:^15.6.1, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
