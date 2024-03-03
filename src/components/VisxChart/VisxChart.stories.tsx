@@ -3,7 +3,6 @@ import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import { curveCardinal, curveLinear, curveStep } from '@visx/curve';
 import { GlyphCross, GlyphDot, GlyphStar } from '@visx/glyph';
 import cityTemperature, { CityTemperature } from '@visx/mock-data/lib/mocks/cityTemperature';
-import { AnimationTrajectory } from '@visx/react-spring';
 import { darkTheme, GlyphProps, lightTheme, XYChartTheme } from '@visx/xychart';
 import { RenderTooltipGlyphProps } from '@visx/xychart/lib/components/Tooltip';
 import React, { useCallback, useMemo, useState } from 'react';
@@ -12,7 +11,6 @@ import { Typography } from '../Typography';
 import { VisxChart } from '.';
 import { customTheme } from './customTheme';
 import { VisxChartProps } from './types';
-import { userPrefersReducedMotion } from './userPrefersReducedMotion';
 
 const dateScaleConfig = { paddingInner: 0.3, type: 'band' } as const;
 const temperatureScaleConfig = { type: 'linear' } as const;
@@ -40,19 +38,10 @@ export default {
 
 const Box = styled('div')`
   height: 445px;
-  position: relative;
 `;
 
 const Template: StoryFn<typeof VisxChart> = (args) => {
-  const [useAnimatedComponents, setUseAnimatedComponents] = useState(!userPrefersReducedMotion());
   const [theme, setTheme] = useState<XYChartTheme>(darkTheme);
-  const [animationTrajectory, setAnimationTrajectory] = useState<AnimationTrajectory | undefined>(
-    'center',
-  );
-  const [gridProps, setGridProps] = useState<[boolean, boolean]>([false, false]);
-  const [showGridRows, showGridColumns] = gridProps;
-  const [xAxisOrientation, setXAxisOrientation] = useState<'top' | 'bottom'>('bottom');
-  const [yAxisOrientation, setYAxisOrientation] = useState<'left' | 'right'>('right');
   const [renderHorizontally, setRenderHorizontally] = useState(false);
   const [showTooltip, setShowTooltip] = useState(true);
   const [showVerticalCrosshair, setShowVerticalCrosshair] = useState(true);
@@ -68,7 +57,6 @@ const Template: StoryFn<typeof VisxChart> = (args) => {
   >('areastack');
   const [stackOffset, setStackOffset] = useState<VisxChartProps<CityTemperature>['stackOffset']>();
   const [renderGlyphSeries, setRenderGlyphSeries] = useState(false);
-  const [editAnnotationLabelPosition, setEditAnnotationLabelPosition] = useState(false);
   const [negativeValues, setNegativeValues] = useState(false);
   const [fewerDatum, setFewerDatum] = useState(false);
   const [missingValues, setMissingValues] = useState(false);
@@ -226,8 +214,8 @@ const Template: StoryFn<typeof VisxChart> = (args) => {
       <Box>
         <VisxChart<CityTemperature>
           {...{
-            animated: useAnimatedComponents,
-            animationTrajectory,
+            animated: args.animated,
+            animationTrajectory: args.animationTrajectory,
             config,
             curve:
               (curveType === 'cardinal' && curveCardinal) ||
@@ -240,7 +228,6 @@ const Template: StoryFn<typeof VisxChart> = (args) => {
               : missingValues
               ? dataMissingValues
               : data,
-            editAnnotationLabelPosition,
             enableTooltipGlyph,
             numTicks,
             renderAreaSeries: renderAreaLineOrStack === 'area',
@@ -321,8 +308,8 @@ const Template: StoryFn<typeof VisxChart> = (args) => {
               },
             ],
             sharedTooltip,
-            showGridColumns,
-            showGridRows,
+            showGridColumns: args.showGridColumns,
+            showGridRows: args.showGridRows,
             showHorizontalCrosshair,
             showTooltip,
             showVerticalCrosshair,
@@ -330,8 +317,8 @@ const Template: StoryFn<typeof VisxChart> = (args) => {
             snapTooltipToDatumY: canSnapTooltipToDatum && snapTooltipToDatumY,
             stackOffset,
             theme,
-            xAxisOrientation,
-            yAxisOrientation,
+            xAxisOrientation: args.xAxisOrientation,
+            yAxisOrientation: args.yAxisOrientation,
           }}
         />
       </Box>
@@ -753,137 +740,6 @@ const Template: StoryFn<typeof VisxChart> = (args) => {
             />
             🍍
           </Typography>
-        </div>
-
-        <br />
-
-        {/** axes */}
-        <div>
-          <Typography colorToken="white100" typographyToken="h3Bold">
-            axes
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={xAxisOrientation === 'bottom'}
-              type="radio"
-              onChange={() => setXAxisOrientation('bottom')}
-            />
-            bottom
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={xAxisOrientation === 'top'}
-              type="radio"
-              onChange={() => setXAxisOrientation('top')}
-            />
-            top
-          </Typography>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={yAxisOrientation === 'left'}
-              type="radio"
-              onChange={() => setYAxisOrientation('left')}
-            />
-            left
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={yAxisOrientation === 'right'}
-              type="radio"
-              onChange={() => setYAxisOrientation('right')}
-            />
-            right
-          </Typography>
-        </div>
-
-        {/** grid */}
-        <div>
-          <Typography colorToken="white100" typographyToken="h3Bold">
-            grid
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={showGridRows && !showGridColumns}
-              type="radio"
-              onChange={() => setGridProps([true, false])}
-            />
-            rows
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={!showGridRows && showGridColumns}
-              type="radio"
-              onChange={() => setGridProps([false, true])}
-            />
-            columns
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={showGridRows && showGridColumns}
-              type="radio"
-              onChange={() => setGridProps([true, true])}
-            />
-            both
-          </Typography>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={!showGridRows && !showGridColumns}
-              type="radio"
-              onChange={() => setGridProps([false, false])}
-            />
-            none
-          </Typography>
-        </div>
-        {/** animation trajectory */}
-        <div>
-          <Typography colorToken="white100" typographyToken="bodySmallRegular">
-            <input
-              checked={useAnimatedComponents}
-              type="checkbox"
-              onChange={() => setUseAnimatedComponents(!useAnimatedComponents)}
-            />
-            use animated components
-          </Typography>
-
-          {useAnimatedComponents && (
-            <>
-              &nbsp;&nbsp;&nbsp;
-              <strong>axis + grid animation</strong>
-              <Typography colorToken="white100" typographyToken="bodySmallRegular">
-                <input
-                  checked={animationTrajectory === 'center'}
-                  type="radio"
-                  onChange={() => setAnimationTrajectory('center')}
-                />
-                from center
-              </Typography>
-              <Typography colorToken="white100" typographyToken="bodySmallRegular">
-                <input
-                  checked={animationTrajectory === 'outside'}
-                  type="radio"
-                  onChange={() => setAnimationTrajectory('outside')}
-                />
-                from outside
-              </Typography>
-              <Typography colorToken="white100" typographyToken="bodySmallRegular">
-                <input
-                  checked={animationTrajectory === 'min'}
-                  type="radio"
-                  onChange={() => setAnimationTrajectory('min')}
-                />
-                from min
-              </Typography>
-              <Typography colorToken="white100" typographyToken="bodySmallRegular">
-                <input
-                  checked={animationTrajectory === 'max'}
-                  type="radio"
-                  onChange={() => setAnimationTrajectory('max')}
-                />
-                from max
-              </Typography>
-            </>
-          )}
         </div>
       </div>
       <style>{`

@@ -4,9 +4,10 @@ import React from 'react';
 import { CustomChartBackground } from './CustomChartBackground';
 import { getAnimatedOrUnanimatedComponents } from './getAnimatedOrUnanimatedComponents';
 import { VisxChartProps } from './types';
+import { userPrefersReducedMotion } from './userPrefersReducedMotion';
 
 export const VisxChart = <Datum extends object>({
-  animated,
+  animated = !userPrefersReducedMotion(),
   series,
   animationTrajectory = 'outside',
   config,
@@ -35,8 +36,8 @@ export const VisxChart = <Datum extends object>({
   snapTooltipToDatumY,
   stackOffset,
   theme,
-  xAxisOrientation,
-  yAxisOrientation,
+  xAxisOrientation = 'bottom',
+  yAxisOrientation = 'right',
 }: VisxChartProps<Datum>) => {
   const {
     AreaSeries,

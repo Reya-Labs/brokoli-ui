@@ -13,7 +13,7 @@ type Accessor<Datum> = (d: Datum) => number | string;
 type SimpleScaleConfig = { type: 'band' | 'linear'; paddingInner?: number };
 
 export type VisxChartProps<Datum extends object> = {
-  animated: boolean;
+  animated?: boolean;
   renderTooltip: (_: RenderTooltipParams<Datum>) => React.ReactNode;
   series: {
     id: string;
@@ -53,6 +53,6 @@ export type VisxChartProps<Datum extends object> = {
   snapTooltipToDatumY: boolean;
   stackOffset?: 'wiggle' | 'expand' | 'diverging' | 'silhouette';
   theme: XYChartTheme;
-  xAxisOrientation: 'top' | 'bottom';
-  yAxisOrientation: 'left' | 'right';
+  xAxisOrientation?: 'top' | 'bottom';
+  yAxisOrientation?: 'left' | 'right';
 };
