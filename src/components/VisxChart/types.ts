@@ -8,8 +8,6 @@ import React from 'react';
 
 type Accessor<Datum> = (d: Datum) => number | string;
 
-type SimpleScaleConfig = { type: 'band' | 'linear'; paddingInner?: number };
-
 export type VisxChartProps<Datum extends object> = {
   animated?: boolean;
   renderTooltip?: (_: RenderTooltipParams<Datum>) => React.ReactNode;
@@ -25,23 +23,19 @@ export type VisxChartProps<Datum extends object> = {
     };
   }[];
   animationTrajectory?: AnimationTrajectory;
-  config: {
-    x: SimpleScaleConfig;
-    y: SimpleScaleConfig;
-  };
   curveType?: 'linear' | 'cardinal' | 'step';
   data: Datum[];
-  numTicks: number;
+  axisNumTicks?: number;
   renderGlyph?: React.FC<GlyphProps<Datum>>;
   renderTooltipGlyph?: React.FC<RenderTooltipGlyphProps<Datum>>;
-  renderHorizontally: boolean;
-  sharedTooltip: boolean;
-  showGridColumns: boolean;
-  showGridRows: boolean;
-  tooltipShowHorizontalCrosshair: boolean;
-  tooltipShowVerticalCrosshair: boolean;
-  tooltipSnapTooltipToDatumX: boolean;
-  tooltipSnapTooltipToDatumY: boolean;
+  renderHorizontally?: boolean;
+  sharedTooltip?: boolean;
+  showGridColumns?: boolean;
+  showGridRows?: boolean;
+  tooltipShowHorizontalCrosshair?: boolean;
+  tooltipShowVerticalCrosshair?: boolean;
+  tooltipSnapTooltipToDatumX?: boolean;
+  tooltipSnapTooltipToDatumY?: boolean;
   stackOffset?: 'wiggle' | 'expand' | 'diverging' | 'silhouette';
   themeName: 'dark' | 'light' | 'reya';
   xAxisOrientation?: 'top' | 'bottom';

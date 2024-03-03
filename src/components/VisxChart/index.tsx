@@ -10,25 +10,24 @@ import { userPrefersReducedMotion } from './userPrefersReducedMotion';
 
 export const VisxChart = <Datum extends object>({
   animated = !userPrefersReducedMotion(),
-  series,
+  series = [],
   animationTrajectory = 'outside',
-  config,
   curveType = 'linear',
-  data,
-  numTicks,
+  data = [],
+  axisNumTicks = 4,
   renderGlyph,
   renderTooltip,
   renderTooltipGlyph,
-  renderHorizontally,
-  sharedTooltip,
-  showGridColumns,
-  showGridRows,
-  tooltipShowHorizontalCrosshair,
-  tooltipShowVerticalCrosshair,
-  tooltipSnapTooltipToDatumX,
-  tooltipSnapTooltipToDatumY,
+  renderHorizontally = false,
+  sharedTooltip = false,
+  showGridColumns = false,
+  showGridRows = false,
+  tooltipShowHorizontalCrosshair = false,
+  tooltipShowVerticalCrosshair = false,
+  tooltipSnapTooltipToDatumX = false,
+  tooltipSnapTooltipToDatumY = false,
   stackOffset,
-  themeName,
+  themeName = 'dark',
   xAxisOrientation = 'bottom',
   yAxisOrientation = 'right',
   renderAs = 'line',
@@ -70,22 +69,31 @@ export const VisxChart = <Datum extends object>({
     }
     return customTheme;
   }, [themeName]);
+  const { xScale, yScale } = useMemo(() => {
+    const xScaleConfig = { paddingInner: 0.3, type: 'band' } as const;
+    const yScaleConfig = { type: 'linear' } as const;
+    if (renderHorizontally) {
+      return {
+        xScale: yScaleConfig,
+        yScale: xScaleConfig,
+      };
+    }
+    return {
+      xScale: xScaleConfig,
+      yScale: yScaleConfig,
+    };
+  }, [renderHorizontally]);
 
   return (
     <ParentSize>
       {({ height }) => (
-        <XYChart
-          height={Math.min(400, height)}
-          theme={chartTheme}
-          xScale={config.x}
-          yScale={config.y}
-        >
+        <XYChart height={Math.min(400, height)} theme={chartTheme} xScale={xScale} yScale={yScale}>
           {customChartBackground}
           <Grid
             key={`grid-${animationTrajectory}`} // force animate on update
             animationTrajectory={animationTrajectory}
             columns={showGridColumns}
-            numTicks={numTicks}
+            numTicks={axisNumTicks}
             rows={showGridRows}
           />
           {renderBarStack && (
@@ -218,7 +226,7 @@ export const VisxChart = <Datum extends object>({
               renderHorizontally ? 'renderHorizontally' : 'renderVertically'
             }`}
             animationTrajectory={animationTrajectory}
-            numTicks={numTicks}
+            numTicks={axisNumTicks}
             orientation={renderHorizontally ? yAxisOrientation : xAxisOrientation}
           />
           <Axis
@@ -226,7 +234,7 @@ export const VisxChart = <Datum extends object>({
               renderHorizontally ? 'renderHorizontally' : 'renderVertically'
             }`}
             animationTrajectory={animationTrajectory}
-            numTicks={numTicks}
+            numTicks={axisNumTicks}
             orientation={renderHorizontally ? xAxisOrientation : yAxisOrientation}
             tickFormat={stackOffset === 'wiggle' ? () => '' : undefined}
           />

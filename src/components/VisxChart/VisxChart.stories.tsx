@@ -4,15 +4,12 @@ import { GlyphCross, GlyphDot, GlyphStar } from '@visx/glyph';
 import cityTemperature, { CityTemperature } from '@visx/mock-data/lib/mocks/cityTemperature';
 import { GlyphProps, ThemeContext } from '@visx/xychart';
 import { RenderTooltipGlyphProps } from '@visx/xychart/lib/components/Tooltip';
-import React, { useContext, useMemo } from 'react';
+import React, { useContext } from 'react';
 
 import { VisxChart } from '.';
 import { CustomChartBackground } from './CustomChartBackground';
 import { VisxChartProps } from './types';
 
-const dateScaleConfig = { paddingInner: 0.3, type: 'band' } as const;
-const temperatureScaleConfig = { type: 'linear' } as const;
-const numTicks = 4;
 const data = cityTemperature.slice(225, 275);
 const dataMissingValues = data.map((d, i) =>
   i === 10 || i === 11
@@ -27,12 +24,6 @@ const getNegativeSfTemperature = (d: CityTemperature) => -getSfTemperature(d);
 const getNyTemperature = (d: CityTemperature) => Number(d['New York']);
 const getAustinTemperature = (d: CityTemperature) => Number(d.Austin);
 type City = 'San Francisco' | 'New York' | 'Austin';
-
-export default {
-  args: {},
-  component: VisxChart,
-  title: 'Components/VisxChart',
-} as Meta<typeof VisxChart>;
 
 const Box = styled('div')`
   height: 445px;
@@ -141,32 +132,24 @@ type TemplateProps = {
   showTooltip: boolean;
   negativeValues: boolean;
   missingValues: boolean;
-  fewerDatum: boolean;
+  lessData: boolean;
   withCustomBackground: boolean;
 };
-const Template: React.FunctionComponent<VisxChartProps<CityTemperature> & TemplateProps> = (
-  args,
-) => {
-  const glyphComponent = args.glyphComponent || 'star';
+const VisxChartIntegration: React.FunctionComponent<
+  VisxChartProps<CityTemperature> & TemplateProps
+> = (args) => {
+  const glyphComponent = args.glyphComponent;
   const enableTooltipGlyph = args.enableTooltipGlyph;
   const showTooltip = args.showTooltip;
-  const tooltipGlyphComponent = args.tooltipGlyphComponent || 'star';
-  const negativeValues = args.negativeValues || false;
-  const missingValues = args.missingValues || false;
-  const withCustomBackground = args.withCustomBackground || false;
-  const fewerDatum = args.fewerDatum || false;
-  const themeName = args.themeName;
+  const tooltipGlyphComponent = args.tooltipGlyphComponent;
+  const negativeValues = args.negativeValues;
+  const missingValues = args.missingValues;
+  const withCustomBackground = args.withCustomBackground;
+  const lessData = args.lessData;
   const sharedTooltip = args.sharedTooltip;
-  const renderHorizontally = args.renderHorizontally || false;
+  const renderHorizontally = args.renderHorizontally;
 
-  const config = useMemo(
-    () => ({
-      x: renderHorizontally ? temperatureScaleConfig : dateScaleConfig,
-      y: renderHorizontally ? dateScaleConfig : temperatureScaleConfig,
-    }),
-    [renderHorizontally],
-  );
-  const computedData = fewerDatum
+  const computedData = lessData
     ? missingValues
       ? dataSmallMissingValues
       : dataSmall
@@ -251,52 +234,62 @@ const Template: React.FunctionComponent<VisxChartProps<CityTemperature> & Templa
   const renderGlyph: VisxChartProps<CityTemperature>['renderGlyph'] = (props) => (
     <Glyph {...props} glyphComponent={glyphComponent} />
   );
+
   return (
     <Box>
       <VisxChart<CityTemperature>
-        {...{
-          animated: args.animated,
-          animationTrajectory: args.animationTrajectory,
-          config,
-          curveType: args.curveType,
-          customChartBackground: withCustomBackground ? <CustomChartBackground /> : null,
-          data: computedData,
-          numTicks,
-          renderAs: args.renderAs,
-          renderGlyph,
-          renderHorizontally,
-          renderTooltip,
-          renderTooltipGlyph,
-          series,
-          sharedTooltip,
-          showGridColumns: args.showGridColumns,
-          showGridRows: args.showGridRows,
-          stackOffset: args.stackOffset,
-          themeName,
-          tooltipShowHorizontalCrosshair: args.tooltipShowHorizontalCrosshair,
-          tooltipShowVerticalCrosshair: args.tooltipShowVerticalCrosshair,
-          tooltipSnapTooltipToDatumX: args.tooltipSnapTooltipToDatumX,
-          tooltipSnapTooltipToDatumY: args.tooltipSnapTooltipToDatumY,
-          xAxisOrientation: args.xAxisOrientation,
-          yAxisOrientation: args.yAxisOrientation,
-        }}
+        animated={args.animated}
+        animationTrajectory={args.animationTrajectory}
+        axisNumTicks={args.axisNumTicks}
+        curveType={args.curveType}
+        customChartBackground={withCustomBackground ? <CustomChartBackground /> : null}
+        data={computedData}
+        renderAs={args.renderAs}
+        renderGlyph={renderGlyph}
+        renderHorizontally={renderHorizontally}
+        renderTooltip={renderTooltip}
+        renderTooltipGlyph={renderTooltipGlyph}
+        series={series}
+        sharedTooltip={sharedTooltip}
+        showGridColumns={args.showGridColumns}
+        showGridRows={args.showGridRows}
+        stackOffset={args.stackOffset}
+        themeName={args.themeName}
+        tooltipShowHorizontalCrosshair={args.tooltipShowHorizontalCrosshair}
+        tooltipShowVerticalCrosshair={args.tooltipShowVerticalCrosshair}
+        tooltipSnapTooltipToDatumX={args.tooltipSnapTooltipToDatumX}
+        tooltipSnapTooltipToDatumY={args.tooltipSnapTooltipToDatumY}
+        xAxisOrientation={args.xAxisOrientation}
+        yAxisOrientation={args.yAxisOrientation}
       />
     </Box>
   );
 };
 
-export const Default: StoryObj<typeof Template> = {
+export default {
+  args: {},
+  component: VisxChartIntegration,
+  title: 'Components/VisxChart',
+} as Meta<typeof VisxChartIntegration>;
+
+export const Default: StoryObj<typeof VisxChartIntegration> = {
   args: {
     enableTooltipGlyph: false,
-    fewerDatum: false,
     glyphComponent: 'star',
+    lessData: false,
     missingValues: false,
     negativeValues: false,
-    renderHorizontally: true,
+    renderHorizontally: false,
     sharedTooltip: false,
+    showGridColumns: false,
+    showGridRows: false,
     showTooltip: false,
     themeName: 'dark',
     tooltipGlyphComponent: 'star',
+    tooltipShowHorizontalCrosshair: false,
+    tooltipShowVerticalCrosshair: false,
+    tooltipSnapTooltipToDatumX: false,
+    tooltipSnapTooltipToDatumY: false,
     withCustomBackground: false,
   },
 };

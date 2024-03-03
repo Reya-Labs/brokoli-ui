@@ -151,7 +151,7 @@ export const TimeSeriesChart = ({
                 numTicks={numTicksY}
                 orientation="left"
                 stroke={theme.colors.white950}
-                tickFormat={(y) => yFormatter(y, { numTicks: numTicksY, zoom, zoomDomain })}
+                tickFormat={(y: number) => yFormatter(y, { numTicks: numTicksY, zoom, zoomDomain })}
                 tickStroke={theme.colors.white950}
               />
 
@@ -161,7 +161,7 @@ export const TimeSeriesChart = ({
                 orientation="bottom"
                 stroke={theme.colors.white950}
                 strokeWidth={1}
-                tickFormat={(x) => xFormatter(x, { numTicks: numTicksX, zoom, zoomDomain })}
+                tickFormat={(x: number) => xFormatter(x, { numTicks: numTicksX, zoom, zoomDomain })}
                 tickStroke={theme.colors.white950}
               />
               <Tooltip

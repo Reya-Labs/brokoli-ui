@@ -1,10 +1,4 @@
-import { AxisScale, LineSeries } from '@visx/xychart';
-
 import { ColorTokens } from '../../foundation/Colors';
-
-type LineSeriesProps<Datum extends {}> = Parameters<
-  typeof LineSeries<AxisScale, AxisScale, Datum>
->[0];
 
 export type Datum = {
   x: number;
