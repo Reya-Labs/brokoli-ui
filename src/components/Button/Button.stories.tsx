@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
+import { ReactComponent as CloseIcon } from '../CloseButton/close-icon.svg';
 import { Button } from '.';
 
 export default {
@@ -86,6 +87,17 @@ export const Disabled: StoryObj<typeof Button> = {
     borderColorToken: 'white900',
     children: 'Default',
     disabled: true,
+    typographyColorToken: 'white950',
+  },
+};
+
+export const WithIcon: StoryObj<typeof Button> = {
+  args: {
+    backgroundColorToken: 'white100',
+    borderColorToken: 'white900',
+    children: 'Default',
+    iconLeft: CloseIcon,
+    rounded: true,
     typographyColorToken: 'white950',
   },
 };
