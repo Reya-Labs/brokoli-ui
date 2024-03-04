@@ -44,13 +44,13 @@ describe('<TextField />', () => {
   });
 
   it('disables input when disabled prop is true', () => {
-    render(<TextField {...defaultProps} disabled />);
+    render(<TextField {...defaultProps} disabled={true} />);
     const input = screen.getByTestId('TextField-TextFieldBox-TextInputStyled');
     expect(input).toBeDisabled();
   });
 
   it('renders error styles when error prop is true', () => {
-    render(<TextField {...defaultProps} error />);
+    render(<TextField {...defaultProps} error={true} />);
     const textFieldBox = screen.getByTestId('TextField-TextFieldBox-Error');
     expect(textFieldBox).toBeInTheDocument();
   });

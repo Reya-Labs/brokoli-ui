@@ -50,13 +50,13 @@ describe('<TokenField />', () => {
   });
 
   it('disables input when disabled prop is true', () => {
-    render(<TokenField {...defaultProps} disabled />);
+    render(<TokenField {...defaultProps} disabled={true} />);
     const input = screen.getByTestId('TokenField-CurrencyInputBox-CurrencyInputStyled');
     expect(input).toBeDisabled();
   });
 
   it('renders error styles when error prop is true', () => {
-    render(<TokenField {...defaultProps} error />);
+    render(<TokenField {...defaultProps} error={true} />);
     const inputBox = screen.getByTestId('TokenField-CurrencyInputBox');
     expect(inputBox).toHaveClass('css-cssveg'); // Replace with the actual CSS class name for error styles
   });

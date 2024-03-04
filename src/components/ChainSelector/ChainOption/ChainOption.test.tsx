@@ -23,7 +23,7 @@ describe('ChainOption', () => {
   });
 
   it('renders active chain option button correctly', () => {
-    render(<ChainOption {...defaultProps} isActive />);
+    render(<ChainOption {...defaultProps} isActive={true} />);
     const activeChainOptionButton = screen.getByTestId('ActiveChainOptionButton');
     expect(activeChainOptionButton).toBeInTheDocument();
     expect(activeChainOptionButton).toHaveTextContent(defaultProps.name);
@@ -37,7 +37,7 @@ describe('ChainOption', () => {
   });
 
   it('calls the onClick callback when active chain option button is clicked', () => {
-    render(<ChainOption {...defaultProps} isActive />);
+    render(<ChainOption {...defaultProps} isActive={true} />);
     const activeChainOptionButton = screen.getByTestId('ActiveChainOptionButton');
     fireEvent.click(activeChainOptionButton);
     expect(defaultProps.onClick).toHaveBeenCalled();

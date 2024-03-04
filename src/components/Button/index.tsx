@@ -27,12 +27,12 @@ export type ButtonProps = React.PropsWithChildren<{
    * `iconLeft` allows you to insert a React Component (preferably an SVG) on the left side of the button content.
    * When an SVG is provided as `iconLeft`, it will inherit hover effects from the button, such as color changes.
    */
-  iconLeft?: React.ComponentType;
+  iconLeft?: React.ReactNode;
   /**
    * `iconRight` allows you to insert a React Component (preferably an SVG) on the right side of the button content.
    * When an SVG is provided as `iconRight`, it will inherit hover effects from the button, such as color changes.
    */
-  iconRight?: React.ComponentType;
+  iconRight?: React.ReactNode;
 }>;
 
 export const Button: React.FunctionComponent<ButtonProps> = ({
@@ -53,30 +53,30 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
   hoverBorderColorToken,
   hoverTypographyColorToken,
   hoverBackgroundColorToken,
-  iconLeft: IconLeft,
-  iconRight: IconRight,
+  iconLeft,
+  iconRight,
 }) => {
   const childrenToRender = !loading ? children : <Ellipsis />;
 
   const content = (
     <>
-      {IconLeft && !loading && (
+      {iconLeft && !loading && (
         <IconBox
           color={typographyColorToken}
-          data-testid="iconLeft-testid"
+          data-testid="Button-IconLeftBox"
           hoverColor={hoverTypographyColorToken}
         >
-          <IconLeft />
+          {iconLeft}
         </IconBox>
       )}
       {childrenToRender}
-      {IconRight && !loading && (
+      {iconRight && !loading && (
         <IconBox
           color={typographyColorToken}
-          data-testid="iconRight-testid"
+          data-testid="Button-IconRightBox"
           hoverColor={hoverTypographyColorToken}
         >
-          <IconRight />
+          {iconRight}
         </IconBox>
       )}
     </>

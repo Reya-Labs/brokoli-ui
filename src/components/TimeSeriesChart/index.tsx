@@ -179,10 +179,10 @@ export const TimeSeriesChart = ({
                     {yAccessor(tooltipData!.nearestDatum!.datum as Datum)}
                   </div>
                 )}
-                showSeriesGlyphs
-                showVerticalCrosshair
-                snapTooltipToDatumX
-                snapTooltipToDatumY
+                showSeriesGlyphs={true}
+                showVerticalCrosshair={true}
+                snapTooltipToDatumX={true}
+                snapTooltipToDatumY={true}
               />
             </XYChart>
           );

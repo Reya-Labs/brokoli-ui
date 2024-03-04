@@ -57,13 +57,13 @@ describe('<MarginAmountTokenField />', () => {
   });
 
   it('disables input when disabled prop is true', () => {
-    render(<MarginAmountTokenField {...defaultProps} disabled />);
+    render(<MarginAmountTokenField {...defaultProps} disabled={true} />);
     const input = screen.getByTestId('MarginAmountTokenField-CurrencyInputBox-CurrencyInputStyled');
     expect(input).toBeDisabled();
   });
 
   it('renders error styles when error prop is true', () => {
-    render(<MarginAmountTokenField {...defaultProps} error />);
+    render(<MarginAmountTokenField {...defaultProps} error={true} />);
     const inputBox = screen.getByTestId('MarginAmountTokenField-CurrencyInputBox');
     expect(inputBox).toHaveClass('css-cssveg'); // Replace with the actual CSS class name for error styles
   });

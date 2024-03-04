@@ -123,7 +123,7 @@ export const FloatingUIDialogContent = React.forwardRef<
   return (
     <FloatingPortal>
       {context.open && (
-        <FloatingOverlayStyled lockScroll>
+        <FloatingOverlayStyled lockScroll={true}>
           <FloatingFocusManager context={floatingContext}>
             <div
               ref={ref}

@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
+import React from 'react';
 
 import { ReactComponent as CloseIcon } from '../CloseButton/close-icon.svg';
 import { Button } from '.';
@@ -96,7 +97,7 @@ export const WithIcon: StoryObj<typeof Button> = {
     backgroundColorToken: 'white100',
     borderColorToken: 'white900',
     children: 'Default',
-    iconLeft: CloseIcon,
+    iconLeft: <CloseIcon />,
     rounded: true,
     typographyColorToken: 'white950',
   },

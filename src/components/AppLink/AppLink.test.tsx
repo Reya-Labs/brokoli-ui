@@ -20,7 +20,7 @@ describe('<AppLink />', () => {
   });
 
   it('renders disabled link correctly', () => {
-    render(<AppLink {...defaultProps} disabled />);
+    render(<AppLink {...defaultProps} disabled={true} />);
     const disabledTypography = screen.getByTestId('AppLink-DisabledTypography');
     expect(disabledTypography).toBeInTheDocument();
     expect(disabledTypography).toHaveTextContent(defaultProps.children);
