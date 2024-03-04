@@ -129,7 +129,7 @@ const TooltipGlyph = ({
 type TemplateProps = {
   glyphComponent: 'star' | 'cross' | 'circle' | '🍍';
   tooltipGlyphComponent: 'star' | 'cross' | 'circle' | '🍍';
-  enableTooltipGlyph: boolean;
+  showTooltipGlyph: boolean;
   showTooltip: boolean;
   negativeValues: boolean;
   missingValues: boolean;
@@ -140,7 +140,7 @@ const VisxChartIntegration: React.FunctionComponent<
   VisxChartProps<CityTemperature> & TemplateProps
 > = (args) => {
   const glyphComponent = args.glyphComponent;
-  const enableTooltipGlyph = args.enableTooltipGlyph;
+  const showTooltipGlyph = args.showTooltipGlyph;
   const showTooltip = args.showTooltip;
   const tooltipGlyphComponent = args.tooltipGlyphComponent;
   const negativeValues = args.negativeValues;
@@ -182,10 +182,9 @@ const VisxChartIntegration: React.FunctionComponent<
     },
   ];
 
-  const renderTooltipGlyph: VisxChartProps<CityTemperature>['renderTooltipGlyph'] =
-    enableTooltipGlyph
-      ? (props) => <TooltipGlyph {...props} tooltipGlyphComponent={tooltipGlyphComponent} />
-      : undefined;
+  const renderTooltipGlyph: VisxChartProps<CityTemperature>['renderTooltipGlyph'] = showTooltipGlyph
+    ? (props) => <TooltipGlyph {...props} tooltipGlyphComponent={tooltipGlyphComponent} />
+    : undefined;
 
   const renderTooltip: VisxChartProps<CityTemperature>['renderTooltip'] = showTooltip
     ? ({ tooltipData, colorScale }) => (
@@ -250,7 +249,7 @@ const VisxChartIntegration: React.FunctionComponent<
         renderTooltip={renderTooltip}
         renderTooltipGlyph={renderTooltipGlyph}
         series={series}
-        seriesOrientation={renderHorizontally}
+        seriesOrientation={args.seriesOrientation}
         sharedTooltip={sharedTooltip}
         showGridColumns={args.showGridColumns}
         showGridRows={args.showGridRows}
@@ -299,21 +298,21 @@ export const Default: StoryObj<typeof VisxChartIntegration> = {
   args: {
     chartType: 'line',
     curveType: 'linear',
-    enableTooltipGlyph: false,
     glyphComponent: 'star',
     lessData: false,
     missingValues: false,
     negativeValues: false,
-    seriesOrientation: false,
+    seriesOrientation: 'vertical',
     sharedTooltip: false,
     showGridColumns: false,
     showGridRows: false,
-    showTooltip: false,
+    showTooltip: true,
+    showTooltipGlyph: false,
     themeName: 'dark',
     tooltipGlyphComponent: 'star',
     tooltipShowHorizontalCrosshair: false,
     tooltipShowVerticalCrosshair: false,
-    tooltipSnapTooltipToDatumX: false,
+    tooltipSnapTooltipToDatumX: true,
     tooltipSnapTooltipToDatumY: false,
     withCustomBackground: false,
   },
