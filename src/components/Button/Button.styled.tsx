@@ -109,8 +109,14 @@ export const IconBox = styled(
       hoverColor ? getColorFromToken({ colorToken: hoverColor, theme }) : 'inherit'};
   }
 
-  & > svg {
+  & path {
     display: block;
-    fill: currentColor;
+    stroke: ${({ theme, color }) =>
+      color ? getColorFromToken({ colorToken: color, theme }) : 'inherit'};
+  }
+
+  &:hover path {
+    stroke: ${({ theme, hoverColor }) =>
+      hoverColor ? getColorFromToken({ colorToken: hoverColor, theme }) : 'inherit'};
   }
 `;
