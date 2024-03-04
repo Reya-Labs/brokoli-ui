@@ -78,7 +78,7 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
         >
           <IconRight />
         </IconBox>
-      )}{' '}
+      )}
     </>
   );
 
