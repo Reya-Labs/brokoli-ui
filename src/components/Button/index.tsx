@@ -1,4 +1,4 @@
-import React, { FC, PropsWithChildren } from 'react';
+import React from 'react';
 
 import { ColorTokens } from '../../foundation/Colors';
 import { TypographyTokens } from '../../foundation/Typography';
