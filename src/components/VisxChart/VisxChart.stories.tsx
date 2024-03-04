@@ -89,7 +89,6 @@ const TooltipGlyph = ({
   isNearestDatum,
   tooltipGlyphComponent,
 }: RenderTooltipGlyphProps<CityTemperature> & Pick<TemplateProps, 'tooltipGlyphComponent'>) => {
-  console.log('### rendering');
   const handlers = { onPointerMove, onPointerOut, onPointerUp };
   const theme = useContext(ThemeContext);
   const glyphOutline = theme.gridStyles.stroke;
