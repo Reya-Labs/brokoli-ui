@@ -89,6 +89,7 @@ export const ButtonStyled = styled(
       typographyColorToken
         ? getColorFromToken({ colorToken: typographyColorToken, theme })
         : 'inherit'};
+    transition: stroke 200ms ease-in;
   }
 
   &:hover:enabled path {
