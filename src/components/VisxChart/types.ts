@@ -28,7 +28,7 @@ export type VisxChartProps<Datum extends object> = {
   axisNumTicks?: number;
   renderGlyph?: React.FC<GlyphProps<Datum>>;
   renderTooltipGlyph?: React.FC<RenderTooltipGlyphProps<Datum>>;
-  renderHorizontally?: boolean;
+  seriesOrientation?: 'horizontal' | 'vertical';
   sharedTooltip?: boolean;
   showGridColumns?: boolean;
   showGridRows?: boolean;
@@ -40,6 +40,6 @@ export type VisxChartProps<Datum extends object> = {
   themeName: 'dark' | 'light' | 'reya';
   xAxisOrientation?: 'top' | 'bottom';
   yAxisOrientation?: 'left' | 'right';
-  renderAs: 'glyph' | 'bar' | 'barstack' | 'bargroup' | 'line' | 'area' | 'areastack' | 'none';
+  chartType: 'glyph' | 'bar' | 'barstack' | 'bargroup' | 'line' | 'area' | 'areastack' | 'none';
   customChartBackground?: React.ReactNode;
 };

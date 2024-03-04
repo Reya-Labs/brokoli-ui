@@ -18,7 +18,7 @@ export const VisxChart = <Datum extends object>({
   renderGlyph,
   renderTooltip,
   renderTooltipGlyph,
-  renderHorizontally = false,
+  seriesOrientation = 'vertical',
   sharedTooltip = false,
   showGridColumns = false,
   showGridRows = false,
@@ -30,7 +30,7 @@ export const VisxChart = <Datum extends object>({
   themeName = 'dark',
   xAxisOrientation = 'bottom',
   yAxisOrientation = 'right',
-  renderAs = 'line',
+  chartType = 'line',
   customChartBackground = null,
 }: VisxChartProps<Datum>) => {
   const {
@@ -46,20 +46,21 @@ export const VisxChart = <Datum extends object>({
     Tooltip,
     XYChart,
   } = getAnimatedOrUnanimatedComponents(animated);
-  const renderBarGroup = renderAs === 'bargroup';
-  const renderBarStack = renderAs === 'barstack';
-  const renderLineSeries = renderAs === 'line';
-  const renderAreaSeries = renderAs === 'area';
-  const renderAreaStack = renderAs === 'areastack';
-  const renderBarSeries = renderAs === 'bar';
-  const renderGlyphSeries = renderAs === 'glyph';
+  const renderBarGroup = chartType === 'bargroup';
+  const renderBarStack = chartType === 'barstack';
+  const renderLineSeries = chartType === 'line';
+  const renderAreaSeries = chartType === 'area';
+  const renderAreaStack = chartType === 'areastack';
+  const renderBarSeries = chartType === 'bar';
+  const renderGlyphSeries = chartType === 'glyph';
+  const renderHorizontally = seriesOrientation === 'horizontal';
   const curve = useMemo(() => {
     if (curveType === 'cardinal') return curveCardinal;
     if (curveType === 'step') return curveStep;
     return curveLinear;
   }, [curveType]);
   // cannot snap to a stack position
-  const canSnapTooltipToDatum = renderAs !== 'barstack' && renderAs !== 'areastack';
+  const canSnapTooltipToDatum = chartType !== 'barstack' && chartType !== 'areastack';
   const chartTheme = useMemo(() => {
     if (themeName === 'dark') {
       return darkTheme;

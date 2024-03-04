@@ -89,6 +89,7 @@ const TooltipGlyph = ({
   isNearestDatum,
   tooltipGlyphComponent,
 }: RenderTooltipGlyphProps<CityTemperature> & Pick<TemplateProps, 'tooltipGlyphComponent'>) => {
+  console.log('### rendering');
   const handlers = { onPointerMove, onPointerOut, onPointerUp };
   const theme = useContext(ThemeContext);
   const glyphOutline = theme.gridStyles.stroke;
@@ -147,7 +148,7 @@ const VisxChartIntegration: React.FunctionComponent<
   const withCustomBackground = args.withCustomBackground;
   const lessData = args.lessData;
   const sharedTooltip = args.sharedTooltip;
-  const renderHorizontally = args.renderHorizontally;
+  const renderHorizontally = args.seriesOrientation === 'horizontal';
 
   const computedData = lessData
     ? missingValues
@@ -241,15 +242,15 @@ const VisxChartIntegration: React.FunctionComponent<
         animated={args.animated}
         animationTrajectory={args.animationTrajectory}
         axisNumTicks={args.axisNumTicks}
+        chartType={args.chartType}
         curveType={args.curveType}
         customChartBackground={withCustomBackground ? <CustomChartBackground /> : null}
         data={computedData}
-        renderAs={args.renderAs}
         renderGlyph={renderGlyph}
-        renderHorizontally={renderHorizontally}
         renderTooltip={renderTooltip}
         renderTooltipGlyph={renderTooltipGlyph}
         series={series}
+        seriesOrientation={renderHorizontally}
         sharedTooltip={sharedTooltip}
         showGridColumns={args.showGridColumns}
         showGridRows={args.showGridRows}
@@ -273,13 +274,37 @@ export default {
 } as Meta<typeof VisxChartIntegration>;
 
 export const Default: StoryObj<typeof VisxChartIntegration> = {
+  argTypes: {
+    chartType: {
+      control: 'select',
+      options: ['glyph', 'bar', 'barstack', 'bargroup', 'line', 'area', 'areastack', 'none'],
+    },
+    curveType: {
+      control: 'select',
+      options: ['linear', 'cardinal', 'step'],
+    },
+    glyphComponent: {
+      control: 'select',
+      options: ['star', 'cross', 'circle', '🍍'],
+    },
+    themeName: {
+      control: 'select',
+      options: ['dark', 'light', 'reya'],
+    },
+    tooltipGlyphComponent: {
+      control: 'select',
+      options: ['star', 'cross', 'circle', '🍍'],
+    },
+  },
   args: {
+    chartType: 'line',
+    curveType: 'linear',
     enableTooltipGlyph: false,
     glyphComponent: 'star',
     lessData: false,
     missingValues: false,
     negativeValues: false,
-    renderHorizontally: false,
+    seriesOrientation: false,
     sharedTooltip: false,
     showGridColumns: false,
     showGridRows: false,
