@@ -39,12 +39,13 @@ export const TokenBox = styled('div')`
 
 export const CurrencyInputStyled = styled(
   CurrencyInput,
-  shouldNotForwardProps(['typographyToken', 'error']),
+  shouldNotForwardProps(['hasPrefixToken', 'typographyToken', 'error']),
 )<{
   error?: boolean;
   typographyToken: TypographyTokens;
+  hasPrefixToken: boolean;
 }>`
-  padding: 10px 96px 10px 16px;
+  padding: 10px 96px 10px ${({ hasPrefixToken }) => (hasPrefixToken ? 28 : 16)}px;
   height: 44px;
 
   ${({ theme, error, typographyToken }) =>
@@ -65,6 +66,19 @@ export const FloatingBox = styled('div')`
   top: calc(50% - 12px);
   z-index: 1;
   color: ${({ theme }) => theme.colors.white100};
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  height: 24px;
+`;
+
+export const LeftFloatingBox = styled('div')`
+  position: absolute;
+  left: 16px;
+  top: calc(50% - 12px);
+  z-index: 1;
   cursor: pointer;
   display: flex;
   flex-direction: row;

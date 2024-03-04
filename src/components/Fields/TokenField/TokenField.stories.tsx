@@ -101,3 +101,24 @@ export const WithMaxTokenOptionsAndTokenFormatter: StoryObj<typeof TokenField> =
 
   render: Template,
 };
+
+export const WithPrefixTokenFormatter: StoryObj<typeof TokenField> = {
+  args: {
+    bottomLeftText: 'Max value is',
+    bottomRightTextValue: '123456',
+    label: 'Label',
+    max: {
+      onClick: () => {},
+      showButton: true,
+      value: '123456',
+    },
+    prefixToken: '+',
+    token: 'usdc',
+    tokenFormatter: (token: string | undefined) => (!token ? '' : token.toUpperCase()),
+    tokenOptions: ['eth', 'usdc'],
+    tooltip: 'Tooltip message here!',
+    topRightText: 'Top right text',
+  },
+
+  render: Template,
+};

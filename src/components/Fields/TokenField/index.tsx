@@ -15,6 +15,7 @@ import {
   CurrencyInputBox,
   CurrencyInputStyled,
   FloatingBox,
+  LeftFloatingBox,
   MaxButton,
   TokenBox,
   TokenFieldBox,
@@ -59,6 +60,7 @@ export type TokenFieldProps = {
   tokenFormatter?: (token: string | undefined) => string;
   tokenOptions?: string[];
   onTokenOptionSelected?: (selectedToken: string) => void;
+  prefixToken?: string;
 };
 
 const defaultTokenFormatter = (token: string | undefined) => token;
@@ -100,6 +102,7 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
   tokenFormatter = defaultTokenFormatter,
   tokenOptions = [],
   onTokenOptionSelected,
+  prefixToken,
 }) => {
   const hasMaxButton = Boolean(max && max.showButton);
   const handleOnChange = (newValue: string | undefined) => {
@@ -116,6 +119,7 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
   const bottomRightTextTokenComputed = bottomRightTextToken
     ? bottomRightTextToken
     : tokenFormatter(token);
+  const hasPrefixToken = Boolean(prefixToken);
   return (
     <TokenFieldBox data-testid="TokenField-TokenFieldBox">
       <TopBox data-testid="TokenField-TopBox">
@@ -153,6 +157,7 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
           }
           disabled={disabled}
           error={error}
+          hasPrefixToken={hasPrefixToken}
           intlConfig={{ locale: navigator.language }}
           max={max ? max.value : undefined}
           maxLength={maxLength}
@@ -163,6 +168,13 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
           onBlur={onBlur}
           onValueChange={handleOnChange}
         />
+        {hasPrefixToken ? (
+          <LeftFloatingBox>
+            <Typography colorToken="white950" typographyToken={typographyToken}>
+              {prefixToken}
+            </Typography>
+          </LeftFloatingBox>
+        ) : null}
         <FloatingBox>
           {hasMaxButton ? (
             <MaxButton
