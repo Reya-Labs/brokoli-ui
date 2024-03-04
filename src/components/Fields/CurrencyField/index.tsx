@@ -3,6 +3,7 @@ import { formatValue } from 'react-currency-input-field';
 
 import { ColorTokens } from '../../../foundation/Colors';
 import { TypographyTokens } from '../../../foundation/Typography';
+import { browserI18n } from '../../../utils/browser-i18n';
 import { ExclaimTooltipProps } from '../../ExclaimTooltip';
 import { TooltipLabel } from '../../TooltipLabel';
 import { MaxConfig } from '../_common/types';
@@ -38,7 +39,7 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
   onChange,
   decimalsLimit = 2,
   maxLength = 18,
-  value,
+  value = '',
   defaultValue,
   disabled,
   error,
@@ -57,8 +58,10 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
   typographyToken = 'bodySmallRegular',
   labelAttentionIndicatorColorToken,
 }) => {
+  const { thousands } = browserI18n();
+  const cleanedValue = value.replace(new RegExp(thousands, 'g'), ''); // This replaces all occurrences of 'a'
   const handleOnChange = (newValue: string | undefined) => {
-    if (newValue === value) {
+    if (newValue === cleanedValue) {
       return;
     }
     onChange && onChange(newValue);
@@ -94,7 +97,7 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
         placeholder={placeholder}
         suffix={suffix}
         typographyToken={typographyToken}
-        value={value}
+        value={cleanedValue}
         onBlur={onBlur}
         onValueChange={handleOnChange}
       />

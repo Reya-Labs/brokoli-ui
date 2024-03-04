@@ -3,6 +3,7 @@ import { formatValue } from 'react-currency-input-field';
 
 import { ColorTokens } from '../../../foundation/Colors';
 import { TypographyTokens } from '../../../foundation/Typography';
+import { browserI18n } from '../../../utils/browser-i18n';
 import { ExclaimTooltipProps } from '../../ExclaimTooltip';
 import { TokenIcon, TokenIconProps } from '../../Icons';
 import { ToggleCaret } from '../../ToggleCaret';
@@ -69,7 +70,7 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
   onChange,
   decimalsLimit = 2,
   maxLength = 18,
-  value,
+  value = '',
   defaultValue,
   disabled,
   error,
@@ -104,9 +105,11 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
   onTokenOptionSelected,
   prefixToken,
 }) => {
+  const { thousands } = browserI18n();
+  const cleanedValue = value.replace(new RegExp(thousands, 'g'), ''); // This replaces all occurrences of 'a'
   const hasMaxButton = Boolean(max && max.showButton);
   const handleOnChange = (newValue: string | undefined) => {
-    if (newValue === value) {
+    if (newValue === cleanedValue) {
       return;
     }
     onChange && onChange(newValue);
@@ -164,7 +167,7 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
           min={min}
           placeholder={placeholder}
           typographyToken={typographyToken}
-          value={value}
+          value={cleanedValue}
           onBlur={onBlur}
           onValueChange={handleOnChange}
         />

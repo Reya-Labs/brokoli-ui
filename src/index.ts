@@ -47,4 +47,5 @@ export * from './foundation/Media';
 export * from './foundation/Theme';
 export * from './foundation/ThemeProvider';
 export * from './foundation/Typography';
+export * from './utils/browser-i18n';
 export * from './utils/should-not-forward-props';
