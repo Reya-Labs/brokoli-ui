@@ -76,7 +76,7 @@ export const FloatingBox = styled('div')`
 
 export const LeftFloatingBox = styled('div')`
   position: absolute;
-  left: 16px;
+  left: 8px;
   top: calc(50% - 12px);
   z-index: 1;
   cursor: pointer;
