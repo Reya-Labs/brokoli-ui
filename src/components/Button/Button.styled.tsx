@@ -89,3 +89,28 @@ export const ButtonBox = styled('div')`
   width: 100%;
   gap: 8px;
 `;
+
+export const IconBox = styled(
+  'div',
+  shouldNotForwardProps(['width', 'height', 'color', 'hoverColor']),
+)<{
+  width?: number;
+  height?: number;
+  color?: ColorTokens;
+  hoverColor?: ColorTokens;
+}>`
+  width: ${({ width }) => width || `${12  }px`};
+  height: ${({ height }) => height || `${12  }px`};
+  color: ${({ theme, color }) =>
+    color ? getColorFromToken({ colorToken: color, theme }) : 'inherit'};
+
+  &:hover {
+    color: ${({ theme, hoverColor }) =>
+      hoverColor ? getColorFromToken({ colorToken: hoverColor, theme }) : 'inherit'};
+  }
+
+  & > svg {
+    display: block;
+    fill: currentColor;
+  }
+`;
