@@ -61,16 +61,24 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
   const content = (
     <>
       {IconLeft && !loading && (
-        <IconBox color={typographyColorToken} hoverColor={hoverTypographyColorToken}>
+        <IconBox
+          color={typographyColorToken}
+          data-testid="iconLeft-testid"
+          hoverColor={hoverTypographyColorToken}
+        >
           <IconLeft />
         </IconBox>
       )}
       {childrenToRender}
       {IconRight && !loading && (
-        <IconBox color={typographyColorToken} hoverColor={hoverTypographyColorToken}>
+        <IconBox
+          color={typographyColorToken}
+          data-testid="iconRight-testid"
+          hoverColor={hoverTypographyColorToken}
+        >
           <IconRight />
         </IconBox>
-      )}
+      )}{' '}
     </>
   );
 
