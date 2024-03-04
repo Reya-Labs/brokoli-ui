@@ -99,8 +99,8 @@ export const IconBox = styled(
   color?: ColorTokens;
   hoverColor?: ColorTokens;
 }>`
-  width: ${({ width }) => width || `${12  }px`};
-  height: ${({ height }) => height || `${12  }px`};
+  width: ${({ width }) => width || `${12}px`};
+  height: ${({ height }) => height || `${12}px`};
   color: ${({ theme, color }) =>
     color ? getColorFromToken({ colorToken: color, theme }) : 'inherit'};
 
