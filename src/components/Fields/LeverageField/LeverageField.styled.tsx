@@ -53,7 +53,7 @@ export const ButtonStyled = styled('button')<{
   cursor: pointer;
   transition: all 200ms ease-in;
 
-  &:hover {
+  &:hover:enabled {
     box-shadow: 0px 0px 1px ${({ theme }) => theme.colors.white100};
   }
 

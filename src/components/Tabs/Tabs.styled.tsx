@@ -94,7 +94,7 @@ export const TabStyled = styled(
     background-color,
     color 200ms ease-in;
 
-  &:hover {
+  &:hover:enabled {
     color: ${({ theme, hoverTabColorToken }) =>
       getColorFromToken({ colorToken: hoverTabColorToken, theme })};
   }

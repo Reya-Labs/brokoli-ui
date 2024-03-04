@@ -11,7 +11,7 @@ export const AvatarAddressBox = styled('div')`
 
 export const AddressTypography = styled(Typography)`
   transition: text-shadow 200ms ease-in;
-  &:hover {
+  &:hover:enabled {
     cursor: pointer;
     text-shadow: 0px 0px 10px ${({ theme }) => addAlpha(theme.colors.white100, 0.9)};
   }

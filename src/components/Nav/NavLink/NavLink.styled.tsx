@@ -31,7 +31,7 @@ export const NavLinkButtonBox = styled(
   background: ${({ isActive, theme }) =>
     isActive ? getColorFromToken({ colorToken: `black800`, theme }) : undefined};
   transition: all 200ms ease-in;
-  &:hover {
+  &:hover:enabled {
     ${({ theme, colorToken }) =>
       colorToken === 'rainbow'
         ? ''
@@ -71,7 +71,7 @@ export const NavLinkButton = styled(
   `
       : ''};
 
-  &:hover {
+  &:hover:enabled {
     ${({ theme, colorToken }) =>
       colorToken !== 'rainbow'
         ? ''

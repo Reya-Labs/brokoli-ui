@@ -29,7 +29,7 @@ export const CloseButtonWrapper = styled(
   cursor: pointer;
   border: none;
 
-  &:hover {
+  &:hover:enabled {
     background-color: ${({ theme, buttonHoverBackgroundColorToken }) =>
       getColorFromToken({ colorToken: buttonHoverBackgroundColorToken, theme })};
 

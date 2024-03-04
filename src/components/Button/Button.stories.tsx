@@ -1,8 +1,8 @@
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 
-import { ReactComponent as CloseIcon } from '../CloseButton/close-icon.svg';
 import { Button } from '.';
+import { SendIcon } from './SendIcon';
 
 export default {
   argTypes: {},
@@ -94,11 +94,14 @@ export const Disabled: StoryObj<typeof Button> = {
 
 export const WithIcon: StoryObj<typeof Button> = {
   args: {
-    backgroundColorToken: 'white100',
+    backgroundColorToken: 'black700',
     borderColorToken: 'white900',
     children: 'Default',
-    iconLeft: <CloseIcon />,
+    hoverTypographyColorToken: 'primary500',
+    iconLeft: <SendIcon />,
+    iconRight: <SendIcon />,
     rounded: true,
-    typographyColorToken: 'white950',
+    typographyColorToken: 'white100',
+    typographyToken: 'bodyMediumRegular',
   },
 };

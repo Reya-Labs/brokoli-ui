@@ -25,7 +25,7 @@ export const SelectorBox = styled('div', shouldNotForwardProps(['disabled']))<{
   background: ${({ theme }) => theme.colors.black900};
   transition: all 200ms ease-in;
 
-  &:hover {
+  &:hover:enabled {
     background: ${({ theme, disabled }) => (disabled ? undefined : theme.colors.black700)};
     border: ${({ theme, disabled }) =>
       disabled ? undefined : `1px solid  ${theme.colors.black500}`};
@@ -65,7 +65,7 @@ export const ChainSelectorButton = styled(
   transition: color 200ms ease-in;
   background: transparent;
   border: 0;
-  &:hover {
+  &:hover:enabled {
     color: ${({ disabled, theme }) => (disabled ? undefined : theme.colors.white100)};
   }
 `;

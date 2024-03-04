@@ -36,12 +36,12 @@ export const ChainOptionButton = styled('button')`
   border: 0;
   cursor: pointer;
 
-  &:hover {
+  &:hover:enabled {
     text-decoration: none;
     background-color: ${({ theme }) => theme.colors.black700};
   }
 
-  &:hover div {
+  &:hover:enabled div {
     background: ${({ theme }) => theme.colors.black800};
   }
 `;

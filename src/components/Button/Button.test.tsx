@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { fireEvent, render, screen } from '../../test-utils';
-import { ReactComponent as TestIcon } from '../CloseButton/close-icon.svg';
 import { Button } from './';
+import { SendIcon } from './SendIcon';
 
 describe('<Button />', () => {
   it('renders children correctly', () => {
@@ -38,7 +38,7 @@ describe('<Button />', () => {
 
   it('renders left and right icons when passed as props', () => {
     render(
-      <Button iconLeft={<TestIcon />} iconRight={<TestIcon />}>
+      <Button iconLeft={<SendIcon />} iconRight={<SendIcon />}>
         Click Me
       </Button>,
     );
@@ -50,7 +50,7 @@ describe('<Button />', () => {
 
   it('does not render icons when loading is true', () => {
     render(
-      <Button iconLeft={<TestIcon />} iconRight={<TestIcon />} loading={true}>
+      <Button iconLeft={<SendIcon />} iconRight={<SendIcon />} loading={true}>
         Click Me
       </Button>,
     );

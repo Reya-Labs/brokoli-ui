@@ -39,7 +39,7 @@ export const ExternalLinkStyled = styled(
   }
 
   &:visited:hover,
-  &:hover {
+  &:hover:enabled {
     text-decoration: underline;
     color: ${({ theme, hoverColorToken }) =>
       getColorFromToken({ colorToken: hoverColorToken, theme })};

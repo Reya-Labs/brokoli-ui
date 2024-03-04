@@ -58,6 +58,7 @@ export const ButtonStyled = styled(
     border,
     background,
     color 200ms ease-in;
+  position: relative;
 
   &:hover:enabled {
     border: ${({ theme, borderColorToken, hoverBorderColorToken }) =>
@@ -81,6 +82,21 @@ export const ButtonStyled = styled(
     cursor: not-allowed;
     filter: blur(1px);
   }
+
+  & path {
+    display: block;
+    stroke: ${({ theme, typographyColorToken }) =>
+      typographyColorToken
+        ? getColorFromToken({ colorToken: typographyColorToken, theme })
+        : 'inherit'};
+  }
+
+  &:hover:enabled path {
+    stroke: ${({ theme, hoverTypographyColorToken }) =>
+      hoverTypographyColorToken
+        ? getColorFromToken({ colorToken: hoverTypographyColorToken, theme })
+        : 'inherit'};
+  }
 `;
 
 export const ButtonBox = styled('div')`
@@ -90,33 +106,18 @@ export const ButtonBox = styled('div')`
   gap: 8px;
 `;
 
-export const IconBox = styled(
-  'div',
-  shouldNotForwardProps(['width', 'height', 'color', 'hoverColor']),
-)<{
-  width?: number;
-  height?: number;
+export const IconBox = styled('div', shouldNotForwardProps(['color', 'hoverColor']))<{
   color?: ColorTokens;
   hoverColor?: ColorTokens;
 }>`
-  width: ${({ width }) => width || `${12}px`};
-  height: ${({ height }) => height || `${12}px`};
+  display: flex;
+  height: 100%;
+  align-items: center;
   color: ${({ theme, color }) =>
     color ? getColorFromToken({ colorToken: color, theme }) : 'inherit'};
 
-  &:hover {
+  &:hover:enabled {
     color: ${({ theme, hoverColor }) =>
-      hoverColor ? getColorFromToken({ colorToken: hoverColor, theme }) : 'inherit'};
-  }
-
-  & path {
-    display: block;
-    stroke: ${({ theme, color }) =>
-      color ? getColorFromToken({ colorToken: color, theme }) : 'inherit'};
-  }
-
-  &:hover path {
-    stroke: ${({ theme, hoverColor }) =>
       hoverColor ? getColorFromToken({ colorToken: hoverColor, theme }) : 'inherit'};
   }
 `;
