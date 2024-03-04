@@ -62,7 +62,7 @@ export const MaxButton = styled(Button)`
 
 export const FloatingBox = styled('div')`
   position: absolute;
-  right: 16px;
+  right: 8px;
   top: calc(50% - 12px);
   z-index: 1;
   color: ${({ theme }) => theme.colors.white100};
