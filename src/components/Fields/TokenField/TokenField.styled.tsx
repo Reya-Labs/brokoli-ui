@@ -35,6 +35,7 @@ export const TokenBox = styled('div')`
   gap: 4px;
   align-items: center;
   cursor: pointer;
+  position: relative;
 `;
 
 export const CurrencyInputStyled = styled(
@@ -45,7 +46,7 @@ export const CurrencyInputStyled = styled(
   typographyToken: TypographyTokens;
   hasPrefixToken: boolean;
 }>`
-  padding: 10px 96px 10px ${({ hasPrefixToken }) => (hasPrefixToken ? 28 : 16)}px;
+  padding: 10px 96px 10px ${({ hasPrefixToken }) => (hasPrefixToken ? 20 : 16)}px;
   height: 44px;
 
   ${({ theme, error, typographyToken }) =>
