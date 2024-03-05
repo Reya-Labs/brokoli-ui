@@ -8,17 +8,17 @@ import React, { useContext } from 'react';
 
 import { VisxChart } from '.';
 import { CustomChartBackground } from './CustomChartBackground';
-import { VisxChartProps } from './types';
+import { VisxChartDatum, VisxChartProps } from './types';
 
-const data = cityTemperature.slice(225, 275);
-const dataMissingValues = data.map((d, i) =>
+const cityTemperatures = cityTemperature.slice(225, 275);
+const dataMissingValues = cityTemperatures.map((d, i) =>
   i === 10 || i === 11
     ? { ...d, Austin: 'null', 'New York': 'notanumber', 'San Francisco': 'nope' }
     : d,
 );
-const dataSmall = data.slice(0, 15);
+const dataSmall = cityTemperatures.slice(0, 15);
 const dataSmallMissingValues = dataMissingValues.slice(0, 15);
-const getDate = (d: CityTemperature) => d.date;
+const getDate = (d: CityTemperature) => new Date(d.date).valueOf();
 const getSfTemperature = (d: CityTemperature) => Number(d['San Francisco']);
 const getNegativeSfTemperature = (d: CityTemperature) => -getSfTemperature(d);
 const getNyTemperature = (d: CityTemperature) => Number(d['New York']);
@@ -38,7 +38,7 @@ const Glyph = ({
   onPointerOut,
   onPointerUp,
   glyphComponent,
-}: GlyphProps<CityTemperature> & Pick<TemplateProps, 'glyphComponent'>) => {
+}: GlyphProps<VisxChartDatum> & Pick<TemplateProps, 'glyphComponent'>) => {
   const theme = useContext(ThemeContext);
   const glyphOutline = theme.gridStyles.stroke;
   const handlers = { onPointerMove, onPointerOut, onPointerUp };
@@ -88,7 +88,7 @@ const TooltipGlyph = ({
   onPointerUp,
   isNearestDatum,
   tooltipGlyphComponent,
-}: RenderTooltipGlyphProps<CityTemperature> & Pick<TemplateProps, 'tooltipGlyphComponent'>) => {
+}: RenderTooltipGlyphProps<VisxChartDatum> & Pick<TemplateProps, 'tooltipGlyphComponent'>) => {
   const handlers = { onPointerMove, onPointerOut, onPointerUp };
   const theme = useContext(ThemeContext);
   const glyphOutline = theme.gridStyles.stroke;
@@ -135,9 +135,7 @@ type TemplateProps = {
   lessData: boolean;
   withCustomBackground: boolean;
 };
-const VisxChartIntegration: React.FunctionComponent<
-  VisxChartProps<CityTemperature> & TemplateProps
-> = (args) => {
+const VisxChartIntegration: React.FunctionComponent<VisxChartProps & TemplateProps> = (args) => {
   const glyphComponent = args.glyphComponent;
   const showTooltipGlyph = args.showTooltipGlyph;
   const showTooltip = args.showTooltip;
@@ -147,7 +145,6 @@ const VisxChartIntegration: React.FunctionComponent<
   const withCustomBackground = args.withCustomBackground;
   const lessData = args.lessData;
   const sharedTooltip = args.sharedTooltip;
-  const renderHorizontally = args.seriesOrientation === 'horizontal';
 
   const computedData = lessData
     ? missingValues
@@ -155,42 +152,41 @@ const VisxChartIntegration: React.FunctionComponent<
       : dataSmall
     : missingValues
     ? dataMissingValues
-    : data;
+    : cityTemperatures;
 
   const series = [
     {
-      accessors: {
-        x: negativeValues ? getNegativeSfTemperature : getSfTemperature,
-        y: getDate,
-      },
+      data: computedData.map((d) => ({
+        x: getDate(d),
+        y: negativeValues ? getNegativeSfTemperature(d) : getSfTemperature(d),
+      })),
       id: 'San Francisco',
     },
     {
-      accessors: {
-        x: getNyTemperature,
-        y: getDate,
-      },
+      data: computedData.map((d) => ({
+        x: getDate(d),
+        y: getNyTemperature(d),
+      })),
       id: 'New York',
     },
     {
-      accessors: {
-        x: getAustinTemperature,
-        y: getDate,
-      },
+      data: computedData.map((d) => ({
+        x: getDate(d),
+        y: getAustinTemperature(d),
+      })),
       id: 'Austin',
     },
   ];
 
-  const renderTooltipGlyph: VisxChartProps<CityTemperature>['renderTooltipGlyph'] = showTooltipGlyph
+  const renderTooltipGlyph: VisxChartProps['renderTooltipGlyph'] = showTooltipGlyph
     ? (props) => <TooltipGlyph {...props} tooltipGlyphComponent={tooltipGlyphComponent} />
     : undefined;
 
-  const renderTooltip: VisxChartProps<CityTemperature>['renderTooltip'] = showTooltip
+  const renderTooltip: VisxChartProps['renderTooltip'] = showTooltip
     ? ({ tooltipData, colorScale }) => (
         <>
           {/** date */}
-          {(tooltipData?.nearestDatum?.datum && getDate(tooltipData?.nearestDatum?.datum)) ||
-            'No date'}
+          {(tooltipData?.nearestDatum?.datum && tooltipData?.nearestDatum?.datum.x) || 'No date'}
           <br />
           <br />
           {/** temperatures */}
@@ -200,16 +196,7 @@ const VisxChartIntegration: React.FunctionComponent<
               : [tooltipData?.nearestDatum?.key]
             ).filter((city) => city) as City[]
           ).map((city) => {
-            const accessorY = getDate;
-            const accessorX =
-              city === 'New York'
-                ? getNyTemperature
-                : city === 'Austin'
-                ? getAustinTemperature
-                : getSfTemperature;
-            const accessor = renderHorizontally ? accessorX : accessorY;
-            const temperature =
-              tooltipData?.nearestDatum?.datum && accessor(tooltipData?.nearestDatum?.datum);
+            const temperature = tooltipData?.nearestDatum?.datum.y;
 
             return (
               <div key={city}>
@@ -230,25 +217,24 @@ const VisxChartIntegration: React.FunctionComponent<
       )
     : undefined;
 
-  const renderGlyph: VisxChartProps<CityTemperature>['renderGlyph'] = (props) => (
+  const renderGlyph: VisxChartProps['renderGlyph'] = (props) => (
     <Glyph {...props} glyphComponent={glyphComponent} />
   );
 
   return (
     <Box>
-      <VisxChart<CityTemperature>
+      <VisxChart
         animated={args.animated}
         animationTrajectory={args.animationTrajectory}
         axisNumTicks={args.axisNumTicks}
         chartType={args.chartType}
         curveType={args.curveType}
         customChartBackground={withCustomBackground ? <CustomChartBackground /> : null}
-        data={computedData}
+        minZoomDomain={args.minZoomDomain}
         renderGlyph={renderGlyph}
         renderTooltip={renderTooltip}
         renderTooltipGlyph={renderTooltipGlyph}
         series={series}
-        seriesOrientation={args.seriesOrientation}
         sharedTooltip={sharedTooltip}
         showGridColumns={args.showGridColumns}
         showGridRows={args.showGridRows}
@@ -301,7 +287,6 @@ export const Default: StoryObj<typeof VisxChartIntegration> = {
     lessData: false,
     missingValues: false,
     negativeValues: false,
-    seriesOrientation: 'vertical',
     sharedTooltip: false,
     showGridColumns: false,
     showGridRows: false,

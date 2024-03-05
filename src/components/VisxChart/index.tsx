@@ -1,24 +1,36 @@
 import { curveCardinal, curveLinear, curveStep } from '@visx/curve';
 import { ParentSize } from '@visx/responsive';
 import { darkTheme, lightTheme } from '@visx/xychart';
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 
 import { customTheme } from './customTheme';
 import { getAnimatedOrUnanimatedComponents } from './getAnimatedOrUnanimatedComponents';
-import { VisxChartProps } from './types';
+import { allTimeUnits, clamp, formatAbsoluteTime, objectEntries } from './helpers';
+import { AxisFormatterFn, VisxChartDatum, VisxChartProps } from './types';
 import { userPrefersReducedMotion } from './userPrefersReducedMotion';
 
-export const VisxChart = <Datum extends object>({
+const xFormatter: AxisFormatterFn = (xValue, { zoomDomain }) =>
+  formatAbsoluteTime(xValue, {
+    locale: window.navigator.language,
+    resolutionUnit:
+      objectEntries(allTimeUnits)
+        .sort((a, b) => a[1] - b[1])
+        .find(([, milliseconds]) => zoomDomain <= milliseconds)?.[0] ?? 'year',
+  });
+const yFormatter: AxisFormatterFn = (yValue) => parseFloat(yValue.toFixed(2)).toString();
+
+const xAccessor = (d: VisxChartDatum) => d.x;
+const yAccessor = (d: VisxChartDatum) => d.y;
+
+export const VisxChart = ({
   animated = !userPrefersReducedMotion(),
   series = [],
   animationTrajectory = 'outside',
   curveType = 'linear',
-  data = [],
   axisNumTicks = 4,
   renderGlyph,
   renderTooltip,
   renderTooltipGlyph,
-  seriesOrientation = 'vertical',
   sharedTooltip = false,
   showGridColumns = false,
   showGridRows = false,
@@ -32,20 +44,9 @@ export const VisxChart = <Datum extends object>({
   yAxisOrientation = 'right',
   chartType = 'line',
   customChartBackground = null,
-}: VisxChartProps<Datum>) => {
-  const {
-    AreaSeries,
-    AreaStack,
-    Axis,
-    BarGroup,
-    BarSeries,
-    BarStack,
-    GlyphSeries,
-    Grid,
-    LineSeries,
-    Tooltip,
-    XYChart,
-  } = getAnimatedOrUnanimatedComponents(animated);
+  minZoomDomain = 4 * 60 * 60 * 1000,
+}: VisxChartProps) => {
+  const ChartComponents = getAnimatedOrUnanimatedComponents(animated);
   const renderBarGroup = chartType === 'bargroup';
   const renderBarStack = chartType === 'barstack';
   const renderLineSeries = chartType === 'line';
@@ -53,7 +54,6 @@ export const VisxChart = <Datum extends object>({
   const renderAreaStack = chartType === 'areastack';
   const renderBarSeries = chartType === 'bar';
   const renderGlyphSeries = chartType === 'glyph';
-  const renderHorizontally = seriesOrientation === 'horizontal';
   const curve = useMemo(() => {
     if (curveType === 'cardinal') return curveCardinal;
     if (curveType === 'step') return curveStep;
@@ -70,195 +70,247 @@ export const VisxChart = <Datum extends object>({
     }
     return customTheme;
   }, [themeName]);
-  const { xScale, yScale } = useMemo(() => {
-    const xScaleConfig = { paddingInner: 0.3, type: 'band' } as const;
-    const yScaleConfig = { type: 'linear' } as const;
-    if (renderHorizontally) {
-      return {
-        xScale: yScaleConfig,
-        yScale: xScaleConfig,
-      };
-    }
+
+  const data = useMemo(
+    () => series.reduce((pV, cI) => [...pV, ...cI.data], [] as VisxChartDatum[]),
+    [series],
+  );
+  const earliestDatum = data[0];
+  const latestDatum = data[data.length - 1];
+
+  // Chart state
+  const [zoomDomain, setZoomDomain] = useState<number>(latestDatum.x - earliestDatum.x);
+
+  // Computations
+  const { zoom, domain, range } = useMemo(() => {
+    if (!zoomDomain) return { domain: [0, 0], range: [0, 0], zoom: 0 };
+
+    const zoomComputed = zoomDomain / minZoomDomain;
+
+    const [xMin, xMax] = [
+      clamp(latestDatum.x - zoomDomain, earliestDatum.x, latestDatum.x),
+      latestDatum.x,
+    ] as const;
+
+    const visibleDataComputed = data.filter((datum) => datum.x >= xMin && datum.x <= xMax);
+
+    const rangeComputed = visibleDataComputed
+      .filter((datum) => datum.x >= xMin && datum.x <= xMax)
+      .map((datum) => datum.y)
+      .reduce((r, y) => [Math.min(r[0], y), Math.max(r[1], y)] as const, [
+        Infinity,
+        -Infinity,
+      ] as const);
+
     return {
-      xScale: xScaleConfig,
-      yScale: yScaleConfig,
+      domain: [xMin, xMax],
+      range: rangeComputed,
+      zoom: zoomComputed,
     };
-  }, [renderHorizontally]);
+  }, [zoomDomain, minZoomDomain, latestDatum, earliestDatum, data]);
+
+  // Events
+  const onWheel = ({ deltaY }: React.WheelEvent) => {
+    setZoomDomain(
+      clamp(
+        Math.max(
+          1e-320,
+          Math.min(Number.MAX_SAFE_INTEGER, (zoomDomain || 0) * Math.exp(deltaY / 1000)),
+        ),
+        minZoomDomain,
+        latestDatum.x - earliestDatum.x,
+      ),
+    );
+  };
 
   return (
-    <ParentSize>
-      {({ height }) => (
-        <XYChart height={Math.min(400, height)} theme={chartTheme} xScale={xScale} yScale={yScale}>
-          {customChartBackground}
-          <Grid
-            key={`grid-${animationTrajectory}`} // force animate on update
-            animationTrajectory={animationTrajectory}
-            columns={showGridColumns}
-            numTicks={axisNumTicks}
-            rows={showGridRows}
-          />
-          {renderBarStack && (
-            <BarStack offset={stackOffset}>
-              {series.map(({ accessors, id }) => {
-                return (
-                  <BarSeries
-                    key={id}
-                    data={data}
-                    dataKey={id}
-                    xAccessor={renderHorizontally ? accessors.x : accessors.y}
-                    yAccessor={renderHorizontally ? accessors.y : accessors.x}
-                  />
-                );
-              })}
-            </BarStack>
-          )}
-          {renderBarGroup && (
-            <BarGroup>
-              {series.map(({ accessors, id }) => {
-                return (
-                  <BarSeries
-                    key={id}
-                    colorAccessor={
-                      typeof accessors.colorAccessor === 'function'
-                        ? (d) => accessors.colorAccessor!(id, d)
-                        : undefined
-                    }
-                    data={data}
-                    dataKey={id}
-                    xAccessor={renderHorizontally ? accessors.x : accessors.y}
-                    yAccessor={renderHorizontally ? accessors.y : accessors.x}
-                  />
-                );
-              })}
-            </BarGroup>
-          )}
-          {renderBarSeries && (
-            <>
-              {series.map(({ accessors, id }) => {
-                return (
-                  <BarSeries
-                    key={id}
-                    colorAccessor={
-                      typeof accessors.colorAccessor === 'function'
-                        ? (d) => accessors.colorAccessor!(id, d)
-                        : undefined
-                    }
-                    data={data}
-                    dataKey={id}
-                    xAccessor={renderHorizontally ? accessors.x : accessors.y}
-                    yAccessor={renderHorizontally ? accessors.y : accessors.x}
-                  />
-                );
-              })}
-            </>
-          )}
-          {renderAreaSeries && (
-            <>
-              {series.map(({ accessors, id }) => {
-                return (
-                  <AreaSeries
-                    key={id}
-                    curve={curve}
-                    data={data}
-                    dataKey={id}
-                    fillOpacity={0.4}
-                    xAccessor={renderHorizontally ? accessors.x : accessors.y}
-                    yAccessor={renderHorizontally ? accessors.y : accessors.x}
-                  />
-                );
-              })}
-            </>
-          )}
-          {renderAreaStack && (
-            <AreaStack curve={curve} offset={stackOffset} renderLine={stackOffset !== 'wiggle'}>
-              {series.map(({ accessors, id }) => {
-                return (
-                  <AreaSeries
-                    key={id}
-                    data={data}
-                    dataKey={id}
-                    fillOpacity={0.4}
-                    xAccessor={renderHorizontally ? accessors.x : accessors.y}
-                    yAccessor={renderHorizontally ? accessors.y : accessors.x}
-                  />
-                );
-              })}
-            </AreaStack>
-          )}
-          {renderLineSeries && (
-            <>
-              {series.map(({ accessors, id }) => {
-                return (
-                  <LineSeries
-                    key={id}
-                    curve={curve}
-                    data={data}
-                    dataKey={id}
-                    xAccessor={renderHorizontally ? accessors.x : accessors.y}
-                    yAccessor={renderHorizontally ? accessors.y : accessors.x}
-                  />
-                );
-              })}
-            </>
-          )}
-          {renderGlyphSeries && typeof renderGlyph === 'function' && (
-            <>
-              {series.map(({ accessors, id }) => {
-                return (
-                  <GlyphSeries
-                    key={id}
-                    colorAccessor={
-                      typeof accessors.colorAccessor === 'function'
-                        ? (d) => accessors.colorAccessor!(id, d)
-                        : undefined
-                    }
-                    data={data}
-                    dataKey={id}
-                    renderGlyph={renderGlyph}
-                    xAccessor={renderHorizontally ? accessors.x : accessors.y}
-                    yAccessor={renderHorizontally ? accessors.y : accessors.x}
-                  />
-                );
-              })}
-            </>
-          )}
-          <Axis
-            key={`time-axis-${animationTrajectory}-${
-              renderHorizontally ? 'renderHorizontally' : 'renderVertically'
-            }`}
-            animationTrajectory={animationTrajectory}
-            numTicks={axisNumTicks}
-            orientation={renderHorizontally ? yAxisOrientation : xAxisOrientation}
-          />
-          <Axis
-            key={`temp-axis-${animationTrajectory}-${
-              renderHorizontally ? 'renderHorizontally' : 'renderVertically'
-            }`}
-            animationTrajectory={animationTrajectory}
-            numTicks={axisNumTicks}
-            orientation={renderHorizontally ? xAxisOrientation : yAxisOrientation}
-            tickFormat={stackOffset === 'wiggle' ? () => '' : undefined}
-          />
-          {typeof renderTooltip === 'function' ? (
-            <Tooltip<Datum>
-              renderGlyph={
-                typeof renderTooltipGlyph === 'function' ? renderTooltipGlyph : undefined
-              }
-              renderTooltip={renderTooltip}
-              showDatumGlyph={
-                !canSnapTooltipToDatum
-                  ? false
-                  : tooltipSnapTooltipToDatumX || tooltipSnapTooltipToDatumY
-              }
-              showHorizontalCrosshair={tooltipShowHorizontalCrosshair}
-              showSeriesGlyphs={sharedTooltip && !renderBarGroup}
-              showVerticalCrosshair={tooltipShowVerticalCrosshair}
-              snapTooltipToDatumX={!canSnapTooltipToDatum ? false : tooltipSnapTooltipToDatumX}
-              snapTooltipToDatumY={!canSnapTooltipToDatum ? false : tooltipSnapTooltipToDatumY}
+    <ParentSize onWheel={onWheel}>
+      {({ width, height }) => {
+        const tickSpacingX = 150;
+        const tickSpacingY = 50;
+        const numTicksX = width / tickSpacingX;
+        const numTicksY = height / tickSpacingY;
+        return (
+          <ChartComponents.XYChart
+            height={Math.min(400, height)}
+            theme={chartTheme}
+            width={width}
+            xScale={{
+              clamp: false,
+              domain: [...domain],
+              nice: false,
+              type: 'time',
+              zero: false,
+            }}
+            yScale={{
+              clamp: true,
+              domain: [...range],
+              nice: true,
+              type: 'linear',
+              zero: false,
+            }}
+          >
+            {customChartBackground}
+            <ChartComponents.Grid
+              key={`grid-${animationTrajectory}`} // force animate on update
+              animationTrajectory={animationTrajectory}
+              columns={showGridColumns}
+              numTicks={axisNumTicks}
+              rows={showGridRows}
             />
-          ) : undefined}
-        </XYChart>
-      )}
+            {renderBarStack && (
+              <ChartComponents.BarStack offset={stackOffset}>
+                {series.map((s) => {
+                  return (
+                    <ChartComponents.BarSeries
+                      key={s.id}
+                      data={s.data}
+                      dataKey={s.id}
+                      xAccessor={xAccessor}
+                      yAccessor={yAccessor}
+                    />
+                  );
+                })}
+              </ChartComponents.BarStack>
+            )}
+            {renderBarGroup && (
+              <ChartComponents.BarGroup>
+                {series.map((s) => {
+                  return (
+                    <ChartComponents.BarSeries
+                      key={s.id}
+                      data={s.data}
+                      dataKey={s.id}
+                      xAccessor={xAccessor}
+                      yAccessor={yAccessor}
+                    />
+                  );
+                })}
+              </ChartComponents.BarGroup>
+            )}
+            {renderBarSeries && (
+              <>
+                {series.map((s) => {
+                  return (
+                    <ChartComponents.BarSeries
+                      key={s.id}
+                      data={s.data}
+                      dataKey={s.id}
+                      xAccessor={xAccessor}
+                      yAccessor={yAccessor}
+                    />
+                  );
+                })}
+              </>
+            )}
+            {renderAreaSeries && (
+              <>
+                {series.map((s) => {
+                  return (
+                    <ChartComponents.AreaSeries
+                      key={s.id}
+                      curve={curve}
+                      data={s.data}
+                      dataKey={s.id}
+                      fillOpacity={0.4}
+                      xAccessor={xAccessor}
+                      yAccessor={yAccessor}
+                    />
+                  );
+                })}
+              </>
+            )}
+            {renderAreaStack && (
+              <ChartComponents.AreaStack
+                curve={curve}
+                offset={stackOffset}
+                renderLine={stackOffset !== 'wiggle'}
+              >
+                {series.map((s) => {
+                  return (
+                    <ChartComponents.AreaSeries
+                      key={s.id}
+                      data={s.data}
+                      dataKey={s.id}
+                      fillOpacity={0.4}
+                      xAccessor={xAccessor}
+                      yAccessor={yAccessor}
+                    />
+                  );
+                })}
+              </ChartComponents.AreaStack>
+            )}
+            {renderLineSeries && (
+              <>
+                {series.map((s) => {
+                  return (
+                    <ChartComponents.LineSeries
+                      key={s.id}
+                      curve={curve}
+                      data={s.data}
+                      dataKey={s.id}
+                      xAccessor={xAccessor}
+                      yAccessor={yAccessor}
+                    />
+                  );
+                })}
+              </>
+            )}
+            {renderGlyphSeries && typeof renderGlyph === 'function' && (
+              <>
+                {series.map((s) => {
+                  return (
+                    <ChartComponents.GlyphSeries
+                      key={s.id}
+                      data={s.data}
+                      dataKey={s.id}
+                      renderGlyph={renderGlyph}
+                      xAccessor={xAccessor}
+                      yAccessor={yAccessor}
+                    />
+                  );
+                })}
+              </>
+            )}
+            <ChartComponents.Axis
+              key={`time-axis-${animationTrajectory}`}
+              animationTrajectory={animationTrajectory}
+              numTicks={axisNumTicks}
+              orientation={xAxisOrientation}
+              tickFormat={(x: number) => xFormatter(x, { numTicks: numTicksX, zoom, zoomDomain })}
+            />
+            <ChartComponents.Axis
+              key={`temp-axis-${animationTrajectory}`}
+              animationTrajectory={animationTrajectory}
+              numTicks={axisNumTicks}
+              orientation={yAxisOrientation}
+              tickFormat={
+                stackOffset === 'wiggle'
+                  ? () => ''
+                  : (y: number) => yFormatter(y, { numTicks: numTicksY, zoom, zoomDomain })
+              }
+            />
+            {typeof renderTooltip === 'function' ? (
+              <ChartComponents.Tooltip<VisxChartDatum>
+                renderGlyph={
+                  typeof renderTooltipGlyph === 'function' ? renderTooltipGlyph : undefined
+                }
+                renderTooltip={renderTooltip}
+                showDatumGlyph={
+                  !canSnapTooltipToDatum
+                    ? false
+                    : tooltipSnapTooltipToDatumX || tooltipSnapTooltipToDatumY
+                }
+                showHorizontalCrosshair={tooltipShowHorizontalCrosshair}
+                showSeriesGlyphs={sharedTooltip && !renderBarGroup}
+                showVerticalCrosshair={tooltipShowVerticalCrosshair}
+                snapTooltipToDatumX={!canSnapTooltipToDatum ? false : tooltipSnapTooltipToDatumX}
+                snapTooltipToDatumY={!canSnapTooltipToDatum ? false : tooltipSnapTooltipToDatumY}
+              />
+            ) : undefined}
+          </ChartComponents.XYChart>
+        );
+      }}
     </ParentSize>
   );
 };

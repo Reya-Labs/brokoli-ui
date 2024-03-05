@@ -22,8 +22,3 @@ type StyleProps = {
   tickSpacingX?: number;
   tickSpacingY?: number;
 };
-
-export type AxisFormatterFn = (
-  axisValue: number,
-  _: { zoom: number; zoomDomain: number; numTicks: number },
-) => string;

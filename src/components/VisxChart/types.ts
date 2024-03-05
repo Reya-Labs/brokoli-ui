@@ -6,29 +6,24 @@ import type {
 import { GlyphProps } from '@visx/xychart/lib/types';
 import React from 'react';
 
-type Accessor<Datum> = (d: Datum) => number | string;
+export type VisxChartDatum = {
+  x: number;
+  y: number;
+};
 
-export type VisxChartProps<Datum extends object> = {
+export type VisxChartProps = {
+  minZoomDomain?: number;
   animated?: boolean;
-  renderTooltip?: (_: RenderTooltipParams<Datum>) => React.ReactNode;
+  renderTooltip?: (_: RenderTooltipParams<VisxChartDatum>) => React.ReactNode;
   series: {
     id: string;
-    accessors: {
-      x: Accessor<Datum>;
-      y: Accessor<Datum>;
-      colorAccessor?: (
-        id: VisxChartProps<Datum>['series'][number]['id'],
-        d: Datum,
-      ) => string | null;
-    };
+    data: VisxChartDatum[];
   }[];
   animationTrajectory?: AnimationTrajectory;
   curveType?: 'linear' | 'cardinal' | 'step';
-  data: Datum[];
   axisNumTicks?: number;
-  renderGlyph?: React.FC<GlyphProps<Datum>>;
-  renderTooltipGlyph?: React.FC<RenderTooltipGlyphProps<Datum>>;
-  seriesOrientation?: 'horizontal' | 'vertical';
+  renderGlyph?: React.FC<GlyphProps<VisxChartDatum>>;
+  renderTooltipGlyph?: React.FC<RenderTooltipGlyphProps<VisxChartDatum>>;
   sharedTooltip?: boolean;
   showGridColumns?: boolean;
   showGridRows?: boolean;
@@ -43,3 +38,8 @@ export type VisxChartProps<Datum extends object> = {
   chartType: 'glyph' | 'bar' | 'barstack' | 'bargroup' | 'line' | 'area' | 'areastack' | 'none';
   customChartBackground?: React.ReactNode;
 };
+
+export type AxisFormatterFn = (
+  axisValue: number,
+  _: { zoom: number; zoomDomain: number; numTicks: number },
+) => string;

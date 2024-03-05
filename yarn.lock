@@ -9098,6 +9098,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@use-gesture/core@npm:10.3.0":
+  version: 10.3.0
+  resolution: "@use-gesture/core@npm:10.3.0"
+  checksum: 10c0/7a92017fcc0a483043b2f202acd2b2e89ee3b81183a1537e5efd321cc18e36101c49c805d7932b5485c2fc3baa511eae759677c81cb77f149fa047616e78cfbd
+  languageName: node
+  linkType: hard
+
+"@use-gesture/react@npm:^10.0.0-beta.22":
+  version: 10.3.0
+  resolution: "@use-gesture/react@npm:10.3.0"
+  dependencies:
+    "@use-gesture/core": "npm:10.3.0"
+  peerDependencies:
+    react: ">= 16.8.0"
+  checksum: 10c0/82e7a0149f05301b0363de0c5a29112adbf8e2740ba1a0e06756ee63fe44ab094dd54fe64df3bd8ec163ebad53a38f1e6156c0b454756bb2e3aee02a4444fcf1
+  languageName: node
+  linkType: hard
+
 "@visx/annotation@npm:3.0.1":
   version: 3.0.1
   resolution: "@visx/annotation@npm:3.0.1"
@@ -9178,6 +9196,16 @@ __metadata:
     "@types/react": "npm:*"
     "@visx/point": "npm:3.0.1"
   checksum: 10c0/6cf112f1214ed0ad8a9099b00c2996161bb16e567ea2af18c9b019bf10b8fda5c88eb1a21f9fffe2362b41cf9873d643ea8fe3c8dd92e9887b26336cd6b75ff6
+  languageName: node
+  linkType: hard
+
+"@visx/event@npm:3.3.0":
+  version: 3.3.0
+  resolution: "@visx/event@npm:3.3.0"
+  dependencies:
+    "@types/react": "npm:*"
+    "@visx/point": "npm:3.3.0"
+  checksum: 10c0/bcf7eae045e3619d12b69a9324b6f73bfdc0817c8e3e6572cefcf21db5d877926c810aad4a3b481ec2eeca212f7e2711a7d7ad32e8c058ccd65a99b5d45a40b1
   languageName: node
   linkType: hard
 
@@ -9284,6 +9312,13 @@ __metadata:
   version: 3.0.1
   resolution: "@visx/point@npm:3.0.1"
   checksum: 10c0/aed10580ea9323efe6a43afc55093308d23ce3e334a908f6fd361cba05b0cd3597292e35e12d72d198987db04ff8683562f8a162a1f92adf5ec69f93d687236a
+  languageName: node
+  linkType: hard
+
+"@visx/point@npm:3.3.0":
+  version: 3.3.0
+  resolution: "@visx/point@npm:3.3.0"
+  checksum: 10c0/cf7b6dc16f9ddedadba7278302ccbcf486412d82b6bcbfb2033f5206b00ae5b22c30015b5927b3b298e74895130745f8ca87a483d935d120e198890fca97f1eb
   languageName: node
   linkType: hard
 
@@ -9431,6 +9466,20 @@ __metadata:
     "@react-spring/web": ^9.4.5
     react: ^16.8.0 || ^17.0.0 || ^ 18.0.0
   checksum: 10c0/cfdf5daf8e0c786b455876682cffb8660f908a7865ed4080694bb7e5c22dc062ba820d703998b36af16dbbdc937730dbc51d870bf08e84401c3c9540125b3152
+  languageName: node
+  linkType: hard
+
+"@visx/zoom@npm:3.3.0":
+  version: 3.3.0
+  resolution: "@visx/zoom@npm:3.3.0"
+  dependencies:
+    "@types/react": "npm:*"
+    "@use-gesture/react": "npm:^10.0.0-beta.22"
+    "@visx/event": "npm:3.3.0"
+    prop-types: "npm:^15.6.2"
+  peerDependencies:
+    react: ^16.0.0-0 || ^17.0.0-0 || ^18.0.0-0
+  checksum: 10c0/49540fdb5f814caad4a1d7fc33cd1a702513744ed36556ce317983c1a159fb846025cfcb71a605fa2bb69ba436310d0ec8af4486a3081aeb546a0c28efb48ca0
   languageName: node
   linkType: hard
 
@@ -11561,6 +11610,7 @@ __metadata:
     "@visx/text": "npm:3.0.0"
     "@visx/tooltip": "npm:3.1.2"
     "@visx/xychart": "npm:3.1.2"
+    "@visx/zoom": "npm:3.3.0"
     babel-loader: "npm:8.3.0"
     camelcase: "npm:6.3.0"
     concurrently: "npm:7.6.0"
