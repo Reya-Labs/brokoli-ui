@@ -9,14 +9,16 @@ import { allTimeUnits, clamp, formatAbsoluteTime, objectEntries } from './helper
 import { AxisFormatterFn, VisxChartDatum, VisxChartProps } from './types';
 import { userPrefersReducedMotion } from './userPrefersReducedMotion';
 
-const xFormatter: AxisFormatterFn = (xValue, { zoomDomain }) =>
-  formatAbsoluteTime(xValue, {
+const xFormatter: AxisFormatterFn = (xValue, { zoomDomain }) => {
+  const resolutionUnit =
+    objectEntries(allTimeUnits)
+      .sort((a, b) => a[1] - b[1])
+      .find(([, milliseconds]) => zoomDomain <= milliseconds)?.[0] ?? 'year';
+  return formatAbsoluteTime(xValue, {
     locale: window.navigator.language,
-    resolutionUnit:
-      objectEntries(allTimeUnits)
-        .sort((a, b) => a[1] - b[1])
-        .find(([, milliseconds]) => zoomDomain <= milliseconds)?.[0] ?? 'year',
+    resolutionUnit,
   });
+};
 const yFormatter: AxisFormatterFn = (yValue) => parseFloat(yValue.toFixed(2)).toString();
 
 const xAccessor = (d: VisxChartDatum) => d.x;
@@ -61,6 +63,8 @@ export const VisxChart = ({
   }, [curveType]);
   // cannot snap to a stack position
   const canSnapTooltipToDatum = chartType !== 'barstack' && chartType !== 'areastack';
+  const tooltipShowVerticalCrosshairComputed =
+    chartType === 'barstack' || chartType === 'areastack' || tooltipShowVerticalCrosshair;
   const chartTheme = useMemo(() => {
     if (themeName === 'dark') {
       return darkTheme;
@@ -90,12 +94,11 @@ export const VisxChart = ({
     const [xMin, xMax] = [
       clamp(latestDatum.x - zoomDomain, earliestDatum.x, latestDatum.x),
       latestDatum.x,
-    ] as const;
+    ];
 
     const visibleDataComputed = data.filter((datum) => datum.x >= xMin && datum.x <= xMax);
 
     const rangeComputed = visibleDataComputed
-      .filter((datum) => datum.x >= xMin && datum.x <= xMax)
       .map((datum) => datum.y)
       .reduce((r, y) => [Math.min(r[0], y), Math.max(r[1], y)] as const, [
         Infinity,
@@ -107,7 +110,7 @@ export const VisxChart = ({
       range: rangeComputed,
       zoom: zoomComputed,
     };
-  }, [zoomDomain, minZoomDomain, latestDatum, earliestDatum, data]);
+  }, [zoomDomain, minZoomDomain, latestDatum.x, earliestDatum.x, data]);
 
   // Events
   const onWheel = ({ deltaY }: React.WheelEvent) => {
@@ -303,7 +306,7 @@ export const VisxChart = ({
                 }
                 showHorizontalCrosshair={tooltipShowHorizontalCrosshair}
                 showSeriesGlyphs={sharedTooltip && !renderBarGroup}
-                showVerticalCrosshair={tooltipShowVerticalCrosshair}
+                showVerticalCrosshair={tooltipShowVerticalCrosshairComputed}
                 snapTooltipToDatumX={!canSnapTooltipToDatum ? false : tooltipSnapTooltipToDatumX}
                 snapTooltipToDatumY={!canSnapTooltipToDatum ? false : tooltipSnapTooltipToDatumY}
               />

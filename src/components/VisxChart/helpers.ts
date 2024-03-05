@@ -33,16 +33,16 @@ export const formatAbsoluteTime = (
           second: 'numeric',
         },
         minute: { hour: 'numeric', hour12: false, minute: 'numeric', second: 'numeric' },
-        month: { day: 'numeric', hour: 'numeric', month: 'numeric' },
+        month: { day: '2-digit', month: 'short' },
         second: {
           hour: 'numeric',
           hour12: false,
           minute: 'numeric',
           second: 'numeric',
         },
-        threeDays: { hour: 'numeric', weekday: 'short' },
-        week: { hour: 'numeric', weekday: 'short' },
-        year: { day: 'numeric', month: 'numeric', year: 'numeric' },
+        threeDays: { hour: 'numeric', minute: 'numeric', weekday: 'short' },
+        week: { weekday: 'short' },
+        year: { day: '2-digit', month: '2-digit', year: '2-digit' },
       } as const
     )[resolutionUnit],
   ).format(timestamp);

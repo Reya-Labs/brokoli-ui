@@ -281,13 +281,13 @@ export const Default: StoryObj<typeof VisxChartIntegration> = {
     },
   },
   args: {
-    chartType: 'line',
+    chartType: 'areastack',
     curveType: 'linear',
     glyphComponent: 'star',
     lessData: false,
     missingValues: false,
     negativeValues: false,
-    sharedTooltip: false,
+    sharedTooltip: true,
     showGridColumns: false,
     showGridRows: false,
     showTooltip: true,
@@ -298,6 +298,6 @@ export const Default: StoryObj<typeof VisxChartIntegration> = {
     tooltipShowVerticalCrosshair: false,
     tooltipSnapTooltipToDatumX: true,
     tooltipSnapTooltipToDatumY: false,
-    withCustomBackground: false,
+    withCustomBackground: true,
   },
 };
