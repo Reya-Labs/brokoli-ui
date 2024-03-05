@@ -20,17 +20,23 @@ import { getTypographyFromToken } from '../../foundation/Typography';
 import { allTimeUnits, clamp, formatAbsoluteTime, objectEntries } from './helpers';
 import { AxisFormatterFn, VisxChartDatum, VisxChartProps } from './types';
 
-const xFormatter: AxisFormatterFn = (xValue, { zoomDomain }) => {
-  const resolutionUnit =
-    objectEntries(allTimeUnits)
-      .sort((a, b) => a[1] - b[1])
-      .find(([, milliseconds]) => zoomDomain <= milliseconds)?.[0] ?? 'year';
+export const defaultVisxChartXFormatter: AxisFormatterFn = (xValue, options) => {
+  const { zoomDomain } = options || {};
+  let resolutionUnit: keyof typeof allTimeUnits = 'year';
+  if (zoomDomain) {
+    resolutionUnit =
+      objectEntries(allTimeUnits)
+        .sort((a, b) => a[1] - b[1])
+        .find(([, milliseconds]) => zoomDomain <= milliseconds)?.[0] ?? 'year';
+  }
+
   return formatAbsoluteTime(xValue, {
     locale: window.navigator.language,
     resolutionUnit,
   });
 };
-const yFormatter: AxisFormatterFn = (yValue) => parseFloat(yValue.toFixed(2)).toString();
+export const defaultVisxChartYFormatter: AxisFormatterFn = (yValue) =>
+  parseFloat(yValue.toFixed(2)).toString();
 
 const xAccessor = (d: VisxChartDatum) => d.x;
 const yAccessor = (d: VisxChartDatum) => d.y;
@@ -269,7 +275,7 @@ export const VisxChart = ({
               orientation={xAxisOrientation}
               stroke={axisDomainLineColor}
               tickFormat={(x: number) =>
-                xFormatter(x, { numTicks: axisNumTicks, zoom, zoomDomain })
+                defaultVisxChartXFormatter(x, { numTicks: axisNumTicks, zoom, zoomDomain })
               }
               tickLabelProps={{
                 fontFamily: axisFontFamily,
@@ -286,7 +292,8 @@ export const VisxChart = ({
               tickFormat={
                 stackOffset === 'wiggle'
                   ? () => ''
-                  : (y: number) => yFormatter(y, { numTicks: axisNumTicks, zoom, zoomDomain })
+                  : (y: number) =>
+                      defaultVisxChartYFormatter(y, { numTicks: axisNumTicks, zoom, zoomDomain })
               }
               tickLabelProps={{
                 fontFamily: axisFontFamily,

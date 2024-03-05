@@ -45,5 +45,5 @@ export type VisxChartProps = {
 
 export type AxisFormatterFn = (
   axisValue: number,
-  _: { zoom: number; zoomDomain: number; numTicks: number },
+  _?: { zoom: number; zoomDomain: number; numTicks: number },
 ) => string;

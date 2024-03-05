@@ -6,7 +6,7 @@ import { GlyphProps, ThemeContext } from '@visx/xychart';
 import { RenderTooltipGlyphProps } from '@visx/xychart/lib/components/Tooltip';
 import React, { useContext } from 'react';
 
-import { VisxChart } from '.';
+import { defaultVisxChartXFormatter, VisxChart } from '.';
 import { VisxChartDatum, VisxChartProps } from './types';
 
 const cityTemperatures = cityTemperature.slice(225, 275);
@@ -188,7 +188,11 @@ const VisxChartIntegration: React.FunctionComponent<VisxChartProps & TemplatePro
     ? ({ tooltipData, colorScale }) => (
         <div style={{ background: '#E7E7E8', borderRadius: 8, padding: 16 }}>
           {/** date */}
-          {(tooltipData?.nearestDatum?.datum && tooltipData?.nearestDatum?.datum.x) || 'No date'}
+          {tooltipData?.nearestDatum?.datum && tooltipData?.nearestDatum?.datum.x
+            ? defaultVisxChartXFormatter(
+                tooltipData?.nearestDatum?.datum && tooltipData?.nearestDatum?.datum.x,
+              )
+            : 'No date'}
           <br />
           <br />
           {/** temperatures */}
