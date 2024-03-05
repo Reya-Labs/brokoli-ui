@@ -7,7 +7,6 @@ import { RenderTooltipGlyphProps } from '@visx/xychart/lib/components/Tooltip';
 import React, { useContext } from 'react';
 
 import { VisxChart } from '.';
-import { CustomChartBackground } from './CustomChartBackground';
 import { VisxChartDatum, VisxChartProps } from './types';
 
 const cityTemperatures = cityTemperature.slice(225, 275);
@@ -27,6 +26,8 @@ type City = 'San Francisco' | 'New York' | 'Austin';
 
 const Box = styled('div')`
   height: 445px;
+  border: 1px solid gainsboro;
+  border-radius: 8px;
 `;
 
 const Glyph = ({
@@ -133,7 +134,6 @@ type TemplateProps = {
   negativeValues: boolean;
   missingValues: boolean;
   lessData: boolean;
-  withCustomBackground: boolean;
 };
 const VisxChartIntegration: React.FunctionComponent<VisxChartProps & TemplateProps> = (args) => {
   const glyphComponent = args.glyphComponent;
@@ -142,7 +142,6 @@ const VisxChartIntegration: React.FunctionComponent<VisxChartProps & TemplatePro
   const tooltipGlyphComponent = args.tooltipGlyphComponent;
   const negativeValues = args.negativeValues;
   const missingValues = args.missingValues;
-  const withCustomBackground = args.withCustomBackground;
   const lessData = args.lessData;
   const sharedTooltip = args.sharedTooltip;
 
@@ -154,8 +153,9 @@ const VisxChartIntegration: React.FunctionComponent<VisxChartProps & TemplatePro
     ? dataMissingValues
     : cityTemperatures;
 
-  const series = [
+  const series: VisxChartProps['series'] = [
     {
+      colorToken: 'primary500',
       data: computedData.map((d) => ({
         x: getDate(d),
         y: negativeValues ? getNegativeSfTemperature(d) : getSfTemperature(d),
@@ -163,6 +163,7 @@ const VisxChartIntegration: React.FunctionComponent<VisxChartProps & TemplatePro
       id: 'San Francisco',
     },
     {
+      colorToken: 'secondary500',
       data: computedData.map((d) => ({
         x: getDate(d),
         y: getNyTemperature(d),
@@ -170,6 +171,7 @@ const VisxChartIntegration: React.FunctionComponent<VisxChartProps & TemplatePro
       id: 'New York',
     },
     {
+      colorToken: 'warning500',
       data: computedData.map((d) => ({
         x: getDate(d),
         y: getAustinTemperature(d),
@@ -184,7 +186,7 @@ const VisxChartIntegration: React.FunctionComponent<VisxChartProps & TemplatePro
 
   const renderTooltip: VisxChartProps['renderTooltip'] = showTooltip
     ? ({ tooltipData, colorScale }) => (
-        <>
+        <div style={{ background: '#E7E7E8', borderRadius: 8, padding: 16 }}>
           {/** date */}
           {(tooltipData?.nearestDatum?.datum && tooltipData?.nearestDatum?.datum.x) || 'No date'}
           <br />
@@ -213,7 +215,7 @@ const VisxChartIntegration: React.FunctionComponent<VisxChartProps & TemplatePro
               </div>
             );
           })}
-        </>
+        </div>
       )
     : undefined;
 
@@ -224,10 +226,12 @@ const VisxChartIntegration: React.FunctionComponent<VisxChartProps & TemplatePro
   return (
     <Box>
       <VisxChart
+        axisDomainLineColorToken={args.axisDomainLineColorToken}
         axisNumTicks={args.axisNumTicks}
+        axisTicksTextColorToken={args.axisTicksTextColorToken}
+        axisTypographyToken={args.axisTypographyToken}
         chartType={args.chartType}
         curveType={args.curveType}
-        customChartBackground={withCustomBackground ? <CustomChartBackground /> : null}
         minZoomDomain={args.minZoomDomain}
         renderGlyph={renderGlyph}
         renderTooltip={renderTooltip}
@@ -237,7 +241,6 @@ const VisxChartIntegration: React.FunctionComponent<VisxChartProps & TemplatePro
         showGridColumns={args.showGridColumns}
         showGridRows={args.showGridRows}
         stackOffset={args.stackOffset}
-        themeName={args.themeName}
         tooltipShowHorizontalCrosshair={args.tooltipShowHorizontalCrosshair}
         tooltipShowVerticalCrosshair={args.tooltipShowVerticalCrosshair}
         tooltipSnapTooltipToDatumX={args.tooltipSnapTooltipToDatumX}
@@ -269,16 +272,15 @@ export const Default: StoryObj<typeof VisxChartIntegration> = {
       control: 'select',
       options: ['star', 'cross', 'circle', '🍍'],
     },
-    themeName: {
-      control: 'select',
-      options: ['dark', 'light', 'reya'],
-    },
     tooltipGlyphComponent: {
       control: 'select',
       options: ['star', 'cross', 'circle', '🍍'],
     },
   },
   args: {
+    axisDomainLineColorToken: 'white100',
+    axisTicksTextColorToken: 'white100',
+    axisTypographyToken: 'bodySmallRegular',
     chartType: 'areastack',
     curveType: 'linear',
     glyphComponent: 'star',
@@ -290,12 +292,10 @@ export const Default: StoryObj<typeof VisxChartIntegration> = {
     showGridRows: false,
     showTooltip: true,
     showTooltipGlyph: false,
-    themeName: 'dark',
     tooltipGlyphComponent: 'star',
     tooltipShowHorizontalCrosshair: false,
     tooltipShowVerticalCrosshair: false,
     tooltipSnapTooltipToDatumX: true,
     tooltipSnapTooltipToDatumY: false,
-    withCustomBackground: true,
   },
 };

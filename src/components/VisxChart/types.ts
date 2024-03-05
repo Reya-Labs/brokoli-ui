@@ -5,6 +5,9 @@ import type {
 import { GlyphProps } from '@visx/xychart/lib/types';
 import React from 'react';
 
+import { ColorTokens } from '../../foundation/Colors';
+import { TypographyTokens } from '../../foundation/Typography';
+
 export type VisxChartDatum = {
   x: number;
   y: number;
@@ -15,6 +18,7 @@ export type VisxChartProps = {
   renderTooltip?: (_: RenderTooltipParams<VisxChartDatum>) => React.ReactNode;
   series: {
     id: string;
+    colorToken: ColorTokens;
     data: VisxChartDatum[];
   }[];
   curveType?: 'linear' | 'cardinal' | 'step';
@@ -29,11 +33,14 @@ export type VisxChartProps = {
   tooltipSnapTooltipToDatumX?: boolean;
   tooltipSnapTooltipToDatumY?: boolean;
   stackOffset?: 'wiggle' | 'expand' | 'diverging' | 'silhouette';
-  themeName: 'dark' | 'light' | 'reya';
   xAxisOrientation?: 'top' | 'bottom';
   yAxisOrientation?: 'left' | 'right';
   chartType: 'glyph' | 'line' | 'area' | 'areastack' | 'none';
   customChartBackground?: React.ReactNode;
+  // new
+  axisTypographyToken: TypographyTokens;
+  axisTicksTextColorToken?: ColorTokens;
+  axisDomainLineColorToken?: ColorTokens | 'transparent';
 };
 
 export type AxisFormatterFn = (
