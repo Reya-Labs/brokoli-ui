@@ -1,13 +1,25 @@
 import { curveCardinal, curveLinear, curveStep } from '@visx/curve';
 import { ParentSize } from '@visx/responsive';
-import { darkTheme, lightTheme } from '@visx/xychart';
+import {
+  AreaSeries,
+  AreaStack,
+  Axis,
+  BarGroup,
+  BarSeries,
+  BarStack,
+  darkTheme,
+  GlyphSeries,
+  Grid,
+  lightTheme,
+  LineSeries,
+  Tooltip,
+  XYChart,
+} from '@visx/xychart';
 import React, { useMemo, useState } from 'react';
 
 import { customTheme } from './customTheme';
-import { getAnimatedOrUnanimatedComponents } from './getAnimatedOrUnanimatedComponents';
 import { allTimeUnits, clamp, formatAbsoluteTime, objectEntries } from './helpers';
 import { AxisFormatterFn, VisxChartDatum, VisxChartProps } from './types';
-import { userPrefersReducedMotion } from './userPrefersReducedMotion';
 
 const xFormatter: AxisFormatterFn = (xValue, { zoomDomain }) => {
   const resolutionUnit =
@@ -25,9 +37,7 @@ const xAccessor = (d: VisxChartDatum) => d.x;
 const yAccessor = (d: VisxChartDatum) => d.y;
 
 export const VisxChart = ({
-  animated = !userPrefersReducedMotion(),
   series = [],
-  animationTrajectory = 'outside',
   curveType = 'linear',
   axisNumTicks = 4,
   renderGlyph,
@@ -48,7 +58,6 @@ export const VisxChart = ({
   customChartBackground = null,
   minZoomDomain = 4 * 60 * 60 * 1000,
 }: VisxChartProps) => {
-  const ChartComponents = getAnimatedOrUnanimatedComponents(animated);
   const renderBarGroup = chartType === 'bargroup';
   const renderBarStack = chartType === 'barstack';
   const renderLineSeries = chartType === 'line';
@@ -134,7 +143,7 @@ export const VisxChart = ({
         const numTicksX = width / tickSpacingX;
         const numTicksY = height / tickSpacingY;
         return (
-          <ChartComponents.XYChart
+          <XYChart
             height={Math.min(400, height)}
             theme={chartTheme}
             width={width}
@@ -154,18 +163,17 @@ export const VisxChart = ({
             }}
           >
             {customChartBackground}
-            <ChartComponents.Grid
-              key={`grid-${animationTrajectory}`} // force animate on update
-              animationTrajectory={animationTrajectory}
+            <Grid
+              key="grid"
               columns={showGridColumns}
               numTicks={axisNumTicks}
               rows={showGridRows}
             />
             {renderBarStack && (
-              <ChartComponents.BarStack offset={stackOffset}>
+              <BarStack offset={stackOffset}>
                 {series.map((s) => {
                   return (
-                    <ChartComponents.BarSeries
+                    <BarSeries
                       key={s.id}
                       data={s.data}
                       dataKey={s.id}
@@ -174,13 +182,13 @@ export const VisxChart = ({
                     />
                   );
                 })}
-              </ChartComponents.BarStack>
+              </BarStack>
             )}
             {renderBarGroup && (
-              <ChartComponents.BarGroup>
+              <BarGroup>
                 {series.map((s) => {
                   return (
-                    <ChartComponents.BarSeries
+                    <BarSeries
                       key={s.id}
                       data={s.data}
                       dataKey={s.id}
@@ -189,13 +197,13 @@ export const VisxChart = ({
                     />
                   );
                 })}
-              </ChartComponents.BarGroup>
+              </BarGroup>
             )}
             {renderBarSeries && (
               <>
                 {series.map((s) => {
                   return (
-                    <ChartComponents.BarSeries
+                    <BarSeries
                       key={s.id}
                       data={s.data}
                       dataKey={s.id}
@@ -210,7 +218,7 @@ export const VisxChart = ({
               <>
                 {series.map((s) => {
                   return (
-                    <ChartComponents.AreaSeries
+                    <AreaSeries
                       key={s.id}
                       curve={curve}
                       data={s.data}
@@ -224,14 +232,10 @@ export const VisxChart = ({
               </>
             )}
             {renderAreaStack && (
-              <ChartComponents.AreaStack
-                curve={curve}
-                offset={stackOffset}
-                renderLine={stackOffset !== 'wiggle'}
-              >
+              <AreaStack curve={curve} offset={stackOffset} renderLine={stackOffset !== 'wiggle'}>
                 {series.map((s) => {
                   return (
-                    <ChartComponents.AreaSeries
+                    <AreaSeries
                       key={s.id}
                       data={s.data}
                       dataKey={s.id}
@@ -241,13 +245,13 @@ export const VisxChart = ({
                     />
                   );
                 })}
-              </ChartComponents.AreaStack>
+              </AreaStack>
             )}
             {renderLineSeries && (
               <>
                 {series.map((s) => {
                   return (
-                    <ChartComponents.LineSeries
+                    <LineSeries
                       key={s.id}
                       curve={curve}
                       data={s.data}
@@ -263,7 +267,7 @@ export const VisxChart = ({
               <>
                 {series.map((s) => {
                   return (
-                    <ChartComponents.GlyphSeries
+                    <GlyphSeries
                       key={s.id}
                       data={s.data}
                       dataKey={s.id}
@@ -275,16 +279,14 @@ export const VisxChart = ({
                 })}
               </>
             )}
-            <ChartComponents.Axis
-              key={`time-axis-${animationTrajectory}`}
-              animationTrajectory={animationTrajectory}
+            <Axis
+              key="x-axis"
               numTicks={axisNumTicks}
               orientation={xAxisOrientation}
               tickFormat={(x: number) => xFormatter(x, { numTicks: numTicksX, zoom, zoomDomain })}
             />
-            <ChartComponents.Axis
-              key={`temp-axis-${animationTrajectory}`}
-              animationTrajectory={animationTrajectory}
+            <Axis
+              key="y-axis"
               numTicks={axisNumTicks}
               orientation={yAxisOrientation}
               tickFormat={
@@ -294,7 +296,7 @@ export const VisxChart = ({
               }
             />
             {typeof renderTooltip === 'function' ? (
-              <ChartComponents.Tooltip<VisxChartDatum>
+              <Tooltip<VisxChartDatum>
                 renderGlyph={
                   typeof renderTooltipGlyph === 'function' ? renderTooltipGlyph : undefined
                 }
@@ -311,7 +313,7 @@ export const VisxChart = ({
                 snapTooltipToDatumY={!canSnapTooltipToDatum ? false : tooltipSnapTooltipToDatumY}
               />
             ) : undefined}
-          </ChartComponents.XYChart>
+          </XYChart>
         );
       }}
     </ParentSize>

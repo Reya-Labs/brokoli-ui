@@ -224,8 +224,6 @@ const VisxChartIntegration: React.FunctionComponent<VisxChartProps & TemplatePro
   return (
     <Box>
       <VisxChart
-        animated={args.animated}
-        animationTrajectory={args.animationTrajectory}
         axisNumTicks={args.axisNumTicks}
         chartType={args.chartType}
         curveType={args.curveType}

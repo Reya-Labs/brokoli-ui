@@ -1,4 +1,3 @@
-import { AnimationTrajectory } from '@visx/react-spring';
 import type {
   RenderTooltipGlyphProps,
   RenderTooltipParams,
@@ -13,13 +12,11 @@ export type VisxChartDatum = {
 
 export type VisxChartProps = {
   minZoomDomain?: number;
-  animated?: boolean;
   renderTooltip?: (_: RenderTooltipParams<VisxChartDatum>) => React.ReactNode;
   series: {
     id: string;
     data: VisxChartDatum[];
   }[];
-  animationTrajectory?: AnimationTrajectory;
   curveType?: 'linear' | 'cardinal' | 'step';
   axisNumTicks?: number;
   renderGlyph?: React.FC<GlyphProps<VisxChartDatum>>;
