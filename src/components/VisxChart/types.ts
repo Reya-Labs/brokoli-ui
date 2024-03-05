@@ -37,10 +37,11 @@ export type VisxChartProps = {
   yAxisOrientation?: 'left' | 'right';
   chartType: 'glyph' | 'line' | 'area' | 'areastack' | 'none';
   customChartBackground?: React.ReactNode;
-  // new
   axisTypographyToken: TypographyTokens;
+  tickLength?: number;
   axisTicksTextColorToken?: ColorTokens;
   axisDomainLineColorToken?: ColorTokens | 'transparent';
+  crosshairColorToken?: ColorTokens;
 };
 
 export type AxisFormatterFn = (

@@ -63,6 +63,8 @@ export const VisxChart = ({
   axisDomainLineColorToken,
   axisTicksTextColorToken,
   axisTypographyToken,
+  tickLength = 4,
+  crosshairColorToken,
 }: VisxChartProps) => {
   const theme = useTheme();
 
@@ -95,6 +97,8 @@ export const VisxChart = ({
       ? 'transparent'
       : getColorFromToken({ colorToken: axisDomainLineColorToken, theme });
   const axisTicksTextColor = getColorFromToken({ colorToken: axisTicksTextColorToken, theme });
+  const crosshairColor = getColorFromToken({ colorToken: crosshairColorToken, theme });
+
   const chartTheme = useMemo(() => {
     return buildChartTheme({
       backgroundColor: 'transparent',
@@ -102,7 +106,7 @@ export const VisxChart = ({
       gridColor: 'transparent',
       gridColorDark: 'transparent',
       svgLabelBig: { fill: '#1d1b38' },
-      tickLength: 4,
+      tickLength,
       xAxisLineStyles: {
         stroke: axisDomainLineColor,
       },
@@ -110,7 +114,7 @@ export const VisxChart = ({
         stroke: axisDomainLineColor,
       },
     });
-  }, [axisDomainLineColor, seriesColors]);
+  }, [tickLength, axisDomainLineColor, seriesColors]);
 
   const data = useMemo(
     () => series.reduce((pV, cI) => [...pV, ...cI.data], [] as VisxChartDatum[]),
@@ -176,6 +180,12 @@ export const VisxChart = ({
         return (
           <XYChart
             height={Math.min(400, height)}
+            margin={{
+              bottom: xAxisOrientation === 'top' ? 8 : axisFontSize + tickLength * 2,
+              left: yAxisOrientation === 'right' ? 0 : 55,
+              right: yAxisOrientation === 'left' ? 0 : 55,
+              top: xAxisOrientation === 'bottom' ? 8 : axisFontSize + tickLength * 2,
+            }}
             theme={chartTheme}
             width={width}
             xScale={{
@@ -304,6 +314,12 @@ export const VisxChart = ({
             />
             {typeof renderTooltip === 'function' ? (
               <Tooltip<VisxChartDatum>
+                horizontalCrosshairStyle={{
+                  opacity: 0.7,
+                  stroke: crosshairColor,
+                  strokeDasharray: '5 5',
+                  strokeWidth: 1,
+                }}
                 renderGlyph={
                   typeof renderTooltipGlyph === 'function' ? renderTooltipGlyph : undefined
                 }
@@ -314,6 +330,12 @@ export const VisxChart = ({
                 showVerticalCrosshair={tooltipShowVerticalCrosshairComputed}
                 snapTooltipToDatumX={tooltipSnapTooltipToDatumX}
                 snapTooltipToDatumY={tooltipSnapTooltipToDatumY}
+                verticalCrosshairStyle={{
+                  opacity: 0.7,
+                  stroke: crosshairColor,
+                  strokeDasharray: '5 5',
+                  strokeWidth: 1,
+                }}
               />
             ) : undefined}
           </XYChart>

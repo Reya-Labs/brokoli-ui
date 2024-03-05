@@ -9,7 +9,7 @@ import React, { useContext } from 'react';
 import { defaultVisxChartXFormatter, VisxChart } from '.';
 import { VisxChartDatum, VisxChartProps } from './types';
 
-const cityTemperatures = cityTemperature.slice(225, 275);
+const cityTemperatures = cityTemperature.slice();
 const dataMissingValues = cityTemperatures.map((d, i) =>
   i === 10 || i === 11
     ? { ...d, Austin: 'null', 'New York': 'notanumber', 'San Francisco': 'nope' }
@@ -235,6 +235,7 @@ const VisxChartIntegration: React.FunctionComponent<VisxChartProps & TemplatePro
         axisTicksTextColorToken={args.axisTicksTextColorToken}
         axisTypographyToken={args.axisTypographyToken}
         chartType={args.chartType}
+        crosshairColorToken={args.crosshairColorToken}
         curveType={args.curveType}
         minZoomDomain={args.minZoomDomain}
         renderGlyph={renderGlyph}
@@ -245,6 +246,7 @@ const VisxChartIntegration: React.FunctionComponent<VisxChartProps & TemplatePro
         showGridColumns={args.showGridColumns}
         showGridRows={args.showGridRows}
         stackOffset={args.stackOffset}
+        tickLength={args.tickLength}
         tooltipShowHorizontalCrosshair={args.tooltipShowHorizontalCrosshair}
         tooltipShowVerticalCrosshair={args.tooltipShowVerticalCrosshair}
         tooltipSnapTooltipToDatumX={args.tooltipSnapTooltipToDatumX}
@@ -286,6 +288,7 @@ export const Default: StoryObj<typeof VisxChartIntegration> = {
     axisTicksTextColorToken: 'white100',
     axisTypographyToken: 'bodySmallRegular',
     chartType: 'areastack',
+    crosshairColorToken: 'primary500',
     curveType: 'linear',
     glyphComponent: 'star',
     lessData: false,
@@ -296,6 +299,7 @@ export const Default: StoryObj<typeof VisxChartIntegration> = {
     showGridRows: false,
     showTooltip: true,
     showTooltipGlyph: false,
+    tickLength: 4,
     tooltipGlyphComponent: 'star',
     tooltipShowHorizontalCrosshair: false,
     tooltipShowVerticalCrosshair: false,
