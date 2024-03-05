@@ -1,7 +1,7 @@
-export function browserI18n() {
-  const o1 = new Intl.NumberFormat().resolvedOptions();
-  const o2 = new Intl.DateTimeFormat().resolvedOptions();
-  const o3 = new Intl.NumberFormat().formatToParts(123456.789);
+export function browserI18n(locale = window.navigator.language) {
+  const o1 = new Intl.NumberFormat(locale).resolvedOptions();
+  const o2 = new Intl.DateTimeFormat(locale).resolvedOptions();
+  const o3 = new Intl.NumberFormat(locale).formatToParts(123456.789);
   return {
     calendar: o2.calendar,
     decimals: o3[3].value,
