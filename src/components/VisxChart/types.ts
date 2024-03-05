@@ -32,7 +32,7 @@ export type VisxChartProps = {
   themeName: 'dark' | 'light' | 'reya';
   xAxisOrientation?: 'top' | 'bottom';
   yAxisOrientation?: 'left' | 'right';
-  chartType: 'glyph' | 'bar' | 'barstack' | 'bargroup' | 'line' | 'area' | 'areastack' | 'none';
+  chartType: 'glyph' | 'line' | 'area' | 'areastack' | 'none';
   customChartBackground?: React.ReactNode;
 };
 

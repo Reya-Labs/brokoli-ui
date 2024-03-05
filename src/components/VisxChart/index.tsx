@@ -4,9 +4,6 @@ import {
   AreaSeries,
   AreaStack,
   Axis,
-  BarGroup,
-  BarSeries,
-  BarStack,
   darkTheme,
   GlyphSeries,
   Grid,
@@ -58,20 +55,15 @@ export const VisxChart = ({
   customChartBackground = null,
   minZoomDomain = 4 * 60 * 60 * 1000,
 }: VisxChartProps) => {
-  const renderBarGroup = chartType === 'bargroup';
-  const renderBarStack = chartType === 'barstack';
   const renderLineSeries = chartType === 'line';
   const renderAreaSeries = chartType === 'area';
   const renderAreaStack = chartType === 'areastack';
-  const renderBarSeries = chartType === 'bar';
   const renderGlyphSeries = chartType === 'glyph';
   const curve = useMemo(() => {
     if (curveType === 'cardinal') return curveCardinal;
     if (curveType === 'step') return curveStep;
     return curveLinear;
   }, [curveType]);
-  // cannot snap to a stack position
-  const canSnapTooltipToDatum = chartType !== 'barstack' && chartType !== 'areastack';
   const tooltipShowVerticalCrosshairComputed =
     chartType === 'barstack' || chartType === 'areastack' || tooltipShowVerticalCrosshair;
   const chartTheme = useMemo(() => {
@@ -138,10 +130,6 @@ export const VisxChart = ({
   return (
     <ParentSize onWheel={onWheel}>
       {({ width, height }) => {
-        const tickSpacingX = 150;
-        const tickSpacingY = 50;
-        const numTicksX = width / tickSpacingX;
-        const numTicksY = height / tickSpacingY;
         return (
           <XYChart
             height={Math.min(400, height)}
@@ -169,51 +157,6 @@ export const VisxChart = ({
               numTicks={axisNumTicks}
               rows={showGridRows}
             />
-            {renderBarStack && (
-              <BarStack offset={stackOffset}>
-                {series.map((s) => {
-                  return (
-                    <BarSeries
-                      key={s.id}
-                      data={s.data}
-                      dataKey={s.id}
-                      xAccessor={xAccessor}
-                      yAccessor={yAccessor}
-                    />
-                  );
-                })}
-              </BarStack>
-            )}
-            {renderBarGroup && (
-              <BarGroup>
-                {series.map((s) => {
-                  return (
-                    <BarSeries
-                      key={s.id}
-                      data={s.data}
-                      dataKey={s.id}
-                      xAccessor={xAccessor}
-                      yAccessor={yAccessor}
-                    />
-                  );
-                })}
-              </BarGroup>
-            )}
-            {renderBarSeries && (
-              <>
-                {series.map((s) => {
-                  return (
-                    <BarSeries
-                      key={s.id}
-                      data={s.data}
-                      dataKey={s.id}
-                      xAccessor={xAccessor}
-                      yAccessor={yAccessor}
-                    />
-                  );
-                })}
-              </>
-            )}
             {renderAreaSeries && (
               <>
                 {series.map((s) => {
@@ -283,7 +226,9 @@ export const VisxChart = ({
               key="x-axis"
               numTicks={axisNumTicks}
               orientation={xAxisOrientation}
-              tickFormat={(x: number) => xFormatter(x, { numTicks: numTicksX, zoom, zoomDomain })}
+              tickFormat={(x: number) =>
+                xFormatter(x, { numTicks: axisNumTicks, zoom, zoomDomain })
+              }
             />
             <Axis
               key="y-axis"
@@ -292,7 +237,7 @@ export const VisxChart = ({
               tickFormat={
                 stackOffset === 'wiggle'
                   ? () => ''
-                  : (y: number) => yFormatter(y, { numTicks: numTicksY, zoom, zoomDomain })
+                  : (y: number) => yFormatter(y, { numTicks: axisNumTicks, zoom, zoomDomain })
               }
             />
             {typeof renderTooltip === 'function' ? (
@@ -301,16 +246,12 @@ export const VisxChart = ({
                   typeof renderTooltipGlyph === 'function' ? renderTooltipGlyph : undefined
                 }
                 renderTooltip={renderTooltip}
-                showDatumGlyph={
-                  !canSnapTooltipToDatum
-                    ? false
-                    : tooltipSnapTooltipToDatumX || tooltipSnapTooltipToDatumY
-                }
+                showDatumGlyph={tooltipSnapTooltipToDatumX || tooltipSnapTooltipToDatumY}
                 showHorizontalCrosshair={tooltipShowHorizontalCrosshair}
-                showSeriesGlyphs={sharedTooltip && !renderBarGroup}
+                showSeriesGlyphs={sharedTooltip}
                 showVerticalCrosshair={tooltipShowVerticalCrosshairComputed}
-                snapTooltipToDatumX={!canSnapTooltipToDatum ? false : tooltipSnapTooltipToDatumX}
-                snapTooltipToDatumY={!canSnapTooltipToDatum ? false : tooltipSnapTooltipToDatumY}
+                snapTooltipToDatumX={tooltipSnapTooltipToDatumX}
+                snapTooltipToDatumY={tooltipSnapTooltipToDatumY}
               />
             ) : undefined}
           </XYChart>

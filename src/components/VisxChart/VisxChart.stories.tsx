@@ -259,7 +259,7 @@ export const Default: StoryObj<typeof VisxChartIntegration> = {
   argTypes: {
     chartType: {
       control: 'select',
-      options: ['glyph', 'bar', 'barstack', 'bargroup', 'line', 'area', 'areastack', 'none'],
+      options: ['glyph', 'line', 'area', 'areastack', 'none'],
     },
     curveType: {
       control: 'select',
