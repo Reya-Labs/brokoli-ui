@@ -78,3 +78,17 @@ export const allTimeUnits = {
   ...smallTimeUnits,
   ...otherTimeUnits,
 };
+
+export function findParentBackgroundColor(
+  childElement: HTMLElement | SVGForeignObjectElement | null,
+) {
+  let element = childElement;
+  while (element) {
+    const backgroundColor = window.getComputedStyle(element).backgroundColor;
+    if (backgroundColor !== 'rgba(0, 0, 0, 0)' && backgroundColor !== 'transparent') {
+      return backgroundColor;
+    }
+    element = element.parentElement;
+  }
+  return 'transparent';
+}

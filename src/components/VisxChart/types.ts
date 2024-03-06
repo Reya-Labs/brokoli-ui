@@ -14,6 +14,8 @@ export type VisxChartDatum = {
 };
 
 export type VisxChartProps = {
+  marginLeft?: number;
+  marginRight?: number;
   minZoomDomain?: number;
   renderTooltip?: (_: RenderTooltipParams<VisxChartDatum>) => React.ReactNode;
   series: {
@@ -36,7 +38,6 @@ export type VisxChartProps = {
   xAxisOrientation?: 'top' | 'bottom';
   yAxisOrientation?: 'left' | 'right';
   chartType: 'glyph' | 'line' | 'area' | 'areastack' | 'none';
-  customChartBackground?: React.ReactNode;
   axisTypographyToken: TypographyTokens;
   tickLength?: number;
   axisTicksTextColorToken?: ColorTokens;

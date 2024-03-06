@@ -28,6 +28,7 @@ const Box = styled('div')`
   height: 445px;
   border: 1px solid gainsboro;
   border-radius: 8px;
+  background: ${({ theme }) => theme.colors.black900};
 `;
 
 const Glyph = ({
@@ -135,7 +136,13 @@ type TemplateProps = {
   missingValues: boolean;
   lessData: boolean;
 };
-const VisxChartIntegration: React.FunctionComponent<VisxChartProps & TemplateProps> = (args) => {
+type VisxChartIntegrationProps = Omit<
+  VisxChartProps,
+  'series' | 'renderTooltip' | 'renderTooltipGlyph' | 'renderGlyph'
+> &
+  TemplateProps;
+
+const VisxChartIntegration: React.FunctionComponent<VisxChartIntegrationProps> = (args) => {
   const glyphComponent = args.glyphComponent;
   const showTooltipGlyph = args.showTooltipGlyph;
   const showTooltip = args.showTooltip;
@@ -230,29 +237,11 @@ const VisxChartIntegration: React.FunctionComponent<VisxChartProps & TemplatePro
   return (
     <Box>
       <VisxChart
-        axisDomainLineColorToken={args.axisDomainLineColorToken}
-        axisNumTicks={args.axisNumTicks}
-        axisTicksTextColorToken={args.axisTicksTextColorToken}
-        axisTypographyToken={args.axisTypographyToken}
-        chartType={args.chartType}
-        crosshairColorToken={args.crosshairColorToken}
-        curveType={args.curveType}
-        minZoomDomain={args.minZoomDomain}
+        {...args}
         renderGlyph={renderGlyph}
         renderTooltip={renderTooltip}
         renderTooltipGlyph={renderTooltipGlyph}
         series={series}
-        sharedTooltip={sharedTooltip}
-        showGridColumns={args.showGridColumns}
-        showGridRows={args.showGridRows}
-        stackOffset={args.stackOffset}
-        tickLength={args.tickLength}
-        tooltipShowHorizontalCrosshair={args.tooltipShowHorizontalCrosshair}
-        tooltipShowVerticalCrosshair={args.tooltipShowVerticalCrosshair}
-        tooltipSnapTooltipToDatumX={args.tooltipSnapTooltipToDatumX}
-        tooltipSnapTooltipToDatumY={args.tooltipSnapTooltipToDatumY}
-        xAxisOrientation={args.xAxisOrientation}
-        yAxisOrientation={args.yAxisOrientation}
       />
     </Box>
   );
@@ -282,6 +271,14 @@ export const Default: StoryObj<typeof VisxChartIntegration> = {
       control: 'select',
       options: ['star', 'cross', 'circle', '🍍'],
     },
+    xAxisOrientation: {
+      control: 'select',
+      options: ['top', 'bottom'],
+    },
+    yAxisOrientation: {
+      control: 'select',
+      options: ['left', 'right'],
+    },
   },
   args: {
     axisDomainLineColorToken: 'white100',
@@ -305,5 +302,7 @@ export const Default: StoryObj<typeof VisxChartIntegration> = {
     tooltipShowVerticalCrosshair: false,
     tooltipSnapTooltipToDatumX: true,
     tooltipSnapTooltipToDatumY: false,
-  },
+    xAxisOrientation: 'bottom',
+    yAxisOrientation: 'right',
+  } as VisxChartIntegrationProps,
 };

@@ -19,6 +19,7 @@ import { useResponsiveQuery } from '../../foundation/Media';
 import { getTypographyFromToken } from '../../foundation/Typography';
 import { allTimeUnits, clamp, formatAbsoluteTime, objectEntries } from './helpers';
 import { AxisFormatterFn, VisxChartDatum, VisxChartProps } from './types';
+import { YAxisBackground } from './YAxisBackground';
 
 export const defaultVisxChartXFormatter: AxisFormatterFn = (xValue, options) => {
   const { zoomDomain } = options || {};
@@ -66,6 +67,8 @@ export const VisxChart = ({
   axisTypographyToken,
   tickLength = 4,
   crosshairColorToken,
+  marginLeft = 55,
+  marginRight = 55,
 }: VisxChartProps) => {
   const theme = useTheme();
 
@@ -174,19 +177,19 @@ export const VisxChart = ({
       ),
     );
   };
-
+  const margin = {
+    bottom: xAxisOrientation === 'top' ? 8 : axisFontSize + tickLength * 2,
+    left: yAxisOrientation === 'right' ? 0 : marginLeft,
+    right: yAxisOrientation === 'left' ? 0 : marginRight,
+    top: xAxisOrientation === 'bottom' ? 8 : axisFontSize + tickLength * 2,
+  };
   return (
     <ParentSize onWheel={onWheel}>
       {({ width, height }) => {
         return (
           <XYChart
             height={Math.min(400, height)}
-            margin={{
-              bottom: xAxisOrientation === 'top' ? 8 : axisFontSize + tickLength * 2,
-              left: yAxisOrientation === 'right' ? 0 : 55,
-              right: yAxisOrientation === 'left' ? 0 : 55,
-              top: xAxisOrientation === 'bottom' ? 8 : axisFontSize + tickLength * 2,
-            }}
+            margin={margin}
             theme={chartTheme}
             width={width}
             xScale={{
@@ -295,6 +298,9 @@ export const VisxChart = ({
               }}
               tickStroke={axisDomainLineColor}
             />
+            {yAxisOrientation === 'left' && margin.left > 0 && (
+              <YAxisBackground height="100%" width={margin.left} x="0" y="0" />
+            )}
             <Axis
               key="y-axis"
               numTicks={axisNumTicks}
