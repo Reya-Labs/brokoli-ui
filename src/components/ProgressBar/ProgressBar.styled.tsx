@@ -1,16 +1,6 @@
-import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
-
-const grow = (percentage: number) => keyframes`
-  0% {
-    width: 0;
-  }
-  100% {
-    width: ${percentage}%;
-  }
-`;
 
 export const ProgressBarPercentageBox = styled('div', shouldNotForwardProps(['width']))<{
   width: number;
