@@ -41,6 +41,7 @@ export const defaultVisxChartYFormatter: AxisFormatterFn = (yValue) =>
 const xAccessor = (d: VisxChartDatum) => d.x;
 const yAccessor = (d: VisxChartDatum) => d.y;
 
+export { VisxChartDatum, VisxChartProps };
 export const VisxChart = ({
   series = [],
   curveType = 'linear',
