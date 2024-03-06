@@ -4,11 +4,13 @@ import { ProgressBarBoxContainer, ProgressBarPercentageBox } from './ProgressBar
 
 type ProgressBarProps = {
   percentageComplete?: number;
+  className: string;
 };
 
-export const ProgressBar = ({ percentageComplete = 0 }: ProgressBarProps) => (
+export const ProgressBar = ({ percentageComplete = 0, className }: ProgressBarProps) => (
   <ProgressBarBoxContainer data-testid="ProgressBar-ProgressBarBoxContainer">
     <ProgressBarPercentageBox
+      className={className}
       data-testid="ProgressBar-PercentageBox"
       percentage={Math.min(percentageComplete, 100)}
     />

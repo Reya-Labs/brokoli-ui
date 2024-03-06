@@ -12,7 +12,7 @@ const grow = (percentage: number) => keyframes`
 
 export const ProgressBarPercentageBox = styled('div')<{ percentage: number }>`
   width: 0;
-  background: ${({ theme }) => theme.colors.white100};
+  background: ${({ theme }) => theme.colors.white600};
   height: 100%;
   animation: ${({ percentage }) => grow(percentage)} 700ms ease-out forwards;
 `;
