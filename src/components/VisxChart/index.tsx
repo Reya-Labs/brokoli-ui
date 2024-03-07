@@ -9,7 +9,6 @@ import {
   GlyphSeries,
   Grid,
   LineSeries,
-  Tooltip,
   XYChart,
 } from '@visx/xychart';
 import React, { useMemo, useState } from 'react';
@@ -19,6 +18,7 @@ import { useResponsiveQuery } from '../../foundation/Media';
 import { getTypographyFromToken } from '../../foundation/Typography';
 import { allTimeUnits, clamp, formatAbsoluteTime, objectEntries } from './helpers';
 import { VisxChartDatum, VisxChartProps } from './types';
+import { VisxChartTooltip } from './VisxChartTooltip';
 import { YAxisBackground } from './YAxisBackground';
 
 export const defaultXAxisTickFormatter: NonNullable<VisxChartProps['xAxisTickFormatter']> = (
@@ -107,7 +107,6 @@ export const VisxChart = ({
       ? 'transparent'
       : getColorFromToken({ colorToken: axisDomainLineColorToken, theme });
   const axisTicksTextColor = getColorFromToken({ colorToken: axisTicksTextColorToken, theme });
-  const crosshairColor = getColorFromToken({ colorToken: crosshairColorToken, theme });
 
   const chartTheme = useMemo(() => {
     return buildChartTheme({
@@ -329,16 +328,9 @@ export const VisxChart = ({
               tickStroke={axisDomainLineColor}
             />
             {typeof renderTooltip === 'function' ? (
-              <Tooltip<VisxChartDatum>
-                horizontalCrosshairStyle={{
-                  opacity: 0.7,
-                  stroke: crosshairColor,
-                  strokeDasharray: '5 5',
-                  strokeWidth: 1,
-                }}
-                renderGlyph={
-                  typeof renderTooltipGlyph === 'function' ? renderTooltipGlyph : undefined
-                }
+              <VisxChartTooltip
+                crosshairColorToken={crosshairColorToken}
+                renderGlyph={renderTooltipGlyph}
                 renderTooltip={renderTooltip}
                 showDatumGlyph={tooltipSnapTooltipToDatumX || tooltipSnapTooltipToDatumY}
                 showHorizontalCrosshair={tooltipShowHorizontalCrosshair}
@@ -346,12 +338,6 @@ export const VisxChart = ({
                 showVerticalCrosshair={tooltipShowVerticalCrosshairComputed}
                 snapTooltipToDatumX={tooltipSnapTooltipToDatumX}
                 snapTooltipToDatumY={tooltipSnapTooltipToDatumY}
-                verticalCrosshairStyle={{
-                  opacity: 0.7,
-                  stroke: crosshairColor,
-                  strokeDasharray: '5 5',
-                  strokeWidth: 1,
-                }}
               />
             ) : undefined}
           </XYChart>

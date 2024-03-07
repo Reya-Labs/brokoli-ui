@@ -6,7 +6,8 @@ import { GlyphProps, ThemeContext } from '@visx/xychart';
 import { RenderTooltipGlyphProps } from '@visx/xychart/lib/components/Tooltip';
 import React, { useContext } from 'react';
 
-import { defaultXAxisTickFormatter, VisxChart } from '.';
+import { Typography } from '../Typography';
+import { VisxChart } from '.';
 import { VisxChartDatum, VisxChartProps } from './types';
 
 const cityTemperatures = cityTemperature.slice();
@@ -24,14 +25,37 @@ const getNyTemperature = (d: CityTemperature) => Number(d['New York']);
 const getAustinTemperature = (d: CityTemperature) => Number(d.Austin);
 type City = 'San Francisco' | 'New York' | 'Austin';
 
+const ParentBox = styled('div')`
+  height: 445px;
+  border: 1px solid yellow;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  background: ${({ theme }) => theme.colors.black900};
+  padding: 32px;
+`;
 const Box = styled('div')`
-  height: 545px;
+  height: 100%;
   border: 1px solid gainsboro;
   overflow: hidden;
   border-radius: 8px;
+  flex: 5;
   background: ${({ theme }) => theme.colors.black900};
 `;
 
+const LeftBox = styled('div')`
+  height: 100%;
+  border-radius: 8px;
+  flex: 1;
+  background: ${({ theme }) => theme.colors.black900};
+`;
+
+const RightBox = styled('div')`
+  height: 100%;
+  border-radius: 8px;
+  flex: 1;
+  background: ${({ theme }) => theme.colors.black900};
+`;
 const Glyph = ({
   x,
   y,
@@ -194,13 +218,25 @@ const VisxChartIntegration: React.FunctionComponent<VisxChartIntegrationProps> =
 
   const renderTooltip: VisxChartProps['renderTooltip'] = showTooltip
     ? ({ tooltipData, colorScale }) => (
-        <div style={{ background: '#E7E7E8', borderRadius: 8, padding: 16 }}>
-          {/** date */}
-          {tooltipData?.nearestDatum?.datum && tooltipData?.nearestDatum?.datum.x
-            ? defaultXAxisTickFormatter(
-                tooltipData?.nearestDatum?.datum && tooltipData?.nearestDatum?.datum.x,
-              )
-            : 'No date'}
+        <div
+          style={{
+            background: '#370016',
+            border: '1px solid #FFCAD7',
+            borderRadius: 8,
+            padding: 16,
+          }}
+        >
+          <Typography colorToken="white100" typographyToken="h3Bold">
+            {tooltipData?.nearestDatum?.datum && tooltipData?.nearestDatum?.datum.x
+              ? new Intl.DateTimeFormat(undefined, {
+                  day: '2-digit',
+                  hour: '2-digit',
+                  minute: '2-digit',
+                  month: 'short',
+                  year: 'numeric',
+                }).format(tooltipData?.nearestDatum?.datum && tooltipData?.nearestDatum?.datum.x)
+              : 'No date'}
+          </Typography>
           <br />
           <br />
           {/** temperatures */}
@@ -236,15 +272,37 @@ const VisxChartIntegration: React.FunctionComponent<VisxChartIntegrationProps> =
   );
 
   return (
-    <Box>
-      <VisxChart
-        {...args}
-        renderGlyph={renderGlyph}
-        renderTooltip={renderTooltip}
-        renderTooltipGlyph={renderTooltipGlyph}
-        series={series}
-      />
-    </Box>
+    <ParentBox>
+      <LeftBox>
+        <Typography colorToken="white100" typographyToken="bodySmallRegular">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+          ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+          sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+          est laborum.
+        </Typography>
+      </LeftBox>
+      <Box>
+        <VisxChart
+          {...args}
+          renderGlyph={renderGlyph}
+          renderTooltip={renderTooltip}
+          renderTooltipGlyph={renderTooltipGlyph}
+          series={series}
+        />
+      </Box>
+      <RightBox>
+        <Typography colorToken="white100" typographyToken="bodySmallRegular">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+          ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+          sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+          est laborum.
+        </Typography>
+      </RightBox>
+    </ParentBox>
   );
 };
 
@@ -296,13 +354,13 @@ export const Default: StoryObj<typeof VisxChartIntegration> = {
     showGridColumns: false,
     showGridRows: false,
     showTooltip: true,
-    showTooltipGlyph: false,
+    showTooltipGlyph: true,
     tickLength: 4,
-    tooltipGlyphComponent: 'star',
-    tooltipShowHorizontalCrosshair: false,
-    tooltipShowVerticalCrosshair: false,
+    tooltipGlyphComponent: 'circle',
+    tooltipShowHorizontalCrosshair: true,
+    tooltipShowVerticalCrosshair: true,
     tooltipSnapTooltipToDatumX: true,
-    tooltipSnapTooltipToDatumY: false,
+    tooltipSnapTooltipToDatumY: true,
     xAxisOrientation: 'bottom',
     yAxisOrientation: 'right',
   } as VisxChartIntegrationProps,
