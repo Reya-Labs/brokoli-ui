@@ -6,6 +6,7 @@ import { GlyphProps, ThemeContext } from '@visx/xychart';
 import { RenderTooltipGlyphProps } from '@visx/xychart/lib/components/Tooltip';
 import React, { useContext } from 'react';
 
+import { TokenTypography } from '../TokenTypography';
 import { Typography } from '../Typography';
 import { VisxChart } from '.';
 import { VisxChartDatum, VisxChartProps } from './types';
@@ -56,6 +57,14 @@ const RightBox = styled('div')`
   flex: 1;
   background: ${({ theme }) => theme.colors.black900};
 `;
+
+const TooltipBox = styled('div')`
+  background: ${({ theme }) => theme.colors.secondary900};
+  border: 1px solid ${({ theme }) => theme.colors.secondary700};
+  border-radius: 8px;
+  padding: 16px;
+`;
+
 const Glyph = ({
   x,
   y,
@@ -217,54 +226,62 @@ const VisxChartIntegration: React.FunctionComponent<VisxChartIntegrationProps> =
     : undefined;
 
   const renderTooltip: VisxChartProps['renderTooltip'] = showTooltip
-    ? ({ tooltipData, colorScale }) => (
-        <div
-          style={{
-            background: '#370016',
-            border: '1px solid #FFCAD7',
-            borderRadius: 8,
-            padding: 16,
-          }}
-        >
-          <Typography colorToken="white100" typographyToken="h3Bold">
-            {tooltipData?.nearestDatum?.datum && tooltipData?.nearestDatum?.datum.x
-              ? new Intl.DateTimeFormat(undefined, {
-                  day: '2-digit',
-                  hour: '2-digit',
-                  minute: '2-digit',
-                  month: 'short',
-                  year: 'numeric',
-                }).format(tooltipData?.nearestDatum?.datum && tooltipData?.nearestDatum?.datum.x)
-              : 'No date'}
-          </Typography>
-          <br />
-          <br />
-          {/** temperatures */}
-          {(
-            (sharedTooltip
-              ? Object.keys(tooltipData?.datumByKey ?? {})
-              : [tooltipData?.nearestDatum?.key]
-            ).filter((city) => city) as City[]
-          ).map((city) => {
-            const temperature = tooltipData?.nearestDatum?.datum.y;
+    ? ({ tooltipData, colorScale }) => {
+        const nearestDatum = tooltipData?.nearestDatum;
+        const datum = nearestDatum?.datum;
+        if (!datum) {
+          return null;
+        }
+        return (
+          <TooltipBox>
+            <Typography colorToken="white100" typographyToken="h3Bold">
+              {datum.x
+                ? new Intl.DateTimeFormat(undefined, {
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    month: 'short',
+                    year: 'numeric',
+                  }).format(datum.x)
+                : 'No date'}
+            </Typography>
+            {(
+              (sharedTooltip
+                ? Object.keys(tooltipData?.datumByKey ?? {})
+                : [nearestDatum?.key]
+              ).filter((city) => city) as City[]
+            ).map((city) => {
+              const citySerie = series[city === 'San Francisco' ? 0 : city === 'New York' ? 1 : 2];
+              const temperature = citySerie.data[nearestDatum?.index].y;
 
-            return (
-              <div key={city}>
-                <em
-                  style={{
-                    color: colorScale?.(city),
-                    textDecoration:
-                      tooltipData?.nearestDatum?.key === city ? 'underline' : undefined,
-                  }}
-                >
-                  {city}
-                </em>{' '}
-                {temperature == null || Number.isNaN(temperature) ? '–' : `${temperature}° F`}
-              </div>
-            );
-          })}
-        </div>
-      )
+              return (
+                <TokenTypography
+                  key={city}
+                  colorToken={
+                    city === 'New York'
+                      ? 'secondary500'
+                      : city === 'San Francisco'
+                      ? 'primary500'
+                      : 'warning500'
+                  }
+                  token={
+                    temperature == null || Number.isNaN(temperature) ? '–' : ` ${temperature}° F`
+                  }
+                  tokenColorToken={
+                    city === 'New York'
+                      ? 'secondary300'
+                      : city === 'San Francisco'
+                      ? 'primary300'
+                      : 'warning300'
+                  }
+                  typographyToken="bodySmallRegular"
+                  value={city}
+                />
+              );
+            })}
+          </TooltipBox>
+        );
+      }
     : undefined;
 
   const renderGlyph: VisxChartProps['renderGlyph'] = (props) => (
@@ -343,7 +360,7 @@ export const Default: StoryObj<typeof VisxChartIntegration> = {
     axisDomainLineColorToken: 'white100',
     axisTicksTextColorToken: 'white100',
     axisTypographyToken: 'bodySmallRegular',
-    chartType: 'areastack',
+    chartType: 'line',
     crosshairColorToken: 'primary500',
     curveType: 'linear',
     glyphComponent: 'star',

@@ -9,9 +9,12 @@ import {
   GlyphSeries,
   Grid,
   LineSeries,
+  TooltipContext,
+  TooltipContextType,
+  TooltipProvider,
   XYChart,
 } from '@visx/xychart';
-import React, { useMemo, useState } from 'react';
+import React, { useContext, useMemo, useState } from 'react';
 
 import { getColorFromToken } from '../../foundation/Colors';
 import { useResponsiveQuery } from '../../foundation/Media';
@@ -47,7 +50,7 @@ const xAccessor = (d: VisxChartDatum) => d.x;
 const yAccessor = (d: VisxChartDatum) => d.y;
 
 export { VisxChartDatum, VisxChartProps };
-export const VisxChart = ({
+const _VisxChart = ({
   yAxisTickFormatter = defaultYAxisTickFormatter,
   xAxisTickFormatter = defaultXAxisTickFormatter,
   series = [],
@@ -78,6 +81,7 @@ export const VisxChart = ({
 }: VisxChartProps) => {
   const theme = useTheme();
 
+  const { hideTooltip } = useContext(TooltipContext) as TooltipContextType<VisxChartDatum>;
   const { isSmallDesktopDeviceAndUp, isTabletDeviceAndUp, isMobileDeviceAndUp } =
     useResponsiveQuery();
   const axisTypographyConfig = getTypographyFromToken({
@@ -181,6 +185,7 @@ export const VisxChart = ({
         latestDatum.x - earliestDatum.x,
       ),
     );
+    hideTooltip();
   };
   const margin = {
     bottom: xAxisOrientation === 'top' ? 8 : axisFontSize + tickLength * 2,
@@ -344,5 +349,13 @@ export const VisxChart = ({
         );
       }}
     </ParentSize>
+  );
+};
+
+export const VisxChart: React.FunctionComponent<VisxChartProps> = (props) => {
+  return (
+    <TooltipProvider hideTooltipDebounceMs={0}>
+      <_VisxChart {...props} />
+    </TooltipProvider>
   );
 };
