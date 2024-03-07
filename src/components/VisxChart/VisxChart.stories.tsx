@@ -6,7 +6,7 @@ import { GlyphProps, ThemeContext } from '@visx/xychart';
 import { RenderTooltipGlyphProps } from '@visx/xychart/lib/components/Tooltip';
 import React, { useContext } from 'react';
 
-import { defaultVisxChartXFormatter, VisxChart } from '.';
+import { defaultXAxisTickFormatter, VisxChart } from '.';
 import { VisxChartDatum, VisxChartProps } from './types';
 
 const cityTemperatures = cityTemperature.slice();
@@ -25,8 +25,9 @@ const getAustinTemperature = (d: CityTemperature) => Number(d.Austin);
 type City = 'San Francisco' | 'New York' | 'Austin';
 
 const Box = styled('div')`
-  height: 445px;
+  height: 545px;
   border: 1px solid gainsboro;
+  overflow: hidden;
   border-radius: 8px;
   background: ${({ theme }) => theme.colors.black900};
 `;
@@ -196,7 +197,7 @@ const VisxChartIntegration: React.FunctionComponent<VisxChartIntegrationProps> =
         <div style={{ background: '#E7E7E8', borderRadius: 8, padding: 16 }}>
           {/** date */}
           {tooltipData?.nearestDatum?.datum && tooltipData?.nearestDatum?.datum.x
-            ? defaultVisxChartXFormatter(
+            ? defaultXAxisTickFormatter(
                 tooltipData?.nearestDatum?.datum && tooltipData?.nearestDatum?.datum.x,
               )
             : 'No date'}

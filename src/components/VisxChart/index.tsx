@@ -18,10 +18,13 @@ import { getColorFromToken } from '../../foundation/Colors';
 import { useResponsiveQuery } from '../../foundation/Media';
 import { getTypographyFromToken } from '../../foundation/Typography';
 import { allTimeUnits, clamp, formatAbsoluteTime, objectEntries } from './helpers';
-import { AxisFormatterFn, VisxChartDatum, VisxChartProps } from './types';
+import { VisxChartDatum, VisxChartProps } from './types';
 import { YAxisBackground } from './YAxisBackground';
 
-export const defaultVisxChartXFormatter: AxisFormatterFn = (xValue, options) => {
+export const defaultXAxisTickFormatter: NonNullable<VisxChartProps['xAxisTickFormatter']> = (
+  xValue,
+  options,
+) => {
   const { zoomDomain } = options || {};
   let resolutionUnit: keyof typeof allTimeUnits = 'year';
   if (zoomDomain) {
@@ -36,14 +39,17 @@ export const defaultVisxChartXFormatter: AxisFormatterFn = (xValue, options) => 
     resolutionUnit,
   });
 };
-export const defaultVisxChartYFormatter: AxisFormatterFn = (yValue) =>
-  parseFloat(yValue.toFixed(2)).toString();
+export const defaultYAxisTickFormatter: NonNullable<VisxChartProps['yAxisTickFormatter']> = (
+  yValue,
+) => parseFloat(yValue.toFixed(2)).toString();
 
 const xAccessor = (d: VisxChartDatum) => d.x;
 const yAccessor = (d: VisxChartDatum) => d.y;
 
 export { VisxChartDatum, VisxChartProps };
 export const VisxChart = ({
+  yAxisTickFormatter = defaultYAxisTickFormatter,
+  xAxisTickFormatter = defaultXAxisTickFormatter,
   series = [],
   curveType = 'linear',
   axisNumTicks = 4,
@@ -188,7 +194,7 @@ export const VisxChart = ({
       {({ width, height }) => {
         return (
           <XYChart
-            height={Math.min(400, height)}
+            height={height}
             margin={margin}
             theme={chartTheme}
             width={width}
@@ -289,7 +295,7 @@ export const VisxChart = ({
               orientation={xAxisOrientation}
               stroke={axisDomainLineColor}
               tickFormat={(x: number) =>
-                defaultVisxChartXFormatter(x, { numTicks: axisNumTicks, zoom, zoomDomain })
+                xAxisTickFormatter(x, { numTicks: axisNumTicks, zoom, zoomDomain })
               }
               tickLabelProps={{
                 fontFamily: axisFontFamily,
@@ -301,6 +307,9 @@ export const VisxChart = ({
             {yAxisOrientation === 'left' && margin.left > 0 && (
               <YAxisBackground height="100%" width={margin.left} x="0" y="0" />
             )}
+            {yAxisOrientation === 'right' && margin.right > 0 && (
+              <YAxisBackground height="100%" width={margin.right} x={width - margin.right} y="0" />
+            )}
             <Axis
               key="y-axis"
               numTicks={axisNumTicks}
@@ -310,7 +319,7 @@ export const VisxChart = ({
                 stackOffset === 'wiggle'
                   ? () => ''
                   : (y: number) =>
-                      defaultVisxChartYFormatter(y, { numTicks: axisNumTicks, zoom, zoomDomain })
+                      yAxisTickFormatter(y, { numTicks: axisNumTicks, zoom, zoomDomain })
               }
               tickLabelProps={{
                 fontFamily: axisFontFamily,

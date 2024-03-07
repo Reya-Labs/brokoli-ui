@@ -43,9 +43,11 @@ export type VisxChartProps = {
   axisTicksTextColorToken?: ColorTokens;
   axisDomainLineColorToken?: ColorTokens | 'transparent';
   crosshairColorToken?: ColorTokens;
+  xAxisTickFormatter?: AxisFormatterFn;
+  yAxisTickFormatter?: AxisFormatterFn;
 };
 
-export type AxisFormatterFn = (
+type AxisFormatterFn = (
   axisValue: number,
   _?: { zoom: number; zoomDomain: number; numTicks: number },
 ) => string;
