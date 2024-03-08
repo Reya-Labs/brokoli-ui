@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 
 import { addAlpha } from '../../../../foundation/Colors';
 import { getResponsiveTypographyStyleFromToken } from '../../../../foundation/Typography';
-import { createTransition } from '../../../../utils/createTransition';
+import { createTransition } from '../../../../utils/create-transition';
 
 export const SubLinkButton = styled('a')`
   display: flex;

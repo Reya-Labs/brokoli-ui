@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { getResponsiveTypographyStyleFromToken } from '../../../foundation/Typography';
-import { createTransition } from '../../../utils/createTransition';
+import { createTransition } from '../../../utils/create-transition';
 import { shouldNotForwardProps } from '../../../utils/should-not-forward-props';
 
 export const IconBox = styled('div', shouldNotForwardProps(['isActive']))<{

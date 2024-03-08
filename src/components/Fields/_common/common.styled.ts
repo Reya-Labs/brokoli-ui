@@ -4,7 +4,7 @@ import {
   getResponsiveTypographyStyleFromToken,
   TypographyTokens,
 } from '../../../foundation/Typography';
-import { createTransition } from '../../../utils/createTransition';
+import { createTransition } from '../../../utils/create-transition';
 
 type CommonInputStyleArgs = {
   error?: boolean;

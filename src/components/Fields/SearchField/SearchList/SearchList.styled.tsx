@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 import { ColorTokens, getColorFromToken } from '../../../../foundation/Colors';
-import { createTransition } from '../../../../utils/createTransition';
+import { createTransition } from '../../../../utils/create-transition';
 import { shouldNotForwardProps } from '../../../../utils/should-not-forward-props';
 
 export const ItemsWrapper = styled('div')`
