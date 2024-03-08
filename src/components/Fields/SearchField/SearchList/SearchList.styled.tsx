@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 import { ColorTokens, getColorFromToken } from '../../../../foundation/Colors';
+import { createTransition } from '../../../../utils/createTransition';
 import { shouldNotForwardProps } from '../../../../utils/should-not-forward-props';
 
 export const ItemsWrapper = styled('div')`
@@ -23,7 +24,7 @@ export const ItemWrapper = styled('div', shouldNotForwardProps(['backgroundColor
   align-items: center;
   background: ${({ theme, backgroundColorToken }) =>
     getColorFromToken({ colorToken: backgroundColorToken, theme })};
-  transition: background-color 200ms ease-in;
+  transition: ${createTransition({ properties: 'background-color' })};
 
   &:hover:enabled {
     background: ${({ theme }) => theme.colors.black700};

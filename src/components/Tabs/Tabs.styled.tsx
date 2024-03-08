@@ -6,6 +6,7 @@ import {
   getResponsiveTypographyStyleFromToken,
   TypographyTokens,
 } from '../../foundation/Typography';
+import { createTransition } from '../../utils/createTransition';
 import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 
 export const TabsAndComponentBox = styled('div')`
@@ -90,9 +91,7 @@ export const TabStyled = styled(
     ${({ theme, borderColorToken, backgroundColorToken, isActive }) =>
       getColorFromToken({ colorToken: isActive ? backgroundColorToken : borderColorToken, theme })};
 
-  transition:
-    background-color,
-    color 200ms ease-in;
+  transition: ${createTransition({ properties: ['background-color', 'color'] })};
 
   &:hover:enabled {
     color: ${({ theme, hoverTabColorToken }) =>

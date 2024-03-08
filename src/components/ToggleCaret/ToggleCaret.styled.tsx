@@ -1,6 +1,8 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
+import { createTransition } from '../../utils/createTransition';
+
 const openCSS = css`
   transform: rotate(45deg) translate(-2.5px, -2.5px);
 
@@ -28,7 +30,7 @@ export const ToggleCaretArrow = styled('span')<{
   position: relative;
   bottom: -2.5px;
   left: -5px;
-  transition: transform 200ms ease-in;
+  transition: ${createTransition({ properties: 'transform' })};
   margin-top: 1px;
   text-align: left;
   transform: rotate(45deg);
@@ -42,7 +44,7 @@ export const ToggleCaretArrow = styled('span')<{
     width: 6px;
     height: 1.5px;
     background-color: currentColor;
-    transition: transform 200ms ease-in;
+    transition: ${createTransition({ properties: 'transform' })};
   }
 
   &:after {

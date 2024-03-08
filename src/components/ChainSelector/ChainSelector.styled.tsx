@@ -5,6 +5,7 @@ import {
   getResponsiveTypographyStyleFromToken,
   TypographyTokens,
 } from '../../foundation/Typography';
+import { createTransition } from '../../utils/createTransition';
 import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 
 export const SelectorBox = styled('div', shouldNotForwardProps(['disabled']))<{
@@ -23,7 +24,7 @@ export const SelectorBox = styled('div', shouldNotForwardProps(['disabled']))<{
   border-radius: 8px;
   border: 1px solid ${({ theme }) => theme.colors.black700};
   background: ${({ theme }) => theme.colors.black900};
-  transition: all 200ms ease-in;
+  transition: ${createTransition()};
 
   &:hover:enabled {
     background: ${({ theme, disabled }) => (disabled ? undefined : theme.colors.black700)};
@@ -62,7 +63,7 @@ export const ChainSelectorButton = styled(
   column-gap: 14px;
   align-items: center;
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
-  transition: color 200ms ease-in;
+  transition: ${createTransition({ properties: 'color ' })};
   background: transparent;
   border: 0;
   &:hover:enabled {

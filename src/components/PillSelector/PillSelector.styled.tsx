@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 
 import { BaseColorTokens, getColorFromToken } from '../../foundation/Colors';
 import { getResponsiveTypographyStyleFromToken } from '../../foundation/Typography';
+import { createTransition } from '../../utils/createTransition';
 import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 
 export type PillSelectorVariant = 'compact' | 'regular';
@@ -57,7 +58,7 @@ export const PillSelectorButton = styled(
       ? theme.colors.error100
       : theme.colors.error400};
   cursor: pointer;
-  transition: all 200ms ease-in;
+  transition: ${createTransition()};
 
   & > span {
     color: ${({ theme, attentionPrefixColorToken }) =>

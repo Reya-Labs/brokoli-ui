@@ -6,6 +6,7 @@ import {
   getResponsiveTypographyStyleFromToken,
   TypographyTokens,
 } from '../../../foundation/Typography';
+import { createTransition } from '../../../utils/createTransition';
 import { shouldNotForwardProps } from '../../../utils/should-not-forward-props';
 
 export const NavLinkButtonBox = styled(
@@ -30,7 +31,7 @@ export const NavLinkButtonBox = styled(
   border-radius: ${({ isActive }) => (isActive ? '8px' : '0px')};
   background: ${({ isActive, theme }) =>
     isActive ? getColorFromToken({ colorToken: `black800`, theme }) : undefined};
-  transition: all 200ms ease-in;
+  transition: ${createTransition()};
   &:hover:enabled {
     ${({ theme, colorToken }) =>
       colorToken === 'rainbow'

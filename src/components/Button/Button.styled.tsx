@@ -6,6 +6,7 @@ import {
   getResponsiveTypographyStyleFromToken,
   TypographyTokens,
 } from '../../foundation/Typography';
+import { createTransition } from '../../utils/createTransition';
 import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 
 export const ButtonStyled = styled(
@@ -54,10 +55,7 @@ export const ButtonStyled = styled(
     typographyColorToken
       ? getColorFromToken({ colorToken: typographyColorToken, theme })
       : undefined};
-  transition:
-    border,
-    background,
-    color 200ms ease-in;
+  transition: ${createTransition({ properties: [' border', 'background', 'color'] })};
   position: relative;
 
   &:hover:enabled {
@@ -89,7 +87,7 @@ export const ButtonStyled = styled(
       typographyColorToken
         ? getColorFromToken({ colorToken: typographyColorToken, theme })
         : 'inherit'};
-    transition: stroke 200ms ease-in;
+    transition: ${createTransition({ properties: 'stroke' })};
   }
 
   &:hover:enabled path {

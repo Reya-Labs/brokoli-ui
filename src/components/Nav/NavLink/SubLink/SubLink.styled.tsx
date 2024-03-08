@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 
 import { addAlpha } from '../../../../foundation/Colors';
 import { getResponsiveTypographyStyleFromToken } from '../../../../foundation/Typography';
+import { createTransition } from '../../../../utils/createTransition';
 
 export const SubLinkButton = styled('a')`
   display: flex;
@@ -19,7 +20,7 @@ export const SubLinkButton = styled('a')`
   background-color: ${({ theme }) => theme.colors.black800};
   border-radius: 2px;
   width: 100%;
-  transition: background-color 200ms ease-in;
+  transition: ${createTransition({ properties: 'background-color' })};
 
   &:hover:enabled {
     text-decoration: none;
@@ -43,7 +44,7 @@ export const ActiveSubLinkButton = styled('a')`
   background-color: ${({ theme }) => theme.colors.black800};
   border-radius: 2px;
   width: 100%;
-  transition: background-color 200ms ease-in;
+  transition: ${createTransition({ properties: 'background-color' })};
 
   &:hover:enabled {
     text-decoration: none;
