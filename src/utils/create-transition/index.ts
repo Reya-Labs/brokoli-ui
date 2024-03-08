@@ -16,7 +16,7 @@ type TimingFunctionType =
   | 'ease-in-out'
   | 'step-start'
   | 'step-end'
-  | 'string';
+  | string;
 
 type TransitionArgs = {
   properties?: string | string[];
