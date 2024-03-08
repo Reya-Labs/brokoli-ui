@@ -9,7 +9,7 @@ export default {
 } as Meta<PaginationProps>;
 
 const InteractiveTemplate: Story<PaginationProps> = (args) => {
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(args.page || 0);
 
   const handleNextPageClick = () => {
     setPage((currentPage) => Math.min(currentPage + 1, args.maxPages - 1));
