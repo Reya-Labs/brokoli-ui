@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { getResponsiveTypographyStyleFromToken } from '../../../foundation/Typography';
+import { createTransition } from '../../../utils/createTransition';
 import { shouldNotForwardProps } from '../../../utils/should-not-forward-props';
 
 export const IconBox = styled('div', shouldNotForwardProps(['isActive']))<{
@@ -12,7 +13,7 @@ export const IconBox = styled('div', shouldNotForwardProps(['isActive']))<{
   border-radius: 50%;
   background: ${({ theme, isActive }) =>
     isActive ? theme.colors.black900 : theme.colors.black700};
-  transition: background-color 200ms ease-in;
+  transition: ${createTransition({ properties: 'background-color' })};
   display: flex;
   align-items: center;
 `;
@@ -32,7 +33,7 @@ export const ChainOptionButton = styled('button')`
   background-color: ${({ theme }) => theme.colors.black900};
   border-radius: 2px;
   width: 100%;
-  transition: background-color 200ms ease-in;
+  transition: ${createTransition({ properties: 'background-color' })};
   border: 0;
   cursor: pointer;
 

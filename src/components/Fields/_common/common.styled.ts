@@ -4,6 +4,7 @@ import {
   getResponsiveTypographyStyleFromToken,
   TypographyTokens,
 } from '../../../foundation/Typography';
+import { createTransition } from '../../../utils/createTransition';
 
 type CommonInputStyleArgs = {
   error?: boolean;
@@ -22,7 +23,7 @@ export const commonInputStyle = ({ theme, error, typographyToken }: CommonInputS
   ${css(getResponsiveTypographyStyleFromToken({ theme, token: typographyToken }))};
 
   outline: none;
-  transition: all 200ms ease-in;
+  transition: ${createTransition()};
 
   border-radius: 8px;
   background: ${theme.colors.black900};

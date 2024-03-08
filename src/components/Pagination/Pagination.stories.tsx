@@ -1,37 +1,35 @@
 import { Meta, Story } from '@storybook/react';
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Pagination, PaginationProps } from './index';
 
 export default {
   component: Pagination,
   title: 'Components/Pagination',
-} as Meta;
+} as Meta<PaginationProps>;
 
-const Template: Story<PaginationProps> = (args) => <Pagination {...args} />;
+const InteractiveTemplate: Story<PaginationProps> = (args) => {
+  const [page, setPage] = useState(0);
 
-export const FirstPage = Template.bind({});
-FirstPage.args = {
+  const handleNextPageClick = () => {
+    setPage((currentPage) => Math.min(currentPage + 1, args.maxPages - 1));
+  };
+
+  const handlePreviousPageClick = () => {
+    setPage((currentPage) => Math.max(currentPage - 1, 0));
+  };
+
+  return (
+    <Pagination
+      {...args}
+      page={page}
+      onNextPageClick={handleNextPageClick}
+      onPreviousPageClick={handlePreviousPageClick}
+    />
+  );
+};
+
+export const InteractivePagination = InteractiveTemplate.bind({});
+InteractivePagination.args = {
   maxPages: 5,
-  onNextPageClick: () => alert('Next page'),
-  onPreviousPageClick: () => alert(),
-  page: 0,
-};
-
-export const MiddlePage = Template.bind({});
-MiddlePage.args = {
-  ...FirstPage.args,
-  page: 2,
-};
-
-export const LastPage = Template.bind({});
-LastPage.args = {
-  ...FirstPage.args,
-  page: 4,
-};
-
-export const Disabled = Template.bind({});
-Disabled.args = {
-  ...FirstPage.args,
-  disabled: true,
 };
