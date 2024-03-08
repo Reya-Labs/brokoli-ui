@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 import { addAlpha } from '../../foundation/Colors';
-import { createTransition } from '../../utils/createTransition';
+import { createTransition } from '../../utils/create-transition';
 import { Typography } from '../Typography';
 
 export const WalletButton = styled('button')`

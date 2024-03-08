@@ -8,10 +8,20 @@
  * @return {string} A concatenated string representing the CSS transition property value.
  */
 
+type TimingFunctionType =
+  | 'linear'
+  | 'ease'
+  | 'ease-in'
+  | 'ease-out'
+  | 'ease-in-out'
+  | 'step-start'
+  | 'step-end'
+  | 'string';
+
 type TransitionArgs = {
   properties?: string | string[];
   duration?: number;
-  timingFunction?: string;
+  timingFunction?: TimingFunctionType;
 };
 
 export const createTransition = ({

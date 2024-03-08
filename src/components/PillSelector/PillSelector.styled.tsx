@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 
 import { BaseColorTokens, getColorFromToken } from '../../foundation/Colors';
 import { getResponsiveTypographyStyleFromToken } from '../../foundation/Typography';
-import { createTransition } from '../../utils/createTransition';
+import { createTransition } from '../../utils/create-transition';
 import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 
 export type PillSelectorVariant = 'compact' | 'regular';

@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { createTransition } from '../../utils/createTransition';
+import { createTransition } from '../../utils/create-transition';
 
 const openCSS = css`
   transform: rotate(45deg) translate(-2.5px, -2.5px);
