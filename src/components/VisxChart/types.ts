@@ -14,8 +14,8 @@ export type VisxChartDatum = {
 };
 
 export type VisxChartProps = {
-  marginLeft?: number;
-  marginRight?: number;
+  marginLeft?: 'auto' | number;
+  marginRight?: 'auto' | number;
   minZoomDomain?: number;
   renderTooltip?: (_: RenderTooltipParams<VisxChartDatum>) => React.ReactNode;
   series: {

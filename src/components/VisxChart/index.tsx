@@ -78,8 +78,8 @@ const _VisxChart = ({
   axisTypographyToken,
   tickLength = 4,
   crosshairColorToken,
-  marginLeft = 55,
-  marginRight = 55,
+  marginLeft = 'auto',
+  marginRight = 'auto',
   yRangePercentageOffset = 0,
 }: VisxChartProps) => {
   const theme = useTheme();
@@ -158,11 +158,10 @@ const _VisxChart = ({
 
   const axisFontFamily = chartTheme.axisFontFamily;
   const axisFontSize = chartTheme.axisFontSize;
-
+  const marginComputationalValue = yAxisOrientation === 'right' ? marginRight : marginLeft;
   // Computations
-  const { suggestedMarginLeftOrRight, zoom, domain, range } = useMemo(() => {
-    if (!zoomDomain)
-      return { domain: [0, 0], range: [0, 0], suggestedMarginLeftOrRight: 0, zoom: 0 };
+  const { marginLeftOrRight, zoom, domain, range } = useMemo(() => {
+    if (!zoomDomain) return { domain: [0, 0], marginLeftOrRight: 0, range: [0, 0], zoom: 0 };
 
     const zoomComputed = zoomDomain / minZoomDomain;
 
@@ -179,29 +178,38 @@ const _VisxChart = ({
     ] as const);
 
     const yTickValues = _range(yMin, yMax, axisNumTicks);
-    const widths = yTickValues.map((d) =>
-      getTextWidth({
-        domElement: 'svg-text',
-        style: {
-          fontFamily: axisFontFamily,
-          fontSize: `${axisFontSize}px`,
-          letterSpacing: '0.4px',
-        },
-        text: yAxisTickFormatter(d),
-      }),
-    );
-    const suggestedMarginLeftOrRightComputed = widths.length > 0 ? Math.max(...widths) : 0;
+    const widths =
+      marginComputationalValue === 'auto'
+        ? yTickValues.map((d) =>
+            getTextWidth({
+              domElement: 'svg-text',
+              style: {
+                fontFamily: axisFontFamily,
+                fontSize: `${axisFontSize}px`,
+                letterSpacing: '0.4px',
+              },
+              text: yAxisTickFormatter(d),
+            }),
+          )
+        : [];
+    const marginLeftOrRightComputed =
+      widths.length > 0
+        ? Math.max(...widths)
+        : marginComputationalValue !== 'auto'
+        ? marginComputationalValue
+        : 0;
 
     return {
       domain: [xMin, xMax],
+      marginLeftOrRight: marginLeftOrRightComputed + tickLength * 2,
       range: [
         yMin - (yMin * yRangePercentageOffset) / 100,
         yMax + (yMax * yRangePercentageOffset) / 100,
       ],
-      suggestedMarginLeftOrRight: suggestedMarginLeftOrRightComputed + tickLength * 2,
       zoom: zoomComputed,
     };
   }, [
+    marginComputationalValue,
     tickLength,
     zoomDomain,
     minZoomDomain,
@@ -214,6 +222,19 @@ const _VisxChart = ({
     yAxisTickFormatter,
     yRangePercentageOffset,
   ]);
+  const marginTopOrBottom = chartTheme.axisFontSize + tickLength * 2;
+  const margin = {
+    bottom: xAxisOrientation === 'top' ? 8 : marginTopOrBottom,
+    left: yAxisOrientation === 'right' ? 0 : marginLeftOrRight,
+    right: yAxisOrientation === 'left' ? 0 : marginLeftOrRight,
+    top: xAxisOrientation === 'bottom' ? 8 : marginTopOrBottom,
+  };
+  const tickLabelProps = {
+    fontFamily: axisFontFamily,
+    fontSize: axisFontSize,
+    letterSpacing: 0.4,
+    stroke: axisTicksTextColor,
+  };
 
   const curve = useMemo(() => {
     if (zoom <= 12) return curveStepAfter;
@@ -235,18 +256,6 @@ const _VisxChart = ({
       ),
     );
     hideTooltip();
-  };
-  const margin = {
-    bottom: xAxisOrientation === 'top' ? 8 : chartTheme.axisFontSize + tickLength * 2,
-    left: yAxisOrientation === 'right' ? 0 : Math.max(marginLeft, suggestedMarginLeftOrRight),
-    right: yAxisOrientation === 'left' ? 0 : Math.max(marginRight, suggestedMarginLeftOrRight),
-    top: xAxisOrientation === 'bottom' ? 8 : chartTheme.axisFontSize + tickLength * 2,
-  };
-  const tickLabelProps = {
-    fontFamily: axisFontFamily,
-    fontSize: axisFontSize,
-    letterSpacing: 0.4,
-    stroke: axisTicksTextColor,
   };
 
   return (
