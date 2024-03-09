@@ -27,9 +27,6 @@ export const CHAIN_ICON_MAP = {
   // "Polygon zkEVM Testnet"
   1442: PolygonIcon,
 
-  // "Reya Cronos"
-  1729: ReyaIcon,
-
   // "Optimism Goerli"
   420: OptimismIcon,
 
@@ -50,4 +47,7 @@ export const CHAIN_ICON_MAP = {
 
   // "Polygon Mumbai"
   80001: PolygonIcon,
+
+  // "Reya Cronos"
+  89346161: ReyaIcon,
 };

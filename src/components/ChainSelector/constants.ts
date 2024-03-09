@@ -9,7 +9,6 @@ export const CHAIN_NAME_MAP: Record<SupportedChainIcons, string> = {
   11155420: 'Optimism Sepolia',
   137: 'Polygon',
   1442: 'Polygon zkEVM Testnet',
-  1729: 'Reya Cronos',
   420: 'Optimism Goerli',
   42161: 'Arbitrum One',
   421613: 'Arbitrum Goerli',
@@ -17,4 +16,5 @@ export const CHAIN_NAME_MAP: Record<SupportedChainIcons, string> = {
   42170: 'Arbitrum Nova',
   5: 'Goerli',
   80001: 'Polygon Mumbai',
+  89346161: 'Reya Cronos',
 };

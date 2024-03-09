@@ -11,6 +11,7 @@ import { TypographyTokens } from '../../foundation/Typography';
 export type VisxChartDatum = {
   x: number;
   y: number;
+  metadata?: Record<string, unknown>;
 };
 
 export type VisxChartProps = {

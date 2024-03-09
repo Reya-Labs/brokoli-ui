@@ -10,13 +10,13 @@ export default {
 
 export const Default: StoryObj<typeof ChainIcon> = {
   args: {
-    chainId: 1729,
+    chainId: 89346161,
   },
 };
 
 export const WithSize: StoryObj<typeof ChainIcon> = {
   args: {
-    chainId: 1729,
+    chainId: 89346161,
     size: 50,
   },
 };

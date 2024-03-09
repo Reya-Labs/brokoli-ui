@@ -50,6 +50,7 @@ export const defaultYAxisTickFormatter: NonNullable<VisxChartProps['yAxisTickFor
 
 const xAccessor = (d: VisxChartDatum) => d.x;
 const yAccessor = (d: VisxChartDatum) => d.y;
+const defaultDatum = { x: 0, y: 0 };
 
 export { VisxChartDatum, VisxChartProps };
 const _VisxChart = ({
@@ -150,8 +151,8 @@ const _VisxChart = ({
     () => series.reduce((pV, cI) => [...pV, ...cI.data], [] as VisxChartDatum[]),
     [series],
   );
-  const earliestDatum = data[0];
-  const latestDatum = data[data.length - 1];
+  const earliestDatum = data[0] || defaultDatum;
+  const latestDatum = data[data.length - 1] || defaultDatum;
 
   // Chart state
   const [zoomDomain, setZoomDomain] = useState<number>(latestDatum.x - earliestDatum.x);
