@@ -15,6 +15,7 @@
     "LICENSE"
   ],
   "scripts": {
+    "dev": "yarn storybook",
     "prebuild": "yarn code-quality:check && rm -rf dist",
     "build": "yarn prebuild && rollup -c --bundleConfigAsCjs",
     "prebuild:storybook": "yarn code-quality:check && rm -rf storybook-static",
@@ -76,6 +77,8 @@
     "@testing-library/user-event": "14.5.1",
     "@types/facepaint": "1.2.4",
     "@types/jest": "29.4.0",
+    "@types/lodash.memoize": "4.1.9",
+    "@types/lodash.range": "3.2.9",
     "@types/react": "18.2.37",
     "@types/react-dom": "17.0.18",
     "@visx/mock-data": "3.3.0",
@@ -134,6 +137,8 @@
     "@visx/responsive": "3.0.0",
     "@visx/xychart": "3.1.2",
     "facepaint": "1.2.1",
+    "lodash.memoize": "4.1.2",
+    "lodash.range": "3.2.0",
     "react-animate-height": "3.2.2",
     "react-currency-input-field": "3.6.11",
     "react-metamask-avatar": "2.0.3",

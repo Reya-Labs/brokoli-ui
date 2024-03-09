@@ -14,11 +14,13 @@ import {
   TooltipProvider,
   XYChart,
 } from '@visx/xychart';
+import _range from 'lodash/range';
 import React, { useContext, useMemo, useState } from 'react';
 
 import { getColorFromToken } from '../../foundation/Colors';
 import { useResponsiveQuery } from '../../foundation/Media';
 import { getTypographyFromToken } from '../../foundation/Typography';
+import { getTextWidth } from '../../utils/get-text-width';
 import { allTimeUnits, clamp, formatAbsoluteTime, objectEntries } from './helpers';
 import { VisxChartDatum, VisxChartProps } from './types';
 import { VisxChartTooltip } from './VisxChartTooltip';
@@ -78,25 +80,13 @@ const _VisxChart = ({
   crosshairColorToken,
   marginLeft = 55,
   marginRight = 55,
+  yRangePercentageOffset = 0,
 }: VisxChartProps) => {
   const theme = useTheme();
 
   const { hideTooltip } = useContext(TooltipContext) as TooltipContextType<VisxChartDatum>;
   const { isSmallDesktopDeviceAndUp, isTabletDeviceAndUp, isMobileDeviceAndUp } =
     useResponsiveQuery();
-  const axisTypographyConfig = getTypographyFromToken({
-    theme,
-    token: axisTypographyToken,
-  });
-  const axisTypography = isMobileDeviceAndUp
-    ? axisTypographyConfig.mobileDevice
-    : isTabletDeviceAndUp
-    ? axisTypographyConfig.tabletDevice
-    : isSmallDesktopDeviceAndUp
-    ? axisTypographyConfig.smallDesktopDevice
-    : axisTypographyConfig.largeDesktopDevice;
-  const axisFontSize = parseInt(axisTypography.fontSize, 10);
-  const axisFontFamily = axisTypography.fontFamily;
 
   const renderLineSeries = chartType === 'line';
   const renderAreaSeries = chartType === 'area';
@@ -113,21 +103,48 @@ const _VisxChart = ({
   const axisTicksTextColor = getColorFromToken({ colorToken: axisTicksTextColorToken, theme });
 
   const chartTheme = useMemo(() => {
-    return buildChartTheme({
-      backgroundColor: 'transparent',
-      colors: seriesColors,
-      gridColor: 'transparent',
-      gridColorDark: 'transparent',
-      svgLabelBig: { fill: '#1d1b38' },
-      tickLength,
-      xAxisLineStyles: {
-        stroke: axisDomainLineColor,
-      },
-      yAxisLineStyles: {
-        stroke: axisDomainLineColor,
-      },
+    const axisTypographyConfig = getTypographyFromToken({
+      theme,
+      token: axisTypographyToken,
     });
-  }, [tickLength, axisDomainLineColor, seriesColors]);
+    const axisTypography = isMobileDeviceAndUp
+      ? axisTypographyConfig.mobileDevice
+      : isTabletDeviceAndUp
+      ? axisTypographyConfig.tabletDevice
+      : isSmallDesktopDeviceAndUp
+      ? axisTypographyConfig.smallDesktopDevice
+      : axisTypographyConfig.largeDesktopDevice;
+    const axisFontSize = parseInt(axisTypography.fontSize, 10);
+    const axisFontFamily = axisTypography.fontFamily;
+
+    return {
+      axisFontFamily,
+      axisFontSize,
+      visxTheme: buildChartTheme({
+        backgroundColor: 'transparent',
+        colors: seriesColors,
+        gridColor: 'transparent',
+        gridColorDark: 'transparent',
+        svgLabelBig: { fill: '#1d1b38' },
+        tickLength,
+        xAxisLineStyles: {
+          stroke: axisDomainLineColor,
+        },
+        yAxisLineStyles: {
+          stroke: axisDomainLineColor,
+        },
+      }),
+    };
+  }, [
+    theme,
+    axisTypographyToken,
+    isMobileDeviceAndUp,
+    isTabletDeviceAndUp,
+    isSmallDesktopDeviceAndUp,
+    seriesColors,
+    tickLength,
+    axisDomainLineColor,
+  ]);
 
   const data = useMemo(
     () => series.reduce((pV, cI) => [...pV, ...cI.data], [] as VisxChartDatum[]),
@@ -139,9 +156,13 @@ const _VisxChart = ({
   // Chart state
   const [zoomDomain, setZoomDomain] = useState<number>(latestDatum.x - earliestDatum.x);
 
+  const axisFontFamily = chartTheme.axisFontFamily;
+  const axisFontSize = chartTheme.axisFontSize;
+
   // Computations
-  const { zoom, domain, range } = useMemo(() => {
-    if (!zoomDomain) return { domain: [0, 0], range: [0, 0], zoom: 0 };
+  const { suggestedMarginLeftOrRight, zoom, domain, range } = useMemo(() => {
+    if (!zoomDomain)
+      return { domain: [0, 0], range: [0, 0], suggestedMarginLeftOrRight: 0, zoom: 0 };
 
     const zoomComputed = zoomDomain / minZoomDomain;
 
@@ -151,20 +172,48 @@ const _VisxChart = ({
     ];
 
     const visibleDataComputed = data.filter((datum) => datum.x >= xMin && datum.x <= xMax);
+    const yS = visibleDataComputed.map((d) => d.y);
+    const [yMin, yMax] = yS.reduce((r, y) => [Math.min(r[0], y), Math.max(r[1], y)] as const, [
+      Infinity,
+      -Infinity,
+    ] as const);
 
-    const rangeComputed = visibleDataComputed
-      .map((datum) => datum.y)
-      .reduce((r, y) => [Math.min(r[0], y), Math.max(r[1], y)] as const, [
-        Infinity,
-        -Infinity,
-      ] as const);
+    const yTickValues = _range(yMin, yMax, axisNumTicks);
+    const widths = yTickValues.map((d) =>
+      getTextWidth({
+        domElement: 'svg-text',
+        style: {
+          fontFamily: axisFontFamily,
+          fontSize: `${axisFontSize}px`,
+          letterSpacing: '0.4px',
+        },
+        text: yAxisTickFormatter(d),
+      }),
+    );
+    const suggestedMarginLeftOrRightComputed = widths.length > 0 ? Math.max(...widths) : 0;
 
     return {
       domain: [xMin, xMax],
-      range: rangeComputed,
+      range: [
+        yMin - (yMin * yRangePercentageOffset) / 100,
+        yMax + (yMax * yRangePercentageOffset) / 100,
+      ],
+      suggestedMarginLeftOrRight: suggestedMarginLeftOrRightComputed + tickLength * 2,
       zoom: zoomComputed,
     };
-  }, [zoomDomain, minZoomDomain, latestDatum.x, earliestDatum.x, data]);
+  }, [
+    tickLength,
+    zoomDomain,
+    minZoomDomain,
+    latestDatum.x,
+    earliestDatum.x,
+    data,
+    axisNumTicks,
+    axisFontFamily,
+    axisFontSize,
+    yAxisTickFormatter,
+    yRangePercentageOffset,
+  ]);
 
   const curve = useMemo(() => {
     if (zoom <= 12) return curveStepAfter;
@@ -188,11 +237,18 @@ const _VisxChart = ({
     hideTooltip();
   };
   const margin = {
-    bottom: xAxisOrientation === 'top' ? 8 : axisFontSize + tickLength * 2,
-    left: yAxisOrientation === 'right' ? 0 : marginLeft,
-    right: yAxisOrientation === 'left' ? 0 : marginRight,
-    top: xAxisOrientation === 'bottom' ? 8 : axisFontSize + tickLength * 2,
+    bottom: xAxisOrientation === 'top' ? 8 : chartTheme.axisFontSize + tickLength * 2,
+    left: yAxisOrientation === 'right' ? 0 : Math.max(marginLeft, suggestedMarginLeftOrRight),
+    right: yAxisOrientation === 'left' ? 0 : Math.max(marginRight, suggestedMarginLeftOrRight),
+    top: xAxisOrientation === 'bottom' ? 8 : chartTheme.axisFontSize + tickLength * 2,
   };
+  const tickLabelProps = {
+    fontFamily: axisFontFamily,
+    fontSize: axisFontSize,
+    letterSpacing: 0.4,
+    stroke: axisTicksTextColor,
+  };
+
   return (
     <ParentSize onWheel={onWheel}>
       {({ width, height }) => {
@@ -200,7 +256,7 @@ const _VisxChart = ({
           <XYChart
             height={height}
             margin={margin}
-            theme={chartTheme}
+            theme={chartTheme.visxTheme}
             width={width}
             xScale={{
               clamp: false,
@@ -301,11 +357,7 @@ const _VisxChart = ({
               tickFormat={(x: number) =>
                 xAxisTickFormatter(x, { numTicks: axisNumTicks, zoom, zoomDomain })
               }
-              tickLabelProps={{
-                fontFamily: axisFontFamily,
-                fontSize: axisFontSize,
-                stroke: axisTicksTextColor,
-              }}
+              tickLabelProps={tickLabelProps}
               tickStroke={axisDomainLineColor}
             />
             {yAxisOrientation === 'left' && margin.left > 0 && (
@@ -325,11 +377,7 @@ const _VisxChart = ({
                   : (y: number) =>
                       yAxisTickFormatter(y, { numTicks: axisNumTicks, zoom, zoomDomain })
               }
-              tickLabelProps={{
-                fontFamily: axisFontFamily,
-                fontSize: axisFontSize,
-                stroke: axisTicksTextColor,
-              }}
+              tickLabelProps={tickLabelProps}
               tickStroke={axisDomainLineColor}
             />
             {typeof renderTooltip === 'function' ? (

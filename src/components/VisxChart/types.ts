@@ -45,6 +45,7 @@ export type VisxChartProps = {
   crosshairColorToken?: ColorTokens;
   xAxisTickFormatter?: AxisFormatterFn;
   yAxisTickFormatter?: AxisFormatterFn;
+  yRangePercentageOffset?: number;
 };
 
 type AxisFormatterFn = (

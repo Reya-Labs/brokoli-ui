@@ -8572,17 +8572,35 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/lodash.memoize@npm:4.1.9":
+  version: 4.1.9
+  resolution: "@types/lodash.memoize@npm:4.1.9"
+  dependencies:
+    "@types/lodash": "npm:*"
+  checksum: 10c0/119e4595bd2acdaf1bd318ebf61beb0c5fc63203a526692e2e82a122f9730d40ee1a8ece3f379fdc9a99dfce0a1ce3229788ddedd68a5fa432e4e0d54726fa63
+  languageName: node
+  linkType: hard
+
+"@types/lodash.range@npm:3.2.9":
+  version: 3.2.9
+  resolution: "@types/lodash.range@npm:3.2.9"
+  dependencies:
+    "@types/lodash": "npm:*"
+  checksum: 10c0/d21ed4c18f958aa447520eaf6e5113415bec2c2a7e016a54aa39228f45179ee3523732f4959ea31cffcf8dcf9d28d17c7188e38a835dfad54d5fe3d457d5bcf9
+  languageName: node
+  linkType: hard
+
+"@types/lodash@npm:*, @types/lodash@npm:^4.14.172":
+  version: 4.14.202
+  resolution: "@types/lodash@npm:4.14.202"
+  checksum: 10c0/6064d43c8f454170841bd67c8266cc9069d9e570a72ca63f06bceb484cb4a3ee60c9c1f305c1b9e3a87826049fd41124b8ef265c4dd08b00f6766609c7fe9973
+  languageName: node
+  linkType: hard
+
 "@types/lodash@npm:^4.14.167":
   version: 4.14.191
   resolution: "@types/lodash@npm:4.14.191"
   checksum: 10c0/cca0bc3b5f1193a50a39a9c6e14892e7cf57ab81ca05985e1ccee0d732dd3b22a8d669fa87560757051c6d73f4f63a2e2248ce9a7d9c159d0d5e3f331baf6a62
-  languageName: node
-  linkType: hard
-
-"@types/lodash@npm:^4.14.172":
-  version: 4.14.202
-  resolution: "@types/lodash@npm:4.14.202"
-  checksum: 10c0/6064d43c8f454170841bd67c8266cc9069d9e570a72ca63f06bceb484cb4a3ee60c9c1f305c1b9e3a87826049fd41124b8ef265c4dd08b00f6766609c7fe9973
   languageName: node
   linkType: hard
 
@@ -11533,6 +11551,8 @@ __metadata:
     "@testing-library/user-event": "npm:14.5.1"
     "@types/facepaint": "npm:1.2.4"
     "@types/jest": "npm:29.4.0"
+    "@types/lodash.memoize": "npm:4.1.9"
+    "@types/lodash.range": "npm:3.2.9"
     "@types/react": "npm:18.2.37"
     "@types/react-dom": "npm:17.0.18"
     "@visx/curve": "npm:3.0.0"
@@ -11561,6 +11581,8 @@ __metadata:
     istanbul-badges-readme: "npm:1.8.4"
     jest: "npm:29.6.2"
     jest-environment-jsdom: "npm:29.6.2"
+    lodash.memoize: "npm:4.1.2"
+    lodash.range: "npm:3.2.0"
     prettier: "npm:3.0.2"
     react: "npm:18.2.0"
     react-animate-height: "npm:3.2.2"
@@ -19365,10 +19387,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash.memoize@npm:4.1.2":
+  version: 4.1.2
+  resolution: "lodash.memoize@npm:4.1.2"
+  checksum: 10c0/c8713e51eccc650422716a14cece1809cfe34bc5ab5e242b7f8b4e2241c2483697b971a604252807689b9dd69bfe3a98852e19a5b89d506b000b4187a1285df8
+  languageName: node
+  linkType: hard
+
 "lodash.merge@npm:^4.6.2":
   version: 4.6.2
   resolution: "lodash.merge@npm:4.6.2"
   checksum: 10c0/402fa16a1edd7538de5b5903a90228aa48eb5533986ba7fa26606a49db2572bf414ff73a2c9f5d5fd36b31c46a5d5c7e1527749c07cbcf965ccff5fbdf32c506
+  languageName: node
+  linkType: hard
+
+"lodash.range@npm:3.2.0":
+  version: 3.2.0
+  resolution: "lodash.range@npm:3.2.0"
+  checksum: 10c0/b1db80e6bcd92dd89e1ea42bf9f7ac4f1f04d53bc2e1da9589414f3ce50bb4a8558dbd2848ff800e6b455662ec707eab6aeba3cfebe3443e1712778d16829bae
   languageName: node
   linkType: hard
 

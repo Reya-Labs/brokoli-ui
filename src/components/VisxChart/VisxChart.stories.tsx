@@ -6,6 +6,7 @@ import { GlyphProps, ThemeContext } from '@visx/xychart';
 import { RenderTooltipGlyphProps } from '@visx/xychart/lib/components/Tooltip';
 import React, { useContext } from 'react';
 
+import { ColorTokens } from '../../foundation/Colors';
 import { TokenTypography } from '../TokenTypography';
 import { Typography } from '../Typography';
 import { VisxChart } from '.';
@@ -49,6 +50,7 @@ const LeftBox = styled('div')`
   border-radius: 8px;
   flex: 1;
   background: ${({ theme }) => theme.colors.black900};
+  overflow-y: auto;
 `;
 
 const RightBox = styled('div')`
@@ -56,6 +58,7 @@ const RightBox = styled('div')`
   border-radius: 8px;
   flex: 1;
   background: ${({ theme }) => theme.colors.black900};
+  overflow-y: auto;
 `;
 
 const TooltipBox = styled('div')`
@@ -169,6 +172,7 @@ type TemplateProps = {
   negativeValues: boolean;
   missingValues: boolean;
   lessData: boolean;
+  manyDecimals: boolean;
 };
 type VisxChartIntegrationProps = Omit<
   VisxChartProps,
@@ -185,6 +189,7 @@ const VisxChartIntegration: React.FunctionComponent<VisxChartIntegrationProps> =
   const missingValues = args.missingValues;
   const lessData = args.lessData;
   const sharedTooltip = args.sharedTooltip;
+  const manyDecimals = args.manyDecimals;
 
   const computedData = lessData
     ? missingValues
@@ -196,7 +201,7 @@ const VisxChartIntegration: React.FunctionComponent<VisxChartIntegrationProps> =
 
   const series: VisxChartProps['series'] = [
     {
-      colorToken: 'primary500',
+      colorToken: 'primary500' as ColorTokens,
       data: computedData.map((d) => ({
         x: getDate(d),
         y: negativeValues ? getNegativeSfTemperature(d) : getSfTemperature(d),
@@ -204,7 +209,7 @@ const VisxChartIntegration: React.FunctionComponent<VisxChartIntegrationProps> =
       id: 'San Francisco',
     },
     {
-      colorToken: 'secondary500',
+      colorToken: 'secondary500' as ColorTokens,
       data: computedData.map((d) => ({
         x: getDate(d),
         y: getNyTemperature(d),
@@ -212,14 +217,16 @@ const VisxChartIntegration: React.FunctionComponent<VisxChartIntegrationProps> =
       id: 'New York',
     },
     {
-      colorToken: 'warning500',
+      colorToken: 'warning500' as ColorTokens,
       data: computedData.map((d) => ({
         x: getDate(d),
         y: getAustinTemperature(d),
       })),
       id: 'Austin',
     },
-  ];
+  ].map((s) =>
+    manyDecimals ? { ...s, data: s.data.map((d) => ({ ...d, y: d.y / 10000000 })) } : s,
+  );
 
   const renderTooltipGlyph: VisxChartProps['renderTooltipGlyph'] = showTooltipGlyph
     ? (props) => <TooltipGlyph {...props} tooltipGlyphComponent={tooltipGlyphComponent} />
@@ -307,6 +314,7 @@ const VisxChartIntegration: React.FunctionComponent<VisxChartIntegrationProps> =
           renderTooltip={renderTooltip}
           renderTooltipGlyph={renderTooltipGlyph}
           series={series}
+          yAxisTickFormatter={manyDecimals ? (value: number) => value.toString() : undefined}
         />
       </Box>
       <RightBox>
@@ -365,6 +373,7 @@ export const Default: StoryObj<typeof VisxChartIntegration> = {
     curveType: 'linear',
     glyphComponent: 'star',
     lessData: false,
+    manyDecimals: true,
     missingValues: false,
     negativeValues: false,
     sharedTooltip: true,
@@ -380,5 +389,6 @@ export const Default: StoryObj<typeof VisxChartIntegration> = {
     tooltipSnapTooltipToDatumY: true,
     xAxisOrientation: 'bottom',
     yAxisOrientation: 'right',
+    yRangePercentageOffset: 0,
   } as VisxChartIntegrationProps,
 };

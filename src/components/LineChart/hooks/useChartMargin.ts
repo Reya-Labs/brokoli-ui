@@ -37,8 +37,11 @@ export const useChartMargin = ({
       Math.max(
         ...yS.map((y) =>
           getTextWidth({
-            fontFamily: axisFontFamily,
-            fontSize: axisFontSize,
+            domElement: 'span',
+            style: {
+              fontFamily: axisFontFamily,
+              fontSize: `${axisFontSize}px`,
+            },
             text: yFormatter(y),
           }),
         ),
