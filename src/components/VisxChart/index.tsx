@@ -26,7 +26,7 @@ import { VisxChartDatum, VisxChartProps } from './types';
 import { VisxChartTooltip } from './VisxChartTooltip';
 import { YAxisBackground } from './YAxisBackground';
 
-export const defaultXAxisTickFormatter: NonNullable<VisxChartProps['xAxisTickFormatter']> = (
+export const defaultXAxisTickTimeFormatter: NonNullable<VisxChartProps['xAxisTickFormatter']> = (
   xValue,
   options,
 ) => {
@@ -44,6 +44,10 @@ export const defaultXAxisTickFormatter: NonNullable<VisxChartProps['xAxisTickFor
     resolutionUnit,
   });
 };
+export const defaultXAxisTickLinearFormatter: NonNullable<VisxChartProps['yAxisTickFormatter']> = (
+  xValue,
+) => parseFloat(xValue.toFixed(2)).toString();
+
 export const defaultYAxisTickFormatter: NonNullable<VisxChartProps['yAxisTickFormatter']> = (
   yValue,
 ) => parseFloat(yValue.toFixed(2)).toString();
@@ -55,7 +59,7 @@ const defaultDatum = { x: 0, y: 0 };
 export { VisxChartDatum, VisxChartProps };
 const _VisxChart = ({
   yAxisTickFormatter = defaultYAxisTickFormatter,
-  xAxisTickFormatter = defaultXAxisTickFormatter,
+  xAxisTickFormatter: xAxisTickFormatterProps,
   series = [],
   curveType = 'linear',
   axisNumTicks = 4,
@@ -86,6 +90,12 @@ const _VisxChart = ({
   xScaleType = 'time',
 }: VisxChartProps) => {
   const theme = useTheme();
+  const xAxisTickFormatter =
+    typeof xAxisTickFormatterProps === 'function'
+      ? xAxisTickFormatterProps
+      : xScaleType === 'linear'
+      ? defaultXAxisTickLinearFormatter
+      : defaultXAxisTickTimeFormatter;
 
   const { hideTooltip } = useContext(TooltipContext) as TooltipContextType<VisxChartDatum>;
   const { isSmallDesktopDeviceAndUp, isTabletDeviceAndUp, isMobileDeviceAndUp } =
