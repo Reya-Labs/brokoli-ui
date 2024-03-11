@@ -82,6 +82,8 @@ const _VisxChart = ({
   marginLeft = 'auto',
   marginRight = 'auto',
   yRangePercentageOffset = 0,
+  disableZoom = false,
+  xScaleType = 'time',
 }: VisxChartProps) => {
   const theme = useTheme();
 
@@ -260,7 +262,7 @@ const _VisxChart = ({
   };
 
   return (
-    <ParentSize onWheel={onWheel}>
+    <ParentSize onWheel={disableZoom ? undefined : onWheel}>
       {({ width, height }) => {
         return (
           <XYChart
@@ -272,7 +274,7 @@ const _VisxChart = ({
               clamp: false,
               domain: [...domain],
               nice: false,
-              type: 'time',
+              type: xScaleType,
               zero: false,
             }}
             yScale={{

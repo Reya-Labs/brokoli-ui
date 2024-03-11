@@ -47,6 +47,8 @@ export type VisxChartProps = {
   xAxisTickFormatter?: AxisFormatterFn;
   yAxisTickFormatter?: AxisFormatterFn;
   yRangePercentageOffset?: number;
+  disableZoom?: boolean;
+  xScaleType?: 'time' | 'linear';
 };
 
 type AxisFormatterFn = (
