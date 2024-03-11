@@ -1,16 +1,16 @@
-import styled from '@emotion/styled';
 import { Meta, StoryObj } from '@storybook/react';
-import { GlyphCross, GlyphDot, GlyphStar } from '@visx/glyph';
 import cityTemperature, { CityTemperature } from '@visx/mock-data/lib/mocks/cityTemperature';
-import { GlyphProps, ThemeContext } from '@visx/xychart';
-import { RenderTooltipGlyphProps } from '@visx/xychart/lib/components/Tooltip';
-import React, { useContext } from 'react';
+import React from 'react';
 
-import { ColorTokens } from '../../foundation/Colors';
-import { TokenTypography } from '../TokenTypography';
-import { Typography } from '../Typography';
-import { VisxChart } from '.';
-import { VisxChartDatum, VisxChartProps } from './types';
+import { ColorTokens } from '../../../foundation/Colors';
+import { TokenTypography } from '../../TokenTypography';
+import { Typography } from '../../Typography';
+import { VisxChart } from '../index';
+import { VisxChartProps } from '../types';
+import { Glyph } from './components/Glyph';
+import { TooltipGlyph } from './components/TooltipGlyph';
+import { Box, LeftBox, ParentBox, RightBox, TooltipBox } from './Stories.styled';
+import { SharedIntegrationProps } from './types';
 
 const cityTemperatures = cityTemperature.slice();
 const dataMissingValues = cityTemperatures.map((d, i) =>
@@ -27,158 +27,16 @@ const getNyTemperature = (d: CityTemperature) => Number(d['New York']);
 const getAustinTemperature = (d: CityTemperature) => Number(d.Austin);
 type City = 'San Francisco' | 'New York' | 'Austin';
 
-const ParentBox = styled('div')`
-  height: 445px;
-  border: 1px solid yellow;
-  display: flex;
-  flex-direction: row;
-  gap: 8px;
-  background: ${({ theme }) => theme.colors.black900};
-  padding: 32px;
-`;
-const Box = styled('div')`
-  height: 100%;
-  border: 1px solid gainsboro;
-  overflow: hidden;
-  border-radius: 8px;
-  flex: 5;
-  background: ${({ theme }) => theme.colors.black900};
-`;
-
-const LeftBox = styled('div')`
-  height: 100%;
-  border-radius: 8px;
-  flex: 1;
-  background: ${({ theme }) => theme.colors.black900};
-  overflow-y: auto;
-`;
-
-const RightBox = styled('div')`
-  height: 100%;
-  border-radius: 8px;
-  flex: 1;
-  background: ${({ theme }) => theme.colors.black900};
-  overflow-y: auto;
-`;
-
-const TooltipBox = styled('div')`
-  background: ${({ theme }) => theme.colors.secondary900};
-  border: 1px solid ${({ theme }) => theme.colors.secondary700};
-  border-radius: 8px;
-  padding: 16px;
-`;
-
-const Glyph = ({
-  x,
-  y,
-  size,
-  color,
-  onPointerMove,
-  onPointerOut,
-  onPointerUp,
-  glyphComponent,
-}: GlyphProps<VisxChartDatum> & Pick<TemplateProps, 'glyphComponent'>) => {
-  const theme = useContext(ThemeContext);
-  const glyphOutline = theme.gridStyles.stroke;
-  const handlers = { onPointerMove, onPointerOut, onPointerUp };
-  if (glyphComponent === 'star') {
-    return (
-      <GlyphStar
-        fill={color}
-        left={x}
-        size={size * 10}
-        stroke={glyphOutline}
-        top={y}
-        {...handlers}
-      />
-    );
-  }
-  if (glyphComponent === 'circle') {
-    return (
-      <GlyphDot fill={color} left={x} r={size / 2} stroke={glyphOutline} top={y} {...handlers} />
-    );
-  }
-  if (glyphComponent === 'cross') {
-    return (
-      <GlyphCross
-        fill={color}
-        left={x}
-        size={size * 10}
-        stroke={glyphOutline}
-        top={y}
-        {...handlers}
-      />
-    );
-  }
-  return (
-    <text dx="-0.75em" dy="0.25em" fontSize={14} x={x} y={y} {...handlers}>
-      🍍
-    </text>
-  );
-};
-
-const TooltipGlyph = ({
-  x,
-  y,
-  size,
-  color,
-  onPointerMove,
-  onPointerOut,
-  onPointerUp,
-  isNearestDatum,
-  tooltipGlyphComponent,
-}: RenderTooltipGlyphProps<VisxChartDatum> & Pick<TemplateProps, 'tooltipGlyphComponent'>) => {
-  const handlers = { onPointerMove, onPointerOut, onPointerUp };
-  const theme = useContext(ThemeContext);
-  const glyphOutline = theme.gridStyles.stroke;
-  if (tooltipGlyphComponent === 'star') {
-    return (
-      <GlyphStar
-        fill={color}
-        left={x}
-        size={size * 10}
-        stroke={glyphOutline}
-        top={y}
-        {...handlers}
-      />
-    );
-  }
-  if (tooltipGlyphComponent === 'circle') {
-    return <GlyphDot fill={color} left={x} r={size} stroke={glyphOutline} top={y} {...handlers} />;
-  }
-  if (tooltipGlyphComponent === 'cross') {
-    return (
-      <GlyphCross
-        fill={color}
-        left={x}
-        size={size * 10}
-        stroke={glyphOutline}
-        top={y}
-        {...handlers}
-      />
-    );
-  }
-  return (
-    <text dx="-0.75em" dy="0.25em" fontSize={14} x={x} y={y} {...handlers}>
-      {isNearestDatum ? '🍍' : '🍌'}
-    </text>
-  );
-};
-type TemplateProps = {
-  glyphComponent: 'star' | 'cross' | 'circle' | '🍍';
-  tooltipGlyphComponent: 'star' | 'cross' | 'circle' | '🍍';
-  showTooltipGlyph: boolean;
-  showTooltip: boolean;
-  negativeValues: boolean;
-  missingValues: boolean;
-  lessData: boolean;
-  manyDecimals: boolean;
-};
 type VisxChartIntegrationProps = Omit<
   VisxChartProps,
   'series' | 'renderTooltip' | 'renderTooltipGlyph' | 'renderGlyph'
 > &
-  TemplateProps;
+  SharedIntegrationProps & {
+    negativeValues: boolean;
+    missingValues: boolean;
+    lessData: boolean;
+    manyDecimals: boolean;
+  };
 
 const VisxChartIntegration: React.FunctionComponent<VisxChartIntegrationProps> = (args) => {
   const glyphComponent = args.glyphComponent;
@@ -337,7 +195,7 @@ export default {
   title: 'Components/VisxChart',
 } as Meta<typeof VisxChartIntegration>;
 
-export const Default: StoryObj<typeof VisxChartIntegration> = {
+export const Temperature: StoryObj<typeof VisxChartIntegration> = {
   argTypes: {
     chartType: {
       control: 'select',
