@@ -65,13 +65,27 @@ const VisxChartIntegration: React.FunctionComponent<VisxChartIntegrationProps> =
               const price = dataSerie.data[nearestDatum?.index].x;
 
               return (
-                <Typography
-                  key={chartPosition}
-                  colorToken={chartPosition === 'Left' ? 'error500' : 'primary500'}
-                  typographyToken="bodySmallRegular"
-                >
-                  {price} - {size == null || Number.isNaN(size) ? '–' : ` ${size}`}
-                </Typography>
+                <div key={chartPosition}>
+                  <Typography
+                    colorToken={chartPosition === 'Left' ? 'error500' : 'primary500'}
+                    typographyToken="bodyLargeBold"
+                  >
+                    {chartPosition}
+                  </Typography>
+                  <Typography
+                    colorToken={chartPosition === 'Left' ? 'error500' : 'primary500'}
+                    typographyToken="bodySmallRegular"
+                  >
+                    Price: {price == null || Number.isNaN(price) ? '–' : ` ${price.toFixed(2)}`}
+                  </Typography>
+                  <Typography
+                    key={chartPosition}
+                    colorToken={chartPosition === 'Left' ? 'error500' : 'primary500'}
+                    typographyToken="bodySmallRegular"
+                  >
+                    Size: {size == null || Number.isNaN(size) ? '–' : ` ${size.toFixed(2)}`}
+                  </Typography>
+                </div>
               );
             })}
           </TooltipBox>
@@ -103,7 +117,6 @@ const VisxChartIntegration: React.FunctionComponent<VisxChartIntegrationProps> =
           renderTooltipGlyph={renderTooltipGlyph}
           series={series}
           xAxisTickFormatter={(value) => value.toString()}
-          xScaleType="linear"
           yAxisTickFormatter={(value) => value.toString()}
         />
       </Box>
@@ -161,7 +174,6 @@ export const Depth: StoryObj<typeof VisxChartIntegration> = {
     chartType: 'line',
     crosshairColorToken: 'primary500',
     curveType: 'linear',
-    disableZoom: false,
     glyphComponent: 'star',
     sharedTooltip: true,
     showGridColumns: false,

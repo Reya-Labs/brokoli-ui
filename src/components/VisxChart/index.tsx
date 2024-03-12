@@ -44,9 +44,6 @@ export const defaultXAxisTickTimeFormatter: NonNullable<VisxChartProps['xAxisTic
     resolutionUnit,
   });
 };
-export const defaultXAxisTickLinearFormatter: NonNullable<VisxChartProps['yAxisTickFormatter']> = (
-  xValue,
-) => parseFloat(xValue.toFixed(2)).toString();
 
 export const defaultYAxisTickFormatter: NonNullable<VisxChartProps['yAxisTickFormatter']> = (
   yValue,
@@ -59,7 +56,7 @@ const defaultDatum = { x: 0, y: 0 };
 export { VisxChartDatum, VisxChartProps };
 const _VisxChart = ({
   yAxisTickFormatter = defaultYAxisTickFormatter,
-  xAxisTickFormatter: xAxisTickFormatterProps,
+  xAxisTickFormatter = defaultXAxisTickTimeFormatter,
   series = [],
   curveType = 'linear',
   axisNumTicks = 4,
@@ -86,16 +83,8 @@ const _VisxChart = ({
   marginLeft = 'auto',
   marginRight = 'auto',
   yRangePercentageOffset = 0,
-  disableZoom = false,
-  xScaleType = 'time',
 }: VisxChartProps) => {
   const theme = useTheme();
-  const xAxisTickFormatter =
-    typeof xAxisTickFormatterProps === 'function'
-      ? xAxisTickFormatterProps
-      : xScaleType === 'linear'
-      ? defaultXAxisTickLinearFormatter
-      : defaultXAxisTickTimeFormatter;
 
   const { hideTooltip } = useContext(TooltipContext) as TooltipContextType<VisxChartDatum>;
   const { isSmallDesktopDeviceAndUp, isTabletDeviceAndUp, isMobileDeviceAndUp } =
@@ -272,7 +261,7 @@ const _VisxChart = ({
   };
 
   return (
-    <ParentSize onWheel={disableZoom ? undefined : onWheel}>
+    <ParentSize onWheel={onWheel}>
       {({ width, height }) => {
         return (
           <XYChart
@@ -284,7 +273,7 @@ const _VisxChart = ({
               clamp: false,
               domain: [...domain],
               nice: false,
-              type: xScaleType,
+              type: 'time',
               zero: false,
             }}
             yScale={{

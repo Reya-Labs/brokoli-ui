@@ -229,7 +229,6 @@ export const Temperature: StoryObj<typeof VisxChartIntegration> = {
     chartType: 'line',
     crosshairColorToken: 'primary500',
     curveType: 'linear',
-    disableZoom: false,
     glyphComponent: 'star',
     lessData: false,
     manyDecimals: true,
