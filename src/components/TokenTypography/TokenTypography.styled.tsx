@@ -21,14 +21,19 @@ const differenceTypographyMap: Record<TypographyTokens, TypographyTokens> = {
   bodySmallRegular: 'bodySmallRegular',
   bodyXSmallBold: 'bodyXSmallBold',
   bodyXSmallRegular: 'bodyXSmallRegular',
+  bodyXXLRegular: 'bodyXXLRegular',
   ctaBlack: 'bodyXSmallBold',
+  ctaLarge: 'ctaLarge',
   ctaRegular: 'ctaRegular',
   h1SmallBold: 'h2Regular',
   h1XLBold: 'h2Bold',
+  h1XLBoldSpaced: 'h1XLBoldSpaced',
+  h1XLRegular: 'h1XLRegular',
   h2Bold: 'h3Bold',
   h2Regular: 'h3Regular',
   h3Bold: 'bodyMediumBold',
   h3Regular: 'bodyMediumRegular',
+  subheaderRegular: 'subheaderRegular',
 };
 
 export const PrefixToken = styled('strong', shouldNotForwardProps(['colorToken']))<{
