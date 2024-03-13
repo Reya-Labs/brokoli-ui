@@ -3,10 +3,13 @@ import { SupportedMediasWidths } from '../Media';
 export type TypographyTokens =
   | 'h1XLBold'
   | 'h1SmallBold'
+  | 'h1XLRegular'
+  | 'h1XLBoldSpaced'
   | 'h2Bold'
   | 'h2Regular'
   | 'h3Bold'
   | 'h3Regular'
+  | 'subheaderRegular'
   | 'bodyXSmallRegular'
   | 'bodyXSmallBold'
   | 'bodySmallRegular'
@@ -18,8 +21,10 @@ export type TypographyTokens =
   | 'bodyExtraLargeRegular'
   | 'bodyExtraLargeBold'
   | 'bodyMegaLargeBold'
+  | 'bodyXXLRegular'
   | 'ctaBlack'
-  | 'ctaRegular';
+  | 'ctaRegular'
+  | 'ctaLarge';
 
 export type TypographyConfig = {
   fontFamily: string;
