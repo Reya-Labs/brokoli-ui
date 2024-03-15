@@ -29,6 +29,7 @@ const differenceTypographyMap: Record<TypographyTokens, TypographyTokens> = {
   h1XLBold: 'h2Bold',
   h1XLBoldSpaced: 'h1XLBoldSpaced',
   h1XLRegular: 'h1XLRegular',
+  h1XLRegularSpaced: 'h1XLRegularSpaced',
   h2Bold: 'h3Bold',
   h2Regular: 'h3Regular',
   h3Bold: 'bodyMediumBold',

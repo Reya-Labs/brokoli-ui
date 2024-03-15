@@ -5,6 +5,7 @@ export type TypographyTokens =
   | 'h1SmallBold'
   | 'h1XLRegular'
   | 'h1XLBoldSpaced'
+  | 'h1XLRegularSpaced'
   | 'h2Bold'
   | 'h2Regular'
   | 'h3Bold'
