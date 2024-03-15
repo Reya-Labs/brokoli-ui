@@ -14,7 +14,6 @@ export type TypographyTokens =
   | 'h3Regular'
   | 'subheaderRegular'
   | 'subheaderRegularDS'
-  | 'bodyXXLRegularDS'
   | 'bodyXSmallRegular'
   | 'bodyXSmallBold'
   | 'bodySmallRegular'
