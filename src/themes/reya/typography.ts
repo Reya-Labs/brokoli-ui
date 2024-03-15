@@ -52,7 +52,7 @@ const h1XLRegularSpaced: TypographyResponsiveConfig = {
     fontSize: '48px',
     fontStyle: 'normal',
     fontWeight: '400',
-    letterSpacing: '12.8px',
+    letterSpacing: '9.6px',
     lineHeight: '130%',
   },
   tabletDevice: {
@@ -60,7 +60,7 @@ const h1XLRegularSpaced: TypographyResponsiveConfig = {
     fontSize: '40px',
     fontStyle: 'normal',
     fontWeight: '400',
-    letterSpacing: '12.8px',
+    letterSpacing: '9.6px',
     lineHeight: '130%',
   },
 };
@@ -86,7 +86,7 @@ const h1XLBoldSpaced: TypographyResponsiveConfig = {
     fontSize: '64px',
     fontStyle: 'normal',
     fontWeight: '700',
-    letterSpacing: '12.8px',
+    letterSpacing: '9.6px',
     lineHeight: '130%',
   },
   tabletDevice: {
