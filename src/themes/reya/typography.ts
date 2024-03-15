@@ -2,28 +2,28 @@ import { TypographyResponsiveConfig, TypographyTheme } from '../../foundation/Ty
 
 const h1XLRegular: TypographyResponsiveConfig = {
   largeDesktopDevice: {
-    fontFamily: "'Satoshi-Bold', sans-serif",
+    fontFamily: "'Satoshi-Regular', sans-serif",
     fontSize: '64px',
     fontStyle: 'normal',
     fontWeight: '400',
     lineHeight: '130%',
   },
   mobileDevice: {
-    fontFamily: "'Satoshi-Bold', sans-serif",
+    fontFamily: "'Satoshi-Regular', sans-serif",
     fontSize: '32px',
     fontStyle: 'normal',
     fontWeight: '400',
     lineHeight: '130%',
   },
   smallDesktopDevice: {
-    fontFamily: "'Satoshi-Bold', sans-serif",
-    fontSize: '64px',
+    fontFamily: "'Satoshi-Regular', sans-serif",
+    fontSize: '48px',
     fontStyle: 'normal',
     fontWeight: '400',
     lineHeight: '130%',
   },
   tabletDevice: {
-    fontFamily: "'Satoshi-Bold', sans-serif",
+    fontFamily: "'Satoshi-Regular', sans-serif",
     fontSize: '40px',
     fontStyle: 'normal',
     fontWeight: '400',
@@ -31,9 +31,43 @@ const h1XLRegular: TypographyResponsiveConfig = {
   },
 };
 
+const h1XLRegularSpaced: TypographyResponsiveConfig = {
+  largeDesktopDevice: {
+    fontFamily: "'Satoshi-Regular', sans-serif",
+    fontSize: '64px',
+    fontStyle: 'normal',
+    fontWeight: '400',
+    letterSpacing: '12.8px',
+    lineHeight: '130%',
+  },
+  mobileDevice: {
+    fontFamily: "'Satoshi-Regular', sans-serif",
+    fontSize: '32px',
+    fontStyle: 'normal',
+    fontWeight: '400',
+    lineHeight: '130%',
+  },
+  smallDesktopDevice: {
+    fontFamily: "'Satoshi-Regular', sans-serif",
+    fontSize: '48px',
+    fontStyle: 'normal',
+    fontWeight: '400',
+    letterSpacing: '12.8px',
+    lineHeight: '130%',
+  },
+  tabletDevice: {
+    fontFamily: "'Satoshi-Regular', sans-serif",
+    fontSize: '40px',
+    fontStyle: 'normal',
+    fontWeight: '400',
+    letterSpacing: '12.8px',
+    lineHeight: '130%',
+  },
+};
+
 const h1XLBoldSpaced: TypographyResponsiveConfig = {
   largeDesktopDevice: {
-    fontFamily: "'Satoshi-Bold', sans-serif",
+    fontFamily: "'Satoshi-Regular', sans-serif",
     fontSize: '64px',
     fontStyle: 'normal',
     fontWeight: '700',
@@ -41,14 +75,14 @@ const h1XLBoldSpaced: TypographyResponsiveConfig = {
     lineHeight: '130%',
   },
   mobileDevice: {
-    fontFamily: "'Satoshi-Bold', sans-serif",
+    fontFamily: "'Satoshi-Regular', sans-serif",
     fontSize: '32px',
     fontStyle: 'normal',
     fontWeight: '700',
     lineHeight: '130%',
   },
   smallDesktopDevice: {
-    fontFamily: "'Satoshi-Bold', sans-serif",
+    fontFamily: "'Satoshi-Regular', sans-serif",
     fontSize: '64px',
     fontStyle: 'normal',
     fontWeight: '700',
@@ -56,7 +90,7 @@ const h1XLBoldSpaced: TypographyResponsiveConfig = {
     lineHeight: '130%',
   },
   tabletDevice: {
-    fontFamily: "'Satoshi-Bold', sans-serif",
+    fontFamily: "'Satoshi-Regular', sans-serif",
     fontSize: '40px',
     fontStyle: 'normal',
     fontWeight: '700',
@@ -82,14 +116,14 @@ const h1XLBold: TypographyResponsiveConfig = {
   },
   smallDesktopDevice: {
     fontFamily: "'Satoshi-Bold', sans-serif",
-    fontSize: '64px',
+    fontSize: '56px',
     fontStyle: 'normal',
     fontWeight: '700',
     lineHeight: '130%',
   },
   tabletDevice: {
     fontFamily: "'Satoshi-Bold', sans-serif",
-    fontSize: '64px',
+    fontSize: '32px',
     fontStyle: 'normal',
     fontWeight: '700',
     lineHeight: '130%',
@@ -268,7 +302,7 @@ const subheaderRegular: TypographyResponsiveConfig = {
   },
   smallDesktopDevice: {
     fontFamily: "'Satoshi-Regular', sans-serif",
-    fontSize: '40px',
+    fontSize: '32px',
     fontStyle: 'normal',
     fontWeight: '400',
     lineHeight: '140%',
@@ -617,7 +651,7 @@ const bodyXXLRegular: TypographyResponsiveConfig = {
   },
   smallDesktopDevice: {
     fontFamily: "'Satoshi-Bold', sans-serif",
-    fontSize: '32px',
+    fontSize: '24px',
     fontStyle: 'normal',
     fontWeight: '400',
     lineHeight: '140%',
@@ -787,6 +821,7 @@ export const typography: TypographyTheme = {
   h1XLBold,
   h1XLBoldSpaced,
   h1XLRegular,
+  h1XLRegularSpaced,
   h2Bold,
   h2Regular,
   h3Bold,

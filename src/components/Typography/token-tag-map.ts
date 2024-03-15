@@ -22,6 +22,7 @@ export const tokenTagMap: Record<TypographyTokens, React.ElementType> = {
   h1XLBold: 'h1',
   h1XLBoldSpaced: 'h1',
   h1XLRegular: 'h1',
+  h1XLRegularSpaced: 'h1',
   h2Bold: 'h2',
   h2Regular: 'h2',
   h3Bold: 'h3',
