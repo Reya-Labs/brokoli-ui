@@ -4,36 +4,32 @@ import { colors } from './colors';
 
 const h1XLBold: TypographyResponsiveConfig = {
   largeDesktopDevice: {
-    fontFamily: "'Inter', sans-serif",
+    fontFamily: "'Satoshi-Bold', sans-serif",
     fontSize: '64px',
     fontStyle: 'normal',
-    fontWeight: '900',
-    lineHeight: '120%',
-    textShadow: `0px 0px 20px ${addAlpha(colors.white100, 0.3)}`,
+    fontWeight: '700',
+    lineHeight: '130%',
   },
   mobileDevice: {
-    fontFamily: "'Inter', sans-serif",
+    fontFamily: "'Satoshi-Bold', sans-serif",
     fontSize: '32px',
     fontStyle: 'normal',
-    fontWeight: '900',
-    lineHeight: '120%',
-    textShadow: `0px 0px 20px ${addAlpha(colors.white100, 0.3)}`,
+    fontWeight: '700',
+    lineHeight: '130%',
   },
   smallDesktopDevice: {
-    fontFamily: "'Inter', sans-serif",
-    fontSize: '56px',
+    fontFamily: "'Satoshi-Bold', sans-serif",
+    fontSize: '48px',
     fontStyle: 'normal',
-    fontWeight: '900',
-    lineHeight: '120%',
-    textShadow: `0px 0px 20px ${addAlpha(colors.white100, 0.3)}`,
+    fontWeight: '700',
+    lineHeight: '130%',
   },
   tabletDevice: {
-    fontFamily: "'Inter', sans-serif",
-    fontSize: '32px',
+    fontFamily: "'Satoshi-Bold', sans-serif",
+    fontSize: '40px',
     fontStyle: 'normal',
-    fontWeight: '900',
-    lineHeight: '120%',
-    textShadow: `0px 0px 20px ${addAlpha(colors.white100, 0.3)}`,
+    fontWeight: '700',
+    lineHeight: '130%',
   },
 };
 
@@ -558,7 +554,7 @@ const bodyXXLRegular: TypographyResponsiveConfig = {
   },
   tabletDevice: {
     fontFamily: "'Satoshi-Bold', sans-serif",
-    fontSize: '32px',
+    fontSize: '24px',
     fontStyle: 'normal',
     fontWeight: '400',
     lineHeight: '140%',
@@ -710,10 +706,10 @@ const h1XLBoldSpaced: TypographyResponsiveConfig = {
   },
   smallDesktopDevice: {
     fontFamily: "'Satoshi-Regular', sans-serif",
-    fontSize: '64px',
+    fontSize: '48px',
     fontStyle: 'normal',
     fontWeight: '700',
-    letterSpacing: '12.8px',
+    letterSpacing: '9.6px',
     lineHeight: '130%',
   },
   tabletDevice: {

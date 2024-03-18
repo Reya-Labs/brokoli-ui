@@ -83,7 +83,7 @@ const h1XLBoldSpaced: TypographyResponsiveConfig = {
   },
   smallDesktopDevice: {
     fontFamily: "'Satoshi-Regular', sans-serif",
-    fontSize: '64px',
+    fontSize: '48px',
     fontStyle: 'normal',
     fontWeight: '700',
     letterSpacing: '9.6px',
@@ -116,14 +116,14 @@ const h1XLBold: TypographyResponsiveConfig = {
   },
   smallDesktopDevice: {
     fontFamily: "'Satoshi-Bold', sans-serif",
-    fontSize: '56px',
+    fontSize: '48px',
     fontStyle: 'normal',
     fontWeight: '700',
     lineHeight: '130%',
   },
   tabletDevice: {
     fontFamily: "'Satoshi-Bold', sans-serif",
-    fontSize: '32px',
+    fontSize: '40px',
     fontStyle: 'normal',
     fontWeight: '700',
     lineHeight: '130%',
@@ -658,7 +658,7 @@ const bodyXXLRegular: TypographyResponsiveConfig = {
   },
   tabletDevice: {
     fontFamily: "'Satoshi-Bold', sans-serif",
-    fontSize: '32px',
+    fontSize: '24px',
     fontStyle: 'normal',
     fontWeight: '400',
     lineHeight: '140%',
