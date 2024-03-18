@@ -6,19 +6,26 @@ import { SupportedMedias } from '../types';
 type UseResponsiveQueryReturn = {
   isSmallDesktopDeviceAndUp: boolean;
   isLargeDesktopDeviceAndUp: boolean;
+  isDesktopDeviceAndUp: boolean;
   isTabletDeviceAndUp: boolean;
   isMobileDeviceAndUp: boolean;
   isSmallDesktopDeviceAndDown: boolean;
   isLargeDesktopDeviceAndDown: boolean;
+  isDesktopDeviceAndDown: boolean;
   isTabletDeviceAndDown: boolean;
   isMobileDeviceAndDown: boolean;
   isSmallDesktopDeviceOnly: boolean;
   isLargeDesktopDeviceOnly: boolean;
+  isDesktopDeviceOnly: boolean;
   isTabletDeviceOnly: boolean;
   isMobileDeviceOnly: boolean;
 };
 
 export const mediaQuery: Record<SupportedMedias, string> = {
+  desktopDeviceAndDown: `(max-width: ${mediaBreakPoints.desktopDevice - 1}px)`,
+  desktopDeviceAndUp: `(min-width: ${mediaBreakPoints.desktopDevice}px)`,
+  desktopDeviceOnly: `(min-width: ${mediaBreakPoints.largeDesktopDevice - 1}px)`,
+
   largeDesktopDeviceAndDown: `(max-width: ${mediaBreakPoints.largeDesktopDevice - 1}px)`,
   largeDesktopDeviceAndUp: `(min-width: ${mediaBreakPoints.largeDesktopDevice}px)`,
   // same as largeDesktopDeviceAndUp as currently largeDesktop is max screen width we support
@@ -33,7 +40,7 @@ export const mediaQuery: Record<SupportedMedias, string> = {
   smallDesktopDeviceAndDown: `(max-width: ${mediaBreakPoints.smallDesktopDevice - 1}px)`,
   smallDesktopDeviceAndUp: `(min-width: ${mediaBreakPoints.smallDesktopDevice}px)`,
   smallDesktopDeviceOnly: `(min-width: ${mediaBreakPoints.smallDesktopDevice}px) and (max-width: ${
-    mediaBreakPoints.largeDesktopDevice - 1
+    mediaBreakPoints.desktopDevice - 1
   }px)`,
 
   tabletDeviceAndDown: `(max-width: ${mediaBreakPoints.tabletDevice - 1}px)`,
@@ -56,6 +63,9 @@ export const useResponsiveQuery = (): UseResponsiveQueryReturn => {
   const isLargeDesktopDeviceAndUp = useMediaQuery({
     query: mediaQuery.largeDesktopDeviceAndUp,
   });
+  const isDesktopDeviceAndUp = useMediaQuery({
+    query: mediaQuery.desktopDeviceAndUp,
+  });
   const isMobileDeviceAndDown = useMediaQuery({
     query: mediaQuery.mobileDeviceAndDown,
   });
@@ -67,6 +77,9 @@ export const useResponsiveQuery = (): UseResponsiveQueryReturn => {
   });
   const isLargeDesktopDeviceAndDown = useMediaQuery({
     query: mediaQuery.largeDesktopDeviceAndDown,
+  });
+  const isDesktopDeviceAndDown = useMediaQuery({
+    query: mediaQuery.desktopDeviceAndDown,
   });
   const isMobileDeviceOnly = useMediaQuery({
     query: mediaQuery.mobileDeviceOnly,
@@ -80,8 +93,14 @@ export const useResponsiveQuery = (): UseResponsiveQueryReturn => {
   const isLargeDesktopDeviceOnly = useMediaQuery({
     query: mediaQuery.largeDesktopDeviceOnly,
   });
+  const isDesktopDeviceOnly = useMediaQuery({
+    query: mediaQuery.desktopDeviceOnly,
+  });
 
   return {
+    isDesktopDeviceAndDown,
+    isDesktopDeviceAndUp,
+    isDesktopDeviceOnly,
     isLargeDesktopDeviceAndDown,
     isLargeDesktopDeviceAndUp,
     isLargeDesktopDeviceOnly,

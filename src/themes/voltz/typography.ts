@@ -3,6 +3,13 @@ import { TypographyResponsiveConfig, TypographyTheme } from '../../foundation/Ty
 import { colors } from './colors';
 
 const h1XLBold: TypographyResponsiveConfig = {
+  desktopDevice: {
+    fontFamily: "'Satoshi-Bold', sans-serif",
+    fontSize: '64px',
+    fontStyle: 'normal',
+    fontWeight: '700',
+    lineHeight: '130%',
+  },
   largeDesktopDevice: {
     fontFamily: "'Satoshi-Bold', sans-serif",
     fontSize: '64px',
@@ -34,6 +41,14 @@ const h1XLBold: TypographyResponsiveConfig = {
 };
 
 const h1SmallBold: TypographyResponsiveConfig = {
+  desktopDevice: {
+    fontFamily: "'Inter', sans-serif",
+    fontSize: '32px',
+    fontStyle: 'normal',
+    fontWeight: '700',
+    lineHeight: '120%',
+    textShadow: `0px 0px 20px ${addAlpha(colors.white100, 0.3)}`,
+  },
   largeDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
     fontSize: '32px',
@@ -69,6 +84,14 @@ const h1SmallBold: TypographyResponsiveConfig = {
 };
 
 const h2Bold: TypographyResponsiveConfig = {
+  desktopDevice: {
+    fontFamily: "'Inter', sans-serif",
+    fontSize: '24px',
+    fontStyle: 'normal',
+    fontWeight: '900',
+    lineHeight: '120%',
+    textShadow: `0px 0px 20px ${addAlpha(colors.white100, 0.3)}`,
+  },
   largeDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
     fontSize: '24px',
@@ -104,6 +127,14 @@ const h2Bold: TypographyResponsiveConfig = {
 };
 
 const h2Regular: TypographyResponsiveConfig = {
+  desktopDevice: {
+    fontFamily: "'Inter', sans-serif",
+    fontSize: '24px',
+    fontStyle: 'normal',
+    fontWeight: '700',
+    lineHeight: '120%',
+    textShadow: `0px 0px 20px ${addAlpha(colors.white100, 0.3)}`,
+  },
   largeDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
     fontSize: '24px',
@@ -139,6 +170,15 @@ const h2Regular: TypographyResponsiveConfig = {
 };
 
 const h3Bold: TypographyResponsiveConfig = {
+  desktopDevice: {
+    fontFamily: "'Inter', sans-serif",
+    fontSize: '16px',
+    fontStyle: 'normal',
+    fontWeight: '900',
+
+    lineHeight: '120%',
+    textShadow: `0px 0px 20px ${addAlpha(colors.white100, 0.3)}`,
+  },
   largeDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
     fontSize: '16px',
@@ -178,6 +218,14 @@ const h3Bold: TypographyResponsiveConfig = {
 };
 
 const h3Regular: TypographyResponsiveConfig = {
+  desktopDevice: {
+    fontFamily: "'Inter', sans-serif",
+    fontSize: '16px',
+    fontStyle: 'normal',
+    fontWeight: '700',
+    lineHeight: '120%',
+    textShadow: `0px 0px 20px ${addAlpha(colors.white100, 0.3)}`,
+  },
   largeDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
     fontSize: '16px',
@@ -213,6 +261,13 @@ const h3Regular: TypographyResponsiveConfig = {
 };
 
 const subheaderRegular: TypographyResponsiveConfig = {
+  desktopDevice: {
+    fontFamily: "'Satoshi-Regular', sans-serif",
+    fontSize: '40px',
+    fontStyle: 'normal',
+    fontWeight: '400',
+    lineHeight: '140%',
+  },
   largeDesktopDevice: {
     fontFamily: "'Satoshi-Regular', sans-serif",
     fontSize: '40px',
@@ -244,6 +299,14 @@ const subheaderRegular: TypographyResponsiveConfig = {
 };
 
 const bodyXSmallRegular: TypographyResponsiveConfig = {
+  desktopDevice: {
+    fontFamily: "'Inter', sans-serif",
+    fontSize: '10px',
+    fontStyle: 'normal',
+    fontWeight: '400',
+    letterSpacing: '0.02em',
+    lineHeight: '140%',
+  },
   largeDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
     fontSize: '10px',
@@ -279,6 +342,14 @@ const bodyXSmallRegular: TypographyResponsiveConfig = {
 };
 
 const bodyXSmallBold: TypographyResponsiveConfig = {
+  desktopDevice: {
+    fontFamily: "'Inter', sans-serif",
+    fontSize: '10px',
+    fontStyle: 'normal',
+    fontWeight: '700',
+    letterSpacing: '0.02em',
+    lineHeight: '140%',
+  },
   largeDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
     fontSize: '10px',
@@ -314,6 +385,13 @@ const bodyXSmallBold: TypographyResponsiveConfig = {
 };
 
 const bodySmallRegular: TypographyResponsiveConfig = {
+  desktopDevice: {
+    fontFamily: "'Inter', sans-serif",
+    fontSize: '12px',
+    fontStyle: 'normal',
+    fontWeight: '400',
+    lineHeight: '150%',
+  },
   largeDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
     fontSize: '12px',
@@ -345,6 +423,13 @@ const bodySmallRegular: TypographyResponsiveConfig = {
 };
 
 const bodySmallBold: TypographyResponsiveConfig = {
+  desktopDevice: {
+    fontFamily: "'Inter', sans-serif",
+    fontSize: '12px',
+    fontStyle: 'normal',
+    fontWeight: '700',
+    lineHeight: '150%',
+  },
   largeDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
     fontSize: '12px',
@@ -376,6 +461,13 @@ const bodySmallBold: TypographyResponsiveConfig = {
 };
 
 const bodyMediumRegular: TypographyResponsiveConfig = {
+  desktopDevice: {
+    fontFamily: "'Inter', sans-serif",
+    fontSize: '14px',
+    fontStyle: 'normal',
+    fontWeight: '400',
+    lineHeight: '150%',
+  },
   largeDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
     fontSize: '14px',
@@ -407,6 +499,13 @@ const bodyMediumRegular: TypographyResponsiveConfig = {
 };
 
 const bodyMediumBold: TypographyResponsiveConfig = {
+  desktopDevice: {
+    fontFamily: "'Inter', sans-serif",
+    fontSize: '14px',
+    fontStyle: 'normal',
+    fontWeight: '700',
+    lineHeight: '150%',
+  },
   largeDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
     fontSize: '14px',
@@ -438,6 +537,13 @@ const bodyMediumBold: TypographyResponsiveConfig = {
 };
 
 const bodyLargeRegular: TypographyResponsiveConfig = {
+  desktopDevice: {
+    fontFamily: "'Inter', sans-serif",
+    fontSize: '16px',
+    fontStyle: 'normal',
+    fontWeight: '400',
+    lineHeight: '150%',
+  },
   largeDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
     fontSize: '16px',
@@ -469,6 +575,13 @@ const bodyLargeRegular: TypographyResponsiveConfig = {
 };
 
 const bodyLargeBold: TypographyResponsiveConfig = {
+  desktopDevice: {
+    fontFamily: "'Inter', sans-serif",
+    fontSize: '16px',
+    fontStyle: 'normal',
+    fontWeight: '700',
+    lineHeight: '150%',
+  },
   largeDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
     fontSize: '16px',
@@ -500,6 +613,13 @@ const bodyLargeBold: TypographyResponsiveConfig = {
 };
 
 const bodyExtraLargeRegular: TypographyResponsiveConfig = {
+  desktopDevice: {
+    fontFamily: "'Inter', sans-serif",
+    fontSize: '18px',
+    fontStyle: 'normal',
+    fontWeight: '400',
+    lineHeight: '150%',
+  },
   largeDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
     fontSize: '18px',
@@ -531,6 +651,13 @@ const bodyExtraLargeRegular: TypographyResponsiveConfig = {
 };
 
 const bodyXXLRegular: TypographyResponsiveConfig = {
+  desktopDevice: {
+    fontFamily: "'Satoshi-Bold', sans-serif",
+    fontSize: '32px',
+    fontStyle: 'normal',
+    fontWeight: '400',
+    lineHeight: '140%',
+  },
   largeDesktopDevice: {
     fontFamily: "'Satoshi-Bold', sans-serif",
     fontSize: '32px',
@@ -562,6 +689,13 @@ const bodyXXLRegular: TypographyResponsiveConfig = {
 };
 
 const bodyExtraLargeBold: TypographyResponsiveConfig = {
+  desktopDevice: {
+    fontFamily: "'Inter', sans-serif",
+    fontSize: '18px',
+    fontStyle: 'normal',
+    fontWeight: '700',
+    lineHeight: '150%',
+  },
   largeDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
     fontSize: '18px',
@@ -593,6 +727,13 @@ const bodyExtraLargeBold: TypographyResponsiveConfig = {
 };
 
 const bodyMegaLargeBold: TypographyResponsiveConfig = {
+  desktopDevice: {
+    fontFamily: "'Satoshi-Bold', sans-serif",
+    fontSize: '120px',
+    fontStyle: 'normal',
+    fontWeight: '700',
+    lineHeight: '150%',
+  },
   largeDesktopDevice: {
     fontFamily: "'Satoshi-Bold', sans-serif",
     fontSize: '120px',
@@ -624,6 +765,13 @@ const bodyMegaLargeBold: TypographyResponsiveConfig = {
 };
 
 const h1XLRegular: TypographyResponsiveConfig = {
+  desktopDevice: {
+    fontFamily: "'Satoshi-Regular', sans-serif",
+    fontSize: '64px',
+    fontStyle: 'normal',
+    fontWeight: '400',
+    lineHeight: '130%',
+  },
   largeDesktopDevice: {
     fontFamily: "'Satoshi-Regular', sans-serif",
     fontSize: '64px',
@@ -655,6 +803,14 @@ const h1XLRegular: TypographyResponsiveConfig = {
 };
 
 const h1XLRegularSpaced: TypographyResponsiveConfig = {
+  desktopDevice: {
+    fontFamily: "'Satoshi-Regular', sans-serif",
+    fontSize: '64px',
+    fontStyle: 'normal',
+    fontWeight: '400',
+    letterSpacing: '12.8px',
+    lineHeight: '130%',
+  },
   largeDesktopDevice: {
     fontFamily: "'Satoshi-Regular', sans-serif",
     fontSize: '64px',
@@ -689,6 +845,14 @@ const h1XLRegularSpaced: TypographyResponsiveConfig = {
 };
 
 const h1XLBoldSpaced: TypographyResponsiveConfig = {
+  desktopDevice: {
+    fontFamily: "'Satoshi-Regular', sans-serif",
+    fontSize: '64px',
+    fontStyle: 'normal',
+    fontWeight: '700',
+    letterSpacing: '12.8px',
+    lineHeight: '130%',
+  },
   largeDesktopDevice: {
     fontFamily: "'Satoshi-Regular', sans-serif",
     fontSize: '64px',
@@ -723,6 +887,14 @@ const h1XLBoldSpaced: TypographyResponsiveConfig = {
 };
 
 const ctaRegular: TypographyResponsiveConfig = {
+  desktopDevice: {
+    fontFamily: "'Satoshi', sans-serif",
+    fontSize: '14px',
+    fontStyle: 'normal',
+    fontWeight: '500',
+    letterSpacing: '2.8px',
+    lineHeight: '150%',
+  },
   largeDesktopDevice: {
     fontFamily: "'Satoshi', sans-serif",
     fontSize: '14px',
@@ -758,6 +930,14 @@ const ctaRegular: TypographyResponsiveConfig = {
 };
 
 const ctaLarge: TypographyResponsiveConfig = {
+  desktopDevice: {
+    fontFamily: "'Satoshi', sans-serif",
+    fontSize: '24px',
+    fontStyle: 'normal',
+    fontWeight: '500',
+    letterSpacing: '4.8px',
+    lineHeight: '150%',
+  },
   largeDesktopDevice: {
     fontFamily: "'Satoshi', sans-serif",
     fontSize: '24px',
@@ -793,6 +973,14 @@ const ctaLarge: TypographyResponsiveConfig = {
 };
 
 const ctaBlack: TypographyResponsiveConfig = {
+  desktopDevice: {
+    fontFamily: "'Inter', sans-serif",
+    fontSize: '14px',
+    fontStyle: 'normal',
+    fontWeight: '900',
+    letterSpacing: '2.8px',
+    lineHeight: '150%',
+  },
   largeDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
     fontSize: '14px',

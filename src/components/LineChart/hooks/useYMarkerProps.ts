@@ -40,7 +40,7 @@ export const useYMarkerProps = ({ yMarker }: UseYMarkerParams): CartesianMarkerP
       ? yMarkerTypographyConfig.tabletDevice
       : isSmallDesktopDeviceAndUp
       ? yMarkerTypographyConfig.smallDesktopDevice
-      : yMarkerTypographyConfig.largeDesktopDevice;
+      : yMarkerTypographyConfig.desktopDevice;
 
     return {
       axis: 'y',

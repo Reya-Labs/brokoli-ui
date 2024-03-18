@@ -115,7 +115,7 @@ const _VisxChart = ({
       ? axisTypographyConfig.tabletDevice
       : isSmallDesktopDeviceAndUp
       ? axisTypographyConfig.smallDesktopDevice
-      : axisTypographyConfig.largeDesktopDevice;
+      : axisTypographyConfig.desktopDevice;
     const axisFontSize = parseInt(axisTypography.fontSize, 10);
     const axisFontFamily = axisTypography.fontFamily;
 

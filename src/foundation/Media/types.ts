@@ -3,17 +3,21 @@ export type SupportedMedias =
   | 'tabletDeviceAndUp'
   | 'smallDesktopDeviceAndUp'
   | 'largeDesktopDeviceAndUp'
+  | 'desktopDeviceAndUp'
   | 'mobileDeviceAndDown'
   | 'tabletDeviceAndDown'
   | 'smallDesktopDeviceAndDown'
   | 'largeDesktopDeviceAndDown'
+  | 'desktopDeviceAndDown'
   | 'mobileDeviceOnly'
   | 'tabletDeviceOnly'
   | 'smallDesktopDeviceOnly'
-  | 'largeDesktopDeviceOnly';
+  | 'largeDesktopDeviceOnly'
+  | 'desktopDeviceOnly';
 
 export type SupportedMediasWidths =
   | 'mobileDevice'
   | 'tabletDevice'
   | 'smallDesktopDevice'
+  | 'desktopDevice'
   | 'largeDesktopDevice';
