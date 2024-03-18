@@ -2,9 +2,9 @@ import { SupportedMediasWidths } from '../Media';
 
 export type TypographyTokens =
   | 'h1XLBold'
+  | 'h1XLBoldSpaced'
   | 'h1SmallBold'
   | 'h1XLRegular'
-  | 'h1XLBoldSpaced'
   | 'h1XLRegularSpaced'
   | 'h2Bold'
   | 'h2Regular'
