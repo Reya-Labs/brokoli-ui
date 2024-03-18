@@ -2,12 +2,12 @@ import { useTheme } from '@emotion/react';
 import { Tooltip } from '@visx/xychart';
 import React, { useMemo } from 'react';
 
-import { ColorTokens, getColorFromToken } from '../../foundation/Colors';
-import { VisxChartDatum, VisxChartProps } from './types';
+import { ColorTokens, getColorFromToken } from '../../../foundation/Colors';
+import { VisxTimelineChartDatum, VisxTimelineChartProps } from './types';
 
-type VisxChartTooltipProps = {
-  renderTooltip: NonNullable<VisxChartProps['renderTooltip']>;
-  renderGlyph: VisxChartProps['renderTooltipGlyph'];
+type VisxTimelineChartTooltipProps = {
+  renderTooltip: NonNullable<VisxTimelineChartProps['renderTooltip']>;
+  renderGlyph: VisxTimelineChartProps['renderTooltipGlyph'];
   showDatumGlyph: boolean;
   showHorizontalCrosshair: boolean;
   showSeriesGlyphs: boolean;
@@ -17,7 +17,7 @@ type VisxChartTooltipProps = {
   crosshairColorToken?: ColorTokens;
 };
 
-export const VisxChartTooltip: React.FunctionComponent<VisxChartTooltipProps> = ({
+export const VisxTimelineChartTooltip: React.FunctionComponent<VisxTimelineChartTooltipProps> = ({
   crosshairColorToken,
   renderGlyph,
   renderTooltip,
@@ -41,7 +41,7 @@ export const VisxChartTooltip: React.FunctionComponent<VisxChartTooltipProps> = 
   );
 
   return (
-    <Tooltip<VisxChartDatum>
+    <Tooltip<VisxTimelineChartDatum>
       horizontalCrosshairStyle={crosshairStyle}
       renderGlyph={typeof renderGlyph === 'function' ? renderGlyph : undefined}
       renderTooltip={renderTooltip}

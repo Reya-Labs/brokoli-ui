@@ -3,7 +3,7 @@ import { ThemeContext } from '@visx/xychart';
 import { RenderTooltipGlyphProps } from '@visx/xychart/lib/components/Tooltip';
 import React, { useContext } from 'react';
 
-import { VisxChartDatum } from '../../types';
+import { VisxTimelineChartDatum } from '../../VisxTimelineChart/types';
 import { SharedIntegrationProps } from '../types';
 
 export const TooltipGlyph = ({
@@ -16,7 +16,7 @@ export const TooltipGlyph = ({
   onPointerUp,
   isNearestDatum,
   tooltipGlyphComponent,
-}: RenderTooltipGlyphProps<VisxChartDatum> &
+}: RenderTooltipGlyphProps<VisxTimelineChartDatum> &
   Pick<SharedIntegrationProps, 'tooltipGlyphComponent'>) => {
   const handlers = { onPointerMove, onPointerOut, onPointerUp };
   const theme = useContext(ThemeContext);

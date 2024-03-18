@@ -5,29 +5,29 @@ import type {
 import { GlyphProps } from '@visx/xychart/lib/types';
 import React from 'react';
 
-import { ColorTokens } from '../../foundation/Colors';
-import { TypographyTokens } from '../../foundation/Typography';
+import { ColorTokens } from '../../../foundation/Colors';
+import { TypographyTokens } from '../../../foundation/Typography';
 
-export type VisxChartDatum = {
+export type VisxTimelineChartDatum = {
   x: number;
   y: number;
   metadata?: Record<string, unknown>;
 };
 
-export type VisxChartProps = {
+export type VisxTimelineChartProps = {
   marginLeft?: 'auto' | number;
   marginRight?: 'auto' | number;
   minZoomDomain?: number;
-  renderTooltip?: (_: RenderTooltipParams<VisxChartDatum>) => React.ReactNode;
+  renderTooltip?: (_: RenderTooltipParams<VisxTimelineChartDatum>) => React.ReactNode;
   series: {
     id: string;
     colorToken: ColorTokens;
-    data: VisxChartDatum[];
+    data: VisxTimelineChartDatum[];
   }[];
   curveType?: 'linear' | 'cardinal' | 'step';
   axisNumTicks?: number;
-  renderGlyph?: React.FC<GlyphProps<VisxChartDatum>>;
-  renderTooltipGlyph?: React.FC<RenderTooltipGlyphProps<VisxChartDatum>>;
+  renderGlyph?: React.FC<GlyphProps<VisxTimelineChartDatum>>;
+  renderTooltipGlyph?: React.FC<RenderTooltipGlyphProps<VisxTimelineChartDatum>>;
   sharedTooltip?: boolean;
   showGridColumns?: boolean;
   showGridRows?: boolean;

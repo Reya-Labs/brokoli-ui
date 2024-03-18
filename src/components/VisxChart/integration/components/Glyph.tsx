@@ -2,7 +2,7 @@ import { GlyphCross, GlyphDot, GlyphStar } from '@visx/glyph';
 import { GlyphProps, ThemeContext } from '@visx/xychart';
 import React, { useContext } from 'react';
 
-import { VisxChartDatum } from '../../types';
+import { VisxTimelineChartDatum } from '../../VisxTimelineChart/types';
 import { SharedIntegrationProps } from '../types';
 
 export const Glyph = ({
@@ -14,7 +14,7 @@ export const Glyph = ({
   onPointerOut,
   onPointerUp,
   glyphComponent,
-}: GlyphProps<VisxChartDatum> & Pick<SharedIntegrationProps, 'glyphComponent'>) => {
+}: GlyphProps<VisxTimelineChartDatum> & Pick<SharedIntegrationProps, 'glyphComponent'>) => {
   const theme = useContext(ThemeContext);
   const glyphOutline = theme.gridStyles.stroke;
   const handlers = { onPointerMove, onPointerOut, onPointerUp };

@@ -17,19 +17,18 @@ import {
 import _range from 'lodash/range';
 import React, { useContext, useMemo, useState } from 'react';
 
-import { getColorFromToken } from '../../foundation/Colors';
-import { useResponsiveQuery } from '../../foundation/Media';
-import { getTypographyFromToken } from '../../foundation/Typography';
-import { getTextWidth } from '../../utils/get-text-width';
-import { allTimeUnits, clamp, formatAbsoluteTime, objectEntries } from './helpers';
-import { VisxChartDatum, VisxChartProps } from './types';
-import { VisxChartTooltip } from './VisxChartTooltip';
-import { YAxisBackground } from './YAxisBackground';
+import { getColorFromToken } from '../../../foundation/Colors';
+import { useResponsiveQuery } from '../../../foundation/Media';
+import { getTypographyFromToken } from '../../../foundation/Typography';
+import { getTextWidth } from '../../../utils/get-text-width';
+import { allTimeUnits, clamp, formatAbsoluteTime, objectEntries } from '../helpers';
+import { YAxisBackground } from '../YBackground';
+import { VisxTimelineChartDatum, VisxTimelineChartProps } from './types';
+import { VisxTimelineChartTooltip } from './VisxTimelineChartTooltip';
 
-export const defaultXAxisTickTimeFormatter: NonNullable<VisxChartProps['xAxisTickFormatter']> = (
-  xValue,
-  options,
-) => {
+export const defaultXAxisTickTimeFormatter: NonNullable<
+  VisxTimelineChartProps['xAxisTickFormatter']
+> = (xValue, options) => {
   const { zoomDomain } = options || {};
   let resolutionUnit: keyof typeof allTimeUnits = 'year';
   if (zoomDomain) {
@@ -45,16 +44,16 @@ export const defaultXAxisTickTimeFormatter: NonNullable<VisxChartProps['xAxisTic
   });
 };
 
-export const defaultYAxisTickFormatter: NonNullable<VisxChartProps['yAxisTickFormatter']> = (
-  yValue,
-) => parseFloat(yValue.toFixed(2)).toString();
+export const defaultYAxisTickFormatter: NonNullable<
+  VisxTimelineChartProps['yAxisTickFormatter']
+> = (yValue) => parseFloat(yValue.toFixed(2)).toString();
 
-const xAccessor = (d: VisxChartDatum) => d.x;
-const yAccessor = (d: VisxChartDatum) => d.y;
+const xAccessor = (d: VisxTimelineChartDatum) => d.x;
+const yAccessor = (d: VisxTimelineChartDatum) => d.y;
 const defaultDatum = { x: 0, y: 0 };
 
-export { VisxChartDatum, VisxChartProps };
-const _VisxChart = ({
+export { VisxTimelineChartDatum, VisxTimelineChartProps };
+const _VisxTimelineChart = ({
   yAxisTickFormatter = defaultYAxisTickFormatter,
   xAxisTickFormatter = defaultXAxisTickTimeFormatter,
   series = [],
@@ -83,10 +82,10 @@ const _VisxChart = ({
   marginLeft = 'auto',
   marginRight = 'auto',
   yRangePercentageOffset = 0,
-}: VisxChartProps) => {
+}: VisxTimelineChartProps) => {
   const theme = useTheme();
 
-  const { hideTooltip } = useContext(TooltipContext) as TooltipContextType<VisxChartDatum>;
+  const { hideTooltip } = useContext(TooltipContext) as TooltipContextType<VisxTimelineChartDatum>;
   const { isSmallDesktopDeviceAndUp, isTabletDeviceAndUp, isMobileDeviceAndUp } =
     useResponsiveQuery();
 
@@ -149,7 +148,7 @@ const _VisxChart = ({
   ]);
 
   const data = useMemo(
-    () => series.reduce((pV, cI) => [...pV, ...cI.data], [] as VisxChartDatum[]),
+    () => series.reduce((pV, cI) => [...pV, ...cI.data], [] as VisxTimelineChartDatum[]),
     [series],
   );
   const earliestDatum = data[0] || defaultDatum;
@@ -392,7 +391,7 @@ const _VisxChart = ({
               tickStroke={axisDomainLineColor}
             />
             {typeof renderTooltip === 'function' ? (
-              <VisxChartTooltip
+              <VisxTimelineChartTooltip
                 crosshairColorToken={crosshairColorToken}
                 renderGlyph={renderTooltipGlyph}
                 renderTooltip={renderTooltip}
@@ -411,10 +410,10 @@ const _VisxChart = ({
   );
 };
 
-export const VisxChart: React.FunctionComponent<VisxChartProps> = (props) => {
+export const VisxTimelineChart: React.FunctionComponent<VisxTimelineChartProps> = (props) => {
   return (
     <TooltipProvider hideTooltipDebounceMs={0}>
-      <_VisxChart {...props} />
+      <_VisxTimelineChart {...props} />
     </TooltipProvider>
   );
 };

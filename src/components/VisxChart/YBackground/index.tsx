@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, useRef, useState } from 'react';
 
-import { findParentBackgroundColor } from './helpers';
+import { findParentBackgroundColor } from '../helpers';
 import { Box } from './YAxisBackground.styled';
 
 export const YAxisBackground: React.FunctionComponent<React.SVGProps<SVGForeignObjectElement>> = (
