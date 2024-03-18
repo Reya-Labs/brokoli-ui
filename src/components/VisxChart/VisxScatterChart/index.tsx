@@ -23,11 +23,11 @@ import { getTypographyFromToken } from '../../../foundation/Typography';
 import { getTextWidth } from '../../../utils/get-text-width';
 import { allTimeUnits, clamp, formatAbsoluteTime, objectEntries } from '../helpers';
 import { YAxisBackground } from '../YBackground';
-import { VisxTimelineChartDatum, VisxTimelineChartProps } from './types';
-import { VisxTimelineChartTooltip } from './VisxTimelineChartTooltip';
+import { VisxScatterChartDatum, VisxScatterChartProps } from './types';
+import { VisxScatterChartTooltip } from './VisxScatterChartTooltip';
 
-export const defaultTimelineXAxisTickTimeFormatter: NonNullable<
-  VisxTimelineChartProps['xAxisTickFormatter']
+export const defaultScatterXAxisTickTimeFormatter: NonNullable<
+  VisxScatterChartProps['xAxisTickFormatter']
 > = (xValue, options) => {
   const { zoomDomain } = options || {};
   let resolutionUnit: keyof typeof allTimeUnits = 'year';
@@ -44,18 +44,18 @@ export const defaultTimelineXAxisTickTimeFormatter: NonNullable<
   });
 };
 
-export const defaultTimelineYAxisTickFormatter: NonNullable<
-  VisxTimelineChartProps['yAxisTickFormatter']
+export const defaultScatterYAxisTickFormatter: NonNullable<
+  VisxScatterChartProps['yAxisTickFormatter']
 > = (yValue) => parseFloat(yValue.toFixed(2)).toString();
 
-const xAccessor = (d: VisxTimelineChartDatum) => d.x;
-const yAccessor = (d: VisxTimelineChartDatum) => d.y;
+const xAccessor = (d: VisxScatterChartDatum) => d.x;
+const yAccessor = (d: VisxScatterChartDatum) => d.y;
 const defaultDatum = { x: 0, y: 0 };
 
-export { VisxTimelineChartDatum, VisxTimelineChartProps };
-const _VisxTimelineChart = ({
-  yAxisTickFormatter = defaultTimelineYAxisTickFormatter,
-  xAxisTickFormatter = defaultTimelineXAxisTickTimeFormatter,
+export { VisxScatterChartDatum, VisxScatterChartProps };
+const _VisxScatterChart = ({
+  yAxisTickFormatter = defaultScatterYAxisTickFormatter,
+  xAxisTickFormatter = defaultScatterXAxisTickTimeFormatter,
   series = [],
   curveType = 'linear',
   axisNumTicks = 4,
@@ -82,10 +82,10 @@ const _VisxTimelineChart = ({
   marginLeft = 'auto',
   marginRight = 'auto',
   yRangePercentageOffset = 0,
-}: VisxTimelineChartProps) => {
+}: VisxScatterChartProps) => {
   const theme = useTheme();
 
-  const { hideTooltip } = useContext(TooltipContext) as TooltipContextType<VisxTimelineChartDatum>;
+  const { hideTooltip } = useContext(TooltipContext) as TooltipContextType<VisxScatterChartDatum>;
   const { isSmallDesktopDeviceAndUp, isTabletDeviceAndUp, isMobileDeviceAndUp } =
     useResponsiveQuery();
 
@@ -148,7 +148,7 @@ const _VisxTimelineChart = ({
   ]);
 
   const data = useMemo(
-    () => series.reduce((pV, cI) => [...pV, ...cI.data], [] as VisxTimelineChartDatum[]),
+    () => series.reduce((pV, cI) => [...pV, ...cI.data], [] as VisxScatterChartDatum[]),
     [series],
   );
   const earliestDatum = data[0] || defaultDatum;
@@ -391,7 +391,7 @@ const _VisxTimelineChart = ({
               tickStroke={axisDomainLineColor}
             />
             {typeof renderTooltip === 'function' ? (
-              <VisxTimelineChartTooltip
+              <VisxScatterChartTooltip
                 crosshairColorToken={crosshairColorToken}
                 renderGlyph={renderTooltipGlyph}
                 renderTooltip={renderTooltip}
@@ -410,10 +410,10 @@ const _VisxTimelineChart = ({
   );
 };
 
-export const VisxTimelineChart: React.FunctionComponent<VisxTimelineChartProps> = (props) => {
+export const VisxScatterChart: React.FunctionComponent<VisxScatterChartProps> = (props) => {
   return (
     <TooltipProvider hideTooltipDebounceMs={0}>
-      <_VisxTimelineChart {...props} />
+      <_VisxScatterChart {...props} />
     </TooltipProvider>
   );
 };

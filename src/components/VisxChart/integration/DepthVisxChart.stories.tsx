@@ -3,7 +3,7 @@ import React from 'react';
 
 import { ColorTokens } from '../../../foundation/Colors';
 import { Typography } from '../../Typography';
-import { VisxTimelineChart, VisxTimelineChartProps } from '../VisxTimelineChart';
+import { VisxScatterChart, VisxScatterChartProps } from '../VisxScatterChart';
 import { Glyph } from './components/Glyph';
 import { TooltipGlyph } from './components/TooltipGlyph';
 import { mockDepthData } from './mock/line-axis-mock-data';
@@ -12,13 +12,13 @@ import { SharedIntegrationProps } from './types';
 
 type ChartPosition = 'Left' | 'Right';
 
-type VisxTimelineChartIntegrationProps = Omit<
-  VisxTimelineChartProps,
+type VisxScatterChartIntegrationProps = Omit<
+  VisxScatterChartProps,
   'series' | 'renderTooltip' | 'renderTooltipGlyph' | 'renderGlyph'
 > &
   SharedIntegrationProps;
 
-const VisxTimelineChartIntegration: React.FunctionComponent<VisxTimelineChartIntegrationProps> = (
+const VisxScatterChartIntegration: React.FunctionComponent<VisxScatterChartIntegrationProps> = (
   args,
 ) => {
   const glyphComponent = args.glyphComponent;
@@ -29,7 +29,7 @@ const VisxTimelineChartIntegration: React.FunctionComponent<VisxTimelineChartInt
 
   const computedData = mockDepthData;
 
-  const series: VisxTimelineChartProps['series'] = [
+  const series: VisxScatterChartProps['series'] = [
     {
       colorToken: 'primary500' as ColorTokens,
       data: computedData[0],
@@ -42,11 +42,11 @@ const VisxTimelineChartIntegration: React.FunctionComponent<VisxTimelineChartInt
     },
   ];
 
-  const renderTooltipGlyph: VisxTimelineChartProps['renderTooltipGlyph'] = showTooltipGlyph
+  const renderTooltipGlyph: VisxScatterChartProps['renderTooltipGlyph'] = showTooltipGlyph
     ? (props) => <TooltipGlyph {...props} tooltipGlyphComponent={tooltipGlyphComponent} />
     : undefined;
 
-  const renderTooltip: VisxTimelineChartProps['renderTooltip'] = showTooltip
+  const renderTooltip: VisxScatterChartProps['renderTooltip'] = showTooltip
     ? ({ tooltipData, colorScale }) => {
         const nearestDatum = tooltipData?.nearestDatum;
         const datum = nearestDatum?.datum;
@@ -94,7 +94,7 @@ const VisxTimelineChartIntegration: React.FunctionComponent<VisxTimelineChartInt
       }
     : undefined;
 
-  const renderGlyph: VisxTimelineChartProps['renderGlyph'] = (props) => (
+  const renderGlyph: VisxScatterChartProps['renderGlyph'] = (props) => (
     <Glyph {...props} glyphComponent={glyphComponent} />
   );
 
@@ -111,7 +111,7 @@ const VisxTimelineChartIntegration: React.FunctionComponent<VisxTimelineChartInt
         </Typography>
       </LeftBox>
       <Box>
-        <VisxTimelineChart
+        <VisxScatterChart
           {...args}
           renderGlyph={renderGlyph}
           renderTooltip={renderTooltip}
@@ -137,11 +137,11 @@ const VisxTimelineChartIntegration: React.FunctionComponent<VisxTimelineChartInt
 
 export default {
   args: {},
-  component: VisxTimelineChartIntegration,
-  title: 'Components/VisxTimelineChart',
-} as Meta<typeof VisxTimelineChartIntegration>;
+  component: VisxScatterChartIntegration,
+  title: 'Components/VisxScatterChart',
+} as Meta<typeof VisxScatterChartIntegration>;
 
-export const Depth: StoryObj<typeof VisxTimelineChartIntegration> = {
+export const Depth: StoryObj<typeof VisxScatterChartIntegration> = {
   argTypes: {
     chartType: {
       control: 'select',
@@ -190,5 +190,5 @@ export const Depth: StoryObj<typeof VisxTimelineChartIntegration> = {
     xAxisOrientation: 'bottom',
     yAxisOrientation: 'right',
     yRangePercentageOffset: 0,
-  } as VisxTimelineChartIntegrationProps,
+  } as VisxScatterChartIntegrationProps,
 };
