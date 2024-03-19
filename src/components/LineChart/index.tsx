@@ -97,22 +97,22 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
         pointLabelYOffset={-1}
         pointSize={3}
         theme={chartTheme}
-        tooltip={(point) => {
-          const tooltip = tooltips[point.point.serieId];
+        tooltip={(props) => {
+          const tooltip = tooltips[props.point.serieId];
           if (!tooltip) {
             return null;
           }
           if (typeof tooltip === 'function') {
             const T = tooltip;
-            return <T {...point} />;
+            return <T {...props} />;
           }
           const { tokenColorToken: tooltipTokenColorToken, token: tooltipToken } = tooltip || {};
           return (
             <Tooltip
-              colorToken={colorTokensMap[point.point.serieId]}
+              colorToken={colorTokensMap[props.point.serieId]}
               tokenColorToken={tooltipTokenColorToken}
               yToken={tooltipToken}
-              {...point}
+              {...props}
             />
           );
         }}
