@@ -7,13 +7,16 @@ import { useChartTheme } from './hooks/useChartTheme';
 import { useColorsAndGradients } from './hooks/useColorsAndGradients';
 import { useMinMaxYSeries } from './hooks/useMinMaxYSeries';
 import { useTooltips } from './hooks/useTooltips';
+import { useXScaleConfig } from './hooks/useXScaleConfig';
 import { useYMarkerProps } from './hooks/useYMarkerProps';
 import { LineChartBox } from './LineChart.styled';
 import { Tooltip } from './Tooltip/Tooltip';
-import { LineChartProps, YDataType } from './types';
+import { LineChartProps, XDataType, YDataType } from './types';
 export * from './types';
 
 const yFormatter = (y: YDataType) => parseFloat(y.toFixed(2)).toString();
+const xFormatter = (x: XDataType) =>
+  typeof x === 'number' ? parseFloat(x.toFixed(2)).toString() : x.toLocaleString();
 
 export const LineChart: React.FunctionComponent<LineChartProps> = ({
   data,
@@ -31,6 +34,8 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
   yScaleMin,
   xScaleMax,
   xScaleMin,
+  curveType = 'linear',
+  xScaleType = 'time',
 }) => {
   const chartTheme = useChartTheme({
     axisDomainLineColorToken,
@@ -56,13 +61,19 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
     axisBottomFormat,
     axisTickPadding,
     visibleAxis,
+    xFormatter,
+    xScaleType,
     yFormatter,
+  });
+  const xScaleProps = useXScaleConfig({
+    xScaleMax,
+    xScaleMin,
+    xScaleType,
   });
 
   return (
     <LineChartBox>
       <ResponsiveLine
-        animate={true}
         areaBaselineValue={minMaxYSeries.min}
         axisBottom={axisProps.bottom}
         axisLeft={axisProps.left}
@@ -70,7 +81,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
         axisTop={axisProps.top}
         colors={colors}
         crosshairType="cross"
-        curve="linear"
+        curve={curveType}
         data={data}
         defs={gradients.defs}
         enableArea={true}
@@ -99,15 +110,8 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
           );
         }}
         useMesh={true}
-        xFormat="time:%H:%M - %b %d"
-        xScale={{
-          format: '%Y-%m-%d',
-          max: xScaleMax || 'auto',
-          min: xScaleMin || 'auto',
-          precision: 'millisecond',
-          type: 'time',
-          useUTC: false,
-        }}
+        xFormat={xScaleProps.xFormat}
+        xScale={xScaleProps.xScale}
         yFormat={(c) => yFormatter(c as number)}
         yScale={{
           max: yScaleMax || 'auto',

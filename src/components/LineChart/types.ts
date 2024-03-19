@@ -1,4 +1,4 @@
-import { LineSvgProps } from '@nivo/line';
+import { LineProps, LineSvgProps } from '@nivo/line';
 
 import { ColorTokens } from '../../foundation/Colors';
 import { TypographyTokens } from '../../foundation/Typography';
@@ -15,9 +15,11 @@ export type TooltipConfig = {
   tokenColorToken: ColorTokens;
 };
 
-export type XDataType = Date;
+export type XDataType = number | Date;
 export type YDataType = number;
 export type LineChartProps = {
+  curveType?: LineProps['curve'];
+  xScaleType?: 'time' | 'linear';
   data: {
     id: string;
     colorToken: ColorTokens;

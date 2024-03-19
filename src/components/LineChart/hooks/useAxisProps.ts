@@ -1,21 +1,25 @@
 import { AxisProps } from '@nivo/axes';
 import { useMemo } from 'react';
 
-import { LineChartProps, YDataType } from '../types';
+import { LineChartProps, XDataType, YDataType } from '../types';
 import { useAxisVisible } from './useAxisVisible';
 
 type UseAxisPropsParams = {
   visibleAxis: LineChartProps['visibleAxis'];
   yFormatter: (y: YDataType) => string;
+  xFormatter: (x: XDataType) => string;
   axisTickPadding: LineChartProps['axisTickPadding'];
   axisBottomFormat: LineChartProps['axisBottomFormat'];
+  xScaleType: LineChartProps['xScaleType'];
 };
 
 export const useAxisProps = ({
   visibleAxis = ['left', 'bottom'],
   yFormatter,
   axisTickPadding,
+  xFormatter,
   axisBottomFormat,
+  xScaleType,
 }: UseAxisPropsParams): {
   top?: AxisProps | null;
   right?: AxisProps | null;
@@ -27,7 +31,13 @@ export const useAxisProps = ({
   return useMemo(() => {
     const axisTopBottomConfig = {
       format:
-        axisBottomFormat === 'minutes' ? '%M:%S' : axisBottomFormat === 'hours' ? '%H:%M' : '%d %b',
+        xScaleType === 'time'
+          ? axisBottomFormat === 'minutes'
+            ? '%M:%S'
+            : axisBottomFormat === 'hours'
+            ? '%H:%M'
+            : '%d %b'
+          : xFormatter,
       legendOffset: 0,
       tickPadding: axisTickPadding,
       tickRotation: 0,
