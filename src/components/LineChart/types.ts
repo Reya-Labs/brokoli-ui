@@ -34,7 +34,7 @@ export type LineChartProps = {
   }[];
   yMarker?: YMarkerConfig;
   axisTypographyToken: TypographyTokens;
-  axisBottomFormat: 'minutes' | 'days' | 'hours';
+  axisBottomFormat?: 'minutes' | 'days' | 'hours';
   yScaleStacked?: boolean;
   crosshairColorToken: ColorTokens;
   axisTicksTextColorToken?: ColorTokens;
