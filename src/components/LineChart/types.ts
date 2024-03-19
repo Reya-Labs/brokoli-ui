@@ -15,7 +15,8 @@ type TooltipConfig = {
   tokenColorToken: ColorTokens;
 };
 
-export type LineChartTooltip = LineProps['tooltip'] | TooltipConfig;
+export type LineChartTooltipFC = LineProps['tooltip'];
+export type LineChartTooltip = LineChartTooltipFC | TooltipConfig;
 
 export type XDataType = number | Date;
 export type YDataType = number;
