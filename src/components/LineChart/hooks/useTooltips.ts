@@ -1,11 +1,11 @@
 import { useMemo } from 'react';
 
-import { LineChartProps, TooltipConfig } from '../types';
+import { LineChartProps, LineChartTooltip } from '../types';
 
 export const useTooltips = (
   data: LineChartProps['data'],
 ): {
-  tooltips: Record<string, TooltipConfig>;
+  tooltips: Record<string, LineChartTooltip>;
 } => {
   return useMemo(() => {
     return {
@@ -14,7 +14,7 @@ export const useTooltips = (
           ...pV,
           [data[index].id]: data[index].tooltip,
         }),
-        {} as Record<string, TooltipConfig>,
+        {} as Record<string, LineChartTooltip>,
       ),
     };
   }, [data]);

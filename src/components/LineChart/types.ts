@@ -10,10 +10,12 @@ export type YMarkerConfig = {
   typographyToken: TypographyTokens;
 };
 
-export type TooltipConfig = {
+type TooltipConfig = {
   token: string;
   tokenColorToken: ColorTokens;
 };
+
+export type LineChartTooltip = LineProps['tooltip'] | TooltipConfig;
 
 export type XDataType = number | Date;
 export type YDataType = number;
@@ -23,7 +25,7 @@ export type LineChartProps = {
   data: {
     id: string;
     colorToken: ColorTokens;
-    tooltip: TooltipConfig;
+    tooltip?: LineChartTooltip;
     data: {
       x: XDataType;
       y: YDataType;
