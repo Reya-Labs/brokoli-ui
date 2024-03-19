@@ -50,7 +50,7 @@ export const WithOpeningNewPage: StoryObj<typeof AppLink> = {
     children: 'Visit this app link!',
     colorToken: 'primary100',
     target: '_blank',
-    to: 'https://brokoli.voltz.xyz',
+    to: 'https://brokoli.reya.xyz',
     typographyToken: 'bodyXSmallRegular',
   },
 

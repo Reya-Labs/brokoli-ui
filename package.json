@@ -37,14 +37,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Voltz-Protocol/brokoli-ui.git"
+    "url": "git+https://github.com/Reya-Labs/brokoli-ui.git"
   },
   "author": "ssbarbee",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Voltz-Protocol/brokoli-ui/issues"
+    "url": "https://github.com/Reya-Labs/brokoli-ui/issues"
   },
-  "homepage": "https://github.com/Voltz-Protocol/brokoli-ui#readme",
+  "homepage": "https://github.com/Reya-Labs/brokoli-ui#readme",
   "devDependencies": {
     "@babel/core": "7.23.3",
     "@babel/preset-env": "7.23.3",

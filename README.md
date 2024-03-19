@@ -1,19 +1,19 @@
 # brokoli-ui
 
 <p align="center">
-  <a href="https://app.voltz.xyz/">
+  <a href="https://brokoli.reya.xyz/">
     <picture>
-      <img src="./docs/brokoli-logo.png" alt="Voltz" width="128" />
+      <img src="./docs/brokoli-logo.png" alt="Reya" width="128" />
     </picture>
   </a>
 </p>
 
-<p align="center">Powering Voltz UI and beyond!!!</p>
+<p align="center">Powering Reya and beyond!!!</p>
 
 <p align="center">
-  <img src="https://badgen.net/github/tag/Voltz-Protocol/brokoli-ui" alt="Tag" />
-  <img src="https://badgen.net/github/checks/Voltz-Protocol/brokoli-ui/main" alt="Checks" />
-  <img src="https://badgen.net/github/last-commit/Voltz-Protocol/brokoli-ui/main" alt="Checks" />
+  <img src="https://badgen.net/github/tag/Reya-Labs/brokoli-ui" alt="Tag" />
+  <img src="https://badgen.net/github/checks/Reya-Labs/brokoli-ui/main" alt="Checks" />
+  <img src="https://badgen.net/github/last-commit/Reya-Labs/brokoli-ui/main" alt="Checks" />
 </p>
 
 <p align="center">
@@ -59,12 +59,12 @@ Branch names can start with the prefixes found in the regex under '.husky/pre-co
 `brokoli-ui` uses Cloudflare to automate the process around creating builds that can be shared with the stakeholders.
 What this means is that any push to a branch will create an environment for the team to test against!
 
-These are sites hosted on Cloudflare and the build from main can be found at [brokoli.voltz.xyz](brokoli.voltz.xyz).
+These are sites hosted on Cloudflare and the build from main can be found at [brokoli.reya.xyz](brokoli.reya.xyz).
 
 ### Rules
 
 **Environment branches (main)**
-* merges to branch `main` always deploy to [brokoli.voltz.xyz](brokoli.voltz.xyz) with ENV variables specific for `main`
+* merges to branch `main` always deploy to [brokoli.reya.xyz](brokoli.reya.xyz) with ENV variables specific for `main`
 
 **Candidate branches:**
 * commits on branches that follow the pattern `feat/*`, `fix/*`, `chore/*`, `refactor/*` and `test/*`
