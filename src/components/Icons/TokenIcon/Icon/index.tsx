@@ -4,7 +4,7 @@ import { ReactComponent as BTCIcon } from './assets/btc.svg';
 import { ReactComponent as DAIIcon } from './assets/dai.svg';
 import { ReactComponent as ETHIcon } from './assets/eth.svg';
 import { ReactComponent as MATICIcon } from './assets/matic.svg';
-import { ReactComponent as RETHIcon } from './assets/reth.svg';
+import { ReactComponent as RETHIcon, ReactComponent as WETHIcon } from './assets/reth.svg';
 import { ReactComponent as RUSDIcon } from './assets/rusd.svg';
 import { ReactComponent as SETHIcon } from './assets/seth.svg';
 import { ReactComponent as USDCIcon } from './assets/usdc.svg';
@@ -27,7 +27,8 @@ export type SupportedTokenIcons =
   | 'seth'
   | 'usdc'
   | 'usdt'
-  | 'wbtc';
+  | 'wbtc'
+  | 'weth';
 
 const TokenIconMap: Record<
   SupportedTokenIcons,
@@ -43,6 +44,7 @@ const TokenIconMap: Record<
   usdc: USDCIcon,
   usdt: USDTIcon,
   wbtc: WBTCIcon,
+  weth: WETHIcon,
 };
 
 export const Icon: React.FunctionComponent<IconProps> = ({
