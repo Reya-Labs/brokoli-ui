@@ -126,7 +126,7 @@ const _VisxTimelineChart = ({
         colors: seriesColors,
         gridColor: 'transparent',
         gridColorDark: 'transparent',
-        svgLabelBig: { fill: '#1d1b38' },
+        svgLabelBig: { fill: axisDomainLineColor },
         tickLength,
         xAxisLineStyles: {
           stroke: axisDomainLineColor,

@@ -6,7 +6,7 @@ import { OptionButtons } from '.';
 export default {
   args: {},
   component: OptionButtons,
-  title: 'Components/Options',
+  title: 'Components/OptionButtons',
 } as Meta<typeof OptionButtons>;
 
 const Template: StoryFn<typeof OptionButtons> = (args) => {
