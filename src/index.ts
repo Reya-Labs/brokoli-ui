@@ -53,4 +53,5 @@ export * from './foundation/ThemeProvider';
 export * from './foundation/Typography';
 export * from './utils/browser-i18n';
 export * from './utils/create-transition';
+export * from './utils/hooks';
 export * from './utils/should-not-forward-props';

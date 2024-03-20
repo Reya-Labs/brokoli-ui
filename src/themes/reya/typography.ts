@@ -780,35 +780,35 @@ const bodyExtraLargeBold: TypographyResponsiveConfig = {
 
 const bodyXXLRegular: TypographyResponsiveConfig = {
   desktopDevice: {
-    fontFamily: "'Satoshi-Bold', sans-serif",
+    fontFamily: "'Satoshi-Regular', sans-serif",
     fontSize: '32px',
     fontStyle: 'normal',
     fontWeight: '400',
     lineHeight: '140%',
   },
   largeDesktopDevice: {
-    fontFamily: "'Satoshi-Bold', sans-serif",
+    fontFamily: "'Satoshi-Regular', sans-serif",
     fontSize: '32px',
     fontStyle: 'normal',
     fontWeight: '400',
     lineHeight: '140%',
   },
   mobileDevice: {
-    fontFamily: "'Satoshi-Bold', sans-serif",
+    fontFamily: "'Satoshi-Regular', sans-serif",
     fontSize: '18px',
     fontStyle: 'normal',
     fontWeight: '400',
     lineHeight: '140%',
   },
   smallDesktopDevice: {
-    fontFamily: "'Satoshi-Bold', sans-serif",
+    fontFamily: "'Satoshi-Regular', sans-serif",
     fontSize: '24px',
     fontStyle: 'normal',
     fontWeight: '400',
     lineHeight: '140%',
   },
   tabletDevice: {
-    fontFamily: "'Satoshi-Bold', sans-serif",
+    fontFamily: "'Satoshi-Regular', sans-serif",
     fontSize: '24px',
     fontStyle: 'normal',
     fontWeight: '400',
