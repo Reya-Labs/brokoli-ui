@@ -26,6 +26,7 @@ export * from './components/MarketToken';
 export * from './components/Nav';
 export * from './components/Nav/NavLink';
 export * from './components/Notifications';
+export * from './components/OptionButtons';
 export * from './components/Page';
 export * from './components/Pagination';
 export * from './components/Pill';
