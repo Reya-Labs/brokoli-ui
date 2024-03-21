@@ -2,7 +2,8 @@ import styled from '@emotion/styled';
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 
-import { LineChart } from '.';
+import { LineChart } from '../index';
+import { CustomChartTooltip } from './CustomChartTooltip';
 import { mockedScatterData, mockedTimelineData } from './mock/scatter';
 
 export default {
@@ -193,19 +194,17 @@ export const WithScatter: StoryObj<typeof LineChart> = {
         colorToken: 'error500',
         data: mockedScatterData[0],
         id: 'points1',
-        tooltip: {
-          token: '%',
-          tokenColorToken: 'error500',
-        },
+        tooltip: (props) => (
+          <CustomChartTooltip {...props} quoteToken="eth" underlyingAsset="rusd" />
+        ),
       },
       {
         colorToken: 'primary500',
         data: mockedScatterData[1],
         id: 'points2',
-        tooltip: {
-          token: '%',
-          tokenColorToken: 'primary500',
-        },
+        tooltip: (props) => (
+          <CustomChartTooltip {...props} quoteToken="btc" underlyingAsset="usdc" />
+        ),
       },
     ],
     xScaleType: 'linear',
