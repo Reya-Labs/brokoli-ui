@@ -194,13 +194,15 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
               Max
             </MaxButton>
           ) : null}
-          {token ? (
+          {token || tokenOptions?.length !== 0 ? (
             <TokenBox data-testid="TokenField-CurrencyInputBox-TokenBox">
-              <TokenIcon
-                data-testid={`TokenField-CurrencyInputBox-TokenBox-TokenIcon-${token}`}
-                size={22}
-                token={token}
-              />
+              {!token ? null : (
+                <TokenIcon
+                  data-testid={`TokenField-CurrencyInputBox-TokenBox-TokenIcon-${token}`}
+                  size={22}
+                  token={token}
+                />
+              )}
               {tokenOptions?.length === 0 ? (
                 <Typography
                   colorToken="white100"
