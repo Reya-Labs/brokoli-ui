@@ -52,7 +52,7 @@ export const Icon: React.FunctionComponent<IconProps> = ({
   token,
   className,
 }) => {
-  const SupportedIcon = TokenIconMap[token as SupportedTokenIcons];
+  const SupportedIcon = TokenIconMap[token.toLowerCase() as SupportedTokenIcons];
   if (!SupportedIcon) {
     return null;
   }

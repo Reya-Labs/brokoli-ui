@@ -32,7 +32,7 @@ export const Icon: React.FunctionComponent<IconProps> = ({
   market,
   className,
 }) => {
-  const SupportedIcon = MarketIconMap[market as SupportedMarkets];
+  const SupportedIcon = MarketIconMap[market.toLowerCase() as SupportedMarkets];
   if (!SupportedIcon) {
     return null;
   }
