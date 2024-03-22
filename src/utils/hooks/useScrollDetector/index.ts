@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react';
 
 export const useScrollDetector = () => {
-  const [isScrolling, setIsScrolling] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
   const [lastScrollTop, setLastScrollTop] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollTop = window.scrollY || document.documentElement.scrollTop;
       if (currentScrollTop === 0) {
-        setIsScrolling(false);
+        setHasScrolled(false);
       } else {
-        setIsScrolling(true);
+        setHasScrolled(true);
       }
       setLastScrollTop(currentScrollTop);
     };
@@ -19,5 +19,5 @@ export const useScrollDetector = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollTop]);
 
-  return { isScrolling };
+  return { hasScrolled };
 };
