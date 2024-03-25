@@ -1,1 +1,2 @@
-export * from './useScrollDetector/index';
+export * from './useScrollDetector';
+export * from './useTabVisibility';
