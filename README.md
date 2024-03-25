@@ -24,7 +24,7 @@ An UI design language and React UI library powered by 🥦🥦🥦 and ☕
 
 | Statements                  | Branches                | Functions                 | Lines             |
 | --------------------------- | ----------------------- | ------------------------- | ----------------- |
-| ![Statements](https://img.shields.io/badge/statements-64.77%25-red.svg?style=flat) | ![Branches](https://img.shields.io/badge/branches-44.2%25-red.svg?style=flat) | ![Functions](https://img.shields.io/badge/functions-64.18%25-red.svg?style=flat) | ![Lines](https://img.shields.io/badge/lines-62.8%25-red.svg?style=flat) |
+| ![Statements](https://img.shields.io/badge/statements-64.97%25-red.svg?style=flat) | ![Branches](https://img.shields.io/badge/branches-44.57%25-red.svg?style=flat) | ![Functions](https://img.shields.io/badge/functions-64.36%25-red.svg?style=flat) | ![Lines](https://img.shields.io/badge/lines-63.06%25-red.svg?style=flat) |
 
 # Installation
 
