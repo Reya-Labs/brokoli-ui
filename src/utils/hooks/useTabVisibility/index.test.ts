@@ -1,51 +1,48 @@
 import { renderHook } from '@testing-library/react-hooks';
 
-import { useTabVisibility } from '.'; // Adjust the import path to match your file structure
+import { useTabVisibility } from '.';
+import { getVisibilityState } from './helpers';
+
+jest.mock('./helpers', () => ({
+  getVisibilityState: jest.fn(),
+}));
 
 describe('useTabVisibility', () => {
-  beforeAll(() => {
-    Object.defineProperty(document, 'visibilityState', { value: 'visible', writable: true });
-  });
-
-  test('calls onVisible when the tab becomes visible', () => {
+  it('calls onVisible when the tab becomes visible', () => {
+    (getVisibilityState as jest.Mock).mockReturnValue('visible');
     const onVisible = jest.fn();
     renderHook(() => useTabVisibility({ onVisible }));
 
-    // Simulate the tab becoming visible
-    document.visibilityState = 'visible';
     document.dispatchEvent(new Event('visibilitychange'));
 
     expect(onVisible).toHaveBeenCalled();
   });
 
-  test('calls onHidden when the tab becomes hidden', () => {
+  it('calls onHidden when the tab becomes hidden', () => {
+    (getVisibilityState as jest.Mock).mockReturnValue('hidden');
     const onHidden = jest.fn();
     renderHook(() => useTabVisibility({ onHidden }));
 
-    // Simulate the tab becoming hidden
-    document.visibilityState = 'hidden';
     document.dispatchEvent(new Event('visibilitychange'));
 
     expect(onHidden).toHaveBeenCalled();
   });
 
-  test('does not call onVisible when the tab is hidden', () => {
+  it('does not call onVisible when the tab is hidden', () => {
+    (getVisibilityState as jest.Mock).mockReturnValue('hidden');
     const onVisible = jest.fn();
     renderHook(() => useTabVisibility({ onVisible }));
 
-    // Ensure the visibility state is hidden
-    document.visibilityState = 'hidden';
     document.dispatchEvent(new Event('visibilitychange'));
 
     expect(onVisible).not.toHaveBeenCalled();
   });
 
-  test('does not call onHidden when the tab is visible', () => {
+  it('does not call onHidden when the tab is visible', () => {
+    (getVisibilityState as jest.Mock).mockReturnValue('visible');
     const onHidden = jest.fn();
     renderHook(() => useTabVisibility({ onHidden }));
 
-    // Ensure the visibility state is visible
-    document.visibilityState = 'visible';
     document.dispatchEvent(new Event('visibilitychange'));
 
     expect(onHidden).not.toHaveBeenCalled();

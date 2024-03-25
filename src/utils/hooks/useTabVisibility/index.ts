@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 
+import { getVisibilityState } from './helpers';
+
 type UseTabVisibilityParams = {
   onVisible?: () => void;
   onHidden?: () => void;
@@ -12,10 +14,11 @@ type UseTabVisibilityParams = {
 export const useTabVisibility = ({ onVisible, onHidden }: UseTabVisibilityParams = {}): void => {
   useEffect(() => {
     const handleVisibilityChange = () => {
-      if (document.visibilityState === 'visible') {
-        onVisible?.();
-      } else if (document.visibilityState === 'hidden') {
-        onHidden?.();
+      const visibilityState = getVisibilityState();
+      if (visibilityState === 'visible') {
+        typeof onVisible === 'function' && onVisible();
+      } else if (visibilityState === 'hidden') {
+        typeof onHidden === 'function' && onHidden();
       }
     };
 
