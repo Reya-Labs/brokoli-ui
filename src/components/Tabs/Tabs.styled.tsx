@@ -93,7 +93,7 @@ export const TabStyled = styled(
 
   transition: ${createTransition({ properties: ['background-color', 'color'] })};
 
-  &:hover:enabled {
+  &:hover {
     color: ${({ theme, hoverTabColorToken }) =>
       getColorFromToken({ colorToken: hoverTabColorToken, theme })};
   }

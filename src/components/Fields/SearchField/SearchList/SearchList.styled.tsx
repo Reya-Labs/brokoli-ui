@@ -26,7 +26,7 @@ export const ItemWrapper = styled('div', shouldNotForwardProps(['backgroundColor
     getColorFromToken({ colorToken: backgroundColorToken, theme })};
   transition: ${createTransition({ properties: 'background-color' })};
 
-  &:hover:enabled {
+  &:hover {
     background: ${({ theme }) => theme.colors.black700};
   }
 `;

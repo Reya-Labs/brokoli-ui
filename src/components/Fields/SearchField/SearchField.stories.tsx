@@ -14,34 +14,45 @@ export default {
 } as Meta<typeof SearchField>;
 
 const Template: StoryFn<typeof SearchField> = (args) => {
-  const [selectedItemId, setSelectedItemId] = useState('');
+  const [selectedItemId, setSelectedItemId] = useState(args.selectedItemId);
   return (
     <SearchField {...args} selectedItemId={selectedItemId} onItemSelected={setSelectedItemId} />
   );
 };
 
+const mockItems = [
+  {
+    id: '1',
+    label: 'Ethereum',
+  },
+  {
+    id: '5',
+    label: 'Görli',
+  },
+  {
+    id: '42161',
+    label: 'Arbitrum One',
+  },
+  {
+    id: '421613',
+    label: 'Arbitrum Görli',
+  },
+];
+
 export const Default: StoryObj<typeof SearchField> = {
   args: {
-    items: [
-      {
-        id: '1',
-        label: 'Ethereum',
-      },
-      {
-        id: '5',
-        label: 'Görli',
-      },
-      {
-        id: '42161',
-        label: 'Arbitrum One',
-      },
-      {
-        id: '421613',
-        label: 'Arbitrum Görli',
-      },
-    ],
+    items: mockItems,
   },
 
+  render: Template,
+};
+
+export const WithDisabled: StoryObj<typeof SearchField> = {
+  args: {
+    disabled: true,
+    items: mockItems,
+    selectedItemId: mockItems[0].id,
+  },
   render: Template,
 };
 
