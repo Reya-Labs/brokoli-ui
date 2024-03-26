@@ -22,7 +22,7 @@ export const SubLinkButton = styled('a')`
   width: 100%;
   transition: ${createTransition({ properties: 'background-color' })};
 
-  &:hover:enabled {
+  &:hover {
     text-decoration: none;
     text-shadow: 0px 0px 20px ${({ theme }) => addAlpha(theme.colors.white100, 0.7)};
     background-color: ${({ theme }) => theme.colors.white900};
@@ -46,7 +46,7 @@ export const ActiveSubLinkButton = styled('a')`
   width: 100%;
   transition: ${createTransition({ properties: 'background-color' })};
 
-  &:hover:enabled {
+  &:hover {
     text-decoration: none;
     text-shadow: 0px 0px 20px ${({ theme }) => addAlpha(theme.colors.white100, 0.7)};
     background-color: ${({ theme }) => theme.colors.white900};

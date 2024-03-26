@@ -24,7 +24,8 @@ export const AppLinkStyled = styled(
     css(getResponsiveTypographyStyleFromToken({ theme, token: typographyToken }))};
   text-decoration: none;
   cursor: pointer;
-  &:hover:enabled {
+
+  &:hover {
     text-decoration: underline;
     color: ${({ theme, hoverColorToken }) =>
       getColorFromToken({ colorToken: hoverColorToken, theme })};

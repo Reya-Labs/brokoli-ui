@@ -72,7 +72,7 @@ export const NavLinkButton = styled(
   `
       : ''};
 
-  &:hover:enabled {
+  &:hover {
     ${({ theme, colorToken }) =>
       colorToken !== 'rainbow'
         ? ''
