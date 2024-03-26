@@ -102,7 +102,7 @@ export const ButtonBox = styled('div')`
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: 8px;
+  gap: 4px;
 `;
 
 export const IconBox = styled('div', shouldNotForwardProps(['color', 'hoverColor']))<{

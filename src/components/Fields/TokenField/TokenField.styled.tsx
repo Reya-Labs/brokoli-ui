@@ -19,6 +19,13 @@ export const TopBox = styled('div')`
   justify-content: space-between;
 `;
 
+export const CurrencyInputBottomBox = styled('div')`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+`;
+
 export const BottomBox = styled('div')`
   display: flex;
   flex-direction: row;

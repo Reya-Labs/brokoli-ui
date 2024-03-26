@@ -5,7 +5,7 @@ import { TypographyTokens } from '../../../foundation/Typography';
 import { ExclaimTooltipProps } from '../../ExclaimTooltip';
 import { TooltipLabel } from '../../TooltipLabel';
 import { Typography } from '../../Typography';
-import { BottomBox, TextFieldBox, TextInputStyled } from './TextField.styled';
+import { BottomBox, TextFieldBottomBox, TextFieldBox, TextInputStyled } from './TextField.styled';
 
 export type TextFieldProps = {
   onChange?: (value: string | undefined) => void;
@@ -61,28 +61,32 @@ export const TextField: React.FunctionComponent<TextFieldProps> = ({
         tooltip={tooltip}
         tooltipColorToken={tooltipColorToken}
       />
-      <TextInputStyled
-        data-testid={`TextField-TextFieldBox-TextInputStyled`}
-        disabled={disabled}
-        error={error}
-        name={name}
-        placeholder={placeHolder}
-        type={type}
-        typographyToken={typographyToken}
-        value={value}
-        onChange={handleOnChange}
-      />
-      <BottomBox data-testid="TokenField-BottomBox">
+      <TextFieldBottomBox>
+        <TextInputStyled
+          data-testid={`TextField-TextFieldBox-TextInputStyled`}
+          disabled={disabled}
+          error={error}
+          name={name}
+          placeholder={placeHolder}
+          type={type}
+          typographyToken={typographyToken}
+          value={value}
+          onChange={handleOnChange}
+        />
         {bottomLeftText ? (
-          <Typography
-            colorToken={bottomLeftTextColorToken}
-            data-testid="TokenField-BottomBox-Typography"
-            typographyToken={bottomLeftTextTypographyToken}
-          >
-            {bottomLeftText}
-          </Typography>
+          <BottomBox data-testid="TokenField-BottomBox">
+            {bottomLeftText ? (
+              <Typography
+                colorToken={bottomLeftTextColorToken}
+                data-testid="TokenField-BottomBox-Typography"
+                typographyToken={bottomLeftTextTypographyToken}
+              >
+                {bottomLeftText}
+              </Typography>
+            ) : null}
+          </BottomBox>
         ) : null}
-      </BottomBox>
+      </TextFieldBottomBox>
     </TextFieldBox>
   );
 };

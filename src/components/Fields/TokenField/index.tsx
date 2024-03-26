@@ -13,6 +13,7 @@ import { Typography } from '../../Typography';
 import { MaxConfig } from '../_common/types';
 import {
   BottomBox,
+  CurrencyInputBottomBox,
   CurrencyInputBox,
   CurrencyInputStyled,
   FloatingBox,
@@ -145,113 +146,119 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
           </Typography>
         ) : null}
       </TopBox>
-      <CurrencyInputBox data-testid="TokenField-CurrencyInputBox">
-        <CurrencyInputStyled
-          allowNegativeValue={allowNegativeValue}
-          className={className}
-          data-testid="TokenField-CurrencyInputBox-CurrencyInputStyled"
-          decimalsLimit={decimalsLimit}
-          defaultValue={
-            defaultValue ||
-            formatValue({
-              intlConfig: { locale: navigator.language },
-              value: '0',
-            })
-          }
-          disabled={disabled}
-          error={error}
-          hasPrefixToken={hasPrefixToken}
-          intlConfig={{ locale: navigator.language }}
-          max={max ? max.value : undefined}
-          maxLength={maxLength}
-          min={min}
-          placeholder={placeholder}
-          typographyToken={typographyToken}
-          value={cleanedValue}
-          onBlur={onBlur}
-          onValueChange={handleOnChange}
-        />
-        {hasPrefixToken ? (
-          <LeftFloatingBox>
-            <Typography colorToken="white950" typographyToken={typographyToken}>
-              {prefixToken}
-            </Typography>
-          </LeftFloatingBox>
-        ) : null}
-        <FloatingBox>
-          {hasMaxButton ? (
-            <MaxButton
-              backgroundColorToken={disabled ? 'black800' : 'black700'}
-              borderColorToken="black700"
-              data-testid="TokenField-MaxButton"
-              disabled={disabled}
-              hoverBorderColorToken={disabled ? 'black800' : 'black500'}
-              rounded={true}
-              typographyColorToken={disabled ? 'black200' : 'white950'}
-              typographyToken="bodyXSmallRegular"
-              onClick={max?.onClick}
-            >
-              Max
-            </MaxButton>
-          ) : null}
-          {token || tokenOptions?.length !== 0 ? (
-            <TokenBox data-testid="TokenField-CurrencyInputBox-TokenBox">
-              {!token ? null : (
-                <TokenIcon
-                  data-testid={`TokenField-CurrencyInputBox-TokenBox-TokenIcon-${token}`}
-                  size={22}
-                  token={token}
-                />
-              )}
-              {tokenOptions?.length === 0 ? (
-                <Typography
-                  colorToken="white100"
-                  data-testid="TokenField-CurrencyInputBox-TokenBox-Typography"
-                  typographyToken="bodyMediumRegular"
-                >
-                  {tokenFormatter(token)}
-                </Typography>
-              ) : null}
-              {tokenOptions?.length !== 0 ? (
-                <React.Fragment>
-                  <ToggleCaret isOpen={false} />
-                  <TokenSelect value={token} onChange={handleOnTokenOptionChange}>
-                    {tokenOptions.map((tokenOption) => (
-                      <option key={tokenOption} value={tokenOption}>
-                        {tokenFormatter(tokenOption)}
-                      </option>
-                    ))}
-                  </TokenSelect>
-                </React.Fragment>
-              ) : null}
-            </TokenBox>
-          ) : null}
-        </FloatingBox>
-      </CurrencyInputBox>
-      <BottomBox data-testid="TokenField-BottomBox">
-        {bottomLeftText ? (
-          <Typography
-            colorToken={bottomLeftTextColorToken}
-            data-testid="TokenField-BottomBox-Typography"
-            typographyToken={bottomLeftTextTypographyToken}
-          >
-            {bottomLeftText}
-          </Typography>
-        ) : null}
-        {bottomRightTextValue ? (
-          <TokenTypography
-            colorToken={bottomRightTextColorToken}
-            data-testid="TokenField-BottomBox-TokenTypography"
-            differenceColorToken={bottomRightTextDifferenceColorToken}
-            differenceToken={bottomRightTextTokenComputed ? ` ${bottomRightTextTokenComputed}` : ''}
-            differenceValue={bottomRightTextDifferenceValue}
-            token={bottomRightTextTokenComputed ? ` ${bottomRightTextTokenComputed}` : ''}
-            tokenColorToken={bottomRightTextTokenColorToken}
-            typographyToken={bottomRightTextTypographyToken}
-            value={bottomRightTextValue}
+      <CurrencyInputBottomBox>
+        <CurrencyInputBox data-testid="TokenField-CurrencyInputBox">
+          <CurrencyInputStyled
+            allowNegativeValue={allowNegativeValue}
+            className={className}
+            data-testid="TokenField-CurrencyInputBox-CurrencyInputStyled"
+            decimalsLimit={decimalsLimit}
+            defaultValue={
+              defaultValue ||
+              formatValue({
+                intlConfig: { locale: navigator.language },
+                value: '0',
+              })
+            }
+            disabled={disabled}
+            error={error}
+            hasPrefixToken={hasPrefixToken}
+            intlConfig={{ locale: navigator.language }}
+            max={max ? max.value : undefined}
+            maxLength={maxLength}
+            min={min}
+            placeholder={placeholder}
+            typographyToken={typographyToken}
+            value={cleanedValue}
+            onBlur={onBlur}
+            onValueChange={handleOnChange}
           />
+          {hasPrefixToken ? (
+            <LeftFloatingBox>
+              <Typography colorToken="white950" typographyToken={typographyToken}>
+                {prefixToken}
+              </Typography>
+            </LeftFloatingBox>
+          ) : null}
+          <FloatingBox>
+            {hasMaxButton ? (
+              <MaxButton
+                backgroundColorToken={disabled ? 'black800' : 'black700'}
+                borderColorToken="black700"
+                data-testid="TokenField-MaxButton"
+                disabled={disabled}
+                hoverBorderColorToken={disabled ? 'black800' : 'black500'}
+                rounded={true}
+                typographyColorToken={disabled ? 'black200' : 'white950'}
+                typographyToken="bodyXSmallRegular"
+                onClick={max?.onClick}
+              >
+                Max
+              </MaxButton>
+            ) : null}
+            {token || tokenOptions?.length !== 0 ? (
+              <TokenBox data-testid="TokenField-CurrencyInputBox-TokenBox">
+                {!token ? null : (
+                  <TokenIcon
+                    data-testid={`TokenField-CurrencyInputBox-TokenBox-TokenIcon-${token}`}
+                    size={22}
+                    token={token}
+                  />
+                )}
+                {tokenOptions?.length === 0 ? (
+                  <Typography
+                    colorToken="white100"
+                    data-testid="TokenField-CurrencyInputBox-TokenBox-Typography"
+                    typographyToken="bodyMediumRegular"
+                  >
+                    {tokenFormatter(token)}
+                  </Typography>
+                ) : null}
+                {tokenOptions?.length !== 0 ? (
+                  <React.Fragment>
+                    <ToggleCaret isOpen={false} />
+                    <TokenSelect value={token} onChange={handleOnTokenOptionChange}>
+                      {tokenOptions.map((tokenOption) => (
+                        <option key={tokenOption} value={tokenOption}>
+                          {tokenFormatter(tokenOption)}
+                        </option>
+                      ))}
+                    </TokenSelect>
+                  </React.Fragment>
+                ) : null}
+              </TokenBox>
+            ) : null}
+          </FloatingBox>
+        </CurrencyInputBox>
+        {bottomLeftText && bottomRightTextValue ? (
+          <BottomBox data-testid="TokenField-BottomBox">
+            {bottomLeftText ? (
+              <Typography
+                colorToken={bottomLeftTextColorToken}
+                data-testid="TokenField-BottomBox-Typography"
+                typographyToken={bottomLeftTextTypographyToken}
+              >
+                {bottomLeftText}
+              </Typography>
+            ) : null}
+            {bottomRightTextValue ? (
+              <TokenTypography
+                colorToken={bottomRightTextColorToken}
+                data-testid="TokenField-BottomBox-TokenTypography"
+                differenceColorToken={bottomRightTextDifferenceColorToken}
+                differenceToken={
+                  bottomRightTextTokenComputed ? ` ${bottomRightTextTokenComputed}` : ''
+                }
+                differenceValue={bottomRightTextDifferenceValue}
+                token={bottomRightTextTokenComputed ? ` ${bottomRightTextTokenComputed}` : ''}
+                tokenColorToken={bottomRightTextTokenColorToken}
+                typographyToken={bottomRightTextTypographyToken}
+                value={bottomRightTextValue}
+              />
+            ) : null}
+          </BottomBox>
         ) : null}
-      </BottomBox>
+      </CurrencyInputBottomBox>
     </TokenFieldBox>
   );
 };
