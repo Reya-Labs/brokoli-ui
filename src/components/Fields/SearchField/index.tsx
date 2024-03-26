@@ -63,15 +63,12 @@ export const SearchField: React.FunctionComponent<SearchFieldProps> = ({
     }
   }, []);
 
-  const closePopover = () => {
-    setIsOpen(false);
-  };
-  const handleOnFocus = () => {
-    setIsOpen(true);
-  };
-  const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const closePopover = () => setIsOpen(false);
+  const handleOnFocus = () => setIsOpen(true);
+  const handleOnToggleClick = () => setIsOpen(!isOpen);
+  const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) =>
     setValue(event.target.value);
-  };
+
   const selectItem = useCallback(
     (itemId: string | undefined) => {
       if (!itemId || !items) {
@@ -144,7 +141,7 @@ export const SearchField: React.FunctionComponent<SearchFieldProps> = ({
             onFocus={handleOnFocus}
           />
           {disabled ? null : (
-            <ToggleCaretBox>
+            <ToggleCaretBox onClick={disabled ? undefined : handleOnToggleClick}>
               <ToggleCaret disabled={disabled} isOpen={isOpen} />
             </ToggleCaretBox>
           )}
