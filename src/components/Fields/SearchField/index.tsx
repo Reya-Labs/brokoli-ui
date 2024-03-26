@@ -44,7 +44,7 @@ export const SearchField: React.FunctionComponent<SearchFieldProps> = ({
   tooltipColorToken,
   tooltip,
   placeHolder,
-  items,
+  items = [],
   typographyToken = 'bodyMediumRegular',
   itemRenderer,
   itemFilter,
@@ -71,13 +71,16 @@ export const SearchField: React.FunctionComponent<SearchFieldProps> = ({
 
   const selectItem = useCallback(
     (itemId: string | undefined) => {
-      if (!itemId || !items) {
+      if (!itemId || !items || items.length === 0) {
+        setValue('');
         return;
       }
       const selectedItem = items.find((i) => i.id.toLowerCase() === itemId.toLowerCase());
       if (selectedItem) {
         setValue(selectedItem.label);
         closePopover();
+      } else {
+        setValue('');
       }
     },
     [items],
