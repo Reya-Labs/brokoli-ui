@@ -4,7 +4,7 @@ import { addAlpha, ColorTokens, getColorFromToken } from '../../foundation/Color
 import { createTransition } from '../../utils/create-transition';
 import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 
-export const ProgressBarPercentageBox = styled(
+export const PercentageBox = styled(
   'div',
   shouldNotForwardProps(['barColorToken', 'rounded', 'width', 'height']),
 )<{
@@ -24,7 +24,7 @@ export const ProgressBarPercentageBox = styled(
   transition: ${createTransition({ duration: 700, properties: 'width' })};
 `;
 
-export const ProgressBarBoxContainer = styled(
+export const BoxContainer = styled(
   'div',
   shouldNotForwardProps(['backgroundColorToken', 'rounded', 'height']),
 )<{
