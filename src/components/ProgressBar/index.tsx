@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
 import { ColorTokens } from '../../foundation/Colors';
-import { ProgressBarBoxContainer, ProgressBarPercentageBox } from './ProgressBar.styled';
+import { BoxContainer, PercentageBox } from './ProgressBar.styled';
 
-type ProgressBarProps = {
+export type ProgressBarProps = {
   percentageComplete: number;
   className?: string;
   backgroundColorToken?: 'transparent' | ColorTokens;
@@ -28,13 +28,13 @@ export const ProgressBar = ({
   }, [percentageComplete]);
 
   return (
-    <ProgressBarBoxContainer
+    <BoxContainer
       backgroundColorToken={backgroundColorToken}
-      data-testid="ProgressBar-ProgressBarBoxContainer"
+      data-testid="ProgressBar-BoxContainer"
       height={height}
       rounded={rounded}
     >
-      <ProgressBarPercentageBox
+      <PercentageBox
         barColorToken={barColorToken}
         className={className}
         data-testid="ProgressBar-PercentageBox"
@@ -42,6 +42,6 @@ export const ProgressBar = ({
         rounded={rounded}
         width={Math.min(width, 100)}
       />
-    </ProgressBarBoxContainer>
+    </BoxContainer>
   );
 };
