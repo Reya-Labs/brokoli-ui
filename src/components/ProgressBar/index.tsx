@@ -38,6 +38,8 @@ export const ProgressBar = ({
         barColorToken={barColorToken}
         className={className}
         data-testid="ProgressBar-PercentageBox"
+        height={height}
+        rounded={rounded}
         width={Math.min(width, 100)}
       />
     </ProgressBarBoxContainer>
