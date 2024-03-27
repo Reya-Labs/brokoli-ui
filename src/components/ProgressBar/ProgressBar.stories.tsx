@@ -23,16 +23,49 @@ const Template: StoryFn<typeof ProgressBar> = (args) => {
 
   return (
     <React.Fragment>
-      <Typography colorToken="error100" typographyToken="bodyExtraLargeBold">
-        Keeps growing
+      <Typography colorToken="white100" typographyToken="bodyExtraLargeBold">
+        Keeps growing - integrator text
       </Typography>
-      <ProgressBar percentageComplete={percentageComplete} />
+      <ProgressBar {...args} percentageComplete={percentageComplete} />
     </React.Fragment>
   );
 };
+
 export const Default: StoryObj<typeof ProgressBar> = {
   args: {
     percentageComplete: 0,
+  },
+  render: Template,
+};
+
+export const WithBarColor: StoryObj<typeof ProgressBar> = {
+  args: {
+    barColorToken: 'warning200',
+    percentageComplete: 0,
+  },
+  render: Template,
+};
+
+export const WithBackgroundColor: StoryObj<typeof ProgressBar> = {
+  args: {
+    backgroundColorToken: 'error700',
+    percentageComplete: 0,
+  },
+  render: Template,
+};
+
+export const WithHeight: StoryObj<typeof ProgressBar> = {
+  args: {
+    height: 12,
+    percentageComplete: 0,
+  },
+  render: Template,
+};
+
+export const WithRounded: StoryObj<typeof ProgressBar> = {
+  args: {
+    percentageComplete: 0,
+    rounded: true,
   },
   render: Template,
 };

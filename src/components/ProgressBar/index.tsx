@@ -1,13 +1,25 @@
 import React, { useEffect, useState } from 'react';
 
+import { ColorTokens } from '../../foundation/Colors';
 import { ProgressBarBoxContainer, ProgressBarPercentageBox } from './ProgressBar.styled';
 
 type ProgressBarProps = {
-  percentageComplete?: number;
+  percentageComplete: number;
   className?: string;
+  backgroundColorToken?: 'transparent' | ColorTokens;
+  barColorToken?: ColorTokens;
+  height?: number;
+  rounded?: boolean;
 };
 
-export const ProgressBar = ({ percentageComplete = 0, className }: ProgressBarProps) => {
+export const ProgressBar = ({
+  barColorToken = 'white600',
+  backgroundColorToken = 'black700',
+  percentageComplete = 0,
+  height = 4,
+  className,
+  rounded = false,
+}: ProgressBarProps) => {
   const [width, setWidth] = useState(0);
 
   useEffect(() => {
@@ -16,8 +28,14 @@ export const ProgressBar = ({ percentageComplete = 0, className }: ProgressBarPr
   }, [percentageComplete]);
 
   return (
-    <ProgressBarBoxContainer data-testid="ProgressBar-ProgressBarBoxContainer">
+    <ProgressBarBoxContainer
+      backgroundColorToken={backgroundColorToken}
+      data-testid="ProgressBar-ProgressBarBoxContainer"
+      height={height}
+      rounded={rounded}
+    >
       <ProgressBarPercentageBox
+        barColorToken={barColorToken}
         className={className}
         data-testid="ProgressBar-PercentageBox"
         width={Math.min(width, 100)}
