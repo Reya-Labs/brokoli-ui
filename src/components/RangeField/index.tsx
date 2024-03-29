@@ -12,11 +12,15 @@ type RangeFieldProps = ProgressBarProps & {
   thumbHeight?: number;
   trackHeight?: number;
   step?: number;
+  segmentHighlightColorToken?: ColorTokens;
+  segmentColorToken?: ColorTokens;
 };
 
 export const RangeField = ({
   thumbColorToken = 'white600',
   trackColorToken = 'transparent',
+  segmentHighlightColorToken = 'primary500',
+  segmentColorToken = 'primary800',
   trackHeight = 10,
   thumbHeight = 6,
   onChange,
@@ -42,7 +46,12 @@ export const RangeField = ({
       />
       <SegmentBox>
         {Array.from({ length: 100 / step }, (_, index) => (
-          <Segment key={index} data-testid={`RangeField-Segment-${index}`} height={thumbHeight} />
+          <Segment
+            key={index}
+            colorToken={(index + 1) % step === 0 ? segmentHighlightColorToken : segmentColorToken}
+            data-testid={`RangeField-Segment-${index}`}
+            height={thumbHeight}
+          />
         ))}
       </SegmentBox>
     </BoxContainer>
