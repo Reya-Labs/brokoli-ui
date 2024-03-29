@@ -92,13 +92,14 @@ export const StyledInput = styled(
   }
 `;
 
-export const Segment = styled('div', shouldNotForwardProps(['height']))<{
+export const Segment = styled('div', shouldNotForwardProps(['height', 'colorToken']))<{
   height: number;
+  colorToken: ColorTokens;
 }>`
   height: ${({ height }) => height}px;
+  background: ${({ colorToken, theme }) => getColorFromToken({ colorToken, theme })};
   width: 2px;
   border-radius: 2px;
-  background: white;
 `;
 
 export const SegmentBox = styled('div')`
