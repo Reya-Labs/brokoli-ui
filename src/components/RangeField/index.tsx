@@ -23,10 +23,10 @@ export type RangeFieldProps = {
 
 export const RangeField = ({
   highlightEveryNthMark = 5,
-  thumbColorToken = 'white600',
-  trackColorToken = 'primary500',
-  markHighlightColorToken = 'primary500',
-  markColorToken = 'primary800',
+  thumbColorToken = 'white200',
+  trackColorToken = 'black600',
+  markHighlightColorToken = 'white100',
+  markColorToken = 'white950',
   trackHeight = 10,
   thumbSize = 6,
   markHeight = 6,
@@ -49,7 +49,7 @@ export const RangeField = ({
     <BoxContainer data-testid="RangeField-BoxContainer" trackColorToken={trackColorToken}>
       <StyledSlider
         height={trackHeight}
-        marks={highlightEveryNthMark}
+        marks={step}
         max={100}
         min={0}
         renderMark={Mark({
