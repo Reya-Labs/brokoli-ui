@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 import ReactSlider from 'react-slider';
 
-import { ColorTokens, getColorFromToken } from '../../foundation/Colors';
-import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
+import { ColorTokens, getColorFromToken } from '../../../foundation/Colors';
+import { shouldNotForwardProps } from '../../../utils/should-not-forward-props';
 
 export const BoxContainer = styled('div', shouldNotForwardProps(['trackColorToken']))<{
   trackColorToken: 'transparent' | ColorTokens;

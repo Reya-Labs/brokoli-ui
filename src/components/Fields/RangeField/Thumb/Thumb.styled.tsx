@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 
-import { addAlpha, ColorTokens, getColorFromToken } from '../../../foundation/Colors';
-import { shouldNotForwardProps } from '../../../utils/should-not-forward-props';
-import { Typography } from '../../Typography';
+import { addAlpha, ColorTokens, getColorFromToken } from '../../../../foundation/Colors';
+import { shouldNotForwardProps } from '../../../../utils/should-not-forward-props';
+import { Typography } from '../../../Typography';
 
 export const StyledThumb = styled(
   'div',

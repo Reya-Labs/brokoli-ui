@@ -1,7 +1,7 @@
 import React from 'react';
 import { ReactSliderProps } from 'react-slider';
 
-import { ColorTokens } from '../../../foundation/Colors';
+import { ColorTokens } from '../../../../foundation/Colors';
 import { StyledThumb, StyledValueTypography } from './Thumb.styled';
 
 export type ThumbProps = {

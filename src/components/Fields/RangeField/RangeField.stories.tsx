@@ -1,7 +1,7 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
 
-import { RangeField } from '.';
+import { RangeField } from './index';
 
 export default {
   component: RangeField,
