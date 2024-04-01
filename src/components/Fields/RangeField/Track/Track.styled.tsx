@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
-import { addAlpha, ColorTokens, getColorFromToken } from '../../../foundation/Colors';
-import { shouldNotForwardProps } from '../../../utils/should-not-forward-props';
+import { addAlpha, ColorTokens, getColorFromToken } from '../../../../foundation/Colors';
+import { shouldNotForwardProps } from '../../../../utils/should-not-forward-props';
 
 export const StyledTrack = styled(
   'div',

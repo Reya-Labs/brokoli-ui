@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ColorTokens } from '../../foundation/Colors';
+import { ColorTokens } from '../../../foundation/Colors';
 import { Mark, MarkProps } from './Mark';
 import { BoxContainer, StyledSlider } from './RangeField.styled';
 import { Thumb, ThumbProps } from './Thumb';

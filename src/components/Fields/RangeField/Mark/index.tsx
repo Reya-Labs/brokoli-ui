@@ -1,7 +1,7 @@
 import React from 'react';
 import { ReactSliderProps } from 'react-slider';
 
-import { ColorTokens } from '../../../foundation/Colors';
+import { ColorTokens } from '../../../../foundation/Colors';
 import { StyledMark } from './Mark.styled';
 
 export type MarkProps = {
