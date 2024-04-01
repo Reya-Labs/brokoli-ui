@@ -1,16 +1,12 @@
 import React from 'react';
-import { ReactSliderProps } from 'react-slider';
 
 import { ColorTokens } from '../../foundation/Colors';
-import {
-  BoxContainer,
-  StyledMark,
-  StyledSlider,
-  StyledThumb,
-  StyledTrack,
-} from './RangeField.styled';
+import { Mark } from './Mark';
+import { BoxContainer, StyledSlider } from './RangeField.styled';
+import { Thumb } from './Thumb';
+import { Track } from './Track';
 
-type RangeFieldProps = {
+export type RangeFieldProps = {
   trackColorToken?: 'transparent' | ColorTokens;
   thumbColorToken: ColorTokens;
   value?: number;
@@ -21,14 +17,6 @@ type RangeFieldProps = {
   segmentHighlightColorToken?: ColorTokens;
   segmentColorToken?: ColorTokens;
 };
-
-const Thumb: ReactSliderProps['renderThumb'] = (props) => (
-  <StyledThumb size={6} thumbColorToken="white100" {...(props as object)} />
-);
-
-const Track: ReactSliderProps['renderTrack'] = (props, state) => (
-  <StyledTrack trackColorToken="white100" {...(props as object)} index={state.index} />
-);
 
 // every Nth Markdown element will be highlighted
 const NTH_MARKDOWN_HIGHLIGHT = 5;
@@ -60,33 +48,14 @@ export const RangeField = ({
       <StyledSlider
         height={6}
         marks={5}
-        renderMark={(props) => {
-          const keyAsNumber = !props.key
-            ? 0
-            : typeof props.key === 'number' || typeof props.key === 'bigint'
-            ? Number(props.key)
-            : parseInt(props.key, 10);
-          if (keyAsNumber === 0) {
-            return null;
-          }
-          const isHighlighted = keyAsNumber % (step * NTH_MARKDOWN_HIGHLIGHT) === 0;
-          return (
-            <StyledMark
-              {...(props as object)}
-              height={6}
-              colorToken={isHighlighted ? 'white100' : 'black100'}
-            />
-          );
-        }}
+        max={100}
+        min={0}
+        renderMark={Mark}
+        renderThumb={Thumb as never}
+        renderTrack={Track as never}
         step={step}
         value={value}
         onChange={handleOnChange}
-        max={100}
-        // TODO: nasty hack to get it working
-        renderTrack={Track as never}
-        min={0}
-        // TODO: nasty hack to get it working
-        renderThumb={Thumb as never}
       />
     </BoxContainer>
   );
