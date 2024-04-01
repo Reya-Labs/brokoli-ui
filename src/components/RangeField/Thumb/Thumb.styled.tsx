@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 
 import { addAlpha, ColorTokens, getColorFromToken } from '../../../foundation/Colors';
 import { shouldNotForwardProps } from '../../../utils/should-not-forward-props';
+import { Typography } from '../../Typography';
 
 export const StyledThumb = styled(
   'div',
@@ -23,4 +24,10 @@ export const StyledThumb = styled(
   cursor: grab;
   outline: none;
   top: ${({ trackHeight, height }) => (trackHeight - height) / 2}px;
+`;
+
+export const StyledValueTypography = styled(Typography)`
+  top: calc(100% + 8px);
+  left: -4px;
+  position: absolute;
 `;

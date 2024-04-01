@@ -19,8 +19,9 @@ export type RangeFieldProps = {
   markColorToken?: MarkProps['colorToken'];
   markHeight: MarkProps['height'];
   step?: MarkProps['step'];
+  valueFormatter?: ThumbProps['valueFormatter'];
 };
-
+const defaultValueFormatter = (value: number) => `${value}%`;
 export const RangeField = ({
   highlightEveryNthMark = 5,
   thumbColorToken = 'white200',
@@ -33,6 +34,7 @@ export const RangeField = ({
   onChange,
   value,
   step = 5,
+  valueFormatter = defaultValueFormatter,
 }: RangeFieldProps) => {
   const handleOnChange = (reactSliderValue: number | readonly number[]) => {
     if (
@@ -61,7 +63,14 @@ export const RangeField = ({
           trackHeight,
         })}
         // TODO: Nasty hack to avoid TS issues, react-slider isn't typed properly
-        renderThumb={Thumb({ colorToken: thumbColorToken, size: thumbSize, trackHeight }) as never}
+        renderThumb={
+          Thumb({
+            colorToken: thumbColorToken,
+            size: thumbSize,
+            trackHeight,
+            valueFormatter,
+          }) as never
+        }
         // TODO: Nasty hack to avoid TS issues, react-slider isn't typed properly
         renderTrack={
           Track({ thumbHeight: thumbSize, trackColorToken: thumbColorToken, trackHeight }) as never
