@@ -51,8 +51,6 @@ export const defaultTimelineYAxisTickFormatter: NonNullable<
 const xAccessor = (d: VisxTimelineChartDatum) => d.x;
 const yAccessor = (d: VisxTimelineChartDatum) => d.y;
 const defaultDatum = { x: 0, y: 0 };
-
-export { VisxTimelineChartDatum, VisxTimelineChartProps };
 const _VisxTimelineChart = ({
   yAxisTickFormatter = defaultTimelineYAxisTickFormatter,
   xAxisTickFormatter = defaultTimelineXAxisTickTimeFormatter,
@@ -417,3 +415,5 @@ export const VisxTimelineChart: React.FunctionComponent<VisxTimelineChartProps> 
     </TooltipProvider>
   );
 };
+
+export * from './types';

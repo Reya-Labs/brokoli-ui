@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
+import ReactSlider from 'react-slider';
 
-import { ColorTokens, getColorFromToken } from '../../foundation/Colors';
+import { addAlpha, ColorTokens, getColorFromToken } from '../../foundation/Colors';
 import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 
 export const BoxContainer = styled(
@@ -9,110 +10,66 @@ export const BoxContainer = styled(
 )<{
   trackColorToken: 'transparent' | ColorTokens;
 }>`
-  border-radius: 4px;
   padding: 4px;
   width: 100%;
-  position: relative;
-  display: flex;
   background-color: ${({ trackColorToken, theme }) =>
     trackColorToken === 'transparent'
       ? 'transparent'
       : getColorFromToken({ colorToken: trackColorToken, theme })};
 `;
 
-export const StyledInput = styled(
-  'input',
-  shouldNotForwardProps(['trackHeight', 'thumbHeight', 'thumbColorToken']),
-)<{
-  thumbColorToken: ColorTokens;
-  thumbHeight: number;
-  trackHeight: number;
-}>`
-  /*********** Baseline, reset styles ***********/
-  -webkit-appearance: none;
-  appearance: none;
-  background: transparent;
-  cursor: pointer;
-  width: 100%;
-
-  /* Removes default focus */
-  &:focus {
-    outline: none;
-  }
-
-  /******** Chrome, Safari, Opera and Edge Chromium styles ********/
-  /* slider track */
-  &::-webkit-slider-runnable-track {
-    background-color: transparent;
-    border-radius: 0.5rem;
-    height: ${({ trackHeight }) => trackHeight}px;
-  }
-
-  /* slider thumb */
-  &::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
-    appearance: none;
-    margin-top: ${({ thumbHeight, trackHeight }) => (trackHeight - thumbHeight) / 2}px;
-    background-color: ${({ thumbColorToken, theme }) =>
-      getColorFromToken({ colorToken: thumbColorToken, theme })};
-    border-radius: 0.5rem;
-    height: ${({ thumbHeight }) => thumbHeight}px;
-    width: ${({ thumbHeight }) => thumbHeight}px;
-  }
-
-  &:focus::-webkit-slider-thumb {
-    outline: 3px solid
-      ${({ thumbColorToken, theme }) => getColorFromToken({ colorToken: thumbColorToken, theme })};
-    outline-offset: 0.125rem;
-  }
-
-  /*********** Firefox styles ***********/
-  /* slider track */
-  &::-moz-range-track {
-    background-color: transparent;
-    border-radius: 0.5rem;
-    height: ${({ trackHeight }) => trackHeight}px;
-  }
-
-  /* slider thumb */
-  &::-moz-range-thumb {
-    background-color: ${({ thumbColorToken, theme }) =>
-      getColorFromToken({ colorToken: thumbColorToken, theme })};
-    border: none; /*Removes extra border that FF applies*/
-    border-radius: 0.5rem;
-    height: ${({ thumbHeight }) => thumbHeight}px;
-    width: ${({ thumbHeight }) => thumbHeight}px;
-    margin-top: ${({ thumbHeight, trackHeight }) => (trackHeight - thumbHeight) / 2}px;
-  }
-
-  &:focus::-moz-range-thumb {
-    outline: 3px solid
-      ${({ thumbColorToken, theme }) => getColorFromToken({ colorToken: thumbColorToken, theme })};
-    outline-offset: 0.125rem;
-  }
-`;
-
-export const Segment = styled('div', shouldNotForwardProps(['height', 'colorToken']))<{
+export const StyledSlider = styled(ReactSlider, shouldNotForwardProps(['height']))<{
   height: number;
-  colorToken: ColorTokens;
 }>`
+  width: 100%;
   height: ${({ height }) => height}px;
-  background: ${({ colorToken, theme }) => getColorFromToken({ colorToken, theme })};
-  width: 2px;
-  border-radius: 2px;
 `;
 
-export const SegmentBox = styled('div')`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  position: absolute;
+export const StyledThumb = styled('div', shouldNotForwardProps(['size', 'thumbColorToken']))<{
+  size: number;
+  thumbColorToken: ColorTokens;
+}>`
+  height: ${({ size }) => size}px;
+  line-height: ${({ size }) => size}px;
+  width: ${({ size }) => size}px;
+  text-align: center;
+  background-color: ${({ thumbColorToken, theme }) =>
+    getColorFromToken({ colorToken: thumbColorToken, theme })};
+  border-radius: 50%;
+  box-shadow: 0px 0px ${({ size }) => size + 2}px 0px
+    ${({ theme, thumbColorToken }) =>
+      addAlpha(getColorFromToken({ colorToken: thumbColorToken, theme }), 0.5)};
+  cursor: grab;
+`;
+
+export const StyledTrack = styled('div', shouldNotForwardProps(['index', 'trackColorToken']))<{
+  index: number;
+  trackColorToken: ColorTokens;
+}>`
   top: 0;
-  left: 0;
-  height: 100%;
-  pointer-events: none;
-  padding: 4px;
-  border-radius: 4px;
+  bottom: 0;
+  background: ${({ theme, index, trackColorToken }) =>
+    index === 1
+      ? 'transparent'
+      : getColorFromToken({
+          colorToken: trackColorToken,
+          theme,
+        })};
+  border-radius: 8px;
+  z-index: 999;
+`;
+
+export const StyledMark = styled('span', shouldNotForwardProps(['height', 'colorToken']))<{
+  colorToken: ColorTokens;
+  height: number;
+}>`
+  top: 0;
+  bottom: 0;
+  background: ${({ theme, colorToken }) =>
+    getColorFromToken({
+      colorToken,
+      theme,
+    })};
+  width: 2px;
+  height: ${({ height }) => height}px;
 `;
