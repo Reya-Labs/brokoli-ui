@@ -1,8 +1,24 @@
 import React from 'react';
 import { ReactSliderProps } from 'react-slider';
 
+import { ColorTokens } from '../../../foundation/Colors';
 import { StyledTrack } from './Track.styled';
 
-export const Track: ReactSliderProps['renderTrack'] = (props, state) => (
-  <StyledTrack trackColorToken="white100" {...(props as object)} index={state.index} />
-);
+export type TrackProps = {
+  trackColorToken: ColorTokens;
+  thumbHeight: number;
+  trackHeight: number;
+};
+
+export const Track: (trackProps: TrackProps) => ReactSliderProps['renderTrack'] =
+  ({ trackHeight, thumbHeight, trackColorToken }) =>
+  (props, state) =>
+    state.value === 0 ? null : (
+      <StyledTrack
+        {...(props as object)}
+        isActivePartOfTrack={state.index === 0}
+        thumbHeight={thumbHeight}
+        trackColorToken={trackColorToken}
+        trackHeight={trackHeight}
+      />
+    );

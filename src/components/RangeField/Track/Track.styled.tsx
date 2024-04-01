@@ -1,21 +1,34 @@
 import styled from '@emotion/styled';
 
-import { ColorTokens, getColorFromToken } from '../../../foundation/Colors';
+import { addAlpha, ColorTokens, getColorFromToken } from '../../../foundation/Colors';
 import { shouldNotForwardProps } from '../../../utils/should-not-forward-props';
 
-export const StyledTrack = styled('div', shouldNotForwardProps(['index', 'trackColorToken']))<{
-  index: number;
+export const StyledTrack = styled(
+  'div',
+  shouldNotForwardProps(['trackHeight', 'height', 'isActivePartOfTrack', 'trackColorToken']),
+)<{
+  isActivePartOfTrack: boolean;
   trackColorToken: ColorTokens;
+  thumbHeight: number;
+  trackHeight: number;
 }>`
-  top: 0;
-  bottom: 0;
-  background: ${({ theme, index, trackColorToken }) =>
-    index === 1
+  background: ${({ theme, isActivePartOfTrack, trackColorToken }) =>
+    !isActivePartOfTrack
       ? 'transparent'
       : getColorFromToken({
           colorToken: trackColorToken,
           theme,
         })};
+  box-shadow: ${({ theme, thumbHeight, isActivePartOfTrack, trackColorToken }) =>
+    !isActivePartOfTrack
+      ? undefined
+      : `0px 0px ${thumbHeight + 2}px 0px ${addAlpha(
+          getColorFromToken({ colorToken: trackColorToken, theme }),
+          0.5,
+        )}`};
+
   border-radius: 8px;
-  z-index: 999;
+  height: ${({ thumbHeight }) => thumbHeight}px;
+  z-index: 1;
+  top: ${({ trackHeight, thumbHeight }) => (trackHeight - thumbHeight) / 2}px;
 `;
