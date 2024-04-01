@@ -4,14 +4,12 @@ import ReactSlider from 'react-slider';
 import { ColorTokens, getColorFromToken } from '../../foundation/Colors';
 import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 
-export const BoxContainer = styled(
-  'div',
-  shouldNotForwardProps(['trackHeight', 'thumbHeight', 'trackColorToken', 'thumbColorToken']),
-)<{
+export const BoxContainer = styled('div', shouldNotForwardProps(['trackColorToken']))<{
   trackColorToken: 'transparent' | ColorTokens;
 }>`
   padding: 4px;
   width: 100%;
+  border-radius: 8px;
   background-color: ${({ trackColorToken, theme }) =>
     trackColorToken === 'transparent'
       ? 'transparent'
