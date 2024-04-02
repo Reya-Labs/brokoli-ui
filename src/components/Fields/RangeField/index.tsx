@@ -19,6 +19,7 @@ export type RangeFieldProps = {
   markHeight: MarkProps['height'];
   step?: MarkProps['step'];
   valueFormatter?: ThumbProps['valueFormatter'];
+  disabled?: boolean;
 };
 const defaultValueFormatter = (value: number) => `${value}%`;
 export const RangeField = ({
@@ -34,8 +35,12 @@ export const RangeField = ({
   value,
   step = 5,
   valueFormatter = defaultValueFormatter,
+  disabled = false,
 }: RangeFieldProps) => {
   const handleOnChange = (reactSliderValue: number | readonly number[]) => {
+    if (disabled) {
+      return;
+    }
     if (
       typeof reactSliderValue !== 'number' ||
       typeof onChange !== 'function' ||
@@ -49,6 +54,7 @@ export const RangeField = ({
   return (
     <Box data-testid="RangeField-Box" trackColorToken={trackColorToken}>
       <StyledSlider
+        disabled={disabled}
         height={trackHeight}
         marks={step}
         max={100}
@@ -65,6 +71,7 @@ export const RangeField = ({
         renderThumb={
           Thumb({
             colorToken: thumbColorToken,
+            disabled,
             size: thumbSize,
             trackHeight,
             valueFormatter,
@@ -76,7 +83,7 @@ export const RangeField = ({
         }
         step={step}
         value={value}
-        onChange={handleOnChange}
+        onChange={disabled ? undefined : handleOnChange}
       />
     </Box>
   );

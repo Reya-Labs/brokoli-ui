@@ -9,16 +9,19 @@ export type ThumbProps = {
   trackHeight: number;
   colorToken: ColorTokens;
   valueFormatter: (value: number) => string;
+  disabled: boolean;
 };
 
 export const Thumb: (thumbProps: ThumbProps) => ReactSliderProps['renderThumb'] =
-  ({ valueFormatter, trackHeight, size, colorToken }) =>
+  ({ valueFormatter, disabled, trackHeight, size, colorToken }) =>
   (props, state) => (
     <StyledThumb
       {...(props as object)}
       colorToken={colorToken}
+      disabled={disabled}
       height={size}
       trackHeight={trackHeight}
+      value={state.valueNow}
       width={size}
     >
       <StyledValueTypography colorToken="white100" typographyToken="bodyXSmallRegular">

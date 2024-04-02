@@ -69,3 +69,11 @@ export const WithStep: StoryObj<typeof RangeField> = {
   },
   render: Template,
 };
+
+export const WithDisabled: StoryObj<typeof RangeField> = {
+  args: {
+    disabled: true,
+    value: 45,
+  },
+  render: Template,
+};

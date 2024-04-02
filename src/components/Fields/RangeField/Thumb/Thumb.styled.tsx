@@ -6,12 +6,14 @@ import { Typography } from '../../../Typography';
 
 export const StyledThumb = styled(
   'div',
-  shouldNotForwardProps(['height', 'width', 'trackHeight', 'colorToken']),
+  shouldNotForwardProps(['value', 'disabled', 'height', 'width', 'trackHeight', 'colorToken']),
 )<{
   height: number;
   width: number;
   trackHeight: number;
+  disabled: boolean;
   colorToken: ColorTokens;
+  value: number;
 }>`
   height: ${({ height }) => height}px;
   line-height: ${({ height }) => height}px;
@@ -21,7 +23,8 @@ export const StyledThumb = styled(
   border-radius: 50%;
   box-shadow: 0px 0px ${({ height }) => height + 2}px 0px
     ${({ theme, colorToken }) => addAlpha(getColorFromToken({ colorToken, theme }), 0.5)};
-  cursor: grab;
+  cursor: ${({ disabled, value }) =>
+    !disabled ? (value === 0 ? 'e-resize' : value === 100 ? 'w-resize' : 'ew-resize') : 'default'};
   outline: none;
   top: ${({ trackHeight, height }) => (trackHeight - height) / 2}px;
 `;
