@@ -5,7 +5,6 @@ import { ColorTokens } from '../../../../foundation/Colors';
 import { StyledMark } from './Mark.styled';
 
 export type MarkProps = {
-  // every Nth Mark element will be highlighted
   highlightEveryNthMark: number;
   highlightColorToken: ColorTokens;
   colorToken: ColorTokens;
