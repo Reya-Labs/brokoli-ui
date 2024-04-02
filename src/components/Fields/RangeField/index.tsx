@@ -13,7 +13,6 @@ export type RangeFieldProps = {
   onChange?: (value: number) => void;
   thumbSize?: ThumbProps['size'];
   trackHeight?: number;
-  // every Nth Mark element will be highlighted
   highlightEveryNthMark?: MarkProps['highlightEveryNthMark'];
   markHighlightColorToken?: MarkProps['highlightColorToken'];
   markColorToken?: MarkProps['colorToken'];
