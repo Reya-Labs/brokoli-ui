@@ -12,7 +12,9 @@ export function getSpanTextWidth(str: string, style: object): number {
       Object.assign(textEl.style, style);
       textEl.style.visibility = 'hidden'; // Make the span invisible
       textEl.style.whiteSpace = 'nowrap'; // Prevent text from wrapping
-
+      textEl.style.position = 'absolute';
+      textEl.style.top = '-100%';
+      textEl.style.left = '-100%';
       // Append the span to the body
       document.body.appendChild(textEl);
     }
