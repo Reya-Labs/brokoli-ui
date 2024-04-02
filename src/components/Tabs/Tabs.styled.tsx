@@ -21,11 +21,12 @@ export const TabPillsBox = styled('div')`
   flex-direction: row;
 `;
 
+const PADDING_TOP = 7;
 export const TabsBox = styled('div')`
   display: flex;
   width: 100%;
   flex-direction: row;
-  padding: 7px 8px 0px 8px;
+  padding: ${PADDING_TOP}px 8px 0px 8px;
   position: relative;
   justify-content: space-between;
 `;
@@ -103,6 +104,6 @@ export const ComponentBox = styled('div', shouldNotForwardProps(['tabBoxHeight',
   hidden: boolean;
   tabBoxHeight: number;
 }>`
-  height: ${({ tabBoxHeight }) => `calc(100% - ${tabBoxHeight}px)`};
+  height: ${({ tabBoxHeight }) => `calc(100% - ${tabBoxHeight + PADDING_TOP}px)`};
   display: ${({ hidden }) => (hidden ? 'none' : undefined)};
 `;
