@@ -99,9 +99,10 @@ export const TabStyled = styled(
   }
 `;
 
-export const ComponentBox = styled('div', shouldNotForwardProps(['hidden']))<{
+export const ComponentBox = styled('div', shouldNotForwardProps(['tabBoxHeight', 'hidden']))<{
   hidden: boolean;
+  tabBoxHeight: number;
 }>`
-  height: 100%;
+  height: ${({ tabBoxHeight }) => `calc(100% - ${tabBoxHeight})px`};
   display: ${({ hidden }) => (hidden ? 'none' : undefined)};
 `;

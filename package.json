@@ -144,6 +144,7 @@
     "react-animate-height": "3.2.2",
     "react-currency-input-field": "3.6.11",
     "react-metamask-avatar": "2.0.3",
+    "react-resize-detector": "10.0.1",
     "react-responsive": "9.0.2",
     "react-slider": "2.0.6",
     "react-tiny-popover": "7.2.0",

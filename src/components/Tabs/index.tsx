@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from 'react';
+import { useResizeDetector } from 'react-resize-detector';
 
 import { ColorTokens } from '../../foundation/Colors';
 import { TypographyTokens } from '../../foundation/Typography';
@@ -49,6 +50,7 @@ export const Tabs: React.FunctionComponent<TabsProps> = ({
   onTabContentHide,
   hoverTabColorToken,
 }) => {
+  const { height: tabBoxHeight = 0, ref } = useResizeDetector();
   const allowContentHiding = Boolean(contentHiding);
   const { isHiddenInitially = true } = contentHiding || {};
   const [hiddenTabContent, setHiddenTabContent] = useState<boolean>(isHiddenInitially);
@@ -63,7 +65,7 @@ export const Tabs: React.FunctionComponent<TabsProps> = ({
 
   return (
     <TabsAndComponentBox data-testid="Tabs-TabsAndComponentBox">
-      <TabsBox data-testid="Tabs-TabsBox">
+      <TabsBox ref={ref} data-testid="Tabs-TabsBox">
         <BorderLine borderColorToken={borderColorToken} data-testid="Tabs-BorderLine" />
         <TabPillsBox data-testid="Tabs-TabPillsBox">
           {tabs.map((tab) => (
@@ -103,6 +105,7 @@ export const Tabs: React.FunctionComponent<TabsProps> = ({
         <ComponentBox
           data-testid="Tabs-ComponentBox"
           hidden={allowContentHiding ? hiddenTabContent : false}
+          tabBoxHeight={tabBoxHeight}
         >
           <activeTab.Component />
         </ComponentBox>

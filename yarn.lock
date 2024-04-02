@@ -11622,6 +11622,7 @@ __metadata:
     react-currency-input-field: "npm:3.6.11"
     react-dom: "npm:18.2.0"
     react-metamask-avatar: "npm:2.0.3"
+    react-resize-detector: "npm:10.0.1"
     react-responsive: "npm:9.0.2"
     react-router-dom: "npm:6.9.0"
     react-slider: "npm:2.0.6"
@@ -22741,6 +22742,18 @@ __metadata:
     "@types/react":
       optional: true
   checksum: 10c0/4952657e6a7b9d661d4ad4dfcef81b9c7fa493e35164abff99c35c0b27b3d172ef7ad70c09416dc44dd14ff2e6b38a5ec7da27e27e90a15cbad36b8fd2fd8054
+  languageName: node
+  linkType: hard
+
+"react-resize-detector@npm:10.0.1":
+  version: 10.0.1
+  resolution: "react-resize-detector@npm:10.0.1"
+  dependencies:
+    lodash: "npm:^4.17.21"
+  peerDependencies:
+    react: ^18.0.0
+    react-dom: ^18.0.0
+  checksum: 10c0/2d4f354f35e8a6c0421c875d9014f7a41a734ac5d83eea7bbc5adf8332173325ed10ee4ea74332040823b5c9d188539a3a86337a80cc1f533c8ab5f78e68dc7e
   languageName: node
   linkType: hard
 
