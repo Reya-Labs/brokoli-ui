@@ -100,6 +100,8 @@ export const TabStyled = styled(
   }
 `;
 
+// Have to hardcode padding when calculating size
+// https://github.com/maslianok/react-resize-detector/issues/89
 export const ComponentBox = styled('div', shouldNotForwardProps(['tabBoxHeight', 'hidden']))<{
   hidden: boolean;
   tabBoxHeight: number;
