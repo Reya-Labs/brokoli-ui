@@ -103,6 +103,6 @@ export const ComponentBox = styled('div', shouldNotForwardProps(['tabBoxHeight',
   hidden: boolean;
   tabBoxHeight: number;
 }>`
-  height: ${({ tabBoxHeight }) => `calc(100% - ${tabBoxHeight})px`};
+  height: ${({ tabBoxHeight }) => `calc(100% - ${tabBoxHeight}px)`};
   display: ${({ hidden }) => (hidden ? 'none' : undefined)};
 `;

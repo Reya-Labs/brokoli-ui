@@ -50,7 +50,9 @@ export const Tabs: React.FunctionComponent<TabsProps> = ({
   onTabContentHide,
   hoverTabColorToken,
 }) => {
-  const { height: tabBoxHeight = 0, ref } = useResizeDetector();
+  const { height: tabBoxHeight = 0, ref } = useResizeDetector({
+    handleHeight: true,
+  });
   const allowContentHiding = Boolean(contentHiding);
   const { isHiddenInitially = true } = contentHiding || {};
   const [hiddenTabContent, setHiddenTabContent] = useState<boolean>(isHiddenInitially);
