@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ColorTokens } from '../../../foundation/Colors';
 import { Mark, MarkProps } from './Mark';
-import { BoxContainer, StyledSlider } from './RangeField.styled';
+import { Box, StyledSlider } from './RangeField.styled';
 import { Thumb, ThumbProps } from './Thumb';
 import { Track } from './Track';
 
@@ -47,7 +47,7 @@ export const RangeField = ({
   };
 
   return (
-    <BoxContainer data-testid="RangeField-BoxContainer" trackColorToken={trackColorToken}>
+    <Box data-testid="RangeField-Box" trackColorToken={trackColorToken}>
       <StyledSlider
         height={trackHeight}
         marks={step}
@@ -78,6 +78,6 @@ export const RangeField = ({
         value={value}
         onChange={handleOnChange}
       />
-    </BoxContainer>
+    </Box>
   );
 };

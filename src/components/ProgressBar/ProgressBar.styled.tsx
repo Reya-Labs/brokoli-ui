@@ -24,7 +24,7 @@ export const PercentageBox = styled(
   transition: ${createTransition({ duration: 700, properties: 'width' })};
 `;
 
-export const BoxContainer = styled(
+export const Box = styled(
   'div',
   shouldNotForwardProps(['backgroundColorToken', 'rounded', 'height']),
 )<{
