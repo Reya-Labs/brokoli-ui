@@ -22,7 +22,6 @@ export * from './components/HorizontalLine';
 export * from './components/Icons';
 export * from './components/LabelTokenTypography';
 export * from './components/LineChart';
-export * from './components/MarkdownPreview';
 export * from './components/MarketToken';
 export * from './components/Nav';
 export * from './components/Nav/NavLink';
