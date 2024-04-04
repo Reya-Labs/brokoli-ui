@@ -18,7 +18,55 @@ const Template: StoryFn<typeof CheckboxField> = (args) => {
 
 export const Default: StoryObj<typeof CheckboxField> = {
   args: {
+    text: (
+      <Typography colorToken="white100" typographyToken="bodySmallRegular">
+        Do you agree?
+      </Typography>
+    ),
+  },
+  render: Template,
+};
+
+export const WithChecked: StoryObj<typeof CheckboxField> = {
+  args: {
     checked: true,
+    text: (
+      <Typography colorToken="white100" typographyToken="bodySmallRegular">
+        Do you agree?
+      </Typography>
+    ),
+  },
+  render: Template,
+};
+
+export const WithDisabled: StoryObj<typeof CheckboxField> = {
+  args: {
+    checked: true,
+    disabled: true,
+    text: (
+      <Typography colorToken="white100" typographyToken="bodySmallRegular">
+        Do you agree?
+      </Typography>
+    ),
+  },
+  render: Template,
+};
+
+export const WithSize: StoryObj<typeof CheckboxField> = {
+  args: {
+    checked: true,
+    size: 32,
+    text: (
+      <Typography colorToken="white100" typographyToken="bodyMediumRegular">
+        Do you agree?
+      </Typography>
+    ),
+  },
+  render: Template,
+};
+
+export const WithComplexText: StoryObj<typeof CheckboxField> = {
+  args: {
     text: (
       <Typography colorToken="white100" typographyToken="bodySmallRegular">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut

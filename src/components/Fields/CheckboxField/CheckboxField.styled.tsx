@@ -1,18 +1,23 @@
 import styled from '@emotion/styled';
 
-export const CheckboxFieldBox = styled('label')`
+import { createTransition } from '../../../utils/create-transition';
+import { shouldNotForwardProps } from '../../../utils/should-not-forward-props';
+
+export const CheckboxFieldBox = styled('label', shouldNotForwardProps(['size', 'disabled']))<{
+  disabled: boolean;
+  size: number;
+}>`
   font-family: system-ui, sans-serif;
-  font-size: 2rem;
+  font-size: ${({ size }) => size}px;
   font-weight: bold;
   line-height: 1.1;
   display: grid;
   grid-template-columns: 1em auto;
   gap: 0.5em;
-  cursor: pointer;
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 
   .form-control--disabled {
     color: var(--form-control-disabled);
-    cursor: not-allowed;
   }
 
   & input[type='checkbox'] {
@@ -27,11 +32,10 @@ export const CheckboxFieldBox = styled('label')`
 
     font: inherit;
     color: ${({ theme }) => theme.colors.white100};
-    width: 1.15em;
-    height: 1.15em;
-    border: 0.15em solid ${({ theme }) => theme.colors.white950};
-    border-radius: 0.15em;
-    transform: translateY(-0.075em);
+    width: 1em;
+    height: 1em;
+    border: 1px solid ${({ theme }) => theme.colors.white950};
+    border-radius: 4px;
 
     display: grid;
     place-content: center;
@@ -44,8 +48,10 @@ export const CheckboxFieldBox = styled('label')`
     clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
     transform: scale(0);
     transform-origin: bottom left;
-    transition: 120ms transform ease-in-out;
-    box-shadow: inset 1em 1em ${({ theme }) => theme.colors.white100};
+    transition: ${createTransition({ properties: 'transform' })};
+    box-shadow: inset 1em 1em
+      ${({ disabled, theme }) => (disabled ? theme.colors.black400 : theme.colors.white100)};
+
     /* Windows High Contrast Mode */
     background-color: CanvasText;
   }
@@ -55,12 +61,13 @@ export const CheckboxFieldBox = styled('label')`
   }
 
   & input[type='checkbox']:focus {
-    outline: max(2px, 0.15em) solid ${({ theme }) => theme.colors.white950};
-    outline-offset: max(2px, 0.15em);
+    outline: max(3px, 0.15em) solid ${({ theme }) => theme.colors.black400};
   }
 
   & input[type='checkbox']:disabled {
-    color: ${({ theme }) => theme.colors.black700};
+    color: ${({ theme }) => theme.colors.black400};
+    border: 1px solid ${({ theme }) => theme.colors.black400};
+    background-color: ${({ theme }) => theme.colors.black800};
     cursor: not-allowed;
   }
 `;
