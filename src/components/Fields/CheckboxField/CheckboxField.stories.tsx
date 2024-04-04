@@ -52,6 +52,19 @@ export const WithDisabled: StoryObj<typeof CheckboxField> = {
   render: Template,
 };
 
+export const WithError: StoryObj<typeof CheckboxField> = {
+  args: {
+    checked: true,
+    error: true,
+    text: (
+      <Typography colorToken="white100" typographyToken="bodyMediumRegular">
+        Do you agree?
+      </Typography>
+    ),
+  },
+  render: Template,
+};
+
 export const WithSize: StoryObj<typeof CheckboxField> = {
   args: {
     checked: true,

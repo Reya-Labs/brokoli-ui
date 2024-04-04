@@ -3,9 +3,13 @@ import styled from '@emotion/styled';
 import { createTransition } from '../../../utils/create-transition';
 import { shouldNotForwardProps } from '../../../utils/should-not-forward-props';
 
-export const CheckboxFieldBox = styled('label', shouldNotForwardProps(['size', 'disabled']))<{
+export const CheckboxFieldBox = styled(
+  'label',
+  shouldNotForwardProps(['error', 'size', 'disabled']),
+)<{
   disabled: boolean;
   size: number;
+  error: boolean;
 }>`
   font-family: system-ui, sans-serif;
   font-size: ${({ size }) => size}px;
@@ -15,10 +19,6 @@ export const CheckboxFieldBox = styled('label', shouldNotForwardProps(['size', '
   grid-template-columns: 1em auto;
   gap: 0.5em;
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
-
-  .form-control--disabled {
-    color: var(--form-control-disabled);
-  }
 
   & input[type='checkbox'] {
     /* Add if not using autoprefixer */
@@ -34,7 +34,8 @@ export const CheckboxFieldBox = styled('label', shouldNotForwardProps(['size', '
     color: ${({ theme }) => theme.colors.white100};
     width: 1em;
     height: 1em;
-    border: 1px solid ${({ theme }) => theme.colors.white950};
+    border: 1px solid
+      ${({ theme, error }) => (error ? theme.colors.error500 : theme.colors.white950)};
     border-radius: 4px;
 
     display: grid;
@@ -50,7 +51,8 @@ export const CheckboxFieldBox = styled('label', shouldNotForwardProps(['size', '
     transform-origin: bottom left;
     transition: ${createTransition({ properties: 'transform' })};
     box-shadow: inset 1em 1em
-      ${({ disabled, theme }) => (disabled ? theme.colors.black400 : theme.colors.white100)};
+      ${({ disabled, theme, error }) =>
+        disabled ? theme.colors.black400 : error ? theme.colors.error500 : theme.colors.white100};
 
     /* Windows High Contrast Mode */
     background-color: CanvasText;
