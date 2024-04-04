@@ -5,7 +5,7 @@ import { RangeField } from './index';
 
 export default {
   component: RangeField,
-  title: 'Components/RangeField',
+  title: 'Components/Fields/RangeField',
 } as Meta<typeof RangeField>;
 
 const Template: StoryFn<typeof RangeField> = (args) => {

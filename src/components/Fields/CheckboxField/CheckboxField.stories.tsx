@@ -1,0 +1,44 @@
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
+import React, { useState } from 'react';
+
+import { ExternalLink } from '../../ExternalLink';
+import { Typography } from '../../Typography';
+import { CheckboxField } from '.';
+
+export default {
+  args: {},
+  component: CheckboxField,
+  title: 'Components/Fields/CheckboxField',
+} as Meta<typeof CheckboxField>;
+
+const Template: StoryFn<typeof CheckboxField> = (args) => {
+  const [checked, setChecked] = useState<boolean>(args.checked);
+  return <CheckboxField {...args} checked={checked} onChange={setChecked} />;
+};
+
+export const Default: StoryObj<typeof CheckboxField> = {
+  args: {
+    checked: true,
+    text: (
+      <Typography colorToken="white100" typographyToken="bodySmallRegular">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua.{' '}
+        <ExternalLink
+          activeColorToken="white100"
+          colorToken="white950"
+          disabled={false}
+          hoverColorToken="white300"
+          href="https://example.com"
+          typographyToken="bodySmallRegular"
+        >
+          Link Text
+        </ExternalLink>{' '}
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+        dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+        culpa qui officia deserunt mollit anim id est laborum.
+      </Typography>
+    ),
+  },
+  render: Template,
+};

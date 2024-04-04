@@ -113,7 +113,7 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
     if (newValue === cleanedValue) {
       return;
     }
-    onChange && onChange(newValue);
+    typeof onChange === 'function' && onChange(newValue);
   };
 
   const handleOnTokenOptionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {

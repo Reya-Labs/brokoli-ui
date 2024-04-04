@@ -48,7 +48,7 @@ export const TextField: React.FunctionComponent<TextFieldProps> = ({
   bottomLeftText,
 }) => {
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    onChange && onChange(event.target.value);
+    typeof onChange === 'function' && onChange(event.target.value);
   };
   return (
     <TextFieldBox data-testid={error ? 'TextField-TextFieldBox-Error' : 'TextField-TextFieldBox'}>

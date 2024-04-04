@@ -64,7 +64,7 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
     if (newValue === cleanedValue) {
       return;
     }
-    onChange && onChange(newValue);
+    typeof onChange === 'function' && onChange(newValue);
   };
 
   return (
