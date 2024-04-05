@@ -57,7 +57,7 @@ export const WithError: StoryObj<typeof CheckboxField> = {
     checked: true,
     error: true,
     text: (
-      <Typography colorToken="white100" typographyToken="bodyMediumRegular">
+      <Typography colorToken="white100" typographyToken="bodySmallRegular">
         Do you agree?
       </Typography>
     ),
