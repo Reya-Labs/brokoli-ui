@@ -31,3 +31,12 @@ export const WithBackgroundColor: StoryObj<typeof Typography> = {
     typographyToken: 'h1XLBold',
   },
 };
+
+export const WithAsSpan: StoryObj<typeof Typography> = {
+  args: {
+    as: 'span',
+    children: 'I should be <p />, but I am a <span />',
+    colorToken: 'white100',
+    typographyToken: 'bodyMediumRegular',
+  },
+};

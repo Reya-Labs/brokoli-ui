@@ -12,6 +12,7 @@ export type TypographyProps = React.PropsWithChildren<{
   className?: string;
   'data-testid'?: string;
   id?: string;
+  as?: React.ElementType;
 }>;
 
 export const Typography: React.FunctionComponent<TypographyProps> = ({
@@ -22,6 +23,7 @@ export const Typography: React.FunctionComponent<TypographyProps> = ({
   'data-testid': dataTestId,
   backgroundColorToken,
   id,
+  as = tokenTagMap[typographyToken],
 }) => {
   const isRainbowColorToken = colorToken === 'rainbow';
   const TypographyUI = isRainbowColorToken ? RainbowTypography : BaseTypography;
@@ -29,7 +31,7 @@ export const Typography: React.FunctionComponent<TypographyProps> = ({
 
   return (
     <TypographyUI
-      as={tokenTagMap[typographyToken]}
+      as={as}
       backgroundColorToken={backgroundColorToken}
       className={className}
       colorToken={typographyColorToken}
