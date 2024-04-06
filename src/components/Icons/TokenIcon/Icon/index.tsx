@@ -26,6 +26,7 @@ export type SupportedTokenIcons =
   | 'rusd'
   | 'seth'
   | 'usdc'
+  | 'usdc.e'
   | 'usdt'
   | 'wbtc'
   | 'weth';
@@ -42,6 +43,7 @@ const TokenIconMap: Record<
   rusd: RUSDIcon,
   seth: SETHIcon,
   usdc: USDCIcon,
+  'usdc.e': USDCIcon,
   usdt: USDTIcon,
   wbtc: WBTCIcon,
   weth: WETHIcon,
