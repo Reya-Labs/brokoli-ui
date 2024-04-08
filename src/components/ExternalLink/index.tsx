@@ -18,10 +18,12 @@ type ExternalLinkProps = {
   className?: string;
   hideArrowIcon?: boolean;
   disabledColorToken?: ColorTokens;
+  onClick?: () => void;
 };
 
 export const ExternalLink: React.FunctionComponent<ExternalLinkProps> = ({
   activeColorToken,
+  onClick,
   hoverColorToken,
   hideArrowIcon,
   className,
@@ -57,6 +59,7 @@ export const ExternalLink: React.FunctionComponent<ExternalLinkProps> = ({
       id={id}
       target="_blank"
       typographyToken={typographyToken}
+      onClick={disabled ? undefined : onClick}
     >
       {children}
       {hideArrowIcon ? null : <LinkArrow data-testid="ExternalLink-LinkArrow" />}
