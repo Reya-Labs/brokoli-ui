@@ -48,7 +48,7 @@ export const CheckboxFieldBox = styled(
     height: 0.65em;
     clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
     transform: scale(0);
-    transform-origin: bottom left;
+    transform-origin: center center;
     transition: ${createTransition({ properties: 'transform' })};
     box-shadow: inset 1em 1em
       ${({ disabled, theme, error }) =>
