@@ -40,7 +40,6 @@ export const Default: StoryObj<typeof TokenField> = {
     tooltip: 'Tooltip message here!',
     topRightText: 'Top right text',
   },
-
   render: Template,
 };
 
@@ -58,7 +57,27 @@ export const WithMax: StoryObj<typeof TokenField> = {
     tooltip: 'Tooltip message here!',
     topRightText: 'Top right text',
   },
+  render: Template,
+};
 
+export const WithError: StoryObj<typeof TokenField> = {
+  args: {
+    bottomLeftText: 'Max value is',
+    bottomLeftTextColorToken: 'error500',
+    bottomRightTextColorToken: 'error500',
+    bottomRightTextTokenColorToken: 'error700',
+    bottomRightTextValue: '123456',
+    error: true,
+    label: 'Label',
+    max: {
+      onClick: () => {},
+      showButton: true,
+      value: '123456',
+    },
+    token: 'usdc',
+    tooltip: 'Tooltip message here!',
+    topRightText: 'Top right text',
+  },
   render: Template,
 };
 
@@ -78,7 +97,6 @@ export const WithDifferentBottomRightTextToken: StoryObj<typeof TokenField> = {
     tooltip: 'Tooltip message here!',
     topRightText: 'Top right text',
   },
-
   render: Template,
 };
 
@@ -98,7 +116,6 @@ export const WithMaxTokenOptionsAndTokenFormatter: StoryObj<typeof TokenField> =
     tooltip: 'Tooltip message here!',
     topRightText: 'Top right text',
   },
-
   render: Template,
 };
 
@@ -118,7 +135,6 @@ export const WithMaxTokenOptionsAndNoInitialTokenFormatter: StoryObj<typeof Toke
     tooltip: 'Tooltip message here!',
     topRightText: 'Top right text',
   },
-
   render: Template,
 };
 
@@ -139,6 +155,5 @@ export const WithPrefixTokenFormatter: StoryObj<typeof TokenField> = {
     tooltip: 'Tooltip message here!',
     topRightText: 'Top right text',
   },
-
   render: Template,
 };
