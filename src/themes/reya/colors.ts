@@ -40,14 +40,14 @@ export const colors: ColorsTheme = {
   /* Secondary */
   secondary100: '#F9F2FF',
   secondary200: '#F0DDFF',
-  secondary300: '#E0BAFF',
-  secondary400: '#CD8EFF',
-  secondary500: '#B24FFF',
-  secondary600: '#7A13CA',
-  secondary700: '#6F11B9',
-  secondary800: '#4E0588',
-  secondary900: '#320058',
-  secondary950: '#21003A',
+  secondary300: '#D5B4FF',
+  secondary400: '#C08FFF',
+  secondary500: '#B67DFF',
+  secondary600: '#7449AB',
+  secondary700: '#532F81',
+  secondary800: '#322345',
+  secondary900: '#21182C',
+  secondary950: '#18121F',
 
   /* Warning or Yellow */
   warning100: '#FFEBC6',
