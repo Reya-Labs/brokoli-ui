@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { BaseColorTokens, ColorTokens, isBaseColorToken } from '../../foundation/Colors';
+import { ColorTokens } from '../../foundation/Colors';
 import { TypographyTokens } from '../../foundation/Typography';
 import { Typography } from '../Typography';
 import { PillBox, PillVariant } from './Pill.styled';
@@ -8,7 +8,8 @@ import { PillBox, PillVariant } from './Pill.styled';
 export type PillProps = {
   children: string;
   className?: string;
-  colorToken: BaseColorTokens | 'rainbow';
+  colorToken: ColorTokens | 'rainbow';
+  backgroundColorToken: ColorTokens;
   typographyToken: TypographyTokens;
   'data-testid'?: string;
   variant: PillVariant;
@@ -19,16 +20,12 @@ export const Pill = ({
   'data-testid': dataTestId,
   typographyToken,
   children,
-  colorToken,
   className,
   variant,
   onClick,
+  colorToken,
+  backgroundColorToken,
 }: PillProps) => {
-  const isBaseColorTokenProvided = isBaseColorToken(colorToken);
-  const backgroundColorToken: ColorTokens = isBaseColorTokenProvided
-    ? `${colorToken}700`
-    : 'black800';
-
   return (
     <PillBox
       backgroundColorToken={backgroundColorToken}
@@ -38,7 +35,7 @@ export const Pill = ({
       onClick={onClick}
     >
       <Typography
-        colorToken={isBaseColorTokenProvided ? `${colorToken}100` : 'rainbow'}
+        colorToken={colorToken}
         data-testid={
           dataTestId || `Pill-PillTypography-${variant}-${colorToken}-${typographyToken}`
         }
