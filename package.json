@@ -138,6 +138,7 @@
     "@visx/glyph": "3.3.0",
     "@visx/responsive": "3.0.0",
     "@visx/xychart": "3.1.2",
+    "brokoli-ui": "8.55.2",
     "facepaint": "1.2.1",
     "lodash.memoize": "4.1.2",
     "lodash.range": "3.2.0",

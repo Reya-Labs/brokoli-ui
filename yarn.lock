@@ -11608,7 +11608,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"brokoli-ui@workspace:.":
+"brokoli-ui@npm:8.55.2, brokoli-ui@workspace:.":
   version: 0.0.0-use.local
   resolution: "brokoli-ui@workspace:."
   dependencies:
@@ -11658,6 +11658,7 @@ __metadata:
     "@visx/responsive": "npm:3.0.0"
     "@visx/xychart": "npm:3.1.2"
     babel-loader: "npm:8.3.0"
+    brokoli-ui: "npm:8.55.2"
     camelcase: "npm:6.3.0"
     concurrently: "npm:7.6.0"
     dpdm: "npm:3.11.0"
