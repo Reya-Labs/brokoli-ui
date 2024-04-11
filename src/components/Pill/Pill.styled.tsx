@@ -8,9 +8,10 @@ export const PillBox = styled('div', shouldNotForwardProps(['backgroundColorToke
   backgroundColorToken: ColorTokens;
   variant: PillVariant;
 }>`
-  display: inline-block;
-  padding: ${({ variant }) => (variant === 'regular' ? '4px 8px' : '0 4px')};
-  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  padding: ${({ variant }) => (variant === 'regular' ? '2px 8px' : '0 4px')};
+  border-radius: 24px;
   background: ${({ theme, backgroundColorToken }) =>
     getColorFromToken({ colorToken: backgroundColorToken, theme })};
 `;
