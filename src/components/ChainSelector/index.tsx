@@ -119,7 +119,7 @@ export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
             disabled={disabled}
             isPopoverOpen={isSubmenuOpened}
             typographyToken={selectedChainTypographyToken}
-            onClick={handleSubmenuOpen}
+            onClick={isSubmenuOpened ? handleSubmenuClose : handleSubmenuOpen}
           >
             <React.Fragment>
               {approving
