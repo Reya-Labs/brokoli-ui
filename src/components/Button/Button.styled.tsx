@@ -20,11 +20,15 @@ export const ButtonStyled = styled(
     'hoverTypographyColorToken',
     'hoverBackgroundColorToken',
     'rounded',
+    'hoverIconColorToken',
+    'iconColorToken',
   ]),
 )<{
   typographyToken: TypographyTokens;
   borderColorToken?: ColorTokens;
   backgroundColorToken?: ColorTokens;
+  hoverIconColorToken?: ColorTokens;
+  iconColorToken?: ColorTokens;
   typographyColorToken?: ColorTokens;
   hoverBorderColorToken?: ColorTokens;
   hoverTypographyColorToken?: ColorTokens;
@@ -83,17 +87,15 @@ export const ButtonStyled = styled(
 
   & path {
     display: block;
-    stroke: ${({ theme, typographyColorToken }) =>
-      typographyColorToken
-        ? getColorFromToken({ colorToken: typographyColorToken, theme })
-        : 'inherit'};
+    stroke: ${({ theme, iconColorToken }) =>
+      iconColorToken ? getColorFromToken({ colorToken: iconColorToken, theme }) : 'inherit'};
     transition: ${createTransition({ properties: 'stroke' })};
   }
 
   &:hover:enabled path {
-    stroke: ${({ theme, hoverTypographyColorToken }) =>
-      hoverTypographyColorToken
-        ? getColorFromToken({ colorToken: hoverTypographyColorToken, theme })
+    stroke: ${({ theme, hoverIconColorToken }) =>
+      hoverIconColorToken
+        ? getColorFromToken({ colorToken: hoverIconColorToken, theme })
         : 'inherit'};
   }
 `;
@@ -105,18 +107,18 @@ export const ButtonBox = styled('div')`
   gap: 4px;
 `;
 
-export const IconBox = styled('div', shouldNotForwardProps(['color', 'hoverColor']))<{
-  color?: ColorTokens;
-  hoverColor?: ColorTokens;
+export const IconBox = styled('div', shouldNotForwardProps(['colorToken', 'hoverColorToken']))<{
+  colorToken?: ColorTokens;
+  hoverColorToken?: ColorTokens;
 }>`
   display: flex;
   height: 100%;
   align-items: center;
-  color: ${({ theme, color }) =>
-    color ? getColorFromToken({ colorToken: color, theme }) : 'inherit'};
+  color: ${({ theme, colorToken }) =>
+    colorToken ? getColorFromToken({ colorToken, theme }) : 'inherit'};
 
   &:hover:enabled {
-    color: ${({ theme, hoverColor }) =>
-      hoverColor ? getColorFromToken({ colorToken: hoverColor, theme }) : 'inherit'};
+    color: ${({ theme, hoverColorToken }) =>
+      hoverColorToken ? getColorFromToken({ colorToken: hoverColorToken, theme }) : 'inherit'};
   }
 `;

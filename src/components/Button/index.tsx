@@ -23,6 +23,8 @@ export type ButtonProps = React.PropsWithChildren<{
   hoverTypographyColorToken?: ColorTokens;
   hoverBackgroundColorToken?: ColorTokens;
   hoverBorderColorToken?: ColorTokens;
+  hoverIconColorToken?: ColorTokens;
+  iconColorToken?: ColorTokens;
   /**
    * `iconLeft` allows you to insert a React Component (preferably an SVG) on the left side of the button content.
    * When an SVG is provided as `iconLeft`, it will inherit hover effects from the button, such as color changes.
@@ -55,6 +57,8 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
   hoverBackgroundColorToken,
   iconLeft,
   iconRight,
+  hoverIconColorToken = hoverTypographyColorToken,
+  iconColorToken = typographyColorToken,
 }) => {
   const childrenToRender = !loading ? children : <Ellipsis />;
 
@@ -62,9 +66,9 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
     <>
       {iconLeft && !loading && (
         <IconBox
-          color={typographyColorToken}
+          colorToken={iconColorToken}
           data-testid="Button-IconLeftBox"
-          hoverColor={hoverTypographyColorToken}
+          hoverColorToken={hoverIconColorToken}
         >
           {iconLeft}
         </IconBox>
@@ -72,9 +76,9 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
       {childrenToRender}
       {iconRight && !loading && (
         <IconBox
-          color={typographyColorToken}
+          colorToken={iconColorToken}
           data-testid="Button-IconRightBox"
-          hoverColor={hoverTypographyColorToken}
+          hoverColorToken={hoverIconColorToken}
         >
           {iconRight}
         </IconBox>
@@ -91,7 +95,9 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
       disabled={disabled}
       hoverBackgroundColorToken={hoverBackgroundColorToken || backgroundColorToken}
       hoverBorderColorToken={hoverBorderColorToken}
+      hoverIconColorToken={hoverIconColorToken}
       hoverTypographyColorToken={hoverTypographyColorToken || typographyColorToken}
+      iconColorToken={iconColorToken}
       rounded={Boolean(rounded)}
       typographyColorToken={typographyColorToken}
       typographyToken={typographyToken}

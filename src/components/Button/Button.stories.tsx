@@ -106,3 +106,19 @@ export const WithIcon: StoryObj<typeof Button> = {
     typographyToken: 'bodyMediumRegular',
   },
 };
+
+export const WithCustomColorTokenIcon: StoryObj<typeof Button> = {
+  args: {
+    backgroundColorToken: 'black700',
+    borderColorToken: 'white900',
+    children: 'Default',
+    hoverIconColorToken: 'error700',
+    hoverTypographyColorToken: 'primary500',
+    iconColorToken: 'error500',
+    iconLeft: <SendIcon />,
+    iconRight: <SendIcon />,
+    rounded: true,
+    typographyColorToken: 'white100',
+    typographyToken: 'bodyMediumRegular',
+  },
+};
