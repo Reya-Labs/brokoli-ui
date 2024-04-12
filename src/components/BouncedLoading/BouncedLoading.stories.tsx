@@ -11,3 +11,10 @@ export default {
 export const Default: StoryObj<typeof BouncedLoading> = {
   args: {},
 };
+
+export const WithColorToken: StoryObj<typeof BouncedLoading> = {
+  args: {
+    colorToken: 'white100',
+    highlightColorToken: 'secondary500',
+  },
+};

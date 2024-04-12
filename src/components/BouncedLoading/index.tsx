@@ -1,8 +1,17 @@
 import React, { FunctionComponent } from 'react';
 
+import { ColorTokens } from '../../foundation/Colors';
 import { Container } from './BouncedLoading.styled';
 
-export const BouncedLoading: FunctionComponent = () => {
+export type BouncedLoadingProps = {
+  colorToken?: ColorTokens;
+  highlightColorToken?: ColorTokens;
+};
+
+export const BouncedLoading: FunctionComponent<BouncedLoadingProps> = ({
+  colorToken = 'white400',
+  highlightColorToken = 'primary400',
+}) => {
   const bouncingElements = React.useMemo(
     () =>
       Array.from({ length: 3 }, (_, index) => (
@@ -11,5 +20,13 @@ export const BouncedLoading: FunctionComponent = () => {
     [],
   );
 
-  return <Container data-testid="BouncedLoading-Container">{bouncingElements}</Container>;
+  return (
+    <Container
+      colorToken={colorToken}
+      data-testid="BouncedLoading-Container"
+      highlightColorToken={highlightColorToken}
+    >
+      {bouncingElements}
+    </Container>
+  );
 };

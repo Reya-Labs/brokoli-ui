@@ -1,14 +1,17 @@
 import { keyframes, Theme } from '@emotion/react';
 import styled from '@emotion/styled';
 
-const bounce = (theme: Theme) => keyframes`
+import { ColorTokens, getColorFromToken } from '../../foundation/Colors';
+import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
+
+const bounce = (theme: Theme, highlightColorToken: ColorTokens) => keyframes`
   0%,
   20% {
     transform: translate(0, 0);
   }
   50% {
     transform: translate(0, -5px);
-    background: ${theme.colors.primary400};
+    background: ${getColorFromToken({ colorToken: highlightColorToken, theme })};
   }
   80%,
   100% {
@@ -16,7 +19,13 @@ const bounce = (theme: Theme) => keyframes`
   }
 `;
 
-export const Container = styled('div')`
+export const Container = styled(
+  'div',
+  shouldNotForwardProps(['highlightColorToken', 'colorToken']),
+)<{
+  colorToken: ColorTokens;
+  highlightColorToken: ColorTokens;
+}>`
   position: relative;
   height: 9px;
   display: flex;
@@ -27,18 +36,21 @@ export const Container = styled('div')`
     width: 2px;
     float: left;
     margin: 0 2px;
-    background: ${({ theme }) => theme.colors.white400};
+    background: ${({ theme, colorToken }) => getColorFromToken({ colorToken, theme })};
   }
   i:nth-of-type(1) {
     z-index: 1;
-    animation: ${({ theme }) => bounce(theme)} 700ms infinite ease-in-out;
+    animation: ${({ theme, highlightColorToken }) => bounce(theme, highlightColorToken)} 700ms
+      infinite ease-in-out;
   }
   i:nth-of-type(2) {
-    animation: ${({ theme }) => bounce(theme)} 700ms infinite ease-in-out;
+    animation: ${({ theme, highlightColorToken }) => bounce(theme, highlightColorToken)} 700ms
+      infinite ease-in-out;
     animation-delay: 125ms;
   }
   i:nth-of-type(3) {
-    animation: ${({ theme }) => bounce(theme)} 700ms infinite ease-in-out;
+    animation: ${({ theme, highlightColorToken }) => bounce(theme, highlightColorToken)} 700ms
+      infinite ease-in-out;
     animation-delay: 250ms;
   }
 `;
