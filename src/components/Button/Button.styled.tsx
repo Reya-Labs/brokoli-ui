@@ -59,7 +59,7 @@ export const ButtonStyled = styled(
     typographyColorToken
       ? getColorFromToken({ colorToken: typographyColorToken, theme })
       : undefined};
-  transition: ${createTransition({ properties: [' border', 'background', 'color'] })};
+  transition: ${createTransition({ properties: [' border', 'background-color', 'color'] })};
   position: relative;
 
   &:hover:enabled {

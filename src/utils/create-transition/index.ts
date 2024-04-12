@@ -29,8 +29,9 @@ export const createTransition = ({
   duration = 200,
   timingFunction = 'ease-in',
 }: TransitionArgs = {}) => {
-  const formattedProperties = Array.isArray(properties) ? properties.join(', ') : properties;
   const formattedDuration = `${duration}ms`;
-
-  return `${formattedProperties} ${formattedDuration} ${timingFunction}`;
+  if (!Array.isArray(properties)) {
+    return `${properties} ${formattedDuration} ${timingFunction}`;
+  }
+  return properties.map((p) => `${p} ${formattedDuration} ${timingFunction}`).join(', ');
 };

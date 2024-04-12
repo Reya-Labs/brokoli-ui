@@ -31,13 +31,14 @@ export const Rounded: StoryObj<typeof Button> = {
 
 export const WithHover: StoryObj<typeof Button> = {
   args: {
-    backgroundColorToken: 'white100',
-    borderColorToken: 'white900',
+    backgroundColorToken: 'black100',
+    borderColorToken: 'primary500',
     children: 'Default',
-    hoverBackgroundColorToken: 'primary200',
-    hoverBorderColorToken: 'primary700',
-    hoverTypographyColorToken: 'primary500',
-    typographyColorToken: 'white950',
+    hoverBackgroundColorToken: 'white100',
+    hoverBorderColorToken: 'error500',
+    hoverTypographyColorToken: 'error500',
+    rounded: true,
+    typographyColorToken: 'primary500',
   },
 };
 

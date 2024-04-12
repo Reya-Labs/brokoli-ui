@@ -25,4 +25,13 @@ describe('createTransition utility function', () => {
     const result = createTransition({ duration: 300, properties: 'opacity' });
     expect(result).toBe('opacity 300ms ease-in');
   });
+
+  it('should allow custom timing function, custom duration and custom properties', () => {
+    const result = createTransition({
+      duration: 500,
+      properties: ['background', 'border', 'color'],
+      timingFunction: 'ease-out',
+    });
+    expect(result).toBe('background 500ms ease-out, border 500ms ease-out, color 500ms ease-out');
+  });
 });
