@@ -91,28 +91,6 @@ export function FloatingUIDialog({
   return <DialogContext.Provider value={dialog}>{children}</DialogContext.Provider>;
 }
 
-export const FloatingUIDialogTrigger = React.forwardRef<HTMLElement, React.HTMLProps<HTMLElement>>(
-  function FloatingUIDialogTrigger({ children, ...props }, propRef) {
-    const context = useFloatingUIDialogContext();
-    const childrenRef = (children as unknown as { ref: React.Ref<unknown> }).ref;
-    const ref = useMergeRefs([context.refs.setReference, propRef, childrenRef]);
-
-    if (React.isValidElement(children)) {
-      return React.cloneElement(
-        children,
-        context.getReferenceProps({
-          ref,
-          ...props,
-          ...children.props,
-          'data-state': context.open ? 'open' : 'closed',
-        } as never),
-      );
-    }
-
-    return null;
-  },
-);
-
 export const FloatingUIDialogContent = React.forwardRef<
   HTMLDivElement,
   React.HTMLProps<HTMLDivElement>
