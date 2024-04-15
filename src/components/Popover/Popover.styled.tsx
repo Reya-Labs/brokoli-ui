@@ -10,5 +10,6 @@ export const globalReactTinyPopoverContainerCSS = (theme: Theme) => css`
     min-width: 160px;
     margin-top: 4px;
     z-index: ${theme.layerIndexes.popover};
+    overflow: hidden !important;
   }
 `;
