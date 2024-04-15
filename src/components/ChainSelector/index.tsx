@@ -105,7 +105,12 @@ export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
           tooltip={tooltip}
           tooltipColorToken={tooltipColorToken}
         />
-        <SelectorBox ref={parentRef} data-testid="ChainSelector-SelectorBox" disabled={disabled}>
+        <SelectorBox
+          ref={parentRef}
+          data-testid="ChainSelector-SelectorBox"
+          disabled={disabled}
+          onClick={isSubmenuOpened ? handleSubmenuClose : handleSubmenuOpen}
+        >
           {selectedChainName && selectedChainId ? (
             <IconBox data-testid="ChainSelector-IconBox">
               <ChainIcon
@@ -119,7 +124,6 @@ export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
             disabled={disabled}
             isPopoverOpen={isSubmenuOpened}
             typographyToken={selectedChainTypographyToken}
-            onClick={isSubmenuOpened ? handleSubmenuClose : handleSubmenuOpen}
           >
             <React.Fragment>
               {approving
