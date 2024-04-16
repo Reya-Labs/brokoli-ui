@@ -31,7 +31,9 @@ export const createTransition = ({
 }: TransitionArgs = {}) => {
   const formattedDuration = `${duration}ms`;
   if (!Array.isArray(properties)) {
-    return `${properties} ${formattedDuration} ${timingFunction}`;
+    return `${(properties || 'all').trimStart().trimEnd()} ${formattedDuration} ${timingFunction}`;
   }
-  return properties.map((p) => `${p} ${formattedDuration} ${timingFunction}`).join(', ');
+  return properties
+    .map((p) => `${p.trimStart().trimEnd()} ${formattedDuration} ${timingFunction}`)
+    .join(', ');
 };
