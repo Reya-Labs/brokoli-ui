@@ -1,5 +1,5 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Button } from '../Button';
 import { Dialog } from '../Dialog';
@@ -29,15 +29,23 @@ export const ButtonConfetti: StoryObj<typeof Confetti> = {
   render: ButtonTemplate,
 };
 
-const DialogTemplate: StoryFn<typeof Confetti> = (args) => (
-  <Dialog open={true}>
-    <Confetti {...args}>
-      <Typography colorToken="white100" typographyToken="bodyExtraLargeBold">
-        I am wrapped in confetti!
-      </Typography>
-    </Confetti>
-  </Dialog>
-);
+const DialogTemplate: StoryFn<typeof Confetti> = (args) => {
+  const [isOpen, setIsOpen] = useState(true);
+
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+
+  return (
+    <Dialog open={isOpen} onClose={handleClose}>
+      <Confetti {...args}>
+        <Typography colorToken="white100" typographyToken="bodyExtraLargeBold">
+          I am wrapped in confetti!
+        </Typography>
+      </Confetti>
+    </Dialog>
+  );
+};
 
 export const DialogConfetti: StoryObj<typeof Confetti> = {
   args: {},
