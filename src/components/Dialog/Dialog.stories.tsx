@@ -68,13 +68,13 @@ const Template: StoryFn<typeof Dialog> = (args) => {
 export const Default: StoryObj<typeof Dialog> = {
   args: {
     children: (
-      <React.Fragment>
-        <Typography colorToken="white100" typographyToken="bodyLargeRegular">
-          Description text using styled components.
+      <div>
+        <Typography colorToken="white100" typographyToken="h2Bold">
+          Title.
         </Typography>
         <br />
-        <Typography colorToken="white400" typographyToken="bodyMediumRegular">
-          Additional UI component details.
+        <Typography colorToken="white100" typographyToken="bodyLargeRegular">
+          Description text using styled components.
         </Typography>
         <br />
         <TypographyWithTooltip
@@ -84,10 +84,8 @@ export const Default: StoryObj<typeof Dialog> = {
         >
           Sample tooltip usage in dialog.
         </TypographyWithTooltip>
-      </React.Fragment>
+      </div>
     ),
-    open: true,
   },
-
   render: Template,
 };
