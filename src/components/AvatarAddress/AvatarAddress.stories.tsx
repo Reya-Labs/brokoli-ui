@@ -20,6 +20,6 @@ export const SmallVariant: StoryObj<typeof AvatarAddress> = {
   args: {
     address: '0xbrokoli1C9000D453241221E111148F1C378ooli',
     avatarSize: 'small',
-    typographyToken: 'bodySmallRegular',
+    typographyToken: 'bodySmallMedium',
   },
 };

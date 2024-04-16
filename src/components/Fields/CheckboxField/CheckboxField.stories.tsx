@@ -19,7 +19,7 @@ const Template: StoryFn<typeof CheckboxField> = (args) => {
 export const Default: StoryObj<typeof CheckboxField> = {
   args: {
     text: (
-      <Typography colorToken="white100" typographyToken="bodySmallRegular">
+      <Typography colorToken="white100" typographyToken="bodySmallMedium">
         Do you agree?
       </Typography>
     ),
@@ -31,7 +31,7 @@ export const WithChecked: StoryObj<typeof CheckboxField> = {
   args: {
     checked: true,
     text: (
-      <Typography colorToken="white100" typographyToken="bodySmallRegular">
+      <Typography colorToken="white100" typographyToken="bodySmallMedium">
         Do you agree?
       </Typography>
     ),
@@ -44,7 +44,7 @@ export const WithDisabled: StoryObj<typeof CheckboxField> = {
     checked: true,
     disabled: true,
     text: (
-      <Typography colorToken="white100" typographyToken="bodySmallRegular">
+      <Typography colorToken="white100" typographyToken="bodySmallMedium">
         Do you agree?
       </Typography>
     ),
@@ -57,7 +57,7 @@ export const WithError: StoryObj<typeof CheckboxField> = {
     checked: true,
     error: true,
     text: (
-      <Typography colorToken="white100" typographyToken="bodySmallRegular">
+      <Typography colorToken="white100" typographyToken="bodySmallMedium">
         Do you agree?
       </Typography>
     ),
@@ -81,7 +81,7 @@ export const WithSize: StoryObj<typeof CheckboxField> = {
 export const WithComplexText: StoryObj<typeof CheckboxField> = {
   args: {
     text: (
-      <Typography colorToken="white100" typographyToken="bodySmallRegular">
+      <Typography colorToken="white100" typographyToken="bodySmallMedium">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
         labore et dolore magna aliqua.{' '}
         <ExternalLink
@@ -90,7 +90,7 @@ export const WithComplexText: StoryObj<typeof CheckboxField> = {
           disabled={false}
           hoverColorToken="white300"
           href="https://example.com"
-          typographyToken="bodySmallRegular"
+          typographyToken="bodySmallMedium"
         >
           Link Text
         </ExternalLink>{' '}

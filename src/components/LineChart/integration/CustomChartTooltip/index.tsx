@@ -45,7 +45,7 @@ export const CustomChartTooltip: React.FunctionComponent<
           colorToken="white100"
           token={` ${underlyingAsset}`}
           tokenColorToken="white950"
-          typographyToken="bodySmallRegular"
+          typographyToken="bodySmallMedium"
           value={priceFormatted}
         />
       </RowBox>
@@ -57,7 +57,7 @@ export const CustomChartTooltip: React.FunctionComponent<
           colorToken="white100"
           token={` ${quoteToken}`}
           tokenColorToken="white950"
-          typographyToken="bodySmallRegular"
+          typographyToken="bodySmallMedium"
           value={sizeFormatted}
         />
       </RowBox>
@@ -69,7 +69,7 @@ export const CustomChartTooltip: React.FunctionComponent<
           colorToken="white100"
           token={` ${underlyingAsset}`}
           tokenColorToken="white950"
-          typographyToken="bodySmallRegular"
+          typographyToken="bodySmallMedium"
           value={totalCostFormatted}
         />
       </RowBox>
@@ -81,7 +81,7 @@ export const CustomChartTooltip: React.FunctionComponent<
           colorToken="white100"
           token={` ${underlyingAsset}`}
           tokenColorToken="white950"
-          typographyToken="bodySmallRegular"
+          typographyToken="bodySmallMedium"
           value={priceImpactFormatted}
         />
       </RowBox>

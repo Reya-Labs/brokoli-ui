@@ -22,7 +22,7 @@ export const Default: StoryObj<typeof OptionButtons> = {
     activeOptionId: 'yes',
     label: 'Options label',
     labelColorToken: 'white950',
-    labelTypographyToken: 'bodySmallRegular',
+    labelTypographyToken: 'bodySmallMedium',
     options: [
       {
         activeBackgroundColorToken: 'primary950',

@@ -12,8 +12,7 @@ export const SubLinkButton = styled('a')`
   padding: 16px;
   gap: 8px;
 
-  ${({ theme }) =>
-    css(getResponsiveTypographyStyleFromToken({ theme, token: 'bodySmallRegular' }))};
+  ${({ theme }) => css(getResponsiveTypographyStyleFromToken({ theme, token: 'bodySmallMedium' }))};
 
   color: ${({ theme }) => theme.colors.white100};
   text-decoration: none;
@@ -36,8 +35,7 @@ export const ActiveSubLinkButton = styled('a')`
   padding: 16px;
   gap: 8px;
 
-  ${({ theme }) =>
-    css(getResponsiveTypographyStyleFromToken({ theme, token: 'bodySmallRegular' }))};
+  ${({ theme }) => css(getResponsiveTypographyStyleFromToken({ theme, token: 'bodySmallMedium' }))};
 
   color: ${({ theme }) => theme.colors.white100};
   text-decoration: none;

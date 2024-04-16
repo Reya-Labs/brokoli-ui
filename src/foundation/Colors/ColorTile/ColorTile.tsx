@@ -14,7 +14,7 @@ export const ColorTile: React.FunctionComponent<ColorTileProps> = ({
     <ColorBackgroundBox backgroundColor={backgroundColor}>
       <Typography
         colorToken={highlight ? 'white100' : 'black400'}
-        typographyToken="bodySmallRegular"
+        typographyToken="bodySmallMedium"
       >
         brokoli-ui
       </Typography>
@@ -23,7 +23,7 @@ export const ColorTile: React.FunctionComponent<ColorTileProps> = ({
       <Typography colorToken="black500" typographyToken="bodyMediumBold">
         {name}
       </Typography>
-      <Typography colorToken="black800" typographyToken="bodySmallRegular">
+      <Typography colorToken="black800" typographyToken="bodySmallMedium">
         {backgroundColor.toUpperCase()}
       </Typography>
     </ColorTypographyBox>

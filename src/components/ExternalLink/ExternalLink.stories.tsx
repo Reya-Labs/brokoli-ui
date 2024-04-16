@@ -20,7 +20,7 @@ export const Default: StoryObj<typeof ExternalLink> = {
 };
 
 const WithinTextTemplate: StoryFn<typeof ExternalLink> = (args) => (
-  <Typography colorToken="white100" typographyToken="bodySmallRegular">
+  <Typography colorToken="white100" typographyToken="bodySmallMedium">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
     labore et dolore magna aliqua. <ExternalLink {...args} /> Ut enim ad minim veniam, quis nostrud
     exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in

@@ -9,7 +9,7 @@ describe('<TokenTypography />', () => {
       <TokenTypography
         colorToken="white100"
         token="ETH"
-        typographyToken="bodySmallRegular"
+        typographyToken="bodySmallMedium"
         value="123"
       />,
     );
@@ -20,7 +20,7 @@ describe('<TokenTypography />', () => {
       <TokenTypography
         colorToken="white100"
         token="ETH"
-        typographyToken="bodySmallRegular"
+        typographyToken="bodySmallMedium"
         value="123"
       />,
     );
@@ -39,7 +39,7 @@ describe('<TokenTypography />', () => {
         colorToken="white100"
         token="ETH"
         token2="BTC"
-        typographyToken="bodySmallRegular"
+        typographyToken="bodySmallMedium"
         value="123"
         value2="456"
       />,
@@ -61,7 +61,7 @@ describe('<TokenTypography />', () => {
         differenceToken="%"
         differenceValue={10}
         token="ETH"
-        typographyToken="bodySmallRegular"
+        typographyToken="bodySmallMedium"
         value="123"
       />,
     );

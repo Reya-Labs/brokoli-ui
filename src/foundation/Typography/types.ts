@@ -13,7 +13,7 @@ export type TypographyTokens =
   | 'subheaderRegular'
   | 'bodyXSmallRegular'
   | 'bodyXSmallBold'
-  | 'bodySmallRegular'
+  | 'bodySmallMedium'
   | 'bodySmallBold'
   | 'bodyMediumRegular'
   | 'bodyMediumBold'

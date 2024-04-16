@@ -9,7 +9,7 @@ describe('<OptionButtons />', () => {
     activeOptionId: '1',
     label: 'Test Label',
     labelColorToken: 'white950',
-    labelTypographyToken: 'bodySmallRegular',
+    labelTypographyToken: 'bodySmallMedium',
     onOptionClick: mockOnOptionClick,
     options: [
       {

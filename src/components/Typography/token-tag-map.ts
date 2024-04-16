@@ -11,7 +11,7 @@ export const tokenTagMap: Record<TypographyTokens, React.ElementType> = {
   bodyMediumRegular: 'p',
   bodyMegaLargeBold: 'p',
   bodySmallBold: 'p',
-  bodySmallRegular: 'p',
+  bodySmallMedium: 'p',
   bodyXSmallBold: 'p',
   bodyXSmallRegular: 'p',
   bodyXXLRegular: 'p',

@@ -67,7 +67,7 @@ export const WithCustomTypography: StoryObj<typeof Button> = {
     borderColorToken: 'white900',
     children: 'Default',
     typographyColorToken: 'error500',
-    typographyToken: 'bodySmallRegular',
+    typographyToken: 'bodySmallMedium',
   },
 };
 
@@ -80,7 +80,7 @@ export const WithBottomLeftTextAsError: StoryObj<typeof Button> = {
     bottomLeftTextTypographyToken: 'bodySmallBold',
     children: 'Default',
     typographyColorToken: 'error500',
-    typographyToken: 'bodySmallRegular',
+    typographyToken: 'bodySmallMedium',
   },
 };
 

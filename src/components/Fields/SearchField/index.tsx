@@ -39,7 +39,7 @@ export const SearchField: React.FunctionComponent<SearchFieldProps> = ({
   disabled,
   error,
   labelColorToken = 'white300',
-  labelTypographyToken = 'bodySmallRegular',
+  labelTypographyToken = 'bodySmallMedium',
   label,
   tooltipColorToken,
   tooltip,

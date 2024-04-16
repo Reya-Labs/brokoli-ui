@@ -140,7 +140,7 @@ const VisxTimelineChartIntegration: React.FunctionComponent<VisxTimelineChartInt
                       ? 'primary300'
                       : 'warning300'
                   }
-                  typographyToken="bodySmallRegular"
+                  typographyToken="bodySmallMedium"
                   value={city}
                 />
               );
@@ -157,7 +157,7 @@ const VisxTimelineChartIntegration: React.FunctionComponent<VisxTimelineChartInt
   return (
     <ParentBox>
       <LeftBox>
-        <Typography colorToken="white100" typographyToken="bodySmallRegular">
+        <Typography colorToken="white100" typographyToken="bodySmallMedium">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
           ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
           ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
@@ -177,7 +177,7 @@ const VisxTimelineChartIntegration: React.FunctionComponent<VisxTimelineChartInt
         />
       </Box>
       <RightBox>
-        <Typography colorToken="white100" typographyToken="bodySmallRegular">
+        <Typography colorToken="white100" typographyToken="bodySmallMedium">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
           ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
           ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
@@ -226,7 +226,7 @@ export const Temperature: StoryObj<typeof VisxTimelineChartIntegration> = {
   args: {
     axisDomainLineColorToken: 'white100',
     axisTicksTextColorToken: 'white100',
-    axisTypographyToken: 'bodySmallRegular',
+    axisTypographyToken: 'bodySmallMedium',
     chartType: 'line',
     crosshairColorToken: 'primary500',
     curveType: 'linear',

@@ -10,14 +10,14 @@ describe('<Pill />', () => {
       <Pill
         backgroundColorToken="error700"
         colorToken="error500"
-        typographyToken="bodySmallRegular"
+        typographyToken="bodySmallMedium"
         variant="regular"
       >
         {text}
       </Pill>,
     );
     const pillTypography = screen.getByTestId(
-      `Pill-PillTypography-regular-error500-bodySmallRegular`,
+      `Pill-PillTypography-regular-error500-bodySmallMedium`,
     );
     expect(pillTypography).toHaveTextContent(text);
   });
@@ -29,7 +29,7 @@ describe('<Pill />', () => {
         backgroundColorToken="error700"
         className={className}
         colorToken="error500"
-        typographyToken="bodySmallRegular"
+        typographyToken="bodySmallMedium"
         variant="regular"
       >
         Hello

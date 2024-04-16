@@ -14,7 +14,7 @@ export const Default: StoryObj<typeof FromToTokenTypography> = {
     fromValue: 'From',
     toColorToken: 'secondary500',
     toValue: 'To',
-    typographyToken: 'bodySmallRegular',
+    typographyToken: 'bodySmallMedium',
   },
 };
 
@@ -27,7 +27,7 @@ export const WithLabel: StoryObj<typeof FromToTokenTypography> = {
     labelTypographyToken: 'bodyMediumBold',
     toColorToken: 'secondary500',
     toValue: 'To',
-    typographyToken: 'bodySmallRegular',
+    typographyToken: 'bodySmallMedium',
   },
 };
 
@@ -48,7 +48,7 @@ export const WithTokens: StoryObj<typeof FromToTokenTypography> = {
     toValue: 64,
     token: 'percentage',
     tokenColorToken: 'white950',
-    typographyToken: 'bodySmallRegular',
+    typographyToken: 'bodySmallMedium',
   },
 };
 
@@ -66,6 +66,6 @@ export const WithTooltip: StoryObj<typeof FromToTokenTypography> = {
     token: 'percentage',
     tokenColorToken: 'white950',
     tooltip: 'Created with ❤️!',
-    typographyToken: 'bodySmallRegular',
+    typographyToken: 'bodySmallMedium',
   },
 };

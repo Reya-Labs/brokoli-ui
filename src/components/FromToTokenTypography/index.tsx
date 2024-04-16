@@ -93,7 +93,7 @@ export const FromToTokenTypography: React.FunctionComponent<FromToTokenTypograph
         <Typography
           colorToken={tokenColorToken}
           data-testid={`FromToTokenTypography-FromToBox-TokenTypography-${fromColorToken}3`}
-          typographyToken="bodySmallRegular"
+          typographyToken="bodySmallMedium"
         >
           {token}
         </Typography>

@@ -30,7 +30,7 @@ export const WithLabel: StoryObj<typeof TextField> = {
   args: {
     label: 'Username',
     labelColorToken: 'white300',
-    labelTypographyToken: 'bodySmallRegular',
+    labelTypographyToken: 'bodySmallMedium',
   },
 
   render: Template,
@@ -40,7 +40,7 @@ export const WithTooltip: StoryObj<typeof TextField> = {
   args: {
     label: 'Password',
     labelColorToken: 'white300',
-    labelTypographyToken: 'bodySmallRegular',
+    labelTypographyToken: 'bodySmallMedium',
     placeHolder: 'Type your password',
     tooltip: 'Make sure your password is secure and safe!',
     tooltipColorToken: 'white300',
@@ -54,10 +54,10 @@ export const WithBottomLeftText: StoryObj<typeof TextField> = {
   args: {
     bottomLeftText: 'Bottom left text',
     bottomLeftTextColorToken: 'error500',
-    bottomLeftTextTypographyToken: 'bodySmallRegular',
+    bottomLeftTextTypographyToken: 'bodySmallMedium',
     label: 'Username',
     labelColorToken: 'white300',
-    labelTypographyToken: 'bodySmallRegular',
+    labelTypographyToken: 'bodySmallMedium',
   },
 
   render: Template,

@@ -34,7 +34,7 @@ export const TextField: React.FunctionComponent<TextFieldProps> = ({
   disabled,
   error,
   labelColorToken = 'white300',
-  labelTypographyToken = 'bodySmallRegular',
+  labelTypographyToken = 'bodySmallMedium',
   label,
   tooltipColorToken,
   tooltip,

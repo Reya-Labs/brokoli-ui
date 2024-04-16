@@ -9,7 +9,7 @@ describe('<FromToTokenTypography />', () => {
     fromValue: '100',
     label: 'From-To',
     labelColorToken: 'white300',
-    labelTypographyToken: 'bodySmallRegular',
+    labelTypographyToken: 'bodySmallMedium',
     toColorToken: 'secondary500',
     toValue: '200',
     typographyToken: 'bodyXSmallBold',

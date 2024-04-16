@@ -78,7 +78,7 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
   typographyToken = 'bodyMediumBold',
   placeholder,
   labelColorToken = 'white300',
-  labelTypographyToken = 'bodySmallRegular',
+  labelTypographyToken = 'bodySmallMedium',
   tooltip,
   label,
   className,

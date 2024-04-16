@@ -46,7 +46,7 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
   suffix,
   allowNegativeValue,
   labelColorToken = 'white300',
-  labelTypographyToken = 'bodySmallRegular',
+  labelTypographyToken = 'bodySmallMedium',
   label,
   tooltipColorToken,
   tooltip,
@@ -55,7 +55,7 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
   max,
   placeholder,
   'data-testid': dataTestId,
-  typographyToken = 'bodySmallRegular',
+  typographyToken = 'bodySmallMedium',
   labelAttentionIndicatorColorToken,
 }) => {
   const { thousands } = browserI18n();

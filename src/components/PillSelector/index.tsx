@@ -42,7 +42,7 @@ export const PillSelector = ({
   attentionPrefixColorToken = 'primary',
   variant,
   label = '',
-  labelTypographyToken = 'bodySmallRegular',
+  labelTypographyToken = 'bodySmallMedium',
   labelColorToken = 'white400',
   tooltip = '',
   tooltipColorToken = 'white400',

@@ -24,7 +24,7 @@ export type SearchListProps = {
 const defaultItemRenderer = (props: SearchItemRendererProps) => {
   const { searchedValue, item } = props;
   return (
-    <Typography colorToken="white300" typographyToken="bodySmallRegular">
+    <Typography colorToken="white300" typographyToken="bodySmallMedium">
       <Highlight highlight={searchedValue}>{item.label}</Highlight>
     </Typography>
   );
@@ -77,7 +77,7 @@ export const SearchList: React.FunctionComponent<SearchListProps> = ({
           ))
         ) : (
           <ItemWrapper backgroundColorToken="black800">
-            <Typography colorToken="warning100" typographyToken="bodySmallRegular">
+            <Typography colorToken="warning100" typographyToken="bodySmallMedium">
               {searchedValue.length === 0
                 ? 'Nothing to search for... Try searching for unicorns instead!'
                 : 'No items match the filter... Perhaps they joined the NFT craze?'}

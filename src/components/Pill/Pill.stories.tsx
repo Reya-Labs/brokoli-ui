@@ -13,7 +13,7 @@ export const Default: StoryObj<typeof Pill> = {
     backgroundColorToken: 'error700',
     children: 'Headache pill',
     colorToken: 'error500',
-    typographyToken: 'bodySmallRegular',
+    typographyToken: 'bodySmallMedium',
     variant: 'regular',
   },
 };

@@ -27,7 +27,7 @@ export type ShowCustomNotificationParams = {
 
 export const showNotification = ({
   titleTypographyToken = 'bodyMediumRegular',
-  contentTypographyToken = 'bodySmallRegular',
+  contentTypographyToken = 'bodySmallMedium',
   content,
   title,
   colorToken,

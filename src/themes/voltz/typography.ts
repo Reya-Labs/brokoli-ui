@@ -384,40 +384,40 @@ const bodyXSmallBold: TypographyResponsiveConfig = {
   },
 };
 
-const bodySmallRegular: TypographyResponsiveConfig = {
+const bodySmallMedium: TypographyResponsiveConfig = {
   desktopDevice: {
     fontFamily: "'Inter', sans-serif",
     fontSize: '12px',
     fontStyle: 'normal',
-    fontWeight: '400',
+    fontWeight: '500',
     lineHeight: '150%',
   },
   largeDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
     fontSize: '12px',
     fontStyle: 'normal',
-    fontWeight: '400',
+    fontWeight: '500',
     lineHeight: '150%',
   },
   mobileDevice: {
     fontFamily: "'Inter', sans-serif",
     fontSize: '12px',
     fontStyle: 'normal',
-    fontWeight: '400',
+    fontWeight: '500',
     lineHeight: '150%',
   },
   smallDesktopDevice: {
     fontFamily: "'Inter', sans-serif",
     fontSize: '12px',
     fontStyle: 'normal',
-    fontWeight: '400',
+    fontWeight: '500',
     lineHeight: '150%',
   },
   tabletDevice: {
     fontFamily: "'Inter', sans-serif",
     fontSize: '12px',
     fontStyle: 'normal',
-    fontWeight: '400',
+    fontWeight: '500',
     lineHeight: '150%',
   },
 };
@@ -1024,7 +1024,7 @@ export const typography: TypographyTheme = {
   bodyMediumRegular,
   bodyMegaLargeBold,
   bodySmallBold,
-  bodySmallRegular,
+  bodySmallMedium,
   bodyXSmallBold,
   bodyXSmallRegular,
   bodyXXLRegular,

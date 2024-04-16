@@ -474,40 +474,40 @@ const bodyXSmallBold: TypographyResponsiveConfig = {
   },
 };
 
-const bodySmallRegular: TypographyResponsiveConfig = {
+const bodySmallMedium: TypographyResponsiveConfig = {
   desktopDevice: {
     fontFamily: "'Satoshi-Regular', sans-serif",
     fontSize: '12px',
     fontStyle: 'normal',
-    fontWeight: '400',
+    fontWeight: '500',
     lineHeight: '150%',
   },
   largeDesktopDevice: {
     fontFamily: "'Satoshi-Regular', sans-serif",
     fontSize: '12px',
     fontStyle: 'normal',
-    fontWeight: '400',
+    fontWeight: '500',
     lineHeight: '150%',
   },
   mobileDevice: {
     fontFamily: "'Satoshi-Regular', sans-serif",
     fontSize: '12px',
     fontStyle: 'normal',
-    fontWeight: '400',
+    fontWeight: '500',
     lineHeight: '150%',
   },
   smallDesktopDevice: {
     fontFamily: "'Satoshi-Regular', sans-serif",
     fontSize: '12px',
     fontStyle: 'normal',
-    fontWeight: '400',
+    fontWeight: '500',
     lineHeight: '150%',
   },
   tabletDevice: {
     fontFamily: "'Satoshi', sans-serif",
     fontSize: '12px',
     fontStyle: 'normal',
-    fontWeight: '400',
+    fontWeight: '500',
     lineHeight: '150%',
   },
 };
@@ -992,7 +992,7 @@ export const typography: TypographyTheme = {
   bodyMediumRegular,
   bodyMegaLargeBold,
   bodySmallBold,
-  bodySmallRegular,
+  bodySmallMedium,
   bodyXSmallBold,
   bodyXSmallRegular,
   bodyXXLRegular,
