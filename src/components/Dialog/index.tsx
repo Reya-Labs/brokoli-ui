@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback } from 'react';
 
 import { DialogBox } from './Dialog.styled';
 import { FloatingUIDialog, FloatingUIDialogContent } from './FloatingUIDialog';
@@ -9,28 +9,23 @@ type DialogProps = React.PropsWithChildren<{
 }>;
 
 export const Dialog: React.FunctionComponent<DialogProps> = ({ open, onClose, children }) => {
-  const [isOpen, setIsOpen] = useState(open);
+  const handleOpenChange = useCallback(
+    (newOpen: boolean) => {
+      if (newOpen) {
+        return;
+      }
 
-  useEffect(() => {
-    if (isOpen !== open) {
-      setIsOpen(open);
-    }
-  }, [open]);
-
-  const handleOpenChange = (newOpen: boolean) => {
-    if (!newOpen) {
-      onClose?.();
-    }
-
-    setIsOpen(newOpen);
-  };
+      typeof onClose === 'function' && onClose();
+    },
+    [onClose],
+  );
 
   if (!children) {
     return null;
   }
 
   return (
-    <FloatingUIDialog open={isOpen} onOpenChange={handleOpenChange}>
+    <FloatingUIDialog open={open} onOpenChange={handleOpenChange}>
       <FloatingUIDialogContent>
         <DialogBox>{children}</DialogBox>
       </FloatingUIDialogContent>
