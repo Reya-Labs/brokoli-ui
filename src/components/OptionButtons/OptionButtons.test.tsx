@@ -37,7 +37,7 @@ describe('<OptionButtons />', () => {
         typographyColorToken: 'error500',
       },
     ],
-    typographyToken: 'bodyMediumRegular',
+    typographyToken: 'bodyMediumMedium',
   };
 
   it('renders without crashing', () => {

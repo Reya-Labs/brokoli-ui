@@ -31,7 +31,7 @@ export const CustomComponentTooltip: StoryObj<typeof ExclaimTooltip> = {
         <Typography colorToken="white100" typographyToken="h1SmallBold">
           CustomComponentTooltip
         </Typography>
-        <Typography colorToken="white100" typographyToken="bodyMediumRegular">
+        <Typography colorToken="white100" typographyToken="bodyMediumMedium">
           Really it all fits
         </Typography>
         <Button

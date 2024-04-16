@@ -83,7 +83,7 @@ const Template: StoryFn<typeof Notifications> = (args) => {
           showCustomNotification({
             Component: () => (
               <NotificationContentBox>
-                <Typography colorToken="white950" typographyToken="bodyMediumRegular">
+                <Typography colorToken="white950" typographyToken="bodyMediumMedium">
                   Custom notification
                 </Typography>
                 <Button

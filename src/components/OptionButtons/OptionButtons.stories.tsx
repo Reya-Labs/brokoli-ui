@@ -49,7 +49,7 @@ export const Default: StoryObj<typeof OptionButtons> = {
         typographyColorToken: 'error500',
       },
     ],
-    typographyToken: 'bodyMediumRegular',
+    typographyToken: 'bodyMediumMedium',
   },
   render: Template,
 };

@@ -209,7 +209,7 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
                   <Typography
                     colorToken="white100"
                     data-testid="TokenField-CurrencyInputBox-TokenBox-Typography"
-                    typographyToken="bodyMediumRegular"
+                    typographyToken="bodyMediumMedium"
                   >
                     {tokenFormatter(token)}
                   </Typography>

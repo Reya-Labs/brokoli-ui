@@ -15,7 +15,7 @@ export type TypographyTokens =
   | 'bodyXSmallBold'
   | 'bodySmallMedium'
   | 'bodySmallBold'
-  | 'bodyMediumRegular'
+  | 'bodyMediumMedium'
   | 'bodyMediumBold'
   | 'bodyLargeRegular'
   | 'bodyLargeBold'

@@ -11,11 +11,11 @@ import { Typography, TypographyProps } from '../Typography';
 
 const differenceTypographyMap: Record<TypographyTokens, TypographyTokens> = {
   bodyExtraLargeBold: 'bodyMediumBold',
-  bodyExtraLargeRegular: 'bodyMediumRegular',
+  bodyExtraLargeRegular: 'bodyMediumMedium',
   bodyLargeBold: 'bodySmallBold',
   bodyLargeRegular: 'bodySmallMedium',
   bodyMediumBold: 'bodyXSmallBold',
-  bodyMediumRegular: 'bodyXSmallRegular',
+  bodyMediumMedium: 'bodyXSmallRegular',
   bodyMegaLargeBold: 'bodyMegaLargeBold',
   bodySmallBold: 'bodySmallBold',
   bodySmallMedium: 'bodySmallMedium',
@@ -33,7 +33,7 @@ const differenceTypographyMap: Record<TypographyTokens, TypographyTokens> = {
   h2Bold: 'h3Bold',
   h2Regular: 'h3Regular',
   h3Bold: 'bodyMediumBold',
-  h3Regular: 'bodyMediumRegular',
+  h3Regular: 'bodyMediumMedium',
   subheaderRegular: 'subheaderRegular',
 };
 

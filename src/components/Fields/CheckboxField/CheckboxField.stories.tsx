@@ -70,7 +70,7 @@ export const WithSize: StoryObj<typeof CheckboxField> = {
     checked: true,
     size: 32,
     text: (
-      <Typography colorToken="white100" typographyToken="bodyMediumRegular">
+      <Typography colorToken="white100" typographyToken="bodyMediumMedium">
         Do you agree?
       </Typography>
     ),

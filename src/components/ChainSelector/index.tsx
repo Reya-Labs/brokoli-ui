@@ -40,7 +40,7 @@ export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
   labelAttentionIndicatorColorToken,
   tooltip,
   tooltipColorToken,
-  selectedChainTypographyToken = 'bodyMediumRegular',
+  selectedChainTypographyToken = 'bodyMediumMedium',
 }) => {
   const [width, setWidth] = useState(0);
   const [isSubmenuOpened, setIsSubmenuOpened] = useState(false);

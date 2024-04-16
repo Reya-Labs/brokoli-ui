@@ -41,7 +41,7 @@ export const CustomComponentTooltip: StoryObj<typeof Tooltip> = {
         <Typography colorToken="white100" typographyToken="h1SmallBold">
           CustomComponentTooltip
         </Typography>
-        <Typography colorToken="white100" typographyToken="bodyMediumRegular">
+        <Typography colorToken="white100" typographyToken="bodyMediumMedium">
           Really it all fits
         </Typography>
         <Button

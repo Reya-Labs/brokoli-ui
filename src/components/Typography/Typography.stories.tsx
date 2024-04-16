@@ -37,6 +37,6 @@ export const WithAsSpan: StoryObj<typeof Typography> = {
     as: 'span',
     children: 'I should be <p />, but I am a <span />',
     colorToken: 'white100',
-    typographyToken: 'bodyMediumRegular',
+    typographyToken: 'bodyMediumMedium',
   },
 };

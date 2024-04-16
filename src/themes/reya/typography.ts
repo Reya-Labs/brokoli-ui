@@ -550,7 +550,7 @@ const bodySmallBold: TypographyResponsiveConfig = {
   },
 };
 
-const bodyMediumRegular: TypographyResponsiveConfig = {
+const bodyMediumMedium: TypographyResponsiveConfig = {
   desktopDevice: {
     fontFamily: "'Satoshi-Regular', sans-serif",
     fontSize: '14px',
@@ -989,7 +989,7 @@ export const typography: TypographyTheme = {
   bodyLargeBold,
   bodyLargeRegular,
   bodyMediumBold,
-  bodyMediumRegular,
+  bodyMediumMedium,
   bodyMegaLargeBold,
   bodySmallBold,
   bodySmallMedium,

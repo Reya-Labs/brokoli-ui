@@ -45,7 +45,7 @@ export const SearchField: React.FunctionComponent<SearchFieldProps> = ({
   tooltip,
   placeHolder,
   items = [],
-  typographyToken = 'bodyMediumRegular',
+  typographyToken = 'bodyMediumMedium',
   itemRenderer,
   itemFilter,
   selectedItemId,

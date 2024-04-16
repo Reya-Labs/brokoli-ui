@@ -104,7 +104,7 @@ export const WithIcon: StoryObj<typeof Button> = {
     iconRight: <SendIcon />,
     rounded: true,
     typographyColorToken: 'white100',
-    typographyToken: 'bodyMediumRegular',
+    typographyToken: 'bodyMediumMedium',
   },
 };
 
@@ -120,6 +120,6 @@ export const WithCustomColorTokenIcon: StoryObj<typeof Button> = {
     iconRight: <SendIcon />,
     rounded: true,
     typographyColorToken: 'white100',
-    typographyToken: 'bodyMediumRegular',
+    typographyToken: 'bodyMediumMedium',
   },
 };

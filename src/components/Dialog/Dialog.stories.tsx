@@ -80,7 +80,7 @@ export const Default: StoryObj<typeof Dialog> = {
         <TypographyWithTooltip
           colorToken="white100"
           tooltip="Tooltip description"
-          typographyToken="bodyMediumRegular"
+          typographyToken="bodyMediumMedium"
         >
           Sample tooltip usage in dialog.
         </TypographyWithTooltip>

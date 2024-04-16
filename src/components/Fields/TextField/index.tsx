@@ -40,7 +40,7 @@ export const TextField: React.FunctionComponent<TextFieldProps> = ({
   tooltip,
   type = 'text',
   placeHolder,
-  typographyToken = 'bodyMediumRegular',
+  typographyToken = 'bodyMediumMedium',
   name,
   labelAttentionIndicatorColorToken,
   bottomLeftTextTypographyToken = 'bodyXSmallRegular',

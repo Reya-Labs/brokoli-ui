@@ -13,7 +13,7 @@ describe('<TextField />', () => {
     onChange: jest.fn(),
     tooltipColorToken: 'white300',
     type: 'text',
-    typographyToken: 'bodyMediumRegular',
+    typographyToken: 'bodyMediumMedium',
     value: 'Test Value',
   };
 

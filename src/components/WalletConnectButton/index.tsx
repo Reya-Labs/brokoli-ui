@@ -26,7 +26,7 @@ export const WalletConnectButton: React.FunctionComponent<WalletConnectButtonPro
     return (
       <WalletButton data-testid="WalletConnectButton-WalletError" onClick={onClick}>
         <AttentionIndicator colorToken="error100" />
-        <WalletConnectButtonTypography colorToken="error100" typographyToken="bodyMediumRegular">
+        <WalletConnectButtonTypography colorToken="error100" typographyToken="bodyMediumMedium">
           {error}
         </WalletConnectButtonTypography>
       </WalletButton>
@@ -44,7 +44,7 @@ export const WalletConnectButton: React.FunctionComponent<WalletConnectButtonPro
   if (account && account.length === 42) {
     return (
       <WalletButton data-testid="WalletConnectButton-WalletConnected" onClick={onClick}>
-        <AvatarAddress address={account} avatarSize="medium" typographyToken="bodyMediumRegular" />
+        <AvatarAddress address={account} avatarSize="medium" typographyToken="bodyMediumMedium" />
       </WalletButton>
     );
   }
@@ -52,7 +52,7 @@ export const WalletConnectButton: React.FunctionComponent<WalletConnectButtonPro
   return (
     <WalletButton data-testid="WalletConnectButton-WalletConnect" onClick={onClick}>
       <AttentionIndicator colorToken="error100" />
-      <WalletConnectButtonTypography colorToken="white100" typographyToken="bodyMediumRegular">
+      <WalletConnectButtonTypography colorToken="white100" typographyToken="bodyMediumMedium">
         Connect wallet
       </WalletConnectButtonTypography>
     </WalletButton>

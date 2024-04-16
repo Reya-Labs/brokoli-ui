@@ -18,7 +18,7 @@ export const Default: StoryObj<typeof LabelTokenTypography> = {
     prefixToken: '+',
     token: ' USDC',
     tokenColorToken: 'white950',
-    typographyToken: 'bodyMediumRegular',
+    typographyToken: 'bodyMediumMedium',
     value: '0.00',
   },
 };
@@ -33,7 +33,7 @@ export const WithRangeValues: StoryObj<typeof LabelTokenTypography> = {
     prefixToken: '+',
     token: ' USDC',
     tokenColorToken: 'white950',
-    typographyToken: 'bodyMediumRegular',
+    typographyToken: 'bodyMediumMedium',
     value: '0.00',
     value2: '4.00',
   },
@@ -48,7 +48,7 @@ export const WithTooltip: StoryObj<typeof LabelTokenTypography> = {
     token: ' USDC',
     tokenColorToken: 'white950',
     tooltip: 'We support a nice tooltip as well!',
-    typographyToken: 'bodyMediumRegular',
+    typographyToken: 'bodyMediumMedium',
     value: '+0.00',
   },
 };
@@ -63,7 +63,7 @@ export const WithAttentionIndicator: StoryObj<typeof LabelTokenTypography> = {
     token: ' USDC',
     tokenColorToken: 'white950',
     tooltip: 'We support a nice tooltip as well!',
-    typographyToken: 'bodyMediumRegular',
+    typographyToken: 'bodyMediumMedium',
     value: '+0.00',
   },
 };

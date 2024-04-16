@@ -10,7 +10,7 @@ describe('<LabelTokenTypography />', () => {
     labelColorToken: 'white300',
     labelTypographyToken: 'bodyMediumBold',
     token: 'Token',
-    typographyToken: 'bodyMediumRegular',
+    typographyToken: 'bodyMediumMedium',
     value: '100',
   };
 

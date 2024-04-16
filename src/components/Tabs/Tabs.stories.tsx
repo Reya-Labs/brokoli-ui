@@ -12,7 +12,7 @@ export default {
 
 const Tab1 = () => (
   <div>
-    <Typography colorToken="error500" typographyToken="bodyMediumRegular">
+    <Typography colorToken="error500" typographyToken="bodyMediumMedium">
       Tab 1 Content goes here
     </Typography>
   </div>
@@ -20,7 +20,7 @@ const Tab1 = () => (
 
 const Tab2 = () => (
   <div>
-    <Typography colorToken="primary500" typographyToken="bodyMediumRegular">
+    <Typography colorToken="primary500" typographyToken="bodyMediumMedium">
       Tab 2 Content goes here
     </Typography>
   </div>
@@ -28,7 +28,7 @@ const Tab2 = () => (
 
 const Tab3 = () => (
   <div>
-    <Typography colorToken="warning500" typographyToken="bodyMediumRegular">
+    <Typography colorToken="warning500" typographyToken="bodyMediumMedium">
       Tab 3 Content goes here
     </Typography>
   </div>
@@ -65,7 +65,7 @@ export const Default: StoryObj<typeof Tabs> = {
     borderColorToken: 'black700',
     colorToken: 'black100',
     tabs,
-    typographyToken: 'bodyMediumRegular',
+    typographyToken: 'bodyMediumMedium',
   } as TabsProps,
   render: Template,
 };
@@ -79,7 +79,7 @@ export const TabsWithDifferentHoverColor: StoryObj<typeof Tabs> = {
     colorToken: 'black100',
     hoverTabColorToken: 'white950',
     tabs,
-    typographyToken: 'bodyMediumRegular',
+    typographyToken: 'bodyMediumMedium',
   } as TabsProps,
   render: Template,
 };
@@ -95,7 +95,7 @@ export const ContentInitiallyShown: StoryObj<typeof Tabs> = {
       isHiddenInitially: false,
     },
     tabs,
-    typographyToken: 'bodyMediumRegular',
+    typographyToken: 'bodyMediumMedium',
   } as TabsProps,
   render: Template,
 };
@@ -111,7 +111,7 @@ export const ContentInitiallyHidden: StoryObj<typeof Tabs> = {
       isHiddenInitially: true,
     },
     tabs,
-    typographyToken: 'bodyMediumRegular',
+    typographyToken: 'bodyMediumMedium',
   } as TabsProps,
   render: Template,
 };

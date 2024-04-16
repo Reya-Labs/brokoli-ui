@@ -35,7 +35,7 @@ export const NavLink: React.FunctionComponent<NavLinkProps> = ({
   isNew,
   colorToken = 'white',
   Component,
-  typographyToken = 'bodyMediumRegular',
+  typographyToken = 'bodyMediumMedium',
   target,
 }) => {
   const { pathname } = useLocation();

@@ -16,7 +16,7 @@ export type NavProps = {
 };
 
 export const Nav: React.FunctionComponent<NavProps> = ({
-  typographyToken = 'bodyMediumRegular',
+  typographyToken = 'bodyMediumMedium',
   className,
   links,
   Component,
