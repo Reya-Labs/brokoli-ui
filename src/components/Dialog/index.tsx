@@ -5,7 +5,7 @@ import { FloatingUIDialog, FloatingUIDialogContent } from './FloatingUIDialog';
 
 type DialogProps = React.PropsWithChildren<{
   open: boolean;
-  onClose: () => void;
+  onClose?: () => void;
 }>;
 
 export const Dialog: React.FunctionComponent<DialogProps> = ({ open, onClose, children }) => {
@@ -19,7 +19,7 @@ export const Dialog: React.FunctionComponent<DialogProps> = ({ open, onClose, ch
 
   const handleOpenChange = (newOpen: boolean) => {
     if (!newOpen) {
-      onClose();
+      onClose?.();
     }
 
     setIsOpen(newOpen);
