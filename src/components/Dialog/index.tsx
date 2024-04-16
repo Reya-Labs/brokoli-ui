@@ -5,9 +5,10 @@ import { FloatingUIDialog, FloatingUIDialogContent } from './FloatingUIDialog';
 
 type DialogProps = React.PropsWithChildren<{
   open: boolean;
+  onClose: () => void;
 }>;
 
-export const Dialog: React.FunctionComponent<DialogProps> = ({ open, children }) => {
+export const Dialog: React.FunctionComponent<DialogProps> = ({ open, onClose, children }) => {
   const [isOpen, setIsOpen] = useState(open);
 
   useEffect(() => {
@@ -16,12 +17,20 @@ export const Dialog: React.FunctionComponent<DialogProps> = ({ open, children })
     }
   }, [open]);
 
+  const handleOpenChange = (newOpen: boolean) => {
+    if (!newOpen) {
+      onClose();
+    }
+
+    setIsOpen(newOpen);
+  };
+
   if (!children) {
     return null;
   }
 
   return (
-    <FloatingUIDialog open={isOpen} onOpenChange={setIsOpen}>
+    <FloatingUIDialog open={isOpen} onOpenChange={handleOpenChange}>
       <FloatingUIDialogContent>
         <DialogBox>{children}</DialogBox>
       </FloatingUIDialogContent>
