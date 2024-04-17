@@ -1,9 +1,10 @@
 // eslint-disable-next-line no-restricted-imports
 import 'react-toastify/dist/ReactToastify.css';
 
-import styled from '@emotion/styled';
+import { css, Global } from '@emotion/react';
 import React from 'react';
-import { toast, ToastContainer } from 'react-toastify';
+import { createPortal } from 'react-dom';
+import { toast, ToastContainer, ToastContainerProps } from 'react-toastify';
 
 import { BaseColorTokens } from '../../foundation/Colors';
 import { TypographyTokens } from '../../foundation/Typography';
@@ -57,13 +58,13 @@ export const showCustomNotification = ({
   autoClose = false,
   Component,
 }: ShowCustomNotificationParams) => {
-  toast(({ closeToast }) => <Component />, {
+  toast(() => <Component />, {
     autoClose,
     closeButton: false,
   });
 };
 
-export const Notifications = styled(ToastContainer)`
+const globalToastStyle = css`
   .Toastify__toast-body {
     padding: 0;
   }
@@ -71,5 +72,16 @@ export const Notifications = styled(ToastContainer)`
     padding: 0;
     min-height: auto;
     background: transparent;
+    border-radius: 4px;
   }
 `;
+
+export const Notifications: React.FC<ToastContainerProps> = (props) => {
+  return createPortal(
+    <>
+      <Global styles={globalToastStyle} />
+      <ToastContainer {...props} />
+    </>,
+    document.body,
+  );
+};

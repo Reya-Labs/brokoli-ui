@@ -30,7 +30,6 @@ const NotificationContentBox = styled('div')`
 const Template: StoryFn<typeof Notifications> = (args) => {
   return (
     <ButtonBox>
-      <Notifications {...args} />
       <Button
         borderColorToken="white800"
         hoverBorderColorToken="white500"
@@ -124,7 +123,12 @@ const Template: StoryFn<typeof Notifications> = (args) => {
 
 export const Default: StoryObj<typeof Notifications> = {
   args: {},
-  render: Template,
+  render: () => (
+    <>
+      <Notifications />
+      <Template />
+    </>
+  ),
 };
 
 export const WithDialog: StoryObj<typeof Notifications> = {
@@ -157,6 +161,7 @@ export const WithDialog: StoryObj<typeof Notifications> = {
         voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
         cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </Typography>
+      <Notifications />
       <Dialog open={true}>
         <Template />
       </Dialog>

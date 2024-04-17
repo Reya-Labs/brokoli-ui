@@ -8807,12 +8807,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:17.0.18":
-  version: 17.0.18
-  resolution: "@types/react-dom@npm:17.0.18"
+"@types/react-dom@npm:18.2.25":
+  version: 18.2.25
+  resolution: "@types/react-dom@npm:18.2.25"
   dependencies:
-    "@types/react": "npm:^17"
-  checksum: 10c0/a787471157d66e834ee2afa57d81171c8cae26d3b0def23709da8256433d0b3c5c9f35c03913c9c4137f79acf78af9e2483ee1578197f77298344f33b7186791
+    "@types/react": "npm:*"
+  checksum: 10c0/87604407eca6884c5b4d4657cb511dc5ba28ea1cfa5d0ce1fc2d659a7ad1b64ae85dcda60e3f010641f9a52a6a60dfcaa6be3b0d0de9d624475052a13dae01f4
   languageName: node
   linkType: hard
 
@@ -8843,7 +8843,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:18.2.37":
+"@types/react@npm:*":
   version: 18.2.37
   resolution: "@types/react@npm:18.2.37"
   dependencies:
@@ -8851,6 +8851,16 @@ __metadata:
     "@types/scheduler": "npm:*"
     csstype: "npm:^3.0.2"
   checksum: 10c0/79dd5d23da05bec54e7423ca17096e345eb8fd80a3bf8dd916bb5cdd60677d27c298523aa5b245d090fcc4ec100cfd58c1af4631fbac709d0a9d8be75f9d78a9
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:18.2.79":
+  version: 18.2.79
+  resolution: "@types/react@npm:18.2.79"
+  dependencies:
+    "@types/prop-types": "npm:*"
+    csstype: "npm:^3.0.2"
+  checksum: 10c0/c8a8a005d8830a48cc1ef93c3510c4935a2a03e5557dbecaa8f1038450cbfcb18eb206fa7fba7077d54b8da21faeb25577e897a333392770a7797f625b62c78a
   languageName: node
   linkType: hard
 
@@ -8862,17 +8872,6 @@ __metadata:
     "@types/scheduler": "npm:*"
     csstype: "npm:^3.0.2"
   checksum: 10c0/648662cd852107d7933eee072fa5826069aca1ce15602db8573393ec694780de035cfac4d76f239762e2453b53a4aa8767ae057789661ccfee4d1311040953b9
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:^17":
-  version: 17.0.53
-  resolution: "@types/react@npm:17.0.53"
-  dependencies:
-    "@types/prop-types": "npm:*"
-    "@types/scheduler": "npm:*"
-    csstype: "npm:^3.0.2"
-  checksum: 10c0/4ff3fa58ab32deefacdbd0ee002e294548391238ce2dea2cad213e11b4cc61480be48cb2b7ed3c53220ee1a5b9cadf3417a20db817ab2ca4669c9a4a45042b92
   languageName: node
   linkType: hard
 
@@ -11649,8 +11648,8 @@ __metadata:
     "@types/jest": "npm:29.4.0"
     "@types/lodash.memoize": "npm:4.1.9"
     "@types/lodash.range": "npm:3.2.9"
-    "@types/react": "npm:18.2.37"
-    "@types/react-dom": "npm:17.0.18"
+    "@types/react": "npm:18.2.79"
+    "@types/react-dom": "npm:18.2.25"
     "@types/react-slider": "npm:1.3.6"
     "@visx/curve": "npm:3.0.0"
     "@visx/glyph": "npm:3.3.0"
@@ -11692,7 +11691,7 @@ __metadata:
     react-router-dom: "npm:6.9.0"
     react-slider: "npm:2.0.6"
     react-tiny-popover: "npm:7.2.0"
-    react-toastify: "npm:8.2.0"
+    react-toastify: "npm:10.0.5"
     rollup: "npm:3.11.0"
     rollup-plugin-bundle-size: "npm:1.0.3"
     rollup-plugin-dts: "npm:5.1.1"
@@ -12456,10 +12455,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"clsx@npm:^1.1.1":
-  version: 1.2.1
-  resolution: "clsx@npm:1.2.1"
-  checksum: 10c0/34dead8bee24f5e96f6e7937d711978380647e936a22e76380290e35486afd8634966ce300fc4b74a32f3762c7d4c0303f442c3e259f4ce02374eb0c82834f27
+"clsx@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "clsx@npm:2.1.0"
+  checksum: 10c0/c09c00ad14f638366ca814097e6cab533dfa1972a358da5b557be487168acbb25b4c1395e89ffa842a8a61ba87a462d2b4885bc9d4f8410b598f3cb339599cdb
   languageName: node
   linkType: hard
 
@@ -23457,15 +23456,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-toastify@npm:8.2.0":
-  version: 8.2.0
-  resolution: "react-toastify@npm:8.2.0"
+"react-toastify@npm:10.0.5":
+  version: 10.0.5
+  resolution: "react-toastify@npm:10.0.5"
   dependencies:
-    clsx: "npm:^1.1.1"
+    clsx: "npm:^2.1.0"
   peerDependencies:
-    react: ">=16"
-    react-dom: ">=16"
-  checksum: 10c0/0c3232c377543b94f17845dc96b9e8450355e0e3dc25793ced2c1e0f39da8ab1febd20a41a269877a111970c66d271895356481fe31aec9f120c1049cd7177ae
+    react: ">=18"
+    react-dom: ">=18"
+  checksum: 10c0/66c68ec3d6c017d9f32652d73bb925224921c6a80b629b9d481430d5b4fd504abb7a99995a64b9aef0fc31326c74f3cbe088b3287b978dd0c355079c4bbf4158
   languageName: node
   linkType: hard
 
