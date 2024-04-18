@@ -3,18 +3,18 @@ import { colors } from './colors';
 
 const rainbow = `linear-gradient(
     90deg,
-    ${colors.error100} 0%,
-    ${colors.warning100} 31.47%,
-    ${colors.primary100} 68.91%,
-    ${colors.secondary100} 100%
+    ${colors.error500} 0%,
+    ${colors.warning500} 31.47%,
+    ${colors.primary500} 68.91%,
+    ${colors.secondary500} 100%
 )`;
 
 const invertedRainbow = `linear-gradient(
     180deg,
-    ${colors.error100} 0%,
-    ${colors.warning100} 31.47%,
-    ${colors.primary100} 68.91%,
-    ${colors.secondary100} 100%
+    ${colors.error500} 0%,
+    ${colors.warning500} 31.47%,
+    ${colors.primary500} 68.91%,
+    ${colors.secondary500} 100%
 )`;
 
 const background = `conic-gradient(
