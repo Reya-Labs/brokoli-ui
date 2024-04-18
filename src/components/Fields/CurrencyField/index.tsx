@@ -6,6 +6,7 @@ import { TypographyTokens } from '../../../foundation/Typography';
 import { browserI18n } from '../../../utils/browser-i18n';
 import { ExclaimTooltipProps } from '../../ExclaimTooltip';
 import { TooltipLabel } from '../../TooltipLabel';
+import { FieldStyleProps } from '../_common/common.styled';
 import { MaxConfig } from '../_common/types';
 import { CurrencyFieldBox, CurrencyInputStyled } from './CurrencyField.styled';
 
@@ -30,10 +31,9 @@ type CurrencyFieldProps = {
   labelTypographyToken?: TypographyTokens;
   tooltip?: ExclaimTooltipProps['children'];
   tooltipColorToken?: ColorTokens;
-  typographyToken?: TypographyTokens;
   placeholder?: string;
   labelAttentionIndicatorColorToken?: ColorTokens;
-};
+} & FieldStyleProps;
 
 export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
   onChange,
@@ -57,6 +57,20 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
   'data-testid': dataTestId,
   typographyToken = 'bodySmallMedium',
   labelAttentionIndicatorColorToken,
+  borderColorToken = 'black700',
+  backgroundColorToken = 'black900',
+  hoverBackgroundColorToken = 'black800',
+  disabledBackgroundColorToken = 'black900',
+  placeholderColorToken = 'white950',
+  disabledColorToken = 'white950',
+  errorBorderColorToken = 'error800',
+  errorColorToken = 'error400',
+  colorToken = 'white100',
+  hoverBorderColorToken = 'black700',
+  hoverErrorBorderColorToken = 'error800',
+  hoverColorToken = colorToken,
+  hoverErrorColorToken = 'error100',
+  disabledBorderColorToken = 'black700',
 }) => {
   const { thousands } = browserI18n();
   const cleanedValue = value.replace(new RegExp(thousands, 'g'), ''); // This replaces all occurrences of 'a'
@@ -79,6 +93,9 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
       />
       <CurrencyInputStyled
         allowNegativeValue={allowNegativeValue}
+        backgroundColorToken={backgroundColorToken}
+        borderColorToken={borderColorToken}
+        colorToken={colorToken}
         data-testid={dataTestId || 'CurrencyField-CurrencyInputStyled'}
         decimalsLimit={decimalsLimit}
         defaultValue={
@@ -89,12 +106,23 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
           })
         }
         disabled={disabled}
+        disabledBackgroundColorToken={disabledBackgroundColorToken}
+        disabledBorderColorToken={disabledBorderColorToken}
+        disabledColorToken={disabledColorToken}
         error={error}
+        errorBorderColorToken={errorBorderColorToken}
+        errorColorToken={errorColorToken}
+        hoverBackgroundColorToken={hoverBackgroundColorToken}
+        hoverBorderColorToken={hoverBorderColorToken}
+        hoverColorToken={hoverColorToken}
+        hoverErrorBorderColorToken={hoverErrorBorderColorToken}
+        hoverErrorColorToken={hoverErrorColorToken}
         intlConfig={{ locale: navigator.language }}
         max={max ? max.value : undefined}
         maxLength={maxLength}
         min={min}
         placeholder={placeholder}
+        placeholderColorToken={placeholderColorToken}
         suffix={suffix}
         typographyToken={typographyToken}
         value={cleanedValue}

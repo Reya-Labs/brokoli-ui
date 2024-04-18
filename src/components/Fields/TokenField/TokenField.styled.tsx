@@ -1,10 +1,13 @@
 import styled from '@emotion/styled';
 import CurrencyInput from 'react-currency-input-field';
 
-import { TypographyTokens } from '../../../foundation/Typography';
 import { shouldNotForwardProps } from '../../../utils/should-not-forward-props';
 import { Button } from '../../Button';
-import { commonInputStyle } from '../_common/common.styled';
+import {
+  commonInputStyle,
+  FieldStyleProps,
+  SHOULD_NOT_FORWARD_FIELD_STYLE_PROPS_LIST,
+} from '../_common/common.styled';
 
 export const TokenFieldBox = styled('div')`
   display: flex;
@@ -47,18 +50,51 @@ export const TokenBox = styled('div')`
 
 export const CurrencyInputStyled = styled(
   CurrencyInput,
-  shouldNotForwardProps(['hasPrefixToken', 'typographyToken', 'error']),
-)<{
-  error?: boolean;
-  typographyToken: TypographyTokens;
-  hasPrefixToken: boolean;
-}>`
+  shouldNotForwardProps(['hasPrefixToken', 'error', ...SHOULD_NOT_FORWARD_FIELD_STYLE_PROPS_LIST]),
+)<
+  {
+    error?: boolean;
+    hasPrefixToken: boolean;
+  } & FieldStyleProps
+>`
   padding: 10px 96px 10px ${({ hasPrefixToken }) => (hasPrefixToken ? 20 : 16)}px;
   height: 44px;
 
-  ${({ theme, error, typographyToken }) =>
+  ${({
+    theme,
+    error,
+    typographyToken,
+    backgroundColorToken,
+    disabledBackgroundColorToken,
+    errorBorderColorToken,
+    borderColorToken,
+    colorToken,
+    errorColorToken,
+    disabledColorToken,
+    placeholderColorToken,
+    hoverBorderColorToken,
+    hoverErrorBorderColorToken,
+    hoverColorToken,
+    hoverErrorColorToken,
+    hoverBackgroundColorToken,
+    disabledBorderColorToken,
+  }) =>
     commonInputStyle({
+      backgroundColorToken,
+      borderColorToken,
+      colorToken,
+      disabledBackgroundColorToken,
+      disabledBorderColorToken,
+      disabledColorToken,
       error,
+      errorBorderColorToken,
+      errorColorToken,
+      hoverBackgroundColorToken,
+      hoverBorderColorToken,
+      hoverColorToken,
+      hoverErrorBorderColorToken,
+      hoverErrorColorToken,
+      placeholderColorToken,
       theme,
       typographyToken,
     })}

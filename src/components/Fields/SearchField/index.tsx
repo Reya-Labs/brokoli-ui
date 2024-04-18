@@ -6,6 +6,7 @@ import { ExclaimTooltipProps } from '../../ExclaimTooltip';
 import { Popover } from '../../Popover';
 import { ToggleCaret } from '../../ToggleCaret';
 import { TooltipLabel } from '../../TooltipLabel';
+import { FieldStyleProps } from '../_common/common.styled';
 import {
   SearchFieldBox,
   SearchTextInputAndCaretBox,
@@ -27,13 +28,12 @@ export type SearchFieldProps = {
   labelTypographyToken?: TypographyTokens;
   tooltip?: ExclaimTooltipProps['children'];
   tooltipColorToken?: ColorTokens;
-  typographyToken: TypographyTokens;
   placeHolder?: string;
   selectedItemId?: SearchItem['id'];
   onItemSelected?: (id: SearchItem['id']) => void;
   className?: string;
   labelAttentionIndicatorColorToken?: ColorTokens;
-};
+} & FieldStyleProps;
 
 export const SearchField: React.FunctionComponent<SearchFieldProps> = ({
   disabled,
@@ -52,6 +52,21 @@ export const SearchField: React.FunctionComponent<SearchFieldProps> = ({
   onItemSelected,
   className,
   labelAttentionIndicatorColorToken,
+
+  borderColorToken = 'black700',
+  backgroundColorToken = 'black900',
+  hoverBackgroundColorToken = 'black800',
+  disabledBackgroundColorToken = 'black900',
+  placeholderColorToken = 'white950',
+  disabledColorToken = 'white950',
+  errorBorderColorToken = 'error800',
+  errorColorToken = 'error400',
+  colorToken = 'white100',
+  hoverBorderColorToken = 'black700',
+  hoverErrorBorderColorToken = 'error800',
+  hoverColorToken = colorToken,
+  hoverErrorColorToken = 'error100',
+  disabledBorderColorToken = 'black700',
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [value, setValue] = useState<string | undefined>('');
@@ -132,11 +147,25 @@ export const SearchField: React.FunctionComponent<SearchFieldProps> = ({
         <SearchTextInputAndCaretBox>
           <TextInputStyled
             ref={inputRef}
+            backgroundColorToken={backgroundColorToken}
+            borderColorToken={borderColorToken}
             className={className}
+            colorToken={colorToken}
             data-testid={`SearchField-SearchFieldBox-TextInputStyled`}
             disabled={disabled}
+            disabledBackgroundColorToken={disabledBackgroundColorToken}
+            disabledBorderColorToken={disabledBorderColorToken}
+            disabledColorToken={disabledColorToken}
             error={error}
+            errorBorderColorToken={errorBorderColorToken}
+            errorColorToken={errorColorToken}
+            hoverBackgroundColorToken={hoverBackgroundColorToken}
+            hoverBorderColorToken={hoverBorderColorToken}
+            hoverColorToken={hoverColorToken}
+            hoverErrorBorderColorToken={hoverErrorBorderColorToken}
+            hoverErrorColorToken={hoverErrorColorToken}
             placeholder={placeHolder}
+            placeholderColorToken={placeholderColorToken}
             type="text"
             typographyToken={typographyToken}
             value={value}

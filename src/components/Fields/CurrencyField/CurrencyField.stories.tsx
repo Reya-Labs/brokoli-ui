@@ -44,3 +44,28 @@ export const WithTooltip: StoryObj<typeof CurrencyField> = {
 
   render: Template,
 };
+
+export const WithCustomStyleProps: StoryObj<typeof CurrencyField> = {
+  args: {
+    backgroundColorToken: 'primary800',
+    borderColorToken: 'primary500',
+    colorToken: 'primary300',
+    disabledBackgroundColorToken: 'warning800',
+    disabledBorderColorToken: 'warning500',
+    disabledColorToken: 'warning500',
+    errorBorderColorToken: 'error500',
+    errorColorToken: 'error500',
+    hoverBackgroundColorToken: 'secondary700',
+    hoverBorderColorToken: 'primary800',
+    hoverColorToken: 'primary700',
+    hoverErrorBorderColorToken: 'error200',
+    hoverErrorColorToken: 'error700',
+    label: 'Notional',
+    labelColorToken: 'white300',
+    labelTypographyToken: 'bodySmallMedium',
+    placeholderColorToken: 'secondary700',
+    suffix: '%',
+  },
+
+  render: Template,
+};

@@ -10,6 +10,7 @@ import { ToggleCaret } from '../../ToggleCaret';
 import { TokenTypography } from '../../TokenTypography';
 import { TooltipLabel } from '../../TooltipLabel';
 import { Typography } from '../../Typography';
+import { FieldStyleProps } from '../_common/common.styled';
 import { MaxConfig } from '../_common/types';
 import {
   BottomBox,
@@ -53,7 +54,6 @@ export type TokenFieldProps = {
   max?: MaxConfig;
   maxLength?: number | undefined;
   min?: number | string | undefined;
-  typographyToken?: TypographyTokens;
   placeholder?: string;
   bottomRightTextDifferenceColorToken?: ColorTokens;
   bottomRightTextTokenColorToken?: ColorTokens;
@@ -63,7 +63,7 @@ export type TokenFieldProps = {
   tokenOptions?: string[];
   onTokenOptionSelected?: (selectedToken: string) => void;
   prefixToken?: string;
-};
+} & FieldStyleProps;
 
 const defaultTokenFormatter = (token: string | undefined) => token;
 
@@ -105,6 +105,20 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
   tokenOptions = [],
   onTokenOptionSelected,
   prefixToken,
+  borderColorToken = 'black700',
+  backgroundColorToken = 'black900',
+  hoverBackgroundColorToken = 'black800',
+  disabledBackgroundColorToken = 'black900',
+  placeholderColorToken = 'white950',
+  disabledColorToken = 'white950',
+  errorBorderColorToken = 'error800',
+  errorColorToken = 'error400',
+  colorToken = 'white100',
+  hoverBorderColorToken = 'black700',
+  hoverErrorBorderColorToken = 'error800',
+  hoverColorToken = colorToken,
+  hoverErrorColorToken = 'error100',
+  disabledBorderColorToken = 'black700',
 }) => {
   const { thousands } = browserI18n();
   const cleanedValue = value.replace(new RegExp(thousands, 'g'), ''); // This replaces all occurrences of 'a'
@@ -150,7 +164,10 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
         <CurrencyInputBox data-testid="TokenField-CurrencyInputBox">
           <CurrencyInputStyled
             allowNegativeValue={allowNegativeValue}
+            backgroundColorToken={backgroundColorToken}
+            borderColorToken={borderColorToken}
             className={className}
+            colorToken={colorToken}
             data-testid="TokenField-CurrencyInputBox-CurrencyInputStyled"
             decimalsLimit={decimalsLimit}
             defaultValue={
@@ -161,13 +178,24 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
               })
             }
             disabled={disabled}
+            disabledBackgroundColorToken={disabledBackgroundColorToken}
+            disabledBorderColorToken={disabledBorderColorToken}
+            disabledColorToken={disabledColorToken}
             error={error}
+            errorBorderColorToken={errorBorderColorToken}
+            errorColorToken={errorColorToken}
             hasPrefixToken={hasPrefixToken}
+            hoverBackgroundColorToken={hoverBackgroundColorToken}
+            hoverBorderColorToken={hoverBorderColorToken}
+            hoverColorToken={hoverColorToken}
+            hoverErrorBorderColorToken={hoverErrorBorderColorToken}
+            hoverErrorColorToken={hoverErrorColorToken}
             intlConfig={{ locale: navigator.language }}
             max={max ? max.value : undefined}
             maxLength={maxLength}
             min={min}
             placeholder={placeholder}
+            placeholderColorToken={placeholderColorToken}
             typographyToken={typographyToken}
             value={cleanedValue}
             onBlur={onBlur}

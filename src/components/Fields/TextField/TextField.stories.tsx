@@ -62,3 +62,27 @@ export const WithBottomLeftText: StoryObj<typeof TextField> = {
 
   render: Template,
 };
+
+export const WithCustomStyle: StoryObj<typeof TextField> = {
+  args: {
+    backgroundColorToken: 'primary800',
+    borderColorToken: 'primary500',
+    colorToken: 'primary300',
+    disabledBackgroundColorToken: 'warning800',
+    disabledBorderColorToken: 'warning500',
+    disabledColorToken: 'warning500',
+    errorBorderColorToken: 'error500',
+    errorColorToken: 'error500',
+    hoverBackgroundColorToken: 'secondary700',
+    hoverBorderColorToken: 'primary800',
+    hoverColorToken: 'primary700',
+    hoverErrorBorderColorToken: 'error200',
+    hoverErrorColorToken: 'error700',
+    label: 'Username',
+    labelColorToken: 'white300',
+    labelTypographyToken: 'bodySmallMedium',
+    placeholderColorToken: 'secondary700',
+  },
+
+  render: Template,
+};

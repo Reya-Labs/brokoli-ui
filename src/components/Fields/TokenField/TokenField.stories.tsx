@@ -157,3 +157,37 @@ export const WithPrefixTokenFormatter: StoryObj<typeof TokenField> = {
   },
   render: Template,
 };
+
+export const WithCustomStyle: StoryObj<typeof TokenField> = {
+  args: {
+    backgroundColorToken: 'primary800',
+    borderColorToken: 'primary500',
+    bottomLeftText: 'Max value is',
+    bottomRightTextValue: '123456',
+    colorToken: 'primary300',
+    disabledBackgroundColorToken: 'warning800',
+    disabledBorderColorToken: 'warning500',
+    disabledColorToken: 'warning500',
+    errorBorderColorToken: 'error500',
+    errorColorToken: 'error500',
+    hoverBackgroundColorToken: 'secondary700',
+    hoverBorderColorToken: 'primary800',
+    hoverColorToken: 'primary700',
+    hoverErrorBorderColorToken: 'error200',
+    hoverErrorColorToken: 'error700',
+    label: 'Label',
+    max: {
+      onClick: () => {},
+      showButton: true,
+      value: '123456',
+    },
+    placeholderColorToken: 'secondary700',
+    prefixToken: '+',
+    token: 'usdc',
+    tokenFormatter: (token: string | undefined) => (!token ? '' : token.toUpperCase()),
+    tokenOptions: ['eth', 'usdc'],
+    tooltip: 'Tooltip message here!',
+    topRightText: 'Top right text',
+  },
+  render: Template,
+};

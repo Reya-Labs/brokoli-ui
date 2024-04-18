@@ -127,7 +127,6 @@ export const WithCustomisation: StoryObj<typeof SearchField> = {
     tooltip: 'Make sure enter valid data!',
     tooltipColorToken: 'white300',
   },
-
   render: Template,
 };
 
@@ -150,6 +149,41 @@ export const WithCustomisationManyItems: StoryObj<typeof SearchField> = {
     tooltip: 'Make sure enter valid data!',
     tooltipColorToken: 'white300',
   },
+  render: Template,
+};
 
+export const WithCustomisationManyItemsAndStyle: StoryObj<typeof SearchField> = {
+  args: {
+    backgroundColorToken: 'primary800',
+    borderColorToken: 'primary500',
+    colorToken: 'primary300',
+    disabledBackgroundColorToken: 'warning800',
+    disabledBorderColorToken: 'warning500',
+    disabledColorToken: 'warning500',
+    errorBorderColorToken: 'error500',
+    errorColorToken: 'error500',
+    hoverBackgroundColorToken: 'secondary700',
+    hoverBorderColorToken: 'primary800',
+    hoverColorToken: 'primary700',
+    hoverErrorBorderColorToken: 'error200',
+    hoverErrorColorToken: 'error700',
+    itemFilter,
+    itemRenderer: ItemRenderer,
+    items: [
+      ...customItems,
+      ...customItems,
+      ...customItems,
+      ...customItems,
+      ...customItems,
+      ...customItems,
+    ],
+    label: 'Search',
+    labelColorToken: 'white300',
+    labelTypographyToken: 'bodySmallMedium',
+    placeHolder: 'Type to search',
+    placeholderColorToken: 'secondary700',
+    tooltip: 'Make sure enter valid data!',
+    tooltipColorToken: 'white300',
+  },
   render: Template,
 };

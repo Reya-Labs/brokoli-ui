@@ -1,18 +1,71 @@
 import { css, Theme } from '@emotion/react';
 
+import { ColorTokens } from '../../../foundation/Colors';
 import {
   getResponsiveTypographyStyleFromToken,
   TypographyTokens,
 } from '../../../foundation/Typography';
 import { createTransition } from '../../../utils/create-transition';
 
-type CommonInputStyleArgs = {
+export type FieldStyleProps = {
   error?: boolean;
-  typographyToken: TypographyTokens;
-  theme: Theme;
+  typographyToken?: TypographyTokens;
+  backgroundColorToken?: ColorTokens;
+  disabledBackgroundColorToken?: ColorTokens;
+  errorBorderColorToken?: ColorTokens;
+  borderColorToken?: ColorTokens;
+  colorToken?: ColorTokens;
+  errorColorToken?: ColorTokens;
+  disabledColorToken?: ColorTokens;
+  placeholderColorToken?: ColorTokens;
+  hoverBorderColorToken?: ColorTokens;
+  hoverErrorBorderColorToken?: ColorTokens;
+  hoverColorToken?: ColorTokens;
+  hoverErrorColorToken?: ColorTokens;
+  hoverBackgroundColorToken?: ColorTokens;
+  disabledBorderColorToken?: ColorTokens;
 };
 
-export const commonInputStyle = ({ theme, error, typographyToken }: CommonInputStyleArgs) => css`
+// basically copy of the props above as array, to be passed to shouldNotForwardProps
+export const SHOULD_NOT_FORWARD_FIELD_STYLE_PROPS_LIST = [
+  'typographyToken',
+  'backgroundColorToken',
+  'disabledBackgroundColorToken',
+  'errorBorderColorToken',
+  'borderColorToken',
+  'colorToken',
+  'errorColorToken',
+  'disabledColorToken',
+  'placeholderColorToken',
+  'hoverBorderColorToken',
+  'hoverErrorBorderColorToken',
+  'hoverColorToken',
+  'hoverErrorColorToken',
+  'hoverBackgroundColorToken',
+  'disabledBorderColorToken',
+];
+
+export const commonInputStyle = ({
+  theme,
+  error,
+  typographyToken = 'bodyMediumBold',
+  borderColorToken = 'black700',
+  backgroundColorToken = 'black900',
+  hoverBackgroundColorToken = 'black800',
+  disabledBackgroundColorToken = 'black900',
+  placeholderColorToken = 'white950',
+  disabledColorToken = 'white950',
+  errorBorderColorToken = 'error800',
+  errorColorToken = 'error400',
+  colorToken = 'white100',
+  hoverBorderColorToken = 'black700',
+  hoverErrorBorderColorToken = 'error800',
+  hoverColorToken = colorToken,
+  hoverErrorColorToken = 'error100',
+  disabledBorderColorToken = 'black700',
+}: FieldStyleProps & {
+  theme: Theme;
+}) => css`
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -26,26 +79,30 @@ export const commonInputStyle = ({ theme, error, typographyToken }: CommonInputS
   transition: ${createTransition()};
 
   border-radius: 8px;
-  background: ${theme.colors.black900};
-  border: ${error ? `1px solid ${theme.colors.error800}` : `1px solid ${theme.colors.black700}`};
-  color: ${error ? theme.colors.error400 : theme.colors.white100};
+  background: ${theme.colors[backgroundColorToken]};
+  border: ${error
+    ? `1px solid ${theme.colors[errorBorderColorToken]}`
+    : `1px solid ${theme.colors[borderColorToken]}`};
+  color: ${error ? theme.colors[errorColorToken] : theme.colors[colorToken]};
 
   &:focus,
   &:active,
   &:hover:enabled {
-    color: ${error ? theme.colors.error100 : theme.colors.white100};
-    border: ${error ? `1px solid ${theme.colors.error800}` : `1px solid ${theme.colors.black700}`};
-    background: ${theme.colors.black800};
+    color: ${error ? theme.colors[hoverErrorColorToken] : theme.colors[hoverColorToken]};
+    border: ${error
+      ? `1px solid ${theme.colors[hoverErrorBorderColorToken]}`
+      : `1px solid ${theme.colors[hoverBorderColorToken]}`};
+    background: ${theme.colors[hoverBackgroundColorToken]};
   }
 
   &:disabled {
-    color: ${theme.colors.white950};
-    border: 1px solid ${theme.colors.black700};
-    background: ${theme.colors.black900};
+    color: ${theme.colors[disabledColorToken]};
+    border: 1px solid ${theme.colors[disabledBorderColorToken]};
+    background: ${theme.colors[disabledBackgroundColorToken]};
     cursor: not-allowed;
   }
 
   &::placeholder {
-    color: ${theme.colors.white950};
+    color: ${theme.colors[placeholderColorToken]};
   }
 `;
