@@ -10,11 +10,11 @@ export type RangeFieldProps = {
   disabled?: boolean;
   highlightEveryNthMark?: MarkProps['highlightEveryNthMark'];
   markColorToken?: MarkProps['colorToken'];
-  markHeight: MarkProps['height'];
+  markHeight?: MarkProps['height'];
   markHighlightColorToken?: MarkProps['highlightColorToken'];
   onChange?: (value: number) => void;
   step?: MarkProps['step'];
-  thumbColorToken: ThumbProps['colorToken'];
+  thumbColorToken?: ThumbProps['colorToken'];
   thumbSize?: ThumbProps['size'];
   trackColorToken?: 'transparent' | ColorTokens;
   trackHeight?: number;
