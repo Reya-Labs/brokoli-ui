@@ -57,8 +57,10 @@ export type TokenFieldProps = {
   placeholder?: string;
   prefixToken?: string;
   token?: TokenIconProps['token'];
+  tokenColorToken?: ColorTokens;
   tokenFormatter?: (token: string | undefined) => string;
   tokenOptions?: string[];
+  tokenTypographyToken?: TypographyTokens;
   tooltip?: ExclaimTooltipProps['children'];
   topRightText?: string;
   topRightTextColorToken?: ColorTokens;
@@ -121,6 +123,8 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
   hoverErrorColorToken = 'error100',
   disabledBorderColorToken = 'black700',
   hideTokenIcon = false,
+  tokenColorToken = 'white100',
+  tokenTypographyToken = 'bodyMediumMedium',
 }) => {
   const { thousands } = browserI18n();
   const cleanedValue = value.replace(new RegExp(thousands, 'g'), ''); // This replaces all occurrences of 'a'
@@ -238,9 +242,9 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
                 )}
                 {!hasTokenOptions ? (
                   <Typography
-                    colorToken="white100"
+                    colorToken={tokenColorToken}
                     data-testid="TokenField-CurrencyInputBox-TokenBox-Typography"
-                    typographyToken="bodyMediumMedium"
+                    typographyToken={tokenTypographyToken}
                   >
                     {tokenFormatter(token)}
                   </Typography>
