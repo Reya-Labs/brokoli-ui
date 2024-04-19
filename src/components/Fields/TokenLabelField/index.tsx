@@ -141,7 +141,23 @@ export const TokenLabelField: React.FunctionComponent<TokenLabelFieldProps> = ({
   return (
     <TokenLabelFieldBox data-testid="TokenLabelField-TokenLabelFieldBox">
       <CurrencyInputBottomBox>
-        <CurrencyInputBox data-testid="TokenLabelField-CurrencyInputBox">
+        <CurrencyInputBox
+          backgroundColorToken={backgroundColorToken}
+          borderColorToken={borderColorToken}
+          colorToken={colorToken}
+          data-testid="TokenLabelField-CurrencyInputBox"
+          disabledBackgroundColorToken={disabledBackgroundColorToken}
+          disabledBorderColorToken={disabledBorderColorToken}
+          disabledColorToken={disabledColorToken}
+          errorBorderColorToken={errorBorderColorToken}
+          errorColorToken={errorColorToken}
+          hoverBackgroundColorToken={hoverBackgroundColorToken}
+          hoverBorderColorToken={hoverBorderColorToken}
+          hoverColorToken={hoverColorToken}
+          hoverErrorBorderColorToken={hoverErrorBorderColorToken}
+          hoverErrorColorToken={hoverErrorColorToken}
+          placeholderColorToken={placeholderColorToken}
+        >
           <TopBox data-testid="TokenLabelField-TopBox">
             <TooltipLabel
               attentionIndicatorColorToken={labelAttentionIndicatorColorToken}

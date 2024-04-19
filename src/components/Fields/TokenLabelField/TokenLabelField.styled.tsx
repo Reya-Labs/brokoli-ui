@@ -1,10 +1,12 @@
+import { css, Theme } from '@emotion/react';
 import styled from '@emotion/styled';
 import CurrencyInput from 'react-currency-input-field';
 
+import { getResponsiveTypographyStyleFromToken } from '../../../foundation/Typography';
+import { createTransition } from '../../../utils/create-transition';
 import { shouldNotForwardProps } from '../../../utils/should-not-forward-props';
 import { Button } from '../../Button';
 import {
-  commonInputStyle,
   FieldStyleProps,
   SHOULD_NOT_FORWARD_FIELD_STYLE_PROPS_LIST,
 } from '../_common/common.styled';
@@ -36,32 +38,77 @@ export const BottomBox = styled('div')`
   justify-content: space-between;
 `;
 
-export const CurrencyInputBox = styled('div')`
-  position: relative;
-  padding: 8px 4px;
+const inputStyle = ({
+  theme,
+  error,
+  typographyToken = 'bodyMediumBold',
+  borderColorToken = 'black700',
+  backgroundColorToken = 'black900',
+  hoverBackgroundColorToken = 'black800',
+  disabledBackgroundColorToken = 'black900',
+  placeholderColorToken = 'white950',
+  disabledColorToken = 'white950',
+  errorBorderColorToken = 'error800',
+  errorColorToken = 'error400',
+  colorToken = 'white100',
+  hoverBorderColorToken = 'black700',
+  hoverErrorBorderColorToken = 'error800',
+  hoverColorToken = colorToken,
+  hoverErrorColorToken = 'error100',
+  disabledBorderColorToken = 'black700',
+}: FieldStyleProps & {
+  theme: Theme;
+}) => css`
   border-radius: 8px;
-  background: #0f0f0f;
-  border: 1px solid #222222;
+  background: ${theme.colors[backgroundColorToken]};
+  border: ${error
+    ? `1px solid ${theme.colors[errorBorderColorToken]}`
+    : `1px solid ${theme.colors[borderColorToken]}`};
+  transition: ${createTransition()};
+
+  & input {
+    outline: none;
+    color: ${error ? theme.colors[errorColorToken] : theme.colors[colorToken]};
+  }
+
+  & input:focus,
+  & input:active,
+  & input:hover:enabled {
+    color: ${error ? theme.colors[hoverErrorColorToken] : theme.colors[hoverColorToken]};
+  }
+
+  &:hover {
+    border: ${error
+      ? `1px solid ${theme.colors[hoverErrorBorderColorToken]}`
+      : `1px solid ${theme.colors[hoverBorderColorToken]}`};
+    background: ${theme.colors[hoverBackgroundColorToken]};
+  }
+
+  & input:disabled {
+    color: ${theme.colors[disabledColorToken]};
+  }
+
+  &:disabled {
+    border: 1px solid ${theme.colors[disabledBorderColorToken]};
+    background: ${theme.colors[disabledBackgroundColorToken]};
+    cursor: not-allowed;
+  }
+
+  & input::placeholder {
+    color: ${theme.colors[placeholderColorToken]};
+  }
 `;
 
-export const TokenBox = styled('div')`
-  display: flex;
-  gap: 4px;
-  align-items: center;
-  cursor: pointer;
-  position: relative;
-`;
-
-export const CurrencyInputStyled = styled(
-  CurrencyInput,
-  shouldNotForwardProps(['hasPrefixToken', 'error', ...SHOULD_NOT_FORWARD_FIELD_STYLE_PROPS_LIST]),
+export const CurrencyInputBox = styled(
+  'div',
+  shouldNotForwardProps(['error', ...SHOULD_NOT_FORWARD_FIELD_STYLE_PROPS_LIST]),
 )<
   {
     error?: boolean;
-    hasPrefixToken: boolean;
   } & FieldStyleProps
 >`
-  height: 44px;
+  position: relative;
+  padding: 8px 4px;
 
   ${({
     theme,
@@ -82,7 +129,7 @@ export const CurrencyInputStyled = styled(
     hoverBackgroundColorToken,
     disabledBorderColorToken,
   }) =>
-    commonInputStyle({
+    inputStyle({
       backgroundColorToken,
       borderColorToken,
       colorToken,
@@ -101,10 +148,39 @@ export const CurrencyInputStyled = styled(
       theme,
       typographyToken,
     })}
+`;
+
+export const TokenBox = styled('div')`
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+`;
+
+export const CurrencyInputStyled = styled(
+  CurrencyInput,
+  shouldNotForwardProps(['hasPrefixToken', 'error', ...SHOULD_NOT_FORWARD_FIELD_STYLE_PROPS_LIST]),
+)<
+  {
+    error?: boolean;
+    hasPrefixToken: boolean;
+  } & FieldStyleProps
+>`
+  height: 44px;
+  padding: 4px 96px 0px ${({ hasPrefixToken }) => (hasPrefixToken ? 16 : 0)}px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 8px;
+
+  ${({ theme, typographyToken }) =>
+    css(getResponsiveTypographyStyleFromToken({ theme, token: typographyToken }))};
 
   background: transparent;
   border: none;
-  padding: 4px 0px 0px 0;
 `;
 
 export const MaxButton = styled(Button)`
