@@ -183,7 +183,7 @@ export const CurrencyInputStyled = styled(
 `;
 
 export const MaxButton = styled(Button)`
-  padding: 4px 8px;
+  padding: 2px 8px;
 `;
 
 export const TokenAndMaxBox = styled('div')`
