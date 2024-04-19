@@ -5,3 +5,4 @@ export * from './SearchField';
 export * from './TextField';
 export * from './ToggleField';
 export * from './TokenField';
+export * from './TokenLabelField';

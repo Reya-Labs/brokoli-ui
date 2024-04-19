@@ -58,7 +58,7 @@ describe('<TokenLabelField />', () => {
   it('renders error styles when error prop is true', () => {
     render(<TokenLabelField {...defaultProps} error={true} />);
     const inputBox = screen.getByTestId('TokenLabelField-CurrencyInputBox');
-    expect(inputBox).toHaveClass('css-cssveg'); // Replace with the actual CSS class name for error styles
+    expect(inputBox).toHaveClass('css-19oxajg'); // Replace with the actual CSS class name for error styles
   });
 
   it('renders label with correct text', () => {

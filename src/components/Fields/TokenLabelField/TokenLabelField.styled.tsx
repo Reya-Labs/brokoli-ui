@@ -2,7 +2,10 @@ import { css, Theme } from '@emotion/react';
 import styled from '@emotion/styled';
 import CurrencyInput from 'react-currency-input-field';
 
-import { getResponsiveTypographyStyleFromToken } from '../../../foundation/Typography';
+import {
+  getResponsiveTypographyStyleFromToken,
+  TypographyTokens,
+} from '../../../foundation/Typography';
 import { createTransition } from '../../../utils/create-transition';
 import { shouldNotForwardProps } from '../../../utils/should-not-forward-props';
 import { Button } from '../../Button';
@@ -41,7 +44,6 @@ export const BottomBox = styled('div')`
 const inputStyle = ({
   theme,
   error,
-  typographyToken = 'bodyMediumBold',
   borderColorToken = 'black700',
   backgroundColorToken = 'black900',
   hoverBackgroundColorToken = 'black800',
@@ -56,14 +58,18 @@ const inputStyle = ({
   hoverColorToken = colorToken,
   hoverErrorColorToken = 'error100',
   disabledBorderColorToken = 'black700',
+  disabled,
 }: FieldStyleProps & {
+  disabled: boolean;
   theme: Theme;
 }) => css`
   border-radius: 8px;
-  background: ${theme.colors[backgroundColorToken]};
-  border: ${error
-    ? `1px solid ${theme.colors[errorBorderColorToken]}`
-    : `1px solid ${theme.colors[borderColorToken]}`};
+  background: ${theme.colors[disabled ? disabledBackgroundColorToken : backgroundColorToken]};
+  border: ${`1px solid ${
+    theme.colors[
+      error ? errorBorderColorToken : disabled ? disabledBorderColorToken : borderColorToken
+    ]
+  }`};
   transition: ${createTransition()};
 
   & input {
@@ -86,11 +92,10 @@ const inputStyle = ({
 
   & input:disabled {
     color: ${theme.colors[disabledColorToken]};
+    cursor: not-allowed;
   }
 
   &:disabled {
-    border: 1px solid ${theme.colors[disabledBorderColorToken]};
-    background: ${theme.colors[disabledBackgroundColorToken]};
     cursor: not-allowed;
   }
 
@@ -101,9 +106,10 @@ const inputStyle = ({
 
 export const CurrencyInputBox = styled(
   'div',
-  shouldNotForwardProps(['error', ...SHOULD_NOT_FORWARD_FIELD_STYLE_PROPS_LIST]),
+  shouldNotForwardProps(['error', 'disabled', ...SHOULD_NOT_FORWARD_FIELD_STYLE_PROPS_LIST]),
 )<
   {
+    disabled: boolean;
     error?: boolean;
   } & FieldStyleProps
 >`
@@ -128,11 +134,13 @@ export const CurrencyInputBox = styled(
     hoverErrorColorToken,
     hoverBackgroundColorToken,
     disabledBorderColorToken,
+    disabled,
   }) =>
     inputStyle({
       backgroundColorToken,
       borderColorToken,
       colorToken,
+      disabled,
       disabledBackgroundColorToken,
       disabledBorderColorToken,
       disabledColorToken,
@@ -160,15 +168,14 @@ export const TokenBox = styled('div')`
 
 export const CurrencyInputStyled = styled(
   CurrencyInput,
-  shouldNotForwardProps(['hasPrefixToken', 'error', ...SHOULD_NOT_FORWARD_FIELD_STYLE_PROPS_LIST]),
-)<
-  {
-    error?: boolean;
-    hasPrefixToken: boolean;
-  } & FieldStyleProps
->`
+  shouldNotForwardProps(['hasPrefixToken', 'error', 'typographyToken']),
+)<{
+  error?: boolean;
+  hasPrefixToken: boolean;
+  typographyToken: TypographyTokens;
+}>`
   height: 44px;
-  padding: 4px 96px 0px ${({ hasPrefixToken }) => (hasPrefixToken ? 16 : 0)}px;
+  padding: 4px 0px 0px ${({ hasPrefixToken }) => (hasPrefixToken ? 16 : 0)}px;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -188,10 +195,6 @@ export const MaxButton = styled(Button)`
 `;
 
 export const FloatingBox = styled('div')`
-  position: absolute;
-  right: 16px;
-  top: 50%;
-  z-index: 1;
   color: ${({ theme }) => theme.colors.white100};
   cursor: pointer;
   display: flex;
@@ -199,6 +202,13 @@ export const FloatingBox = styled('div')`
   gap: 8px;
   align-items: center;
   height: 24px;
+`;
+
+export const InputAndFloatingBoxBox = styled('div')`
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
 `;
 
 export const LeftFloatingBox = styled('div')`
