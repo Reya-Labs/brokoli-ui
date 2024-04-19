@@ -43,6 +43,7 @@ export type TokenLabelFieldProps = {
   defaultValue?: number | string;
   disabled?: boolean;
   error?: boolean;
+  hideTokenIcon?: boolean;
   label?: string;
   labelAttentionIndicatorColorToken?: ColorTokens;
   labelColorToken?: ColorTokens;
@@ -119,6 +120,7 @@ export const TokenLabelField: React.FunctionComponent<TokenLabelFieldProps> = ({
   hoverColorToken = colorToken,
   hoverErrorColorToken = 'error100',
   disabledBorderColorToken = 'black700',
+  hideTokenIcon = false,
 }) => {
   const { thousands } = browserI18n();
   const cleanedValue = value.replace(new RegExp(thousands, 'g'), ''); // This replaces all occurrences of 'a'
@@ -138,6 +140,7 @@ export const TokenLabelField: React.FunctionComponent<TokenLabelFieldProps> = ({
     ? bottomRightTextToken
     : tokenFormatter(token);
   const hasPrefixToken = Boolean(prefixToken);
+  const hasTokenOptions = tokenOptions?.length !== 0;
   return (
     <TokenLabelFieldBox data-testid="TokenLabelField-TokenLabelFieldBox">
       <CurrencyInputBox
@@ -226,16 +229,16 @@ export const TokenLabelField: React.FunctionComponent<TokenLabelFieldProps> = ({
                 Max
               </MaxButton>
             ) : null}
-            {token || tokenOptions?.length !== 0 ? (
+            {token || hasTokenOptions ? (
               <TokenBox data-testid="TokenLabelField-CurrencyInputBox-TokenBox">
-                {!token ? null : (
+                {!token || hideTokenIcon ? null : (
                   <TokenIcon
                     data-testid={`TokenLabelField-CurrencyInputBox-TokenBox-TokenIcon-${token}`}
                     size={22}
                     token={token}
                   />
                 )}
-                {tokenOptions?.length === 0 ? (
+                {!hasTokenOptions ? (
                   <Typography
                     colorToken="white100"
                     data-testid="TokenLabelField-CurrencyInputBox-TokenBox-Typography"
@@ -244,7 +247,7 @@ export const TokenLabelField: React.FunctionComponent<TokenLabelFieldProps> = ({
                     {tokenFormatter(token)}
                   </Typography>
                 ) : null}
-                {tokenOptions?.length !== 0 ? (
+                {hasTokenOptions ? (
                   <React.Fragment>
                     <ToggleCaret isOpen={false} />
                     <TokenSelect value={token} onChange={handleOnTokenOptionChange}>
