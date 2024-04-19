@@ -27,13 +27,6 @@ export const TopBox = styled('div')`
   justify-content: space-between;
 `;
 
-export const CurrencyInputBottomBox = styled('div')`
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  width: 100%;
-`;
-
 export const BottomBox = styled('div')`
   display: flex;
   flex-direction: row;
@@ -115,6 +108,7 @@ export const CurrencyInputBox = styled(
 >`
   position: relative;
   padding: 8px 4px;
+  width: 100%;
 
   ${({
     theme,
@@ -174,8 +168,7 @@ export const CurrencyInputStyled = styled(
   hasPrefixToken: boolean;
   typographyToken: TypographyTokens;
 }>`
-  height: 44px;
-  padding: 4px 0px 0px ${({ hasPrefixToken }) => (hasPrefixToken ? 16 : 0)}px;
+  padding: 0px 0px 0px ${({ hasPrefixToken }) => (hasPrefixToken ? 16 : 0)}px;
   width: 100%;
   display: flex;
   flex-direction: row;
