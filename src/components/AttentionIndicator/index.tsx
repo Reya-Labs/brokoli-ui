@@ -4,8 +4,8 @@ import { ColorTokens } from '../../foundation/Colors';
 import { AttentionIndicatorCircleIcon } from './AttentionIndicator.styled';
 
 export type AttentionIndicatorProps = {
-  colorToken: ColorTokens;
   className?: string;
+  colorToken: ColorTokens;
 };
 
 export const AttentionIndicator: React.FunctionComponent<AttentionIndicatorProps> = React.memo(

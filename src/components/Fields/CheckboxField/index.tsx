@@ -3,12 +3,12 @@ import React from 'react';
 import { CheckboxFieldBox } from './CheckboxField.styled';
 
 export type CheckboxFieldProps = {
-  onChange?: (checked: boolean) => void;
   checked: boolean;
   disabled?: boolean;
+  error?: boolean;
+  onChange?: (checked: boolean) => void;
   size?: number;
   text: React.ReactNode;
-  error?: boolean;
 };
 
 export const CheckboxField: React.FunctionComponent<CheckboxFieldProps> = ({

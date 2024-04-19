@@ -5,11 +5,11 @@ import { ColorTokens } from '../../../../foundation/Colors';
 import { StyledMark } from './Mark.styled';
 
 export type MarkProps = {
-  highlightEveryNthMark: number;
-  highlightColorToken: ColorTokens;
   colorToken: ColorTokens;
-  step: number;
   height: number;
+  highlightColorToken: ColorTokens;
+  highlightEveryNthMark: number;
+  step: number;
   trackHeight: number;
 };
 

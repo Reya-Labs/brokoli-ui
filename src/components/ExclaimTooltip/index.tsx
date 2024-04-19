@@ -6,9 +6,9 @@ import { ReactComponent as ExclaimSvg } from './exclaim.svg';
 import { ExclaimBox } from './ExclaimTooltipTooltip.styled';
 
 export type ExclaimTooltipProps = {
-  colorToken?: ColorTokens;
-  className?: string;
   children: string | React.ReactNode;
+  className?: string;
+  colorToken?: ColorTokens;
 };
 
 export const ExclaimTooltip: React.FunctionComponent<ExclaimTooltipProps> = ({

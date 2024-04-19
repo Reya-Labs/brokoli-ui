@@ -13,9 +13,9 @@ export const NavLinkButtonBox = styled(
   'div',
   shouldNotForwardProps(['isActive', 'isPopoverOpen', 'colorToken']),
 )<{
-  isPopoverOpen: boolean;
-  isActive: boolean;
   colorToken: BaseColorTokens | 'rainbow';
+  isActive: boolean;
+  isPopoverOpen: boolean;
 }>`
   display: flex;
   flex-direction: row;
@@ -46,9 +46,9 @@ export const NavLinkButton = styled(
   'a',
   shouldNotForwardProps(['typographyToken', 'isActive', 'isPopoverOpen', 'colorToken']),
 )<{
-  isPopoverOpen: boolean;
-  isActive: boolean;
   colorToken: BaseColorTokens | 'rainbow';
+  isActive: boolean;
+  isPopoverOpen: boolean;
   typographyToken: TypographyTokens;
 }>`
   ${({ theme, typographyToken }) =>

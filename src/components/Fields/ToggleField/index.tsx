@@ -3,9 +3,9 @@ import React, { useCallback, useId } from 'react';
 import { ToggleFieldBox } from './ToggleField.styled';
 
 export type ToggleFieldProps = {
-  onChange?: (checked: boolean) => void;
   checked: boolean;
   disabled?: boolean;
+  onChange?: (checked: boolean) => void;
 };
 
 export const ToggleField: React.FunctionComponent<ToggleFieldProps> = ({

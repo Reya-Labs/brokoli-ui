@@ -5,12 +5,12 @@ import { LineChartProps, XDataType, YDataType } from '../types';
 import { useAxisVisible } from './useAxisVisible';
 
 type UseAxisPropsParams = {
-  visibleAxis: LineChartProps['visibleAxis'];
-  yFormatter: (y: YDataType) => string;
-  xFormatter: (x: XDataType) => string;
-  axisTickPadding: LineChartProps['axisTickPadding'];
   axisBottomFormat: LineChartProps['axisBottomFormat'];
+  axisTickPadding: LineChartProps['axisTickPadding'];
+  visibleAxis: LineChartProps['visibleAxis'];
+  xFormatter: (x: XDataType) => string;
   xScaleType: LineChartProps['xScaleType'];
+  yFormatter: (y: YDataType) => string;
 };
 
 export const useAxisProps = ({
@@ -21,10 +21,10 @@ export const useAxisProps = ({
   axisBottomFormat,
   xScaleType,
 }: UseAxisPropsParams): {
-  top?: AxisProps | null;
-  right?: AxisProps | null;
   bottom?: AxisProps | null;
   left?: AxisProps | null;
+  right?: AxisProps | null;
+  top?: AxisProps | null;
 } => {
   const axisVisible = useAxisVisible(visibleAxis);
 

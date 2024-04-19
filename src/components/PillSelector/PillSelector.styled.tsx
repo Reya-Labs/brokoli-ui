@@ -24,9 +24,9 @@ export const PillSelectorButton = styled(
   'button',
   shouldNotForwardProps(['active', 'attentionPrefixColorToken']),
 )<{
-  error?: boolean;
   active: boolean;
   attentionPrefixColorToken: BaseColorTokens;
+  error?: boolean;
 }>`
   border: none;
   display: flex;

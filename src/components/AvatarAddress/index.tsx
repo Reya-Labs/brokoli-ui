@@ -12,8 +12,8 @@ export { formatEthereumAddress } from './helpers/formatEthereumAddress';
 export const AvatarAddress: FunctionComponent<{
   address?: string | null;
   avatarSize: 'small' | 'medium';
-  typographyToken: TypographyTokens;
   isEnsAddress?: boolean;
+  typographyToken: TypographyTokens;
 }> = ({ isEnsAddress, typographyToken, avatarSize, address }) => {
   const [name, setName] = useState(address);
   const [avatarUrl, setAvatarUrl] = useState('');

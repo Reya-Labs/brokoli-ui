@@ -10,10 +10,10 @@ import {
 } from './WalletConnectButton.styled';
 
 export type WalletConnectButtonProps = {
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   account?: string | null;
   error?: string | null;
   loading?: boolean;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
 export const WalletConnectButton: React.FunctionComponent<WalletConnectButtonProps> = ({

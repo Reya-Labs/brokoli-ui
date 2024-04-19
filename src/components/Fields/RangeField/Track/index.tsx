@@ -5,8 +5,8 @@ import { ColorTokens } from '../../../../foundation/Colors';
 import { StyledTrack } from './Track.styled';
 
 export type TrackProps = {
-  trackColorToken: ColorTokens;
   thumbHeight: number;
+  trackColorToken: ColorTokens;
   trackHeight: number;
 };
 

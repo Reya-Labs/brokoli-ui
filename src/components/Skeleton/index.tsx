@@ -5,11 +5,11 @@ import { TypographyTokens } from '../../foundation/Typography';
 import { SkeletonBox } from './Skeleton.styled';
 
 export const Skeleton: React.FunctionComponent<{
+  className?: string;
   colorToken: ColorTokens;
+  'data-testid'?: string;
   typographyToken?: TypographyTokens;
   variant: 'rectangular' | 'circular';
-  className?: string;
-  'data-testid'?: string;
 }> = React.memo(
   ({
     'data-testid': dataTestId,

@@ -4,22 +4,22 @@ import { AttentionIndicator } from '../../../AttentionIndicator';
 import { ActiveSubLinkButton, SubLinkButton } from './SubLink.styled';
 
 export type SubLinkProps = {
-  link: string;
-  isNew: boolean;
-  onClick: () => void;
-  text: string;
-  isActive: boolean;
-  target?: HTMLAttributeAnchorTarget | undefined;
   Component?: React.FunctionComponent<{
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    to: any;
-    href?: string;
-    target?: HTMLAttributeAnchorTarget | undefined;
-    disabled?: boolean;
+    children: string | ReactNode;
     className?: string;
     'data-testid'?: string;
-    children: string | ReactNode;
+    disabled?: boolean;
+    href?: string;
+    target?: HTMLAttributeAnchorTarget | undefined;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    to: any;
   }>;
+  isActive: boolean;
+  isNew: boolean;
+  link: string;
+  onClick: () => void;
+  target?: HTMLAttributeAnchorTarget | undefined;
+  text: string;
 };
 
 export const SubLink: React.FunctionComponent<SubLinkProps> = ({

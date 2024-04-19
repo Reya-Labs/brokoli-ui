@@ -6,14 +6,14 @@ import { Typography } from '../Typography';
 import { PillBox, PillVariant } from './Pill.styled';
 
 export type PillProps = {
+  backgroundColorToken: ColorTokens;
   children: string;
   className?: string;
   colorToken: ColorTokens | 'rainbow';
-  backgroundColorToken: ColorTokens;
-  typographyToken: TypographyTokens;
   'data-testid'?: string;
-  variant: PillVariant;
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  typographyToken: TypographyTokens;
+  variant: PillVariant;
 };
 
 export const Pill = ({

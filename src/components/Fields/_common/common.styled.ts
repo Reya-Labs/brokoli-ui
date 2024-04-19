@@ -8,22 +8,22 @@ import {
 import { createTransition } from '../../../utils/create-transition';
 
 export type FieldStyleProps = {
-  error?: boolean;
-  typographyToken?: TypographyTokens;
   backgroundColorToken?: ColorTokens;
-  disabledBackgroundColorToken?: ColorTokens;
-  errorBorderColorToken?: ColorTokens;
   borderColorToken?: ColorTokens;
   colorToken?: ColorTokens;
-  errorColorToken?: ColorTokens;
-  disabledColorToken?: ColorTokens;
-  placeholderColorToken?: ColorTokens;
-  hoverBorderColorToken?: ColorTokens;
-  hoverErrorBorderColorToken?: ColorTokens;
-  hoverColorToken?: ColorTokens;
-  hoverErrorColorToken?: ColorTokens;
-  hoverBackgroundColorToken?: ColorTokens;
+  disabledBackgroundColorToken?: ColorTokens;
   disabledBorderColorToken?: ColorTokens;
+  disabledColorToken?: ColorTokens;
+  error?: boolean;
+  errorBorderColorToken?: ColorTokens;
+  errorColorToken?: ColorTokens;
+  hoverBackgroundColorToken?: ColorTokens;
+  hoverBorderColorToken?: ColorTokens;
+  hoverColorToken?: ColorTokens;
+  hoverErrorBorderColorToken?: ColorTokens;
+  hoverErrorColorToken?: ColorTokens;
+  placeholderColorToken?: ColorTokens;
+  typographyToken?: TypographyTokens;
 };
 
 // basically copy of the props above as array, to be passed to shouldNotForwardProps

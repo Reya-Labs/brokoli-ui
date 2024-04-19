@@ -19,8 +19,8 @@ type TimingFunctionType =
   | string;
 
 type TransitionArgs = {
-  properties?: string | string[];
   duration?: number;
+  properties?: string | string[];
   timingFunction?: TimingFunctionType;
 };
 

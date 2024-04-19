@@ -10,26 +10,26 @@ import { FromToBox, FromToTokenTypographyBox } from './FromToTokenTypography.sty
 
 export type FromToTokenTypographyProps = {
   fromColorToken: ColorTokens;
-  fromValue: string | number;
-  fromToken?: string;
+  fromPrefixColorToken?: ColorTokens;
   fromPrefixToken?: string;
-  toColorToken: ColorTokens;
-  toValue: string | number;
-  toToken?: string;
-  toPrefixToken?: string;
-  typographyToken: TypographyTokens;
-  token?: string;
-  tokenColorToken?: ColorTokens;
+  fromToken?: string;
+  fromTokenColorToken?: ColorTokens;
+  fromValue: string | number;
   label?: string;
+  labelAttentionIndicatorColorToken?: ColorTokens;
   labelColorToken?: ColorTokens;
   labelTypographyToken?: TypographyTokens;
+  toColorToken: ColorTokens;
+  toPrefixColorToken?: ColorTokens;
+  toPrefixToken?: string;
+  toToken?: string;
+  toTokenColorToken?: ColorTokens;
+  toValue: string | number;
+  token?: string;
+  tokenColorToken?: ColorTokens;
   tooltip?: ExclaimTooltipProps['children'];
   tooltipColorToken?: ColorTokens;
-  fromPrefixColorToken?: ColorTokens;
-  fromTokenColorToken?: ColorTokens;
-  toPrefixColorToken?: ColorTokens;
-  toTokenColorToken?: ColorTokens;
-  labelAttentionIndicatorColorToken?: ColorTokens;
+  typographyToken: TypographyTokens;
 };
 
 export const FromToTokenTypography: React.FunctionComponent<FromToTokenTypographyProps> = ({

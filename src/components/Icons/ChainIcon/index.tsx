@@ -4,9 +4,9 @@ import { ChainIconStyled } from './ChainIcon.styled';
 import { Icon, IconProps } from './Icon';
 
 export type ChainIconProps = Omit<IconProps, 'chainId'> & {
-  size?: number;
   chainId: number;
   'data-testid'?: string;
+  size?: number;
 };
 
 export const ChainIcon: React.FunctionComponent<ChainIconProps> = ({ size, ...props }) => {

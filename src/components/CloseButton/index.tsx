@@ -5,11 +5,11 @@ import { ReactComponent as CloseIcon } from './close-icon.svg';
 import { CloseButtonWrapper } from './CloseButton.styled';
 
 export type CloseButtonProps = {
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   buttonBackgroundColorToken?: ColorTokens;
   buttonHoverBackgroundColorToken?: ColorTokens;
   iconColorToken?: ColorTokens;
   iconHoverColorToken?: ColorTokens;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   size?: number;
 };
 

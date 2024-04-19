@@ -7,13 +7,13 @@ import { Typography } from '../../Typography';
 import { NotificationBox, TitleBox } from '../Notifications.styled';
 
 export type NotificationContentProps = {
-  content: string;
-  title: string;
+  closeToast?: () => void;
   colorToken: BaseColorTokens;
-  titleTypographyToken: TypographyTokens;
+  content: string;
   contentTypographyToken: TypographyTokens;
   onCloseNotification?: () => void;
-  closeToast?: () => void;
+  title: string;
+  titleTypographyToken: TypographyTokens;
 };
 
 export const NotificationContent: React.FunctionComponent<NotificationContentProps> = ({

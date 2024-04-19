@@ -6,15 +6,15 @@ import { ColorTokens, getColorFromToken } from '../../../foundation/Colors';
 import { VisxTimelineChartDatum, VisxTimelineChartProps } from './types';
 
 type VisxTimelineChartTooltipProps = {
-  renderTooltip: NonNullable<VisxTimelineChartProps['renderTooltip']>;
+  crosshairColorToken?: ColorTokens;
   renderGlyph: VisxTimelineChartProps['renderTooltipGlyph'];
+  renderTooltip: NonNullable<VisxTimelineChartProps['renderTooltip']>;
   showDatumGlyph: boolean;
   showHorizontalCrosshair: boolean;
   showSeriesGlyphs: boolean;
   showVerticalCrosshair: boolean;
   snapTooltipToDatumX: boolean;
   snapTooltipToDatumY: boolean;
-  crosshairColorToken?: ColorTokens;
 };
 
 export const VisxTimelineChartTooltip: React.FunctionComponent<VisxTimelineChartTooltipProps> = ({

@@ -5,11 +5,11 @@ import { Typography } from '../Typography';
 import { ActionButton, BarBox, PaginationBox } from './Pagination.styled';
 
 export type PaginationProps = {
-  onPreviousPageClick: () => void;
-  onNextPageClick: () => void;
-  maxPages: number;
-  page: number;
   disabled?: boolean;
+  maxPages: number;
+  onNextPageClick: () => void;
+  onPreviousPageClick: () => void;
+  page: number;
 };
 export const Pagination: React.FunctionComponent<PaginationProps> = ({
   onPreviousPageClick,

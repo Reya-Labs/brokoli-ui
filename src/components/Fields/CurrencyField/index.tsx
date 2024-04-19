@@ -11,28 +11,28 @@ import { MaxConfig } from '../_common/types';
 import { CurrencyFieldBox, CurrencyInputStyled } from './CurrencyField.styled';
 
 type CurrencyFieldProps = {
-  onChange?: (value: string | undefined) => void;
-  onBlur?: () => void;
+  allowNegativeValue?: boolean;
   'data-testid'?: string;
-
   decimalsLimit?: number;
-  max?: MaxConfig;
-  maxLength?: number | undefined;
-  min?: number | string | undefined;
-  value?: string;
+
   defaultValue?: number | string;
   disabled?: boolean;
   error?: boolean;
-  suffix?: string;
-  allowNegativeValue?: boolean;
-
   label?: string;
+  labelAttentionIndicatorColorToken?: ColorTokens;
   labelColorToken?: ColorTokens;
   labelTypographyToken?: TypographyTokens;
+  max?: MaxConfig;
+  maxLength?: number | undefined;
+  min?: number | string | undefined;
+
+  onBlur?: () => void;
+  onChange?: (value: string | undefined) => void;
+  placeholder?: string;
+  suffix?: string;
   tooltip?: ExclaimTooltipProps['children'];
   tooltipColorToken?: ColorTokens;
-  placeholder?: string;
-  labelAttentionIndicatorColorToken?: ColorTokens;
+  value?: string;
 } & FieldStyleProps;
 
 export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({

@@ -6,8 +6,8 @@ import { ActiveChainOptionButton, ChainOptionButton, IconBox } from './ChainOpti
 
 export type ChainOptionProps = {
   id: number;
-  name: string;
   isActive: boolean;
+  name: string;
   onClick: () => void;
 };
 

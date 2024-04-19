@@ -11669,6 +11669,7 @@ __metadata:
     eslint-plugin-simple-import-sort: "npm:10.0.0"
     eslint-plugin-sort-keys-fix: "npm:1.1.2"
     eslint-plugin-storybook: "npm:^0.6.15"
+    eslint-plugin-typescript-sort-keys: "npm:3.2.0"
     eslint-plugin-unused-imports: "npm:3.0.0"
     ethers: "npm:6.10.0"
     facepaint: "npm:1.2.1"
@@ -15039,6 +15040,21 @@ __metadata:
   peerDependencies:
     eslint: ^7.5.0 || ^8.0.0
   checksum: 10c0/d4c5927a5361240ffdec6293d922da47f88c262fe37b6bdbccd9bc2a1b78bde53e051963f8ac8121d331959d21057ff7aa132cd39d757fb7fd409ac72c365150
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-typescript-sort-keys@npm:3.2.0":
+  version: 3.2.0
+  resolution: "eslint-plugin-typescript-sort-keys@npm:3.2.0"
+  dependencies:
+    "@typescript-eslint/experimental-utils": "npm:^5.0.0"
+    json-schema: "npm:^0.4.0"
+    natural-compare-lite: "npm:^1.4.0"
+  peerDependencies:
+    "@typescript-eslint/parser": ^6 || ^7
+    eslint: ^7 || ^8
+    typescript: ^3 || ^4 || ^5
+  checksum: 10c0/c832d5a93cac4f955f05b126ad79d1df49f9f11402ab225b1835d42972291a3855e477d28b07696d2a65a511ccdcdf64001eeda216248da82a5187af6d03e70f
   languageName: node
   linkType: hard
 
@@ -18903,7 +18919,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"json-schema@npm:0.4.0":
+"json-schema@npm:0.4.0, json-schema@npm:^0.4.0":
   version: 0.4.0
   resolution: "json-schema@npm:0.4.0"
   checksum: 10c0/d4a637ec1d83544857c1c163232f3da46912e971d5bf054ba44fdb88f07d8d359a462b4aec46f2745efbc57053365608d88bc1d7b1729f7b4fc3369765639ed3

@@ -9,8 +9,8 @@ import {
 import { TooltipBox, TriggerBox } from './Tooltip.styled';
 
 export type TooltipProps = {
-  className?: string;
   children: string | React.ReactNode;
+  className?: string;
   trigger: string | React.ReactNode;
 };
 

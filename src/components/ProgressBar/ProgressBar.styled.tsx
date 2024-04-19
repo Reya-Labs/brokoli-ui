@@ -8,10 +8,10 @@ export const PercentageBox = styled(
   'div',
   shouldNotForwardProps(['barColorToken', 'rounded', 'width', 'height']),
 )<{
-  width: number;
-  height: number;
   barColorToken: ColorTokens;
+  height: number;
   rounded: boolean;
+  width: number;
 }>`
   background: ${({ theme, barColorToken }) =>
     getColorFromToken({ colorToken: barColorToken, theme })};

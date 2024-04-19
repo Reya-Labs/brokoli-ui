@@ -14,9 +14,9 @@ import {
 } from './MarkdownPreview.styled';
 
 export const MarkdownPreview: React.FunctionComponent<{
-  markdownText: string;
   className?: string;
   colorToken: ColorTokens;
+  markdownText: string;
 }> = ({ markdownText, className, colorToken = 'white100' }) => {
   return (
     <Markdown

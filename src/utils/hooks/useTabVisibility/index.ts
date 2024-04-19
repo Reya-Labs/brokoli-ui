@@ -3,8 +3,8 @@ import { useEffect } from 'react';
 import { getVisibilityState } from './helpers';
 
 type UseTabVisibilityParams = {
-  onVisible?: () => void;
   onHidden?: () => void;
+  onVisible?: () => void;
 };
 
 /**

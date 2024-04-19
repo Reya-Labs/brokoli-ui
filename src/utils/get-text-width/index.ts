@@ -2,9 +2,9 @@ import { getSpanTextWidth } from './get-span-text-width';
 import { getSvgTextWidth } from './get-svg-text-width';
 
 type TextWidthParams = {
-  text: string;
-  style: object;
   domElement: 'span' | 'svg-text';
+  style: object;
+  text: string;
 };
 
 export function getTextWidth({ text, domElement, style }: TextWidthParams): number {

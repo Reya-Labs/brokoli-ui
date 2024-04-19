@@ -12,12 +12,12 @@ type BaseItem = {
 
 export type SearchItemRendererProps = { item: BaseItem; searchedValue?: string };
 export type SearchListProps = {
-  items: BaseItem[];
-  itemRenderer?: React.FunctionComponent<SearchItemRendererProps>;
   itemFilter?: (item: BaseItem, value: string) => boolean;
+  itemRenderer?: React.FunctionComponent<SearchItemRendererProps>;
+  items: BaseItem[];
+  onItemClick: (item: BaseItem) => void;
   parentWidth: number;
   searchedValue?: string;
-  onItemClick: (item: BaseItem) => void;
   selectedItemUntouched: boolean;
 };
 

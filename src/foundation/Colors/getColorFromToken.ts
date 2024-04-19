@@ -3,8 +3,8 @@ import { Theme } from '@emotion/react';
 import { ColorTokens } from './types';
 
 type GetColorFromTokenParams = {
-  theme: Theme;
   colorToken?: ColorTokens;
+  theme: Theme;
 };
 
 export const getColorFromToken = ({ theme, colorToken }: GetColorFromTokenParams) =>

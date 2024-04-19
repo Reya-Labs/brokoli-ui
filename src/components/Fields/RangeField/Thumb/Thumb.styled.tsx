@@ -8,12 +8,12 @@ export const StyledThumb = styled(
   'div',
   shouldNotForwardProps(['value', 'disabled', 'height', 'width', 'trackHeight', 'colorToken']),
 )<{
-  height: number;
-  width: number;
-  trackHeight: number;
-  disabled: boolean;
   colorToken: ColorTokens;
+  disabled: boolean;
+  height: number;
+  trackHeight: number;
   value: number;
+  width: number;
 }>`
   height: ${({ height }) => height}px;
   line-height: ${({ height }) => height}px;

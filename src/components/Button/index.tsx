@@ -7,23 +7,18 @@ import { Typography } from '../Typography';
 import { ButtonBox, ButtonStyled, IconBox } from './Button.styled';
 
 export type ButtonProps = React.PropsWithChildren<{
-  disabled?: boolean;
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  backgroundColorToken?: ColorTokens;
+  borderColorToken?: ColorTokens;
   bottomLeftText?: string;
   bottomLeftTextColorToken?: ColorTokens;
   bottomLeftTextTypographyToken?: TypographyTokens;
-  loading?: boolean;
-  'data-testid'?: string;
   className?: string;
-  typographyToken?: TypographyTokens;
-  borderColorToken?: ColorTokens;
-  backgroundColorToken?: ColorTokens;
-  typographyColorToken?: ColorTokens;
-  rounded?: boolean;
-  hoverTypographyColorToken?: ColorTokens;
+  'data-testid'?: string;
+  disabled?: boolean;
   hoverBackgroundColorToken?: ColorTokens;
   hoverBorderColorToken?: ColorTokens;
   hoverIconColorToken?: ColorTokens;
+  hoverTypographyColorToken?: ColorTokens;
   iconColorToken?: ColorTokens;
   /**
    * `iconLeft` allows you to insert a React Component (preferably an SVG) on the left side of the button content.
@@ -35,6 +30,11 @@ export type ButtonProps = React.PropsWithChildren<{
    * When an SVG is provided as `iconRight`, it will inherit hover effects from the button, such as color changes.
    */
   iconRight?: React.ReactNode;
+  loading?: boolean;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  rounded?: boolean;
+  typographyColorToken?: ColorTokens;
+  typographyToken?: TypographyTokens;
 }>;
 
 export const Button: React.FunctionComponent<ButtonProps> = ({

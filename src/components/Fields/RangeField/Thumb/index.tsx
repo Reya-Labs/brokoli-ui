@@ -5,11 +5,11 @@ import { ColorTokens } from '../../../../foundation/Colors';
 import { StyledThumb, StyledValueTypography } from './Thumb.styled';
 
 export type ThumbProps = {
+  colorToken: ColorTokens;
+  disabled: boolean;
   size: number;
   trackHeight: number;
-  colorToken: ColorTokens;
   valueFormatter: (value: number) => string;
-  disabled: boolean;
 };
 
 export const Thumb: (thumbProps: ThumbProps) => ReactSliderProps['renderThumb'] =

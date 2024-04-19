@@ -5,13 +5,13 @@ import { NavBox } from './Nav.styled';
 import { NavLink, NavLinkProps } from './NavLink';
 
 export type NavProps = {
+  Component?: NavLinkProps['Component'];
+  className?: string;
+  id?: string;
   links: (NavLinkProps & {
     isHidden?: boolean;
     text: string;
   })[];
-  Component?: NavLinkProps['Component'];
-  className?: string;
-  id?: string;
   typographyToken?: TypographyTokens;
 };
 

@@ -3,7 +3,7 @@ import React from 'react';
 import { Typography } from '../../../components/Typography';
 import { ColorBackgroundBox, ColorTileBox, ColorTypographyBox } from './ColorTile.styled';
 
-type ColorTileProps = { name: string; backgroundColor: string; highlight: boolean };
+type ColorTileProps = { backgroundColor: string; highlight: boolean; name: string };
 
 export const ColorTile: React.FunctionComponent<ColorTileProps> = ({
   highlight,

@@ -7,27 +7,27 @@ import { TooltipLabel } from '../TooltipLabel';
 import { OptionButton, OptionButtonsBox, OptionButtonsWrapperBox } from './OptionButtons.styled';
 
 export type OptionsProps = {
+  activeOptionId: string;
   label?: string;
+  labelAttentionIndicatorColorToken?: ColorTokens;
   labelColorToken?: ColorTokens;
   labelTypographyToken?: TypographyTokens;
-  tooltip?: ExclaimTooltipProps['children'];
-  tooltipColorToken?: ColorTokens;
-  labelAttentionIndicatorColorToken?: ColorTokens;
-  typographyToken: TypographyTokens;
   onOptionClick: (optionId: string) => void;
-  activeOptionId: string;
   options: {
-    id: string;
-    label: string;
-    activeBorderColorToken?: ColorTokens;
     activeBackgroundColorToken?: ColorTokens;
+    activeBorderColorToken?: ColorTokens;
+    activeHoverBorderColorToken?: ColorTokens;
+    activeTypographyColorToken?: ColorTokens;
     backgroundColorToken: ColorTokens;
     borderColorToken: ColorTokens;
     hoverBorderColorToken: ColorTokens;
-    activeHoverBorderColorToken?: ColorTokens;
+    id: string;
+    label: string;
     typographyColorToken: ColorTokens;
-    activeTypographyColorToken?: ColorTokens;
   }[];
+  tooltip?: ExclaimTooltipProps['children'];
+  tooltipColorToken?: ColorTokens;
+  typographyToken: TypographyTokens;
 };
 
 export const OptionButtons: React.FunctionComponent<OptionsProps> = ({

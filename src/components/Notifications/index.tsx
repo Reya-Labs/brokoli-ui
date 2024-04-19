@@ -11,19 +11,19 @@ import { TypographyTokens } from '../../foundation/Typography';
 import { NotificationContent } from './NotificationContent';
 
 export type ShowNotificationParams = {
-  content: string;
-  title: string;
-  colorToken: BaseColorTokens;
-  titleTypographyToken?: TypographyTokens;
-  contentTypographyToken?: TypographyTokens;
-  autoClose?: number | false;
-  onCloseNotification?: () => void;
   Component?: React.FunctionComponent;
+  autoClose?: number | false;
+  colorToken: BaseColorTokens;
+  content: string;
+  contentTypographyToken?: TypographyTokens;
+  onCloseNotification?: () => void;
+  title: string;
+  titleTypographyToken?: TypographyTokens;
 };
 
 export type ShowCustomNotificationParams = {
-  autoClose?: number | false;
   Component: React.FunctionComponent;
+  autoClose?: number | false;
 };
 
 export const showNotification = ({

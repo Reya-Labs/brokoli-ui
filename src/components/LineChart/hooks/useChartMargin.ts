@@ -5,12 +5,12 @@ import { LineChartProps, YDataType } from '../types';
 import { useAxisVisible } from './useAxisVisible';
 
 type UseChartMarginParams = {
-  visibleAxis: LineChartProps['visibleAxis'];
-  yS: number[];
-  axisTickPadding: LineChartProps['axisTickPadding'];
-  yFormatter: (y: YDataType) => string;
-  axisFontSize: number;
   axisFontFamily: string;
+  axisFontSize: number;
+  axisTickPadding: LineChartProps['axisTickPadding'];
+  visibleAxis: LineChartProps['visibleAxis'];
+  yFormatter: (y: YDataType) => string;
+  yS: number[];
 };
 
 export const useChartMargin = ({

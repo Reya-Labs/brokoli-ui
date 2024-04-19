@@ -32,8 +32,8 @@ export type TypographyConfig = {
   fontSize: string;
   fontStyle: string;
   fontWeight: string;
-  lineHeight: string;
   letterSpacing?: string;
+  lineHeight: string;
   textShadow?: string;
 };
 

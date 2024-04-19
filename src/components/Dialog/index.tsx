@@ -4,8 +4,8 @@ import { DialogBox } from './Dialog.styled';
 import { FloatingUIDialog, FloatingUIDialogContent } from './FloatingUIDialog';
 
 type DialogProps = React.PropsWithChildren<{
-  open: boolean;
   onClose?: () => void;
+  open: boolean;
 }>;
 
 export const Dialog: React.FunctionComponent<DialogProps> = ({ open, onClose, children }) => {

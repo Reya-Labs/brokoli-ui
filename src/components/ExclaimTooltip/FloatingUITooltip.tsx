@@ -18,9 +18,9 @@ import * as React from 'react';
 
 type FloatingUITooltipOptions = {
   initialOpen?: boolean;
-  placement?: Placement;
-  open?: boolean;
   onOpenChange?: (open: boolean) => void;
+  open?: boolean;
+  placement?: Placement;
 };
 
 function useFloatingUITooltip({

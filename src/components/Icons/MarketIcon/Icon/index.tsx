@@ -8,16 +8,16 @@ import { ReactComponent as RocketIcon } from './assets/rocket.svg';
 import { ReactComponent as SOFRIcon } from './assets/sofr.svg';
 
 export type IconProps = {
-  market: SupportedMarkets | string;
   className?: string;
   'data-testid'?: string;
+  market: SupportedMarkets | string;
 };
 
 export type SupportedMarkets = 'aave' | 'compound' | 'glp' | 'sofr' | 'lido' | 'rocket';
 
 const MarketIconMap: Record<
   SupportedMarkets,
-  React.FunctionComponent<{ viewBox?: string; className?: string }>
+  React.FunctionComponent<{ className?: string; viewBox?: string }>
 > = {
   aave: AAveIcon,
   compound: CompoundIcon,

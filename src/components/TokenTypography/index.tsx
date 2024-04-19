@@ -15,21 +15,21 @@ import {
 } from './TokenTypography.styled';
 
 export type TokenTypographyProps = {
+  attentionIndicatorColorToken?: ColorTokens;
+  className?: string;
   colorToken: ColorTokens;
-  value: string | number;
-  typographyToken: TypographyTokens;
+  'data-testid'?: string;
+  differenceColorToken?: ColorTokens;
+  differenceToken?: string;
+  differenceValue?: number;
+  prefixColorToken?: ColorTokens;
+  prefixToken?: string;
   token: string;
   token2?: string;
-  prefixToken?: string;
-  differenceValue?: number;
-  differenceToken?: string;
-  value2?: string | number;
-  'data-testid'?: string;
-  attentionIndicatorColorToken?: ColorTokens;
-  prefixColorToken?: ColorTokens;
-  differenceColorToken?: ColorTokens;
   tokenColorToken?: ColorTokens;
-  className?: string;
+  typographyToken: TypographyTokens;
+  value: string | number;
+  value2?: string | number;
 };
 
 export const TokenTypography: React.FunctionComponent<TokenTypographyProps> = ({

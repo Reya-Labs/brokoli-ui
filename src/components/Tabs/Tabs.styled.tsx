@@ -56,13 +56,13 @@ export const TabStyled = styled(
     'hoverTabColorToken',
   ]),
 )<{
-  typographyToken: TypographyTokens;
-  colorToken: ColorTokens;
+  activeTabColorToken: ColorTokens;
   backgroundColorToken: ColorTokens;
   borderColorToken: ColorTokens;
-  isActive: boolean;
-  activeTabColorToken: ColorTokens;
+  colorToken: ColorTokens;
   hoverTabColorToken: ColorTokens;
+  isActive: boolean;
+  typographyToken: TypographyTokens;
 }>`
   display: inline-flex;
   padding: 6px 16px;

@@ -7,11 +7,11 @@ import { ChainOptionsButtonGroup } from './ChainOptions.styled';
 export type ChainOptionsProps = {
   chainOptions: {
     id: number;
-    name: string;
     isActive: boolean;
+    name: string;
   }[];
-  parentWidth: number;
   onClick: (chainId: number) => void;
+  parentWidth: number;
 };
 export const ChainOptions: React.FunctionComponent<ChainOptionsProps> = ({
   chainOptions,

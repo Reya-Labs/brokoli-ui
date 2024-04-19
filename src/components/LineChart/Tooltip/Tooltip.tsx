@@ -9,8 +9,8 @@ import { TooltipBox } from './Tooltip.styled';
 export const Tooltip: React.FunctionComponent<
   PointTooltipProps & {
     colorToken: ColorTokens;
-    yToken: string;
     tokenColorToken: ColorTokens;
+    yToken: string;
   }
 > = ({ point, colorToken, yToken, tokenColorToken }) => {
   return (

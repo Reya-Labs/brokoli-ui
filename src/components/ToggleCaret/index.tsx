@@ -3,9 +3,9 @@ import React from 'react';
 import { ToggleCaretArrow, ToggleCaretBox } from './ToggleCaret.styled';
 
 export type ToggleCaretProps = {
+  disabled?: boolean;
   isOpen: boolean;
   onClick?: () => void;
-  disabled?: boolean;
 };
 
 export const ToggleCaret: React.FunctionComponent<ToggleCaretProps> = ({

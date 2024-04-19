@@ -8,8 +8,8 @@ export const StyledTrack = styled(
   shouldNotForwardProps(['trackHeight', 'height', 'isActivePartOfTrack', 'trackColorToken']),
 )<{
   isActivePartOfTrack: boolean;
-  trackColorToken: ColorTokens;
   thumbHeight: number;
+  trackColorToken: ColorTokens;
   trackHeight: number;
 }>`
   background: ${({ theme, isActivePartOfTrack, trackColorToken }) =>

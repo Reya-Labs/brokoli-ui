@@ -7,13 +7,13 @@ import { TypographyWithTooltip, TypographyWithTooltipProps } from '../Typography
 import { AttentionIndicatorStyled } from './TooltipLabel.styled';
 
 type TooltipLabelProps = {
-  tooltip?: TypographyWithTooltipProps['tooltip'];
+  attentionIndicatorColorToken?: ColorTokens;
+  'data-testid'?: string;
   label?: React.ComponentProps<typeof Typography>['children'];
   labelColorToken?: ColorTokens;
-  tooltipColorToken?: ColorTokens;
   labelTypographyToken?: TypographyTokens;
-  'data-testid'?: string;
-  attentionIndicatorColorToken?: ColorTokens;
+  tooltip?: TypographyWithTooltipProps['tooltip'];
+  tooltipColorToken?: ColorTokens;
 };
 export const TooltipLabel: React.FC<TooltipLabelProps> = ({
   tooltip,

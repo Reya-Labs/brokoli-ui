@@ -4,10 +4,10 @@ import { ColorTokens } from '../../foundation/Colors';
 import { TypographyTokens } from '../../foundation/Typography';
 
 export type YMarkerConfig = {
-  value: number;
-  text: string;
   colorToken: ColorTokens;
+  text: string;
   typographyToken: TypographyTokens;
+  value: number;
 };
 
 type TooltipConfig = {
@@ -21,29 +21,29 @@ export type LineChartTooltip = LineChartTooltipFC | TooltipConfig;
 export type XDataType = number | Date;
 export type YDataType = number;
 export type LineChartProps = {
+  axisBottomFormat?: 'minutes' | 'days' | 'hours';
+  axisDomainLineColorToken?: ColorTokens | 'transparent';
+  axisTickPadding?: number;
+  axisTicksTextColorToken?: ColorTokens;
+  axisTypographyToken: TypographyTokens;
+  crosshairColorToken: ColorTokens;
   curveType?: LineProps['curve'];
-  xScaleType?: 'time' | 'linear';
   data: {
-    id: string;
     colorToken: ColorTokens;
-    tooltip?: LineChartTooltip;
     data: {
       x: XDataType;
       y: YDataType;
     }[];
+    id: string;
+    tooltip?: LineChartTooltip;
   }[];
-  yMarker?: YMarkerConfig;
-  axisTypographyToken: TypographyTokens;
-  axisBottomFormat?: 'minutes' | 'days' | 'hours';
-  yScaleStacked?: boolean;
-  crosshairColorToken: ColorTokens;
-  axisTicksTextColorToken?: ColorTokens;
-  axisDomainLineColorToken?: ColorTokens | 'transparent';
-  visibleAxis?: ('top' | 'bottom' | 'right' | 'left')[];
-  axisTickPadding?: number;
   enablePoints?: LineSvgProps['enablePoints'];
-  yScaleMax?: YDataType;
-  yScaleMin?: YDataType;
+  visibleAxis?: ('top' | 'bottom' | 'right' | 'left')[];
   xScaleMax?: XDataType;
   xScaleMin?: XDataType;
+  xScaleType?: 'time' | 'linear';
+  yMarker?: YMarkerConfig;
+  yScaleMax?: YDataType;
+  yScaleMin?: YDataType;
+  yScaleStacked?: boolean;
 };

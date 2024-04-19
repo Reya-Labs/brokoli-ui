@@ -14,8 +14,8 @@ import { FloatingOverlayStyled } from './FloatingUIDialog.styled';
 
 type FloatingUIDialogOptions = {
   initialOpen?: boolean;
-  open?: boolean;
   onOpenChange?: (open: boolean) => void;
+  open?: boolean;
 };
 
 function useFloatingUIDialog({
@@ -62,8 +62,8 @@ function useFloatingUIDialog({
 
 type ContextType =
   | (ReturnType<typeof useFloatingUIDialog> & {
-      setLabelId: React.Dispatch<React.SetStateAction<string | undefined>>;
       setDescriptionId: React.Dispatch<React.SetStateAction<string | undefined>>;
+      setLabelId: React.Dispatch<React.SetStateAction<string | undefined>>;
     })
   | null;
 

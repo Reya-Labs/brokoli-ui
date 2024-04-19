@@ -7,19 +7,19 @@ import { Thumb, ThumbProps } from './Thumb';
 import { Track } from './Track';
 
 export type RangeFieldProps = {
-  trackColorToken?: 'transparent' | ColorTokens;
-  thumbColorToken: ThumbProps['colorToken'];
-  value?: number;
-  onChange?: (value: number) => void;
-  thumbSize?: ThumbProps['size'];
-  trackHeight?: number;
+  disabled?: boolean;
   highlightEveryNthMark?: MarkProps['highlightEveryNthMark'];
-  markHighlightColorToken?: MarkProps['highlightColorToken'];
   markColorToken?: MarkProps['colorToken'];
   markHeight: MarkProps['height'];
+  markHighlightColorToken?: MarkProps['highlightColorToken'];
+  onChange?: (value: number) => void;
   step?: MarkProps['step'];
+  thumbColorToken: ThumbProps['colorToken'];
+  thumbSize?: ThumbProps['size'];
+  trackColorToken?: 'transparent' | ColorTokens;
+  trackHeight?: number;
+  value?: number;
   valueFormatter?: ThumbProps['valueFormatter'];
-  disabled?: boolean;
 };
 const defaultValueFormatter = (value: number) => `${value}%`;
 export const RangeField = ({

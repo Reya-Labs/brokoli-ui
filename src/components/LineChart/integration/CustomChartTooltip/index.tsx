@@ -16,14 +16,14 @@ export const CustomChartTooltip: React.FunctionComponent<
     return null;
   }
   const data = point.data as unknown as {
-    x: number;
-    y: number;
     metadata: {
       price: number;
       priceImpact: number;
       totalCost: number;
       totalSize: number;
     };
+    x: number;
+    y: number;
   };
   const price = data.x;
   const size = data.y;

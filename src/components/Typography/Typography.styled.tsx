@@ -12,9 +12,9 @@ export const BaseTypography = styled(
   'p',
   shouldNotForwardProps(['backgroundColorToken', 'typographyToken', 'colorToken', 'as']),
 )<{
+  backgroundColorToken?: ColorTokens;
   colorToken: ColorTokens;
   typographyToken: TypographyTokens;
-  backgroundColorToken?: ColorTokens;
 }>`
   margin: 0;
   padding: 0;

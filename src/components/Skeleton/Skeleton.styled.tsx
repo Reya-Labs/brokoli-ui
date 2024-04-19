@@ -27,8 +27,8 @@ export const SkeletonBox = styled(
   shouldNotForwardProps(['variant', 'colorToken', 'typographyToken']),
 )<{
   colorToken: ColorTokens;
-  variant: 'rectangular' | 'circular';
   typographyToken?: TypographyTokens;
+  variant: 'rectangular' | 'circular';
 }>`
   background-color: ${({ theme, colorToken }) =>
     getColorFromToken({ colorToken: `${colorToken}`, theme })};

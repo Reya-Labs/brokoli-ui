@@ -24,16 +24,16 @@ export const ButtonStyled = styled(
     'iconColorToken',
   ]),
 )<{
-  typographyToken: TypographyTokens;
-  borderColorToken?: ColorTokens;
   backgroundColorToken?: ColorTokens;
-  hoverIconColorToken?: ColorTokens;
-  iconColorToken?: ColorTokens;
-  typographyColorToken?: ColorTokens;
-  hoverBorderColorToken?: ColorTokens;
-  hoverTypographyColorToken?: ColorTokens;
+  borderColorToken?: ColorTokens;
   hoverBackgroundColorToken?: ColorTokens;
+  hoverBorderColorToken?: ColorTokens;
+  hoverIconColorToken?: ColorTokens;
+  hoverTypographyColorToken?: ColorTokens;
+  iconColorToken?: ColorTokens;
   rounded: boolean;
+  typographyColorToken?: ColorTokens;
+  typographyToken: TypographyTokens;
 }>`
   display: flex;
   flex-direction: row;

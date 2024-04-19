@@ -9,23 +9,23 @@ import { FieldStyleProps } from '../_common/common.styled';
 import { BottomBox, TextFieldBottomBox, TextFieldBox, TextInputStyled } from './TextField.styled';
 
 export type TextFieldProps = {
-  onChange?: (value: string | undefined) => void;
-  value?: string;
-  disabled?: boolean;
-  error?: boolean;
-  label?: string;
-  labelColorToken?: ColorTokens;
-  labelTypographyToken?: TypographyTokens;
-  tooltip?: ExclaimTooltipProps['children'];
-  tooltipColorToken?: ColorTokens;
-  type?: HTMLInputElement['type'];
-  placeHolder?: string;
-  name?: string;
-  labelAttentionIndicatorColorToken?: ColorTokens;
-
   bottomLeftText?: string;
   bottomLeftTextColorToken?: ColorTokens;
   bottomLeftTextTypographyToken?: TypographyTokens;
+  disabled?: boolean;
+  error?: boolean;
+  label?: string;
+  labelAttentionIndicatorColorToken?: ColorTokens;
+  labelColorToken?: ColorTokens;
+  labelTypographyToken?: TypographyTokens;
+  name?: string;
+  onChange?: (value: string | undefined) => void;
+  placeHolder?: string;
+  tooltip?: ExclaimTooltipProps['children'];
+
+  tooltipColorToken?: ColorTokens;
+  type?: HTMLInputElement['type'];
+  value?: string;
 } & FieldStyleProps;
 
 export const TextField: React.FunctionComponent<TextFieldProps> = ({

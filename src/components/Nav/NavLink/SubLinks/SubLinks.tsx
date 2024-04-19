@@ -7,14 +7,14 @@ import { useLocation } from '../useLocation';
 import { SubLinksButtonGroup } from './SubLinks.styled';
 
 export type SubLinksProps = {
-  subLinks: {
-    text: string;
-    link: string;
-    isNew?: boolean;
-    target?: HTMLAttributeAnchorTarget | undefined;
-  }[];
   Component?: SubLinkProps['Component'];
   onClick: () => void;
+  subLinks: {
+    isNew?: boolean;
+    link: string;
+    target?: HTMLAttributeAnchorTarget | undefined;
+    text: string;
+  }[];
 };
 export const SubLinks: React.FunctionComponent<SubLinksProps> = ({
   Component,

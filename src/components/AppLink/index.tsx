@@ -5,26 +5,26 @@ import { TypographyTokens } from '../../foundation/Typography';
 import { AppLinkStyled, DisabledTypography } from './AppLink.styled';
 
 export type AppLinkProps = {
-  colorToken: ColorTokens;
-  disabledColorToken?: ColorTokens;
-  typographyToken: TypographyTokens;
-  children: string;
-  to: string;
-  disabled?: boolean;
-  className?: string;
-  'data-testid'?: string;
-  target?: HTMLAttributeAnchorTarget | undefined;
-  hoverColorToken?: ColorTokens;
   Component?: React.FunctionComponent<{
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    to: any;
-    href?: string;
-    target?: HTMLAttributeAnchorTarget | undefined;
-    disabled?: boolean;
+    children: string | ReactNode;
     className?: string;
     'data-testid'?: string;
-    children: string | ReactNode;
+    disabled?: boolean;
+    href?: string;
+    target?: HTMLAttributeAnchorTarget | undefined;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    to: any;
   }>;
+  children: string;
+  className?: string;
+  colorToken: ColorTokens;
+  'data-testid'?: string;
+  disabled?: boolean;
+  disabledColorToken?: ColorTokens;
+  hoverColorToken?: ColorTokens;
+  target?: HTMLAttributeAnchorTarget | undefined;
+  to: string;
+  typographyToken: TypographyTokens;
 };
 
 export const AppLink: React.FunctionComponent<AppLinkProps> = ({

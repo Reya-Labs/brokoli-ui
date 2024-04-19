@@ -8,25 +8,25 @@ import { TooltipLabel } from '../TooltipLabel';
 import { LabelTokenTypographyBox } from './LabelTokenTypography.styled';
 
 export type LabelTokenTypographyProps = {
+  attentionIndicatorColorToken?: ColorTokens;
   colorToken: ColorTokens;
-  value: string | number;
-  value2?: string | number;
-  typographyToken: TypographyTokens;
-  token: string;
-  prefixToken?: string;
+  differenceColorToken?: ColorTokens;
+  differenceToken?: string;
+  differenceValue?: number;
   label: string;
+  labelAttentionIndicatorColorToken?: ColorTokens;
   labelColorToken: ColorTokens;
   labelTypographyToken: TypographyTokens;
+  prefixColorToken?: ColorTokens;
+  prefixToken?: string;
+  token: string;
+  tokenColorToken?: ColorTokens;
   tooltip?: ExclaimTooltipProps['children'];
   tooltipColorToken?: ColorTokens;
-  differenceValue?: number;
-  differenceToken?: string;
-  attentionIndicatorColorToken?: ColorTokens;
-  labelAttentionIndicatorColorToken?: ColorTokens;
 
-  prefixColorToken?: ColorTokens;
-  differenceColorToken?: ColorTokens;
-  tokenColorToken?: ColorTokens;
+  typographyToken: TypographyTokens;
+  value: string | number;
+  value2?: string | number;
 };
 
 export const LabelTokenTypography: React.FunctionComponent<LabelTokenTypographyProps> = ({

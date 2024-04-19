@@ -4,11 +4,11 @@ import { ColorTokens } from '../../foundation/Colors';
 import { Box, PercentageBox } from './ProgressBar.styled';
 
 export type ProgressBarProps = {
-  percentageComplete: number;
-  className?: string;
   backgroundColorToken?: 'transparent' | ColorTokens;
   barColorToken?: ColorTokens;
+  className?: string;
   height?: number;
+  percentageComplete: number;
   rounded?: boolean;
 };
 

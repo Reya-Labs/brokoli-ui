@@ -8,8 +8,8 @@ export const CheckboxFieldBox = styled(
   shouldNotForwardProps(['error', 'size', 'disabled']),
 )<{
   disabled: boolean;
-  size: number;
   error: boolean;
+  size: number;
 }>`
   font-family: system-ui, sans-serif;
   font-size: ${({ size }) => size}px;

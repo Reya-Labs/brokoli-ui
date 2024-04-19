@@ -1,8 +1,8 @@
 import { ethers } from 'ethers';
 
 type ENSDetails = {
-  name: string;
   avatarUrl?: string | null;
+  name: string;
 };
 
 const CACHED_ENS: Record<string, ENSDetails | null> = {};

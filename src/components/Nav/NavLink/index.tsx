@@ -11,20 +11,20 @@ import { SubLinks, SubLinksProps } from './SubLinks/SubLinks';
 import { useLocation } from './useLocation';
 
 export type NavLinkProps = React.PropsWithChildren<{
-  link?: string;
   Component?: SubLinksProps['Component'];
-  isNew?: boolean;
-  colorToken?: BaseColorTokens | 'rainbow';
-  typographyToken?: TypographyTokens;
   className?: string;
-  target?: HTMLAttributeAnchorTarget | undefined;
+  colorToken?: BaseColorTokens | 'rainbow';
+  isNew?: boolean;
+  link?: string;
   subLinks?: {
-    text: string;
-    link: string;
-    isNew?: boolean;
     isHidden?: boolean;
+    isNew?: boolean;
+    link: string;
     target?: HTMLAttributeAnchorTarget | undefined;
+    text: string;
   }[];
+  target?: HTMLAttributeAnchorTarget | undefined;
+  typographyToken?: TypographyTokens;
 }>;
 
 export const NavLink: React.FunctionComponent<NavLinkProps> = ({

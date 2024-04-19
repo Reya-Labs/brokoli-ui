@@ -4,21 +4,21 @@ import { mediaBreakPoints } from '../constants';
 import { SupportedMedias } from '../types';
 
 type UseResponsiveQueryReturn = {
-  isSmallDesktopDeviceAndUp: boolean;
-  isLargeDesktopDeviceAndUp: boolean;
-  isDesktopDeviceAndUp: boolean;
-  isTabletDeviceAndUp: boolean;
-  isMobileDeviceAndUp: boolean;
-  isSmallDesktopDeviceAndDown: boolean;
-  isLargeDesktopDeviceAndDown: boolean;
   isDesktopDeviceAndDown: boolean;
-  isTabletDeviceAndDown: boolean;
-  isMobileDeviceAndDown: boolean;
-  isSmallDesktopDeviceOnly: boolean;
-  isLargeDesktopDeviceOnly: boolean;
+  isDesktopDeviceAndUp: boolean;
   isDesktopDeviceOnly: boolean;
-  isTabletDeviceOnly: boolean;
+  isLargeDesktopDeviceAndDown: boolean;
+  isLargeDesktopDeviceAndUp: boolean;
+  isLargeDesktopDeviceOnly: boolean;
+  isMobileDeviceAndDown: boolean;
+  isMobileDeviceAndUp: boolean;
   isMobileDeviceOnly: boolean;
+  isSmallDesktopDeviceAndDown: boolean;
+  isSmallDesktopDeviceAndUp: boolean;
+  isSmallDesktopDeviceOnly: boolean;
+  isTabletDeviceAndDown: boolean;
+  isTabletDeviceAndUp: boolean;
+  isTabletDeviceOnly: boolean;
 };
 
 export const mediaQuery: Record<SupportedMedias, string> = {

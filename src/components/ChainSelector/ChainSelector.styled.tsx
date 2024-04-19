@@ -44,8 +44,8 @@ export const ChainSelectorButton = styled(
   'button',
   shouldNotForwardProps(['typographyToken', 'disabled', 'isPopoverOpen']),
 )<{
-  isPopoverOpen: boolean;
   disabled: boolean;
+  isPopoverOpen: boolean;
   typographyToken: TypographyTokens;
 }>`
   ${({ theme, typographyToken }) =>

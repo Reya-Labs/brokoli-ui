@@ -6,13 +6,13 @@ import { tokenTagMap } from './token-tag-map';
 import { BaseTypography, RainbowTypography } from './Typography.styled';
 
 export type TypographyProps = React.PropsWithChildren<{
-  typographyToken: TypographyTokens;
+  as?: React.ElementType;
   backgroundColorToken?: ColorTokens;
-  colorToken: ColorTokens | 'rainbow';
   className?: string;
+  colorToken: ColorTokens | 'rainbow';
   'data-testid'?: string;
   id?: string;
-  as?: React.ElementType;
+  typographyToken: TypographyTokens;
 }>;
 
 export const Typography: React.FunctionComponent<TypographyProps> = ({

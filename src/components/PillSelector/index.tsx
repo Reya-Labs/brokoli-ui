@@ -13,24 +13,24 @@ import {
 
 type PillSelectorId = string;
 export type PillSelectorProps = {
-  onPillClick: (id: PillSelectorId) => void;
   activePillId: PillSelectorId;
+  attentionPrefixColorToken?: BaseColorTokens;
+  disabled?: boolean;
   error?: boolean;
+  label?: string;
+  labelAttentionIndicatorColorToken?: ColorTokens;
+  labelColorToken?: ColorTokens;
+
+  labelTypographyToken?: TypographyTokens;
+  onPillClick: (id: PillSelectorId) => void;
   pillOptions: {
+    attentionPrefixText?: string;
     id: PillSelectorId;
     label: string;
-    attentionPrefixText?: string;
   }[];
-  disabled?: boolean;
-  variant: PillSelectorVariant;
-  attentionPrefixColorToken?: BaseColorTokens;
-
-  label?: string;
-  labelColorToken?: ColorTokens;
-  labelTypographyToken?: TypographyTokens;
   tooltip?: ExclaimTooltipProps['children'];
   tooltipColorToken?: ColorTokens;
-  labelAttentionIndicatorColorToken?: ColorTokens;
+  variant: PillSelectorVariant;
 };
 
 export const PillSelector = ({

@@ -14,9 +14,9 @@ import {
 } from './Tabs.styled';
 
 type TabProps = {
+  Component?: React.FunctionComponent | null;
   id: string;
   label: string;
-  Component?: React.FunctionComponent | null;
 };
 
 type ContentHidingConfig = {
@@ -24,17 +24,17 @@ type ContentHidingConfig = {
 };
 
 export type TabsProps = {
-  tabs: TabProps[];
+  activeTabColorToken: ColorTokens;
   activeTabId?: TabProps['id'] | null;
-  typographyToken: TypographyTokens;
-  colorToken: ColorTokens;
   backgroundColorToken: ColorTokens;
   borderColorToken: ColorTokens;
-  activeTabColorToken: ColorTokens;
+  colorToken: ColorTokens;
+  contentHiding?: ContentHidingConfig;
   hoverTabColorToken?: ColorTokens;
   onTabChange?: (id: TabProps['id']) => void;
-  contentHiding?: ContentHidingConfig;
   onTabContentHide?: (hiddenTabContent: boolean) => void;
+  tabs: TabProps[];
+  typographyToken: TypographyTokens;
 };
 
 export const Tabs: React.FunctionComponent<TabsProps> = ({

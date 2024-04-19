@@ -4,8 +4,8 @@ import { BaseColorTokens } from '../../foundation/Colors';
 import { ExperiencePill, ExperiencePillsBox } from './ExperiencePills.styled';
 
 export type ExperiencePillsProps = {
-  experiencePercentage: number;
   colorToken: BaseColorTokens;
+  experiencePercentage: number;
 };
 
 export const ExperiencePills: React.FunctionComponent<ExperiencePillsProps> = ({

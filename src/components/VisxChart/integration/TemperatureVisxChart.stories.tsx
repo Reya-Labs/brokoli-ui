@@ -31,10 +31,10 @@ type VisxTimelineChartIntegrationProps = Omit<
   'series' | 'renderTooltip' | 'renderTooltipGlyph' | 'renderGlyph'
 > &
   SharedIntegrationProps & {
-    negativeValues: boolean;
-    missingValues: boolean;
     lessData: boolean;
     manyDecimals: boolean;
+    missingValues: boolean;
+    negativeValues: boolean;
   };
 
 const VisxTimelineChartIntegration: React.FunctionComponent<VisxTimelineChartIntegrationProps> = (

@@ -7,10 +7,10 @@ import { TooltipStyled, TypographyStyled } from './TypographyWithTooltip.styled'
 
 export type TypographyWithTooltipProps = React.PropsWithChildren<{
   colorToken: TypographyProps['colorToken'];
-  typographyToken: TypographyProps['typographyToken'];
-  tooltipColorToken?: ColorTokens;
-  tooltip: ExclaimTooltipProps['children'];
   'data-testid'?: string;
+  tooltip: ExclaimTooltipProps['children'];
+  tooltipColorToken?: ColorTokens;
+  typographyToken: TypographyProps['typographyToken'];
 }>;
 
 export const TypographyWithTooltip: React.FunctionComponent<TypographyWithTooltipProps> = ({

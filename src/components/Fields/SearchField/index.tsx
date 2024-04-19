@@ -18,21 +18,21 @@ import { SearchList, SearchListProps } from './SearchList';
 type SearchItem = SearchListProps['items'][0];
 
 export type SearchFieldProps = {
-  items: SearchListProps['items'];
-  itemRenderer?: SearchListProps['itemRenderer'];
-  itemFilter?: SearchListProps['itemFilter'];
+  className?: string;
   disabled?: boolean;
   error?: boolean;
+  itemFilter?: SearchListProps['itemFilter'];
+  itemRenderer?: SearchListProps['itemRenderer'];
+  items: SearchListProps['items'];
   label?: string;
+  labelAttentionIndicatorColorToken?: ColorTokens;
   labelColorToken?: ColorTokens;
   labelTypographyToken?: TypographyTokens;
-  tooltip?: ExclaimTooltipProps['children'];
-  tooltipColorToken?: ColorTokens;
+  onItemSelected?: (id: SearchItem['id']) => void;
   placeHolder?: string;
   selectedItemId?: SearchItem['id'];
-  onItemSelected?: (id: SearchItem['id']) => void;
-  className?: string;
-  labelAttentionIndicatorColorToken?: ColorTokens;
+  tooltip?: ExclaimTooltipProps['children'];
+  tooltipColorToken?: ColorTokens;
 } & FieldStyleProps;
 
 export const SearchField: React.FunctionComponent<SearchFieldProps> = ({

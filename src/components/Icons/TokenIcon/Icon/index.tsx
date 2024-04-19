@@ -12,9 +12,9 @@ import { ReactComponent as USDTIcon } from './assets/usdt.svg';
 import { ReactComponent as WBTCIcon } from './assets/wbtc.svg';
 
 export type IconProps = {
-  token: SupportedTokenIcons | string;
   className?: string;
   'data-testid'?: string;
+  token: SupportedTokenIcons | string;
 };
 
 export type SupportedTokenIcons =
@@ -33,7 +33,7 @@ export type SupportedTokenIcons =
 
 const TokenIconMap: Record<
   SupportedTokenIcons,
-  React.FunctionComponent<{ viewBox?: string; className?: string }>
+  React.FunctionComponent<{ className?: string; viewBox?: string }>
 > = {
   btc: BTCIcon,
   dai: DAIIcon,

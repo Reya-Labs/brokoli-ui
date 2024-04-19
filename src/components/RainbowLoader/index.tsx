@@ -10,10 +10,10 @@ import {
 } from './RainbowLoader.styled';
 
 export type RainbowLoaderProps = {
-  height: number;
-  text?: string;
   className?: string;
   'data-testid'?: string;
+  height: number;
+  text?: string;
 };
 
 export const RainbowLoader: React.FunctionComponent<RainbowLoaderProps> = React.memo(

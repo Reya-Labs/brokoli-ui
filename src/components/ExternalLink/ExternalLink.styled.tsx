@@ -12,8 +12,8 @@ export const ExternalLinkStyled = styled(
   'a',
   shouldNotForwardProps(['colorToken', 'hoverColorToken', 'activeColorToken', 'typographyToken']),
 )<{
-  colorToken: ColorTokens;
   activeColorToken: ColorTokens;
+  colorToken: ColorTokens;
   hoverColorToken: ColorTokens;
   typographyToken: TypographyTokens;
 }>`

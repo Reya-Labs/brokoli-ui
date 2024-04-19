@@ -7,18 +7,18 @@ import { ExternalLinkStyled } from './ExternalLink.styled';
 import { ReactComponent as LinkArrow } from './link-arrow.svg';
 
 type ExternalLinkProps = {
-  colorToken: ColorTokens;
   activeColorToken?: ColorTokens;
-  hoverColorToken?: ColorTokens;
-  typographyToken: TypographyTokens;
   children: string;
-  href: string;
-  disabled?: boolean;
-  id?: string;
   className?: string;
-  hideArrowIcon?: boolean;
+  colorToken: ColorTokens;
+  disabled?: boolean;
   disabledColorToken?: ColorTokens;
+  hideArrowIcon?: boolean;
+  hoverColorToken?: ColorTokens;
+  href: string;
+  id?: string;
   onClick?: () => void;
+  typographyToken: TypographyTokens;
 };
 
 export const ExternalLink: React.FunctionComponent<ExternalLinkProps> = ({

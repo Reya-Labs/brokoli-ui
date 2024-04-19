@@ -8,13 +8,13 @@ import {
 } from './Popover.styled';
 
 type PopoverProps = {
+  align?: TinyPopoverProps['align'];
+  children: TinyPopoverProps['children'];
+  containerClassName?: TinyPopoverProps['containerClassName'];
   content: TinyPopoverProps['content'];
+  'data-testid'?: string;
   isOpen: TinyPopoverProps['isOpen'];
   onClickOutside: TinyPopoverProps['onClickOutside'];
-  children: TinyPopoverProps['children'];
-  'data-testid'?: string;
-  align?: TinyPopoverProps['align'];
-  containerClassName?: TinyPopoverProps['containerClassName'];
 };
 
 export const Popover: React.FunctionComponent<PopoverProps> = ({

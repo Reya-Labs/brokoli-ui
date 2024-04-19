@@ -4,8 +4,8 @@ import { useMemo } from 'react';
 import { LineChartProps } from '../types';
 
 type UseXScaleConfig = {
-  xScaleMin?: LineChartProps['xScaleMin'];
   xScaleMax?: LineChartProps['xScaleMax'];
+  xScaleMin?: LineChartProps['xScaleMin'];
   xScaleType?: LineChartProps['xScaleType'];
 };
 
@@ -16,8 +16,8 @@ export const useXScaleConfig = ({
   xScaleMin,
   xScaleType = 'time',
 }: UseXScaleConfig): {
-  xScale: LineProps['xScale'];
   xFormat: LineProps['xFormat'];
+  xScale: LineProps['xScale'];
 } => {
   return useMemo(() => {
     if (xScaleType === 'time') {

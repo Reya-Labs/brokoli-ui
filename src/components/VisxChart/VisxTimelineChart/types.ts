@@ -9,47 +9,47 @@ import { ColorTokens } from '../../../foundation/Colors';
 import { TypographyTokens } from '../../../foundation/Typography';
 
 export type VisxTimelineChartDatum = {
+  metadata?: Record<string, unknown>;
   x: number;
   y: number;
-  metadata?: Record<string, unknown>;
 };
 
 export type VisxTimelineChartProps = {
+  axisDomainLineColorToken?: ColorTokens | 'transparent';
+  axisNumTicks?: number;
+  axisTicksTextColorToken?: ColorTokens;
+  axisTypographyToken: TypographyTokens;
+  chartType: 'glyph' | 'line' | 'area' | 'areastack' | 'none';
+  crosshairColorToken?: ColorTokens;
+  curveType?: 'linear' | 'cardinal' | 'step';
   marginLeft?: 'auto' | number;
   marginRight?: 'auto' | number;
   minZoomDomain?: number;
+  renderGlyph?: React.FC<GlyphProps<VisxTimelineChartDatum>>;
   renderTooltip?: (_: RenderTooltipParams<VisxTimelineChartDatum>) => React.ReactNode;
+  renderTooltipGlyph?: React.FC<RenderTooltipGlyphProps<VisxTimelineChartDatum>>;
   series: {
-    id: string;
     colorToken: ColorTokens;
     data: VisxTimelineChartDatum[];
+    id: string;
   }[];
-  curveType?: 'linear' | 'cardinal' | 'step';
-  axisNumTicks?: number;
-  renderGlyph?: React.FC<GlyphProps<VisxTimelineChartDatum>>;
-  renderTooltipGlyph?: React.FC<RenderTooltipGlyphProps<VisxTimelineChartDatum>>;
   sharedTooltip?: boolean;
   showGridColumns?: boolean;
   showGridRows?: boolean;
+  stackOffset?: 'wiggle' | 'expand' | 'diverging' | 'silhouette';
+  tickLength?: number;
   tooltipShowHorizontalCrosshair?: boolean;
   tooltipShowVerticalCrosshair?: boolean;
   tooltipSnapTooltipToDatumX?: boolean;
   tooltipSnapTooltipToDatumY?: boolean;
-  stackOffset?: 'wiggle' | 'expand' | 'diverging' | 'silhouette';
   xAxisOrientation?: 'top' | 'bottom';
-  yAxisOrientation?: 'left' | 'right';
-  chartType: 'glyph' | 'line' | 'area' | 'areastack' | 'none';
-  axisTypographyToken: TypographyTokens;
-  tickLength?: number;
-  axisTicksTextColorToken?: ColorTokens;
-  axisDomainLineColorToken?: ColorTokens | 'transparent';
-  crosshairColorToken?: ColorTokens;
   xAxisTickFormatter?: AxisFormatterFn;
+  yAxisOrientation?: 'left' | 'right';
   yAxisTickFormatter?: AxisFormatterFn;
   yRangePercentageOffset?: number;
 };
 
 type AxisFormatterFn = (
   axisValue: number,
-  _?: { zoom: number; zoomDomain: number; numTicks: number },
+  _?: { numTicks: number; zoom: number; zoomDomain: number },
 ) => string;

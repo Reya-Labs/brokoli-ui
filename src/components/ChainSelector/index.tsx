@@ -14,18 +14,18 @@ import { CHAIN_NAME_MAP, SupportedChainNames } from './constants';
 
 export type ChainOption = number;
 export type ChainSelectorProps = {
-  onChainChange: (optionId: ChainOption) => void;
-  selectedChainId?: ChainOption | null;
-  chainOptions: ChainOption[];
   approving?: boolean;
+  chainOptions: ChainOption[];
   disabled?: boolean;
   label?: string;
+  labelAttentionIndicatorColorToken?: ColorTokens;
   labelColorToken?: ColorTokens;
   labelTypographyToken?: TypographyTokens;
-  labelAttentionIndicatorColorToken?: ColorTokens;
+  onChainChange: (optionId: ChainOption) => void;
+  selectedChainId?: ChainOption | null;
+  selectedChainTypographyToken?: TypographyTokens;
   tooltip?: ExclaimTooltipProps['children'];
   tooltipColorToken?: ColorTokens;
-  selectedChainTypographyToken?: TypographyTokens;
 };
 
 export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
