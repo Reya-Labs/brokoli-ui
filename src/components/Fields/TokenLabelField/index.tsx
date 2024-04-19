@@ -16,10 +16,10 @@ import {
   BottomBox,
   CurrencyInputBox,
   CurrencyInputStyled,
-  FloatingBox,
-  InputAndFloatingBoxBox,
-  LeftFloatingBox,
+  InputTokenAndMaxBox,
   MaxButton,
+  PrefixBox,
+  TokenAndMaxBox,
   TokenBox,
   TokenLabelFieldBox,
   TokenSelect,
@@ -179,7 +179,14 @@ export const TokenLabelField: React.FunctionComponent<TokenLabelFieldProps> = ({
             </Typography>
           ) : null}
         </TopBox>
-        <InputAndFloatingBoxBox>
+        <InputTokenAndMaxBox>
+          {hasPrefixToken ? (
+            <PrefixBox>
+              <Typography colorToken="white950" typographyToken={typographyToken}>
+                {prefixToken}
+              </Typography>
+            </PrefixBox>
+          ) : null}
           <CurrencyInputStyled
             allowNegativeValue={allowNegativeValue}
             data-testid="TokenLabelField-CurrencyInputBox-CurrencyInputStyled"
@@ -204,14 +211,7 @@ export const TokenLabelField: React.FunctionComponent<TokenLabelFieldProps> = ({
             onBlur={onBlur}
             onValueChange={handleOnChange}
           />
-          {hasPrefixToken ? (
-            <LeftFloatingBox>
-              <Typography colorToken="white950" typographyToken={typographyToken}>
-                {prefixToken}
-              </Typography>
-            </LeftFloatingBox>
-          ) : null}
-          <FloatingBox>
+          <TokenAndMaxBox>
             {hasMaxButton ? (
               <MaxButton
                 backgroundColorToken={disabled ? 'black800' : 'black700'}
@@ -259,8 +259,8 @@ export const TokenLabelField: React.FunctionComponent<TokenLabelFieldProps> = ({
                 ) : null}
               </TokenBox>
             ) : null}
-          </FloatingBox>
-        </InputAndFloatingBoxBox>
+          </TokenAndMaxBox>
+        </InputTokenAndMaxBox>
       </CurrencyInputBox>
       {bottomLeftText && bottomRightTextValue ? (
         <BottomBox data-testid="TokenLabelField-BottomBox">

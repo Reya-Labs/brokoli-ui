@@ -162,13 +162,12 @@ export const TokenBox = styled('div')`
 
 export const CurrencyInputStyled = styled(
   CurrencyInput,
-  shouldNotForwardProps(['hasPrefixToken', 'error', 'typographyToken']),
+  shouldNotForwardProps(['error', 'typographyToken']),
 )<{
   error?: boolean;
-  hasPrefixToken: boolean;
   typographyToken: TypographyTokens;
 }>`
-  padding: 0px 0px 0px ${({ hasPrefixToken }) => (hasPrefixToken ? 16 : 0)}px;
+  padding: 0;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -187,7 +186,7 @@ export const MaxButton = styled(Button)`
   padding: 4px 8px;
 `;
 
-export const FloatingBox = styled('div')`
+export const TokenAndMaxBox = styled('div')`
   color: ${({ theme }) => theme.colors.white100};
   cursor: pointer;
   display: flex;
@@ -197,18 +196,14 @@ export const FloatingBox = styled('div')`
   height: 24px;
 `;
 
-export const InputAndFloatingBoxBox = styled('div')`
+export const InputTokenAndMaxBox = styled('div')`
   display: flex;
   flex-direction: row;
   gap: 4px;
   align-items: center;
 `;
 
-export const LeftFloatingBox = styled('div')`
-  position: absolute;
-  left: 8px;
-  top: 50%;
-  z-index: 1;
+export const PrefixBox = styled('div')`
   cursor: pointer;
   display: flex;
   flex-direction: row;
