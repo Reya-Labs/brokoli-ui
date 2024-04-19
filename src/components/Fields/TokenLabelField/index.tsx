@@ -200,7 +200,6 @@ export const TokenLabelField: React.FunctionComponent<TokenLabelFieldProps> = ({
             }
             disabled={disabled}
             error={error}
-            hasPrefixToken={hasPrefixToken}
             intlConfig={{ locale: navigator.language }}
             max={max ? max.value : undefined}
             maxLength={maxLength}
