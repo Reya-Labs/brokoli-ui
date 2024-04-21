@@ -8,6 +8,7 @@ import { Track } from './Track';
 
 export type RangeFieldProps = {
   disabled?: boolean;
+  hideValue?: boolean;
   highlightEveryNthMark?: MarkProps['highlightEveryNthMark'];
   markColorToken?: MarkProps['colorToken'];
   markHeight?: MarkProps['height'];
@@ -36,6 +37,7 @@ export const RangeField = ({
   step = 5,
   valueFormatter = defaultValueFormatter,
   disabled = false,
+  hideValue = false,
 }: RangeFieldProps) => {
   const handleOnChange = (reactSliderValue: number | readonly number[]) => {
     if (disabled) {
@@ -72,6 +74,7 @@ export const RangeField = ({
           Thumb({
             colorToken: thumbColorToken,
             disabled,
+            hideValue,
             size: thumbSize,
             trackHeight,
             valueFormatter,

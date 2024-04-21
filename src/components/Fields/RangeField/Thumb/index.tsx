@@ -7,13 +7,14 @@ import { StyledThumb, StyledValueTypography } from './Thumb.styled';
 export type ThumbProps = {
   colorToken: ColorTokens;
   disabled: boolean;
+  hideValue: boolean;
   size: number;
   trackHeight: number;
   valueFormatter: (value: number) => string;
 };
 
 export const Thumb: (thumbProps: ThumbProps) => ReactSliderProps['renderThumb'] =
-  ({ valueFormatter, disabled, trackHeight, size, colorToken }) =>
+  ({ valueFormatter, disabled, hideValue, trackHeight, size, colorToken }) =>
   (props, state) => (
     <StyledThumb
       {...(props as object)}
@@ -24,8 +25,10 @@ export const Thumb: (thumbProps: ThumbProps) => ReactSliderProps['renderThumb'] 
       value={state.valueNow}
       width={size}
     >
-      <StyledValueTypography colorToken="white100" typographyToken="bodyXSmallRegular">
-        {valueFormatter(state.valueNow)}
-      </StyledValueTypography>
+      {hideValue ? null : (
+        <StyledValueTypography colorToken="white100" typographyToken="bodyXSmallRegular">
+          {valueFormatter(state.valueNow)}
+        </StyledValueTypography>
+      )}
     </StyledThumb>
   );

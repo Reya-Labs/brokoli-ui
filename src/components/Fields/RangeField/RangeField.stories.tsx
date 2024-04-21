@@ -77,3 +77,11 @@ export const WithDisabled: StoryObj<typeof RangeField> = {
   },
   render: Template,
 };
+
+export const WithHideValue: StoryObj<typeof RangeField> = {
+  args: {
+    hideValue: true,
+    value: 45,
+  },
+  render: Template,
+};
