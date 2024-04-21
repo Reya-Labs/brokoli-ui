@@ -134,7 +134,7 @@ export const WithTooltip: StoryObj<typeof PillSelector> = {
   args: {
     disabled: false,
     label: 'Pill! Grab one!',
-    pillOptions: pillOptions,
+    pillOptions,
     tooltip: 'A wild selector!',
     variant: 'compact',
   },

@@ -58,7 +58,7 @@ export const getENSDetails = async (
 
   const result = {
     avatarUrl: avatar,
-    name: name,
+    name,
   };
   CACHED_ENS[address] = result;
   return result;
