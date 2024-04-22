@@ -3,6 +3,7 @@ import React from 'react';
 import { ColorTokens } from '../../foundation/Colors';
 import { TypographyTokens } from '../../foundation/Typography';
 import { AttentionIndicator } from '../AttentionIndicator';
+import { TypographyProps } from '../Typography';
 import { ReactComponent as DownIcon } from './assets/down.svg';
 import { ReactComponent as UpIcon } from './assets/up.svg';
 import {
@@ -27,6 +28,7 @@ export type TokenTypographyProps = {
   token: string;
   token2?: string;
   tokenColorToken?: ColorTokens;
+  typographyAs?: TypographyProps['as'];
   typographyToken: TypographyTokens;
   value: string | number;
   value2?: string | number;
@@ -48,8 +50,10 @@ export const TokenTypography: React.FunctionComponent<TokenTypographyProps> = ({
   tokenColorToken = 'white100',
   differenceColorToken = 'white100',
   className,
+  typographyAs,
 }) => (
   <TokenTypographyStyled
+    as={typographyAs}
     className={className}
     colorToken={colorToken}
     data-testid={
