@@ -16,6 +16,7 @@ import {
 } from './TokenTypography.styled';
 
 export type TokenTypographyProps = {
+  as?: TypographyProps['as'];
   attentionIndicatorColorToken?: ColorTokens;
   className?: string;
   colorToken: ColorTokens;
@@ -28,7 +29,6 @@ export type TokenTypographyProps = {
   token: string;
   token2?: string;
   tokenColorToken?: ColorTokens;
-  typographyAs?: TypographyProps['as'];
   typographyToken: TypographyTokens;
   value: string | number;
   value2?: string | number;
@@ -50,10 +50,10 @@ export const TokenTypography: React.FunctionComponent<TokenTypographyProps> = ({
   tokenColorToken = 'white100',
   differenceColorToken = 'white100',
   className,
-  typographyAs,
+  as,
 }) => (
   <TokenTypographyStyled
-    as={typographyAs}
+    as={as}
     className={className}
     colorToken={colorToken}
     data-testid={
