@@ -73,7 +73,7 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
   disabledBorderColorToken = 'black700',
 }) => {
   const { thousands } = browserI18n();
-  const cleanedValue = value.replace(new RegExp(thousands, 'g'), ''); // This replaces all occurrences of 'a'
+  const cleanedValue = value.replace(new RegExp(`\\${thousands}`, 'g'), '');
   const handleOnChange = (newValue: string | undefined) => {
     if (newValue === cleanedValue) {
       return;

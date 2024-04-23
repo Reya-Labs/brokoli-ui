@@ -127,7 +127,7 @@ export const TokenLabelField: React.FunctionComponent<TokenLabelFieldProps> = ({
   tokenTypographyToken = 'bodyMediumMedium',
 }) => {
   const { thousands } = browserI18n();
-  const cleanedValue = value.replace(new RegExp(thousands, 'g'), ''); // This replaces all occurrences of 'a'
+  const cleanedValue = value.replace(new RegExp(`\\${thousands}`, 'g'), '');
   const hasMaxButton = Boolean(max && max.showButton);
   const handleOnChange = (newValue: string | undefined) => {
     if (newValue === cleanedValue) {
