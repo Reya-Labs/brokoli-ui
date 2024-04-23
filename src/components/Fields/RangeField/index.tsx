@@ -54,7 +54,7 @@ export const RangeField = ({
   };
 
   return (
-    <Box data-testid="RangeField-Box" trackColorToken={trackColorToken}>
+    <Box data-testid="RangeField-Box" disabled={disabled} trackColorToken={trackColorToken}>
       <StyledSlider
         disabled={disabled}
         height={trackHeight}
