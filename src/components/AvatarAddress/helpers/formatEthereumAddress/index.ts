@@ -8,8 +8,12 @@ export const formatEthereumAddress = (address?: string | null): string => {
   if (!address) {
     return '';
   }
-  if (address.length !== 42) {
-    return address;
+  const isAddress = address.length === 42;
+  if (!isAddress) {
+    if (address.length <= 12) {
+      return address;
+    }
+    return `${address.slice(0, 12)}...`;
   }
 
   const start = address.slice(0, 6);
