@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 
 import { addAlpha } from '../../foundation/Colors';
 import { createTransition } from '../../utils/create-transition';
+import { shouldNotForwardProps } from '../../utils/should-not-forward-props';
 import { Typography } from '../Typography';
 
 export const AvatarAddressBox = styled('div')`
@@ -20,6 +21,12 @@ export const AddressTypography = styled(Typography)`
   }
 `;
 
-export const RainbowLoaderBox = styled('div')`
+export const RainbowLoaderBox = styled('div', shouldNotForwardProps(['height']))<{
+  height: number;
+}>`
   width: 150px;
+  height: ${({ height }) => height}px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 `;

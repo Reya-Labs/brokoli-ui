@@ -42,19 +42,16 @@ export const AvatarAddress: FunctionComponent<{
   }
   const formattedName = formatEthereumAddress(name);
 
+  const sizePx = avatarSize === 'medium' ? 24 : 16;
   return (
     <AvatarAddressBox data-testid="AvatarAddress">
       {loading ? (
-        <RainbowLoaderBox>
+        <RainbowLoaderBox height={sizePx}>
           <RainbowLoader height={3} />
         </RainbowLoaderBox>
       ) : (
         <>
-          <AvatarAddressImage
-            address={address || ''}
-            size={avatarSize === 'medium' ? 24 : 16}
-            url={avatarUrl}
-          />
+          <AvatarAddressImage address={address || ''} size={sizePx} url={avatarUrl} />
           <AddressTypography
             colorToken="white100"
             data-testid="AvatarAddress-AddressTypography"
