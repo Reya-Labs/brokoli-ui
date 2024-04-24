@@ -40,7 +40,7 @@ function useFloatingUIDialog({
   const click = useClick(context, {
     enabled: controlledOpen == null,
   });
-  const dismiss = useDismiss(context, { outsidePressEvent: 'mousedown' });
+  const dismiss = useDismiss(context, { escapeKey: true, outsidePress: false });
   const role = useRole(context);
 
   const interactions = useInteractions([click, dismiss, role]);
