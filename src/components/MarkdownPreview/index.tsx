@@ -54,8 +54,8 @@ export const MarkdownPreview: React.FunctionComponent<{
           </H3Styled>
         ),
         li: ({ children }) => (
-          <LiStyled colorToken={colorToken} typographyToken="bodyXSmallRegular">
-            <li>{children}</li>
+          <LiStyled as="li" colorToken={colorToken} typographyToken="bodyXSmallRegular">
+            {children}
           </LiStyled>
         ),
         p: ({ children }) => (
