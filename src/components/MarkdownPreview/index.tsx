@@ -38,17 +38,17 @@ export const MarkdownPreview: React.FunctionComponent<{
           </CodeStyled>
         ),
         h1: ({ children }) => (
-          <H1Styled colorToken={colorToken} typographyToken="h1SmallBold">
+          <H1Styled as="h1" colorToken={colorToken} typographyToken="h1SmallBold">
             {children}
           </H1Styled>
         ),
         h2: ({ children }) => (
-          <H2Styled colorToken={colorToken} typographyToken="h2Bold">
+          <H2Styled as="h2" colorToken={colorToken} typographyToken="h2Bold">
             {children}
           </H2Styled>
         ),
         h3: ({ children }) => (
-          <H3Styled colorToken={colorToken} typographyToken="h3Bold">
+          <H3Styled as="h3" colorToken={colorToken} typographyToken="h3Bold">
             {children}
           </H3Styled>
         ),
@@ -58,7 +58,7 @@ export const MarkdownPreview: React.FunctionComponent<{
           </LiStyled>
         ),
         p: ({ children }) => (
-          <ParagraphStyled colorToken={colorToken} typographyToken="bodyXSmallRegular">
+          <ParagraphStyled as="p" colorToken={colorToken} typographyToken="bodyXSmallRegular">
             {children}
           </ParagraphStyled>
         ),
