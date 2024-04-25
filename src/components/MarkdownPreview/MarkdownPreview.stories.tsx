@@ -11,13 +11,13 @@ export default {
 
 export const Default: StoryObj<typeof MarkdownPreview> = {
   args: {
-    markdownText: mockSource,
+    children: mockSource,
   },
 };
 
 export const WithColorToken: StoryObj<typeof MarkdownPreview> = {
   args: {
+    children: mockSource,
     colorToken: 'error500',
-    markdownText: mockSource,
   },
 };

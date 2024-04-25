@@ -1,5 +1,5 @@
 import React from 'react';
-import Markdown from 'react-markdown';
+import Markdown, { Options as MarkdownProps } from 'react-markdown';
 
 import { ColorTokens } from '../../foundation/Colors';
 import { ExternalLink } from '../ExternalLink';
@@ -14,10 +14,11 @@ import {
 } from './MarkdownPreview.styled';
 
 export const MarkdownPreview: React.FunctionComponent<{
+  children: MarkdownProps['children'];
   className?: string;
   colorToken: ColorTokens;
-  markdownText: string;
-}> = ({ markdownText, className, colorToken = 'white100' }) => {
+  components?: MarkdownProps['components'];
+}> = ({ components, children: markdownText, className, colorToken = 'white100' }) => {
   return (
     <Markdown
       className={className}
@@ -62,6 +63,7 @@ export const MarkdownPreview: React.FunctionComponent<{
             {children}
           </ParagraphStyled>
         ),
+        ...components,
       }}
     >
       {markdownText}
