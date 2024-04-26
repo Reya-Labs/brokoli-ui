@@ -107,7 +107,7 @@ export const CurrencyInputBox = styled(
   } & FieldStyleProps
 >`
   position: relative;
-  padding: 8px 4px;
+  padding: 4px 8px;
   width: 100%;
 
   ${({
