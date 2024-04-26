@@ -767,38 +767,38 @@ const bodyExtraLargeBold: TypographyResponsiveConfig = {
 const bodyMegaLargeBold: TypographyResponsiveConfig = {
   desktopDevice: {
     fontFamily: "'Satoshi-Bold', sans-serif",
-    fontSize: '120px',
+    fontSize: '48px',
     fontStyle: 'normal',
     fontWeight: '700',
-    lineHeight: '150%',
+    lineHeight: '120%',
   },
   largeDesktopDevice: {
     fontFamily: "'Satoshi-Bold', sans-serif",
-    fontSize: '120px',
+    fontSize: '48px',
     fontStyle: 'normal',
     fontWeight: '700',
-    lineHeight: '150%',
+    lineHeight: '120%',
   },
   mobileDevice: {
     fontFamily: "'Satoshi-Bold', sans-serif",
-    fontSize: '32px',
+    fontSize: '48px',
     fontStyle: 'normal',
     fontWeight: '700',
-    lineHeight: '150%',
+    lineHeight: '120%',
   },
   smallDesktopDevice: {
     fontFamily: "'Satoshi-Bold', sans-serif",
-    fontSize: '120px',
+    fontSize: '48px',
     fontStyle: 'normal',
     fontWeight: '700',
-    lineHeight: '150%',
+    lineHeight: '120%',
   },
   tabletDevice: {
     fontFamily: "'Satoshi-Bold', sans-serif",
-    fontSize: '120px',
+    fontSize: '48px ',
     fontStyle: 'normal',
     fontWeight: '700',
-    lineHeight: '150%',
+    lineHeight: '120%',
   },
 };
 
