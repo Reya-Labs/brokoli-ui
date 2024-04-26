@@ -27,7 +27,7 @@ type TransitionArgs = {
 export const createTransition = ({
   properties = 'all',
   duration = 200,
-  timingFunction = 'ease-in',
+  timingFunction = 'linear',
 }: TransitionArgs = {}) => {
   const formattedDuration = `${duration}ms`;
   if (!Array.isArray(properties)) {
