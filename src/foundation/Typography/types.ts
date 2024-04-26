@@ -22,6 +22,7 @@ export type TypographyTokens =
   | 'bodyExtraLargeRegular'
   | 'bodyExtraLargeBold'
   | 'bodyMegaLargeBold'
+  | 'bodyXXLLarge'
   | 'bodyXXLRegular'
   | 'ctaBlack'
   | 'ctaRegular'
