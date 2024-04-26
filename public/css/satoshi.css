@@ -51,3 +51,23 @@
        font-display: swap;
        font-style: normal;
 }
+
+@font-face {
+    font-family: 'Satoshi-Medium';
+    src: url('../fonts/Satoshi-Medium.woff2') format('woff2'),
+    url('../fonts/Satoshi-Medium.woff') format('woff'),
+    url('../fonts/Satoshi-Medium.ttf') format('truetype');
+    font-weight: 700;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Satoshi-MediumItalic';
+    src: url('../fonts/Satoshi-MediumItalic.woff2') format('woff2'),
+    url('../fonts/Satoshi-MediumItalic.woff') format('woff'),
+    url('../fonts/Satoshi-MediumItalic.ttf') format('truetype');
+    font-weight: 700;
+    font-display: swap;
+    font-style: normal;
+}

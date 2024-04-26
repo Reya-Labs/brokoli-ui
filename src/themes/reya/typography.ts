@@ -297,7 +297,7 @@ const h3Bold: TypographyResponsiveConfig = {
     lineHeight: '120%',
   },
   smallDesktopDevice: {
-    fontFamily: "'Satoshi', sans-serif",
+    fontFamily: "'Satoshi-Bold', sans-serif",
     fontSize: '16px',
     fontStyle: 'normal',
     fontWeight: '700',
@@ -476,35 +476,35 @@ const bodyXSmallBold: TypographyResponsiveConfig = {
 
 const bodySmallMedium: TypographyResponsiveConfig = {
   desktopDevice: {
-    fontFamily: "'Satoshi-Regular', sans-serif",
+    fontFamily: "'Satoshi-Medium', sans-serif",
     fontSize: '12px',
     fontStyle: 'normal',
     fontWeight: '500',
     lineHeight: '150%',
   },
   largeDesktopDevice: {
-    fontFamily: "'Satoshi-Regular', sans-serif",
+    fontFamily: "'Satoshi-Medium', sans-serif",
     fontSize: '12px',
     fontStyle: 'normal',
     fontWeight: '500',
     lineHeight: '150%',
   },
   mobileDevice: {
-    fontFamily: "'Satoshi-Regular', sans-serif",
+    fontFamily: "'Satoshi-Medium', sans-serif",
     fontSize: '12px',
     fontStyle: 'normal',
     fontWeight: '500',
     lineHeight: '150%',
   },
   smallDesktopDevice: {
-    fontFamily: "'Satoshi-Regular', sans-serif",
+    fontFamily: "'Satoshi-Medium', sans-serif",
     fontSize: '12px',
     fontStyle: 'normal',
     fontWeight: '500',
     lineHeight: '150%',
   },
   tabletDevice: {
-    fontFamily: "'Satoshi', sans-serif",
+    fontFamily: "'Satoshi-Medium', sans-serif",
     fontSize: '12px',
     fontStyle: 'normal',
     fontWeight: '500',
@@ -552,35 +552,35 @@ const bodySmallBold: TypographyResponsiveConfig = {
 
 const bodyMediumMedium: TypographyResponsiveConfig = {
   desktopDevice: {
-    fontFamily: "'Satoshi-Regular', sans-serif",
+    fontFamily: "'Satoshi-Medium', sans-serif",
     fontSize: '14px',
     fontStyle: 'normal',
     fontWeight: '500',
     lineHeight: '150%',
   },
   largeDesktopDevice: {
-    fontFamily: "'Satoshi-Regular', sans-serif",
+    fontFamily: "'Satoshi-Medium', sans-serif",
     fontSize: '14px',
     fontStyle: 'normal',
     fontWeight: '500',
     lineHeight: '150%',
   },
   mobileDevice: {
-    fontFamily: "'Satoshi-Regular', sans-serif",
+    fontFamily: "'Satoshi-Medium', sans-serif",
     fontSize: '14px',
     fontStyle: 'normal',
     fontWeight: '500',
     lineHeight: '150%',
   },
   smallDesktopDevice: {
-    fontFamily: "'Satoshi-Regular', sans-serif",
+    fontFamily: "'Satoshi-Medium', sans-serif",
     fontSize: '14px',
     fontStyle: 'normal',
     fontWeight: '500',
     lineHeight: '150%',
   },
   tabletDevice: {
-    fontFamily: "'Satoshi-Regular', sans-serif",
+    fontFamily: "'Satoshi-Medium', sans-serif",
     fontSize: '14px',
     fontStyle: 'normal',
     fontWeight: '400',
@@ -894,7 +894,7 @@ const bodyMegaLargeBold: TypographyResponsiveConfig = {
 
 const ctaRegular: TypographyResponsiveConfig = {
   desktopDevice: {
-    fontFamily: "'Satoshi', sans-serif",
+    fontFamily: "'Satoshi-Medium', sans-serif",
     fontSize: '14px',
     fontStyle: 'normal',
     fontWeight: '500',
@@ -902,7 +902,7 @@ const ctaRegular: TypographyResponsiveConfig = {
     lineHeight: '150%',
   },
   largeDesktopDevice: {
-    fontFamily: "'Satoshi', sans-serif",
+    fontFamily: "'Satoshi-Medium', sans-serif",
     fontSize: '14px',
     fontStyle: 'normal',
     fontWeight: '500',
@@ -910,7 +910,7 @@ const ctaRegular: TypographyResponsiveConfig = {
     lineHeight: '150%',
   },
   mobileDevice: {
-    fontFamily: "'Satoshi', sans-serif",
+    fontFamily: "'Satoshi-Medium', sans-serif",
     fontSize: '14px',
     fontStyle: 'normal',
     fontWeight: '500',
@@ -918,7 +918,7 @@ const ctaRegular: TypographyResponsiveConfig = {
     lineHeight: '150%',
   },
   smallDesktopDevice: {
-    fontFamily: "'Satoshi', sans-serif",
+    fontFamily: "'Satoshi-Medium', sans-serif",
     fontSize: '14px',
     fontStyle: 'normal',
     fontWeight: '500',
@@ -926,7 +926,7 @@ const ctaRegular: TypographyResponsiveConfig = {
     lineHeight: '150%',
   },
   tabletDevice: {
-    fontFamily: "'Satoshi', sans-serif",
+    fontFamily: "'Satoshi-Medium', sans-serif",
     fontSize: '14px',
     fontStyle: 'normal',
     fontWeight: '500',
@@ -937,7 +937,7 @@ const ctaRegular: TypographyResponsiveConfig = {
 
 const ctaLarge: TypographyResponsiveConfig = {
   desktopDevice: {
-    fontFamily: "'Satoshi', sans-serif",
+    fontFamily: "'Satoshi-Medium', sans-serif",
     fontSize: '24px',
     fontStyle: 'normal',
     fontWeight: '500',
@@ -945,7 +945,7 @@ const ctaLarge: TypographyResponsiveConfig = {
     lineHeight: '150%',
   },
   largeDesktopDevice: {
-    fontFamily: "'Satoshi', sans-serif",
+    fontFamily: "'Satoshi-Medium', sans-serif",
     fontSize: '24px',
     fontStyle: 'normal',
     fontWeight: '500',
@@ -953,7 +953,7 @@ const ctaLarge: TypographyResponsiveConfig = {
     lineHeight: '150%',
   },
   mobileDevice: {
-    fontFamily: "'Satoshi', sans-serif",
+    fontFamily: "'Satoshi-Medium', sans-serif",
     fontSize: '16px',
     fontStyle: 'normal',
     fontWeight: '500',
@@ -961,7 +961,7 @@ const ctaLarge: TypographyResponsiveConfig = {
     lineHeight: '150%',
   },
   smallDesktopDevice: {
-    fontFamily: "'Satoshi', sans-serif",
+    fontFamily: "'Satoshi-Medium', sans-serif",
     fontSize: '24px',
     fontStyle: 'normal',
     fontWeight: '500',
@@ -969,7 +969,7 @@ const ctaLarge: TypographyResponsiveConfig = {
     lineHeight: '150%',
   },
   tabletDevice: {
-    fontFamily: "'Satoshi', sans-serif",
+    fontFamily: "'Satoshi-Medium', sans-serif",
     fontSize: '24px',
     fontStyle: 'normal',
     fontWeight: '500',
@@ -980,7 +980,7 @@ const ctaLarge: TypographyResponsiveConfig = {
 
 const ctaBlack: TypographyResponsiveConfig = {
   desktopDevice: {
-    fontFamily: "'Satoshi', sans-serif",
+    fontFamily: "'Satoshi-Bold', sans-serif",
     fontSize: '14px',
     fontStyle: 'normal',
     fontWeight: '900',
@@ -988,7 +988,7 @@ const ctaBlack: TypographyResponsiveConfig = {
     lineHeight: '150%',
   },
   largeDesktopDevice: {
-    fontFamily: "'Satoshi', sans-serif",
+    fontFamily: "'Satoshi-Bold', sans-serif",
     fontSize: '14px',
     fontStyle: 'normal',
     fontWeight: '900',
@@ -996,7 +996,7 @@ const ctaBlack: TypographyResponsiveConfig = {
     lineHeight: '150%',
   },
   mobileDevice: {
-    fontFamily: "'Satoshi', sans-serif",
+    fontFamily: "'Satoshi-Bold', sans-serif",
     fontSize: '14px',
     fontStyle: 'normal',
     fontWeight: '900',
@@ -1004,7 +1004,7 @@ const ctaBlack: TypographyResponsiveConfig = {
     lineHeight: '150%',
   },
   smallDesktopDevice: {
-    fontFamily: "'Satoshi', sans-serif",
+    fontFamily: "'Satoshi-Bold', sans-serif",
     fontSize: '14px',
     fontStyle: 'normal',
     fontWeight: '900',
@@ -1012,7 +1012,7 @@ const ctaBlack: TypographyResponsiveConfig = {
     lineHeight: '150%',
   },
   tabletDevice: {
-    fontFamily: "'Satoshi', sans-serif",
+    fontFamily: "'Satoshi-Bold', sans-serif",
     fontSize: '14px',
     fontStyle: 'normal',
     fontWeight: '900',
