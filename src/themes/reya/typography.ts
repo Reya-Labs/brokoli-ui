@@ -1085,6 +1085,6 @@ export const typography: TypographyTheme = {
   h2Regular,
   h3Bold,
   h3Regular,
-  subheaderRegular,
   numberBig,
+  subheaderRegular,
 };

@@ -28,6 +28,6 @@ export const tokenTagMap: Record<TypographyTokens, React.ElementType> = {
   h2Regular: 'h2',
   h3Bold: 'h3',
   h3Regular: 'h3',
-  subheaderRegular: 'p',
   numberBig: 'p',
+  subheaderRegular: 'p',
 };
