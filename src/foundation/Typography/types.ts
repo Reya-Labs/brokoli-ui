@@ -26,7 +26,8 @@ export type TypographyTokens =
   | 'bodyXXLRegular'
   | 'ctaBlack'
   | 'ctaRegular'
-  | 'ctaLarge';
+  | 'ctaLarge'
+  | 'numberBig';
 
 export type TypographyConfig = {
   fontFamily: string;

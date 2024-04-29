@@ -764,6 +764,44 @@ const bodyExtraLargeBold: TypographyResponsiveConfig = {
   },
 };
 
+const numberBig: TypographyResponsiveConfig = {
+  desktopDevice: {
+    fontFamily: "'Satoshi-Bold', sans-serif",
+    fontSize: '120px',
+    fontStyle: 'normal',
+    fontWeight: '700',
+    lineHeight: '150%',
+  },
+  largeDesktopDevice: {
+    fontFamily: "'Satoshi-Bold', sans-serif",
+    fontSize: '120px',
+    fontStyle: 'normal',
+    fontWeight: '700',
+    lineHeight: '150%',
+  },
+  mobileDevice: {
+    fontFamily: "'Satoshi-Bold', sans-serif",
+    fontSize: '32px',
+    fontStyle: 'normal',
+    fontWeight: '700',
+    lineHeight: '150%',
+  },
+  smallDesktopDevice: {
+    fontFamily: "'Satoshi-Bold', sans-serif",
+    fontSize: '120px',
+    fontStyle: 'normal',
+    fontWeight: '700',
+    lineHeight: '150%',
+  },
+  tabletDevice: {
+    fontFamily: "'Satoshi-Bold', sans-serif",
+    fontSize: '48px',
+    fontStyle: 'normal',
+    fontWeight: '700',
+    lineHeight: '120%',
+  },
+};
+
 const bodyMegaLargeBold: TypographyResponsiveConfig = {
   desktopDevice: {
     fontFamily: "'Satoshi-Bold', sans-serif",
@@ -1080,4 +1118,5 @@ export const typography: TypographyTheme = {
   h3Bold,
   h3Regular,
   subheaderRegular,
+  numberBig,
 };
