@@ -29,4 +29,5 @@ export const tokenTagMap: Record<TypographyTokens, React.ElementType> = {
   h3Bold: 'h3',
   h3Regular: 'h3',
   subheaderRegular: 'p',
+  numberBig: 'p',
 };
