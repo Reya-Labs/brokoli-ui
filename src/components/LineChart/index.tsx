@@ -14,8 +14,8 @@ import { Tooltip } from './Tooltip/Tooltip';
 import { LineChartProps, XDataType, YDataType } from './types';
 export * from './types';
 
-const yFormatter = (y: YDataType) => parseFloat(y.toFixed(2)).toString();
-const xFormatter = (x: XDataType) =>
+const yFormatterDefault = (y: YDataType) => parseFloat(y.toFixed(2)).toString();
+const xFormatterDefault = (x: XDataType) =>
   typeof x === 'number' ? parseFloat(x.toFixed(2)).toString() : x.toLocaleString();
 
 export const LineChart: React.FunctionComponent<LineChartProps> = ({
@@ -30,8 +30,10 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
   axisDomainLineColorToken = 'white900',
   visibleAxis = ['left', 'bottom'],
   axisTickPadding = 8,
+  yFormatter = yFormatterDefault,
   yScaleMax,
   yScaleMin,
+  xFormatter = xFormatterDefault,
   xScaleMax,
   xScaleMin,
   curveType = 'linear',

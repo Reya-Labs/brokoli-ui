@@ -39,9 +39,11 @@ export type LineChartProps = {
   }[];
   enablePoints?: LineSvgProps['enablePoints'];
   visibleAxis?: ('top' | 'bottom' | 'right' | 'left')[];
+  xFormatter?: (x: XDataType) => string;
   xScaleMax?: XDataType;
   xScaleMin?: XDataType;
   xScaleType?: 'time' | 'linear';
+  yFormatter?: (y: YDataType) => string;
   yMarker?: YMarkerConfig;
   yScaleMax?: YDataType;
   yScaleMin?: YDataType;
