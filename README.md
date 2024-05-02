@@ -67,7 +67,7 @@ These are sites hosted on Cloudflare and the build from main can be found at [br
 * merges to branch `main` always deploy to [brokoli.reya.xyz](brokoli.reya.xyz) with ENV variables specific for `main`
 
 **Candidate branches:**
-* commits on branches that follow the pattern `feat/*`, `fix/*`, `chore/*`, `refactor/*` and `test/*`
+* commits on branches that follow the pattern `feat/*`, `fix/*`, `chore/*`, `refactor/*` and `test/*`. Please follow these patterns.
 
 ## Tools
 
