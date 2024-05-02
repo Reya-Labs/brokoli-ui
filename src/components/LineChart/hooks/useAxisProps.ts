@@ -32,9 +32,7 @@ export const useAxisProps = ({
     const axisTopBottomConfig = {
       format:
         xScaleType === 'time'
-          ? axisBottomFormat === 'minutes'
-            ? '%M:%S'
-            : axisBottomFormat === 'hours'
+          ? axisBottomFormat === 'minutes' || axisBottomFormat === 'hours'
             ? '%H:%M'
             : '%d %b'
           : xFormatter,
