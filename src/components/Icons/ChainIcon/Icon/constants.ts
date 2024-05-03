@@ -28,6 +28,9 @@ export const CHAIN_ICON_MAP = {
   // "Polygon zkEVM Testnet"
   1442: PolygonIcon,
 
+  // "Reya network"
+  1729: ReyaIcon,
+
   // "Optimism Goerli"
   420: OptimismIcon,
 
