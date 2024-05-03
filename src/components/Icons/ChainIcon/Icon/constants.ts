@@ -1,4 +1,5 @@
 import { ReactComponent as ArbitrumIcon } from './assets/arbitrum.svg';
+import { ReactComponent as BaseIcon } from './assets/base.svg';
 import { ReactComponent as EthereumIcon } from './assets/ethereum.svg';
 import { ReactComponent as OptimismIcon } from './assets/optimism.svg';
 import { ReactComponent as PolygonIcon } from './assets/polygon.svg';
@@ -47,6 +48,9 @@ export const CHAIN_ICON_MAP = {
 
   // "Polygon Mumbai"
   80001: PolygonIcon,
+
+  // "Base"
+  8453: BaseIcon,
 
   // "Reya Cronos"
   89346161: ReyaIcon,

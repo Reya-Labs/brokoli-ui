@@ -16,5 +16,6 @@ export const CHAIN_NAME_MAP: Record<SupportedChainIcons, string> = {
   42170: 'Arbitrum Nova',
   5: 'Goerli',
   80001: 'Polygon Mumbai',
+  8453: 'Base',
   89346161: 'Reya Cronos',
 };
