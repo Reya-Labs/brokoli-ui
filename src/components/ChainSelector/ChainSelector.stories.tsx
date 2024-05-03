@@ -15,8 +15,8 @@ const Template: StoryFn<typeof ChainSelector> = (args) => {
   return <ChainSelector {...args} selectedChainId={chainId} onChainChange={setChainId} />;
 };
 const chainOptions = [
-  1, 10, 1101, 11155111, 11155420, 137, 1442, 89346161, 420, 42161, 421613, 421614, 42170, 5, 8453,
-  80001,
+  1, 10, 1101, 11155111, 11155420, 137, 1442, 1729, 89346161, 420, 42161, 421613, 421614, 42170, 5,
+  8453, 80001,
 ];
 
 export const Default: StoryObj<typeof ChainSelector> = {
