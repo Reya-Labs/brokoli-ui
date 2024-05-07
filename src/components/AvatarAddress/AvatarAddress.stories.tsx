@@ -10,7 +10,7 @@ export default {
 
 export const Default: StoryObj<typeof AvatarAddress> = {
   args: {
-    address: '0xb01F14d1C9000D453241221EB54648F1C378c970',
+    address: '0x2fA11eF008c4b585CCf0A76861794aC7AE5A3a67',
     avatarSize: 'medium',
     typographyToken: 'bodyMediumMedium',
   },
