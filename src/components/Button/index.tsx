@@ -101,7 +101,7 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
       rounded={Boolean(rounded)}
       typographyColorToken={typographyColorToken}
       typographyToken={typographyToken}
-      onClick={disabled ? undefined : onClick}
+      onClick={disabled || loading ? undefined : onClick}
     >
       {content}
     </ButtonStyled>
