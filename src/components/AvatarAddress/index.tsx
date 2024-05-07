@@ -3,7 +3,8 @@ import React, { FunctionComponent, useEffect, useState } from 'react';
 import { TypographyTokens } from '../../foundation/Typography';
 import { AvatarAddressImage } from '../AvatarAddressImage';
 import { RainbowLoader } from '../RainbowLoader';
-import { AddressTypography, AvatarAddressBox, RainbowLoaderBox } from './AvatarAddress.styled';
+import { Typography } from '../Typography';
+import { AvatarAddressBox, RainbowLoaderBox } from './AvatarAddress.styled';
 import { formatEthereumAddress } from './helpers/formatEthereumAddress';
 import { getENSDetails } from './helpers/getENSDetails';
 
@@ -52,13 +53,13 @@ export const AvatarAddress: FunctionComponent<{
       ) : (
         <>
           <AvatarAddressImage address={address || ''} size={sizePx} url={avatarUrl} />
-          <AddressTypography
+          <Typography
             colorToken="white100"
             data-testid="AvatarAddress-AddressTypography"
             typographyToken={typographyToken}
           >
             {formattedName}
-          </AddressTypography>
+          </Typography>
         </>
       )}
     </AvatarAddressBox>
