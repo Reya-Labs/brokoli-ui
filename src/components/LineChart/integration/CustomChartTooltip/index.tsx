@@ -38,7 +38,7 @@ export const CustomChartTooltip: React.FunctionComponent<
   return (
     <Box>
       <RowBox>
-        <Typography colorToken="white950" typographyToken="bodyXSmallRegular">
+        <Typography colorToken="white950" typographyToken="bodyXSmallMedium">
           Price
         </Typography>
         <TokenTypography
@@ -50,7 +50,7 @@ export const CustomChartTooltip: React.FunctionComponent<
         />
       </RowBox>
       <RowBox>
-        <Typography colorToken="white950" typographyToken="bodyXSmallRegular">
+        <Typography colorToken="white950" typographyToken="bodyXSmallMedium">
           Total size
         </Typography>
         <TokenTypography
@@ -62,7 +62,7 @@ export const CustomChartTooltip: React.FunctionComponent<
         />
       </RowBox>
       <RowBox>
-        <Typography colorToken="white950" typographyToken="bodyXSmallRegular">
+        <Typography colorToken="white950" typographyToken="bodyXSmallMedium">
           Total Cost
         </Typography>
         <TokenTypography
@@ -74,7 +74,7 @@ export const CustomChartTooltip: React.FunctionComponent<
         />
       </RowBox>
       <RowBox>
-        <Typography colorToken="white950" typographyToken="bodyXSmallRegular">
+        <Typography colorToken="white950" typographyToken="bodyXSmallMedium">
           Total size
         </Typography>
         <TokenTypography

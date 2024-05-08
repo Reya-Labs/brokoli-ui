@@ -18,7 +18,7 @@ export const Default: StoryObj<typeof AppLink> = {
     children: 'Visit this app link!',
     colorToken: 'primary100',
     to: '/app-link',
-    typographyToken: 'bodyXSmallRegular',
+    typographyToken: 'bodyXSmallMedium',
   },
 
   render: Template,
@@ -51,7 +51,7 @@ export const WithOpeningNewPage: StoryObj<typeof AppLink> = {
     colorToken: 'primary100',
     target: '_blank',
     to: 'https://brokoli.reya.xyz',
-    typographyToken: 'bodyXSmallRegular',
+    typographyToken: 'bodyXSmallMedium',
   },
 
   render: Template,
@@ -63,7 +63,7 @@ export const WithCustomComponentForLink: StoryObj<typeof AppLink> = {
     children: 'Visit this app link!',
     colorToken: 'primary100',
     to: '/app-link-via-react-router-dom',
-    typographyToken: 'bodyXSmallRegular',
+    typographyToken: 'bodyXSmallMedium',
   },
 
   render: Template,

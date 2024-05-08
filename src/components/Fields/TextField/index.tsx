@@ -43,7 +43,7 @@ export const TextField: React.FunctionComponent<TextFieldProps> = ({
   typographyToken = 'bodyMediumMedium',
   name,
   labelAttentionIndicatorColorToken,
-  bottomLeftTextTypographyToken = 'bodyXSmallRegular',
+  bottomLeftTextTypographyToken = 'bodyXSmallMedium',
   bottomLeftTextColorToken = 'white300',
   bottomLeftText,
   borderColorToken = 'black700',

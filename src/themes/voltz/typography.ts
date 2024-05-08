@@ -298,7 +298,7 @@ const subheaderRegular: TypographyResponsiveConfig = {
   },
 };
 
-const bodyXSmallRegular: TypographyResponsiveConfig = {
+const bodyXSmallMedium: TypographyResponsiveConfig = {
   desktopDevice: {
     fontFamily: "'Inter', sans-serif",
     fontSize: '10px',
@@ -1102,7 +1102,7 @@ export const typography: TypographyTheme = {
   bodySmallBold,
   bodySmallMedium,
   bodyXSmallBold,
-  bodyXSmallRegular,
+  bodyXSmallMedium,
   bodyXXLLarge,
   bodyXXLRegular,
   ctaBlack,

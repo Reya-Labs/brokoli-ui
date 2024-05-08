@@ -10,7 +10,7 @@ export const useChartTheme = ({
   crosshairColorToken = 'primary500',
   axisTicksTextColorToken = 'white400',
   axisDomainLineColorToken = 'white900',
-  axisTypographyToken = 'bodyXSmallRegular',
+  axisTypographyToken = 'bodyXSmallMedium',
 }: Pick<
   LineChartProps,
   | 'axisTypographyToken'

@@ -47,7 +47,7 @@ export const PillSelectorButton = styled(
   z-index: ${({ active }) => (active ? 1 : 0)};
 
   ${({ theme }) =>
-    css(getResponsiveTypographyStyleFromToken({ theme, token: 'bodyXSmallRegular' }))};
+    css(getResponsiveTypographyStyleFromToken({ theme, token: 'bodyXSmallMedium' }))};
 
   color: ${({ theme, error, active }) =>
     !error

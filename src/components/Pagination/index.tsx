@@ -44,7 +44,7 @@ export const Pagination: React.FunctionComponent<PaginationProps> = ({
       >
         <Typography
           colorToken={previousDisabled ? 'white500' : 'white100'}
-          typographyToken="bodyXSmallRegular"
+          typographyToken="bodyXSmallMedium"
         >
           {previousDisabled
             ? `Current ${(page + 1).toString().padStart(2, '0')}`
@@ -61,7 +61,7 @@ export const Pagination: React.FunctionComponent<PaginationProps> = ({
       >
         <Typography
           colorToken={nextDisabled ? 'white500' : 'white100'}
-          typographyToken="bodyXSmallRegular"
+          typographyToken="bodyXSmallMedium"
         >
           {nextDisabled
             ? `${maxPages.toString().padStart(2, '0')} Last`

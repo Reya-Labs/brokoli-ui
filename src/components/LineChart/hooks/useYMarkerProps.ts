@@ -23,7 +23,7 @@ export const useYMarkerProps = ({ yMarker }: UseYMarkerParams): CartesianMarkerP
     }
 
     const {
-      typographyToken: yMarkerTypographyToken = 'bodyXSmallRegular',
+      typographyToken: yMarkerTypographyToken = 'bodyXSmallMedium',
       text: yMarkerText,
       colorToken: yMarkerColorToken = 'primary100',
       value: yMarkerValue,

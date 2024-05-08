@@ -28,13 +28,13 @@ export const MarkdownPreview: React.FunctionComponent<{
             colorToken="primary500"
             hideArrowIcon={true}
             href={href || '#'}
-            typographyToken="bodyXSmallRegular"
+            typographyToken="bodyXSmallMedium"
           >
             {children?.toString() || ''}
           </ExternalLink>
         ),
         code: ({ children }) => (
-          <CodeStyled colorToken={colorToken} typographyToken="bodyXSmallRegular">
+          <CodeStyled colorToken={colorToken} typographyToken="bodyXSmallMedium">
             <PreStyled>{children}</PreStyled>
           </CodeStyled>
         ),
@@ -54,12 +54,12 @@ export const MarkdownPreview: React.FunctionComponent<{
           </H3Styled>
         ),
         li: ({ children }) => (
-          <LiStyled as="li" colorToken={colorToken} typographyToken="bodyXSmallRegular">
+          <LiStyled as="li" colorToken={colorToken} typographyToken="bodyXSmallMedium">
             {children}
           </LiStyled>
         ),
         p: ({ children }) => (
-          <ParagraphStyled as="p" colorToken={colorToken} typographyToken="bodyXSmallRegular">
+          <ParagraphStyled as="p" colorToken={colorToken} typographyToken="bodyXSmallMedium">
             {children}
           </ParagraphStyled>
         ),

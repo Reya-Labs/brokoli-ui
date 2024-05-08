@@ -85,14 +85,14 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
   tooltip,
   label,
   className,
-  topRightTextTypographyToken = 'bodyXSmallRegular',
+  topRightTextTypographyToken = 'bodyXSmallMedium',
   topRightTextColorToken = 'white300',
   topRightText,
-  bottomLeftTextTypographyToken = 'bodyXSmallRegular',
+  bottomLeftTextTypographyToken = 'bodyXSmallMedium',
   bottomLeftTextColorToken = 'white300',
   bottomLeftText,
   token,
-  bottomRightTextTypographyToken = 'bodyXSmallRegular',
+  bottomRightTextTypographyToken = 'bodyXSmallMedium',
   bottomRightTextColorToken = 'white950',
   bottomRightTextDifferenceColorToken,
   bottomRightTextTokenColorToken,
@@ -225,7 +225,7 @@ export const TokenField: React.FunctionComponent<TokenFieldProps> = ({
                 hoverBorderColorToken={disabled ? 'black800' : 'black500'}
                 rounded={true}
                 typographyColorToken={disabled ? 'black200' : 'white950'}
-                typographyToken="bodyXSmallRegular"
+                typographyToken="bodyXSmallMedium"
                 onClick={max?.onClick}
               >
                 Max

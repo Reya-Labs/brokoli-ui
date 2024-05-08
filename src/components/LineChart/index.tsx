@@ -22,7 +22,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
   data,
   yMarker,
   axisBottomFormat,
-  axisTypographyToken = 'bodyXSmallRegular',
+  axisTypographyToken = 'bodyXSmallMedium',
   yScaleStacked = false,
   enablePoints = false,
   crosshairColorToken = 'primary500',

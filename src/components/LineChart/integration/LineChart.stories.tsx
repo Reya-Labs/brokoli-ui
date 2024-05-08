@@ -23,7 +23,7 @@ const Template: StoryFn<typeof LineChart> = (args) => (
 
 export const Default: StoryObj<typeof LineChart> = {
   args: {
-    axisTypographyToken: 'bodyXSmallRegular',
+    axisTypographyToken: 'bodyXSmallMedium',
 
     data: [
       {
@@ -42,7 +42,7 @@ export const Default: StoryObj<typeof LineChart> = {
 
 export const WithYMarker: StoryObj<typeof LineChart> = {
   args: {
-    axisTypographyToken: 'bodyXSmallRegular',
+    axisTypographyToken: 'bodyXSmallMedium',
     data: [
       {
         colorToken: 'secondary500',
@@ -57,7 +57,7 @@ export const WithYMarker: StoryObj<typeof LineChart> = {
     yMarker: {
       colorToken: 'primary400',
       text: 'Fixed Rate:',
-      typographyToken: 'bodyXSmallRegular',
+      typographyToken: 'bodyXSmallMedium',
       value: 100.82,
     },
   },
@@ -66,7 +66,7 @@ export const WithYMarker: StoryObj<typeof LineChart> = {
 
 export const WithCrossHairColor: StoryObj<typeof LineChart> = {
   args: {
-    axisTypographyToken: 'bodyXSmallRegular',
+    axisTypographyToken: 'bodyXSmallMedium',
     crosshairColorToken: 'warning500',
     data: [
       {
@@ -85,7 +85,7 @@ export const WithCrossHairColor: StoryObj<typeof LineChart> = {
 
 export const WithMultipleLines: StoryObj<typeof LineChart> = {
   args: {
-    axisTypographyToken: 'bodyXSmallRegular',
+    axisTypographyToken: 'bodyXSmallMedium',
     data: [
       {
         colorToken: 'secondary500',
@@ -109,7 +109,7 @@ export const WithMultipleLines: StoryObj<typeof LineChart> = {
     yMarker: {
       colorToken: 'primary400',
       text: 'Fixed Rate:',
-      typographyToken: 'bodyXSmallRegular',
+      typographyToken: 'bodyXSmallMedium',
       value: 100.82,
     },
   },
@@ -118,7 +118,7 @@ export const WithMultipleLines: StoryObj<typeof LineChart> = {
 
 export const WithDifferentAxisVisible: StoryObj<typeof LineChart> = {
   args: {
-    axisTypographyToken: 'bodyXSmallRegular',
+    axisTypographyToken: 'bodyXSmallMedium',
     data: [
       {
         colorToken: 'secondary500',
@@ -143,7 +143,7 @@ export const WithDifferentAxisVisible: StoryObj<typeof LineChart> = {
     yMarker: {
       colorToken: 'primary400',
       text: 'Fixed Rate:',
-      typographyToken: 'bodyXSmallRegular',
+      typographyToken: 'bodyXSmallMedium',
       value: 100.82,
     },
   },
@@ -154,7 +154,7 @@ export const WithTransparentAxis: StoryObj<typeof LineChart> = {
   args: {
     axisDomainLineColorToken: 'transparent',
     axisTicksTextColorToken: 'warning500',
-    axisTypographyToken: 'bodyXSmallRegular',
+    axisTypographyToken: 'bodyXSmallMedium',
     data: [
       {
         colorToken: 'secondary500',
@@ -179,7 +179,7 @@ export const WithTransparentAxis: StoryObj<typeof LineChart> = {
     yMarker: {
       colorToken: 'primary400',
       text: 'Fixed Rate:',
-      typographyToken: 'bodyXSmallRegular',
+      typographyToken: 'bodyXSmallMedium',
       value: 100.82,
     },
   },
@@ -188,7 +188,7 @@ export const WithTransparentAxis: StoryObj<typeof LineChart> = {
 
 export const WithScatter: StoryObj<typeof LineChart> = {
   args: {
-    axisTypographyToken: 'bodyXSmallRegular',
+    axisTypographyToken: 'bodyXSmallMedium',
     data: [
       {
         colorToken: 'error500',

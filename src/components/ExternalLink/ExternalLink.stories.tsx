@@ -15,7 +15,7 @@ export const Default: StoryObj<typeof ExternalLink> = {
     children: 'visit our storybook link',
     colorToken: 'white100',
     href: 'https://brokoli.reya.xyz',
-    typographyToken: 'bodyXSmallRegular',
+    typographyToken: 'bodyXSmallMedium',
   },
 };
 
@@ -47,6 +47,6 @@ export const WithActiveAndHoverColor: StoryObj<typeof ExternalLink> = {
     colorToken: 'white100',
     hoverColorToken: 'white500',
     href: 'https://brokoli.reya.xyz',
-    typographyToken: 'bodyXSmallRegular',
+    typographyToken: 'bodyXSmallMedium',
   },
 };

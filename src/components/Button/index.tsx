@@ -51,7 +51,7 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
   'data-testid': dataTestId,
   bottomLeftTextColorToken = 'white400',
   typographyToken = 'bodyMediumBold',
-  bottomLeftTextTypographyToken = 'bodyXSmallRegular',
+  bottomLeftTextTypographyToken = 'bodyXSmallMedium',
   hoverBorderColorToken,
   hoverTypographyColorToken,
   hoverBackgroundColorToken,
