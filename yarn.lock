@@ -11718,7 +11718,7 @@ __metadata:
     prettier: "npm:3.0.2"
     react: "npm:18.2.0"
     react-animate-height: "npm:3.2.2"
-    react-currency-input-field: "npm:3.6.11"
+    react-currency-input-field: "npm:3.8.0"
     react-dom: "npm:18.2.0"
     react-markdown: "npm:9.0.1"
     react-metamask-avatar: "npm:2.0.3"
@@ -23219,12 +23219,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-currency-input-field@npm:3.6.11":
-  version: 3.6.11
-  resolution: "react-currency-input-field@npm:3.6.11"
+"react-currency-input-field@npm:3.8.0":
+  version: 3.8.0
+  resolution: "react-currency-input-field@npm:3.8.0"
   peerDependencies:
     react: ^16.9.0 || ^17.0.0 || ^18.0.0
-  checksum: 10c0/d1a15dc14f572806917e452c77a2b69d00647676be578304624c98fe66e557a9f397a3ece72b997b2a8db827db236a5801f26b86605ef334398175c856e46d50
+  checksum: 10c0/d82d367933925c046d5434b29701874b5fd2298943b677747172a76e80c365c6cf86e79abe69b8b89e21bc2c85a7d36262092d4f9f3efee2d3bf9774ea7c7276
   languageName: node
   linkType: hard
 
