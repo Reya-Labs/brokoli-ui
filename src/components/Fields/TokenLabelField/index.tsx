@@ -48,6 +48,7 @@ export type TokenLabelFieldProps = {
   labelAttentionIndicatorColorToken?: ColorTokens;
   labelColorToken?: ColorTokens;
   labelTypographyToken?: TypographyTokens;
+  locale?: string;
   max?: MaxConfig;
   maxLength?: number | undefined;
   min?: number | string | undefined;
@@ -125,8 +126,9 @@ export const TokenLabelField: React.FunctionComponent<TokenLabelFieldProps> = ({
   hideTokenIcon = false,
   tokenColorToken = 'white100',
   tokenTypographyToken = 'bodyMediumMedium',
+  locale = navigator.language,
 }) => {
-  const { thousands } = browserI18n();
+  const { thousands } = browserI18n(locale);
   const cleanedValue = value.replace(new RegExp(`\\${thousands}`, 'g'), '');
   const hasMaxButton = Boolean(max && max.showButton);
   const handleOnChange = (newValue: string | undefined) => {
@@ -201,13 +203,13 @@ export const TokenLabelField: React.FunctionComponent<TokenLabelFieldProps> = ({
             defaultValue={
               defaultValue ||
               formatValue({
-                intlConfig: { locale: navigator.language },
+                intlConfig: { locale },
                 value: '0',
               })
             }
             disabled={disabled}
             error={error}
-            intlConfig={{ locale: navigator.language }}
+            intlConfig={{ locale }}
             max={max ? max.value : undefined}
             maxLength={maxLength}
             min={min}

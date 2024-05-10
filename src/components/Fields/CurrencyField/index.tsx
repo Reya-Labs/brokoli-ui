@@ -22,10 +22,10 @@ type CurrencyFieldProps = {
   labelAttentionIndicatorColorToken?: ColorTokens;
   labelColorToken?: ColorTokens;
   labelTypographyToken?: TypographyTokens;
+  locale?: string;
   max?: MaxConfig;
   maxLength?: number | undefined;
   min?: number | string | undefined;
-
   onBlur?: () => void;
   onChange?: (value: string | undefined) => void;
   placeholder?: string;
@@ -71,8 +71,9 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
   hoverColorToken = colorToken,
   hoverErrorColorToken = 'error100',
   disabledBorderColorToken = 'black700',
+  locale = navigator.language,
 }) => {
-  const { thousands } = browserI18n();
+  const { thousands } = browserI18n(locale);
   const cleanedValue = value.replace(new RegExp(`\\${thousands}`, 'g'), '');
   const handleOnChange = (newValue: string | undefined) => {
     if (newValue === cleanedValue) {
@@ -101,7 +102,7 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
         defaultValue={
           defaultValue ||
           formatValue({
-            intlConfig: { locale: navigator.language },
+            intlConfig: { locale },
             value: '0',
           })
         }
@@ -117,7 +118,7 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
         hoverColorToken={hoverColorToken}
         hoverErrorBorderColorToken={hoverErrorBorderColorToken}
         hoverErrorColorToken={hoverErrorColorToken}
-        intlConfig={{ locale: navigator.language }}
+        intlConfig={{ locale }}
         max={max ? max.value : undefined}
         maxLength={maxLength}
         min={min}
