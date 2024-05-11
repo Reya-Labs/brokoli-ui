@@ -26,7 +26,11 @@ export const Thumb: (thumbProps: ThumbProps) => ReactSliderProps['renderThumb'] 
       width={size}
     >
       {hideValue ? null : (
-        <StyledValueTypography colorToken="white100" typographyToken="bodyXSmallMedium">
+        <StyledValueTypography
+          colorToken="white100"
+          typographyToken="bodyXSmallMedium"
+          value={state.valueNow}
+        >
           {valueFormatter(state.valueNow)}
         </StyledValueTypography>
       )}

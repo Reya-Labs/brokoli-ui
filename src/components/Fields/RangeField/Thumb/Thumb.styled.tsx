@@ -29,8 +29,10 @@ export const StyledThumb = styled(
   top: ${({ trackHeight, height }) => (trackHeight - height) / 2}px;
 `;
 
-export const StyledValueTypography = styled(Typography)`
+export const StyledValueTypography = styled(Typography, shouldNotForwardProps(['value']))<{
+  value: number;
+}>`
   top: calc(100% + 8px);
-  left: -4px;
+  left: ${({ value }) => (value === 100 ? '-22px' : '-4px')};
   position: absolute;
 `;
