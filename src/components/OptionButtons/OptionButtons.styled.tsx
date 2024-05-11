@@ -22,7 +22,7 @@ export const OptionButtonsBox = styled('div')`
 export const OptionButton = styled(Button, shouldNotForwardProps(['isActive']))<{
   isActive: boolean;
 }>`
-  padding: 8px 16px;
+  padding: 10.5px 16px;
   z-index: ${({ isActive }) => (isActive ? '1' : '0')};
   flex: 1;
 `;
