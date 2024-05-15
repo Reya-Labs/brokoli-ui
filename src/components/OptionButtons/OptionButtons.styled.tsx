@@ -13,10 +13,6 @@ export const OptionButtonsBox = styled('div')`
   display: flex;
   flex-direction: row;
   position: relative;
-
-  > *:not(:first-child) {
-    margin-left: -16px;
-  }
 `;
 
 export const OptionButton = styled(Button, shouldNotForwardProps(['isActive']))<{
