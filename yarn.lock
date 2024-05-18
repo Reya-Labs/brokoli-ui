@@ -11745,7 +11745,7 @@ __metadata:
     "@emotion/styled": 11.11.0
     react: 18.2.0
     react-dom: 18.2.0
-    viem: 2.5.0
+    viem: 2.10.9
   languageName: unknown
   linkType: soft
 
