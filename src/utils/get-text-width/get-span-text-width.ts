@@ -17,8 +17,10 @@ export function getSpanTextWidth(str: string, style: object): number {
       textEl.style.left = '-100%';
       // Append the span to the body
       document.body.appendChild(textEl);
+    } else {
+      Object.assign(textEl.style, style);
+      textEl.textContent = str;
     }
-    Object.assign(textEl.style, style);
     return textEl.offsetWidth;
   } catch (e) {
     return 0;
