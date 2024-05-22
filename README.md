@@ -29,6 +29,7 @@ An UI design language and React UI library powered by 🥦🥦🥦 and ☕
 # Installation
 
 1. Run `yarn`
+2. Run `npx husky install` to activate **husky**
 
 # Run
 
