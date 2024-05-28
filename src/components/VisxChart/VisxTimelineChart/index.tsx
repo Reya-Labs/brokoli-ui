@@ -176,7 +176,8 @@ const _VisxTimelineChart = ({
       -Infinity,
     ] as const);
 
-    const yTickValues = _range(yMin, yMax, axisNumTicks);
+    const step = Math.abs((yMin - yMax) / (axisNumTicks - 1));
+    const yTickValues = _range(yMin, yMax, step);
     const widths =
       marginComputationalValue === 'auto'
         ? yTickValues.map((d) =>
