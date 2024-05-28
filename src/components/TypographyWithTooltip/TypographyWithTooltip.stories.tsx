@@ -16,3 +16,15 @@ export const Default: StoryObj<typeof TypographyWithTooltip> = {
     typographyToken: 'bodyMediumMedium',
   },
 };
+
+export const WithCustomColors: StoryObj<typeof TypographyWithTooltip> = {
+  args: {
+    children: 'What a wonderful UI library!',
+    colorToken: 'white100',
+    tooltip: 'Created with ❤️!',
+    tooltipColorToken: 'primary500',
+    tooltipIconColorToken: 'error500',
+    tooltipTypographyToken: 'bodyLargeRegular',
+    typographyToken: 'bodyMediumMedium',
+  },
+};

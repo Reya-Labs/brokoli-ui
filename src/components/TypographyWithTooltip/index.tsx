@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { ColorTokens } from '../../foundation/Colors';
 import { ExclaimTooltipProps } from '../ExclaimTooltip';
 import { TypographyProps } from '../Typography';
 import { TooltipStyled, TypographyStyled } from './TypographyWithTooltip.styled';
@@ -9,17 +8,21 @@ export type TypographyWithTooltipProps = React.PropsWithChildren<{
   colorToken: TypographyProps['colorToken'];
   'data-testid'?: string;
   tooltip: ExclaimTooltipProps['children'];
-  tooltipColorToken?: ColorTokens;
+  tooltipColorToken?: ExclaimTooltipProps['tooltipColorToken'];
+  tooltipIconColorToken?: ExclaimTooltipProps['iconColorToken'];
+  tooltipTypographyToken?: ExclaimTooltipProps['tooltipTypographyToken'];
   typographyToken: TypographyProps['typographyToken'];
 }>;
 
 export const TypographyWithTooltip: React.FunctionComponent<TypographyWithTooltipProps> = ({
   children,
-  tooltipColorToken,
+  tooltipIconColorToken,
   typographyToken,
   tooltip,
   colorToken,
   'data-testid': dataTestId,
+  tooltipColorToken,
+  tooltipTypographyToken,
 }) => {
   return (
     <TypographyStyled
@@ -28,7 +31,13 @@ export const TypographyWithTooltip: React.FunctionComponent<TypographyWithToolti
       typographyToken={typographyToken}
     >
       {children}
-      <TooltipStyled colorToken={tooltipColorToken}>{tooltip}</TooltipStyled>
+      <TooltipStyled
+        iconColorToken={tooltipIconColorToken}
+        tooltipColorToken={tooltipColorToken}
+        tooltipTypographyToken={tooltipTypographyToken}
+      >
+        {tooltip}
+      </TooltipStyled>
     </TypographyStyled>
   );
 };

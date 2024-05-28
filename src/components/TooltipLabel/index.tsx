@@ -30,7 +30,7 @@ export const TooltipLabel: React.FC<TooltipLabelProps> = ({
         colorToken={labelColorToken}
         data-testid={dataTestId || 'TooltipLabel-TypographyWithTooltip'}
         tooltip={tooltip}
-        tooltipColorToken={tooltipColorToken}
+        tooltipIconColorToken={tooltipColorToken}
         typographyToken={labelTypographyToken}
       >
         {attentionIndicatorColorToken ? (
