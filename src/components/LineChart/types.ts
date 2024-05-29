@@ -43,6 +43,7 @@ export type LineChartProps = {
   xScaleMax?: XDataType;
   xScaleMin?: XDataType;
   xScaleType?: 'time' | 'linear';
+  yAxisTopOffsetPercentage?: number;
   yFormatter?: (y: YDataType) => string;
   yMarker?: YMarkerConfig;
   yScaleMax?: YDataType;

@@ -140,6 +140,7 @@ export const WithDifferentAxisVisible: StoryObj<typeof LineChart> = {
       },
     ],
     visibleAxis: ['top', 'right', 'left', 'bottom'],
+    yAxisTopOffsetPercentage: 20,
     yMarker: {
       colorToken: 'primary400',
       text: 'Fixed Rate:',
