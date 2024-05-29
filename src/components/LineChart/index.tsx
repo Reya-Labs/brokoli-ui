@@ -1,5 +1,5 @@
 import { ResponsiveLine } from '@nivo/line';
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import { useAxisProps } from './hooks/useAxisProps';
 import { useChartMargin } from './hooks/useChartMargin';
@@ -18,6 +18,12 @@ const yFormatterDefault = (y: YDataType) => parseFloat(y.toFixed(2)).toString();
 const xFormatterDefault = (x: XDataType) =>
   typeof x === 'number' ? parseFloat(x.toFixed(2)).toString() : x.toLocaleString();
 
+const getYMaxExtended = (min: number, max: number, percentage: number): number => {
+  const diff = max - min;
+  const multiplyer = percentage / 100;
+  return max + diff * multiplyer;
+};
+
 export const LineChart: React.FunctionComponent<LineChartProps> = ({
   data,
   yMarker,
@@ -30,6 +36,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
   axisDomainLineColorToken = 'white900',
   visibleAxis = ['left', 'bottom'],
   axisTickPadding = 8,
+  yAxisTopOffsetPercentage,
   yFormatter = yFormatterDefault,
   yScaleMax,
   yScaleMin,
@@ -72,6 +79,16 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
     xScaleMin,
     xScaleType,
   });
+
+  const yScaleMaxCalulated = useMemo((): number | 'auto' => {
+    if (yScaleMax) {
+      return yScaleMax;
+    }
+    if (!yAxisTopOffsetPercentage) {
+      return 'auto';
+    }
+    return getYMaxExtended(minMaxYSeries.min, minMaxYSeries.max, yAxisTopOffsetPercentage);
+  }, [yScaleMax, yAxisTopOffsetPercentage, minMaxYSeries.min, minMaxYSeries.max]);
 
   return (
     <LineChartBox>
@@ -123,7 +140,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
         xScale={xScaleProps.xScale}
         yFormat={(c) => yFormatter(c as number)}
         yScale={{
-          max: yScaleMax || 'auto',
+          max: yScaleMaxCalulated,
           min: yScaleMin || 'auto',
           reverse: false,
           stacked: yScaleStacked,
