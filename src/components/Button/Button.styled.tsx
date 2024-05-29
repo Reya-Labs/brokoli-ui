@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { ColorTokens, getColorFromToken } from '../../foundation/Colors';
+import { addAlpha, ColorTokens, getColorFromToken } from '../../foundation/Colors';
 import {
   getResponsiveTypographyStyleFromToken,
   TypographyTokens,
@@ -78,6 +78,29 @@ export const ButtonStyled = styled(
       hoverBackgroundColorToken
         ? getColorFromToken({ colorToken: hoverBackgroundColorToken, theme })
         : 'transparent'};
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow:
+      inset 0 0 2px 1px
+        ${({ theme, typographyColorToken, hoverTypographyColorToken }) =>
+          addAlpha(
+            getColorFromToken({
+              colorToken: hoverTypographyColorToken || typographyColorToken,
+              theme,
+            }),
+            0.4,
+          )},
+      0 1px 0 3px
+        ${({ theme, hoverBackgroundColorToken, backgroundColorToken }) =>
+          addAlpha(
+            getColorFromToken({
+              colorToken: hoverBackgroundColorToken || backgroundColorToken,
+              theme,
+            }),
+            0.15,
+          )};
   }
 
   &:disabled {
