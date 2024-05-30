@@ -18,10 +18,18 @@ const yFormatterDefault = (y: YDataType) => parseFloat(y.toFixed(2)).toString();
 const xFormatterDefault = (x: XDataType) =>
   typeof x === 'number' ? parseFloat(x.toFixed(2)).toString() : x.toLocaleString();
 
-const getYMaxExtended = (min: number, max: number, percentage: number): number => {
+const getYMaxExtended = ({
+  min,
+  max,
+  percentage = 0,
+}: {
+  max: number;
+  min: number;
+  percentage: LineChartProps['yAxisTopOffsetPercentage'];
+}): number => {
   const diff = max - min;
-  const multiplyer = percentage / 100;
-  return max + diff * multiplyer;
+  const multiplier = percentage / 100;
+  return max + diff * multiplier;
 };
 
 export const LineChart: React.FunctionComponent<LineChartProps> = ({
@@ -80,14 +88,18 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
     xScaleType,
   });
 
-  const yScaleMaxCalulated = useMemo((): number | 'auto' => {
+  const yScaleMaxComputed = useMemo((): number | 'auto' => {
     if (yScaleMax) {
       return yScaleMax;
     }
     if (!yAxisTopOffsetPercentage) {
       return 'auto';
     }
-    return getYMaxExtended(minMaxYSeries.min, minMaxYSeries.max, yAxisTopOffsetPercentage);
+    return getYMaxExtended({
+      max: minMaxYSeries.max,
+      min: minMaxYSeries.min,
+      percentage: yAxisTopOffsetPercentage,
+    });
   }, [yScaleMax, yAxisTopOffsetPercentage, minMaxYSeries.min, minMaxYSeries.max]);
 
   return (
@@ -140,7 +152,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
         xScale={xScaleProps.xScale}
         yFormat={(c) => yFormatter(c as number)}
         yScale={{
-          max: yScaleMaxCalulated,
+          max: yScaleMaxComputed,
           min: yScaleMin || 'auto',
           reverse: false,
           stacked: yScaleStacked,
