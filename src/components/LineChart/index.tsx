@@ -28,7 +28,8 @@ const getYMaxExtended = ({
   percentage: LineChartProps['yAxisTopOffsetPercentage'];
 }): number => {
   const diff = max - min;
-  const multiplier = percentage / 100;
+  const valueToUseInrestOfCode = Math.max(0, percentage);
+  const multiplier = valueToUseInrestOfCode / 100;
   return max + diff * multiplier;
 };
 
