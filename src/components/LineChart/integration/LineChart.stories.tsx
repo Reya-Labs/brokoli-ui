@@ -140,7 +140,41 @@ export const WithDifferentAxisVisible: StoryObj<typeof LineChart> = {
       },
     ],
     visibleAxis: ['top', 'right', 'left', 'bottom'],
-    yAxisTopOffsetPercentage: 20,
+    yMarker: {
+      colorToken: 'primary400',
+      text: 'Fixed Rate:',
+      typographyToken: 'bodyXSmallMedium',
+      value: 100.82,
+    },
+  },
+  render: Template,
+};
+
+export const WithNoYAxisOffset: StoryObj<typeof LineChart> = {
+  args: {
+    axisTypographyToken: 'bodyXSmallMedium',
+    data: [
+      {
+        colorToken: 'secondary500',
+        data: mockedTimelineData[0],
+        id: 'points1',
+        tooltip: {
+          token: '%',
+          tokenColorToken: 'secondary700',
+        },
+      },
+      {
+        colorToken: 'primary500',
+        data: mockedTimelineData[1],
+        id: 'points2',
+        tooltip: {
+          token: '%',
+          tokenColorToken: 'primary700',
+        },
+      },
+    ],
+    visibleAxis: ['top', 'right', 'left', 'bottom'],
+    yAxisTopOffsetPercentage: 0,
     yMarker: {
       colorToken: 'primary400',
       text: 'Fixed Rate:',

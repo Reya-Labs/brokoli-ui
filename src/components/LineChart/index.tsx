@@ -44,7 +44,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
   axisDomainLineColorToken = 'white900',
   visibleAxis = ['left', 'bottom'],
   axisTickPadding = 8,
-  yAxisTopOffsetPercentage,
+  yAxisTopOffsetPercentage = 15,
   yFormatter = yFormatterDefault,
   yScaleMax,
   yScaleMin,
