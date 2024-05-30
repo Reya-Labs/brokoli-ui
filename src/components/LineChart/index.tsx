@@ -28,8 +28,7 @@ const getYMaxExtended = ({
   percentage: LineChartProps['yAxisTopOffsetPercentage'];
 }): number => {
   const diff = max - min;
-  const valueToUseInrestOfCode = Math.max(0, percentage);
-  const multiplier = valueToUseInrestOfCode / 100;
+  const multiplier = percentage / 100;
   return max + diff * multiplier;
 };
 
@@ -45,7 +44,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
   axisDomainLineColorToken = 'white900',
   visibleAxis = ['left', 'bottom'],
   axisTickPadding = 8,
-  yAxisTopOffsetPercentage = 15,
+  yAxisTopOffsetPercentage: yAxisTopOffsetPercentageProp = 15,
   yFormatter = yFormatterDefault,
   yScaleMax,
   yScaleMin,
@@ -55,6 +54,7 @@ export const LineChart: React.FunctionComponent<LineChartProps> = ({
   curveType = 'linear',
   xScaleType = 'time',
 }) => {
+  const yAxisTopOffsetPercentage = Math.max(0, yAxisTopOffsetPercentageProp);
   const chartTheme = useChartTheme({
     axisDomainLineColorToken,
     axisTicksTextColorToken,
