@@ -30,7 +30,7 @@
     "prettier:fix": "prettier --log-level silent --write './src/**/*.{ts,tsx}' './.storybook/**/*.{ts,tsx}'",
     "prepare": "is-ci || husky install",
     "release": "semantic-release",
-    "test": "jest --silent",
+    "test": "TZ=UTC jest --silent",
     "test:coverage": "yarn test --coverage",
     "generate:coverage-badges": "npx istanbul-badges-readme --silent",
     "code-quality:check": "npx concurrently 'yarn ts:check' 'yarn prettier:check' 'yarn lint:check --quiet'"
