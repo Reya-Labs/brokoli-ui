@@ -44,6 +44,11 @@ export const ChainOptionButton = styled('button')`
   &:hover:enabled div {
     background: ${({ theme }) => theme.colors.black800};
   }
+
+  &:disabled {
+    cursor: not-allowed;
+    filter: blur(1px);
+  }
 `;
 
 export const ActiveChainOptionButton = styled(ChainOptionButton)`

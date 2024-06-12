@@ -8,6 +8,7 @@ export type ChainOptionsProps = {
   chainOptions: {
     id: number;
     isActive: boolean;
+    isDisabled?: boolean;
     name: string;
   }[];
   onClick: (chainId: number) => void;
@@ -43,6 +44,7 @@ export const ChainOptions: React.FunctionComponent<ChainOptionsProps> = ({
             key={chainOption.name}
             id={chainOption.id}
             isActive={chainOption.isActive}
+            isDisabled={chainOption.isDisabled}
             name={chainOption.name}
             onClick={() => onClick && onClick(chainOption.id)}
           />
