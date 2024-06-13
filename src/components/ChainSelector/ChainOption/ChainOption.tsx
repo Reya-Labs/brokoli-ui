@@ -24,7 +24,7 @@ export const ChainOption: React.FunctionComponent<ChainOptionProps> = ({
     if (isDisabled) {
       return;
     }
-    onClick();
+    typeof onClick === 'function' && onClick();
   }, [isDisabled, onClick]);
   return (
     <ChainOptionUI
