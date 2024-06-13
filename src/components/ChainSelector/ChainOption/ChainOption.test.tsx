@@ -36,6 +36,13 @@ describe('ChainOption', () => {
     expect(defaultProps.onClick).toHaveBeenCalledTimes(1);
   });
 
+  it('does NOT calls the onClick callback when chain option button is clicked and disabled', () => {
+    render(<ChainOption {...defaultProps} isDisabled={true} />);
+    const chainOptionButton = screen.getByTestId('ChainOptionButton');
+    fireEvent.click(chainOptionButton);
+    expect(defaultProps.onClick).not.toHaveBeenCalledTimes(1);
+  });
+
   it('calls the onClick callback when active chain option button is clicked', () => {
     render(<ChainOption {...defaultProps} isActive={true} />);
     const activeChainOptionButton = screen.getByTestId('ActiveChainOptionButton');
