@@ -17,7 +17,7 @@ export type ChainSelectorProps = {
   approving?: boolean;
   chainOptions: ChainOption[];
   disabled?: boolean;
-  disabledOptions?: ChainOption[];
+  disabledOptions?: Record<ChainOption, boolean>;
   label?: string;
   labelAttentionIndicatorColorToken?: ColorTokens;
   labelColorToken?: ColorTokens;
@@ -87,7 +87,7 @@ export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
           chainOptions={chainOptions.map((cId) => ({
             id: cId,
             isActive: cId === selectedChainId,
-            isDisabled: disabledOptions?.includes(cId),
+            isDisabled: disabledOptions?.[cId],
             name: CHAIN_NAME_MAP[cId as SupportedChainNames] || `Unknown chain, ${cId}`,
           }))}
           parentWidth={width}
