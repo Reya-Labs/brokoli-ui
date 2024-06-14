@@ -12,6 +12,7 @@ export type ExclaimTooltipProps = {
   iconColorToken?: ColorTokens;
   tooltipColorToken?: ColorTokens;
   tooltipTypographyToken?: TypographyTokens;
+  trigger?: React.ReactNode;
 };
 
 export const ExclaimTooltip: React.FunctionComponent<ExclaimTooltipProps> = ({
@@ -20,14 +21,19 @@ export const ExclaimTooltip: React.FunctionComponent<ExclaimTooltipProps> = ({
   children,
   tooltipColorToken = 'white100',
   tooltipTypographyToken = 'bodySmallMedium',
+  trigger,
 }) => (
   <Tooltip
     className={className}
     colorToken={tooltipColorToken}
     trigger={
-      <ExclaimBox colorToken={iconColorToken} data-testid="ExclaimBox">
-        <ExclaimSvg />
-      </ExclaimBox>
+      trigger ? (
+        trigger
+      ) : (
+        <ExclaimBox colorToken={iconColorToken} data-testid="ExclaimBox">
+          <ExclaimSvg />
+        </ExclaimBox>
+      )
     }
     typographyToken={tooltipTypographyToken}
   >
