@@ -10,13 +10,13 @@ export const TypographyStyled = styled(
   shouldNotForwardProps(['textDecorationColorToken', 'decorate']),
 )<{
   decorate: 'underline' | 'none';
-  textDecorationColorToken: ColorTokens;
+  textDecorationColorToken?: ColorTokens;
 }>`
   position: relative;
   text-decoration: ${({ decorate }) => decorate};
-  text-decoration-style: dashed;
-  text-decoration-color: ${({ theme, textDecorationColorToken }) =>
-    getColorFromToken({ colorToken: textDecorationColorToken, theme })};
+  text-decoration-style: ${({ decorate }) => decorate === 'underline' && 'dotted'};
+  text-decoration-color: ${({ decorate, theme, textDecorationColorToken }) =>
+    decorate && getColorFromToken({ colorToken: textDecorationColorToken, theme })};
 `;
 
 export const TooltipStyled = styled(ExclaimTooltip)`
