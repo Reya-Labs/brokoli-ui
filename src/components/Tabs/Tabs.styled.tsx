@@ -54,12 +54,14 @@ export const TabStyled = styled(
     'isActive',
     'activeTabColorToken',
     'hoverTabColorToken',
+    'disabled',
   ]),
 )<{
   activeTabColorToken: ColorTokens;
   backgroundColorToken: ColorTokens;
   borderColorToken: ColorTokens;
   colorToken: ColorTokens;
+  disabled: boolean;
   hoverTabColorToken: ColorTokens;
   isActive: boolean;
   typographyToken: TypographyTokens;
@@ -68,7 +70,7 @@ export const TabStyled = styled(
   padding: 6px 16px;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   z-index: 1;
   border-radius: 8px 8px 0px 0px;
 
@@ -95,8 +97,8 @@ export const TabStyled = styled(
   transition: ${createTransition({ properties: ['background-color', 'color'] })};
 
   &:hover {
-    color: ${({ theme, hoverTabColorToken }) =>
-      getColorFromToken({ colorToken: hoverTabColorToken, theme })};
+    color: ${({ theme, hoverTabColorToken, disabled }) =>
+      disabled ? 'none' : getColorFromToken({ colorToken: hoverTabColorToken, theme })};
   }
 `;
 

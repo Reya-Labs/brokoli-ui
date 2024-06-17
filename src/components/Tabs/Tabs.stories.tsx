@@ -55,6 +55,12 @@ const tabs = [
     id: '3',
     label: 'Tab 3',
   },
+  {
+    Component: Tab3,
+    disabled: true,
+    id: '4',
+    label: 'Tab 4 (Disabled)',
+  },
 ];
 
 export const Default: StoryObj<typeof Tabs> = {

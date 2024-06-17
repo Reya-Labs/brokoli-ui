@@ -15,6 +15,7 @@ import {
 
 type TabProps = {
   Component?: React.FunctionComponent | null;
+  disabled?: boolean;
   id: string;
   label: string;
 };
@@ -70,20 +71,21 @@ export const Tabs: React.FunctionComponent<TabsProps> = ({
       <TabsBox ref={ref} data-testid="Tabs-TabsBox">
         <BorderLine borderColorToken={borderColorToken} data-testid="Tabs-BorderLine" />
         <TabPillsBox data-testid="Tabs-TabPillsBox">
-          {tabs.map((tab) => (
+          {tabs.map(({ id, label, disabled }) => (
             <TabStyled
-              key={tab.id}
+              key={id}
               activeTabColorToken={activeTabColorToken}
               backgroundColorToken={backgroundColorToken}
               borderColorToken={borderColorToken}
               colorToken={colorToken}
-              data-testid={`Tabs-TabStyled-${tab.id}`}
+              data-testid={`Tabs-TabStyled-${id}`}
+              disabled={Boolean(disabled)}
               hoverTabColorToken={hoverTabColorToken || activeTabColorToken}
-              isActive={activeTabId === tab.id}
+              isActive={activeTabId === id}
               typographyToken={typographyToken}
-              onClick={() => onTabChange && onTabChange(tab.id)}
+              onClick={disabled ? undefined : () => onTabChange && onTabChange(id)}
             >
-              {tab.label}
+              {label}
             </TabStyled>
           ))}
         </TabPillsBox>
@@ -94,6 +96,7 @@ export const Tabs: React.FunctionComponent<TabsProps> = ({
             borderColorToken={borderColorToken}
             colorToken={colorToken}
             data-testid={`Tabs-TabStyled-ToggleCaret`}
+            disabled={!allowContentHiding}
             hoverTabColorToken={hoverTabColorToken || activeTabColorToken}
             isActive={true}
             typographyToken={typographyToken}
