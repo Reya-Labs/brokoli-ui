@@ -14,5 +14,5 @@ export const TooltipBox = styled('div', shouldNotForwardProps(['limitWidth']))<{
 `;
 
 export const TriggerBox = styled('span')`
-  display: inline-block;
+  display: inline-flex;
 `;
