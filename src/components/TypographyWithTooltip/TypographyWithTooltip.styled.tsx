@@ -13,6 +13,7 @@ export const TypographyStyled = styled(
   textDecorationColorToken?: ColorTokens;
 }>`
   position: relative;
+  display: flex;
   text-decoration: ${({ decorate }) => decorate};
   text-decoration-style: ${({ decorate }) => decorate === 'underline' && 'dotted'};
   text-decoration-color: ${({ decorate, theme, textDecorationColorToken }) =>
