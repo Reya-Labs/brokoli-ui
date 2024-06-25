@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SVGProps } from 'react';
 
 import { ReactComponent as AAveIcon } from './assets/aave.svg';
 import { ReactComponent as CompoundIcon } from './assets/compound.svg';
@@ -6,18 +6,21 @@ import { ReactComponent as GlpIcon } from './assets/glp.svg';
 import { ReactComponent as LidoIcon } from './assets/lido.svg';
 import { ReactComponent as RocketIcon } from './assets/rocket.svg';
 import { ReactComponent as SOFRIcon } from './assets/sofr.svg';
+import { ReactComponent as SOLIcon } from './assets/sol.svg';
 
 export type IconProps = {
   className?: string;
   'data-testid'?: string;
+  height?: number;
   market: SupportedMarkets | string;
+  width?: number;
 };
 
-export type SupportedMarkets = 'aave' | 'compound' | 'glp' | 'sofr' | 'lido' | 'rocket';
+export type SupportedMarkets = 'aave' | 'compound' | 'glp' | 'sofr' | 'lido' | 'rocket' | 'sol';
 
-const MarketIconMap: Record<
+export const MarketIconMap: Record<
   SupportedMarkets,
-  React.FunctionComponent<{ className?: string; viewBox?: string }>
+  React.FunctionComponent<SVGProps<SVGSVGElement>>
 > = {
   aave: AAveIcon,
   compound: CompoundIcon,
@@ -25,12 +28,15 @@ const MarketIconMap: Record<
   lido: LidoIcon,
   rocket: RocketIcon,
   sofr: SOFRIcon,
+  sol: SOLIcon,
 };
 
 export const Icon: React.FunctionComponent<IconProps> = ({
   'data-testid': dataTestId,
   market,
   className,
+  width = 40,
+  height = 40,
 }) => {
   const SupportedIcon = MarketIconMap[market.toLowerCase() as SupportedMarkets];
   if (!SupportedIcon) {
@@ -40,7 +46,8 @@ export const Icon: React.FunctionComponent<IconProps> = ({
     <SupportedIcon
       className={className}
       data-testid={dataTestId || `Icon-${market}`}
-      viewBox="0 0 40 40"
+      height={height}
+      width={width}
     />
   );
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SVGProps } from 'react';
 
 import { ReactComponent as BTCIcon } from './assets/btc.svg';
 import { ReactComponent as DAIIcon } from './assets/dai.svg';
@@ -7,6 +7,7 @@ import { ReactComponent as MATICIcon } from './assets/matic.svg';
 import { ReactComponent as RETHIcon } from './assets/reth.svg';
 import { ReactComponent as RUSDIcon } from './assets/rusd.svg';
 import { ReactComponent as SETHIcon } from './assets/seth.svg';
+import { ReactComponent as SOLIcon } from './assets/sol.svg';
 import { ReactComponent as USDCIcon } from './assets/usdc.svg';
 import { ReactComponent as USDTIcon } from './assets/usdt.svg';
 import { ReactComponent as WBTCIcon } from './assets/wbtc.svg';
@@ -14,7 +15,9 @@ import { ReactComponent as WBTCIcon } from './assets/wbtc.svg';
 export type IconProps = {
   className?: string;
   'data-testid'?: string;
+  height?: number;
   token: SupportedTokenIcons | string;
+  width?: number;
 };
 
 export type SupportedTokenIcons =
@@ -25,15 +28,16 @@ export type SupportedTokenIcons =
   | 'reth'
   | 'rusd'
   | 'seth'
+  | 'sol'
   | 'usdc'
   | 'usdc.e'
   | 'usdt'
   | 'wbtc'
   | 'weth';
 
-const TokenIconMap: Record<
+export const TokenIconMap: Record<
   SupportedTokenIcons,
-  React.FunctionComponent<{ className?: string; viewBox?: string }>
+  React.FunctionComponent<SVGProps<SVGSVGElement>>
 > = {
   btc: BTCIcon,
   dai: DAIIcon,
@@ -42,6 +46,7 @@ const TokenIconMap: Record<
   reth: RETHIcon,
   rusd: RUSDIcon,
   seth: SETHIcon,
+  sol: SOLIcon,
   usdc: USDCIcon,
   'usdc.e': USDCIcon,
   usdt: USDTIcon,
@@ -53,6 +58,8 @@ export const Icon: React.FunctionComponent<IconProps> = ({
   'data-testid': dataTestId,
   token,
   className,
+  width = 32,
+  height = 32,
 }) => {
   const SupportedIcon = TokenIconMap[token.toLowerCase() as SupportedTokenIcons];
   if (!SupportedIcon) {
@@ -62,7 +69,8 @@ export const Icon: React.FunctionComponent<IconProps> = ({
     <SupportedIcon
       className={className}
       data-testid={dataTestId || `Icon-${token}`}
-      viewBox="0 0 32 32"
+      height={width}
+      width={height}
     />
   );
 };
