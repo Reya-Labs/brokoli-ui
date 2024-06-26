@@ -1,41 +1,11 @@
 import React from 'react';
 
-import { ColorTokens } from '../../foundation/Colors';
-import { TypographyTokens } from '../../foundation/Typography';
 import { Ellipsis } from '../Ellipsis';
 import { Typography } from '../Typography';
 import { ButtonBox, ButtonStyled, IconBox } from './Button.styled';
+import { ButtonProps } from './types';
 
-export type ButtonProps = React.PropsWithChildren<{
-  backgroundColorToken?: ColorTokens;
-  borderColorToken?: ColorTokens;
-  bottomLeftText?: string;
-  bottomLeftTextColorToken?: ColorTokens;
-  bottomLeftTextTypographyToken?: TypographyTokens;
-  className?: string;
-  'data-testid'?: string;
-  disabled?: boolean;
-  hoverBackgroundColorToken?: ColorTokens;
-  hoverBorderColorToken?: ColorTokens;
-  hoverIconColorToken?: ColorTokens;
-  hoverTypographyColorToken?: ColorTokens;
-  iconColorToken?: ColorTokens;
-  /**
-   * `iconLeft` allows you to insert a React Component (preferably an SVG) on the left side of the button content.
-   * When an SVG is provided as `iconLeft`, it will inherit hover effects from the button, such as color changes.
-   */
-  iconLeft?: React.ReactNode;
-  /**
-   * `iconRight` allows you to insert a React Component (preferably an SVG) on the right side of the button content.
-   * When an SVG is provided as `iconRight`, it will inherit hover effects from the button, such as color changes.
-   */
-  iconRight?: React.ReactNode;
-  loading?: boolean;
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  rounded?: boolean;
-  typographyColorToken?: ColorTokens;
-  typographyToken?: TypographyTokens;
-}>;
+export { ButtonProps } from './types';
 
 export const Button: React.FunctionComponent<ButtonProps> = ({
   onClick,
@@ -91,7 +61,7 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
       backgroundColorToken={backgroundColorToken}
       borderColorToken={borderColorToken}
       className={className}
-      data-testid={dataTestId}
+      data-testid={dataTestId || `Button-${typographyToken}`}
       disabled={disabled}
       hoverBackgroundColorToken={hoverBackgroundColorToken || backgroundColorToken}
       hoverBorderColorToken={hoverBorderColorToken}
@@ -110,10 +80,11 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
     return button;
   }
   return (
-    <ButtonBox>
+    <ButtonBox data-testid="Button-ButtonBox">
       {button}
       <Typography
         colorToken={bottomLeftTextColorToken}
+        data-testid="Button-BottomLeftText"
         typographyToken={bottomLeftTextTypographyToken}
       >
         {bottomLeftText}

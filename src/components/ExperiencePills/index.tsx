@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import { BaseColorTokens } from '../../foundation/Colors';
 import { ExperiencePill, ExperiencePillsBox } from './ExperiencePills.styled';
@@ -12,33 +12,28 @@ export const ExperiencePills: React.FunctionComponent<ExperiencePillsProps> = ({
   experiencePercentage,
   colorToken,
 }) => {
+  const pills = useMemo(
+    () => [
+      experiencePercentage > 0,
+      experiencePercentage >= 20,
+      experiencePercentage >= 40,
+      experiencePercentage >= 60,
+      experiencePercentage >= 80,
+    ],
+    [experiencePercentage],
+  );
   return (
     <ExperiencePillsBox data-testid="ExperiencePills-ExperiencePillsBox">
-      <ExperiencePill
-        colorToken={colorToken}
-        data-testid="ExperiencePills-ExperiencePill1"
-        isActive={experiencePercentage > 0}
-      />
-      <ExperiencePill
-        colorToken={colorToken}
-        data-testid="ExperiencePills-ExperiencePill2"
-        isActive={experiencePercentage >= 20}
-      />
-      <ExperiencePill
-        colorToken={colorToken}
-        data-testid="ExperiencePills-ExperiencePill3"
-        isActive={experiencePercentage >= 40}
-      />
-      <ExperiencePill
-        colorToken={colorToken}
-        data-testid="ExperiencePills-ExperiencePill4"
-        isActive={experiencePercentage >= 60}
-      />
-      <ExperiencePill
-        colorToken={colorToken}
-        data-testid="ExperiencePills-ExperiencePill5"
-        isActive={experiencePercentage >= 80}
-      />
+      {pills.map((isActive, index) => (
+        <ExperiencePill
+          key={index}
+          colorToken={colorToken}
+          data-testid={`ExperiencePills-ExperiencePill${index + 1}-${colorToken}-${
+            isActive ? 'Active' : 'NotActive'
+          }`}
+          isActive={isActive}
+        />
+      ))}
     </ExperiencePillsBox>
   );
 };
