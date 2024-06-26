@@ -3,7 +3,7 @@ import React from 'react';
 import { ColorTokens } from '../../../foundation/Colors';
 import { TypographyTokens } from '../../../foundation/Typography';
 import { ExclaimTooltipProps } from '../../ExclaimTooltip';
-import { TooltipLabel, TooltipLabelProps } from '../../TooltipLabel';
+import { TooltipLabel } from '../../TooltipLabel';
 import { Typography } from '../../Typography';
 import { FieldStyleProps } from '../_common/common.styled';
 import { BottomBox, TextFieldBottomBox, TextFieldBox, TextInputStyled } from './TextField.styled';
@@ -22,8 +22,8 @@ export type TextFieldProps = {
   onChange?: (value: string | undefined) => void;
   placeHolder?: string;
   tooltip?: ExclaimTooltipProps['children'];
+
   tooltipColorToken?: ColorTokens;
-  tooltipTrigger?: TooltipLabelProps['tooltipTrigger'];
   type?: HTMLInputElement['type'];
   value?: string;
 } & FieldStyleProps;
@@ -60,7 +60,6 @@ export const TextField: React.FunctionComponent<TextFieldProps> = ({
   hoverColorToken = colorToken,
   hoverErrorColorToken = 'error100',
   disabledBorderColorToken = 'black700',
-  tooltipTrigger = 'icon',
 }) => {
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     typeof onChange === 'function' && onChange(event.target.value);
@@ -75,7 +74,6 @@ export const TextField: React.FunctionComponent<TextFieldProps> = ({
         labelTypographyToken={labelTypographyToken}
         tooltip={tooltip}
         tooltipColorToken={tooltipColorToken}
-        tooltipTrigger={tooltipTrigger}
       />
       <TextFieldBottomBox>
         <TextInputStyled

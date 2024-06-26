@@ -3,7 +3,7 @@ import React from 'react';
 import { ColorTokens } from '../../foundation/Colors';
 import { TypographyTokens } from '../../foundation/Typography';
 import { ExclaimTooltipProps } from '../ExclaimTooltip';
-import { TooltipLabel, TooltipLabelProps } from '../TooltipLabel';
+import { TooltipLabel } from '../TooltipLabel';
 import { OptionButton, OptionButtonsBox, OptionButtonsWrapperBox } from './OptionButtons.styled';
 
 export type OptionsProps = {
@@ -27,7 +27,6 @@ export type OptionsProps = {
   }[];
   tooltip?: ExclaimTooltipProps['children'];
   tooltipColorToken?: ColorTokens;
-  tooltipTrigger?: TooltipLabelProps['tooltipTrigger'];
   typographyToken: TypographyTokens;
 };
 
@@ -42,7 +41,6 @@ export const OptionButtons: React.FunctionComponent<OptionsProps> = ({
   options,
   activeOptionId,
   onOptionClick,
-  tooltipTrigger = 'icon',
 }) => {
   return (
     <OptionButtonsWrapperBox data-testid="OptionButtons-OptionButtonsWrapperBox">
@@ -54,7 +52,6 @@ export const OptionButtons: React.FunctionComponent<OptionsProps> = ({
         labelTypographyToken={labelTypographyToken}
         tooltip={tooltip}
         tooltipColorToken={tooltipColorToken}
-        tooltipTrigger={tooltipTrigger}
       />
       <OptionButtonsBox data-testid="OptionButtons-OptionButtonsBox">
         {options.map(

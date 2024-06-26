@@ -8,7 +8,7 @@ import { ExclaimTooltipProps } from '../../ExclaimTooltip';
 import { TokenIcon, TokenIconProps } from '../../Icons';
 import { ToggleCaret } from '../../ToggleCaret';
 import { TokenTypography } from '../../TokenTypography';
-import { TooltipLabel, TooltipLabelProps } from '../../TooltipLabel';
+import { TooltipLabel } from '../../TooltipLabel';
 import { Typography } from '../../Typography';
 import { FieldStyleProps } from '../_common/common.styled';
 import { MaxConfig } from '../_common/types';
@@ -63,7 +63,6 @@ export type TokenLabelFieldProps = {
   tokenOptions?: string[];
   tokenTypographyToken?: TypographyTokens;
   tooltip?: ExclaimTooltipProps['children'];
-  tooltipTrigger?: TooltipLabelProps['tooltipTrigger'];
   topRightText?: string;
   topRightTextColorToken?: ColorTokens;
   topRightTextTypographyToken?: TypographyTokens;
@@ -128,7 +127,6 @@ export const TokenLabelField: React.FunctionComponent<TokenLabelFieldProps> = ({
   tokenColorToken = 'white100',
   tokenTypographyToken = 'bodyMediumMedium',
   locale = navigator.language,
-  tooltipTrigger = 'icon',
 }) => {
   const { thousands } = browserI18n(locale);
   const cleanedValue = value.replace(new RegExp(`\\${thousands}`, 'g'), '');
@@ -179,7 +177,6 @@ export const TokenLabelField: React.FunctionComponent<TokenLabelFieldProps> = ({
             labelTypographyToken={labelTypographyToken}
             tooltip={tooltip}
             tooltipColorToken={labelColorToken}
-            tooltipTrigger={tooltipTrigger}
           />
           {topRightText ? (
             <Typography

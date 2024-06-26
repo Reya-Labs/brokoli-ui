@@ -4,7 +4,7 @@ import { ColorTokens } from '../../foundation/Colors';
 import { TypographyTokens } from '../../foundation/Typography';
 import { ExclaimTooltipProps } from '../ExclaimTooltip';
 import { TokenTypography } from '../TokenTypography';
-import { TooltipLabel, TooltipLabelProps } from '../TooltipLabel';
+import { TooltipLabel } from '../TooltipLabel';
 import { Typography } from '../Typography';
 import { FromToBox, FromToTokenTypographyBox } from './FromToTokenTypography.styled';
 
@@ -29,7 +29,6 @@ export type FromToTokenTypographyProps = {
   tokenColorToken?: ColorTokens;
   tooltip?: ExclaimTooltipProps['children'];
   tooltipColorToken?: ColorTokens;
-  tooltipTrigger?: TooltipLabelProps['tooltipTrigger'];
   typographyToken: TypographyTokens;
 };
 
@@ -55,7 +54,6 @@ export const FromToTokenTypography: React.FunctionComponent<FromToTokenTypograph
   tooltipColorToken,
   tokenColorToken = 'white100',
   labelAttentionIndicatorColorToken,
-  tooltipTrigger = 'icon',
 }) => (
   <FromToTokenTypographyBox data-testid="FromToTokenTypography-FromToTokenTypographyBox">
     <TooltipLabel
@@ -66,7 +64,6 @@ export const FromToTokenTypography: React.FunctionComponent<FromToTokenTypograph
       labelTypographyToken={labelTypographyToken}
       tooltip={tooltip}
       tooltipColorToken={tooltipColorToken}
-      tooltipTrigger={tooltipTrigger}
     />
     <FromToBox data-testid="FromToTokenTypography-FromToBox">
       <TokenTypography
