@@ -3,7 +3,7 @@ import React from 'react';
 import { BaseColorTokens, ColorTokens } from '../../foundation/Colors';
 import { TypographyTokens } from '../../foundation/Typography';
 import { ExclaimTooltipProps } from '../ExclaimTooltip';
-import { TooltipLabel } from '../TooltipLabel';
+import { TooltipLabel, TooltipLabelProps } from '../TooltipLabel';
 import {
   PillSelectorBox,
   PillSelectorButton,
@@ -30,6 +30,7 @@ export type PillSelectorProps = {
   }[];
   tooltip?: ExclaimTooltipProps['children'];
   tooltipColorToken?: ColorTokens;
+  tooltipTrigger?: TooltipLabelProps['tooltipTrigger'];
   variant: PillSelectorVariant;
 };
 
@@ -47,6 +48,7 @@ export const PillSelector = ({
   tooltip = '',
   tooltipColorToken = 'white400',
   labelAttentionIndicatorColorToken,
+  tooltipTrigger = 'icon',
 }: PillSelectorProps) => {
   return (
     <PillWrapperBox>
@@ -58,6 +60,7 @@ export const PillSelector = ({
         labelTypographyToken={labelTypographyToken}
         tooltip={tooltip}
         tooltipColorToken={tooltipColorToken}
+        tooltipTrigger={tooltipTrigger}
       />
       <PillSelectorBox data-testid="PillSelector-PillSelectorBox" variant={variant}>
         {pillOptions.map(({ id, label: labelText, attentionPrefixText }) => (

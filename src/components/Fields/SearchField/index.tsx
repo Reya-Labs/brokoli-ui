@@ -5,7 +5,7 @@ import { TypographyTokens } from '../../../foundation/Typography';
 import { ExclaimTooltipProps } from '../../ExclaimTooltip';
 import { Popover } from '../../Popover';
 import { ToggleCaret } from '../../ToggleCaret';
-import { TooltipLabel } from '../../TooltipLabel';
+import { TooltipLabel, TooltipLabelProps } from '../../TooltipLabel';
 import { FieldStyleProps } from '../_common/common.styled';
 import {
   SearchFieldBox,
@@ -33,6 +33,7 @@ export type SearchFieldProps = {
   selectedItemId?: SearchItem['id'];
   tooltip?: ExclaimTooltipProps['children'];
   tooltipColorToken?: ColorTokens;
+  tooltipTrigger?: TooltipLabelProps['tooltipTrigger'];
 } & FieldStyleProps;
 
 export const SearchField: React.FunctionComponent<SearchFieldProps> = ({
@@ -52,7 +53,6 @@ export const SearchField: React.FunctionComponent<SearchFieldProps> = ({
   onItemSelected,
   className,
   labelAttentionIndicatorColorToken,
-
   borderColorToken = 'black700',
   backgroundColorToken = 'black900',
   hoverBackgroundColorToken = 'black800',
@@ -67,6 +67,7 @@ export const SearchField: React.FunctionComponent<SearchFieldProps> = ({
   hoverColorToken = colorToken,
   hoverErrorColorToken = 'error100',
   disabledBorderColorToken = 'black700',
+  tooltipTrigger = 'icon',
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [value, setValue] = useState<string | undefined>('');
@@ -143,6 +144,7 @@ export const SearchField: React.FunctionComponent<SearchFieldProps> = ({
           labelTypographyToken={labelTypographyToken}
           tooltip={tooltip}
           tooltipColorToken={tooltipColorToken}
+          tooltipTrigger={tooltipTrigger}
         />
         <SearchTextInputAndCaretBox>
           <TextInputStyled

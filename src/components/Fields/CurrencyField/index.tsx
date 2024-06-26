@@ -5,7 +5,7 @@ import { ColorTokens } from '../../../foundation/Colors';
 import { TypographyTokens } from '../../../foundation/Typography';
 import { browserI18n } from '../../../utils/browser-i18n';
 import { ExclaimTooltipProps } from '../../ExclaimTooltip';
-import { TooltipLabel } from '../../TooltipLabel';
+import { TooltipLabel, TooltipLabelProps } from '../../TooltipLabel';
 import { FieldStyleProps } from '../_common/common.styled';
 import { MaxConfig } from '../_common/types';
 import { CurrencyFieldBox, CurrencyInputStyled } from './CurrencyField.styled';
@@ -32,6 +32,7 @@ type CurrencyFieldProps = {
   suffix?: string;
   tooltip?: ExclaimTooltipProps['children'];
   tooltipColorToken?: ColorTokens;
+  tooltipTrigger?: TooltipLabelProps['tooltipTrigger'];
   value?: string;
 } & FieldStyleProps;
 
@@ -72,6 +73,7 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
   hoverErrorColorToken = 'error100',
   disabledBorderColorToken = 'black700',
   locale = navigator.language,
+  tooltipTrigger = 'icon',
 }) => {
   const { thousands } = browserI18n(locale);
   const cleanedValue = value.replace(new RegExp(`\\${thousands}`, 'g'), '');
@@ -91,6 +93,7 @@ export const CurrencyField: React.FunctionComponent<CurrencyFieldProps> = ({
         labelTypographyToken={labelTypographyToken}
         tooltip={tooltip}
         tooltipColorToken={tooltipColorToken}
+        tooltipTrigger={tooltipTrigger}
       />
       <CurrencyInputStyled
         allowNegativeValue={allowNegativeValue}

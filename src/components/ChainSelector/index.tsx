@@ -7,7 +7,7 @@ import { ChainIcon } from '../Icons';
 import { SupportedChainIcons } from '../Icons/ChainIcon/Icon/constants';
 import { Popover } from '../Popover';
 import { ToggleCaret } from '../ToggleCaret';
-import { TooltipLabel } from '../TooltipLabel';
+import { TooltipLabel, TooltipLabelProps } from '../TooltipLabel';
 import { ChainOptions } from './ChainOptions/ChainOptions';
 import { Box, ChainSelectorButton, IconBox, SelectorBox } from './ChainSelector.styled';
 import { CHAIN_NAME_MAP, SupportedChainNames } from './constants';
@@ -27,6 +27,7 @@ export type ChainSelectorProps = {
   selectedChainTypographyToken?: TypographyTokens;
   tooltip?: ExclaimTooltipProps['children'];
   tooltipColorToken?: ColorTokens;
+  tooltipTrigger?: TooltipLabelProps['tooltipTrigger'];
 };
 
 export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
@@ -42,6 +43,7 @@ export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
   labelAttentionIndicatorColorToken,
   tooltip,
   tooltipColorToken,
+  tooltipTrigger = 'icon',
   selectedChainTypographyToken = 'bodyMediumMedium',
 }) => {
   const [width, setWidth] = useState(0);
@@ -107,6 +109,7 @@ export const ChainSelector: React.FunctionComponent<ChainSelectorProps> = ({
           labelTypographyToken={labelTypographyToken}
           tooltip={tooltip}
           tooltipColorToken={tooltipColorToken}
+          tooltipTrigger={tooltipTrigger}
         />
         <SelectorBox
           ref={parentRef}
