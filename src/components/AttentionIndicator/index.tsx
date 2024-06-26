@@ -6,14 +6,15 @@ import { AttentionIndicatorCircleIcon } from './AttentionIndicator.styled';
 export type AttentionIndicatorProps = {
   className?: string;
   colorToken: ColorTokens;
+  'data-testid'?: string;
 };
 
 export const AttentionIndicator: React.FunctionComponent<AttentionIndicatorProps> = React.memo(
-  ({ colorToken, className }) => (
+  ({ 'data-testid': dataTestId, colorToken, className }) => (
     <AttentionIndicatorCircleIcon
       className={className}
       colorToken={colorToken}
-      data-testid={`AttentionIndicator-${colorToken}`}
+      data-testid={dataTestId || `AttentionIndicator-${colorToken}`}
     />
   ),
 );

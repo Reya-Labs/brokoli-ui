@@ -47,8 +47,8 @@ export const AvatarAddress: FunctionComponent<{
   return (
     <AvatarAddressBox data-testid="AvatarAddress">
       {loading ? (
-        <RainbowLoaderBox height={sizePx}>
-          <RainbowLoader height={3} />
+        <RainbowLoaderBox data-testid="AvatarAddress-RainbowLoaderBox" height={sizePx}>
+          <RainbowLoader data-testid="AvatarAddress-RainbowLoader" height={3} />
         </RainbowLoaderBox>
       ) : (
         <>

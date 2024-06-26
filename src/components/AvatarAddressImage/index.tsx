@@ -11,6 +11,11 @@ export const AvatarAddressImage: React.FunctionComponent<{
   return !url ? (
     <MetaMaskAvatar address={address || ''} size={size} />
   ) : (
-    <AvatarAddressImgStyled alt="avatar" size={size} src={url} />
+    <AvatarAddressImgStyled
+      alt="avatar"
+      data-testid="AvatarAddressImage-AvatarAddressImgStyled"
+      size={size}
+      src={url}
+    />
   );
 };
