@@ -47,6 +47,7 @@ export const Icon: React.FunctionComponent<IconProps> = ({
       className={className}
       data-testid={dataTestId || `Icon-${market}`}
       height={height}
+      viewBox="0 0 40 40"
       width={width}
     />
   );

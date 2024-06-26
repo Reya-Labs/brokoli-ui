@@ -70,6 +70,7 @@ export const Icon: React.FunctionComponent<IconProps> = ({
       className={className}
       data-testid={dataTestId || `Icon-${token}`}
       height={width}
+      viewBox="0 0 32 32"
       width={height}
     />
   );

@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 
+import { shouldNotForwardProps } from '../../../utils/should-not-forward-props';
 import { Typography } from '../../Typography';
 import { TokenIcon } from '.';
 import { TokenIconMap } from './Icon';
@@ -120,9 +121,20 @@ export const AllIcons: StoryObj<typeof TokenIcon> = {
   ),
 };
 
+const SizeWrapper = styled('div', shouldNotForwardProps(['size']))<{ size: number }>`
+  width: ${({ size }) => size}px;
+  height: ${({ size }) => size}px;
+  border: 1px solid ${({ theme }) => theme.colors.black100};
+`;
+
 export const WithSize: StoryObj<typeof TokenIcon> = {
   args: {
     size: 50,
     token: 'eth',
   },
+  render: (args) => (
+    <SizeWrapper size={args.size || 50}>
+      <TokenIcon {...args} />
+    </SizeWrapper>
+  ),
 };
