@@ -14,6 +14,7 @@ export const TypographyStyled = styled(
 }>`
   position: relative;
   display: flex;
+  cursor: ${({ decorate }) => decorate === 'underline' && 'pointer'};
   text-decoration: ${({ decorate }) => decorate};
   text-decoration-style: ${({ decorate }) => decorate === 'underline' && 'dotted'};
   text-decoration-color: ${({ decorate, theme, textDecorationColorToken }) =>
