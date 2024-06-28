@@ -21,6 +21,7 @@ export const ExternalLinkStyled = styled(
   flex-direction: row;
   align-items: center;
   gap: 4px;
+  cursor: pointer;
 
   margin: 0;
   padding: 0;
