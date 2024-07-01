@@ -29,7 +29,22 @@ export const TypographyWithTooltip: React.FunctionComponent<TypographyWithToolti
   trigger = 'icon',
   textDecorationColorToken = 'white100',
 }) => {
+  const hasTooltip =
+    typeof tooltip === 'string' && tooltip.trim().length > 0 ? true : Boolean(tooltip);
   if (trigger === 'text') {
+    if (!hasTooltip) {
+      return (
+        <TypographyStyled
+          colorToken={colorToken}
+          data-testid={dataTestId}
+          decorate="underline"
+          textDecorationColorToken={textDecorationColorToken}
+          typographyToken={typographyToken}
+        >
+          {children}
+        </TypographyStyled>
+      );
+    }
     return (
       <TooltipStyled
         iconColorToken={tooltipIconColorToken}
@@ -59,13 +74,15 @@ export const TypographyWithTooltip: React.FunctionComponent<TypographyWithToolti
       typographyToken={typographyToken}
     >
       {children}
-      <TooltipStyled
-        iconColorToken={tooltipIconColorToken}
-        tooltipColorToken={tooltipColorToken}
-        tooltipTypographyToken={tooltipTypographyToken}
-      >
-        {tooltip}
-      </TooltipStyled>
+      {!hasTooltip ? null : (
+        <TooltipStyled
+          iconColorToken={tooltipIconColorToken}
+          tooltipColorToken={tooltipColorToken}
+          tooltipTypographyToken={tooltipTypographyToken}
+        >
+          {tooltip}
+        </TooltipStyled>
+      )}
     </TypographyStyled>
   );
 };
